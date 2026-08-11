@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ux-agents-consolidated-analysis-md",
+  "sourcePath": "docs/research/ux-agents-consolidated-analysis.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/ux-agents-consolidated-analysis.md",
+  "sha256": "9668dcf20277fec14622f5d7796fecbeae24537b7c8654a42fd42e6ffad7719f",
+  "sizeBytes": 5790,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

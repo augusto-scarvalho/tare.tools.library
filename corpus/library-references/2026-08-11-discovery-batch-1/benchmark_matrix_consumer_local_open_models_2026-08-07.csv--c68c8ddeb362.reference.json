@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.0000000077b0",
+  "title": "benchmark_matrix_consumer_local_open_models_2026-08-07.csv",
+  "file_library_id": "file_0000000077b0820e94d0c68c8ddeb362",
+  "file_created_at": "2026-08-07T12:10:28Z",
+  "file_modified_at": "2026-08-07T12:10:28Z",
+  "native_language": "en",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "priority": "P1",
+  "suggested_kind": "dataset",
+  "suggested_status": "RESEARCH",
+  "suggested_contexts": [
+    "Model / Inference",
+    "Observability / Economics / Resources",
+    "Reputation / Qualification"
+  ],
+  "lineage_family": "local-model-benchmark-matrix",
+  "lineage_order_hint": "open-models",
+  "reported_sha256": null,
+  "reported_size_bytes": null,
+  "hash_status": "UNKNOWN",
+  "discovered_at": "2026-08-11T15:55:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": ""
+}

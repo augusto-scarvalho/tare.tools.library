@@ -1,0 +1,46 @@
+Fechei essa linha como uma **pesquisa própria do tare.tools**, mas deliberadamente reconciliada com o Agent OS atual. O princípio que guiou os dois documentos foi não inventar um `Reliability Plane`: o North Star já possui os contracts necessários — `Authority/Permit`, `WorkspaceLease`, `Capability/ActionRequest/EffectReceipt`, `HarnessEvent`, `OutcomeEvidence`, Attribution, Qualification e Evolution Control. fileciteturn22file0 A pesquisa anterior de interoperabilidade já havia deixado justamente reliability metadata/effect reconciliation como um dos grandes OPENs prioritários. fileciteturn22file2
+
+### Entregáveis
+
+1. **[Pesquisa científica e exploratória — Reliability Semantics, Effect Reconciliation & Adaptive Learning](sandbox:/mnt/data/tare_tools_reliability_effect_reconciliation_scientific_research_2026-08-10.html)** — **43 capítulos + 70 fontes**, cobrindo distributed systems, exactly-once, Sagas, logical effect identity, reconciliation, Authority freshness, cancellation/supersession, observer qualification/metrologia, telemetry/observability, governance, SRE, demand/intake, STPA, HRO, resilience engineering, medicina/pharmacovigilance, contabilidade, imunologia, queueing, partial observability, agent reliability, provenance, self-evolution, mercado/open source, Effect Torture Lab, hipóteses falsificáveis e roadmap científico.
+
+2. **[Proposta técnica — Reliability Semantics & Effect Reconciliation: Arquitetura, SDD + BDD](sandbox:/mnt/data/tare_tools_reliability_effect_reconciliation_implementation_proposal_2026-08-10.html)** — **48 capítulos + 70 fontes**, explicitamente marcada **PROPOSED TARGET — não implementar sem reconciliation com repo truth**. Ela transforma a pesquisa em contracts, invariants, derived views, BDDs, fault matrix, Strangler slices, backend qualification e candidatos de Implementation Packets.
+
+3. **[Bundle com os dois HTMLs + manifest](sandbox:/mnt/data/tare_tools_reliability_effect_reconciliation_research_bundle_2026-08-10.zip)** e **[manifest de validação](sandbox:/mnt/data/tare_tools_reliability_effect_reconciliation_manifest_2026-08-10.json)**.
+
+Os dois HTMLs passaram por validação: **0 caracteres UTF-8 corrompidos, 0 IDs duplicados e 0 anchors internos quebrados**. SHA-256 da pesquisa: `6b283ea7962780410952f1ae12a0d08ba4b86837471f4a09489deb60f15ca419`; proposta técnica: `0baad9fa4d517ba8826bcdd2b5af2609abe34c1a973978f9a146d117af3ce622`; bundle: `98dd0ece2b470f45069e751ea98d36612270b647d2e0e7d13a48537b35a4602f`.
+
+Um achado externo particularmente forte foi o Crossplane: quando ele percebe que um recurso externo **pode ter sido criado, mas perdeu a confirmação/identidade antes de persistir o resultado**, ele entra em `cannot determine creation result` e interrompe reconciliation para não criar outro recurso acidentalmente. É quase uma implementação industrial exata da nossa tese `AMBIGUOUS → RECONCILE`, em vez de `timeout → retry`. ~~~~~~~~~~~~~~~~~~~~~~~~
+
+Temporal, Restate e DBOS ficaram posicionados como **candidatos de backend qualificáveis**, nunca donos da semântica tare. Temporal fornece o baseline maduro de replay/Activities/Sagas; Restate é particularmente interessante por durable invocations, identity e padrões atuais para agentes; DBOS oferece um perfil Postgres-centric bastante atraente para execução local/enxuta. ([docs.temporal.io](https://docs.temporal.io/workflows?utm_source=chatgpt.com)) O documento técnico propõe que eles disputem o mesmo **Durable Backend Qualification Pack**, em vez de escolhermos framework primeiro e moldarmos nossos contracts depois.
+
+Também ficou mais forte a separação entre observabilidade e verdade canônica. OpenTelemetry continua muito apropriado como projection, e o ecossistema GenAI está atualmente discutindo tasks, actions, skills, causal relationships e até semantic conventions específicas para AI sandboxes. ([github.com](https://github.com/open-telemetry/semantic-conventions-genai/issues/35?utm_source=chatgpt.com)) Isso reforça nossa decisão histórica de preservar events/receipts canônicos e projetá-los para OTel, não fazer spans possuírem Authority/Evidence. O programa antigo do tare já separava governance-critical audit ledger, operational telemetry, artifacts e evaluation trajectories. fileciteturn21file8
+
+No bleeding edge agentic, a direção também ficou bastante alinhada ao que estamos desenhando: pesquisas recentes estão tratando reliability em nível de trajectory, runtime evidence, attribution e recovery; full observability/replay melhora failure attribution, e trabalhos de self-evolution já encontram capability erosion, lineage-persistent security risks e necessidade de separar evolução de governance. ([arxiv.org](https://arxiv.org/html/2604.22708v1?utm_source=chatgpt.com)) Isso sustenta nossa cadeia:
+
+> **reconciled effects → qualified outcomes → attribution → scoped learning → governed evolution**
+
+e não `agent says success → reputation++`.
+
+Uma proposta que ficou particularmente forte é o **Effect Torture Lab**: fake external system tare-owned com ground truth + Toxiproxy inicialmente, capaz de plantar `commit_then_drop_reply`, `drop_before_commit`, delayed commit, duplicate delivery, stale observer, cancel/commit race, stale owner, failed compensation e supersession. Toxiproxy é adequado porque oferece manipulação determinística de conexões para testes/CI sem impor arquitetura ao kernel. ([github.com](https://github.com/Shopify/toxiproxy?utm_source=chatgpt.com))
+
+Outro refinamento importante é tratar **Authority freshness** separadamente da validade histórica do Permit: `authorized then ≠ committable now`. Isso abre experimentos com fencing/CAS, Project revision, Lease epoch e conditional write sem criar uma nova Authority. A ideia é consistente com a disciplina do projeto de manter governança determinística no estado ratificado vigente. fileciteturn21file15
+
+Para novas conversas, eu deixaria estes ponteiros exatos, que também ficaram registrados nos HTMLs:
+
+- **Durable Runtime Qualification — Temporal × Restate × DBOS × Dapr/Azure/AWS**
+- **Effect Torture Lab & Deterministic Simulation Testing**
+- **Metrology of Agentic Systems — observer qualification, uncertainty e traceability**
+- **Cybernetics & Control Theory for Agent OS**
+- **High Reliability Organizations & Resilience Engineering**
+- **Partial Observability & Active Sensing / POMDP / Value of Information**
+- **Causal Attribution, Counterfactual Replay & OPE**
+- **Cross-Project Continual Learning, Project Archetypes & Negative Transfer**
+- **Mechanism Design & Incentive-Compatible Agent Ecosystems**
+- **Operational Effect Accounting — settlement, materiality e multi-effect transactions**
+
+A tese final dos documentos ficou:
+
+> **tare.tools deve preservar intenção antes da execução, reconciliar efeitos incertos antes de repetir ações, preservar incerteza até que evidência possa reduzi-la, aprender somente com outcomes qualificados, limitar o escopo do aprendizado por attribution/applicability e manter a autoridade de promoção fora do learning loop.**
+
+Isso me parece uma extensão bastante natural — e cientificamente mais sólida — da arquitetura que já vínhamos construindo, sem gerar um segundo sistema paralelo ao Agent OS. fileciteturn22file1 memcite

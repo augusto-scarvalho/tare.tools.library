@@ -1,0 +1,28 @@
+{
+  "document_id": "research.resources.containers",
+  "title": "Resources e containers",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-11",
+  "architecture_epoch": null,
+  "canonical_commit": null,
+  "bounded_contexts": [
+    "Observability / Economics / Resources",
+    "Sandbox / Isolation",
+    "Runtime"
+  ],
+  "lineage": {
+    "supersedes": [],
+    "superseded_by": [],
+    "derived_from": []
+  },
+  "provenance": {
+    "origin": "chatgpt-project-session-import",
+    "project": "tare.tools",
+    "source_path": "corpus/original/2026-08-11-chat-import/Tare.tools - resource, containers.txt",
+    "source_sha256": "fa02227165c6bebe7f95a657ca694b735467a098cc187dfb0fee75000fc0950e",
+    "size_bytes": 2251,
+    "original_filename": "Tare.tools - resource, containers.txt",
+    "notes": "Imported byte-for-byte from files available in the 2026-08-11 project session; research/historical evidence, not canonical authority."
+  }
+}

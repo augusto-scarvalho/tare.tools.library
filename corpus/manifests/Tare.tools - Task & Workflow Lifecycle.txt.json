@@ -1,0 +1,28 @@
+{
+  "document_id": "research.workflow.lifecycle",
+  "title": "Task & Workflow Lifecycle",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-11",
+  "architecture_epoch": null,
+  "canonical_commit": null,
+  "bounded_contexts": [
+    "Workflow",
+    "Runtime",
+    "Reliability"
+  ],
+  "lineage": {
+    "supersedes": [],
+    "superseded_by": [],
+    "derived_from": []
+  },
+  "provenance": {
+    "origin": "chatgpt-project-session-import",
+    "project": "tare.tools",
+    "source_path": "corpus/original/2026-08-11-chat-import/Tare.tools - Task & Workflow Lifecycle.txt",
+    "source_sha256": "853d4d4c526da8a7e7d49888ea3373c15dd5ab5f754a2f56a0318b4c58755f04",
+    "size_bytes": 8698,
+    "original_filename": "Tare.tools - Task & Workflow Lifecycle.txt",
+    "notes": "Imported byte-for-byte from files available in the 2026-08-11 project session; research/historical evidence, not canonical authority."
+  }
+}

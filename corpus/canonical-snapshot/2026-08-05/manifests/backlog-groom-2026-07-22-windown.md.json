@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.backlog-groom-2026-07-22-windown-md",
+  "sourcePath": "docs/research/backlog-groom-2026-07-22-windown.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-22-windown.md",
+  "sha256": "e4a6827feec5f7f806481022d72af7ddd430db8ebafcb192086144c557211940",
+  "sizeBytes": 16882,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "translation_id": "research.reliability.semantics.en",
+  "translation_of": "research.reliability.semantics",
+  "source_path": "corpus/original/2026-08-11-chat-import/Tare.tools - Reliability Semantics.txt",
+  "source_sha256": "1bad7044c83f00c07ea2917dce45800ec2499f871781b3c0514f3e8f94e940d9",
+  "translation_path": "corpus/translations/en/2026-08-11-chat-import/Tare.tools - Reliability Semantics.en.md",
+  "translation_sha256": "316d98f7924a5aa05a723caec8a7b23f700a15e137326ec6bd22b75f934da6ed",
+  "translation_size_bytes": 7436,
+  "source_language": "pt-BR",
+  "target_language": "en",
+  "translation_status": "MACHINE_TRANSLATED_UNREVIEWED",
+  "translator": "OpenAI GPT-5.6 Sol",
+  "translated_at": "2026-08-11",
+  "policy": "TRANSLATION_POLICY.md",
+  "notes": "Faithful derivative translation. Historical claims were not reconciled or silently corrected."
+}

@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tare.tools/schemas/library-reference.schema.json",
+  "title": "tare.tools File Library Reference",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "reference_id",
+    "title",
+    "file_library_id",
+    "availability",
+    "materialized_bytes",
+    "translation_status",
+    "priority",
+    "suggested_kind",
+    "suggested_contexts",
+    "discovered_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "reference_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file_library_id": {
+      "type": "string",
+      "pattern": "^file_[0-9a-f]+$"
+    },
+    "file_created_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "file_modified_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "native_language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "availability": {
+      "const": "LIBRARY_REFERENCE_ONLY"
+    },
+    "materialized_bytes": {
+      "const": false
+    },
+    "translation_status": {
+      "enum": [
+        "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+        "NOT_REQUIRED_NATIVE_ENGLISH",
+        "UNKNOWN_SOURCE_LANGUAGE"
+      ]
+    },
+    "priority": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "suggested_kind": {
+      "type": "string"
+    },
+    "suggested_status": {
+      "type": "string"
+    },
+    "suggested_contexts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lineage_family": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lineage_order_hint": {
+      "type": [
+        "integer",
+        "number",
+        "string",
+        "null"
+      ]
+    },
+    "reported_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reported_size_bytes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "hash_status": {
+      "enum": [
+        "UNKNOWN",
+        "REPORTED_NOT_LOCALLY_VERIFIED"
+      ]
+    },
+    "discovered_at": {
+      "type": "string"
+    },
+    "discovery_basis": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

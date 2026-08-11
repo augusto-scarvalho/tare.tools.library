@@ -1,0 +1,31 @@
+Você tinha razão. Refiz os dois HTMLs usando como referência direta o padrão editorial dos estudos anteriores — especialmente o estudo TUI/REPL e o documento de Project Admission: **sidebar fixa com índice, hero editorial, hierarquia visual forte, callouts, cards, tabelas responsivas, status CURRENT/TARGET/PROPOSED/RESEARCH e bibliografia ancorada**. fileciteturn3file0 fileciteturn3file1
+
+Também corrigi a causa dos `���`: o Markdown original estava íntegro; a corrupção ocorreu durante a conversão HTML. Agora os arquivos são explicitamente UTF-8 e passaram por validação com **0 caracteres de substituição, 0 IDs duplicados e 0 anchors quebrados**.
+
+### Arquivos corrigidos
+
+- **[Pesquisa científica e exploratória — corrigida](sandbox:/mnt/data/tare_tools_resource_assurance_research.html)**
+- **[Proposta técnica de arquitetura e implementação — corrigida](sandbox:/mnt/data/tare_tools_resource_assurance_implementation.html)**
+- **[Bundle com os dois documentos](sandbox:/mnt/data/tare_tools_agent_os_research_bundle.zip)**
+
+Eu também **substituí os arquivos nos caminhos anteriores**, então os links que te mandei na resposta passada agora apontam para as versões corrigidas.
+
+O conteúdo científico foi preservado; a mudança foi de **encoding, estrutura documental e apresentação**, não uma redução da pesquisa.
+
+### Sessão
+
+**Pode continuar nesta sessão. Não compactaria ainda.** Estamos no mesmo ramo de pesquisa sobre Resources / Scheduling / Sandbox / Assurance.
+
+### Próximo prompt para o implementador
+
+Neste momento eu ainda não mandaria implementar nada:
+
+> Use somente as versões corrigidas:
+> - `tare_tools_resource_assurance_research.html`
+> - `tare_tools_resource_assurance_implementation.html`
+>
+> Trate o primeiro documento como **RESEARCH** e o segundo como **PROPOSED TARGET**.
+>
+> Não implemente nenhuma proposta ainda. Faça apenas reconciliation read-only com o CURRENT canônico do repositório, preservando a precedência de ADRs, SPECs, BDD, testes, código, Git e `.harness/*`.
+>
+> Produza `PROPOSAL → canonical equivalent → CURRENT → GAP → owner → evidence → ADOPT/ADAPT/OPEN/ALREADY-SATISFIED`, sem criar novas primitives. memcite

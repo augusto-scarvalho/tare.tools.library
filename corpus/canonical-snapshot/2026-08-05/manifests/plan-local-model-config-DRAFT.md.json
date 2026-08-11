@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.plan-local-model-config-draft-md",
+  "sourcePath": "docs/research/plan-local-model-config-DRAFT.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/plan-local-model-config-DRAFT.md",
+  "sha256": "419cc9dc1f3ab419ad040d45131ae563b9441f59dfaa3f6da088b895b658e382",
+  "sizeBytes": 22167,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

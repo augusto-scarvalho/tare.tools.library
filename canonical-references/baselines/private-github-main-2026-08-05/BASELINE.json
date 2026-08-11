@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "classification": "HISTORICAL_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_BASELINE_NOT_CURRENT",
+  "source": {
+    "kind": "user_supplied_private_github_branch_archive",
+    "uploadedName": "universal-agent-harness-prototype-main.zip",
+    "preservedPath": "corpus/source-bundles/universal-agent-harness-prototype-main-2026-08-05.zip",
+    "archiveSha256": "2f4b2d9fa68b1a93b009ef0eb389a699f409568f74102b051bb03d06508b9a1e",
+    "archiveSizeBytes": 7596212,
+    "archiveRoot": "universal-agent-harness-prototype-main",
+    "branchHint": "main",
+    "remoteCommitSha": null,
+    "remoteCommitShaStatus": "UNKNOWN_ARCHIVE_HAS_NO_DOT_GIT"
+  },
+  "archiveEvidence": {
+    "fileCount": 1242,
+    "uniformEntryTimestamp": true,
+    "entryTimestamps": [
+      "2026-08-05T02:30:36"
+    ],
+    "timestampInterpretation": "ARCHIVE_METADATA_ONLY_NOT_PROOF_OF_REMOTE_COMMIT_TIME"
+  },
+  "contentIdentity": {
+    "algorithm": "sha256(sorted(<file-sha256><two-spaces><relative-path>))",
+    "treeSha256": "c20797d62bdc1135152dedf1750ecc2fcdb266b3ce884b70a50f5a359b5a85c3",
+    "sha256SumsPath": "canonical-references/baselines/private-github-main-2026-08-05/TREE_SHA256SUMS.txt",
+    "executablePathHints": [
+      "chat.sh",
+      "ui.sh"
+    ]
+  },
+  "projectMetadata": {
+    "projectName": "universal-agent-harness",
+    "projectVersion": "0.9.0",
+    "schemaVersion": "1.0"
+  },
+  "relationshipToCurrent": {
+    "currentDirtyRepository": "USER_REPORTED_NEWER_NOT_MATERIALIZED_HERE",
+    "comparisonStatus": "BASELINE_ONLY_CURRENT_DIFF_NOT_COMPUTABLE",
+    "rule": "Do not describe this snapshot as CURRENT. Use only as historical canonical/reference evidence until the newer dirty tree is materialized."
+  },
+  "releaseIntegrity": {
+    "internalClaim": "EXPORT_MANIFEST.md says it was generated from a current clean harness tree.",
+    "verificationStatus": "FAIL",
+    "verificationRecord": "canonical-references/baselines/private-github-main-2026-08-05/RELEASE_INTEGRITY_VERIFICATION.json"
+  },
+  "syntheticGitImport": {
+    "status": "CREATED_AND_BUNDLE_VERIFIED",
+    "purpose": "Enable deterministic local diff/reconciliation without pretending to know the remote Git commit.",
+    "syntheticCommit": "5a328c0c6425b81480e60b271322f5ad85ff323e",
+    "syntheticGitTree": "c5ffec3d77f8dd307fba109ef6800139f1379862",
+    "trackedFiles": 1242,
+    "bundlePath": "corpus/source-bundles/private-github-main-2026-08-05.synthetic.git.bundle",
+    "bundleSha256": "adf6156ab4bbcab6906a2bed015cdca1887a7d4640191060fe494b5d064bfbe5",
+    "remoteIdentityWarning": "Synthetic commit/tag are local import identities and MUST NOT be presented as the private GitHub remote commit SHA."
+  }
+}

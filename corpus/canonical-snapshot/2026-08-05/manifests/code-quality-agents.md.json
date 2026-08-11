@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.code-quality-agents-md",
+  "sourcePath": "docs/research/code-quality-agents.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/code-quality-agents.md",
+  "sha256": "8819981f8a046c438e967d188fe93e744aa2a5d139a3cb728c4486b12f2378f4",
+  "sizeBytes": 17419,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

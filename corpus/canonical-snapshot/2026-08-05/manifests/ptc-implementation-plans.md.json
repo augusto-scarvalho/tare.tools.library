@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ptc-implementation-plans-md",
+  "sourcePath": "docs/research/ptc-implementation-plans.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/ptc-implementation-plans.md",
+  "sha256": "fd3b1e74e700d8c343faae3e56ea022907d94adfaccd39dd4fe7cda22030a2b9",
+  "sizeBytes": 11168,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

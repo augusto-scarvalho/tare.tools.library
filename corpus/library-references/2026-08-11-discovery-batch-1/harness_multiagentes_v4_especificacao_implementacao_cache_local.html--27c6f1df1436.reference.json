@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.0000000066b0",
+  "title": "harness_multiagentes_v4_especificacao_implementacao_cache_local.html",
+  "file_library_id": "file_0000000066b0820e8e9427c6f1df1436",
+  "file_created_at": "2026-08-02T14:20:11Z",
+  "file_modified_at": "2026-08-02T14:20:11Z",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P1",
+  "suggested_kind": "implementation-research",
+  "suggested_status": "PROPOSED",
+  "suggested_contexts": [
+    "Harness / Agent OS Architecture",
+    "Runtime",
+    "Model / Inference",
+    "Memory / Context"
+  ],
+  "lineage_family": "multiagent-harness-v4-docs",
+  "lineage_order_hint": "implementation",
+  "reported_sha256": null,
+  "reported_size_bytes": null,
+  "hash_status": "UNKNOWN",
+  "discovered_at": "2026-08-11T16:05:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": ""
+}

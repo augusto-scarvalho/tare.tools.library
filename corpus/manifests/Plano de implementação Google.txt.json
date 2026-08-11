@@ -1,0 +1,28 @@
+{
+  "document_id": "research.vendor.google-implementation-history",
+  "title": "Plano de implementação Google",
+  "document_type": "research",
+  "status": "HISTORICAL",
+  "created_at": "2026-08-11",
+  "architecture_epoch": null,
+  "canonical_commit": null,
+  "bounded_contexts": [
+    "Runtime",
+    "Model / Inference",
+    "Protocols / Interoperability"
+  ],
+  "lineage": {
+    "supersedes": [],
+    "superseded_by": [],
+    "derived_from": []
+  },
+  "provenance": {
+    "origin": "chatgpt-project-session-import",
+    "project": "tare.tools",
+    "source_path": "corpus/original/2026-08-11-chat-import/Plano de implementação Google.txt",
+    "source_sha256": "3b27357512568428925b00893c5ac4ae076b2dd0de25d4092bfbd8b183a5eef1",
+    "size_bytes": 4803,
+    "original_filename": "Plano de implementação Google.txt",
+    "notes": "Imported byte-for-byte from files available in the 2026-08-11 project session; research/historical evidence, not canonical authority."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.000000007b84",
+  "title": "harness_to_agent_operating_system_implementation_sdd_bdd_2026-08-09.html",
+  "file_library_id": "file_000000007b84820ebdbe1dc1a0398001",
+  "file_created_at": "2026-08-09T13:29:13Z",
+  "file_modified_at": "2026-08-09T13:29:13Z",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P0",
+  "suggested_kind": "implementation-proposal",
+  "suggested_status": "PROPOSED",
+  "suggested_contexts": [
+    "Harness / Agent OS Architecture",
+    "Project / Workspace",
+    "Identity / Authority / Policy",
+    "Workflow",
+    "Capability / Effects"
+  ],
+  "lineage_family": "agent-os-sdd-bdd",
+  "lineage_order_hint": "2026-08-09",
+  "reported_sha256": null,
+  "reported_size_bytes": null,
+  "hash_status": "UNKNOWN",
+  "discovered_at": "2026-08-11T15:55:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": ""
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/race-mode-test-1.md",
+  "sourceSha256": "655afc08e89e0b430838274e33c277e30b921f14931adbc5780a97985b05e0f2",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/race-mode-test-1.en.md",
+  "translationSha256": "4efd40a03d00207a3b316664a4663f0945fdc7178e88f3b4b8af1415bb9c662a",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

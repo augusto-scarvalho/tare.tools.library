@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.spawn-cost-governance-round-md",
+  "sourcePath": "docs/research/spawn-cost-governance-round.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/spawn-cost-governance-round.md",
+  "sha256": "ce610b094f73737ccf16e4b9c7e8051c5f3db20b9aea4e45e36489d8c9cd8415",
+  "sizeBytes": 19099,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

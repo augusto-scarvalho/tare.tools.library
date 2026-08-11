@@ -1,0 +1,14 @@
+{
+  "repository": "tare-tools",
+  "commit": "REPLACE_WITH_CANONICAL_COMMIT",
+  "architecture_epoch": "REPLACE_WITH_EPOCH",
+  "north_star": {
+    "path": "docs/north-star/agent-os-north-star.md",
+    "sha256": "REPLACE"
+  },
+  "architecture": {
+    "path": "docs/architecture/canonical/",
+    "tree_sha": "REPLACE"
+  },
+  "recorded_at": "2026-08-11"
+}

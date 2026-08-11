@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-u-utility-function-round-md",
+  "sourcePath": "docs/research/rd-u-utility-function-round.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-utility-function-round.md",
+  "sha256": "53eb29f7f24fcceac38134e69117b2dbb56204b484ff48dba54590a6d9c0a908",
+  "sizeBytes": 8852,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

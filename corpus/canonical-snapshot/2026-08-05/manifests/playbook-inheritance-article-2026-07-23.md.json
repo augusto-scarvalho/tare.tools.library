@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.playbook-inheritance-article-2026-07-23-md",
+  "sourcePath": "docs/research/playbook-inheritance-article-2026-07-23.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/playbook-inheritance-article-2026-07-23.md",
+  "sha256": "2cb87ad1a5c24b5125ea2474597fe752a311035be001f104184309c6aa0fe061",
+  "sizeBytes": 18764,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

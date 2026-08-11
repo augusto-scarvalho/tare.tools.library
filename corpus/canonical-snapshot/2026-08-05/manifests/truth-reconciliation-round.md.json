@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.truth-reconciliation-round-md",
+  "sourcePath": "docs/research/truth-reconciliation-round.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/truth-reconciliation-round.md",
+  "sha256": "545b53b1d33f0568898a8f24b98d07baa8c98ef1fde984e57f7b96ed6d46b3f8",
+  "sizeBytes": 14673,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

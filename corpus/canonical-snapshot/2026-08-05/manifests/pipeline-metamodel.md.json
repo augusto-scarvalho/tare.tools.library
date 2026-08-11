@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.pipeline-metamodel-md",
+  "sourcePath": "docs/research/pipeline-metamodel.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/pipeline-metamodel.md",
+  "sha256": "6d74519e9f1be9e3d66430ac26801b33fc806cc152d25ee7cf704d3e60599ecd",
+  "sizeBytes": 21553,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

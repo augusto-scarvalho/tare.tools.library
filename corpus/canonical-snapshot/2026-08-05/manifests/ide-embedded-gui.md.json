@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ide-embedded-gui-md",
+  "sourcePath": "docs/research/ide-embedded-gui.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/ide-embedded-gui.md",
+  "sha256": "376dd81ed438d5d1447f3cf98838eabad36702d49d0bbb5e3a9fe57ec1448279",
+  "sizeBytes": 8700,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

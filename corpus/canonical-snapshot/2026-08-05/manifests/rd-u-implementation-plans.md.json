@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-u-implementation-plans-md",
+  "sourcePath": "docs/research/rd-u-implementation-plans.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-implementation-plans.md",
+  "sha256": "c915c4de4c2d06806b9efbd6e1004469b21c3928434045c30e4ad016ae064059",
+  "sizeBytes": 3755,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

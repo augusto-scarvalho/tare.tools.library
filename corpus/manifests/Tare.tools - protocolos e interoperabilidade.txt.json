@@ -1,0 +1,28 @@
+{
+  "document_id": "research.interoperability.protocols",
+  "title": "Protocolos e interoperabilidade",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-11",
+  "architecture_epoch": null,
+  "canonical_commit": null,
+  "bounded_contexts": [
+    "Protocols / Interoperability",
+    "Runtime",
+    "Capability / Effects"
+  ],
+  "lineage": {
+    "supersedes": [],
+    "superseded_by": [],
+    "derived_from": []
+  },
+  "provenance": {
+    "origin": "chatgpt-project-session-import",
+    "project": "tare.tools",
+    "source_path": "corpus/original/2026-08-11-chat-import/Tare.tools - protocolos e interoperabilidade.txt",
+    "source_sha256": "0ecce45815556cd6691f7600688b866e87938ba8f12e509fbf75be8b8a42e7f7",
+    "size_bytes": 33641,
+    "original_filename": "Tare.tools - protocolos e interoperabilidade.txt",
+    "notes": "Imported byte-for-byte from files available in the 2026-08-11 project session; research/historical evidence, not canonical authority."
+  }
+}

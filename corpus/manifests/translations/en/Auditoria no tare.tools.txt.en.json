@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "translation_id": "research.governance-audit.chat.en",
+  "translation_of": "research.governance-audit.chat",
+  "source_path": "corpus/original/2026-08-11-chat-import/Auditoria no tare.tools.txt",
+  "source_sha256": "429237dd8ac8fa83e63af8fd2f50d455a2898ce52bc5aa653ab2e6efa3d71780",
+  "translation_path": "corpus/translations/en/2026-08-11-chat-import/Auditoria no tare.tools.en.md",
+  "translation_sha256": "6cf1b6d62184f4eb4480c4fd42be265e0e6657dbb5615a348324af6580d777f1",
+  "translation_size_bytes": 35556,
+  "source_language": "pt-BR",
+  "target_language": "en",
+  "translation_status": "MACHINE_TRANSLATED_UNREVIEWED",
+  "translator": "OpenAI GPT-5.6 Sol",
+  "translated_at": "2026-08-11",
+  "policy": "TRANSLATION_POLICY.md",
+  "notes": "Faithful derivative translation. Historical claims were not reconciled or silently corrected."
+}

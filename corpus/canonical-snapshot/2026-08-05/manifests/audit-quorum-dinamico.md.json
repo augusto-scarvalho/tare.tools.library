@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.audit-quorum-dinamico-md",
+  "sourcePath": "docs/research/audit-quorum-dinamico.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/audit-quorum-dinamico.md",
+  "sha256": "f03e6a7a5f2d33b3a6f67d2631485639203e09c032a551db2b345b70df4801b7",
+  "sizeBytes": 20377,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

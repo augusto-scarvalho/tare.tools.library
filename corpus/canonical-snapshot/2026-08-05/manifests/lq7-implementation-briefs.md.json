@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.lq7-implementation-briefs-md",
+  "sourcePath": "docs/research/lq7-implementation-briefs.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/lq7-implementation-briefs.md",
+  "sha256": "d108b21acb6ad97025b6bd6c935e809faa049b91e570dfaa6d7c677d9c22f261",
+  "sizeBytes": 5711,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}
