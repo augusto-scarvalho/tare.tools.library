@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "families": [
+    {
+      "family_id": "source-family.074667f63117",
+      "label": "a2a protocol",
+      "members": [
+        "source.81c64c3e8bc6929c",
+        "source.73e2793d3acb2dc4"
+      ],
+      "member_urls": [
+        "https://a2a-protocol.org/dev/specification/",
+        "https://a2a-protocol.org/latest/specification/"
+      ],
+      "relation": "POSSIBLE_SAME_WORK_OR_VERSION_FAMILY",
+      "basis": "normalized_title_heuristic",
+      "confidence": "low",
+      "status": "CANDIDATE_UNTIL_VERIFIED"
+    },
+    {
+      "family_id": "source-family.a2a-v1",
+      "label": "A2A v1 specification/announcement family",
+      "members": [
+        "source.81c64c3e8bc6929c",
+        "source.e1813bb8a266b7d9",
+        "source.73e2793d3acb2dc4"
+      ],
+      "member_urls": [
+        "https://a2a-protocol.org/dev/specification/",
+        "https://a2a-protocol.org/latest/announcing-1.0/",
+        "https://a2a-protocol.org/latest/specification/"
+      ],
+      "relation": "OFFICIAL_SPECIFICATION_VERSION_FAMILY",
+      "basis": "official_domain_and_labels",
+      "confidence": "high",
+      "status": "CURATED"
+    }
+  ]
+}

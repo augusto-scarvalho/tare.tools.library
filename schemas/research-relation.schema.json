@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tare.tools/schemas/research-relation.schema.json",
+  "title": "tare.tools Research Relation",
+  "type": "object",
+  "required": [
+    "from",
+    "to",
+    "relation",
+    "basis",
+    "confidence"
+  ],
+  "properties": {
+    "from": {
+      "type": "string",
+      "minLength": 1
+    },
+    "to": {
+      "type": "string",
+      "minLength": 1
+    },
+    "relation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "basis": {
+      "enum": [
+        "observed_citation",
+        "observed_crosswalk",
+        "document_structure",
+        "curated",
+        "inferred",
+        "mechanical_derivation"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "polarity": {
+      "enum": [
+        "supportive",
+        "constraining",
+        "challenging",
+        "neutral"
+      ]
+    },
+    "weight": {
+      "enum": [
+        "major",
+        "moderate",
+        "minor"
+      ]
+    },
+    "effect": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

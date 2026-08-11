@@ -1,8 +1,6 @@
-# tare.tools.research — Research Corpus
+# tare.tools Research Corpus
 
 > **THIS REPOSITORY IS EVIDENCE, NOT ARCHITECTURAL AUTHORITY.**
-
-This is the private companion research repository intended to be pinned by `tare-tools` as an optional Git submodule at `research/`.
 
 Este repositório preserva pesquisa, fontes, experimentos, arqueologia, propostas e versões históricas do tare.tools.
 
@@ -73,6 +71,12 @@ No corpus principal, foram materializados **11 documentos** nesta árvore. Os or
 
 Research / experiment / archaeology / proposal **informam**, mas não ratificam arquitetura. Tradução não altera authority/status. Promoção para TARGET exige o fluxo canônico no repositório `tare-tools`.
 
-## Repository-local publisher
+## Research lineage & influence
 
-Document ingestion/publication tooling lives under [`tools/publisher/`](tools/publisher/) in this repository. The earlier standalone publisher repo is historical bootstrap scaffolding; the intended repository topology is now `tare-tools` + `tare.tools.research`.
+- [Research Lineage, Influence & Source Graph](catalog/RESEARCH_LINEAGE_AND_INFLUENCE.md)
+- [Interactive/editorial HTML view](catalog/RESEARCH_LINEAGE_AND_INFLUENCE.html)
+- [Relationship metadata standard](catalog/RESEARCH_RELATIONSHIP_STANDARD.md)
+- [Proposal to add relationship capsules to documents](catalog/DOCUMENT_RELATIONSHIP_ADDITION_PROPOSAL.md)
+- [Machine-readable graph](catalog/RESEARCH_RELATION_GRAPH.json)
+- [External source families](catalog/SOURCE_FAMILIES.md)
+
