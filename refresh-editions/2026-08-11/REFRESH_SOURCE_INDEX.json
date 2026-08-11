@@ -1,0 +1,570 @@
+{
+  "schema_version": "1.0",
+  "generated_for": "scientific-refresh-2026-08-11",
+  "html_documents": 20,
+  "unique_external_urls": 58,
+  "sources": [
+    {
+      "url": "https://a2a-protocol.org/dev/specification/",
+      "domain": "a2a-protocol.org",
+      "documents": [
+        "interoperability-protocols/interoperability-protocols-implementation-research-delta-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://a2a-protocol.org/latest/announcing-1.0/",
+      "domain": "a2a-protocol.org",
+      "documents": [
+        "interoperability-protocols/interoperability-protocols-implementation-research-delta-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://a2a-protocol.org/latest/specification/",
+      "domain": "a2a-protocol.org",
+      "documents": [
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://aclanthology.org/2026.acl-long.590/",
+      "domain": "aclanthology.org",
+      "documents": [
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://aclanthology.org/2026.findings-acl.1881/",
+      "domain": "aclanthology.org",
+      "documents": [
+        "routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html",
+        "routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://aclanthology.org/2026.findings-acl.1976/",
+      "domain": "aclanthology.org",
+      "documents": [
+        "assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html",
+        "assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://aclanthology.org/2026.findings-acl.795/",
+      "domain": "aclanthology.org",
+      "documents": [
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/temporal-example",
+      "domain": "ai.google.dev",
+      "documents": [
+        "agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html",
+        "agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-implementation-research-delta-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-implementation-research-delta-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 6
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.01743",
+      "domain": "arxiv.org",
+      "documents": [
+        "workflow-procedural/workflow-procedural-implementation-research-delta-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.03731",
+      "domain": "arxiv.org",
+      "documents": [
+        "research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html",
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.07190",
+      "domain": "arxiv.org",
+      "documents": [
+        "context-memory-playbooks/context-memory-playbooks-implementation-research-delta-2026-08-11.html",
+        "context-memory-playbooks/context-memory-playbooks-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.07900",
+      "domain": "arxiv.org",
+      "documents": [
+        "research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.00601",
+      "domain": "arxiv.org",
+      "documents": [
+        "research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.04384",
+      "domain": "arxiv.org",
+      "documents": [
+        "research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.07670",
+      "domain": "arxiv.org",
+      "documents": [
+        "context-memory-playbooks/context-memory-playbooks-implementation-research-delta-2026-08-11.html",
+        "context-memory-playbooks/context-memory-playbooks-scientific-refresh-2026-08-11.html",
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.10664",
+      "domain": "arxiv.org",
+      "documents": [
+        "experience-ux/experience-ux-implementation-research-delta-2026-08-11.html",
+        "experience-ux/experience-ux-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.11088",
+      "domain": "arxiv.org",
+      "documents": [
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-implementation-research-delta-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.05485",
+      "domain": "arxiv.org",
+      "documents": [
+        "assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html",
+        "assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html",
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.17025",
+      "domain": "arxiv.org",
+      "documents": [
+        "agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html",
+        "agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.18240",
+      "domain": "arxiv.org",
+      "documents": [
+        "assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html",
+        "assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.25850",
+      "domain": "arxiv.org",
+      "documents": [
+        "agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html",
+        "agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html",
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-implementation-research-delta-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 8
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.07180",
+      "domain": "arxiv.org",
+      "documents": [
+        "routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html",
+        "routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.14932",
+      "domain": "arxiv.org",
+      "documents": [
+        "agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html",
+        "agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.15425",
+      "domain": "arxiv.org",
+      "documents": [
+        "workflow-procedural/workflow-procedural-implementation-research-delta-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.18747",
+      "domain": "arxiv.org",
+      "documents": [
+        "agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html",
+        "agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.24134",
+      "domain": "arxiv.org",
+      "documents": [
+        "assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html",
+        "assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.29218",
+      "domain": "arxiv.org",
+      "documents": [
+        "experience-ux/experience-ux-implementation-research-delta-2026-08-11.html",
+        "experience-ux/experience-ux-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.29800",
+      "domain": "arxiv.org",
+      "documents": [
+        "assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html",
+        "assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.30785",
+      "domain": "arxiv.org",
+      "documents": [
+        "context-memory-playbooks/context-memory-playbooks-implementation-research-delta-2026-08-11.html",
+        "context-memory-playbooks/context-memory-playbooks-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.03895",
+      "domain": "arxiv.org",
+      "documents": [
+        "agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html",
+        "agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-implementation-research-delta-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html",
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 6
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.06090",
+      "domain": "arxiv.org",
+      "documents": [
+        "context-memory-playbooks/context-memory-playbooks-implementation-research-delta-2026-08-11.html",
+        "context-memory-playbooks/context-memory-playbooks-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.11213",
+      "domain": "arxiv.org",
+      "documents": [
+        "context-memory-playbooks/context-memory-playbooks-implementation-research-delta-2026-08-11.html",
+        "context-memory-playbooks/context-memory-playbooks-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.15116",
+      "domain": "arxiv.org",
+      "documents": [
+        "experience-ux/experience-ux-implementation-research-delta-2026-08-11.html",
+        "experience-ux/experience-ux-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.18774",
+      "domain": "arxiv.org",
+      "documents": [
+        "routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html",
+        "routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.22902",
+      "domain": "arxiv.org",
+      "documents": [
+        "routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html",
+        "routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.00053",
+      "domain": "arxiv.org",
+      "documents": [
+        "routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html",
+        "routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.08535",
+      "domain": "arxiv.org",
+      "documents": [
+        "assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html",
+        "assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.09015",
+      "domain": "arxiv.org",
+      "documents": [
+        "routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html",
+        "routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.15193",
+      "domain": "arxiv.org",
+      "documents": [
+        "experience-ux/experience-ux-implementation-research-delta-2026-08-11.html",
+        "experience-ux/experience-ux-scientific-refresh-2026-08-11.html",
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.25379",
+      "domain": "arxiv.org",
+      "documents": [
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-implementation-research-delta-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.26300",
+      "domain": "arxiv.org",
+      "documents": [
+        "experience-ux/experience-ux-implementation-research-delta-2026-08-11.html",
+        "experience-ux/experience-ux-scientific-refresh-2026-08-11.html",
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.02680",
+      "domain": "arxiv.org",
+      "documents": [
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-implementation-research-delta-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
+      "domain": "blog.modelcontextprotocol.io",
+      "documents": [
+        "context-memory-playbooks/context-memory-playbooks-implementation-research-delta-2026-08-11.html",
+        "context-memory-playbooks/context-memory-playbooks-scientific-refresh-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-implementation-research-delta-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://docs.sigstore.dev/cosign/signing/overview/",
+      "domain": "docs.sigstore.dev",
+      "documents": [
+        "interoperability-protocols/interoperability-protocols-implementation-research-delta-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://doi.org/10.1145/3786335.3813127",
+      "domain": "doi.org",
+      "documents": [
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-implementation-research-delta-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://doi.org/10.2139/ssrn.6592238",
+      "domain": "doi.org",
+      "documents": [
+        "assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html",
+        "assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://github.com/in-toto/attestation",
+      "domain": "github.com",
+      "documents": [
+        "interoperability-protocols/interoperability-protocols-implementation-research-delta-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://huggingface.co/papers/2606.22953",
+      "domain": "huggingface.co",
+      "documents": [
+        "context-memory-playbooks/context-memory-playbooks-implementation-research-delta-2026-08-11.html",
+        "context-memory-playbooks/context-memory-playbooks-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/durable-extension",
+      "domain": "learn.microsoft.com",
+      "documents": [
+        "agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html",
+        "agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-implementation-research-delta-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28",
+      "domain": "modelcontextprotocol.io",
+      "documents": [
+        "tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html",
+        "tare-tools-scientific-refresh-synthesis-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://opentelemetry.io/blog/2026/genai-observability/",
+      "domain": "opentelemetry.io",
+      "documents": [
+        "experience-ux/experience-ux-implementation-research-delta-2026-08-11.html",
+        "experience-ux/experience-ux-scientific-refresh-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",
+        "research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html",
+        "routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html",
+        "routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 6
+    },
+    {
+      "url": "https://opentelemetry.io/docs/specs/semconv/",
+      "domain": "opentelemetry.io",
+      "documents": [
+        "interoperability-protocols/interoperability-protocols-implementation-research-delta-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-scientific-refresh-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-implementation-research-delta-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 4
+    },
+    {
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6369059",
+      "domain": "papers.ssrn.com",
+      "documents": [
+        "assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html",
+        "assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6871959",
+      "domain": "papers.ssrn.com",
+      "documents": [
+        "agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html",
+        "agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://spiffe.io/docs/latest/spiffe-specs/spiffe_workload_api/",
+      "domain": "spiffe.io",
+      "documents": [
+        "interoperability-protocols/interoperability-protocols-implementation-research-delta-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://spiffe.io/docs/latest/spire-about/spire-concepts/",
+      "domain": "spiffe.io",
+      "documents": [
+        "interoperability-protocols/interoperability-protocols-implementation-research-delta-2026-08-11.html",
+        "interoperability-protocols/interoperability-protocols-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/publication/optimizing-agentic-workflows-using-meta-tools/",
+      "domain": "www.microsoft.com",
+      "documents": [
+        "workflow-procedural/workflow-procedural-implementation-research-delta-2026-08-11.html",
+        "workflow-procedural/workflow-procedural-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/publication/security-risks-in-tool-enabled-ai-agents-a-systematic-analysis-of-privileged-execution-environments/",
+      "domain": "www.microsoft.com",
+      "documents": [
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-implementation-research-delta-2026-08-11.html",
+        "runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html"
+      ],
+      "document_count": 2
+    }
+  ]
+}

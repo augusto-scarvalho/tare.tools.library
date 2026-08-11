@@ -1,6 +1,16 @@
 # All tare.tools Documents & Studies
 
-> Unified navigation across byte-preserved chat/research originals, exact historical private-GitHub snapshot copies, English derivatives, and File Library references that still lack materialized bytes. Origin and authority are kept explicit.
+> Unified navigation across byte-preserved chat/research originals, exact historical private-GitHub snapshot copies, English derivatives, File Library references, and dated scientific refreshes. Origin and authority are kept explicit.
+
+## Scientific Refresh — 2026-08-11
+
+**DERIVED RESEARCH — North Star-directed, not architectural authority.** Historical bytes remain immutable. The 93-file historical research snapshot is curated into 9 scientific lineages, 18 lineage documents, and 2 cross-lineage syntheses.
+
+- [Start with the refresh README](../refresh-editions/2026-08-11/README.md)
+- [Cross-lineage scientific synthesis](../refresh-editions/2026-08-11/tare-tools-scientific-refresh-synthesis-2026-08-11.html)
+- [Cross-lineage implementation-research delta](../refresh-editions/2026-08-11/tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html)
+- [Historical corpus → refresh crosswalk](../refresh-editions/2026-08-11/REFRESH_CROSSWALK.md)
+- [Corpus curation map](../refresh-editions/2026-08-11/CORPUS_CURATION_MAP.md)
 
 ## 1. Materialized chat/research corpus
 
