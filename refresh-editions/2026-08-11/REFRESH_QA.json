@@ -1,7 +1,9 @@
 {
   "schema_version": "1.0",
   "status": "PASS",
-  "html_files": 20,
+  "html_files": 22,
+  "lineage_html_files": 20,
+  "supplemental_html_files": 2,
   "scientific_lineages": 9,
   "historical_crosswalk_rows": 93,
   "replacement_chars": 0,
@@ -90,6 +92,22 @@
       "bytes": 23523,
       "ids": 30,
       "hrefs": 20
+    },
+    {
+      "path": "refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-scientific-ideation-2026-08-11.html",
+      "kind": "research",
+      "sha256": "9a0a9fad43afb2389acc3aa6d7510687b8f79207288d80077131d6092b255b90",
+      "bytes": 22379,
+      "ids": 20,
+      "hrefs": 38
+    },
+    {
+      "path": "refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-technical-proposal-2026-08-11.html",
+      "kind": "research",
+      "sha256": "9cb28ce26cd58909a673748525dfb6abb5285214624d8b4b63787ffd746f6fb3",
+      "bytes": 17303,
+      "ids": 17,
+      "hrefs": 35
     },
     {
       "path": "refresh-editions/2026-08-11/research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html",

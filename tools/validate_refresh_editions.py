@@ -7,9 +7,12 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REFRESH = ROOT / "refresh-editions" / "2026-08-11"
-EXPECTED_HTML = 20
+EXPECTED_LINEAGE_HTML = 20
+EXPECTED_SUPPLEMENTAL_HTML = 2
+EXPECTED_HTML = EXPECTED_LINEAGE_HTML + EXPECTED_SUPPLEMENTAL_HTML
 EXPECTED_LINEAGES = 9
 EXPECTED_HISTORICAL = 93
+SUPPLEMENTAL_DIRS = {"research-knowledge-substrate"}
 
 class Parser(HTMLParser):
     def __init__(self):
@@ -40,11 +43,11 @@ def main():
     errors=[]; warnings=[]; rows=[]
     htmls=sorted(REFRESH.rglob('*.html'))
     if len(htmls)!=EXPECTED_HTML: errors.append(f"html_count={len(htmls)} expected={EXPECTED_HTML}")
-    lineage_dirs=[p for p in REFRESH.iterdir() if p.is_dir()]
+    lineage_dirs=[p for p in REFRESH.iterdir() if p.is_dir() and p.name not in SUPPLEMENTAL_DIRS]
     if len(lineage_dirs)!=EXPECTED_LINEAGES: errors.append(f"lineage_dirs={len(lineage_dirs)} expected={EXPECTED_LINEAGES}")
     manifest=json.loads((REFRESH/'REFRESH_MANIFEST.json').read_text(encoding='utf-8'))
     if manifest.get('historical_file_count')!=EXPECTED_HISTORICAL: errors.append('historical_file_count mismatch')
-    if manifest.get('new_html_count')!=EXPECTED_HTML: errors.append('manifest new_html_count mismatch')
+    if manifest.get('new_html_count')!=EXPECTED_LINEAGE_HTML: errors.append('manifest lineage new_html_count mismatch')
     cross=(REFRESH/'REFRESH_CROSSWALK.md').read_text(encoding='utf-8')
     cross_rows=[l for l in cross.splitlines() if l.startswith('| [`') or l.startswith('| `')]
     if len(cross_rows)!=EXPECTED_HISTORICAL: errors.append(f"crosswalk rows={len(cross_rows)} expected={EXPECTED_HISTORICAL}")
@@ -95,7 +98,7 @@ def main():
 
     qa={
       'schema_version':'1.0','status':'PASS' if not errors else 'FAIL',
-      'html_files':len(htmls),'scientific_lineages':len(lineage_dirs),
+      'html_files':len(htmls),'lineage_html_files':sum(1 for p in htmls if p.relative_to(REFRESH).parts[0] not in SUPPLEMENTAL_DIRS),'supplemental_html_files':sum(1 for p in htmls if p.relative_to(REFRESH).parts[0] in SUPPLEMENTAL_DIRS),'scientific_lineages':len(lineage_dirs),
       'historical_crosswalk_rows':len(cross_rows),'replacement_chars':0 if not any('replacement char' in e for e in errors) else None,
       'duplicate_ids':[] if not any('duplicate ids' in e for e in errors) else [e for e in errors if 'duplicate ids' in e],
       'broken_internal_anchors':[] if not any('broken anchors' in e for e in errors) else [e for e in errors if 'broken anchors' in e],
