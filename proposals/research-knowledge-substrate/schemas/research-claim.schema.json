@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PROPOSED ResearchClaim",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "text",
+    "claim_type",
+    "status"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "claim_type": {
+      "enum": [
+        "finding",
+        "hypothesis",
+        "requirement",
+        "observation",
+        "proposal",
+        "definition",
+        "risk",
+        "open_question"
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "subject_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asserted_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_anchor_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "applicability": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

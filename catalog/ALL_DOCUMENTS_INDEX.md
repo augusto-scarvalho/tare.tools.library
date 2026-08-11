@@ -204,3 +204,9 @@ References: **60**. These records are discovery metadata only; they are not reco
 - Historical research, translations, archaeology and File Library references are evidence, not canonical authority.
 - The private-GitHub snapshot is a **historical baseline**, not the owner-reported newer dirty CURRENT checkout.
 - Promotion to TARGET remains a separate canonical-repository operation.
+
+## Research Knowledge Substrate — ideation 2026-08-11
+
+- [Scientific organization & enrichment ideation](../refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-scientific-ideation-2026-08-11.html) — **RESEARCH**
+- [Technical refinement proposal](../refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-technical-proposal-2026-08-11.html) — **PROPOSED**
+- [Relationship section vNext](RESEARCH_DOCUMENT_RELATIONSHIP_SECTION-vNext-PROPOSED.md) — **ACCEPTED FOR REFINEMENT / PROPOSED MACHINE FIELDS**

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PROPOSED CurationEvent",
+  "type": "object",
+  "required": [
+    "event_id",
+    "event_type",
+    "occurred_at",
+    "subject_ref"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "IDENTITY_RESOLVED",
+        "IDENTITY_REJECTED",
+        "RELATION_CURATED",
+        "RELATION_REJECTED",
+        "CLAIM_RECLASSIFIED",
+        "SOURCE_RETRACTED",
+        "SOURCE_SUPERSEDED",
+        "REFRESH_REQUESTED",
+        "MANUAL_NOTE"
+      ]
+    },
+    "occurred_at": {
+      "type": "string"
+    },
+    "subject_ref": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string"
+    },
+    "basis_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "previous_state_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

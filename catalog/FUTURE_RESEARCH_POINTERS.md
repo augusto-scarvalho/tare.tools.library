@@ -87,3 +87,16 @@
 ## Rehydration rule for future chats
 
 When a pointer is reopened: (1) locate the historical source/lineage; (2) identify the current canonical architecture epoch; (3) classify ADOPT / ADAPT / RETIRE / OPEN; (4) refresh scientific evidence separately; (5) produce a new dated research edition; and only then (6) propose ADR/SPEC/BDD/Implementation Packets.
+
+## Research Knowledge Substrate / scholarly data enrichment
+
+- bitemporal epistemic graph and architecture-epoch queries;
+- source identity resolution and version-family reconciliation;
+- selective claim/evidence extraction and contradiction graphs;
+- active curation / Value of Information;
+- RO-Crate/JSON-LD export qualification;
+- CiTO/DataCite/PROV mapping;
+- claim-to-code/SWHID traceability;
+- retraction/correction watchers with downstream impact propagation;
+- human cognitive interoperability for research graphs;
+- calibrated LLM-assisted curation.
