@@ -1,0 +1,252 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Forensic report — a blocking post-commit hook turned a successful commit into a reported failure — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-summary">Summary</a></li><li class="h2"><a href="#ed-timeline-of-what-was-believed-and-what-was-true">Timeline of what was believed, and what was true</a></li><li class="h2"><a href="#ed-how-the-root-cause-was-actually-found">How the root cause was actually found</a></li><li class="h2"><a href="#ed-the-actual-defect">The actual defect</a></li><li class="h2"><a href="#ed-why-this-is-a-correctness-bug-not-a-performance-bug">Why this is a correctness bug, not a performance bug</a></li><li class="h2"><a href="#ed-why-the-shards-are-the-trigger-and-not-the-cause">Why the shards are the trigger and not the cause</a></li><li class="h2"><a href="#ed-unverified-hypothesis-kept-explicitly-as-one">Unverified hypothesis, kept explicitly as one</a></li><li class="h2"><a href="#ed-collateral-findings">Collateral findings</a></li><li class="h2"><a href="#ed-process-findings-the-part-worth-keeping">Process findings (the part worth keeping)</a></li><li class="h2"><a href="#ed-status-at-the-time-of-writing">Status at the time of writing</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">EVIDENCE ARCHIVE · 2026-08-05 snapshot</div><h1>Forensic report — a blocking post-commit hook turned a successful commit into a reported failure</h1><p class="subtitle">Historical evidence/forensics edition. Preserved as evidence rather than normalized into architecture.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">NATIVE_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>7651e1c08cd012e23094…</span></div><div><b>Edition SHA-256</b><span>7651e1c08cd012e23094…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English source reformatted without semantic refresh.</div></section>
+<section class="section content">
+<p>Date: 2026-07-24. Author: session overseer (Opus 4.8). Trigger: <code>gate-staged</code> went
+red twice while gating the keys-keyring v2 package.</p>
+</section>
+<section class="section content"><h2 id="ed-summary">Summary</h2>
+<p>A git post-commit hook runs the API-assisted discovery chain synchronously with a
+300-second timeout. Git holds <code>git commit</code> open until post-commit exits, and
+<code>route_loop</code> allows the commit 120 seconds. The budgets are structurally
+incompatible. The consequence is not slowness: a commit that SUCCEEDS and moves
+<code>HEAD</code> is reported to the caller as a failure, after which the caller attempts a
+rollback against a tree that has already committed.</p>
+<p>Cost of diagnosis: roughly one hour, most of it spent on two wrong hypotheses that
+an 80-character truncation made attractive.</p>
+</section>
+<section class="section content"><h2 id="ed-timeline-of-what-was-believed-and-what-was-true">Timeline of what was believed, and what was true</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Hypothesis</th>
+<th>Verdict</th>
+<th>What settled it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Machine contention (a leaked python process was pegging a core for 23h)</td>
+<td><strong>WRONG</strong></td>
+<td>Killed the orphan (81,395s CPU), re-gated on a free machine, identical failure</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The keys-keyring v2 change broke it</td>
+<td><strong>WRONG</strong></td>
+<td>Reproduced in a detached worktree at HEAD containing none of the work — verified inside it: <code>.env.example</code> present, <code>keys migrate</code> still registered, no <code>requirements.txt</code>, no <code>load_ambient_keys</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>The pre-commit validation gate was blocking</td>
+<td><strong>WRONG</strong></td>
+<td>Ran the hook directly in the worktree against a docs-only stage: exit 0 in ~1s. A manual <code>git commit</code> there also succeeded</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Post-commit graph refresh blocks the commit</td>
+<td><strong>CORRECT</strong></td>
+<td>Instrumented the exception, then timed empty vs one-file commits</td>
+</tr>
+</tbody>
+</table>
+<p>Two of the three wrong hypotheses were asserted before being tested. That pattern is
+the process finding of this report, separate from the technical one.</p>
+</section>
+<section class="section content"><h2 id="ed-how-the-root-cause-was-actually-found">How the root cause was actually found</h2>
+<p>The scenario reported:</p>
+<pre><code>reason=commit stage failed: Command '['git', 'commit', '-m', 'route: rt6-1 add-rt6-writ
+</code></pre>
+<p><code>rt6</code> formats that reason with <code>[:80]</code>, which cut the sentence exactly before the
+operative word. Everything downstream of that truncation — including two of the wrong
+hypotheses — was reasoning about a <em>non-zero exit code</em> that never happened.</p>
+<p>Wrapping <code>processes.run_quiet</code> in a spy that printed the full <code>CalledProcessError</code>
+gave the real message:</p>
+<pre><code>Command '['git', 'commit', '-m', 'route: rt6-1 ...']' timed out after 120 seconds
+</code></pre>
+<p>Then direct measurement in a detached worktree at HEAD:</p>
+<table>
+<thead>
+<tr>
+<th>operation</th>
+<th>time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git commit --allow-empty</code></td>
+<td>2s</td>
+</tr>
+<tr>
+<td><code>git commit</code> touching ONE doc file</td>
+<td><strong>302s</strong></td>
+</tr>
+<tr>
+<td><code>route_loop._default_commit_stage:420</code> budget</td>
+<td><strong>120s</strong></td>
+</tr>
+</tbody>
+</table>
+<p>And the hook's own message, captured verbatim, naming the culprit:</p>
+<pre><code>[graph-refresh] skip: TimeoutExpired: Command '[... 'scripts/harness.py',
+'discover', 'docs/notes/timing-probe2.md']' timed out after 300 seconds
+</code></pre>
+<p>Localizing further: the pre-commit hook via <code>py-run.sh</code> took 1s; the graph refresh
+with nothing new to do took 5s; an empty commit took 2s. The entire cost is the
+<code>discover</code> subprocess in <code>refresh_graphs_post_commit.py:90-91</code>, which makes real
+network calls to Gemini and then NVIDIA Build.</p>
+</section>
+<section class="section content"><h2 id="ed-the-actual-defect">The actual defect</h2>
+<pre><code class="language-python">proc = subprocess.run([sys.executable, "scripts/harness.py", "discover", *docs],
+                      cwd=str(root), capture_output=True, text=True, timeout=300)
+</code></pre>
+<p>Three separate problems in one call:</p>
+<ol>
+<li><strong>It blocks the commit.</strong> Git waits for post-commit. A human committing a doc can
+watch git hang for five minutes with no explanation, because the hook's failure
+path is <code>|| true</code> and its own message goes to a stream nobody is reading.</li>
+<li><strong>Its timeout exceeds any caller's patience.</strong> 300s inside an operation that
+<code>route_loop</code> allows 120s. Both numbers were chosen independently; nothing asserts
+a relation between them.</li>
+<li><strong>The skip is an exception handler, not a precondition.</strong> The hook does print
+<code>[graph-refresh] skip: TimeoutExpired</code>, but only after burning the full 300
+seconds. It never asks "would this need the network?" beforehand.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-why-this-is-a-correctness-bug-not-a-performance-bug">Why this is a correctness bug, not a performance bug</h2>
+<p>From the rt6 forensics:</p>
+<pre><code>rt6-committed — outcome=escalated  shaMatch=False  headMoved=True
+</code></pre>
+<p><code>headMoved=True</code> means the commit object was written and the ref advanced. The commit
+worked. The orchestrator, having timed out at 120s, recorded <code>escalated</code>. Git's truth
+and the orchestrator's belief diverged.</p>
+<p><strong>Correction (round-1 review, lens 1 finding #1).</strong> An earlier draft of this report
+said the orchestrator "moved to its rollback path against a repository that had
+already committed". That was inferred from reading <code>_default_commit_stage</code>, NOT
+observed — the forensics show <code>escalated</code>, not a rollback. The claim is withdrawn to
+what the evidence supports: <strong>the caller reported failure after the ref had already
+moved.</strong> That alone is sufficient to justify removing the blocking attachment, and
+the reviewer noted the same.</p>
+<p>Any post-commit work that can block is therefore able to manufacture a phantom
+failure out of a real success. That is the invariant to encode, and it is stronger
+than "make the hook faster".</p>
+</section>
+<section class="section content"><h2 id="ed-why-the-shards-are-the-trigger-and-not-the-cause">Why the shards are the trigger and not the cause</h2>
+<p>Nothing regressed in the sharding. The 2026-07-21 parallel default EXPOSED a
+pre-existing collision.</p>
+<p><code>rt6</code> self-skips on a dirty SPEC-137 validation surface — by design, because it
+cannot safely drive a real write-chain while a commit is in flight. Its guard is:</p>
+<pre><code class="language-python">staged = _git("diff", "--cached", "--name-only", "--", "scripts", "tools", "testing", "specs")
+</code></pre>
+<p>evaluated against <code>ROOT</code>. Before the flip, <code>ROOT</code> was the real root: during a
+<code>gate-staged</code> run the index is dirty, the guard fired, rt6 skipped, and the
+collision stayed hidden. Since the flip each shard is a <strong>disposable detached
+worktree pinned to HEAD</strong>, whose index is EMPTY — so the guard sees nothing staged,
+does not fire, and rt6 runs the very write-chain its precondition exists to prevent.
+A cold worktree also gives discovery no warm cache, maximizing the work.</p>
+<p><code>gate_parallel.py</code> already documents a neighbouring symptom ("a scenario's own
+dirty-surface guard may self-skip under shard load (rt6, pair 5)"). That entry
+describes a spurious self-SKIP; this is a spurious self-RUN — the same blind spot,
+opposite direction.</p>
+</section>
+<section class="section content"><h2 id="ed-unverified-hypothesis-kept-explicitly-as-one">Unverified hypothesis, kept explicitly as one</h2>
+<p>The owner rotated every vendor key into the OS vault earlier the same day.
+Discovery with no usable key refuses fast — the gate's own refusal fixture depends
+on that path. With working keys it makes real API calls that legitimately take
+minutes. That would explain why this fires today rather than since 2026-07-21.
+<strong>Not measured.</strong> It is recorded so a future reader can test it, not rely on it.</p>
+</section>
+<section class="section content"><h2 id="ed-collateral-findings">Collateral findings</h2>
+<ul>
+<li><p><strong>A leaked harness process.</strong> <code>python -c "import tempfile; print(tempfile.mkdtemp(dir=r'C:\tmp'))"</code>
+had been running since the previous day, 81,395 seconds of CPU — roughly a full
+core for 23 hours — for a command that should take milliseconds. Killed on owner
+authorization. The spawn site was NOT found by grep in <code>scripts/</code>, <code>tools/</code> or
+<code>testing/</code>; the owner states the harness created it. Open item: a probe that can
+hang spinning is exactly what the repo's own no-raw-subprocess ratchet exists to
+mediate.</p>
+<p><strong>CORRECTION 2026-07-24 (later the same day, root-caused — 4e30e63).</strong> The
+closing sentence above is wrong on both counts and is retained only to show what
+was believed. It is NOT a spawn problem and the ratchet could never have
+mediated it: the burn happens INSIDE the stdlib call, in-process. Measured on one
+directory with three calls — <code>os.access(dir, W_OK)</code> returns True while
+<code>os.mkdir</code> raises PermissionError in 0.0003s, and <code>mkdtemp</code> is still running
+after 6s. <code>mkdtemp</code>'s PermissionError branch does <code>continue</code> whenever <code>os.access</code>
+claims the directory is writable, and on Windows <code>os.access</code> reads only the
+read-only ATTRIBUTE, never the ACL; with <code>TMP_MAX = 2147483647</code> a directory
+carrying a deny-write ACE without the read-only bit loops ~2.1 billion times
+burning a core. "The spawn site was not found" is also not a gap in the search:
+a <code>python -c</code> one-liner with a raw string is an ad-hoc agent shell command and
+never passes through repo source at all. Fixed by bounding <code>tempfile.TMP_MAX</code>
+once in <code>common.py</code>, which covers all 30+ call sites. What remains genuinely
+unknown: that specific process died before the analysis and <code>C:\tmp</code> grants
+Modify today, so the mechanism is proven but its ATTRIBUTION to that process is
+not.</p>
+</li>
+<li><p><strong>Stale release artifacts.</strong> <code>release/</code> regenerated with a large diff when
+<code>release_integrity.py</code> was run. Initially reported as scratch files leaking into
+the SBOM; that was <strong>wrong</strong> and corrected — the exclusions filter them. The diff
+was large because the committed artifacts were stale against the tree. Reverted;
+regenerating them deliberately is its own item.</p>
+<p><strong>CORRECTION 2026-07-24 (later the same day).</strong> Two errors here.
+(a) "Reverted" did not happen. The regenerated artifacts were still sitting
+uncommitted in the tree hours later, mtime 11:49:47 — 16,539 lines of
+SBOM/checksums/provenance. A record that says a thing was undone, while the thing
+sits undone in the tree, is worse than no record: the next reader trusts it.
+(b) <code>release_integrity.py</code> DOES verify. The claim that it "generates, not
+verifies" was read off the module docstring (<code>"""Generate deterministic release SBOM..."""</code>) without running <code>--help</code>; the CLI is
+<code>{generate,verify,external-preflight}</code> and <code>verify</code> is read-only. Run that day it
+is RED, and correctly so.
+The real gap is narrower and was never a regression: the gate's
+<code>release-integrity</code> fixture runs <code>generate</code> and THEN <code>verify</code>, so it checks its
+own freshly written output and is structurally blind to a stale committed
+inventory. It has been that way since the 2026-07-08 baseline import and its
+docstring only ever claimed "internally consistent" — an honest scope, just not
+the one a reader assumed. Measured: the committed inventory listed 631 files for
+a tree of 1183, last refreshed 2026-07-16. Closed by a <code>release-staleness</code>
+doctor check (WARN, never a gate — gating it would make every commit that adds a
+file regenerate a release artifact, the exact coupling this document's own
+post-commit finding exists to condemn). Regeneration itself stays an owner act.</p>
+</li>
+<li><p><strong><code>keys-meta.json</code> was untracked and un-ignored.</strong> Operator-specific rotation
+timestamps (no secret values) that would conflict on every clone. Added to
+<code>.gitignore</code> alongside its siblings.</p>
+</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-process-findings-the-part-worth-keeping">Process findings (the part worth keeping)</h2>
+<ol>
+<li><strong>An 80-character truncation cost most of the hour.</strong> The word "timed" was cut
+off, and every hypothesis built on the remaining fragment reasoned about a
+non-zero exit code that never occurred. Truncating an exception in a failure
+report is not economy; the first fix in the plan is observability for this reason.</li>
+<li><strong>Two hypotheses were asserted before being tested.</strong> Contention and
+keys-keyring were both stated as likely before any measurement. Both were wrong.
+The one that held was the one where a measurement came first. The HEAD-worktree
+reproduction — proving the failure exists in a tree containing none of the
+suspect work — is the shape of evidence that should have come first, not third.</li>
+<li><strong>A red gate was, this time, telling the truth about something else.</strong> The
+package under test was clean; the gate was red for an unrelated pre-existing
+defect. That is the most dangerous kind of red, because it trains the habit of
+discounting them. It also means the gate did its job: it surfaced a real bug
+nobody had reported.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-status-at-the-time-of-writing">Status at the time of writing</h2>
+<p>The keys-keyring v2 package is staged (39 files) and fully verified — kv 5/5,
+kk 5/5, ck 5/5, ux 34/34, m5 90/90, pc 5/5, qol 13/13, cli_registry 6/6, <code>oracle mutate</code> judged with each survivor traced to its AST node. It is NOT committed,
+blocked only by this defect, at the owner's instruction to fix the structural
+problem first.</p>
+<p>Artifacts: <code>specs/40-features/rt6-parallel-worktree-blindspot.intake.md</code> (the
+intake), <code>.harness/handoff/plan-graph-refresh-queue-DRAFT.md</code> (the proposed fix,
+pending multi-model validation).</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/forensics-2026-07-24-postcommit-blocking-commit.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/forensics-2026-07-24-postcommit-blocking-commit.md</code></li><li>Source SHA-256: <code>7651e1c08cd012e23094d8096b0329106ce558055a6bc291d539a9f1196317e7</code></li><li>Edition-input SHA-256: <code>7651e1c08cd012e23094d8096b0329106ce558055a6bc291d539a9f1196317e7</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

@@ -1,0 +1,179 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Intake refinement — playbook hierarchy &amp; role registry (door NEW) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-request-verbatim">Request (verbatim)</a></li><li class="h2"><a href="#ed-covered-check-which-door">Covered-check (which door?)</a></li><li class="h2"><a href="#ed-goal">Goal</a></li><li class="h2"><a href="#ed-scope">Scope</a></li><li class="h2"><a href="#ed-actors-surfaces">Actors &amp; surfaces</a></li><li class="h2"><a href="#ed-draft-taxonomy-ratify-edit">Draft taxonomy (ratify/edit)</a></li><li class="h2"><a href="#ed-proposed-acceptance-criteria">Proposed acceptance criteria</a></li><li class="h2"><a href="#ed-risks-blast-radius">Risks / blast radius</a></li><li class="h2"><a href="#ed-decisions-owner-ratified-2026-07-23-in-chat-q1-q8">Decisions (owner-ratified 2026-07-23, in-chat Q1-Q8)</a></li><li class="h2"><a href="#ed-open-questions-for-the-human-superseded-by-decisions-above">Open questions for the human (superseded by Decisions above)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Intake refinement — playbook hierarchy &amp; role registry (door NEW)</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>096d7f5e820eeb526b5e…</span></div><div><b>Edition SHA-256</b><span>096d7f5e820eeb526b5e…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+</section>
+<section class="section content"><h2 id="ed-request-verbatim">Request (verbatim)</h2>
+<blockquote>
+<p>quero um sistema de controle, atualização, herança (pra não consumir
+instruções repetidas) dos playbooks. por exemplo, loop overseer é um classe
+de overseer, então lê loop playbook + overseer playbook, devemos ter outros
+cenários assim. Quero ter um tracking desses arquivos, herança de
+valores/atributos e referências/links. Talvez a gente precise já pensar
+nesses papéis e roles para os tipos de workflows que temos e já prepará-los
+e organizarmos isso. depois quero uma tela ds GUI que permita consulta e
+visão hierarquica dos papéis e rulebooks. veja se não dá pra deixar junto
+com a tela de gerenciamento de recursos por tipo de worker, era algo que
+tinha na GUI legado, mas precisa ser melhor elaborado aqui</p>
+</blockquote>
+</section>
+<section class="section content"><h2 id="ed-covered-check-which-door">Covered-check (which door?)</h2>
+<table>
+<thead>
+<tr>
+<th>Query</th>
+<th>Command</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>records search</td>
+<td><code>harness.py records search playbook inheritance role</code></td>
+<td>no hit (only today's 6a0fc05 refactor commit)</td>
+</tr>
+<tr>
+<td>doc-find</td>
+<td><code>harness.py doc-find playbook role hierarchy inheritance</code></td>
+<td>no covering spec; research-playbook.md top hit (concept only)</td>
+</tr>
+</tbody>
+</table>
+<p>Decision: <strong>NEW</strong>. Route (SPEC-144): <code>pre-defined-profile security</code>, risk flag
+<code>security</code> (instruction control-plane) — escalation WITHHELD to the owner
+decision inbox; implementation only through that decision.</p>
+</section>
+<section class="section content"><h2 id="ed-goal">Goal</h2>
+<p>One registry declares role→playbook chains with inheritance (child reads
+parent's playbooks + its own), tracked (hash/existence/links) and rendered
+composably for spawns and for a GUI hierarchy view — repeated instructions
+live in exactly one file.</p>
+</section>
+<section class="section content"><h2 id="ed-scope">Scope</h2>
+<p>In scope:</p>
+<ul>
+<li><code>playbook-registry.json</code>: roles as classes, <code>extends</code> (single-parent v1),
+ordered <code>playbooks[]</code> per role, cycle/missing detection.</li>
+<li>CLI: <code>harness.py playbook &lt;role&gt;</code> (<code>--list</code> file chain in read order /
+<code>--compose</code> concatenated), consumed by spawn prompts and vendor shims.</li>
+<li>Tracking gate check: registry paths exist; md cross-references resolve;
+no orphan playbook under <code>.harness/prompts/</code> absent from the registry.</li>
+<li>Role taxonomy for current workflow types (draft below) ratified by owner.</li>
+<li>GUI (second slice): hierarchy view inside Registry → Roles (RG4/RG5
+matrix+inspector), playbook chain in the role inspector. Gherkin required.</li>
+<li>De-dup pass: shared rituals move OUT of overseer-loop-playbook.md into
+overseer-playbook.md once composition exists (intake 363806c8c975).</li>
+</ul>
+<p>Out of scope:</p>
+<ul>
+<li>Multiple inheritance / mixins; per-target playbook overlays (SPEC-110)
+— doors for v2.</li>
+<li>Rewriting playbook CONTENT beyond the de-dup moves.</li>
+<li>Autogenerating playbooks from specs.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-actors-surfaces">Actors &amp; surfaces</h2>
+<ul>
+<li>Actors: overseer sessions (any vendor), route/loop drivers, spawn recipes,
+GUI Registry screen, gate.</li>
+<li>Surfaces: CLI + internal (spawn prompt assembly) + GUI (Registry → Roles).</li>
+<li>UI surface? <strong>yes → Gherkin required</strong> in the resulting spec.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-draft-taxonomy-ratify-edit">Draft taxonomy (ratify/edit)</h2>
+<pre><code>agent-base (AGENTS.md — contract, implicit root; Q3)
+├─ overseer            overseer-playbook.md
+│  ├─ loop-overseer    + overseer-loop-playbook.md      (AFK loop)
+│  ├─ route-overseer   + feature-delivery briefs        (SPEC-144 tier-2)
+│  ├─ room-overseer    + room-overseer.md               (GUI chat rooms)
+│  └─ research         + research-playbook.md           (double diamond)
+├─ router              router-playbook.md               (SPEC-144 tier-1)
+└─ worker              subagent-contract.md
+   ├─ implementer      + implementer-packet.md          (write packets)
+   ├─ groom-miner      + backlog-groom-playbook.md §1   (report-only miner)
+   └─ packet-analyst   (GLM/nvidia embedded-content lanes)
+</code></pre>
+<p>Model/effort pins stay SOLELY in <code>.harness/routing/model-routing.json</code>
+(same role keys join the two registries — no value duplication).</p>
+</section>
+<section class="section content"><h2 id="ed-proposed-acceptance-criteria">Proposed acceptance criteria</h2>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/><code>playbook &lt;role&gt; --list</code> prints the parent→child file chain; unknown
+role/cycle/missing file is a typed refusal.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Registry gate check red on: dangling path, orphan playbook, broken md
+cross-reference.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Spawn recipes (Agent-tool prompts, codex lane briefs, GUI room spawn)
+reference the chain instead of pasting duplicated discipline.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Loop playbook contains ONLY loop mechanics after the de-dup pass; the
+composed loop-overseer output is a superset of today's guidance.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>GUI: Registry → Roles renders the hierarchy and the per-role playbook
+chain (hash + updated-at), honest "—" when unregistered; scenarios
+per Gherkin.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-risks-blast-radius">Risks / blast radius</h2>
+<p>Control-plane surface (<code>.harness/prompts/</code>, protected registry) — route
+already escalated <code>security</code>; every edit through the reviewed protected
+flow. Spawn-prompt assembly touches all vendors: composition must be
+additive-first (registry absent ⇒ today's behavior byte-identical). GUI
+slice is additive on the existing Registry screen.</p>
+</section>
+<section class="section content"><h2 id="ed-decisions-owner-ratified-2026-07-23-in-chat-q1-q8">Decisions (owner-ratified 2026-07-23, in-chat Q1-Q8)</h2>
+<ul>
+<li><strong>Q1</strong> registry home: <code>.harness/routing/playbook-registry.json</code> (joins
+model-routing by role key).</li>
+<li><strong>Q2</strong> spawn consumption: <code>--list</code> — the spawn receives the ordered file
+chain and reads it; no concatenated injection.</li>
+<li><strong>Q3</strong> (owner architecture, supersedes both drafted options): every VENDOR
+adapter file (CLAUDE.md, codex-side surface, etc.) becomes a GENERIC shim
+pointing at the central canonical <code>AGENTS.md</code>, which carries the true
+harness content — and that canonical file IS in the chain as <code>agent-base</code>,
+root of every role. Vendor shims stay thin so chain membership does not
+double-pay content.</li>
+<li><strong>Q4</strong> de-dup of shared rituals: same wave as the registry.</li>
+<li><strong>Q5</strong> GUI: inside Registry → Roles (hierarchy panel + playbook chain in
+the role inspector).</li>
+<li><strong>Q6</strong> tracking v1: exists + hash + updated-at; gate check for dangling
+paths, orphan playbooks, broken md cross-references. No version headers.</li>
+<li><strong>Q7</strong> taxonomy: draft ratified PLUS <code>ui-overseer</code> and <code>security-auditor</code>
+as overseer children on day 1 (their own playbooks may start near-empty;
+ui-overseer inherits D039/UI-brief doctrine, security-auditor inherits the
+escalation contract).</li>
+<li><strong>Q8</strong> enforcement: <strong>HARD</strong> — a spawn declaring a role absent from the
+registry (or an unresolvable chain) is REFUSED from day 1. Delivery
+consequence: the registry must cover EVERY live spawn path (Agent-tool
+profiles, codex lanes, GLM packet workers, GUI rooms, route tiers) in the
+same wave, else legitimate spawns break — this becomes an acceptance
+criterion and a pre-flip inventory task in the plan.</li>
+</ul>
+<p>Implementation remains gated on the <code>security</code> escalation in the owner
+decision inbox (route 2026-07-23). Next artifact: spec from
+<code>specs/SPEC_TEMPLATE.md</code> with Gherkin for the GUI surface.</p>
+</section>
+<section class="section content"><h2 id="ed-open-questions-for-the-human-superseded-by-decisions-above">Open questions for the human (superseded by Decisions above)</h2>
+<ul>
+<li>Q1 registry home: <code>.harness/routing/playbook-registry.json</code> (joins
+model-routing by role key; recommended) or <code>.harness/prompts/</code>?</li>
+<li>Q2 composition default for spawns: <code>--list</code> (agent reads files, cheaper
+cache reuse; recommended) or <code>--compose</code> single doc?</li>
+<li>Q3 does AGENTS.md participate as implicit root of every chain, or stay a
+contract outside the registry (recommended: outside, contract ≠ playbook)?</li>
+<li>Q4 de-dup timing: move shared rituals in the same wave as the registry
+(recommended) or a later wave?</li>
+<li>Q5 GUI placement: inside Registry → Roles matrix+inspector (recommended,
+legacy resource-mgmt heir) or a separate screen?</li>
+<li>Q6 tracking depth v1: exists+hash+updated-at (recommended) or version
+headers/changelog per playbook file?</li>
+<li>Q7 taxonomy above: ratify as-is? names to change? roles missing
+(security-auditor? ui-overseer as overseer child?)?</li>
+<li>Q8 enforcement: spawn paths REFUSE an unregistered role (hard) or warn
+(soft, v1 recommended)?</li>
+</ul>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/playbook-hierarchy-refinement-2026-07-23.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/playbook-hierarchy-refinement-2026-07-23.md</code></li><li>Source SHA-256: <code>096d7f5e820eeb526b5e2516d5a23b741c02f9d60ce5893826e17f61e9af9d9a</code></li><li>Edition-input SHA-256: <code>096d7f5e820eeb526b5e2516d5a23b741c02f9d60ce5893826e17f61e9af9d9a</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

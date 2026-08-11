@@ -8,7 +8,11 @@ In case of conflict, the canonical `tare-tools` repository, Git, source code, ra
 
 ## Start here
 
-- **[Index of all documents and studies](catalog/DOCUMENT_INDEX.md)** — bilingual PT-BR | EN navigation by document and topic.
+- **[Unified index of all documents and studies](catalog/ALL_DOCUMENTS_INDEX.md)** — chat originals, the exact historical private-GitHub snapshot research set, and File Library references with explicit origin/authority.
+- **[Chat-corpus document index](catalog/DOCUMENT_INDEX.md)** — bilingual PT-BR | EN navigation for the 11 primary materialized chat artifacts.
+- **[Historical private-GitHub baseline](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — exact 2026-08-05 snapshot, explicitly not CURRENT.
+- **[Historical snapshot research index](catalog/CANONICAL_SNAPSHOT_RESEARCH_INDEX.md)** — 93 exact `docs/research/` copies.
+- **[Historical snapshot translation queue](catalog/CANONICAL_SNAPSHOT_TRANSLATION_QUEUE.md)** — non-English exact sources awaiting EN derivatives.
 - **[Master catalog](catalog/MASTER_CATALOG.md)** — complete table with IDs, status, contexts, links, hashes, and translation coverage.
 - **[Rehydration queue](catalog/REHYDRATION_QUEUE.md)** — exact-byte materialization backlog.
 - **[Lineage reconciliation](catalog/LINEAGE_RECONCILIATION.md)** — metadata-confirmed order/sibling structure without unproven supersession.
@@ -29,9 +33,9 @@ In case of conflict, the canonical `tare-tools` repository, Git, source code, ra
 
 Research / experiment / archaeology / proposal artifacts **inform** architecture but do not ratify it. English translations are derived representations of the Portuguese historical originals and never gain additional authority by translation.
 
-## Current seed status
+## Current materialized status
 
-The initial 11-document seed is **11/11 translated to English** and **11/11 passing structural fidelity QA**. Human translation review and canonical architecture reconciliation remain separate, explicit stages.
+The initial 11-document chat seed is **11/11 translated to English** and **11/11 passing structural fidelity QA**. A separate historical private-GitHub snapshot contributes **93 exact `docs/research/` files**: **43 are native English, 6 additional EN derivatives have been registered, and 44 non-English documents remain in the translation queue**. Human translation review and canonical architecture reconciliation remain separate, explicit stages.
 
 ## Rehydration queue
 

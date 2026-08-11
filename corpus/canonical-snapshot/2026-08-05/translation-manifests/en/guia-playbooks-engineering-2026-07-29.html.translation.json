@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/guia-playbooks-engineering-2026-07-29.html",
+  "sourceSha256": "6d17ea257d77930b37b430d3b13163c96e6d1db84b760dd546eeeccad55e2383",
+  "sourceLanguage": "mixed",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/guia-playbooks-engineering-2026-07-29.en.md",
+  "translationSha256": "95b1ff13b4f5ac129492936eaa84e2a701faf7fdff8a6f5e18c6b9c1c842d8fa",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

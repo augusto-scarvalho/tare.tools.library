@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Weekly Monitor W28 (multi-agent communication) — Harness Extract — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-where-the-harness-already-covers-the-digest-no-new-work">Where the harness ALREADY covers the digest (no new work)</a></li><li class="h2"><a href="#ed-extracted-experiments-reversible-research-playbook-template">Extracted experiments (reversible; research-playbook template)</a></li><li class="h3"><a href="#ed-exp-7-footprint-conflict-preflight-ldt-coord-inspired-high-priority-tiny">EXP-7 — Footprint conflict preflight (LDT-Coord-inspired) · HIGH priority, tiny</a></li><li class="h3"><a href="#ed-exp-8-semantic-locality-audit-autoworldbuilder-inspired-medium-high-priority">EXP-8 — Semantic-locality audit (AutoWorldBuilder-inspired) · MEDIUM/HIGH priority</a></li><li class="h2"><a href="#ed-parked-with-explicit-trigger">Parked (with explicit trigger)</a></li><li class="h2"><a href="#ed-critical-verdict-on-the-digest">Critical verdict on the digest</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">RESEARCH ITERATION · 2026-08-05 snapshot</div><h1>Weekly Monitor W28 (multi-agent communication) — Harness Extract</h1><p class="subtitle">Historical research iteration/round. Preserved as an intermediate research artifact.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>5883f5807b92cd43f327…</span></div><div><b>Edition SHA-256</b><span>90b1c5f67a1667fa7f01…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Source: weekly GPT digest supplied by the owner (2026-07-13). This is NOT a research round; citations are
+unverified <code>[web]</code> references — ideas were evaluated on internal merit against the real harness state. Third
+in the series (<code>weekly-monitor-w28-memory-extract.md</code>, <code>weekly-monitor-w28-code-quality-extract.md</code>);
+numbering continues (EXP-7..8).</p>
+</section>
+<section class="section content"><h2 id="ed-where-the-harness-already-covers-the-digest-no-new-work">Where the harness ALREADY covers the digest (no new work)</h2>
+<table>
+<thead>
+<tr>
+<th>Digest finding</th>
+<th>Equivalent already operating here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#1 Shared Selective Persistent Memory (Apple)</td>
+<td>SAME paper already mapped in the memory extract: specs/ = task specifications, schemas/ = data schemas, .harness/routing + capabilities.json = tool configurations, subagent-contract + WORKER_RESULT schema = output constraints; session traces deliberately NOT promoted (checkpoint is bounded). The 5 suggested namespaces already exist under other names</td>
+</tr>
+<tr>
+<td>LDT-Coord (“LLM proposes; runtime coordinates”)</td>
+<td>This is the architecture thesis: workers return typed WORKER_RESULT, reduce is deterministic, plan briefs declare HARD footprint and overseer imposes disjointness for parallelism. What remains manual is disjointness checking → EXP-7</td>
+</tr>
+<tr>
+<td>AutoWorldBuilder (semantic locality in context assembly)</td>
+<td>Packets embed only task spec/constraints; requiredReads with demotion by budget; context digest per workflow. What we NEVER measured is actual utilization of sent context → EXP-8</td>
+</tr>
+<tr>
+<td>ARCANA (structured blackboard)</td>
+<td>Workflow directory (workers/, reduce/, trace.jsonl, seed-context.md) IS the blackboard: typed shared artifacts, not dialogue. Learned meta-controller is outside current profile (no own training)</td>
+</tr>
+<tr>
+<td>GRACE (locally verified deltas instead of revalidating monolith)</td>
+<td>Partial: instruction pack is validated by cheap deterministic gates (spec-pack in seconds) — the pain GRACE solves (LLM revalidation of monolithic prompt) does not exist here. Useful part (cross-references among instruction files) becomes a rider on EXP-4, not a new experiment</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-extracted-experiments-reversible-research-playbook-template">Extracted experiments (reversible; research-playbook template)</h2>
+<h3 id="ed-exp-7-footprint-conflict-preflight-ldt-coord-inspired-high-priority-tiny">EXP-7 — Footprint conflict preflight (LDT-Coord-inspired) · HIGH priority, tiny</h3>
+<ul>
+<li><strong>Hypothesis:</strong> the only coordination step in the parallel loop still done mentally is footprint
+disjointness among simultaneous briefs; one mistake here is exactly the class “parallelization breaks
+something” that the owner vetoed. Mechanizing it is nearly free: <code>parse_footprint</code> already exists
+(<code>overseer_review.py:50</code>).</li>
+<li><strong>Single phase:</strong> <code>review --plans &lt;briefA&gt; &lt;briefB&gt; [...]</code> — intersect footprints for every pair; any
+common path → WARN naming the conflicting pair. Advisory rc 0 (overseer decides). Same seam as EXP-6
+<code>--preflight</code> — if both graduate, make it one mode.</li>
+<li><strong>Baseline/metric:</strong> run against 12+ historical briefs from 2026-07-13 in the actual pairs launched
+together — expected 0 conflicts (waves were planned disjoint); anything &gt;0 is a retroactive bug found.</li>
+<li><strong>Reversal:</strong> advisory flag on an existing verb.</li>
+</ul>
+<h3 id="ed-exp-8-semantic-locality-audit-autoworldbuilder-inspired-medium-high-priority">EXP-8 — Semantic-locality audit (AutoWorldBuilder-inspired) · MEDIUM/HIGH priority</h3>
+<ul>
+<li><strong>Hypothesis:</strong> a material fraction of context embedded in packets is never cited by the worker — we pay
+assembly tokens for no return. The digest calls this “semantic locality”; we never measured it (token-audit
+measures COST of what was sent, not USE).</li>
+<li><strong>Baseline:</strong> pairs already retained on disk per workflow — <code>workers/worker-NNN.prompt.md</code> (embedded
+files/sections) vs <code>worker-NNN.result.json</code> (<code>sourceFilesVerified</code> + <code>itemsAnalyzed</code>). Deterministic probe,
+zero LLM, only existing artifacts.</li>
+<li><strong>Metric:</strong> % of embedded files/sections never cited, by worker profile and workflow; distribution, not
+average (a research worker legitimately cites less).</li>
+<li><strong>Phase 2 (only if waste is large):</strong> assembly policy by workstream (packet receives only subset of declared
+scope) — behavior change decided with measured numbers.</li>
+<li><strong>Reversal:</strong> phase 1 read-only; phase 2 would be reversible assembly config.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-parked-with-explicit-trigger">Parked (with explicit trigger)</h2>
+<ul>
+<li><strong>KV-PRM (verification via KV cache):</strong> requires serving access; we are multi-vendor closed API. Trigger =
+self-hosted serving lane with open weights. Digest itself notes direct inapplicability.</li>
+<li><strong>GRACE as typed instruction graph:</strong> trigger = instruction-pack validation becomes expensive or LLM-based;
+today deterministic pack runs in seconds — neighborhood verification would solve a cost we do not pay.
+Immediate rider: instruction files (.harness/context, prompts, playbooks) enter EXP-4 declared-vs-real
+inventory as a pair class (cited paths/commands exist).</li>
+<li><strong>ARCANA (differentiable blackboard + learned meta-controller):</strong> trigger = harness learning phase
+(SELF_EVOLUTION I4 family, Deferred) — same bucket as retention reward from memory extract.</li>
+<li><strong>MCP revision of 2026-07-28</strong> (stateless core, capability discovery, multi round-trip): known date — check
+impact on our MCP usage when released; nothing to do before then.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-critical-verdict-on-the-digest">Critical verdict on the digest</h2>
+<p>The week’s thesis — “do not transport conversations; transport selected memory, structured deltas,
+constraints and references to already-computed state” — is literally the production architecture here:
+packets + typed WORKER_RESULT + git-versioned canon + deterministic reduce. Of six papers, four confirm
+already-made decisions (one repeats the memory digest). The genuinely useful pieces are two measurements:
+EXP-7 mechanizes the last manual check in parallel coordination (near-zero cost, parser ready), and EXP-8
+measures the semantic locality we always assumed and never counted — using artifacts already retained per
+workflow. No new protocol in the window; nothing justifies an instruction graph or KV sharing before these
+numbers exist.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-multiagent-extract.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-multiagent-extract.en.md</code></li><li>Source SHA-256: <code>5883f5807b92cd43f3278fe3364d4e0e57fdb150d3e84a3f5fed59bc2715dcf7</code></li><li>Edition-input SHA-256: <code>90b1c5f67a1667fa7f015742063bdf29f47793c6b7e6762e33ff5779f43bad5c</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

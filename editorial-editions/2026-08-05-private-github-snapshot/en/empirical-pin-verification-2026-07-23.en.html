@@ -1,0 +1,204 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reliability of Distilled Operational Knowledge: Empirical Verification of Playbook Pins — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-abstract">Abstract</a></li><li class="h2"><a href="#ed-1-context-and-question">1. Context and question</a></li><li class="h2"><a href="#ed-2-methods">2. Methods</a></li><li class="h3"><a href="#ed-2-1-pre-registered-queue">2.1 Pre-registered queue</a></li><li class="h3"><a href="#ed-2-2-worker-contract">2.2 Worker contract</a></li><li class="h3"><a href="#ed-2-3-limitations">2.3 Limitations</a></li><li class="h2"><a href="#ed-3-results">3. Results</a></li><li class="h3"><a href="#ed-3-1-queue-verdicts-worker-re-verified-by-overseer">3.1 Queue verdicts (worker, re-verified by overseer)</a></li><li class="h3"><a href="#ed-3-2-meta-finding">3.2 Meta-finding</a></li><li class="h3"><a href="#ed-3-3-stratification-by-pin-origin">3.3 Stratification by pin origin</a></li><li class="h3"><a href="#ed-3-4-round-cost">3.4 Round cost</a></li><li class="h2"><a href="#ed-4-discussion-why-pins-rot">4. Discussion: why pins rot</a></li><li class="h2"><a href="#ed-5-resulting-mechanisms-non-prose">5. Resulting mechanisms (non-prose)</a></li><li class="h2"><a href="#ed-6-conclusion">6. Conclusion</a></li><li class="h2"><a href="#ed-references">References</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">EVIDENCE ARCHIVE · 2026-08-05 snapshot</div><h1>Reliability of Distilled Operational Knowledge: Empirical Verification of Playbook Pins</h1><p class="subtitle">Historical evidence/forensics edition. Preserved as evidence rather than normalized into architecture.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>f35c00cfea0cb79af6d4…</span></div><div><b>Edition SHA-256</b><span>665c3d211a84b8505f4b…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Round 2026-07-23 (owner request). Format: internal scientific report. Methodological companion to <code>opus-overseer-quality-2026-07-23.md</code> (§2.4 of that report declares the same conflict-of-interest regime; same applies here).</p>
+</section>
+<section class="section content"><h2 id="ed-abstract">Abstract</h2>
+<p>The overseer playbook accumulates "pins" — empirical claims distilled from incidents (costs, sandbox capabilities, CLI behavior) that then govern routing and spending. On 2026-07-23, three pins were refuted in sequence after direct owner challenges, all with the SAME root cause (an argument mangled by a shell layer, incorrectly attributed to a capability limitation). In response, the owner ordered a systematic audit of the remainder. We built a queue of 10 pins with pre-registered cheap tests and risk-if-false, and delegated re-verification to a Sonnet worker under a methodological isolation contract. Result: <strong>9/10 confirmed, 1 refuted</strong> (P7: gate duration drifted from "7–15 min" to ~5–6 min typical after parallel flip D041). Central meta-finding: the audit worker itself reproduced BOTH trap classes that had broken the original pins (stdin already at EOF; MSYS mangling of <code>/usage</code>) and converted false verdicts into correct ones by applying the required isolation discipline — evidence that the method is transferable, not idiosyncratic. Stratified falsehood rate: pins born from ONE unisolated failure observation: 3/3 false; pins born from deliberate measurement or source inspection: 9/10 true (the only false one was temporal drift, not origin error). Structural lesson: <strong>how a pin is born predicts its reliability better than its age</strong>.</p>
+</section>
+<section class="section content"><h2 id="ed-1-context-and-question">1. Context and question</h2>
+<p>Pins are the harness's operational memory: "X costs ~$0.37", "Y hangs unless stdin is closed", "Z does not run in the sandbox". They decide lane routing, probe cadence and security posture. Question for this round: <em>how many active pins are false, and what makes them false?</em></p>
+<p>Trigger: three owner challenges on the same day, three refutations:</p>
+<table>
+<thead>
+<tr>
+<th>refuted pin</th>
+<th>recorded claim</th>
+<th>real cause (probe-proven)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>"Claude <code>/usage</code> is interactive-only; percentage impossible non-interactively"</td>
+<td>Git Bash/MSYS mangles <code>/usage</code>→Windows path; through subprocess list-args the panel renders (and at ~$0 on pinned Haiku)</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>"Codex cannot spawn browser (EPERM)"</td>
+<td>the <code>--sandbox workspace-write</code> flag IN OUR RECIPE blocks process spawn; owner interactive use works; proven with 2 probes (binary in-workspace still EPERM ⇒ spawn restriction, not path restriction)</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>"Codex has no network (ENOTCACHED)"</td>
+<td>direct fetch from sandbox → HTTP 200; ENOTCACHED came from nested PowerShell→cmd quoting where <code>^</code> is an escape, mangling semver <code>@^6.12.2</code></td>
+</tr>
+</tbody>
+</table>
+<p>All three share the same signature: <strong>one failure observed through a shell layer; the layer mangled the argument; the mangling was attributed to the tool's capability</strong>. None of the claims was true about the tool; all were true about the plumbing between us and it.</p>
+</section>
+<section class="section content"><h2 id="ed-2-methods">2. Methods</h2>
+<h3 id="ed-2-1-pre-registered-queue">2.1 Pre-registered queue</h3>
+<p>We extracted the 10 remaining empirical pins from the playbook (<code>.harness/handoff/playbook-pin-audit-queue.md</code>), each with: literal claim, pre-specified cheap test, and risk-if-false (what it would route or spend incorrectly). Pre-registering the test BEFORE execution follows the construct-metrics R4 discipline (<code>construct-metrics.md</code>: pre-registered definition before measurement — exactly the practice whose absence produced finding F4 in the opus-overseer report).</p>
+<h3 id="ed-2-2-worker-contract">2.2 Worker contract</h3>
+<p>Sonnet 5 worker (debugger), with explicit contract: (a) probes only on <code>gpt-5.6-terra</code> / <code>claude-haiku</code> ($0.05 cap; above ⇒ OWNER-GATED, do not run); (b) <strong>mandatory isolation discipline:</strong> never conclude from one symptom — re-probe through an alternative quoting route (subprocess list-args) before declaring the CLAIM false; (c) honest UNTESTABLE verdict preferred to guessing; (d) verbatim evidence per pin. P1 (hang claim) was tested under <code>timeout 60</code> so a real hang would not trap the worker.</p>
+<h3 id="ed-2-3-limitations">2.3 Limitations</h3>
+<p>n=13 pins (3+10), one environment (Windows/MSYS/PowerShell — quoting traps are specific to this stack); expensive half of P3 (comparison with Fable) remained owner-gated by cost; self-audit within same session (mitigated by: external worker + owner challenges as independent trigger + every refutation re-verified at source by overseer before acceptance).</p>
+</section>
+<section class="section content"><h2 id="ed-3-results">3. Results</h2>
+<h3 id="ed-3-1-queue-verdicts-worker-re-verified-by-overseer">3.1 Queue verdicts (worker, re-verified by overseer)</h3>
+<table>
+<thead>
+<tr>
+<th>pin</th>
+<th>claim</th>
+<th>verdict</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>open stdin hangs <code>codex exec</code></td>
+<td>CONFIRMED</td>
+<td>naive probe produced a false negative (Bash-tool stdin already EOF); isolated probe confirmed hang</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Codex ≥0.144 ignores local <code>.codex/config.toml</code></td>
+<td>CONFIRMED</td>
+<td>new nuance: <code>--profile</code> reads <code>$CODEX_HOME/&lt;name&gt;.config.toml</code> AND requires repo in trust registry — two isolation variables beyond quoting</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>fuel probe on pinned Haiku ≈ $0</td>
+<td>CONFIRMED</td>
+<td>naive probe REPRODUCED MSYS mangling live (the exact pre-fix bug); isolated probe confirmed ~0 cost</td>
+</tr>
+<tr>
+<td>P4</td>
+<td><code>codex login status</code> is free</td>
+<td>CONFIRMED</td>
+<td>no model turn</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>pw_ui_smoke kills server (no orphans)</td>
+<td>CONFIRMED</td>
+<td></td>
+</tr>
+<tr>
+<td>P6</td>
+<td>packet worker never echoes key</td>
+<td>CONFIRMED</td>
+<td>race with fake key; absent from stdout/logs</td>
+</tr>
+<tr>
+<td><strong>P7</strong></td>
+<td><strong>gate takes 7–15 min</strong></td>
+<td><strong>REFUTED</strong></td>
+<td>reality: ~5–6 min typical after parallel flip D041 (2026-07-21); contention outliers up to ~21.5 min. Corrected in CLAUDE.md via sanctioned protected-file edit</td>
+</tr>
+<tr>
+<td>P8</td>
+<td>D039 briefs carry footprint</td>
+<td>CONFIRMED (4/5)</td>
+<td>one narrow exception</td>
+</tr>
+<tr>
+<td>P9</td>
+<td>routing pin Fable/high + Sol xhigh</td>
+<td>CONFIRMED</td>
+<td>no drift since f69e9fb</td>
+</tr>
+<tr>
+<td>P10</td>
+<td><code>route --heartbeat</code> never spawns</td>
+<td>CONFIRMED</td>
+<td>queue PARAPHRASE was wrong (attributed claim to Conductor A) — corrected IN QUEUE; playbook was right</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-3-2-meta-finding">3.2 Meta-finding</h3>
+<p>The audit worker fell into BOTH traps from that day — P1 via tool-shell stdin EOF, P3 via MSYS mangling — and in both cases executed the contract isolation step (re-probe via subprocess list-args) and reached the correct verdict. This is the most important result of the round: anti-false-pin discipline <strong>works when required by contract</strong>, even with a cheaper model, and the traps are REPRODUCIBLE (not bad luck from one session).</p>
+<h3 id="ed-3-3-stratification-by-pin-origin">3.3 Stratification by pin origin</h3>
+<table>
+<thead>
+<tr>
+<th>pin origin</th>
+<th style="text-align:right">n</th>
+<th style="text-align:right">false</th>
+<th style="text-align:right">rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 failure observation, shell variable not isolated</td>
+<td style="text-align:right">3 (R1–R3)</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">100%</td>
+</tr>
+<tr>
+<td>deliberate measurement / source inspection</td>
+<td style="text-align:right">10 (P1–P10)</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10%</td>
+</tr>
+</tbody>
+</table>
+<p>The only false item in the second stratum (P7) was not wrong at birth — it was correct and <strong>drifted</strong> when D041 changed gate execution regime, without anyone re-measuring the constant. Distinct class: temporal decay, not origin error.</p>
+<h3 id="ed-3-4-round-cost">3.4 Round cost</h3>
+<p>Queue + contract: overseer inline. Worker: 201.7k Sonnet tokens. Probes: Terra/Haiku, cents total. No expensive-model probes.</p>
+</section>
+<section class="section content"><h2 id="ed-4-discussion-why-pins-rot">4. Discussion: why pins rot</h2>
+<ol>
+<li><strong>Shell-boundary mangling is the dominant killer in this environment.</strong> 4/4 refutations that day (R1–R3 + intermediate ENOTCACHED) trace to quoting layers (MSYS path mangling; cmd <code>^</code> escape; nested PowerShell), not tools. On Windows with 3 stackable shells, any failure observed THROUGH a shell is suspect until the argument is proven intact (subprocess list-args is the clean instrument).</li>
+<li><strong>Single-symptom generalization.</strong> All three refuted claims became "the tool cannot" from ONE failure. The opus-overseer report had already named the family (prose exceeds verification); here it appears in the epistemic direction: insufficient observation becomes operational law.</li>
+<li><strong>Constants measure regimes, not truths.</strong> P7 was true under serial regime; D041 changed regime and the constant became orphaned. Numeric pins need a regime stamp (what invalidates them), not just a date.</li>
+<li><strong>Paraphrases rot too</strong> (P10): the error was in the AUDIT QUEUE, not the playbook — verification instruments are subject to the same decay as what they verify.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-5-resulting-mechanisms-non-prose">5. Resulting mechanisms (non-prose)</h2>
+<table>
+<thead>
+<tr>
+<th>mechanism</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1–R3 + P7 corrections recorded as dated RETRACTIONS (never history deletion) in playbook/spec/CLAUDE.md</td>
+<td>landed (<code>b309625</code>, <code>00312f2</code>, <code>ac5517d</code>, W3 batch)</td>
+</tr>
+<tr>
+<td>Pin-audit queue as permanent reusable artifact (claim + test + pre-registered risk)</td>
+<td><code>.harness/handoff/playbook-pin-audit-queue.md</code></td>
+</tr>
+<tr>
+<td>Isolation contract for audit worker (proved transferable)</td>
+<td>in queue text; reusable verbatim</td>
+</tr>
+<tr>
+<td>"Probe-before-pin" as playbook practice</td>
+<td>recorded in corrections</td>
+</tr>
+</tbody>
+</table>
+<p>Open recommendations (doors, not completed work): (a) periodic re-audit of queue (cheap: cents + one Sonnet worker); (b) pin metadata — every new pin carries date + method + evidence link + invalidating regime; (c) workaround-attempt cap in lanes (W3 wedge this afternoon: lane spent ~50 min on TEMP workaround instead of declaring HOST-LIMITED as W1/W2 lanes did — standard lane instruction should bound the loop).</p>
+</section>
+<section class="section content"><h2 id="ed-6-conclusion">6. Conclusion</h2>
+<p>The audit answered the owner's question with a number and a cause: <strong>of 13 pins examined, 4 were false, and 3 of those 4 were born from the same methodological defect</strong> (single symptom through unisolated shell). The remaining corpus is healthy (9/10), and the only decayed item was regime drift, not origin error. Cost of keeping the corpus honest proved trivial (cents per round) compared with cost of false pins it prevents — R2/R3 alone would have kept UI-test lanes away from Codex and forced unnecessary pre-installs indefinitely.</p>
+</section>
+<section class="section content"><h2 id="ed-references">References</h2>
+<p>Internal: <code>.harness/handoff/playbook-pin-audit-queue.md</code> (queue + outcome); <code>.harness/handoff/result-playbook-pin-audit.md</code> (verbatim evidence per pin); R1–R3 probes in session transcripts (commands + verbatim outputs, incl. NET-OK 200 and both EPERMs); <code>docs/research/opus-overseer-quality-2026-07-23.md</code> (companion; F4 = same family in metric direction); <code>docs/research/construct-metrics.md</code> (R4: pre-register definition before measurement); <code>docs/research/vendor-credit-tracking-log.md</code> (measurement honesty); commits <code>b309625</code>, <code>f69e9fb</code>, <code>00312f2</code>, <code>ac5517d</code>, <code>cd665dc</code> (D047).
+External: none cited — internal corpus; §2.3 limitations apply.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/empirical-pin-verification-2026-07-23.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/empirical-pin-verification-2026-07-23.en.md</code></li><li>Source SHA-256: <code>f35c00cfea0cb79af6d44c77afc47f201a43852fb2fd041a68340df05140d342</code></li><li>Edition-input SHA-256: <code>665c3d211a84b8505f4b97cb0595cfaeedbe5808a79398b3668104eb4be4df64</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

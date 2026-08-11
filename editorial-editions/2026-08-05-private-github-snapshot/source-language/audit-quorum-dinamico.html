@@ -1,0 +1,407 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research round — audit-quorum-dinamico — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-phase-0-question-criteria-budget-design">Phase 0 — Question, criteria, budget, design</a></li><li class="h2"><a href="#ed-phase-1-evidence-register">Phase 1 — Evidence register</a></li><li class="h2"><a href="#ed-phase-2-define-briefs">Phase 2 — Define (briefs)</a></li><li class="h2"><a href="#ed-phase-3-4-compiled-by-research-round-audit-quorum-dinamico-compile-advance">Phase 3/4 — compiled by research round audit-quorum-dinamico compile|advance</a></li><li class="h2"><a href="#ed-phase-5-deliver">Phase 5 — Deliver</a></li><li class="h3"><a href="#ed-operacoes-por-concept-card">Operações por concept card</a></li><li class="h3"><a href="#ed-portfolio">Portfolio</a></li><li class="h3"><a href="#ed-experimento-rf-1-design-declarado">Experimento (RF.1, design declarado)</a></li><li class="h3"><a href="#ed-rastreabilidade-evidencia-status">Rastreabilidade (Evidência → … → Status)</a></li><li class="h3"><a href="#ed-decisao-proposta-para-b-aguarda-research-round-approve-porta-humana">Decisão proposta para (b) — aguarda research round approve (porta humana)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research round — audit-quorum-dinamico</h1><p class="subtitle">Edição histórica — research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">pt-BR</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>f03e6a7a5f2d33b3a6f6…</span></div><div><b>Edition SHA-256</b><span>f03e6a7a5f2d33b3a6f6…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Owner-requested (2026-08-03, in-session): decisão (b) do <code>plan-audit-gate-leg.md</code> —
+schema do VERDICT + quorum — foi julgada "não é tão simples" e mandada para research.
+Cohorts FIXADOS pelo owner: geração 2× sonnet-5 high + 2× GLM-5.2 (nvidia free);
+crítica INVERTIDA entre cohorts (GLM critica material sonnet e vice-versa).</p>
+</section>
+<section class="section content"><h2 id="ed-phase-0-question-criteria-budget-design">Phase 0 — Question, criteria, budget, design</h2>
+<p><strong>Question.</strong> Como dimensionar dinamicamente N (número de seats de auditoria) e a
+regra de quorum da perna <code>audit</code> do commit-join (gate ‖ reckon ‖ mutate ‖ audit),
+em função da complexidade/tamanho/risco da demanda, com o overseer como PARTICIPANTE
+que pode concordar ou discordar da auditoria (arbitragem como parte do modelo), a
+custo controlado e fuel-aware?</p>
+<p><strong>Success criteria</strong> (o que uma boa resposta satisfaz):</p>
+<ol>
+<li>Uma função N(sinais) concreta e determinística usando APENAS sinais já computáveis
+do índice staged (risk profile(s), reach do <code>gate_affected</code>, tamanho do diff) —
+sem passo de classificação humana no caminho do commit.</li>
+<li>Regra de quorum definida para CADA N alcançável (o que é split, quem desempata,
+semântica do overseer-como-participante vs o fallback manual <code>audit record</code>).</li>
+<li>Bandas de custo por configuração (tokens/latência), com degradação explícita
+quando um vendor está sem gás (fuel-aware).</li>
+<li>Compatível com o desenho já decidido da perna: fingerprint-keyed, <code>verify-status</code>,
+<code>audit waive --reason</code>, seats via perfil <code>review</code>, config em <code>.harness/audit-policy.json</code>.</li>
+<li>Toda recomendação normativa carrega <code>claim → fonte + data + classe de confiança</code>;
+alimenta a decisão (b) E o item dependente <code>audit-seat-sizing</code> (não desenhar sizing
+duas vezes).</li>
+</ol>
+<p><strong>Declared budget.</strong> Round max 160k planned tokens (develop ≤ 80k, refine ≤ 80k,
+stop-ratio 0.6). Justificativa: 8 workers × ~12.1k required-reads calibrados + packets</p>
+<ul>
+<li>reduces; 1 onda de divergência + 1 de crítica, sem ondas 2-3 salvo sinal forte.</li>
+</ul>
+<p><strong>Declared width.</strong> 4 + 4, modo custom — NÃO é o default D010 focused (1-2): o owner
+FIXOU o fan-out (2 sonnet + 2 GLM por fase) para obter o sinal de desacordo
+cross-vendor que pegou defeitos reais no gauntlet P6 e na auditoria dupla de hoje
+(audit-dlm2m3-close: duas lentes independentes convergiram no mesmo finding). A
+heterogeneidade é o objeto de estudo além de método (arXiv:2502.08788: MAD é
+sobrevalorizado quando a heterogeneidade é ignorada).</p>
+<p><strong>Declared experiment design.</strong> Card <code>matched-budget</code> (docs/EXPERIMENT_METHODS.md):
+a rodada produz uma política candidata de N(sinais)+quorum cujo ajuste fino virá de
+um bakeoff advice-only a custo pareado (previsto como RF.1 no body do
+<code>audit-seat-sizing</code>). Medível: taxa de defeito-pego por custo, por configuração.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-1-evidence-register">Phase 1 — Evidence register</h2>
+<p><code>claim | source | type | year | method | limitations | confiança | maturidade</code></p>
+<ul>
+<li>[repo] Duas lentes sonnet-5 high independentes convergiram no MESMO finding único
+(escopo do store no packet) e nenhuma achou defeito no código em si |
+<code>.harness/handoff/audit-dlm2m3-close-s{1,2}-VERDICT.md</code> | measurement | 2026-08-03 |
+auditoria dupla real | n=1 rodada | forte | produção.</li>
+<li>[repo] O padrão manual de 2 seats (opus5+sonnet5; terra+fable) pegou defeitos reais
+em 5/5 camadas do arco defect-ledger ("a fresh-eyes audit caught a real bug in 5/5
+layers") | <code>.harness/handoff/brief-defect-ledger-enforcement.md</code> §6 | measurement |
+2026-08-01 | histórico de auditorias do arco | seleção enviesada (só arcos auditados) |
+moderada | produção.</li>
+<li>[repo] Ciclo BLOCK→fix→re-audit com o MESMO seat convergiu (quorum de re-audit
+por-cohort) | <code>.harness/handoff/audit-p6s4-terra-refix-*-VERDICT.md</code> | measurement |
+2026-08-02 | gauntlet P6 | um vendor só | moderada | protótipo.</li>
+<li>[repo] O reckon (SPEC-157) prova que uma perna fingerprint-keyed com verdict humano
+único já segura o join sem custo de seats | <code>scripts/harness_lib/validation_stamp.py</code>
+<code>check_reckon</code>/<code>stamp_reckon</code> | repo | 2026-07 | código em produção | não é auditoria
+multi-seat | forte | produção.</li>
+<li>[repo] Sinais mecânicos disponíveis no staged: risk profile(s) via <code>required_profile</code>,
+reach via <code>reckon_reach</code> (223/223 no commit de hoje — reach alto NÃO implica revisão
+profunda quando o diff é test-only), diff via numstat | <code>validation_stamp.py:169/:338</code> |
+repo | 2026-08 | — | reach superestima em superfícies test-only | forte | produção.</li>
+<li>[web] Debate multi-agente melhora factualidade vs single-agent | Du et al. 2023
+(ICML 2024), composable-models.github.io/llm_debate | paper | 2023 | benchmarks de
+factualidade | tarefas ≠ code review | moderada | validado.</li>
+<li>[web] MAD é sobrevalorizado quando heterogeneidade de modelos é ignorada — o ganho
+vem da HETEROGENEIDADE, não do debate em si | arXiv:2502.08788 | paper | 2025 |
+ablations | benchmarks acadêmicos | moderada | validado.</li>
+<li>[web] LLMs não se auto-corrigem confiavelmente sem sinal externo — crítica precisa
+de verificação reproduzível, não de mais rodadas do mesmo modelo | Huang et al.,
+ICLR 2024, arXiv:2310.01798 | paper | 2024 | ablations | — | forte | validado.</li>
+<li>[web] Acoplamento estrutural colapsa diversidade de ideias → geração independente
+antes de exposição (fundamenta a crítica invertida) | arXiv:2604.18005 | paper |
+2026 | — | — | moderada | validado.</li>
+<li>[judgment] Overseer-como-seat cria conflito de interesse (ele é o autor do brief que
+a auditoria julga); overseer-como-ÁRBITRO pós-verdicts preserva independência dos
+seats e é o que <code>audit record</code> já implementa | referência: judgment | — | — | — |
+opinião | conceitual.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-2-define-briefs">Phase 2 — Define (briefs)</h2>
+<p><strong>B1 — política de quorum dinâmico para a perna de auditoria.</strong>
+Problema (não tech-shaped): olhares fixos custam demais em demanda trivial e não
+escalam confiança em demanda arriscada; como calibrar quantos olhares independentes
+uma mudança merece, e como transformar opiniões possivelmente divergentes numa decisão
+de commit auditável — incluindo a voz do responsável pela integração?
+Atores: overseer (integra e arbitra), seats de auditoria (independentes), owner
+(política), a perna <code>check_audit</code> (consome o veredito).
+Constraints: sinais só do índice staged; zero fricção abaixo do piso de trivialidade;
+custo fuel-aware; verdicts tipados SHIP|BLOCK com findings file:line; o resultado é
+uma POLÍTICA em <code>.harness/audit-policy.json</code>, não código novo de consenso.
+Success criteria: os 5 do Phase 0.</p>
+<p><strong>Human gate:</strong> exigido pelo processo; SATISFEITO em conversa — o owner desenhou a
+rodada (2026-08-03): cohorts fixados, crítica invertida, "tá bom assim". A porta de
+DELIVER continua humana: <code>research round approve</code>.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-3-4-compiled-by-research-round-audit-quorum-dinamico-compile-advance">Phase 3/4 — compiled by <code>research round audit-quorum-dinamico compile|advance</code></h2>
+<pre><code class="language-json">{
+  "schemaVersion": "1.0",
+  "slug": "audit-quorum-dinamico",
+  "question": "Como dimensionar dinamicamente N seats e a regra de quorum da perna audit do commit-join, com overseer-participante e custo fuel-aware, a partir de sinais do indice staged?",
+  "successCriteria": [
+    "funcao N(sinais) deterministica sobre risk profile + reach + diff size, sem classificacao humana",
+    "regra de quorum e semantica de split/arbitragem definida para cada N alcancavel",
+    "bandas de custo por configuracao com degradacao fuel-aware",
+    "compativel com fingerprint-keyed record, verify-status, audit waive e seats via perfil review",
+    "claims normativos com fonte+data+confianca; alimenta decisao (b) e audit-seat-sizing"
+  ],
+  "experimentDesign": {
+    "card": "matched-budget",
+    "why": "a politica candidata sera calibrada por bakeoff advice-only a custo pareado (RF.1 do audit-seat-sizing); a rodada define o desenho, o experimento mede defeito-pego por custo"
+  },
+  "budget": {"roundMaxPlannedTokens": 160000, "developStopRatio": 0.6},
+  "discover": {"flows": ["repo", "web"], "evidenceSection": "Phase 1 — Evidence register"},
+  "define": {
+    "briefs": [
+      {
+        "id": "B1",
+        "problem": "olhares fixos custam demais em demanda trivial e nao escalam confianca em demanda arriscada; calibrar quantos olhares independentes uma mudanca merece e como divergencia vira decisao de commit auditavel, incluindo a voz do integrador",
+        "actors": ["overseer-arbitro", "seats-de-auditoria", "owner-politica", "check_audit"],
+        "constraints": [
+          "sinais apenas do indice staged",
+          "zero friccao abaixo do piso de trivialidade",
+          "custo fuel-aware",
+          "verdict tipado SHIP|BLOCK com findings file:line",
+          "resultado e politica em .harness/audit-policy.json, nao motor de consenso novo"
+        ],
+        "successCriteria": ["os cinco criterios do Phase 0"]
+      }
+    ],
+    "humanApprovalRequired": true
+  },
+  "develop": {
+    "profile": "research-divergence",
+    "briefs": ["B1"],
+    "width": {"mode": "custom", "count": 4, "why": "owner-fixed 2026-08-03: 2x sonnet-5 high + 2x GLM-5.2 para sinal de desacordo cross-vendor; heterogeneidade e objeto de estudo (arXiv:2502.08788)"},
+    "budget": {"maxPlannedTokens": 80000},
+    "assignment": "zip",
+    "fleet": [
+      {"id": "sonnet", "executor": "claude", "model": "sonnet", "effort": "high", "count": 2},
+      {"id": "glm", "executor": "nvidia-compat", "model": "z-ai/glm-5.2", "effort": "high", "count": 2}
+    ],
+    "perspectives": [
+      {"id": "custo-beneficio", "taskProfile": "plan", "title": "Contribuicao marginal de cada seat extra: bandas de custo, ponto de retorno decrescente, degradacao fuel-aware"},
+      {"id": "confiabilidade-arbitragem", "taskProfile": "plan", "title": "Regras de quorum sob N variavel: split, desempate, overseer-participante vs arbitro, erros correlacionados entre seats do mesmo vendor"},
+      {"id": "sinais-mecanicos", "taskProfile": "plan", "title": "N(sinais) deterministico a partir do indice staged: risk profile, reach gate_affected, diff size; escada de thresholds e casos degenerados (reach 223/223 test-only)"},
+      {"id": "analogia-cross-domain", "taskProfile": "plan", "title": "Transferencia: code review humano (Google/SmartBear), redundancia aeronautica, amostragem de aceitacao (QC estatistico), quoruns bizantinos — o que sobrevive ao contexto de commit-gate?"}
+    ]
+  },
+  "refine": {
+    "profile": "research-critique",
+    "width": {"mode": "custom", "count": 4, "why": "critica invertida owner-fixed: GLM critica material sonnet e vice-versa; excludeSameExecutor garante a inversao"},
+    "budget": {"maxPlannedTokens": 80000},
+    "assignment": "zip",
+    "fleet": [
+      {"id": "glm-critic", "executor": "nvidia-compat", "model": "z-ai/glm-5.2", "effort": "high", "count": 2},
+      {"id": "sonnet-critic", "executor": "claude", "model": "sonnet", "effort": "high", "count": 2}
+    ],
+    "lenses": [
+      {"id": "validade-evidencia", "taskProfile": "review", "title": "Validade e referencias do material sonnet"},
+      {"id": "custo-operacao", "taskProfile": "scan", "title": "Custo/operacao do material sonnet"},
+      {"id": "arquitetura-integracao", "taskProfile": "review", "title": "Arquitetura/integracao do material GLM na perna audit"},
+      {"id": "risco-seguranca", "taskProfile": "security", "title": "Risco/seguranca do material GLM (gaming do quorum, seat comprometido, waive abuse)"}
+    ],
+    "seedPolicy": {"mode": "cross-vendor", "coverage": "balanced", "excludeSameExecutor": true, "maxFindingsPerSource": 12}
+  },
+  "deliver": {
+    "requireOneOperationPerConcept": true,
+    "requireExactlyOnePortfolioBucket": true,
+    "autoPromote": false
+  }
+}
+</code></pre>
+</section>
+<section class="section content"><h2 id="ed-phase-5-deliver">Phase 5 — Deliver</h2>
+<p>Waves: develop <code>WF-20260803-060425-620300</code> (reduce: 15 findings, 0 blockers),
+refine <code>WF-20260803-061139-064720</code> (reduce: 14 findings, 0 blockers, 4/4 críticos
+válidos após retry — 2 falhas de CONTRATO de resultado na 1ª passada, classe
+<code>wr-schema-discards-work</code>; gap de retomada do advance registrado no board como
+<code>research-round-advance-nao-recupera-coho</code>).</p>
+<h3 id="ed-operacoes-por-concept-card">Operações por concept card</h3>
+<ul>
+<li><strong>C1 — Escada N(sinais) por BANDAS</strong> (ideator sinais-mecanicos + crítica arquitetura):
+<strong>simplificada</strong> — a fórmula de soma ponderada cai (crítica: <code>required_profile()</code> devolve
+um SET de nomes, não um escalar de risco; <code>reachWeight</code> indefinido no caso fail-open
+<code>None</code> de <code>reckon_reach</code>). Vira tabela determinística de bandas em <code>.harness/audit-policy.json</code>:
+N=0 (n/a) abaixo do piso; N=1 superfície de risco pequena; N=2 default de risco;
+N=3 diff grande/reach alto (excluído test-only). Sinais: <code>reckon_required</code>,
+numstat, changedFiles, affectedScenarios.</li>
+<li><strong>C2 — Tabela de quorum por N</strong> (ideator confiabilidade): <strong>mantida</strong> — N=1: SHIP fecha,
+BLOCK → fix ou arbitragem; N=2: unanimidade pra SHIP, qualquer BLOCK bloqueia;
+N=3: qualquer BLOCK com finding blocker bloqueia (nunca maioria simples sobre blocker);
+split sempre nomeia o seat dissidente no registro.</li>
+<li><strong>C3 — Overseer é ÁRBITRO pós-verdict, nunca seat</strong>: <strong>mantida</strong> — <code>audit collect</code>
+computa o veredito ANTES do overseer ver os VERDICTs; discordância do overseer =
+<code>audit record</code> (override tipado, ator SPEC-161, nunca auto-rescued). Responde a
+direção do owner: concordar/discordar existe, como override registrado — não voto.
+(Crítica derrubou o BFT do ideator analogia que fazia do overseer um nó não-confiável.)</li>
+<li><strong>C4 — Diversidade de vendor obrigatória quando N≥2</strong>: <strong>combinada</strong> com C1 — a decisão
+interina (d) sozinha reproduz o blind-spot same-vendor que a própria evidência da rodada
+flagou (2 sonnet convergindo no mesmo finding). N≥2 ⇒ seats de ≥2 executors (ídiom
+cross-vendor da rule 7 do research_round); indisponibilidade vira fallback single-vendor
+REGISTRADO.</li>
+<li><strong>C5 — Degradação fuel-aware reusa SPEC-165 R13</strong> (gas_balance/_gas_pcts): <strong>mantida</strong> —
+nada de lógica nova; cair abaixo do N planejado é REGISTRADO (ídiom do reckon override).</li>
+<li><strong>C6 — Campo <code>dissent</code> no ledger mesmo em SHIP resolvido</strong>: <strong>mantida</strong> — é o que torna
+o bakeoff custo×defeito-pego do RF.1 mensurável.</li>
+<li><strong>C7 — Quorum bizantino formal</strong>: <strong>estacionada</strong> — backbone conceitual só; a crítica de
+segurança mostrou que assume seats honestos/independentes e que o <code>f</code> derivado de sinais
+do staged é influenciável pelo próprio autor do diff.</li>
+<li><strong>C8 — Amostragem de aceitação (QC) como heurística de sample-size</strong>: <strong>adiada</strong> —
+entra como desenho do bakeoff RF.1 dentro de <code>audit-seat-sizing</code>.</li>
+<li><strong>C9 — "reach 223/223 test-only ⇒ Nmax + supermajority"</strong> (ideator sinais-mecanicos):
+<strong>rejeitada</strong> — contradiz a evidência do repo (commit de hoje: reach 223/223 com diff
+test-only é o caso DEGENERADO de superestimação; escalação por reach EXCLUI test-only).</li>
+<li><strong>C10 — Anti-gaming dos sinais</strong> (crítica segurança: sinais influenciáveis pelo diff
+auditado; salami-slicing pra ficar sob o piso): <strong>adiada</strong> — risco real, mitigação
+mínima agora (piso por fingerprint deixa fatiamento visível no ledger); hardening
+dedicado quando a perna existir.</li>
+</ul>
+<h3 id="ed-portfolio">Portfolio</h3>
+<ul>
+<li><strong>núcleo</strong>: C1, C2, C3, C4, C5, C6 — juntos são a resposta da decisão (b).</li>
+<li><strong>contingência</strong>: fallback single-vendor registrado (C4) quando só um vendor tem gás.</li>
+<li><strong>aposta-de-fronteira</strong>: —</li>
+<li><strong>experimentos</strong>: RF.1 bakeoff matched-budget (custo×defeito-pego por configuração);
+registro formal via <code>experiment add</code> acontece quando <code>audit-seat-sizing</code> abrir (dono
+do bakeoff), citando esta rodada.</li>
+<li><strong>estacionadas</strong>: C7, C8.</li>
+<li><strong>rejeitadas</strong>: C9; fórmula de soma ponderada (shape errado dos sinais); overseer-como-
+seat/nó-BFT; Nmax 7-9 (desancorado do precedente manual — o teto interino é 3).</li>
+</ul>
+<h3 id="ed-experimento-rf-1-design-declarado">Experimento (RF.1, design declarado)</h3>
+<p><code>hipótese</code>: a escada C1 com quorum C2 pega ≥ os defeitos do fixo N=2 a custo médio menor.
+<code>baseline</code>: N=2 unanimidade (precedente manual). <code>métricas</code>: defeitos-pegos/rodada,
+custo/rodada (tokens+USD), taxa de split. <code>critérios de decisão</code>: adotar escada se
+custo cai ≥20% sem perda de detecção em ~10 audits reais; senão manter N=2 fixo.</p>
+<h3 id="ed-rastreabilidade-evidencia-status">Rastreabilidade (Evidência → … → Status)</h3>
+<table>
+<thead>
+<tr>
+<th>Evidência</th>
+<th>Problema</th>
+<th>Ideia</th>
+<th>Experimento/ADR</th>
+<th>Spec/Task</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VERDICTs dlm2m3 s1/s2 (convergência same-vendor)</td>
+<td>blind-spot de vendor</td>
+<td>C4 diversidade N≥2</td>
+<td>—</td>
+<td>decisão (b) do plan-audit-gate-leg</td>
+<td>núcleo</td>
+</tr>
+<tr>
+<td>brief-defect-ledger §6 (2 seats, 5/5 camadas)</td>
+<td>quantos olhares</td>
+<td>C1 escada + teto 3</td>
+<td>RF.1</td>
+<td>plan-audit-gate-leg + audit-seat-sizing</td>
+<td>núcleo</td>
+</tr>
+<tr>
+<td>validation_stamp reckon/override idiom</td>
+<td>como registrar degradação/dissenso</td>
+<td>C5, C6</td>
+<td>—</td>
+<td>decisão (b)</td>
+<td>núcleo</td>
+</tr>
+<tr>
+<td>arXiv:2502.08788 + Diversity Collapse</td>
+<td>heterogeneidade &gt; contagem</td>
+<td>C4; crítica invertida</td>
+<td>—</td>
+<td>—</td>
+<td>aplicado</td>
+</tr>
+<tr>
+<td>Huang ICLR 2024 (sem auto-correção)</td>
+<td>crítica precisa de sinal externo</td>
+<td>C3 árbitro registrado</td>
+<td>—</td>
+<td>decisão (b)</td>
+<td>núcleo</td>
+</tr>
+<tr>
+<td>reach 223/223 test-only (commit ba21da3)</td>
+<td>sinal degenerado</td>
+<td>C9 rejeitada; exclusão test-only em C1</td>
+<td>—</td>
+<td>decisão (b)</td>
+<td>rejeitada/absorvida</td>
+</tr>
+<tr>
+<td>custo do crítico descartado (USD 0.98, contrato)</td>
+<td>seats falham por contrato</td>
+<td>robustez do collect a seat inválido (re-spawn 1x, depois N-1 registrado)</td>
+<td>—</td>
+<td>plan-audit-gate-leg</td>
+<td>núcleo (nota)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-decisao-proposta-para-b-aguarda-research-round-approve-porta-humana">Decisão proposta para (b) — aguarda <code>research round approve</code> (porta humana)</h3>
+<p>VERDICT schema: como no draft do brief (1ª linha <code>VERDICT: SHIP|BLOCK</code>; findings
+<code>F&lt;n&gt; — severity — file:line — evidence</code>; BLOCK sem finding é refused no collect).
+Quorum: escada C1 (0/1/2/3, bandas versionadas em audit-policy.json, teto interino 3),
+regra C2 por N, diversidade C4 quando N≥2, degradação C5 registrada, dissent C6 no
+ledger, overseer-árbitro C3 via <code>audit record</code>. Após approve: amendment na seção (b)
+de <code>.harness/handoff/plan-audit-gate-leg.md</code> e o brief destrava a implementação.</p>
+ round-state:start 
+<pre><code class="language-json">{
+  "cohorts": [
+    {
+      "cohortId": "develop-sonnet",
+      "phase": "develop",
+      "declaredExecutor": "claude",
+      "executor": "claude",
+      "model": "sonnet",
+      "wfid": "WF-20260803-060425-620300",
+      "status": "done"
+    },
+    {
+      "cohortId": "develop-glm",
+      "phase": "develop",
+      "declaredExecutor": "nvidia-compat",
+      "executor": "nvidia-compat",
+      "model": "z-ai/glm-5.2",
+      "wfid": "WF-20260803-060425-620300",
+      "status": "done"
+    },
+    {
+      "cohortId": "refine-glm-critic",
+      "phase": "refine",
+      "declaredExecutor": "nvidia-compat",
+      "executor": "nvidia-compat",
+      "model": "z-ai/glm-5.2",
+      "wfid": "WF-20260803-061139-064720",
+      "status": "done",
+      "seed": "WF-20260803-060425-620300",
+      "sourceCohortId": "develop-sonnet",
+      "workerExecutors": {
+        "worker-001": "nvidia-compat",
+        "worker-002": "nvidia-compat"
+      },
+      "minSuccessConfigured": 2,
+      "minSuccessEffective": 2,
+      "successes": 2,
+      "minSuccessMet": true
+    },
+    {
+      "cohortId": "refine-sonnet-critic",
+      "phase": "refine",
+      "declaredExecutor": "claude",
+      "executor": "claude",
+      "model": "sonnet",
+      "wfid": "WF-20260803-061139-064720",
+      "status": "done",
+      "seed": "WF-20260803-060425-620300",
+      "sourceCohortId": "develop-glm",
+      "workerExecutors": {
+        "worker-003": "claude",
+        "worker-004": "claude"
+      },
+      "minSuccessConfigured": 2,
+      "minSuccessEffective": 2,
+      "successes": 2,
+      "minSuccessMet": true
+    }
+  ],
+  "deliver": {
+    "approvedBy": "human",
+    "at": "2026-08-03T10:19:44.195203+00:00",
+    "note": "Owner aprovou em sessao (2026-08-03): escada N 0-3 por bandas em audit-policy.json (teto interino 3), unanimidade pra SHIP, qualquer BLOCK blocker bloqueia, diversidade de vendor obrigatoria N&gt;=2 com fallback single-vendor registrado, degradacao fuel via R13 registrada, dissent no ledger, overseer-arbitro via audit record. RF.1 matched-budget calibra as bandas no audit-seat-sizing.",
+    "checks": {
+      "stateComplete": true,
+      "sections": {
+        "operations": true,
+        "portfolio": true,
+        "experiment": true,
+        "traceability": true
+      }
+    }
+  }
+}
+</code></pre>
+ round-state:end 
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/audit-quorum-dinamico.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/audit-quorum-dinamico.md</code></li><li>Source SHA-256: <code>f03e6a7a5f2d33b3a6f67d2631485639203e09c032a551db2b345b70df4801b7</code></li><li>Edition-input SHA-256: <code>f03e6a7a5f2d33b3a6f67d2631485639203e09c032a551db2b345b70df4801b7</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

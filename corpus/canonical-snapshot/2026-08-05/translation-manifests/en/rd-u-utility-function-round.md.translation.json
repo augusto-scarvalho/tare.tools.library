@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-utility-function-round.md",
+  "sourceSha256": "53eb29f7f24fcceac38134e69117b2dbb56204b484ff48dba54590a6d9c0a908",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-u-utility-function-round.en.md",
+  "translationSha256": "2fd9b5a5fd4f76d58c983bfb0902de57aa7c88e9874f24858ba28a04924aaaf5",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

@@ -1,0 +1,341 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research round — improving the quality of agent-written code — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-phase-0-question-criteria-budget">Phase 0 — Question, criteria, budget</a></li><li class="h2"><a href="#ed-phase-1-evidence-matrix-verified-2026-07-12">Phase 1 — Evidence matrix (verified 2026-07-12)</a></li><li class="h2"><a href="#ed-phase-2-briefs-and-gate">Phase 2 — Briefs and gate</a></li><li class="h2"><a href="#ed-phase-3-wave-1-divergence">Phase 3 — Wave 1 (divergence)</a></li><li class="h2"><a href="#ed-phase-4-wave-2-critique-done">Phase 4 — Wave 2 (critique) — done</a></li><li class="h2"><a href="#ed-phase-5-portfolio-backlog">Phase 5 — Portfolio &amp; backlog</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research round — improving the quality of agent-written code</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">NATIVE_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>8819981f8a046c438e96…</span></div><div><b>Edition SHA-256</b><span>8819981f8a046c438e96…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English source reformatted without semantic refresh.</div></section>
+<section class="section content">
+<p>Round opened 2026-07-12 by the <code>research</code> skill (SPEC-119). Orchestrator: overseer session
+(running in parallel with the batch N+2 worktree implementers). Primary evidence: the owner's
+study (2026-07-12) applied to a multi-agent/multi-model/multi-vendor harness — thesis: <strong>code
+quality from agents is a control-and-assurance-SYSTEM problem, not just a model-capability
+problem.</strong> Reliable gains come from coupling generation to verifiable specs, sandboxed
+execution, INDEPENDENT tests, static/security analyzers, review separated from authorship,
+BOUNDED repair cycles, and explicit accept/abandon criteria. Tests are necessary but not
+sufficient; verifier INDEPENDENCE beats raw reflection; more agents ≠ more quality.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-0-question-criteria-budget">Phase 0 — Question, criteria, budget</h2>
+<p><strong>Question.</strong> Which code-quality assurances should THIS harness adopt, given it already owns a
+strong deterministic QA spine (separated roles + no-self-waiver, sandbox isolation, proportional
+gates, per-item scenario self-checks, records ledger, fold/handles/digest evidence capsules,
+budgets + circuit breaker), and given the study's own biases (verifier independence, risk-
+adaptive gates, heterogeneous oracles, evidence-not-logs, single-agent baseline)?</p>
+<p><strong>Success criteria.</strong></p>
+<ul>
+<li>Backlog of buildable items, each mapped to a NAMED gap + a concrete integration seam
+(file/module) + ONE quality dimension it moves (correctness/security/maintainability/test-
+strength/provenance/review-cost).</li>
+<li>Deterministic-first: prefer an independent deterministic oracle (mutation/property/metamorphic/
+static), a risk classifier that SELECTS gates, and a provenance ledger — over more LLM
+reflection, bigger agent societies, or bleeding-edge formal verification.</li>
+<li>Every item respects our invariants: eviction ≠ deletion, no resident daemon, stdlib-only core,
+GUI writes no state, verify-on-demand, summaries are a view, evidence capsules not full logs,
+an agent must NOT be the sole judge of its own code (independence).</li>
+<li>Critique must reject over-engineering: single-agent is the baseline; the study's own warnings
+bind — author-written tests can formalize the author's misreading; reflection ≠ verification;
+benchmark/coverage scores ≠ real quality; observation must pay for itself.</li>
+</ul>
+<p><strong>Declared budget.</strong> claude executor; 1 divergence wave (5 ideators) + 1 critique wave (4
+critics); research-profile budgets; no wave 3.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-1-evidence-matrix-verified-2026-07-12">Phase 1 — Evidence matrix (verified 2026-07-12)</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>prov</th>
+<th>conf</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code quality is a control/assurance-system problem; execution signals + external verifiers select better programs</td>
+<td>[web] CodeT (arXiv:2207.10397), LEVER (arXiv:2302.08468)</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>A lean pipeline can beat complex agentic systems at lower cost (localize→repair→validate)</td>
+<td>[web] Agentless (arXiv:2407.01489)</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Tests are necessary but NOT sufficient; SWE-bench Verified retired as a frontier metric (defective tests + contamination)</td>
+<td>[web] study §2.1; OpenAI statement Feb-2026</td>
+<td>web</td>
+<td>forte</td>
+<td>produção (relato)</td>
+</tr>
+<tr>
+<td>Verifier independence &gt; raw reflection; author-generated tests can fail as oracles (shared blind spots)</td>
+<td>[web] Self-Debugging (arXiv:2304.05128); AgentCoder</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>More agents ≠ more quality; a minimal driver/navigator pair saves tokens vs heavy multi-agent; coordination errors documented</td>
+<td>[web] PairCoder; RTADev</td>
+<td>web</td>
+<td>moderada</td>
+<td>preliminar</td>
+</tr>
+<tr>
+<td>Public benchmarks can't be the sole decision mechanism (contamination; none represents a specific org's software/risk/architecture)</td>
+<td>[web] LiveCodeBench (arXiv:2403.07974); BigCodeBench</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Maintainability impact uncertain; academia focuses security/perf while devs care about readability/maintenance; long-trajectory degradation</td>
+<td>[web] study §2.5; SlopCodeBench</td>
+<td>web</td>
+<td>moderada</td>
+<td>preliminar (preprint)</td>
+</tr>
+<tr>
+<td>Security does NOT emerge from functional code; passing tests must not auto-release auth/crypto/authz/serialization/parsing/infra/deps</td>
+<td>[web] study §2.6; CyberSecEval</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Reflection (Self-Refine/Reflexion/LATS) complements but does not substitute for independent verification</td>
+<td>[web] Self-Refine (arXiv:2303.17651); Reflexion</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Context = "evidence capsules" (failure + location + violated property + minimal snippet), not re-injected logs</td>
+<td>[web] study §3.8; Anthropic effective-context-engineering</td>
+<td>web</td>
+<td>forte</td>
+<td>judgment (norma)</td>
+</tr>
+<tr>
+<td>Mutation score is closer to oracle strength than coverage; property-based testing (QuickCheck) catches shallow tests</td>
+<td>[web] QuickCheck (ICFP'00); mutation-testing literature</td>
+<td>web</td>
+<td>forte</td>
+<td>consolidado</td>
+</tr>
+<tr>
+<td>Policy frameworks (NIST SSDF, OWASP ASVS, SLSA) convert into agent/pipeline-consumable rules</td>
+<td>[web] study §3.5; NIST SSDF, OWASP ASVS, SLSA</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Selective formal verification is plausible but costly/narrow</td>
+<td>[web] AlphaVerus; DafnyBench</td>
+<td>web</td>
+<td>moderada</td>
+<td>demonstração conceitual</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Baseline — what the harness ALREADY has (do NOT rebuild):</strong> separated roles (implementer /
+reviewer / critic) + <strong>no-self-waiver</strong> + reviewer contract (= author≠approver, one of the
+study's top "adopt now" items); sandbox isolation (worktrees, controlled-writes with scoped
+write-paths, target SPEC-110 harness-vs-target); the <strong>intake-triage hook</strong> (classifies a
+request profile: security/review/plan/docs) + proportional gates; per-item WORKER_RESULT /
+HARNESS_RESULT with a <strong>scenario self-check</strong>; <code>spec_test_gate</code> (a fixed heterogeneous check
+set: static-integrity, release-hygiene, path-hygiene, handles-lint, en-default-guard, and the
+<strong>security-baseline</strong> landing now = secret-scan + AST sink-scan + config-hygiene); records
+ledger + <code>subject</code> dimension; <strong>fold F1 + handles + context digest = the study's "evidence
+capsules"</strong>; token-audit + budgets + maxRounds + circuit breaker (CE.1, bounded repair); the
+two-door SDD+BDD flow (SPEC-116) = verifiable spec attached to a change.</p>
+<p><strong>Named gaps (candidate backlog anchors):</strong></p>
+<ul>
+<li><strong>CQ1 — no INDEPENDENT-oracle portfolio.</strong> The only per-change functional oracle is a scenario
+self-check WRITTEN BY THE SAME implementer — the study's #2 hole (author tests formalize the
+author's misreading). No mutation testing (does the check kill a planted mutant?), no property/
+metamorphic oracle. <code>spec_test_gate</code> checks are structural, not per-patch functional. Gap: a
+cheap deterministic independent oracle (start: mutation-probe a changed function's self-check).</li>
+<li><strong>CQ2 — gate selection is not RISK-ADAPTIVE per patch.</strong> intake-triage classifies the REQUEST;
+there is no per-PATCH classifier that routes a diff touching auth/crypto/authz/serialization/
+parsing/subprocess/deps to deeper gates + human approval (study #6). security-baseline exists
+but is observe-only and not risk-routed. Gap: a deterministic diff-risk classifier → gate depth.</li>
+<li><strong>CQ3 — no agentic-code PROVENANCE/DEBT ledger that follows a patch post-merge.</strong> The records
+ledger logs events, but there's no per-merged-hunk record of (which agent/model authored it,
+what oracle proved it, later human touch/regression) — the study's #5 opportunity. Ties records<ul>
+<li><code>subject</code>. Gap.</li>
+</ul>
+</li>
+<li><strong>CQ4 — the acceptance oracle is author-written (independence hole).</strong> no-self-waiver covers the
+REVIEW verdict, but the TEST/oracle that gates acceptance is authored by the same agent that
+wrote the code. Study #2. Gap: an oracle authored/mutated by a DIFFERENT role or <code>--seed</code>.</li>
+<li><strong>CQ5 — evidence capsules are partial for QA.</strong> fold/handles/digest are strong, but the QA
+evidence attached to a patch (which oracle ran, what property it proved, the minimal failing
+snippet) is not a structured capsule a reviewer can trust without re-running. Partial — may
+fold into CQ1/CQ3.</li>
+<li><strong>CQ6 (likely PARK) — selective formal verification for critical kernels.</strong> Bleeding-edge
+(AlphaVerus/Dafny), heavy spec investment, does not fit stdlib-only today.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-2-briefs-and-gate">Phase 2 — Briefs and gate</h2>
+<p><strong>Brief 1 — an independent oracle + author≠tester (CQ1+CQ4; the study's #1 leverage).</strong> How might
+the harness add a CHEAP deterministic independent oracle for a change — e.g. mutation-probe the
+implementer's own scenario self-check (flip a boolean / drop a return in the changed function,
+assert the self-check now FAILS → proves the test has teeth), and/or route oracle authorship to a
+different role/<code>--seed</code> — so acceptance no longer rests on author-written tests alone, reusing the
+existing scenario runner + spec_test_gate seam, deterministic, net-cost-positive, no LLM-in-loop?</p>
+<p><strong>Brief 2 — risk-adaptive gates + agentic provenance/debt (CQ2+CQ3).</strong> How might a DETERMINISTIC
+per-patch risk classifier (diff touches auth/crypto/authz/serialization/parsing/subprocess/deps/
+infra → higher tier) SELECT gate depth + force human approval on the highest tier (study #2/#6),
+and how might a provenance/debt record follow each merged change (author agent/model, oracle
+evidence, risk tier, later human maintenance) via the records ledger + <code>subject</code> — so the harness
+sees where agentic debt accrues, WITHOUT a daemon, summaries-are-a-view, single-agent baseline?</p>
+<p><strong>Parked (future round / needs a signal):</strong> CQ6 selective formal verification (bleeding-edge;
+needs a critical-kernel + spec investment); a full private/temporal benchmark (study #4 — needs
+a real workload corpus + eval harness, a round of its own); heterogeneous multi-vendor oracle
+diversity (needs the CQ1 oracle seam first).</p>
+<p><strong>Gate.</strong> Scope/waves/budget pre-approved by the owner (this invocation). Deterministic-first +
+verifier-independence + risk-adaptive + net-cost-positive + single-agent-baseline are hard
+constraints on the critique wave.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-3-wave-1-divergence">Phase 3 — Wave 1 (divergence)</h2>
+<p><code>WF-20260712-212058-051387</code>, <code>research-divergence</code>, 5 ideators (simplicity, performance,
+reliability, trust-boundary, analogy), claude executor. All 5 fulfilled. Strong deterministic
+convergence on the 6 gaps; every concept stdlib-only, no daemon, no LLM-in-loop. Standout
+convergences: <strong>mutation-probe</strong> the author's own self-check (flip a bool / drop a return in
+the CHANGED function, assert the check now FAILS → the test has teeth) — a deterministic
+mutator, NOT a second agent; <strong><code>security_baseline.evaluate</code> already computes a <code>new</code> diff that
+NOTHING consumes</strong> (observe-only at spec_test_gate.py:1778) → a per-patch risk classifier can
+consume it for near-zero marginal cost; <strong>oracle-replay</strong> — the reviewer re-runs the author's
+declared self-check from a CLEAN worktree and records the exit class, closing author-grades-own-
+work cheaply. Cross-domain transfers (analogy lens): aviation NDT inspector calibration → Q1;
+double-blind clinical / incoming-inspection-against-PO → Q4; DO-178C DAL / HACCP CCP → Q2;
+pharma DSCSA lot-traceability → Q3; GSN assurance-case → Q5.</p>
+<p>Orchestrator consolidated the 25 concepts into <strong>6 candidates</strong>:</p>
+<ul>
+<li><strong>Q1 mutation-probe gate</strong> (CQ1) — a diff-scoped stdlib gate check: mutate the CHANGED
+function (flip bool / drop return / swap comparator), assert the author's scenario self-check
+now FAILS (killed); 5-state exit class (killed/survived/error/timeout/skipped) so "couldn't
+run" never reads "passed"; observe-only first. Seam: <code>spec_test_gate</code> check via bind(env).</li>
+<li><strong>Q2 per-patch risk-tier gate selection</strong> (CQ2) — a deterministic diff-glob + sink-token
+classifier (reusing security_baseline's sink patterns) that SELECTS gate depth, and CONSUMES
+the security-baseline <code>new</code> diff currently unconsumed at <code>spec_test_gate.py:1778</code>; observe→
+enforce rollout; critical tier adds revert-cleanliness (<code>git apply -R --check</code>) + human
+approval. Seam: <code>intake_triage.py</code> + spec_test_gate.</li>
+<li><strong>Q3 provenance / agentic-debt record</strong> (CQ3) — one <code>records.add_entry</code> at finalize (author
+agent/model, oracle evidence, risk tier); agentic-debt is a LAZY on-demand git-derived VIEW
+(blame/log), never a daemon. PARK hunk-level ledger. Seam: <code>records.py</code> + workflow finalize.</li>
+<li><strong>Q4 oracle-replay (author≠tester)</strong> (CQ4) — the reviewer replays the author's declared self-
+check from a clean worktree and records <code>oracleReplay.exitClass</code>; composes with Q1 (Q1 fixes
+WEAK tests, Q4 fixes UNGRADED tests). Stronger later: spec-first oracle from SPEC-116 Gherkin
+by a different role. Seam: reviewer role / workflow finalize.</li>
+<li><strong>Q5 QA evidence capsule</strong> (CQ5) — a capped, structured <code>oracleEvidence</code> capsule (which oracle
+ran, exitClass, minimal failing snippet) in WORKER_RESULT, scrubbed through the secret_scan
+collect boundary; review cost O(capsule) not O(re-run). Seam: WORKER_RESULT schema + collect.</li>
+<li><strong>Q6 (PARK)</strong> — selective formal verification, N-version oracle voting, entropy/DLP-grade
+secret detection, per-patch LLM security review (unbounded cost / bleeding-edge).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-4-wave-2-critique-done">Phase 4 — Wave 2 (critique) — done</h2>
+<p><code>WF-20260712-214047-864247</code>, <code>research-critique</code>, 4 critics (validity/architecture/cost/
+security), <code>--seed</code> = the divergence reduce. All 4 fulfilled. Verified anchors: <code>security['new']</code>
+computed and only REPORTED at <code>spec_test_gate.py:1778-1783</code> (Q2's dangling signal — real);
+<code>security_baseline._classify_sink</code> reusable at <code>security_baseline.py:81</code>; <code>records.add_entry</code> at
+<code>records.py:128</code>; the collect secret boundary WITHHOLDS secret-shaped results at
+<code>workflow_reduce.py:97-105</code> (it does not redact-and-pass — decisive for Q5). Literature: Q1
+mutation testing is well-founded (DeMillo/Lipton/Sayward 1978; diff-scoped probing at Google,
+Petrovic &amp; Ivankovic ICSE-SEIP 2018) BUT ≤3 mutants is NOT a "mutation score" (undefined
+denominator); Q4 replaying the AUTHOR's own check is REPRODUCTION, not verifier independence
+(IEEE 1012) → rename the metric; N-version voting CUT (Knight &amp; Leveson: correlated failures).</p>
+<p><strong>Cross-lens verdicts:</strong></p>
+<table>
+<thead>
+<tr>
+<th>cand</th>
+<th>validity</th>
+<th>architecture</th>
+<th>cost</th>
+<th>security</th>
+<th>net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q2 risk-tier selection</td>
+<td>keep (observe→enforce sound)</td>
+<td>keep-w/-ch (reuse <code>_classify_sink</code>, NOT evaluate()/intake_triage)</td>
+<td><strong>keep, build FIRST (cost allocator)</strong></td>
+<td><strong>keep, build first (fail-closed: unknown→medium)</strong></td>
+<td><strong>KEEP, #1</strong> — pure fn consuming the dangling <code>security['new']</code>; a cost allocator, zero new exec surface</td>
+</tr>
+<tr>
+<td>Q5 QA capsule</td>
+<td>keep-w/-ch (testimony unless bound to Q4)</td>
+<td>keep (schema-only)</td>
+<td>keep (~0 cost; cap size, handles-not-bodies)</td>
+<td>keep-w/-ch (collect WITHHOLDS secrets → carry a handle to a pre-scrubbed artifact, not inline)</td>
+<td><strong>KEEP</strong> — schema-only capsule + <code>rerunCmd</code>; handles not bodies; foundation for Q4/Q1</td>
+</tr>
+<tr>
+<td>Q3 provenance record</td>
+<td>keep-w/-ch ('agentic-debt' = coinage → label exploratory; aligns SLSA/in-toto/SSDF)</td>
+<td>keep (one add_entry, optional fields)</td>
+<td>keep-w/-ch (ship view only after backfill proves it's queried)</td>
+<td>keep-w/-ch (payload = handles + commit sha, never raw output; add tamper-evidence)</td>
+<td><strong>KEEP-CHANGES</strong> — one <code>records.add_entry</code> at finalize; handles+sha payload</td>
+</tr>
+<tr>
+<td>Q4 oracle-replay</td>
+<td>keep-w/-ch (REPRODUCTION not independence → rename)</td>
+<td>keep-w/-ch (consume Q5's <code>rerunCmd</code>; scope to reviewPolicy)</td>
+<td>keep-w/-ch (doubles exec; subprocess replay, tier-gated by Q2)</td>
+<td>keep (author-declared cmd = untrusted exec surface)</td>
+<td><strong>KEEP-CHANGES, LATE</strong> — reproduction integrity; on the shared oracle runner</td>
+</tr>
+<tr>
+<td>Q1 mutation-probe</td>
+<td>keep-w/-ch (≤3 mutants ≠ "mutation score")</td>
+<td>keep-w/-ch (never mutate the LIVE tree; gate runtime risk)</td>
+<td>keep-w/-ch (cap mutants+runtime; finalize-time; honest 'skipped')</td>
+<td>keep-w/-ch (untrusted-command exec surface)</td>
+<td><strong>KEEP-CHANGES, LAST</strong> — clean-worktree mutation, capped, honest exit-classes</td>
+</tr>
+<tr>
+<td>Q6 formal/N-version</td>
+<td>park; <strong>CUT N-version</strong></td>
+<td>park</td>
+<td>park (each violates budget)</td>
+<td>park</td>
+<td><strong>PARK; N-version CUT</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unanimous-ish build order:</strong> <strong>Q2 → Q5 → Q3 → (build ONE allowlisted isolated-worktree oracle
+runner) → Q4 → Q1.</strong> Cross-cutting: define the <code>exitClass</code> enum ONCE (in <code>result_contracts</code>) —
+Q1/Q4/Q5 all use it or they drift.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-5-portfolio-backlog">Phase 5 — Portfolio &amp; backlog</h2>
+<p>Deterministic-first held: Q2 is a pure classifier over an already-computed signal (a cost
+allocator, not adder); Q5/Q3 are schema/ledger extensions; Q4/Q1 are the only executing items
+and the critique forced them onto ONE shared, allowlisted, isolated-worktree oracle runner
+(untrusted-command containment) and to LAST. The governing corrections: <strong>fail-closed</strong>
+(unknown diffs → medium tier), <strong>handles-not-bodies</strong> (the collect boundary withholds secrets,
+so evidence is a handle to a pre-scrubbed artifact, never an inline snippet), and <strong>honest
+naming</strong> (≤3 mutants is not a "mutation score"; replaying your own test is reproduction, not
+independence). Portfolio → the <strong>Code quality roadmap</strong> section in <code>docs/IMPLEMENTATION_BACKLOG.md</code>
+(CQ.1–CQ.6), each row = named gap + a verified seam + the metric it moves + ship/defer/PARK.</p>
+<p><strong>Ship spine:</strong> CQ.1 risk-tier gate selection (Q2, build first, consumes the dangling
+security-baseline <code>new</code>) · CQ.2 QA evidence capsule + <code>rerunCmd</code> (Q5, handles-not-bodies) ·
+CQ.3 provenance record (Q3, one add_entry). <strong>Deferred, on the shared oracle runner:</strong> CQ.4
+oracle-replay / reproduction integrity (Q4) · CQ.5 mutation-probe (Q1, capped, clean-worktree).
+<strong>PARK:</strong> CQ.6 formal verification; N-version voting CUT.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/code-quality-agents.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/code-quality-agents.md</code></li><li>Source SHA-256: <code>8819981f8a046c438e967d188fe93e744aa2a5d139a3cb728c4486b12f2378f4</code></li><li>Edition-input SHA-256: <code>8819981f8a046c438e967d188fe93e744aa2a5d139a3cb728c4486b12f2378f4</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

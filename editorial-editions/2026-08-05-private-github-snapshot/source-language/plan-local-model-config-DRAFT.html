@@ -1,0 +1,490 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plan: local-model configuration split — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-design">Design</a></li><li class="h3"><a href="#ed-1-spec-flow">1. Spec flow</a></li><li class="h3"><a href="#ed-2-overlay-location-and-names">2. Overlay location and names</a></li><li class="h3"><a href="#ed-3-canonical-example-and-overlay-shape">3. Canonical example and overlay shape</a></li><li class="h3"><a href="#ed-4-precedence-and-inspectability">4. Precedence and inspectability</a></li><li class="h3"><a href="#ed-5-safe-commandtemplate-merge">5. Safe commandTemplate merge</a></li><li class="h3"><a href="#ed-6-helper-command">6. Helper command</a></li><li class="h3"><a href="#ed-7-health-and-thinking-validation">7. Health and thinking validation</a></li><li class="h3"><a href="#ed-8-backward-compatibility">8. Backward compatibility</a></li><li class="h3"><a href="#ed-9-pre-existing-spawn-mapping-gap">9. Pre-existing spawn-mapping gap</a></li><li class="h2"><a href="#ed-rationale-table">Rationale table</a></li><li class="h2"><a href="#ed-file-footprint">File footprint</a></li><li class="h2"><a href="#ed-acceptance-criteria">Acceptance criteria</a></li><li class="h2"><a href="#ed-open-questions-for-the-owner">Open questions for the owner</a></li><li class="h2"><a href="#ed-risks-what-could-break">Risks / what could break</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>Plan: local-model configuration split</h1><p class="subtitle">Historical implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>419cc9dc1f3ab419ad04…</span></div><div><b>Edition SHA-256</b><span>419cc9dc1f3ab419ad04…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Status: independent plan-author draft; design only, no implementation.</p>
+</section>
+<section class="section content"><h2 id="ed-design">Design</h2>
+<h3 id="ed-1-spec-flow">1. Spec flow</h3>
+<p>This is covered by the existing self-hosted HTTP-executor boundary, so it should
+not open a new SPEC id.</p>
+<ul>
+<li>Create the refinement artifact at
+<code>specs/40-features/local-model-operator-config.intake.md</code>, using
+<code>specs/templates/intake-refinement.md</code>.</li>
+<li>Amend <code>specs/40-features/compat-executor-routing.md</code> as <strong>SPEC-165 amendment
+v3</strong>, extending requirements 5 and 6 with numbered requirements for the
+operator overlay, precedence, setup validation, and no-overlay compatibility.</li>
+<li>Put the UI/CLI acceptance Gherkin in that amendment, with scenario check ids
+mapped to the proposed <code>lmc-*</code> scenario checks.</li>
+<li>Update <code>specs/MANIFEST.yaml</code> as required by the normal spec-pack flow.</li>
+</ul>
+<p>This is the covered door because SPEC-165 R5 owns <code>local-llama</code> and its LAN
+allowlist, while R6 owns keyless authorization. A records search found no
+narrower governing decision; repository discovery pointed to the existing
+canonical-seed/local-copy and chat-setup precedents.</p>
+<h3 id="ed-2-overlay-location-and-names">2. Overlay location and names</h3>
+<p>Keep the operator file inside the repository:</p>
+<ul>
+<li>Canonical, tracked example and compatibility defaults:
+<code>.harness/runtime/local-model-config.example.json</code></li>
+<li>Operator-local, gitignored delta:
+<code>.harness/runtime/local-model-config.json</code></li>
+</ul>
+<p>Add only the local filename to <code>.gitignore</code>; do not ignore all of
+<code>.harness/runtime/</code>.</p>
+<p>This location wins over an XDG-style file. The repo already keeps local
+<code>chat-prefs.json</code> and <code>executor-state.json</code> in <code>.harness/runtime/</code>, and
+<code>tools/bootstrap_local.py</code> establishes the tracked <code>*.example*</code> to gitignored
+local-file vocabulary. Keeping the overlay here also lets <code>harness.py doctor</code>
+inspect the exact file without searching user-global locations.</p>
+<p>Do <strong>not</strong> add this overlay to <code>tools/bootstrap_local.py</code>'s <code>DERIVED</code> map. It is
+optional and must tolerate absence; <code>models setup-local</code> is its intentional
+creator. The example remains available for manual copying, but a fresh clone
+does not acquire a fake "configured" state.</p>
+<h3 id="ed-3-canonical-example-and-overlay-shape">3. Canonical example and overlay shape</h3>
+<p>The tracked example is also the lowest-precedence compatibility default:</p>
+<pre><code class="language-json">{
+  "schemaVersion": 1,
+  "_notice": "baseUrl selects a destination; allowHosts and keylessHosts are separate explicit grants and are never derived from it",
+  "localLlama": {
+    "baseUrl": null,
+    "allowHosts": ["localhost", "127.0.0.1", "::1"],
+    "keylessHosts": ["localhost", "127.0.0.1", "::1"],
+    "contextWindow": 65536,
+    "minimumOutputTokens": null
+  }
+}
+</code></pre>
+<p><code>baseUrl: null</code> preserves today's requirement that the operator provide
+<code>OPENAI_BASE_URL</code>. The loopback lists and <code>contextWindow: 65536</code> preserve the
+current no-overlay behavior; the latter is explicitly a compatibility default,
+not a claim about every model.</p>
+<p>The helper writes a local delta such as:</p>
+<pre><code class="language-json">{
+  "schemaVersion": 1,
+  "localLlama": {
+    "baseUrl": "http://192.0.2.10:8080/v1",
+    "allowHosts": ["192.0.2.10"],
+    "keylessHosts": ["192.0.2.10"],
+    "contextWindow": 65536,
+    "minimumOutputTokens": 300,
+    "detected": {
+      "servedId": "local_agent_coder",
+      "contextWindowTrained": 262144,
+      "parameterCount": 34660610688,
+      "sizeBytes": 26445203968,
+      "verifiedAt": "RFC-3339 timestamp"
+    }
+  }
+}
+</code></pre>
+<p>The local file is a delta over these operator fields. It is never merged into
+the executor or card object wholesale. Its schema accepts only <code>baseUrl</code>,
+<code>allowHosts</code>, <code>keylessHosts</code>, <code>contextWindow</code>, <code>minimumOutputTokens</code>, and the
+bounded <code>detected</code> metadata object. Keys such as <code>commandTemplate</code>, <code>id</code>,
+<code>models</code>, <code>executors</code>, <code>envKeepList</code>, or arbitrary unknown keys are rejected.</p>
+<p>Lists replace the corresponding example list; they are not appended. An
+explicit empty <code>allowHosts</code> is invalid. Omitting <code>allowHosts</code> retains the
+canonical loopback grant, so a LAN <code>baseUrl</code> without a separate LAN grant fails
+closed.</p>
+<p>Move <code>contextWindow</code> out of the raw <code>local-llama</code> card in
+<code>.harness/routing/model-cards.json</code>. Keep the generic <code>qwen36-fast</code> id and all
+vendor cards unchanged. A resolved-card view overlays the effective
+<code>contextWindow</code> and <code>minimumOutputTokens</code> for inspection without rewriting the
+canonical card.</p>
+<h3 id="ed-4-precedence-and-inspectability">4. Precedence and inspectability</h3>
+<p>Resolve each field independently:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Precedence, highest first</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>baseUrl</code></td>
+<td>non-empty process <code>OPENAI_BASE_URL</code> -&gt; local overlay -&gt; canonical <code>null</code></td>
+</tr>
+<tr>
+<td><code>allowHosts</code></td>
+<td>local overlay -&gt; canonical loopback list; no environment override exists</td>
+</tr>
+<tr>
+<td><code>keylessHosts</code></td>
+<td>local overlay -&gt; canonical loopback list; no environment override exists</td>
+</tr>
+<tr>
+<td><code>contextWindow</code></td>
+<td>local overlay -&gt; canonical compatibility value <code>65536</code></td>
+</tr>
+<tr>
+<td><code>minimumOutputTokens</code></td>
+<td>local overlay -&gt; canonical <code>null</code></td>
+</tr>
+<tr>
+<td>card <code>id</code></td>
+<td>canonical <code>qwen36-fast</code> only</td>
+</tr>
+<tr>
+<td>API key</td>
+<td>existing process environment -&gt; OS vault behavior; never stored in this overlay</td>
+</tr>
+</tbody>
+</table>
+<p>When tiers disagree, the table above decides. A process environment can select
+a different <code>baseUrl</code>, but it cannot authorize that host. If the selected host
+is not present in the separately resolved <code>allowHosts</code>, local-model resolution
+is invalid and spawning is refused before a request.</p>
+<p>The brief refers to <code>common.load_env_file</code> and its <code>setdefault</code> behavior. Current
+source has since replaced that function with <code>load_ambient_keys()</code> and the
+process-env -&gt; OS-vault key cascade. Do not resurrect <code>.env</code>. Instead, after
+<code>load_ambient_keys()</code>, load the local overlay and apply only its non-secret
+<code>baseUrl</code> with <code>os.environ.setdefault("OPENAI_BASE_URL", ...)</code>. This retains the
+required real-environment-wins behavior and lets the existing
+<code>envKeepList</code> carry the resolved URL into filtered worker environments.</p>
+<p>Make the answer visible in two existing surfaces:</p>
+<ul>
+<li><code>python scripts/harness.py models show qwen36-fast --resolved</code> prints the
+resolved local fields plus a source label for each field
+(<code>environment</code>, <code>local overlay</code>, or <code>canonical example</code>). It prints no secret.</li>
+<li><code>python scripts/harness.py doctor</code> adds a static <code>local-model-config</code> check:
+absent overlay is OK/canonical-loopback; a valid overlay is OK and names the
+resolved host and source; malformed, stale, or authorization-mismatched config
+is WARN. <code>doctor</code> performs no network request.</li>
+</ul>
+<h3 id="ed-5-safe-commandtemplate-merge">5. Safe <code>commandTemplate</code> merge</h3>
+<p>Keep the security flags in the canonical
+<code>.harness/routing/executors.json</code> template and replace only their value tokens:</p>
+<pre><code class="language-json">[
+  "{python}",
+  "tools/openai_worker.py",
+  "--allow-hosts",
+  "{localAllowHosts}",
+  "--keyless-hosts",
+  "{localKeylessHosts}",
+  "--model",
+  "{model}",
+  "{prompt}"
+]
+</code></pre>
+<p>The overlay cannot contain argv or a command template. A small
+<code>scripts/harness_lib/local_model_config.py</code> resolver validates the overlay,
+normalizes host entries, and substitutes exact argv elements equal to
+<code>{localAllowHosts}</code> and <code>{localKeylessHosts}</code> with comma-separated resolved
+lists. It must not perform general string or shell interpolation.</p>
+<p>Apply that resolution in <code>executor_config("local-llama")</code>, the shared executor
+read seam. Change <code>spawn_command()</code> to use <code>executor_config()</code> instead of its
+current direct <code>load_executors()</code> lookup. The workflow-spawn and route-loop
+paths already use <code>executor_config()</code>. This produces the same literal loopback
+argv as today when no overlay exists, while ensuring every normal spawn path
+receives the local delta.</p>
+<p>Validation must reject an explicit empty <code>allowHosts</code> before rendering.
+<code>tools/openai_worker.py</code> currently skips its egress check when
+<code>args.allow_hosts</code> is an empty string, so allowing an empty rendered value would
+turn a malformed overlay into a bypass.</p>
+<h3 id="ed-6-helper-command">6. Helper command</h3>
+<p>Add one action to the existing model command family:</p>
+<pre><code class="language-text">python scripts/harness.py models setup-local
+python scripts/harness.py models setup-local --base-url URL --allow-host HOST [--keyless-host HOST] [--served-id ID] [--probe-tokens 300] [--update]
+</code></pre>
+<p>It uses the existing model-card surface rather than adding a top-level setup,
+config, or validation command.</p>
+<p>Interactive flow:</p>
+<ol>
+<li>Ask for the base URL, defaulting only to an already resolved
+<code>OPENAI_BASE_URL</code>; otherwise require input.</li>
+<li>Parse and normalize it. Accept only <code>http</code> or <code>https</code>, require a hostname,
+and reject embedded credentials, query strings, and fragments.</li>
+<li>Display the parsed hostname and ask for a separate, explicit egress grant:
+<code>Allow local-llama to contact HOST? [y/N]</code>. Only an affirmative answer
+creates <code>allowHosts</code>. The host may be suggested from the URL, but it is not
+authorized without this separate confirmation.</li>
+<li>If no API key is present and the host is not loopback, ask separately:
+<code>Permit keyless requests to HOST? [y/N]</code>. Declining requires an API key and
+does not silently copy the egress grant into <code>keylessHosts</code>.</li>
+<li>Run the health and thinking checks below.</li>
+<li>Show the exact delta and its resolution sources, then write
+<code>.harness/runtime/local-model-config.json</code> only after every check passes.</li>
+</ol>
+<p>Non-interactive mode requires <code>--base-url</code> and a separate <code>--allow-host</code>; the
+URL alone is insufficient. A non-loopback, keyless setup additionally requires
+the separate <code>--keyless-host</code>. This preserves two independent declarations
+even in automation.</p>
+<p>Existing overlay behavior:</p>
+<ul>
+<li>Without <code>--update</code>, refuse before probing or writing.</li>
+<li>With <code>--update</code>, require the existing file to parse and validate, retain it
+unchanged until the replacement has passed all checks, show the changed
+fields, then replace it.</li>
+<li>Do not provide a blind <code>--force</code> path for malformed existing configuration.</li>
+</ul>
+<p>Other refusals:</p>
+<ul>
+<li>unreachable server, timeout, non-2xx response, or invalid JSON;</li>
+<li><code>/v1/models</code> returns no served model;</li>
+<li>selected model metadata lacks a positive <code>n_ctx</code>;</li>
+<li>multiple served models without <code>--served-id</code>;</li>
+<li>the approved host differs from the URL host after normalization;</li>
+<li>missing API key for a non-loopback host without a separate keyless grant;</li>
+<li>thinking confirmation still returns no content at the chosen probe floor;</li>
+<li>any attempt to place canonical executor/card fields in the delta.</li>
+</ul>
+<p>The helper writes no API key and does not rename the generic card id.</p>
+<h3 id="ed-7-health-and-thinking-validation">7. Health and thinking validation</h3>
+<p>Health check:</p>
+<ul>
+<li>After the egress grant is confirmed, perform <code>GET &lt;baseUrl&gt;/models</code> with a
+short timeout and the existing API key when present.</li>
+<li>Require at least one model and read the measured llama.cpp fields: served id,
+<code>n_ctx</code>, <code>n_ctx_train</code>, <code>n_params</code>, and <code>size</code>.</li>
+<li>Use <code>n_ctx</code> as <code>contextWindow</code>; store the remaining facts under <code>detected</code>.</li>
+<li>Cost: zero generated tokens. This metadata request is mandatory before any
+write.</li>
+</ul>
+<p>Thinking check:</p>
+<ul>
+<li>POST a deterministic "reply exactly OK" request with <code>max_tokens=16</code>.</li>
+<li>If it returns non-empty content, record <code>minimumOutputTokens: 16</code>.</li>
+<li>If it returns empty content with <code>finish_reason: length</code>, classify it as a
+thinking model and make one confirmation request with <code>max_tokens</code> equal to
+<code>--probe-tokens</code> (default <code>300</code>).</li>
+<li>Record the confirmed value only if that request returns non-empty content.
+Otherwise refuse to write and tell the operator to rerun with an explicitly
+larger <code>--probe-tokens</code>.</li>
+<li>Cost: at most 16 completion tokens for a non-starved model; at most
+16 + 300 = 316 completion tokens by default for a thinking model. The second
+spend occurs only after the cheap probe proves it necessary. This is a
+one-time setup cost that prevents an empty worker result from being mistaken
+for a broken server.</li>
+</ul>
+<p><code>minimumOutputTokens</code> is a recorded lower bound validated by setup. It is not a
+new global workflow token budget. Any future code that introduces an OpenAI
+<code>max_tokens</code> cap must clamp it to at least this resolved floor.</p>
+<h3 id="ed-8-backward-compatibility">8. Backward compatibility</h3>
+<p>With no local overlay:</p>
+<ul>
+<li><code>OPENAI_BASE_URL</code> continues to come from the real process environment;</li>
+<li>the resolved allow/keyless argv values are exactly
+<code>localhost,127.0.0.1,::1</code>;</li>
+<li>the resolved card remains <code>qwen36-fast</code> with <code>contextWindow: 65536</code>;</li>
+<li>a missing base URL still fails as it does today;</li>
+<li>vendor executor/card objects are byte-for-byte untouched.</li>
+</ul>
+<p>Lock this with an acceptance scenario that removes the overlay, sets a loopback
+<code>OPENAI_BASE_URL</code>, and compares the rendered argv and resolved card to the
+pre-change fixtures.</p>
+<h3 id="ed-9-pre-existing-spawn-mapping-gap">9. Pre-existing spawn-mapping gap</h3>
+<p>Do <strong>not</strong> fix <code>task-profiles.json</code> spawn mappings in this plan. The failure
+<code>Profile 'review' has no spawn mapping for executor 'local-llama'</code> predates the
+configuration split and requires a routing-policy decision: which profiles may
+select the local executor, with which model and effort. Adding mappings here
+would silently change model routing rather than merely make operator config
+local.</p>
+<p>Track it as a separate SPEC-165 follow-up/backlog item. <code>models setup-local</code>
+validates the endpoint directly and therefore does not depend on
+<code>spawn-command --executor local-llama</code>.</p>
+</section>
+<section class="section content"><h2 id="ed-rationale-table">Rationale table</h2>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In-repo <code>.harness/runtime/</code> overlay, not XDG</td>
+<td>Repo precedent: gitignored <code>chat-prefs.json</code>, local <code>executor-state.json</code>, and <code>tools/bootstrap_local.py</code> canonical-seed/local-copy pattern; judgement call favoring discoverability by <code>doctor</code></td>
+</tr>
+<tr>
+<td>Do not auto-materialize this optional overlay in bootstrap</td>
+<td>Repo precedent: <code>bootstrap_local.py</code> explicitly derives only required configs and says other local files tolerate absence; backward-compatibility requirement</td>
+</tr>
+<tr>
+<td>Process env wins for <code>baseUrl</code></td>
+<td>Brief measurement of prior <code>setdefault</code> semantics; current <code>load_ambient_keys()</code> source preserves real-env-wins for the OS-vault cascade</td>
+</tr>
+<tr>
+<td>No environment tier for allow/keyless lists</td>
+<td>Binding overseer correction and measured SPEC-165 R6 security boundary</td>
+</tr>
+<tr>
+<td>Overlay is a strict field delta</td>
+<td>Binding brief decision; research finding that full replacement can silently drop security flags</td>
+</tr>
+<tr>
+<td>Canonical template retains both flags</td>
+<td>Binding brief decision; current <code>tools/openai_worker.py</code> consumes both argv flags</td>
+</tr>
+<tr>
+<td>Empty <code>allowHosts</code> is invalid</td>
+<td>Source verification: <code>openai_worker.py</code> checks egress only when <code>args.allow_hosts</code> is truthy</td>
+</tr>
+<tr>
+<td>Generic <code>qwen36-fast</code> id stays canonical</td>
+<td>Live measurement: llama.cpp ignored the request model id and served the loaded model</td>
+</tr>
+<tr>
+<td><code>contextWindow</code> comes from <code>/v1/models.n_ctx</code></td>
+<td>Live measurement: <code>n_ctx</code> reflects deployment tuning while <code>n_ctx_train</code> is the trained limit</td>
+</tr>
+<tr>
+<td><code>models setup-local</code> rather than a new top-level verb</td>
+<td>Repo precedent: <code>models</code> already owns card CRUD; brief requires sitting on existing commands</td>
+</tr>
+<tr>
+<td><code>models show --resolved</code> and <code>doctor</code> expose resolution</td>
+<td>Repo precedent: existing show and WARN-only doctor surfaces; little-coder research finding that echoing resolved config aids diagnosis</td>
+</tr>
+<tr>
+<td>Mandatory pre-write health check</td>
+<td>Live measurement that <code>/v1/models</code> exposes the needed metadata; judgement call because little-coder has no validation precedent</td>
+</tr>
+<tr>
+<td>16-token detection plus one 300-token confirmation</td>
+<td>Live measurements: 16 produced empty content/length, 300 produced <code>OK</code>; judgement call to bound setup cost and refuse rather than auto-escalate indefinitely</td>
+</tr>
+<tr>
+<td>Separate spawn-mapping follow-up</td>
+<td>Measured pre-existing failure plus judgement that profile mappings are routing policy, not operator configuration</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-file-footprint">File footprint</h2>
+<p>An implementer should touch:</p>
+<ul>
+<li><code>specs/40-features/local-model-operator-config.intake.md</code></li>
+<li><code>specs/40-features/compat-executor-routing.md</code></li>
+<li><code>specs/MANIFEST.yaml</code></li>
+<li><code>.harness/runtime/local-model-config.example.json</code></li>
+<li><code>.harness/runtime/local-model-config.json</code> only when the operator runs the helper; never commit it</li>
+<li><code>.gitignore</code></li>
+<li><code>.harness/routing/executors.json</code></li>
+<li><code>.harness/routing/model-cards.json</code></li>
+<li><code>scripts/harness_lib/local_model_config.py</code></li>
+<li><code>scripts/harness_lib/model_routing.py</code></li>
+<li><code>scripts/harness_lib/repo_health.py</code></li>
+<li><code>scripts/harness.py</code></li>
+<li><code>docs/OPERATOR_GUIDE.md</code></li>
+<li><code>testing/scenarios/lmc_local_model_config.py</code></li>
+<li>Existing focused regression scenarios where their assertions cover the
+changed seams: <code>testing/scenarios/cer_compat_routing.py</code>,
+<code>testing/scenarios/rs_research_skill.py</code>, and
+<code>testing/scenarios/pc_post_clone.py</code></li>
+</ul>
+<p>Intentionally not touched:</p>
+<ul>
+<li><code>.env</code> or <code>.env.example</code></li>
+<li><code>tools/bootstrap_local.py</code></li>
+<li>vendor cards or vendor executor templates</li>
+<li><code>.harness/routing/task-profiles.json</code> for the separate spawn-mapping gap</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-acceptance-criteria">Acceptance criteria</h2>
+<ol>
+<li><strong>[lmc-no-overlay-compat]</strong> With
+<code>.harness/runtime/local-model-config.json</code> absent and a loopback
+<code>OPENAI_BASE_URL</code>, the rendered <code>local-llama</code> worker argv contains the same
+two loopback lists in the same positions as before, the card id is
+<code>qwen36-fast</code>, and the resolved context window is <code>65536</code>.</li>
+<li><strong>[lmc-vendors-unchanged]</strong> Adding or removing a local overlay does not alter
+any non-<code>local-llama</code> executor or card object.</li>
+<li><strong>[lmc-env-precedence]</strong> When process <code>OPENAI_BASE_URL</code> and overlay <code>baseUrl</code>
+disagree, the process value is resolved and reported with source
+<code>environment</code>.</li>
+<li><strong>[lmc-env-does-not-authorize]</strong> If that winning environment URL names a host
+absent from resolved <code>allowHosts</code>, resolution/spawn refuses before network
+access.</li>
+<li><strong>[lmc-allowlist-structural]</strong> An overlay cannot contain
+<code>commandTemplate</code>; every successfully resolved local command contains both
+<code>--allow-hosts</code> and <code>--keyless-hosts</code> from the canonical template.</li>
+<li><strong>[lmc-allowlist-cannot-drop]</strong> A LAN <code>baseUrl</code> with omitted <code>allowHosts</code>
+retains only canonical loopback and is refused; an explicitly empty
+<code>allowHosts</code> is invalid. Neither case can render an unguarded worker command.</li>
+<li><strong>[lmc-keyless-separate]</strong> Approving an egress host does not add it to
+<code>keylessHosts</code>; without an API key, a non-loopback host requires a second
+explicit keyless grant.</li>
+<li><strong>[lmc-helper-unreachable]</strong> An unreachable/timed-out server leaves an absent
+overlay absent and an existing overlay byte-identical.</li>
+<li><strong>[lmc-helper-empty-models]</strong> A successful <code>/models</code> response with no models
+is refused and writes nothing.</li>
+<li><strong>[lmc-helper-existing]</strong> An existing overlay is refused without
+<code>--update</code>; a failed update check leaves the old bytes untouched.</li>
+<li><strong>[lmc-helper-detects]</strong> A valid single-model response writes <code>n_ctx</code> as
+<code>contextWindow</code> and records the served id, trained context, parameters,
+size, and verification timestamp without changing the generic card id.</li>
+<li><strong>[lmc-thinking-floor]</strong> Empty content plus <code>finish_reason: length</code> at 16
+tokens triggers exactly one configured-floor confirmation; success records
+that floor, while another empty result refuses the write.</li>
+<li><strong>[lmc-resolved-show]</strong> <code>models show qwen36-fast --resolved</code> reports each
+effective local field and its source without printing an API key.</li>
+<li><strong>[lmc-doctor-static]</strong> <code>doctor</code> reports absent/valid/invalid overlay state
+without contacting the configured server.</li>
+<li><strong>[lmc-post-clone]</strong> The post-clone scenario remains green without creating
+the optional overlay, proving readers tolerate its absence.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-open-questions-for-the-owner">Open questions for the owner</h2>
+<ol>
+<li>Which task profiles, if any, should gain explicit <code>local-llama</code> spawn
+mappings, and at what effort? This is the separate pre-existing routing item;
+the configuration plan deliberately does not choose for the owner.</li>
+<li>Should a future change enforce <code>minimumOutputTokens</code> immediately on every
+local request, or keep it as resolved metadata until a request-level
+<code>max_tokens</code> cap is introduced? This plan records and exposes the floor but
+does not invent a cap that the current worker does not have.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-risks-what-could-break">Risks / what could break</h2>
+<ul>
+<li><code>spawn_command()</code> currently bypasses <code>executor_config()</code> and reads
+<code>load_executors()</code> directly. If it is not moved to the shared seam, direct
+spawn commands can leak unresolved host placeholders while workflow spawns
+work.</li>
+<li><code>workflow_spawn_command_for_prompt()</code> and <code>route_loop._model_verdict()</code> render
+commands independently. The resolver must return the same partially resolved
+canonical template to both; do not patch each renderer separately.</li>
+<li><code>build_worker_spawn_env()</code> filters process variables. Overlay <code>baseUrl</code> must
+be installed with real-env-wins semantics before filtering, and
+<code>OPENAI_BASE_URL</code> must remain in <code>local-llama.envKeepList</code>.</li>
+<li><code>_hop_usable()</code> currently treats the mere presence of
+<code>--keyless-hosts</code> as usable. It must consume the resolved authorization status
+so a mismatched base URL participates in failover instead of spawning and
+failing later.</li>
+<li><code>openai_worker.py</code> treats an empty allow-host string as no allowlist. Resolver
+validation of non-empty <code>allowHosts</code> is security-critical.</li>
+<li>Raw-card consumers such as chat model selectors will no longer see
+<code>contextWindow</code> in <code>model-cards.json</code>. Any consumer that displays or budgets
+by it must deliberately request the resolved card; vendor-card reads must
+remain raw.</li>
+<li>Host normalization must handle case, IPv4, bracketed IPv6, trailing dots, and
+URL ports consistently. The allowlist stores hostnames only, matching
+<code>urlparse(...).hostname</code>; it must not store schemes or paths.</li>
+<li>Changing <code>OPENAI_BASE_URL</code> in the process can make a previously valid overlay
+authorization-mismatched. The resolved show and doctor warning are required
+so this is visible before a worker request.</li>
+<li>The helper is an operator-authorized network client. It must obtain the
+explicit host grant before its first request, use bounded timeouts, reject URL
+credentials, and never echo or persist the API key.</li>
+<li>A mutable hostname can resolve to a different address later; the existing
+worker control is hostname-based. Changing that to IP pinning is a separate
+security design, not something to smuggle into this configuration split.</li>
+<li>The current source no longer has <code>load_env_file</code>. Implementing the brief
+literally against that old symbol would either fail or accidentally restore
+the retired plaintext <code>.env</code> tier.</li>
+<li>The implementation touches egress and keyless authorization. It requires the
+repository's security review and focused SPEC-165 regression gates before
+landing.</li>
+</ul>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-local-model-config-DRAFT.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-local-model-config-DRAFT.md</code></li><li>Source SHA-256: <code>419cc9dc1f3ab419ad040d45131ae563b9441f59dfaa3f6da088b895b658e382</code></li><li>Edition-input SHA-256: <code>419cc9dc1f3ab419ad040d45131ae563b9441f59dfaa3f6da088b895b658e382</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

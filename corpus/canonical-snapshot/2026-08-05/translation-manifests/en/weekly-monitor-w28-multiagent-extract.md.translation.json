@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-multiagent-extract.md",
+  "sourceSha256": "5883f5807b92cd43f3278fe3364d4e0e57fdb150d3e84a3f5fed59bc2715dcf7",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-multiagent-extract.en.md",
+  "translationSha256": "90b1c5f67a1667fa7f015742063bdf29f47793c6b7e6762e33ff5779f43bad5c",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

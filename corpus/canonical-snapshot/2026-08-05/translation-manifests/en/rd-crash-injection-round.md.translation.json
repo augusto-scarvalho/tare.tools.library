@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-injection-round.md",
+  "sourceSha256": "25c577b1abf8609b2e19dfe058e875d1b9ddf080f31d688bfcaaf276923c9dd4",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-injection-round.en.md",
+  "translationSha256": "50a44436afab6b87f21c17d5041401b11620a0d11ac19b5612a34cae46133ee0",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

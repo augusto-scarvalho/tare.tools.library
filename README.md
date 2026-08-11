@@ -10,6 +10,9 @@ English overview: **[README.en.md](README.en.md)**.
 
 ## Comece aqui
 
+- **[Biblioteca editorial bilíngue no formato atualizado](catalog/EDITORIAL_BILINGUAL_INDEX.md)** — 93/93 artefatos do snapshot com edição HTML navegável e edição EN; originals permanecem imutáveis.
+- **[Ponteiros de pesquisa futura](catalog/FUTURE_RESEARCH_POINTERS.md)** — agenda histórica para reidratar temas em novos chats sem promovê-los automaticamente a gaps canônicos.
+- **[Padrão documental de pesquisa 2026-08-11](editorial-editions/2026-08-05-private-github-snapshot/RESEARCH_DOCUMENT_STANDARD.md)** — estrutura baseada no prompt atual do proprietário.
 - **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 originals de chat, 93 cópias exatas do snapshot privado e 60 referências File Library, com origem/authority explícitas.
 - **[Índice dos originals de chat materializados](catalog/DOCUMENT_INDEX.md)** — navegação PT-BR | EN por documento e por tema.
 - **[Baseline histórico do GitHub privado](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — snapshot exato de 05/08, não CURRENT.

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-code-quality-extract.md",
+  "sourceSha256": "78be92a039f9127daad0a95c710ca799459d89427917154ba41bb19bcdf738de",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-code-quality-extract.en.md",
+  "translationSha256": "7bef5889e084c2195931855fa29a07bfbccfcab3d641c4ed444d97ec0cc1f69d",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

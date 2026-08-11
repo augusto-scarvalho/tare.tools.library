@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/rd-taint-implementation-plans.md",
+  "sourceSha256": "80edbda1f357e9cc003bee39a07a3b6b9a65b792e9cc34e0bceb34fb948c707c",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-taint-implementation-plans.en.md",
+  "translationSha256": "1be3e05a948273753fa82906c7ec8337139836d89b76e24e96f61dc77344ca50",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

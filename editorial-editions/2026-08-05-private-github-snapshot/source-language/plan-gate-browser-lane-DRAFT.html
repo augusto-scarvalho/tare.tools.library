@@ -1,0 +1,243 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gate browser lane — CONSOLIDATED PLAN — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-0-the-demand">0. The demand</a></li><li class="h2"><a href="#ed-1-corrections-to-the-overseer-s-brief">1. Corrections to the overseer&#x27;s brief</a></li><li class="h2"><a href="#ed-2-new-finding-4-checks-have-not-run-in-the-gate-since-the-d041-flip">2. New finding — 4 checks have not run in the gate since the D041 flip</a></li><li class="h2"><a href="#ed-3-the-design">3. The design</a></li><li class="h2"><a href="#ed-4-the-completeness-proof">4. The completeness proof</a></li><li class="h2"><a href="#ed-5-phased-plan">5. Phased plan</a></li><li class="h2"><a href="#ed-6-what-would-not-be-built">6. What would NOT be built</a></li><li class="h2"><a href="#ed-7-owner-decisions-recommendation-first">7. Owner decisions (recommendation first)</a></li><li class="h2"><a href="#ed-8-amendment-target">8. Amendment target</a></li><li class="h2"><a href="#ed-overseer-verification-2026-07-27-independent-of-the-author">Overseer verification (2026-07-27, independent of the author)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>Gate browser lane — CONSOLIDATED PLAN</h1><p class="subtitle">Historical implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>b28ad8e1c30bc2f39aa1…</span></div><div><b>Edition SHA-256</b><span>b28ad8e1c30bc2f39aa1…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Author: <code>planner-xhigh</code> spawn (Fable, effort <code>xhigh</code>), 2026-07-27, read-only;
+written to disk by the overseer. Brief: <code>.harness/handoff/plan-gate-browser-lane.READY</code>.
+Overseer verification of the load-bearing claims is at the end — <strong>two of the
+overseer's own positions were defects and were corrected before any code existed.</strong></p>
+</section>
+<section class="section content"><h2 id="ed-0-the-demand">0. The demand</h2>
+<p><code>ui_e2e</code> fails inside the parallel scenarios gate often enough to block commits;
+it passes standalone. Stop the browser lane losing a CPU fight — without
+weakening the gate and without widening a deadline.</p>
+<p><strong>The contention in one number:</strong> <code>os.cpu_count() == 8</code> and <code>_MAX_WORKERS = 8</code>.
+Eight shard workers on eight cores, zero headroom, alongside ~55 desktop
+Edge/WebView2 processes. Browser checks need scheduling <em>responsiveness</em>
+(<code>wait_for_selector</code>), not throughput.</p>
+</section>
+<section class="section content"><h2 id="ed-1-corrections-to-the-overseer-s-brief">1. Corrections to the overseer's brief</h2>
+<p><strong>P1 — right seam, two shipping defects.</strong></p>
+<ol>
+<li><em>"Reuse the same <code>run_isolated</code> that <code>recover_copy_skips</code> uses"</em> is a SINGLE
+attempt (<code>gate_parallel.py:423</code>). Both the serial loop
+(<code>spec_test_gate.py:1537-1547</code>) and the copy path (<code>_scenario_run_in_copy</code>)
+carry <strong>retry-once</strong>. A lane built as the brief stated would have been the
+STRICTEST path in the gate for its FLAKIEST scenario — one transient failure
+reds the gate where every other path retries. It reintroduces the very symptom
+the demand names, at a lower rate. The lane needs its own serial-parity
+mini-loop: retry-once, <code>recovered-on-retry</code> labelling, SCENARIO-SKIP protocol.</li>
+<li>The partition must live in <code>run_default_parallel</code>, NOT inside
+<code>run_parallel_scenarios</code>. That keeps the purity boundary clean (lane stems
+never enter <code>verdicts_parallel</code>), leaves <code>run_parallel_scenarios</code>
+byte-identical (gps-5 + the module self-check untouched), and — decisive —
+costs <strong>zero lines in <code>spec_test_gate.py</code></strong>, which sits at 1659 against the
+<code>&lt; 1660</code> gs-7 ceiling.</li>
+</ol>
+<p><strong>P2 — confirmed directionally; instrument instead of arguing.</strong> Wall is the MAX
+shard, not mean work (319s actual vs 287s ideal = 32s straggler gap). Pulling the
+2nd-heaviest item out of round-robin likely shrinks the straggler too, so +60s is
+an upper bound; call it <strong>+40-70s</strong>. Ship a <code>_serial_lane</code> perf row so the real
+cost lands in <code>.harness/runs/gate-perf.jsonl</code> and the prediction is checked from
+the ledger after two runs.</p>
+<p><strong>P3 — right property, WRONG mechanism; as written it breaks the fail-safe law.</strong>
+The brief said the completeness assertion should "raise <code>ParallelInfraError</code> so
+the gate falls back to serial". But <code>run_default_parallel</code> has no exception net
+and neither does its caller: <code>spec_test_gate.py:1525</code> invokes it inside a
+<code>try</code>/<strong><code>finally</code></strong> (:1565), not a <code>try</code>/<code>except</code>. Anything raised there
+<strong>propagates and crashes the entire gate</strong>, violating <em>"parallel machinery must
+never fail the gate"</em>. The assertion must be raised AND caught inside
+<code>run_default_parallel</code>, converting to <code>return None</code> plus a <code>_parallel_abort</code> perf
+row — because <code>gate-staged</code> retains almost none of the inner stdout, so the
+ledger is the only surface the operator actually reads.</p>
+<p><strong>P4 — moot; it comes free.</strong> <code>_run_isolated_scenario</code> builds env from
+<code>os.environ</code> minus the scrub set and adds only <code>HARNESS_SCENARIO_ISOLATED=1</code>
+(<code>spec_test_gate.py:1387-1391</code>). <code>HARNESS_E2E_TIMEOUT_SCALE=3</code> exists only in the
+dict handed to worker-copy subprocesses. The lane therefore runs at <strong>base scale
+by default</strong> of the chosen seam — the same regime as standalone (40/40) and every
+pre-flip serial gate. Build no scale plumbing. Note for the record: the lane at
+base scale <strong>narrows</strong> ui_e2e's effective deadlines from 24s back to 8s — the
+opposite of widening.</p>
+<p><strong>The one-line alternative (<code>resolve_workers</code> headroom) — rejection CONFIRMED,
+on cost dominance rather than the overseer's stated reason.</strong></p>
+<ul>
+<li><code>cores-1</code> (N=7): +41s/gate, and the contention ratio barely moves against a
+24000ms scheduled-wait timeout. Mechanism: weak.</li>
+<li><code>cores-2</code> (N=6): the only variant with a plausible mechanism — and it costs
+<strong>+95s/gate, MORE than the lane's +60s</strong>, forever, for a probabilistic outcome.</li>
+<li>A pre-measurement is cheap to run and expensive to trust: against p≈0.5-0.75
+you need ~6-10 consecutive clean runs (40-60 min) under an uncontrolled
+covariate (the owner's desktop load is not constant). A false clean streak
+ships the flake straight back into the commit path.</li>
+</ul>
+<p><strong>Recommendation: no pre-measurement; ship the lane.</strong></p>
+</section>
+<section class="section content"><h2 id="ed-2-new-finding-4-checks-have-not-run-in-the-gate-since-the-d041-flip">2. New finding — 4 checks have not run in the gate since the D041 flip</h2>
+<p><code>vendor/tree-sitter/.gitignore:4</code> gitignores <code>tree-sitter-python.wasm</code>, and the
+file is untracked. <code>testing/ui/test_panel_e2e.py</code> gates exactly four checks on its
+presence (guards at <code>:210</code> and <code>:664</code>): <code>e2e:hl-renders</code>, <code>e2e:hl-on-demand</code>,
+<code>e2e:hl-scroll</code>, <code>e2e:chip-code-hl</code>.</p>
+<p>A detached worktree copy checks out <strong>tracked content only</strong>, so the wasm is
+ALWAYS absent in a worker. <strong>40 − 4 = 36</strong>, matching the observed discrepancy
+exactly. This is not contention and not the moving-check flake: it is a silent
+<strong>per-CHECK</strong> coverage loss that scenario-level completeness cannot see, because
+the scenario still reports pass.</p>
+<p>Running the lane on the REAL root restores all four as a side effect. An
+uncontended worktree copy would preserve the hole — which is what decides open
+question 3.</p>
+</section>
+<section class="section content"><h2 id="ed-3-the-design">3. The design</h2>
+<p>All in <code>scripts/harness_lib/gate_parallel.py</code> + the gps scenario. Zero lines in
+<code>spec_test_gate.py</code>.</p>
+<p><strong>Seam 1 — the lane constant.</strong> <code>_SERIAL_LANE = ("ui_e2e",)</code>. Rollback for the
+entire feature is <code>_SERIAL_LANE = ()</code>, which degenerates to today's flow
+byte-equivalently.</p>
+<p><strong>Seam 2 — <code>run_serial_lane(lane_paths, run_isolated, result_fn, perf_rows)</code></strong>, a
+~15-line serial-parity mini-loop mirroring <code>spec_test_gate.py:1535-1562</code>: attempt,
+retry-once on <code>rc != 0</code> with <code>attempt="-retry"</code> so retry forensics land in their
+own dir; <code>skip</code> = rc 0 + <code>SCENARIO-SKIP:</code>; <code>recovered</code> printed loudly; rows
+prefixed <code>"serial-lane | "</code>; one <code>_serial_lane</code> perf row carrying the lane wall.
+Per-scenario perf rows come free from <code>_run_isolated_scenario</code>.</p>
+<p><strong>Seam 3 — the partition + merge in <code>run_default_parallel</code></strong> (the only modified
+function): partition <code>scenario_paths</code> into lane/pool; run the pool exactly as
+today (its own net intact, <code>recover_copy_skips</code> over pool rows only); then run the
+lane; then merge with a <strong>completeness assertion against <code>scenario_paths</code> itself</strong>
+(the gate's own input, not a copy of the partition logic — so a bug in the
+partition cannot also hide in the assertion), plus a length check so a duplicate
+cannot mask a drop; emit in ORIGINAL scenario order. Any violation is <strong>caught
+here</strong>, logs loudly, appends <code>_parallel_abort</code>, and returns None → serial loop.</p>
+<p><strong>Purity contract:</strong> the partition happens BEFORE the contract boundary.
+<code>verdicts_serial(X) == verdicts_parallel(X)</code> continues to hold with X = the pool.
+Lane stems never enter <code>verdicts_parallel</code>; gps-3 untouched.</p>
+<p><strong>Edge cases:</strong> ui_e2e cache-skipped → lane empty → byte-identical to today.
+<code>run_isolated is None</code> (self-check/gps callers) → lane empty → backward
+compatible. Pool empty → <code>run_parallel_scenarios</code> returns None → full serial loop.</p>
+<p><strong>Isolation the lane inherits, and the dirt risk:</strong> three nested layers — the
+gate-level <code>hold_dirty_baseline</code> envelope, the per-scenario
+<code>snapshot_volatile_state</code>/<code>restore_volatile_state</code> inside <code>_run_isolated_scenario</code>,
+and ui_e2e's own MUTABLE snapshot + fixture scrub. Residual: a hard-kill mid-lane
+strands the per-scenario hold — the SAME class the serial loop and
+<code>recover_copy_skips</code> already carry, recovered by <code>_recover_stale_holds</code> next run.
+<strong>No new risk class.</strong></p>
+</section>
+<section class="section content"><h2 id="ed-4-the-completeness-proof">4. The completeness proof</h2>
+<p>A chain where every link either preserves rows by construction or raises into a
+fallback: <code>shard</code> partitions losslessly (gps-1); <code>verdicts_parallel</code> raises on
+incomplete merge (gps-2) → caught → serial; <code>recover_copy_skips</code> is row-preserving
+by construction (gps-7); the <strong>new merge is the only new drop point</strong> and carries
+the name-set + length assertion above.</p>
+<p><strong>What makes the enforcement itself falsifiable:</strong> gps-10 injects a sabotaged lane
+runner that loses one row and asserts <code>run_default_parallel</code> returns None AND the
+abort row carries the reason. Delete the assertion and gps-10 goes red.</p>
+<p><strong>Declared limit:</strong> this proves scenario-level completeness, NOT check-level. The
+wasm finding is the standing counterexample — a scenario can pass while silently
+emitting fewer checks. The lane closes the known instance; the CLASS gets a
+backlog row, not machinery here.</p>
+</section>
+<section class="section content"><h2 id="ed-5-phased-plan">5. Phased plan</h2>
+<ul>
+<li><strong>Phase 1 — the lane.</strong> <code>gate_parallel.py</code> (<code>_SERIAL_LANE</code>, <code>run_serial_lane</code>,
+the <code>run_default_parallel</code> partition/merge/net, self-check extended) + gps.
+Check <strong>gps-9</strong>: injected fakes assert lane stems run via <code>run_isolated</code> and
+never the pool, retry-once fires and labels, SCENARIO-SKIP becomes a skip, rows
+carry <code>serial-lane |</code>, final rows are the full name set in original order, and
+the <code>_serial_lane</code> perf row lands. Rollback: <code>_SERIAL_LANE = ()</code>.</li>
+<li><strong>Phase 2 — completeness teeth.</strong> gps only. Check <strong>gps-10</strong>: a sabotaged lane
+runner (drops a row) → None + <code>_parallel_abort</code> with the reason; a raising lane
+runner → None likewise.</li>
+<li><strong>Phase 3 — spec amendment + validation on the real battery.</strong> SPEC-160
+invariant 11, membership rule under Ceilings, dated Amendments entry citing the
+092504-095443 gate record and the wasm finding; plus a backlog row for the
+check-level coverage class. Then two <code>gate-staged</code> runs: the <code>_serial_lane</code> perf
+row checks the +40-70s prediction, and ui_e2e reporting <strong>40</strong> checks confirms
+the restored wasm coverage. Success metric over ~10 gates: zero ui_e2e
+fail-through-retry.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-6-what-would-not-be-built">6. What would NOT be built</h2>
+<p><code>resolve_workers</code> headroom (cost-dominated); a pre-fix N=7/N=6 measurement
+campaign (40-60 min under an uncontrolled covariate); a <code>project.json</code> lane knob
+(a module constant with the principle in a comment); a general check-level
+completeness verifier (one known instance, backlog row for the class);
+lane/pool overlap scheduling to reclaim the +60s (no deadline breached today);
+moving <code>pw_ui_smoke</code> into the lane (its copy self-skip is deterministic, so
+<code>recover_copy_skips</code> already reaches the real root for it).</p>
+<p>Each carries the condition that changes the verdict — the headroom one being:
+<strong>the lane ships and ui_e2e STILL fails in-gate</strong>, which would mean contention was
+never the cause and the lane run becomes the controlled experiment that reopens
+the headroom and deadline theories on data.</p>
+</section>
+<section class="section content"><h2 id="ed-7-owner-decisions-recommendation-first">7. Owner decisions (recommendation first)</h2>
+<ol>
+<li><strong>Membership: <code>("ui_e2e",)</code> only</strong>, admitted by a two-part rule — (a) drives a
+real browser (mechanism: event-loop scheduling latency), AND (b) forensics show
+contention-shaped fail-through-retry that passes standalone. <code>worker_live_tail</code>
+stays OUT despite being HEAVIER (126.9s): it is not a browser scenario, shows no
+fail-through-retry in today's record, and pulling the pool's heaviest item into
+the lane adds its full weight to the wall for no evidenced benefit. Its 22
+forensics dirs vs ui_e2e's 54 warrant a watch, not a seat.</li>
+<li><strong>Placement: AFTER the pool drains.</strong> The gate never short-circuits on a
+scenario failure, so fail-fast buys nothing; after-the-pool matches the
+established <code>recover_copy_skips</code> seam, guarantees the machine is provably idle,
+and avoids overlap between lane mutations on the real root and the worktree/
+<code>write-tree</code> reads at pool start.</li>
+<li><strong>Real root, not a lone worktree copy.</strong> Decisive: the wasm finding — a copy
+structurally cannot run 4 of the 40 checks. Supporting: invariant 10 already
+runs real-root serial recoveries; staged==worktree parity under <code>gate-staged</code>.</li>
+<li><strong>36-vs-40: root-caused, fixed for ui_e2e here, CLASS gets its own row.</strong></li>
+<li><strong>Framing: SPEC-160 amendment (invariant 11), not a new decision record</strong> — the
+honest narrative (D041 shipped without a latency-class carve-out) belongs IN the
+amendment text, but mechanically this is the same shape as invariant 10.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-8-amendment-target">8. Amendment target</h2>
+<p><code>specs/40-features/parallel-scenarios.md</code> — verified: it is SPEC-160, owns the
+invariants this composes with (7/9/10), names
+<code>testing/scenarios/gps_gate_parallel_scenarios.py</code> as acceptance, and has a live
+Amendments section.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-overseer-verification-2026-07-27-independent-of-the-author">Overseer verification (2026-07-27, independent of the author)</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>verdict</th>
+<th>evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P3 as briefed would CRASH the gate</td>
+<td><strong>CONFIRMED — the overseer's own position was a defect</strong></td>
+<td><code>spec_test_gate.py:1565</code> is <code>finally:</code>, not <code>except:</code>; <code>run_default_parallel</code> is invoked bare at <code>:1525</code>, so a raise propagates past the hold release</td>
+</tr>
+<tr>
+<td>P1 as briefed loses retry-once parity</td>
+<td><strong>CONFIRMED — second overseer defect</strong></td>
+<td>the serial loop retries at <code>spec_test_gate.py:1543</code> (<code>attempt="-retry"</code>); <code>recover_copy_skips</code> calls <code>run_isolated</code> exactly once (<code>gate_parallel.py:423</code>)</td>
+</tr>
+<tr>
+<td>P4 is moot; base scale is free</td>
+<td><strong>CONFIRMED</strong></td>
+<td><code>spec_test_gate.py:1387-1391</code> — env is <code>os.environ</code> minus scrub plus only <code>HARNESS_SCENARIO_ISOLATED=1</code>; no <code>HARNESS_E2E_TIMEOUT_SCALE</code></td>
+</tr>
+<tr>
+<td>the wasm coverage loss is real</td>
+<td><strong>CONFIRMED</strong></td>
+<td><code>git check-ignore -v</code> → <code>vendor/tree-sitter/.gitignore:4</code>; <code>git ls-files vendor/tree-sitter/grammars/</code> returns EMPTY (untracked); guards at <code>test_panel_e2e.py:210,664</code></td>
+</tr>
+</tbody>
+</table>
+<p>Not re-verified, carried at the author's confidence: the <code>_MAX_WORKERS</code>/straggler
+cost refinement (arithmetic over the brief's own measured numbers), the
+<code>worker_live_tail</code> forensics count, and the claim that nothing downstream indexes
+rows by position.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-gate-browser-lane-DRAFT.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-gate-browser-lane-DRAFT.md</code></li><li>Source SHA-256: <code>b28ad8e1c30bc2f39aa13117b534cf32a2121ff1ae5ce613f1967fd3f2695427</code></li><li>Edition-input SHA-256: <code>b28ad8e1c30bc2f39aa13117b534cf32a2121ff1ae5ce613f1967fd3f2695427</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

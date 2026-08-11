@@ -1,0 +1,126 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Backlog groom — fila de intake, 2026-07-18 — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-clusters-12-e-padrao-de-decisao">Clusters (12) e padrão de decisão</a></li><li class="h2"><a href="#ed-promovidos-backlog-spec-os-que-valem-atencao">Promovidos (backlog/spec) — os que valem atenção</a></li><li class="h2"><a href="#ed-pendentes-deliberados-verificar-ao-vivo-antes-de-decidir">Pendentes deliberados (verificar ao vivo antes de decidir)</a></li><li class="h2"><a href="#ed-errata-honesta">Errata honesta</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">RESEARCH ITERATION · 2026-08-05 snapshot</div><h1>Backlog groom — fila de intake, 2026-07-18</h1><p class="subtitle">Edição histórica — research iteration/round. Preserved as an intermediate research artifact.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">pt-BR</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>72d25d68a2fa1505a554…</span></div><div><b>Edition SHA-256</b><span>72d25d68a2fa1505a554…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Rodada report-only executada por worker Sonnet (playbook
+<code>.harness/prompts/backlog-groom-playbook.md</code>), auditada e aplicada pelo
+overseer com digest binding (<code>apply_decision --expected-digest</code> por linha;
+<code>allow_expired</code> para as 2 SLO-breached). 125 asks pendentes → <strong>123 decididos,
+2 mantidos pendentes</strong> (verificação ao vivo antes de decidir). Spot-check de
+auditoria: 8/8 shas de evidência "done" conferidos no git log antes do batch.</p>
+</section>
+<section class="section content"><h2 id="ed-clusters-12-e-padrao-de-decisao">Clusters (12) e padrão de decisão</h2>
+<table>
+<thead>
+<tr>
+<th>Cluster</th>
+<th>N</th>
+<th>Decisão dominante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. Packets de execução colados como ask</td>
+<td>15</td>
+<td>discard (instrução, não feature)</td>
+</tr>
+<tr>
+<td>B. Diretrizes de modelo/custo</td>
+<td>6</td>
+<td>discard (codificadas em CLAUDE.md)</td>
+</tr>
+<tr>
+<td>C. Bugs/pedidos GUI chat/rooms</td>
+<td>22</td>
+<td>~12 done · 5 backlog · restante discard</td>
+</tr>
+<tr>
+<td>D. IDE-mode / design system</td>
+<td>10</td>
+<td>done (SPEC-147 + fase 1 ce1dc54)</td>
+</tr>
+<tr>
+<td>E. UX página de experimentos</td>
+<td>9</td>
+<td>done (2f056bb, 1c4b091, 51e9686)</td>
+</tr>
+<tr>
+<td>F. Sandbox/isolamento</td>
+<td>7</td>
+<td>done (SPEC-148 hoje)</td>
+</tr>
+<tr>
+<td>G. Pings automáticos gov:flake-reopen</td>
+<td>4</td>
+<td>discard (artefato de tracker, não ask)</td>
+</tr>
+<tr>
+<td>H. Loop do artigo / EXPs</td>
+<td>12</td>
+<td>done (LOOP QUEUE 4 + EXP-15/16/17/18)</td>
+</tr>
+<tr>
+<td>I. Achados hooks/parity/graph</td>
+<td>8</td>
+<td>3 done · 4 backlog/spec · 1 discard</td>
+</tr>
+<tr>
+<td>J. Meta de backlog/arquitetura</td>
+<td>8</td>
+<td>2 backlog · resto discard</td>
+</tr>
+<tr>
+<td>K. Q&amp;A puro</td>
+<td>12</td>
+<td>discard (respondido inline)</td>
+</tr>
+<tr>
+<td>L. Smoke tests de render/append</td>
+<td>4</td>
+<td>discard</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-promovidos-backlog-spec-os-que-valem-atencao">Promovidos (backlog/spec) — os que valem atenção</h2>
+<ol>
+<li><strong>SPEC candidato — codex hook-trust + write-enforcement gap</strong> (d77116ead917):
+achado de segurança verificado experimentalmente, ainda sem fix (a contenção
+real hoje é SPEC-148 + S3; isto é a perna de hooks).</li>
+<li><code>agents pair --apply</code> perde campos não-rastreados (timeout/statusMessage) —
+bug de data-loss no sync (46afc2ccdca3).</li>
+<li>Unificação do backlog (JSON/MD duais → sqlite?) — dívida estrutural
+apontada pelo owner (1a45713b7104).</li>
+<li>Stop button GUI + Esc-Esc CLI + bug streaming-não-para (d303a18496c1 +
+01983640330b; duplicata 806964ccefab descartada).</li>
+<li>Drag-drop/upload no compose do chat (a06ba0abcc30).</li>
+<li>codex app-server como transporte default + approvals interativos
+(e86672c43942); issue upstream unified_diff (3f2eeb5a6b2a).</li>
+<li>Enforcement real de graph-navigation p/ workers + audit de grep do codex
+(bc19d9361c04, af2eb9143447).</li>
+<li>Indicador de latência/vida do porteiro (9ebfa6c638b9 — reclamação recorrente).</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-pendentes-deliberados-verificar-ao-vivo-antes-de-decidir">Pendentes deliberados (verificar ao vivo antes de decidir)</h2>
+<ul>
+<li>11d53f79b03e — jobs agendados órfãos sem remoção pela UI (pode já estar fixo).</li>
+<li>c1eb5b0da00c — anexo de screenshot renderizando estranho (idem).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-errata-honesta">Errata honesta</h2>
+<ul>
+<li>O overseer trocou dois ids no batch: 9619f9bed62b (Q&amp;A, deveria ser discard)
+recebeu <code>backlog</code>; corrigido no alvo certo (9ebfa6c638b9 → backlog). O
+journal da fila carrega ambos os registros; dano: um Q&amp;A a mais no bucket
+backlog.</li>
+<li>Miner-precision guard aplicado: apenas "done" com sha verificável; 8/8
+amostrados conferiram.</li>
+</ul>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-18.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-18.md</code></li><li>Source SHA-256: <code>72d25d68a2fa1505a554c0861cc86f5d5b5cbdddee8151f3338d6461ff6c2307</code></li><li>Edition-input SHA-256: <code>72d25d68a2fa1505a554c0861cc86f5d5b5cbdddee8151f3338d6461ff6c2307</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

@@ -1,0 +1,353 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Refinement — IDE shard: confine GUI edits to a worker-style workspace (2026-07-23) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-1-context">1. Context</a></li><li class="h2"><a href="#ed-2-recon-findings-source-verified">2. Recon findings (source-verified)</a></li><li class="h3"><a href="#ed-2-1-spec-148-write-worker-machinery-the-reuse-backbone">2.1 SPEC-148 write-worker machinery (the reuse backbone)</a></li><li class="h3"><a href="#ed-2-2-gui-write-path-today">2.2 GUI write path today</a></li><li class="h3"><a href="#ed-2-3-lsp-shard-readiness-lane-a">2.3 LSP shard-readiness (Lane A)</a></li><li class="h3"><a href="#ed-2-4-consolidation-flow-today-order-of-operations">2.4 Consolidation flow today — order of operations</a></li><li class="h3"><a href="#ed-2-5-worktree-mechanics-the-smw-2-lesson-long-lived-shard-pitfalls">2.5 Worktree mechanics + the smw-2 lesson (long-lived shard pitfalls)</a></li><li class="h2"><a href="#ed-3-design-questions">3. Design questions</a></li><li class="h3"><a href="#ed-q1-shard-lifecycle">Q1 — Shard lifecycle</a></li><li class="h3"><a href="#ed-q2-integrate-ux-end-to-end">Q2 — Integrate UX (end-to-end)</a></li><li class="h3"><a href="#ed-q3-what-runs-in-the-shard">Q3 — What runs in the shard</a></li><li class="h3"><a href="#ed-q4-proportional-ritual-for-owner-edits">Q4 — Proportional ritual for owner edits</a></li><li class="h3"><a href="#ed-q5-protected-files-inside-the-shard">Q5 — Protected files inside the shard</a></li><li class="h3"><a href="#ed-q6-spec-114-amendment-sentence">Q6 — SPEC-114 amendment sentence</a></li><li class="h3"><a href="#ed-3-7-legacy-ide-salvage-inventory-lane-2026-07-23-overseer-verified">3.7 Legacy-IDE salvage (inventory lane, 2026-07-23, overseer-verified)</a></li><li class="h2"><a href="#ed-4-proposed-wave-split">4. Proposed wave split</a></li><li class="h2"><a href="#ed-5-risks-honest-costs">5. Risks (honest costs)</a></li><li class="h2"><a href="#ed-6-owner-decisions-ratified-2026-07-23-all-8">6. OWNER-DECISIONS — RATIFIED 2026-07-23 (all 8)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Refinement — IDE shard: confine GUI edits to a worker-style workspace (2026-07-23)</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>3d95574845cfef4809e8…</span></div><div><b>Edition SHA-256</b><span>3d95574845cfef4809e8…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Status: refinement round for owner design decisions. Owner idea (2026-07-23):
+"isolamento da IDE ... acontecem em um shard específico pra coisas da IDE, que é
+consolidado pelos mesmos fluxos que hoje checam o código feito pelos agentes ...
+Confinarmos a IDE, edição de arquivos e tudo que acontece ali a um shard como é
+feito com os workers." Overseer assessment (shared): right layer — fs +
+consolidation, not browser (<code>docs/research/ide-embedded-gui.md</code> picked the
+editor lib; write discipline was always server-side); reuses SPEC-148; the
+genuinely new piece is shard lifecycle. Recon spot-checked by the overseer
+(ensure_pylsp venv path, gate-in-flight guard, ws_files root-parametrization).</p>
+</section>
+<section class="section content"><h2 id="ed-1-context">1. Context</h2>
+<p>Today the GUI editor writes DIRECTLY into the live tree: CodeScreen <code>Mod-s</code>
+(<code>ui/src/domains/workbench/CodeEditor.tsx:75</code>) → <code>saveFile</code> posts the
+<code>ws-file-save</code> action with <code>confirm: true</code> (<code>ui/src/api/workspace.ts:99-108</code>) →
+<code>ui_actions.run_action</code> applies confirm + human-only backstop + gate-in-flight
+guard, then dispatches in-process (<code>scripts/harness_lib/ui_actions.py:672-684</code>)
+→ <code>ws_files.save_file</code> writes bytes at <code>root / rel</code>
+(<code>scripts/harness_lib/ws_files.py:98-117</code>). The owner's edits therefore land on
+main with NO consolidation ritual, while agent edits pay workspace isolation +
+merge plan + gate. The proposal inverts that: the GUI writes into a shard, and
+one explicit <strong>Integrate</strong> action pushes the shard through the same
+gate+reckon consolidation the agents' code passes.</p>
+</section>
+<section class="section content"><h2 id="ed-2-recon-findings-source-verified">2. Recon findings (source-verified)</h2>
+<h3 id="ed-2-1-spec-148-write-worker-machinery-the-reuse-backbone">2.1 SPEC-148 write-worker machinery (the reuse backbone)</h3>
+<table>
+<thead>
+<tr>
+<th>Piece</th>
+<th>Where</th>
+<th>IDE-shard role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spec: tiers, rule 6 (OS lock), rule 11 (merge scan)</td>
+<td><code>specs/40-features/harness-sandbox.md:38-71,135-145</code></td>
+<td>contract to mirror or consciously relax (Q5)</td>
+</tr>
+<tr>
+<td>Workspace creation, modes <code>temp-copy</code> / <code>git-worktree</code></td>
+<td><code>workflow_prepare_write</code>, <code>scripts/harness_lib/workflow_writes.py:58-110</code>; worktrees at <code>:584-617</code> (<code>git worktree add -b harness/&lt;wfid&gt;/&lt;wid&gt; ... HEAD</code>)</td>
+<td>precedent for shard creation; shard = one long-lived analogue</td>
+</tr>
+<tr>
+<td>OS lock on protected files: read-only attr + specific-rights deny ACE (WD,AD,WA,WEA,DE; never generic W)</td>
+<td><code>harness-sandbox.md:53-60</code>; release via <code>sandbox_spawn.fs_release</code> before disposal (<code>workflow_writes.py:576,601,629</code>)</td>
+<td>optional in the shard (Q5)</td>
+</tr>
+<tr>
+<td><code>protected-path-modified</code> at merge</td>
+<td><code>protected_workspace_mutations</code> (<code>workflow_writes.py:112-119</code>) feeding conflicts in <code>workflow_merge_plan</code> (<code>:197-198</code>); rule 11 (<code>harness-sandbox.md:142-145</code>)</td>
+<td>reuse verbatim in Integrate — detection layer regardless of Q5</td>
+</tr>
+<tr>
+<td>Merge = copy into ROOT with backups, per-worker + final validation gate, optional rollback</td>
+<td><code>workflow_apply_merge</code> (<code>workflow_writes.py:354-507</code>), <code>workflow_rollback</code> (<code>:509</code>)</td>
+<td>the batch analogue; Integrate is a simpler single-shard version</td>
+</tr>
+<tr>
+<td>Worktree cleanup discipline (fs_release → <code>git worktree remove --force</code> → prune)</td>
+<td><code>workflow_cleanup_worktrees</code> (<code>workflow_writes.py:619-652</code>), <code>dispose_worker_copy</code> (<code>gate_parallel.py:215-229</code>)</td>
+<td>shard dispose/refresh</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-2-2-gui-write-path-today">2.2 GUI write path today</h3>
+<ul>
+<li>Trust boundary is ONE function: <code>ws_files.resolve_confined(root, rel)</code>
+(<code>ws_files.py:55-75</code>) — repo-relative POSIX only, symlink-resolved under
+<code>root</code>, deny <code>.harness/</code>, <code>.git/</code>, <code>vendor/</code>, secrets denylist, protected
+registry. <strong>Already root-parametrized</strong>: every ws_files function takes
+<code>root</code> as its first argument; <code>run_ws_action(root, action, params)</code>
+(<code>:187-200</code>) too.</li>
+<li>The server passes <code>self.root</code> everywhere: reads at <code>harness_ui.py:1318-1327</code>,
+actions at <code>:1359</code>, lint/format at <code>:1361-1367</code>.</li>
+<li><strong>What changes if the root is a shard: one line per route</strong> — pass
+<code>shard_root</code> instead of <code>self.root</code> for the ws-file/lsp routes. The
+confinement, baseSha conflict (<code>save_file:110-113</code>), confirm and
+gate-in-flight guard all ride along unchanged. This is the cheapest possible
+re-rooting; no new trust boundary.</li>
+<li>Bonus: the gate-in-flight refusal (<code>ui_actions.py:679-682</code>) exists because a
+mid-gate live-tree save is clobbered by the per-scenario restore. A shard
+save touches nothing the restore holds — the guard can be RELAXED for shard
+writes (owner can keep editing during a 7-15 min gate). Integrate itself must
+keep the guard.</li>
+</ul>
+<h3 id="ed-2-3-lsp-shard-readiness-lane-a">2.3 LSP shard-readiness (Lane A)</h3>
+<p><code>uri_guard(root, uri)</code> (<code>scripts/harness_lib/lsp_ws.py:170-187</code>) and the whole
+URI seam (<code>to_client_uri:202</code>, <code>to_server_message:232</code>) are root-parametrized
+and delegate confinement to <code>ws_files.resolve_confined</code> (reused, never copied).
+<code>serve_ws</code> takes <code>handler.root</code> (<code>lsp_ws.py:479,489</code>). Re-rooting = handing the
+shard root to the connection. Two residual repo-root assumptions:</p>
+<ol>
+<li><code>ensure_pylsp</code> installs into <code>root / ".venv"</code> (<code>lsp_ws.py:283</code>) — the shard
+worktree has NO <code>.venv</code> (untracked). Fix: keep venv/interpreter pinned to
+the MAIN root; only the workspace <code>rootUri</code> moves.</li>
+<li>Single global connection, last-tab-wins (<code>_current</code>, <code>:326-397</code>) — fine,
+the editor is the only consumer; ONE pylsp rooted at the shard, no
+duplication (see Q3).</li>
+</ol>
+<h3 id="ed-2-4-consolidation-flow-today-order-of-operations">2.4 Consolidation flow today — order of operations</h3>
+<p>Two flows exist; they answer "does the shard merge first or gate first"
+differently:</p>
+<ul>
+<li><strong>Owner/manual discipline (the one commits actually pass):</strong> stage →
+<code>gate-staged</code> detached (<code>gate_staged.py:99-131</code>; gate-while-dirty guard
+<code>:81-96</code> refuses staged-but-superseded copies) → <code>validate --staged</code> stamps
+the staged fingerprint (<code>validation_stamp.py:205-234,397</code>) → <code>reckon --record --verdict</code> keyed to the SAME fingerprint (<code>:328-370</code>) → commit (pre-commit
+enforces gate=pass AND reckon=no-blocker). <strong>Merge (staging) first, then
+gate, with the index as the staging area.</strong></li>
+<li><strong>Worker batch flow:</strong> merge-plan (footprint + protected scan) → apply =
+copy into ROOT with backups → gate after each worker + final gate, rollback
+on failure (<code>workflow_writes.py:354-507</code>). Operating discipline on top:
+review in worktree, hold, batch-integrate, ONE staged gate.</li>
+</ul>
+<p>So "Integrate the IDE shard" should be: <strong>apply shard diff to main's index →
+gate-staged → reckon → commit</strong>. Literally today's owner flow with the shard as
+the durable edit buffer. It does NOT need <code>workflow_apply_merge</code>'s multi-worker
+machinery — only its protected scan.</p>
+<h3 id="ed-2-5-worktree-mechanics-the-smw-2-lesson-long-lived-shard-pitfalls">2.5 Worktree mechanics + the smw-2 lesson (long-lived shard pitfalls)</h3>
+<ul>
+<li>gate-par worktrees are EPHEMERAL: detached, pinned to one sha (staged index
+pinned via dangling <code>commit-tree</code>, <code>gate_parallel.py:167-181</code>), attested
+clean (<code>:184-195</code>), disposed with force-remove + prune (<code>:215-229</code>). No
+rebase/refresh helper exists anywhere; the repo's refresh strategy is
+dispose-and-recreate.</li>
+<li>Worktree checkouts carry TRACKED content only (<code>gate_parallel.py:141-142</code>):
+no <code>.venv</code>, no <code>node_modules</code>, no <code>graphify-out/</code>, no <code>ui/dist</code>, no live
+<code>.harness/state</code>. The smw-2 lesson (<code>testing/scenarios/smw_svc_mcp_wiring.py:41-51</code>):
+a scenario writing untracked outputs doesn't round-trip in a worktree copy →
+honest SCENARIO-SKIP, recovered serially on the real root. <strong>A long-lived
+shard inherits all of this: it is a fine EDIT surface and a poor EXECUTION
+surface.</strong> That single fact drives Q3 and Q2's "gate on main, not in shard".</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-3-design-questions">3. Design questions</h2>
+<h3 id="ed-q1-shard-lifecycle">Q1 — Shard lifecycle</h3>
+<ul>
+<li><strong>A. Create-on-first-edit, dispose-after-integrate (ephemeral like gate-par).</strong>
+Cheap, always fresh; the worktree survives panel restarts, so only Integrate
+(or explicit Discard) disposes it.</li>
+<li><strong>B. Always-on long-lived worktree with rebase-on-advance.</strong> Maximal
+availability; buys a rebase-conflict machine the repo has zero helpers for.</li>
+<li><strong>C. Per-session shards.</strong> Multiplies disk and confusion; no consumer needs it.</li>
+</ul>
+<p><strong>Recommendation: A-plus.</strong> ONE shard (`git worktree add -b harness/ide-shard</p>
+<dir> HEAD`), created lazily on first `ws-file-*` mutation, persistent until
+Integrate or explicit Discard, then dispose-and-recreate at the new HEAD (the
+repo's only proven refresh idiom, `gate_parallel.py:198-229`). No rebase ever:
+the shard is a staging buffer, not a branch with history. If main advances
+while the shard is dirty, per-file `baseSha` (`save_file:110`) already
+detects staleness at the file level; Integrate detects it wholesale (diff
+against the shard's pinned base sha) and offers refresh-after-integrate or
+discard. Placement: under the system tempdir or `.harness/runs/ide-shard/`
+(deny-listed from itself) — gate-par precedent says tempdir, never under ROOT
+in a listable place.
+
+<h3 id="ed-q2-integrate-ux-end-to-end">Q2 — Integrate UX (end-to-end)</h3>
+<ul>
+<li><strong>A. One-click pipeline: diff summary → confirm → stage-on-main → detached
+gate with visible progress → reckon prompt → commit.</strong></li>
+<li><strong>B. Stage-only button; owner finishes gate/reckon/commit in the terminal.</strong></li>
+<li><strong>C. Full workflow_apply_merge reuse (merge-plan artifact + apply + rollback).</strong></li>
+</ul>
+<p><strong>Recommendation: A.</strong> Concretely: (1) GUI shows <code>git diff &lt;base&gt;..shard</code>
+summary (files + counts; per-file diff via the diff pane — see §3.7 legacy
+merge-view salvage); (2) confirm dialog (existing mutating-action confirm);
+(3) server applies shard files onto main's worktree+index
+(<code>git restore --source=&lt;shard-branch&gt; -- &lt;paths&gt;</code> + <code>git add</code>), running
+<code>protected_workspace_mutations</code> first — any hit refuses with
+<code>protected-path-modified</code> exactly like rule 11; (4) launches <code>gate-staged</code>
+(already detached, log+marker) — this is the SAME surface backlog item
+5115c47c (detached-gates GUI visibility) needs, so the progress panel (marker
+poll + log tail) pays for two items at once; (5) verdict shown; PASS → reckon
+verdict dialog (<code>no-blocker</code>/<code>blocker</code> + note) → commit; FAIL → main's
+worktree+index restored from HEAD, and — spelled out in the UI — <strong>the shard
+is untouched: every edit is still there, committed on <code>harness/ide-shard</code>;
+fix and integrate again. Nothing is ever lost on a gate FAIL.</strong>
+Gate-while-dirty guard (<code>gate_staged.py:117-126</code>) may refuse when main has
+unrelated dirt; surface that refusal verbatim.</p>
+<h3 id="ed-q3-what-runs-in-the-shard">Q3 — What runs in the shard</h3>
+<ul>
+<li><strong>A. Everything re-roots (edit + lint + format + LSP + tests/gate).</strong></li>
+<li><strong>B. Edit surfaces re-root; execution stays on main.</strong></li>
+<li><strong>C. Nothing re-roots except writes (reads from main).</strong></li>
+</ul>
+<p><strong>Recommendation: B.</strong> Re-root: <code>ws/file</code> read, <code>ws/list</code>, <code>ws-file-*</code> writes,
+<code>/api/lint</code>, <code>/api/format</code>, <code>/api/lsp</code>. Lint/format are stdin-shaped
+(<code>ws_files.py:206-275</code>) — cwd only selects the ruff config, which is tracked,
+so they work in the shard as-is. LSP: shard root into <code>uri_guard</code>, venv pinned
+to main (2.3). Tests and the gate NEVER run in the shard — smw-2 (2.5) proved
+worktree copies are unfaithful execution environments for untracked-state
+scenarios, and the owner flow gates on main's index anyway. Reading from the
+shard (not split-brain main-reads/shard-writes) keeps the editor coherent:
+what you see is what you save. Cost honesty: pylsp is NOT doubled (one
+instance, last-tab-wins, re-rooted); disk IS roughly doubled for tracked
+content (~one extra checkout; no <code>.venv</code>/<code>node_modules</code>, so far less than 2x
+the working directory).</p>
+<h3 id="ed-q4-proportional-ritual-for-owner-edits">Q4 — Proportional ritual for owner edits</h3>
+<ul>
+<li><strong>A. Full worker ritual (merge-reviewer packet + gate + reckon).</strong></li>
+<li><strong>B. Gate + reckon only.</strong></li>
+<li><strong>C. Gate only.</strong></li>
+</ul>
+<p><strong>Recommendation: B.</strong> C is not actually available: the pre-commit hook
+enforces gate=pass AND reckon=no-blocker on risk-bearing surfaces
+(<code>validation_stamp.py:328-370</code>) — changing that for human edits would weaken
+the floor for everyone. A adds a review step whose reviewer would be reviewing
+the owner's own decisions — ceremony without information. Evidence trail for
+human edits: the reckon row (verdict + <code>--note</code>, keyed to the staged
+fingerprint, durable ledger <code>validation_stamp.py:275-294</code>) IS the changelog
+ref; the Integrate dialog should pre-fill the note with the file list so the
+ledger entry names what was touched.</p>
+<h3 id="ed-q5-protected-files-inside-the-shard">Q5 — Protected files inside the shard</h3>
+<ul>
+<li><strong>A. Full SPEC-148 lock (RO attr + deny ACE) on shard protected files.</strong></li>
+<li><strong>B. API-layer refusal + merge-time scan only.</strong></li>
+</ul>
+<p><strong>Recommendation: B.</strong> The shard's ONLY writer is the GUI, and every GUI write
+already passes <code>resolve_confined</code>, which refuses protected-registry paths
+before any byte moves (<code>ws_files.py:71-74</code>) — the OS lock would defend against
+a writer that cannot exist on this surface. Keep <code>protected_workspace_mutations</code>
+at Integrate as the rule-11 backstop. Recorded ceiling: the moment any NON-GUI
+writer gets shard access (a terminal-in-shard feature, an agent pointed at it),
+apply <code>fs_confine</code> at shard creation — one call; the release path in disposal
+helpers already exists (<code>workflow_writes.py:576</code>).</p>
+<h3 id="ed-q6-spec-114-amendment-sentence">Q6 — SPEC-114 amendment sentence</h3>
+<p>Current rule 1 (<code>specs/40-features/supervision-m5-interactive-panel.md:21</code>):
+"Every mutating panel action is an existing allowlisted subcommand ... The
+panel never edits <code>.harness/</code> state files directly." Plus SPEC-147 inv 6-8
+(<code>specs/40-features/chat-workspace.md:59-73</code>). Proposed amendment:</p>
+<blockquote>
+<p><strong>Workspace writes are shard-only.</strong> The <code>ws-file-*</code> verbs mutate ONLY the
+IDE shard worktree (<code>harness/ide-shard</code>), never the live tree; the live tree
+changes exclusively through the Integrate action, which stages the shard
+diff on main and consolidates it through the same <code>gate-staged</code> + <code>reckon</code>
+flow (and the same <code>protected-path-modified</code> merge scan, SPEC-148 rule 11)
+that governs agent-authored code. "GUI writes no state" is unchanged for
+<code>.harness/</code>; for the workspace it sharpens to "GUI writes shard-only".</p>
+</blockquote>
+<h3 id="ed-3-7-legacy-ide-salvage-inventory-lane-2026-07-23-overseer-verified">3.7 Legacy-IDE salvage (inventory lane, 2026-07-23, overseer-verified)</h3>
+<p>Three findings feed the waves directly:</p>
+<ol>
+<li><strong><code>ws-file-create/-rename/-delete</code></strong> — server verbs exist, allow-listed and
+scenario-pinned (<code>m5_ui_panel.py:902</code>); the React explorer never calls them
+(verified: zero hits in CodeExplorer.tsx). Wiring buttons = effort S; lands
+naturally in W1 (the shard makes tree ops safe to expose).</li>
+<li><strong>Diff/merge view</strong> — <code>@codemirror/merge</code> 6.12.2 is vendored for the legacy
+panel (<code>vendor/codemirror/manifest.json</code>) but ABSENT from ui/package.json
+(verified). Porting it gives the Integrate dialog (Q2 step 1) a real
+side-by-side diff instead of parsed text rows; exact version already pinned
+= zero compat guesswork. Effort M; lands in W2.</li>
+<li><strong>Already ported 1:1, nothing to do</strong>: sha-conflict save flow, ruff
+lint/format, read-only explorer; the React side EXCEEDS legacy with the LSP
+(9ae4f91). Dead weight (mode-splitter chrome, floating-overlay math, vendor
+bundle except merge) dies with the legacy retirement (separate kill-list,
+intake filed, owner-gated on GUI polish completion).</li>
+</ol>
+<h2 id="ed-4-proposed-wave-split">4. Proposed wave split</h2>
+<table>
+<thead>
+<tr>
+<th>Wave</th>
+<th>Size</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1 shard lifecycle + re-root</td>
+<td>M</td>
+<td><code>ide_shard.py</code> (create-lazy / status / dispose-recreate, reusing gate_parallel <code>_run_git</code>/dispose idioms); <code>harness_ui.py</code> ws-file/lsp/lint/format routes take the shard root; <code>ensure_pylsp</code> venv pinned to main; relax gate-in-flight guard for shard-only writes; + legacy salvage 1 (ws-file-* buttons in CodeExplorer); scenarios: shard confinement table, save-in-shard, live tree untouched</td>
+</tr>
+<tr>
+<td>W2 Integrate</td>
+<td>M</td>
+<td>diff-summary endpoint; apply-to-index + <code>protected_workspace_mutations</code> refusal; <code>gate-staged</code> launch + marker-poll/log-tail progress (co-delivers 5115c47c); FAIL restore path; PASS reckon dialog + commit; + legacy salvage 2 (@codemirror/merge port for the diff pane); scenarios: integrate-pass, integrate-fail-keeps-shard, protected-path refusal</td>
+</tr>
+<tr>
+<td>W3 spec + polish</td>
+<td>S</td>
+<td>SPEC-114/147 amendments (Q6 text); Discard-shard action; stale-shard banner (main advanced); docs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ed-5-risks-honest-costs">5. Risks (honest costs)</h2>
+<ul>
+<li><strong>Disk:</strong> one extra full checkout of tracked content. Bounded, real on small disks.</li>
+<li><strong>Stale shard:</strong> owner edits an old copy after main advances → Integrate
+stages a regression. Mitigation: shard pins its base sha; Integrate refuses
+when base != main HEAD and offers refresh (dispose-recreate preserves
+nothing — so refuse-then-owner-chooses, never auto).</li>
+<li><strong>Gate-while-dirty interplay:</strong> Integrate stages onto a main worktree that
+may carry unrelated dirt; <code>gate_staged</code> refuses MM rows. The UX must surface
+that refusal legibly, not swallow it.</li>
+<li><strong>Two-truths confusion:</strong> editor shows shard, terminal shows main. Mitigated
+by reading from the shard everywhere in the Code screen and a visible
+"shard" badge + pending-integration count.</li>
+<li><strong>Worktree leak on crash:</strong> mitigated by the existing prune-at-next-run
+idiom; the shard module should prune on panel start.</li>
+<li><strong>pylsp cross-root nav:</strong> go-to-def into main-root absolute paths renders
+"outside workspace" (existing coherent behavior) — acceptable, noted.</li>
+</ul>
+<h2 id="ed-6-owner-decisions-ratified-2026-07-23-all-8">6. OWNER-DECISIONS — RATIFIED 2026-07-23 (all 8)</h2>
+<ol>
+<li><strong>Q1 lifecycle: RATIFIED</strong> — single lazy persistent shard, dispose-recreate
+refresh, no rebase.</li>
+<li><strong>Q2: full Integrate pipeline WITH auto-commit toggle</strong> — toggle lives in
+the Integrate dialog, remembered across uses, <strong>default OFF</strong> (PASS+reckon
+lights a Commit button; toggling ON makes it a one-click pipeline). Owner
+also asked about gate parallelism: clarified — the gate ALREADY parallelizes
+via its own ephemeral gate-par worktrees from the staged snapshot; the IDE
+shard is the EDIT buffer (1, durable), not the execution shards (N,
+ephemeral). No new parallel machinery needed.</li>
+<li><strong>Q3: CONFIRMED via the worker mirror</strong> — edit surfaces re-root to the
+shard (read/save/lint/format/LSP), authoritative gate/tests stay on main at
+Integrate — exactly how workers edit in isolated workspaces while the gate
+runs on main's staged index. Owner's vision NAMES future non-GUI writers in
+the shard (chat increments, agentic autocomplete — "humano segurando o
+volante"), which re-decides Q5.</li>
+<li><strong>Q4: gate + reckon baseline + REVIEW-PASS auto-ON for mixed authorship</strong> —
+the shard tracks the writer of each save (GUI vs agent); Integrate turns
+the agentic review-pass on automatically when an agent contributed
+(owner can force/dismiss in the dialog); owner-only shards go straight to
+gate+reckon. Rationale: author ≠ judge is what makes worker review valuable;
+owner-only edits make the owner the judge already.</li>
+<li><strong>Q5: OS LOCK FROM DAY 1</strong> (changed from the original rec by the Q3
+ruling): <code>fs_confine</code> at shard creation + rule-11 scan at Integrate —
+because non-GUI writers are already in the product vision, the ceiling
+condition is met before launch. Symmetric with SPEC-148 rule 6.</li>
+<li><strong>Q6: amendment sentence APPROVED as drafted</strong> (default, no objection).</li>
+<li><strong>Q7: gate-in-flight guard RELAXED for shard-only writes</strong> in W1 (default,
+no objection — the edit-during-gate UX win).</li>
+<li><strong>Q8: shard lives at <code>.harness/runs/ide-shard/</code></strong> — durable edits must
+survive tempdir cleaners; already deny-listed from the GUI; gate-hold
+already ignores runs/.</li>
+</ol>
+<p>Scope deltas vs the original waves: W1 gains fs_confine-at-creation (Q5) and
+per-save writer attribution (Q4); W2 gains the review-pass hook + auto-commit
+toggle. Sizes hold at M / M / S.</p>
+</dir></section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/ide-shard-refinement-2026-07-23.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/ide-shard-refinement-2026-07-23.md</code></li><li>Source SHA-256: <code>3d95574845cfef4809e8f49b23fdcf9c6488092ef0141e5af6382c6354292455</code></li><li>Edition-input SHA-256: <code>3d95574845cfef4809e8f49b23fdcf9c6488092ef0141e5af6382c6354292455</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

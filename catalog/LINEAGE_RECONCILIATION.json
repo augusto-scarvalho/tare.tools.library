@@ -106,12 +106,12 @@
         },
         {
           "version": "1.5",
-          "file_library_id": "file_00000000e91c720e9ad834004d3c192c",
+          "file_library_id": "file_000000001d10720e8344953fd860f8b0",
           "title": "harness_multiagent_research_program_v1.5_blocks1_to_15.md"
         },
         {
           "version": "1.5",
-          "file_library_id": "file_000000001d10720e8344953fd860f8b0",
+          "file_library_id": "file_00000000e91c720e9ad834004d3c192c",
           "title": "harness_multiagent_research_program_v1.5_blocks1_to_15.md"
         },
         {
@@ -240,8 +240,8 @@
       "title": "harness_multiagent_research_program_v1.5_blocks1_to_15.md",
       "count": 2,
       "file_library_ids": [
-        "file_00000000e91c720e9ad834004d3c192c",
-        "file_000000001d10720e8344953fd860f8b0"
+        "file_000000001d10720e8344953fd860f8b0",
+        "file_00000000e91c720e9ad834004d3c192c"
       ],
       "status": "IDENTITY_DUPLICATE_UNRESOLVED_EXACT_BYTES_REQUIRED"
     },

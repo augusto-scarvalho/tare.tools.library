@@ -1,0 +1,2248 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Backlog de cobertura TOTAL do artigo de referência (manuscrito v1.6) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-3-fundacoes-conceituais">§3 — Fundações conceituais</a></li><li class="h2"><a href="#ed-4-sintese-critica-do-estado-da-arte">§4 — Síntese crítica do estado da arte</a></li><li class="h2"><a href="#ed-5-arquitetura-de-referencia-proposta">§5 — Arquitetura de referência proposta</a></li><li class="h2"><a href="#ed-6-autocorrecao-memoria-de-projeto-autoevolucao-governada">§6 — Autocorreção, memória de projeto, autoevolução governada</a></li><li class="h2"><a href="#ed-7-governanca-metodos-formais-seguranca">§7 — Governança, métodos formais, segurança</a></li><li class="h2"><a href="#ed-8-proveniencia-observabilidade-interoperabilidade">§8 — Proveniência, observabilidade, interoperabilidade</a></li><li class="h2"><a href="#ed-9-avaliacao-cientifica-e-programa-experimental">§9 — Avaliação científica e programa experimental</a></li><li class="h2"><a href="#ed-10-rqs-e-hipoteses-falsificaveis-h1-h46-as-que-nos-tocam">§10 — RQs e hipóteses falsificáveis (H1-H46) — as que NOS tocam</a></li><li class="h2"><a href="#ed-11-qualidade-arquitetural-trade-offs-maturidade">§11 — Qualidade arquitetural, trade-offs, maturidade</a></li><li class="h2"><a href="#ed-12-15-discussao-roadmap-ameacas-conclusao">§12-§15 — Discussão, roadmap, ameaças, conclusão</a></li><li class="h2"><a href="#ed-apendices-a-i">Apêndices A-I</a></li><li class="h2"><a href="#ed-rollup-contagem-por-status-itens-consolidados">Rollup (contagem por status, itens consolidados)</a></li><li class="h2"><a href="#ed-rodadas-de-research-propostas-o-bucket-vamos-rodar-research-em-cima">Rodadas de research propostas (o bucket &quot;vamos rodar research em cima&quot;)</a></li><li class="h2"><a href="#ed-candidatos-a-loop-queue-7-baratos-aguardando-sua-ordem">Candidatos a LOOP QUEUE 7 (⬜ baratos, aguardando sua ordem)</a></li><li class="h2"><a href="#ed-incremento-r1-self-assessment-executado-2026-07-18-d012">Incremento R1 — self-assessment executado (2026-07-18, D012)</a></li><li class="h2"><a href="#ed-parte-1-itens-novos-derivados-das-rodadas-r1-r5-inseridos-no-backlog">Parte 1 — itens NOVOS derivados das rodadas R1-R5 (inseridos no backlog)</a></li><li class="h3"><a href="#ed-enablers-pequenos-destravam-familias-inteiras-o-coracao-da-eficiencia">Enablers (pequenos, destravam famílias inteiras — o coração da eficiência)</a></li><li class="h3"><a href="#ed-tasks-novas-fecham-gaps-nota-1-do-r1">Tasks novas (fecham gaps nota-1 do R1)</a></li><li class="h3"><a href="#ed-experimentos-novos-registrados">Experimentos novos registrados</a></li><li class="h3"><a href="#ed-rodadas-de-research-novas-derivadas-o-owner-pediu-pesquisas-nao-so-tasks">Rodadas de RESEARCH novas derivadas (o owner pediu pesquisas, não só tasks)</a></li><li class="h2"><a href="#ed-parte-2-ordem-do-backlog-inteiro-fases-por-dependencia">Parte 2 — ORDEM DO BACKLOG INTEIRO (fases por dependência)</a></li><li class="h3"><a href="#ed-fase-0-near-bugs-reais-enablers-baratos-dias-destrava-tudo">FASE 0 — near-bugs reais + enablers baratos (dias, destrava tudo)</a></li><li class="h3"><a href="#ed-fase-1-o-p0-de-seguranca">FASE 1 — o P0 de segurança</a></li><li class="h3"><a href="#ed-fase-2-probes-measure-only-medir-antes-de-controlar">FASE 2 — probes measure-only (medir antes de controlar)</a></li><li class="h3"><a href="#ed-fase-3-memoria-governada-re-escopada-pelo-overseer-2026-07-18">FASE 3 — memória governada (RE-ESCOPADA pelo overseer 2026-07-18)</a></li><li class="h3"><a href="#ed-fase-4-hardening-trajetoria-adapter-instrumento">FASE 4 — hardening trajetória/adapter + instrumento</a></li><li class="h3"><a href="#ed-fase-5-controles-que-a-medicao-justificou">FASE 5 — controles que a medição justificou</a></li><li class="h3"><a href="#ed-loop-queue-7-fechada-2026-07-19-fila-buildavel-zerada">LOOP QUEUE 7 — FECHADA (2026-07-19): fila buildável ZERADA</a></li><li class="h3"><a href="#ed-research-rodar-quando-o-pre-requisito-chegar">RESEARCH (rodar quando o pré-requisito chegar)</a></li><li class="h3"><a href="#ed-owner-gated-fora-da-fila-ate-voce-decidir">OWNER-GATED (fora da fila até você decidir)</a></li><li class="h3"><a href="#ed-itens-novos-derivados-das-decisoes-do-owner-d013-d017-2026-07-18">Itens NOVOS derivados das decisões do owner D013-D017 (2026-07-18)</a></li><li class="h3"><a href="#ed-n-truthrecon-decomposto-pela-rodada-3-2026-07-19-wf-050502-5-ideadores-nvidia">N-TRUTHRECON decomposto pela rodada #3 (2026-07-19, WF-...050502, 5 ideadores NVIDIA)</a></li><li class="h3"><a href="#ed-n-compaction-compactacao-automatica-de-contexto-rodada-compaction-round-md-2026-07-19">N-COMPACTION — compactação automática de contexto (rodada compaction-round.md, 2026-07-19)</a></li><li class="h3"><a href="#ed-n-ptc-programmatic-tool-calling-rodada-ptc-round-md-2026-07-19">N-PTC — Programmatic Tool Calling (rodada ptc-round.md, 2026-07-19)</a></li><li class="h3"><a href="#ed-n-u-funcao-de-utilidade-u-rota-outcome-custo-rodada-rd-u-d021">N-U — função de utilidade U(rota,outcome,custo) (rodada rd-u, D021)</a></li><li class="h3"><a href="#ed-n-crash-crash-injection-deterministica-rodada-rd-crash-d022">N-CRASH — crash injection determinística (rodada rd-crash, D022)</a></li><li class="h3"><a href="#ed-n-taint-taint-camel-rodada-rd-taint-camel-round-md-d023-priorizado-dep-do-ptc">N-TAINT — taint / CaMeL (rodada rd-taint-camel-round.md, D023) — PRIORIZADO (dep do PTC)</a></li><li class="h3"><a href="#ed-backlog-classico-nao-artigo-interleave-por-prioridade-propria">Backlog clássico não-artigo (interleave por prioridade própria)</a></li><li class="h2"><a href="#ed-porque-desta-ordem-logica-de-arquiteto">Porquê desta ordem (lógica de arquiteto)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">RESEARCH ITERATION · 2026-08-05 snapshot</div><h1>Backlog de cobertura TOTAL do artigo de referência (manuscrito v1.6)</h1><p class="subtitle">Edição histórica — research iteration/round. Preserved as an intermediate research artifact.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">pt-BR</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>12e135202245a7c5beea…</span></div><div><b>Edition SHA-256</b><span>12e135202245a7c5beea…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Varredura exaustiva de <code>docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md</code>
+(3.218 linhas, §1-§15 + apêndices A-I) → todo item acionável do artigo com o estado
+REAL no repo. Pedido do owner 2026-07-18: "destrinchar esse artigo inteiro em um
+backlog enorme — o que já fizemos, o que não fizemos, o que vai pra research".</p>
+<p><strong>Método:</strong> 6 extratores Sonnet (fatias disjuntas do manuscrito, extração cega ao
+repo) + consolidação do overseer Fable cruzando: rodada de adoção
+(<code>harness-reference-architecture-adoption.md</code>, C1-C16/N/S/E/A), DECISIONS
+D008-D011, experiment registry EXP-1..19, records de milestones, LOOP QUEUEs 1-6.
+A rodada de adoção foi a leitura SELETIVA (o que fecha lacuna crítica); esta é a
+COBERTURA (nada do artigo fica sem linha). Supersede a seletiva onde conflitar.</p>
+<p><strong>Legenda de status:</strong></p>
+<table>
+<thead>
+<tr>
+<th>status</th>
+<th>significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ feito</td>
+<td>mecanismo entregue com evidência (commit/spec/check)</td>
+</tr>
+<tr>
+<td>🟡 parcial</td>
+<td>slice entregue; o que falta está nomeado</td>
+</tr>
+<tr>
+<td>⬜ aberto</td>
+<td>buildável hoje, sem research; candidato a LOOP QUEUE</td>
+</tr>
+<tr>
+<td>🔬 research</td>
+<td>precisa de rodada de research/experimento antes de construir</td>
+</tr>
+<tr>
+<td>📏 regra</td>
+<td>disciplina adotada como lei viva (playbook/spec/gate), não é artefato</td>
+</tr>
+<tr>
+<td>🚫 contra-sinal</td>
+<td>o artigo manda NÃO construir; registrado como guarda</td>
+</tr>
+<tr>
+<td>⛔ rejeitado</td>
+<td>rejeitado por contra-evidência nossa (decisão registrada)</td>
+</tr>
+<tr>
+<td>🅿️ parked</td>
+<td>estacionado com gatilho de revisita registrado</td>
+</tr>
+<tr>
+<td>— n/a</td>
+<td>não se aplica ao nosso envelope (single-tenant, local, 2 vendors)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-3-fundacoes-conceituais">§3 — Fundações conceituais</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§3.1</td>
+<td>Ownership: 1 dono por task</td>
+<td>✅ feito</td>
+<td>SPEC-149 ownership epoch (75ccda1) + pid-lock dispatch + gate-hold</td>
+</tr>
+<tr>
+<td>§3.1</td>
+<td>Handoff vs agent-as-tool explícito</td>
+<td>📏 regra</td>
+<td>contrato subagent + WORKER_RESULT; transferências via briefs versionados</td>
+</tr>
+<tr>
+<td>§3.1</td>
+<td>Taxonomia de papéis</td>
+<td>✅ feito</td>
+<td>9 perfis <code>.claude/agents/</code> c/ teto S2 + espelhos codex (L17 413965a)</td>
+</tr>
+<tr>
+<td>§3.2</td>
+<td>Metamodelo H=⟨I,C,P,R,W,X,S,M,O,E⟩</td>
+<td>📏 regra</td>
+<td>mapeia 1:1 na arquitetura <code>.harness/</code> (descritivo; sem artefato novo)</td>
+</tr>
+<tr>
+<td>§3.3</td>
+<td>4 graus de dinamismo de workflow</td>
+<td>🟡 parcial</td>
+<td>static+selected ✅ (profiles/composer); generated/runtime-edited 🅿️ (SF-4: só com evidência de necessidade)</td>
+</tr>
+<tr>
+<td>§3.4</td>
+<td>MAPE-K / loops interno-externo separados</td>
+<td>✅ feito</td>
+<td>SPEC-109 anti-Hive invariant (C9 alinhado na rodada)</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Envelope operacional versionado</td>
+<td>🟡 parcial</td>
+<td>route-tuple C13 (L9 8732dbb) + risk tiers; falta declarar o envelope como doc versionado único → ⬜ candidato barato</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Regra do estado indeterminado → deny</td>
+<td>✅ feito</td>
+<td>N1 receipts (CE.1): sem receipt válido ≠ success; escalation em unknown</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Perfil de previsibilidade Π</td>
+<td>🔬 research</td>
+<td>métrica composta; pré-requisito: noise floor (L13 ✅) + trace completeness (L4 ✅); rodada p/ definir os 5 componentes no nosso corpus</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Construtos-métricas (12: autonomy, governance, route churn, context footprint, delegation economy, contention, trace completeness…)</td>
+<td>🟡→<strong>DESENHADO R4</strong></td>
+<td>medidos: context footprint (CE.2), delegation economy (OB.2), trace completeness (L4), regret (EXP-17 probe); R4 pré-registrou fórmulas measure-only p/ route churn/CTS/Π-lite/recovery (→ C18/C19/C20 ⬜) e nomeou o que falta p/ regret/ECE/A_ctx (função U + predictedP — decisão de owner). Ver <code>construct-metrics.md</code></td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Risk tiers R0-R3</td>
+<td>✅ feito</td>
+<td>L1 (fba2fe2) + riskTier no dispatch emit (L4); R3 pinado como unreachable na nossa escala</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Project Context Profile (YAML por run)</td>
+<td>⬜ aberto</td>
+<td>temos project.json + model-cards; falta o profile por-target no formato do artigo — barato via SPEC-110 targets</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Predicado de compatibilidade de transferência</td>
+<td>🅿️ parked</td>
+<td>gatilho: 2º target real em produção (hoje single-project)</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Tupla de rota r (9 campos)</td>
+<td>✅ feito</td>
+<td>C13/L9: pin da tupla nos records de delegação</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Effort labels não comparáveis entre vendors</td>
+<td>📏 regra</td>
+<td>model-cards por vendor; L17 NÃO mapeia model claude→codex (unportable note)</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Resource manifest por nó paralelo</td>
+<td>🟡 parcial</td>
+<td>footprints HARD nos briefs + write choreography; falta manifest TIPADO por worker no workflow.json → ⬜</td>
+</tr>
+<tr>
+<td>§3.5</td>
+<td>Conservadorismo do manifest (só expande)</td>
+<td>📏 regra</td>
+<td>review ritual: mudança fora do footprint = revert</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-4-sintese-critica-do-estado-da-arte">§4 — Síntese crítica do estado da arte</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§4.1</td>
+<td>Harness pinado como tratamento experimental</td>
+<td>📏 regra</td>
+<td>D008 + EXPERIMENT_METHODOLOGY (blocos de ruído, snapshot pinado)</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Contexto ≠ enforcement (hooks antes de tools)</td>
+<td>✅ feito</td>
+<td>C14: gate SPEC-137, protected-files, hooks PreToolUse</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Effective Constitution Compiler</td>
+<td>🅿️ parked</td>
+<td>estacionada na rodada (over-eng no estágio); gatilho: multi-tenant</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Precedência deny-overrides</td>
+<td>🟡 parcial</td>
+<td>protected-files + deny hooks ✅; sem compilador formal de precedência (parked junto acima)</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Dano de contexto auto-gerado</td>
+<td>🚫 contra-sinal</td>
+<td>C6: política de CONTEXT.md mínimo curado é lei; NUNCA gerar por LLM</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Minimização de contexto c/ expiry de claims</td>
+<td>🟡 parcial</td>
+<td>budget policy ✅; lifecycle/valid-until (N6) DIFERIDO c/ gatilho (1ª claim vencida que enganar um run)</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Compressão orientada a relevância (LongLLMLingua)</td>
+<td>⛔ rejeitado (por ora)</td>
+<td>EXP-1 fase 2 head+tail: MEDIDA E REVERTIDA (perdeu mais linhas decisivas); re-teste só com corpus enriquecido (caminho registrado no probe)</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Context diet</td>
+<td>✅ feito</td>
+<td>SPEC-118 v6 tool-schema trim (−2.670 tok/turn medido)</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Baseline single-agent matched-budget</td>
+<td>🔬 research</td>
+<td>EXP-15 ATIVO; medições dedup/convergência feitas; falta o braço matched-budget de verdade</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Briefs de delegação explícitos</td>
+<td>✅ feito</td>
+<td>plan-brief template do playbook overseer (footprint/decisões/verify)</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Experimento confirmatório 4×2 de contexto</td>
+<td>🔬 research</td>
+<td>candidato a rodada futura (grande); pré-req: EXP-16 evidence-loss</td>
+</tr>
+<tr>
+<td>§4.1</td>
+<td>Ledgers separados: tokens billed vs bytes lógicos</td>
+<td>🟡 parcial</td>
+<td>token-audit (billed) + CE.2; sem ledger de bytes lógicos → 🔬 (A_ctx diferido c/ gatilho na rodada)</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Router aprendido / LLM-router</td>
+<td>⛔ rejeitado</td>
+<td>C4 + contra-sinal 1 da rodada; kNN/regra empata — SPEC-144 é regra+floor</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Ledger de outcome de rota + regret</td>
+<td>✅ feito</td>
+<td>N4 + L7 route ledger durável (8732dbb) + EXP-17 probe (corpus acumulando)</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Estágios do router: filtro determinístico</td>
+<td>✅ feito</td>
+<td>deterministic_floor + rule-of-two S6 (só RAISE)</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Estágios: classificador de task</td>
+<td>✅ feito</td>
+<td>SPEC-144 tier-1 router (sonnet, 1 demanda → rota+escalação)</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Estágios: calibração/abstenção</td>
+<td>🟡 parcial</td>
+<td>escalation ledger ✅; sem medida de calibração do router → alimenta EXP-17</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Estágios: histerese (anti route-churn)</td>
+<td>⬜ aberto</td>
+<td>barato: cooldown/deadband no route-loop; medir churn antes (🔬 métrica route churn acima)</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Estágios: counterfactual logging</td>
+<td>🟡 parcial</td>
+<td>route ledger grava candidatos; falta formato contrafactual (rotas não escolhidas c/ propensity) → ⬜</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Roteamento de effort por passo (Ares)</td>
+<td>🅿️ parked</td>
+<td>gatilho: pressão de custo em sessões longas; hoje effort é por perfil/role</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Escada C3VR de fallback gated</td>
+<td>🟡 parcial</td>
+<td>failover chains (SPEC-115 r15) + escalation ✅; falta o degrau "abstain/escalate effort ANTES de escalar modelo" explícito → ⬜</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Exploração banida em R2/R3</td>
+<td>📏 regra</td>
+<td>RF.1 fase 2 owner-gated; tiers L1 dão o vocabulário</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>Teto de co-falha β_C</td>
+<td>⛔ rejeitado (honesto)</td>
+<td>recon 2026-07-18: sem oráculo + workers role-diferenciados → β_C não identificável; probe EXP-15 mede co-detecção (o que dá)</td>
+</tr>
+<tr>
+<td>§4.3</td>
+<td>Workflow IR tipado + compiler checks</td>
+<td>🟡 parcial</td>
+<td>DW.2 IR ✅ + compile: schema/budget/secret/permission ✅ (rules 28-30); ciclos/reachability — n/a (só fork-join/map-reduce); compensation 🅿️</td>
+</tr>
+<tr>
+<td>§4.3</td>
+<td>Geração de workflow por busca (AFlow/EvoAgentX)</td>
+<td>🚫 contra-sinal</td>
+<td>auto-evolução de topologia sem M1/M2 completos = misevolution (C9/C16)</td>
+</tr>
+<tr>
+<td>§4.3</td>
+<td>Scheduling de modelo por trajetória (EvoRoute)</td>
+<td>🅿️ parked</td>
+<td>gatilho: custo de wave dominado por 1 modelo; hoje routing por role resolve</td>
+</tr>
+<tr>
+<td>§4.3</td>
+<td>Gate leve de intensidade (LLM-as-Scheduler)</td>
+<td>🅿️ parked</td>
+<td>primo do effort-por-passo acima; mesmo gatilho</td>
+</tr>
+<tr>
+<td>§4.3</td>
+<td>Escalação progressiva de dinamismo (SF-4)</td>
+<td>📏 regra</td>
+<td>composer = selected; generated/runtime-edited exigem evidência (D008)</td>
+</tr>
+<tr>
+<td>§4.4</td>
+<td>Taxonomia de topologias</td>
+<td>✅ feito</td>
+<td>map-reduce, fork-join, rooms multi-vendor, fork-join NATIVO codex (EXP-19/D009)</td>
+</tr>
+<tr>
+<td>§4.4</td>
+<td>Evidence envelope por agente</td>
+<td>✅ feito</td>
+<td>WORKER_RESULT schema + oracleEvidence (CQ.2); perda medida no EXP-16</td>
+</tr>
+<tr>
+<td>§4.4</td>
+<td>Lease + fencing (epoch monotônico)</td>
+<td>✅ feito</td>
+<td>SPEC-149 (L11): chokepoint único workflow_update sync+async</td>
+</tr>
+<tr>
+<td>§4.4</td>
+<td>Single committer + idempotência + receipt p/ efeitos externos</td>
+<td>✅ feito</td>
+<td>N1 receipts + merge choreography (overseer único integra) + SF-5b write policy</td>
+</tr>
+<tr>
+<td>§4.4</td>
+<td>CRDTs / coordination avoidance formal</td>
+<td>— n/a</td>
+<td>escala atual não tem replicação concorrente de estado mutável</td>
+</tr>
+<tr>
+<td>§4.4</td>
+<td>LLM não autoriza commit</td>
+<td>📏 regra</td>
+<td>gate SPEC-137 + owner-gates + approval digest C12</td>
+</tr>
+<tr>
+<td>§4.4</td>
+<td>Topologia por estágio (discovery fan-out, impl single-owner, review independente, approval determinístico)</td>
+<td>✅ feito</td>
+<td>D010 largura paramétrica (L16) + waves de crítica independentes + decide inbox</td>
+</tr>
+<tr>
+<td>§4.4</td>
+<td>Reconstrução de topologia por rodada (DyTopo)</td>
+<td>🅿️ parked</td>
+<td>estacionada na rodada; gatilho: multi-tenant/escala</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>Façade única + workers inspecionáveis (AHHI)</td>
+<td>✅ feito</td>
+<td>C11: porteiro + rooms + tag [live rooms] + decide inbox + task cards</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>Compact state account (objetivo/dono/frontier/recovery)</td>
+<td>✅ feito</td>
+<td>U2 takeover card L0 (2af7787) + plan HUD</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>Perfil de interação task-scoped</td>
+<td>🟡 parcial</td>
+<td>headless governance + postPlanMode prefs; sem perfil dinâmico por task (🅿️ AHHI profiles estacionado)</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>Regras locais evolutivas (Hedwig/ZORO)</td>
+<td>🔬 research</td>
+<td>toca N6 lifecycle de claims + memória; rodada de memória já tem doc (memory-context-management.md) — refinar lá</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>Guards de ação + digest de aprovação</td>
+<td>✅ feito</td>
+<td>C12 approval-digest binding no decide inbox (TOCTOU fechado)</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>Autorização fina de lifecycle (SAGA)</td>
+<td>🅿️ parked</td>
+<td>single-user hoje; gatilho: multi-tenant</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>"Esconder até falhar" é inseguro</td>
+<td>📏 regra</td>
+<td>estados de lifecycle visíveis (U1) — "sumiu do chat não é estado"</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>Effective autonomy = min(desejo, política, evidência)</td>
+<td>📏 regra</td>
+<td>owner-gates não-renunciáveis; containment &gt; fadiga (S-trail)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-5-arquitetura-de-referencia-proposta">§5 — Arquitetura de referência proposta</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§5.1</td>
+<td>10 planos da arquitetura</td>
+<td>🟡 parcial</td>
+<td>mapeamento 1:1: control (project.json+hooks+gates), routing (SPEC-144), workflow compiler (DW.2), runtime (async+SPEC-148), capability (executors+SPEC-113), trajectory (events+records), experimental (SPEC-116+métodos), interaction (panel/rooms), evolution (SPEC-109). GAP do runtime plane <strong>DESENHADO na R2</strong> (harness-own sandbox SB-1/2/3, intake pronto <code>harness-own-sandbox.intake.md</code>); constitution compiler 🅿️</td>
+</tr>
+<tr>
+<td>§5.2</td>
+<td>DGIOTS (kernel formal de transições)</td>
+<td>🅿️ parked</td>
+<td>"workflow IR tipado com prova de soundness" estacionada na rodada; DW.2 IR + gates são a versão lite; gatilho: multi-tenant</td>
+</tr>
+<tr>
+<td>§5.2</td>
+<td>Ponto determinístico de decisão de política pré-execução</td>
+<td>🟡 parcial</td>
+<td>claude: hooks deny honrado ✅; codex: hooks advisory → contenção via sandbox nativo S3 ✅; open models: NADA → harness-own sandbox ⬜</td>
+</tr>
+<tr>
+<td>§5.3 inv.1-2</td>
+<td>Deny final + autorização pré-ação</td>
+<td>🟡 parcial</td>
+<td>idem acima (matriz de contenção por vendor no round doc)</td>
+</tr>
+<tr>
+<td>§5.3 inv.3</td>
+<td>Proposer ≠ approver</td>
+<td>✅ feito</td>
+<td>worker nunca commita; overseer revisa; owner-gates</td>
+</tr>
+<tr>
+<td>§5.3 inv.4</td>
+<td>Replay antes de persistir</td>
+<td>🟡 parcial</td>
+<td>gate SPEC-137 + probes determinísticos; sem replay formal (junto do DGIOTS 🅿️)</td>
+</tr>
+<tr>
+<td>§5.3 inv.5</td>
+<td>Mudança de kernel só com humano</td>
+<td>✅ feito</td>
+<td>protected-files + hook + OS-lock (SPEC-148)</td>
+</tr>
+<tr>
+<td>§5.3 inv.6</td>
+<td>Ownership único</td>
+<td>✅ feito</td>
+<td>SPEC-149 epoch</td>
+</tr>
+<tr>
+<td>§5.3 inv.7</td>
+<td>Handoff com contrato de evidência</td>
+<td>✅ feito</td>
+<td>WORKER_RESULT + handoff budget (M1) + packet economy</td>
+</tr>
+<tr>
+<td>§5.3 inv.8</td>
+<td>Budgets duros fora do contexto do LLM</td>
+<td>✅ feito</td>
+<td>token budgets enforçados no plan/start (rule 29)</td>
+</tr>
+<tr>
+<td>§5.3 inv.9</td>
+<td>Gate proporcional ao risco</td>
+<td>✅ feito</td>
+<td>R0-R3 (L1) + rule-of-two (S6) + owner-gates</td>
+</tr>
+<tr>
+<td>§5.3 inv.10</td>
+<td>Memória→política só via pipeline de promoção</td>
+<td>🟡 parcial</td>
+<td>D008 porta de experimento ✅; lifecycle de memória (N6) diferido c/ gatilho</td>
+</tr>
+<tr>
+<td>§5.3 inv.11</td>
+<td>Disciplina de logs sensíveis</td>
+<td>✅ feito</td>
+<td>secret_scan/redact nos 2 seams + records name-only</td>
+</tr>
+<tr>
+<td>§5.3 inv.12</td>
+<td>Classes de replay por evento</td>
+<td>✅ feito</td>
+<td>L3 replay-class (exact/approximate/external)</td>
+</tr>
+<tr>
+<td>§5.3 inv.13-15</td>
+<td>Disciplina experimental (sem auto-promoção, desenho congelado, claim causal)</td>
+<td>✅ feito</td>
+<td>D008 + livraria de métodos (L18) + prática viva (EXP-18 pré-registro honrado hoje)</td>
+</tr>
+<tr>
+<td>§5.3 inv.16-17</td>
+<td>Reducer determinístico + fail-closed em colisão de regra</td>
+<td>🅿️ parked</td>
+<td>corpo do DGIOTS; nossa versão: gate determinístico + append-only</td>
+</tr>
+<tr>
+<td>§5.3 inv.18</td>
+<td>Receipt-gated effect truth</td>
+<td>✅ feito</td>
+<td>N1 (CE.1): success só com receipt válido</td>
+</tr>
+<tr>
+<td>§5.3 inv.19-20</td>
+<td>UI não infla teto; controles = eventos tipados</td>
+<td>✅ feito</td>
+<td>GUI-writes-no-state + action allowlist + digest no decide</td>
+</tr>
+<tr>
+<td>§5.4</td>
+<td>Session coordinator ≠ root of trust</td>
+<td>📏 regra</td>
+<td>porteiro/façade; autoridade fica nos gates/owner</td>
+</tr>
+<tr>
+<td>§5.5</td>
+<td>12 boundaries de adapter estáveis</td>
+<td>🟡 parcial</td>
+<td>capabilities.json + SPEC-113 (agora com agent profiles L17) cobrem hooks/mcp/skills/agents; accounting-semantics disclosure ⬜ barato (campo no executor card)</td>
+</tr>
+<tr>
+<td>§5.5</td>
+<td>Capability delegation contract</td>
+<td>✅ feito</td>
+<td>plan briefs (footprint/tools/verify/budget/schema de retorno) + packets</td>
+</tr>
+<tr>
+<td>§5.5</td>
+<td>Retorno = evidence delta, nunca transcript</td>
+<td>✅ feito</td>
+<td>WORKER_RESULT bounded + OUTPUT_CAP + S4 delegation output cap</td>
+</tr>
+<tr>
+<td>§5.6</td>
+<td>ECA (constituição compilada assinada)</td>
+<td>🅿️ parked</td>
+<td>Effective Constitution Compiler estacionado; nossa versão: precedência de protected-files + hooks + specs</td>
+</tr>
+<tr>
+<td>§5.7</td>
+<td>Máquina de ownership com lease + duas fases de transferência</td>
+<td>🟡 parcial</td>
+<td>epoch+recovery ✅; transferência 2-fases explícita não existe (não houve demanda; gatilho: 1º incidente de transferência)</td>
+</tr>
+<tr>
+<td>§5.7</td>
+<td>Reclamação só pelo runtime</td>
+<td>✅ feito</td>
+<td><code>_recover_stale_holds</code> recusa pid VIVO (N3/F2)</td>
+</tr>
+<tr>
+<td>§5.7</td>
+<td>Tabela de concorrência por semântica de recurso</td>
+<td>✅ feito</td>
+<td>SF-5b: worktrees isolados + merge condicional + single committer + write choreography</td>
+</tr>
+<tr>
+<td>§5.7</td>
+<td>Lifecycle de efeito + outbox + idempotency keys</td>
+<td>🟡 parcial</td>
+<td>receipts N1 + records ✅; outbox/idempotency keys formais — n/a na escala (efeitos externos raros e single-committer)</td>
+</tr>
+<tr>
+<td>§5.7</td>
+<td>Pontos de crash + reconciliação (6 casos)</td>
+<td>🟡 parcial</td>
+<td>gate-hold auto-recovery + scenario forensics + breaker; unknown-state effects: escalation ✅</td>
+</tr>
+<tr>
+<td>§5.7</td>
+<td>Métricas de recovery (duplicate-effect, orphaned work, time-to-resume…)</td>
+<td>🔬 research</td>
+<td>rodada de métricas de construto (junto §3.5)</td>
+</tr>
+<tr>
+<td>§5.8</td>
+<td>Modos de interação (Assist→Orchestrator)</td>
+<td>🟡 parcial</td>
+<td>rooms+panel+composer cobrem Guided/Delegated/Orchestrator de facto; perfis dinâmicos por task 🅿️ (AHHI profiles)</td>
+</tr>
+<tr>
+<td>§5.8</td>
+<td>Progressive disclosure L0-L3</td>
+<td>✅ feito</td>
+<td>L0 takeover card (U2) / L1 plan HUD / L2 task cards+queue / L3 evidence drill-in (UX-GA.3)</td>
+</tr>
+<tr>
+<td>§5.8</td>
+<td>Attention inbox tipado + batching</td>
+<td>✅ feito</td>
+<td>decide inbox + escalations por blast radius (M5.3); batching é o default do painel</td>
+</tr>
+<tr>
+<td>§5.8</td>
+<td>Máquina de estados de aprovação + consumo single-use + invalidação</td>
+<td>✅ feito</td>
+<td>C12 digest + L2 SLO/expiry + <code>apply_decision</code> recusa mismatch</td>
+</tr>
+<tr>
+<td>§5.8</td>
+<td>Perfil durável interaction_profile</td>
+<td>🅿️ parked</td>
+<td>AHHI profiles dinâmicos estacionados (gatilho: multi-tenant)</td>
+</tr>
+<tr>
+<td>§5.9</td>
+<td>Tabela de planos = contrato mínimo + testes por plano</td>
+<td>🔬 research</td>
+<td><strong>rodada proposta nº 1: self-assessment de conformidade</strong> — mapear nossos gates/cenários aos testes por plano (§5.9 + App F) e publicar matriz de gaps</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-6-autocorrecao-memoria-de-projeto-autoevolucao-governada">§6 — Autocorreção, memória de projeto, autoevolução governada</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§6.1</td>
+<td>Taxonomia de falha (11 classes) + router diagnóstico por sintomas</td>
+<td>🟡 parcial</td>
+<td>SPEC-126 failure-patterns (clustering) cobre parte; router diagnóstico consome sintomas nos recovery paths do async; taxonomia completa → ⬜ alinhar SPEC-126 às 11 classes</td>
+</tr>
+<tr>
+<td>§6.1</td>
+<td>Utilidade de recovery + bloqueio de repetição sem evidência nova</td>
+<td>🟡 parcial</td>
+<td>breaker + maxRounds + <code>--force-round</code> exige diagnóstico escrito 📏; utilidade formal 🔬</td>
+</tr>
+<tr>
+<td>§6.1</td>
+<td>Modos de correção (self-critique ≠ evidência; tool feedback = evidência)</td>
+<td>📏 regra</td>
+<td>C8: review/oracle/gate; self-critique nunca é evidência (ritual)</td>
+</tr>
+<tr>
+<td>§6.2</td>
+<td>7 camadas de memória com regras de confiança</td>
+<td>🟡 parcial</td>
+<td>mapeadas de facto (runtime/checkpoint/workflow.json/CONTEXT/records/EXPs/specs/git); regras de confiança POR camada não declaradas → ⬜ doc barato</td>
+</tr>
+<tr>
+<td>§6.2</td>
+<td>ContextLedger (objeto por fonte/versão/hash/validade)</td>
+<td>🅿️ parked</td>
+<td>A_ctx diferido c/ gatilho (rodada 2ª leva); CE.2 mede o proxy</td>
+</tr>
+<tr>
+<td>§6.2</td>
+<td>Métricas de contexto (F_logical, A_ctx, D_ctx, precision/recall, evidence loss)</td>
+<td>🔬 research</td>
+<td>EXP-16 (evidence loss) ATIVO; demais entram na rodada de métricas</td>
+</tr>
+<tr>
+<td>§6.2</td>
+<td>Lifecycle de memória (candidate→validated→active→challenged→expired)</td>
+<td>🔬→<strong>DESENHADO R2/R3</strong></td>
+<td>N6 DESBLOQUEADO em desenho: trigger scope-matched ancorado em git HEAD SHA ∩ diff (resolve o "teatro mtime" E o over-expiry) + provenance firewall + shadow ledger measure-only. Enforcement segue owner-gated (gatilho N6). Portfólio GM-1..6 em <code>memory-context-management.md</code> §R3</td>
+</tr>
+<tr>
+<td>§6.2</td>
+<td>Poisoning: memória nunca vira política</td>
+<td>✅ feito</td>
+<td>untrusted-derived marks + D008 porta + anti-Hive</td>
+</tr>
+<tr>
+<td>§6.2</td>
+<td>Eval adversarial de memória (4 condições)</td>
+<td>🔬→<strong>DESENHADO R3</strong></td>
+<td>GM-5 shadow-challenge ledger mede error-following/stale-use/negative-transfer/recovery; graduação por métrica+threshold owner-gated (measure-before-enforce à la EXP-18)</td>
+</tr>
+<tr>
+<td>§6.2</td>
+<td>7 camadas de memória c/ trust rules</td>
+<td>🟡→<strong>DESENHADO R3</strong></td>
+<td>GM-3 provenance firewall (active_memory.authority &lt; signed_policy) fecha a regra de confiança que faltava; poisoning coberto</td>
+</tr>
+<tr>
+<td>§6.3</td>
+<td>ProjectRoutingProfile / bandit constrained</td>
+<td>⛔ rejeitado (por ora)</td>
+<td>C4 + RF.1 fase 2 owner-gated; pré-req: EXP-17 regret acumular corpus</td>
+</tr>
+<tr>
+<td>§6.3</td>
+<td>Shadow-mode p/ priors + drift → shadow-only</td>
+<td>📏 regra</td>
+<td>D008; C3VR drift rule citada no round doc (correção A pendente da seção codex)</td>
+</tr>
+<tr>
+<td>§6.4</td>
+<td>Escada de evolução níveis 0-5 + registry de candidatos</td>
+<td>✅ feito</td>
+<td>SPEC-109 (nível 1 fechado-reversível) + experiment registry + intake + DECISIONS; kernel nível 5 = protected+owner</td>
+</tr>
+<tr>
+<td>§6.4</td>
+<td>Pipeline de promoção c/ monitoramento atrasado</td>
+<td>✅ feito</td>
+<td>portas SPEC-116 + reviewBy + doctor <code>experiment-overdue</code> (check 6, WARN em stale_active) — o monitoramento atrasado lite JÁ existe</td>
+</tr>
+<tr>
+<td>§6.4</td>
+<td>AHE: predição antes da observação</td>
+<td>✅ feito</td>
+<td>pré-registro é prática viva (EXP-18 medição 2 desta sessão)</td>
+</tr>
+<tr>
+<td>§6.5</td>
+<td>EDC completo (design selector, sealed partitions, racing/BO)</td>
+<td>🅿️ parked</td>
+<td>estacionado na rodada; nossa versão EDC-lite: livraria de métodos (L18) + registry + noise floor (L13) + Taguchi (hoje)</td>
+</tr>
+<tr>
+<td>§6.5</td>
+<td>Separação search vs inference; alias publicado</td>
+<td>📏 regra</td>
+<td>livraria de métodos (Taguchi card cita a crítica estatística)</td>
+</tr>
+<tr>
+<td>§6.6</td>
+<td>Constantes default (α=.05, power .80, δ_Q/δ_C/δ_L/δ_V, ECE≤.05)</td>
+<td>⬜ aberto</td>
+<td><strong>barato e valioso: adotar a tabela de constantes em EXPERIMENT_METHODOLOGY.md</strong> como defaults de promoção</td>
+</tr>
+<tr>
+<td>§6.6</td>
+<td>8 requisitos de promoção + rollout staged + rollback triggers</td>
+<td>🟡 parcial</td>
+<td>D008 door + gate + reversalPlan obrigatório ✅; sequential testing/alpha-spending 🔬 (só se volume de EXPs crescer)</td>
+</tr>
+<tr>
+<td>§6.6</td>
+<td>Proibição de auto-modificação de evidência/rollback</td>
+<td>✅ feito</td>
+<td>anti-Hive + protected files + proposer≠approver</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-7-governanca-metodos-formais-seguranca">§7 — Governança, métodos formais, segurança</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§7.1 r1</td>
+<td>Deny em diretórios protegidos</td>
+<td>✅ feito</td>
+<td>protected-files hook + OS-lock + parser apply_patch (building block)</td>
+</tr>
+<tr>
+<td>§7.1 r2</td>
+<td>Fluxo sensível gated por aprovação (secret→egress)</td>
+<td>🟡 parcial</td>
+<td>SEC.1 pre-egress + scrub nos seams ✅; egress geral declare-only (teto honesto, rule 27) → depende do harness-own sandbox ⬜</td>
+</tr>
+<tr>
+<td>§7.1 r3</td>
+<td>Limites de COMBINAÇÃO de tools</td>
+<td>✅ feito</td>
+<td>rule-of-two S6 (2-de-3 untrusted/sensitive/external → escalate)</td>
+</tr>
+<tr>
+<td>§7.1 r4</td>
+<td>Delegação não escala privilégio</td>
+<td>✅ feito</td>
+<td>env allowlist E3/S1 + sandbox tiers S3 + spawn economy</td>
+</tr>
+<tr>
+<td>§7.1 r5</td>
+<td>Validador independente antes de merge</td>
+<td>✅ feito</td>
+<td>review ritual + gate SPEC-137 + oracle mutate</td>
+</tr>
+<tr>
+<td>§7.1 r6</td>
+<td>Limites cumulativos de custo/agentes</td>
+<td>✅ feito</td>
+<td>token budgets + maxWorkers + delegation ledger</td>
+</tr>
+<tr>
+<td>§7.1 r7</td>
+<td>Proposer não aprova a própria proposta</td>
+<td>✅ feito</td>
+<td>idem inv.3</td>
+</tr>
+<tr>
+<td>§7.1 o1-o5</td>
+<td>Políticas de CAMINHO (obrigações temporais)</td>
+<td>🟡 parcial</td>
+<td>o1 plan-gate digest ✅; o3 ✅; o4 C12 ✅; o5 reversalPlan ✅; o2 (secret_read → nunca egress até declassificar) 🟡 — taint tracking não existe; entra no design do harness-own sandbox</td>
+</tr>
+<tr>
+<td>§7.2</td>
+<td>Métodos formais (Petri/TL/type systems/refinement)</td>
+<td>🅿️ parked</td>
+<td>junto do DGIOTS; nossa camada: property-based via cenários + mutation</td>
+</tr>
+<tr>
+<td>§7.2 p1-p8</td>
+<td>8 propriedades verificáveis</td>
+<td>🟡 parcial</td>
+<td>safety/non-bypass/separation/termination cobertas por gates+hooks+budgets; liveness = watchdog/timeout; provas formais 🅿️</td>
+</tr>
+<tr>
+<td>§7.2</td>
+<td>Mutation testing de política</td>
+<td>🟡 parcial</td>
+<td>oracle mutate ✅ (código); mutação de POLÍTICA (negar guards, spoof epoch) → ⬜ estender red-team fixture</td>
+</tr>
+<tr>
+<td>§7.2</td>
+<td>Estimativa estatística nunca sobrepõe deny</td>
+<td>📏 regra</td>
+<td>OB.3 anomaly card é advisory-only por design</td>
+</tr>
+<tr>
+<td>§7.3</td>
+<td>Hierarquia de trust zones (10 zonas); repo content é UNTRUSTED</td>
+<td>✅ feito</td>
+<td>trustTier (DW.1) + untrusted-derived marks + seed provenance + prompt-injection posture nos packets</td>
+</tr>
+<tr>
+<td>§7.4 s1-s10</td>
+<td>Defense stack 10 camadas</td>
+<td>🟡 parcial</td>
+<td>s1✅ s2🟡(scrub+marks) s3✅(S1/S2/S3) s4✅claude/🟡codex s5🟡→<strong>DESENHADO R2</strong> (harness-own sandbox SB-1/2/3 intake pronto; egress kernel atrás de gatilho admin) s6✅gates s7🟡(OB.3) s8✅ s9✅ s10🟡(red-team fixture; contínuo 🔬)</td>
+</tr>
+<tr>
+<td>§7.4</td>
+<td>Rule of Two</td>
+<td>✅ feito</td>
+<td>S6 no floor do porteiro</td>
+</tr>
+<tr>
+<td>§7.4</td>
+<td>CaMeL (separar controle confiável de dado não-confiável)</td>
+<td>🟡 parcial</td>
+<td>citado na trilha S; realização plena = harness-own sandbox</td>
+</tr>
+<tr>
+<td>§7.4</td>
+<td>Avaliação adversarial task-bearing (AgentDojo etc.)</td>
+<td>🔬 research</td>
+<td>rodada de red-team contínuo; hoje: red-team fixture pontual</td>
+</tr>
+<tr>
+<td>§7.5</td>
+<td>Threat model 7 adversários + cobertura 4-partes (prevenção/detecção/resposta/dono)</td>
+<td>🟡 parcial</td>
+<td>security-directive-map + fixtures cobrem parte; <strong>⬜ barato: residual risk register</strong> (schema §14.7-2) por ameaça</td>
+</tr>
+<tr>
+<td>§7.5</td>
+<td>SLSA / in-toto (supply chain)</td>
+<td>— n/a</td>
+<td>single-dev local; gatilho: distribuição do harness como produto</td>
+</tr>
+<tr>
+<td>§7.6</td>
+<td>Classificações de dados + non-exfiltration flow invariant</td>
+<td>🟡 parcial</td>
+<td>secret scrub + keys vault + redaction ✅; classificação formal por item 🅿️ (multi-tenant)</td>
+</tr>
+<tr>
+<td>§7.7</td>
+<td>Aprovação = compreensão + chance real de rejeitar; anti-fadiga</td>
+<td>✅ feito</td>
+<td>decide inbox tipado c/ digest + expiry/SLO + containment-over-fatigue (S-trail)</td>
+</tr>
+<tr>
+<td>§7.7</td>
+<td>Formas inválidas de aprovação (blanket/retroativa/self/sem expiry)</td>
+<td>✅ feito</td>
+<td>C12+L2 fecham as 4</td>
+</tr>
+<tr>
+<td>§7.7</td>
+<td>Métricas do serviço de aprovação</td>
+<td>⬜ aberto</td>
+<td>barato: stats do decide inbox (volume/latência/override) no metrics</td>
+</tr>
+<tr>
+<td>§7.7</td>
+<td>Estudos humanos de oversight</td>
+<td>— n/a</td>
+<td>pesquisa acadêmica; fora do envelope</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-8-proveniencia-observabilidade-interoperabilidade">§8 — Proveniência, observabilidade, interoperabilidade</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§8.1</td>
+<td>ATP (evento tipado, DAG causal, append-only)</td>
+<td>🟡 parcial</td>
+<td>events.jsonl + N2 classe append-only + quarentena ✅; DAG causal explícito (parent ids) ⬜; assinatura/hash-chain 🅿️ (estacionado)</td>
+</tr>
+<tr>
+<td>§8.1 ir1</td>
+<td>Eventos imutáveis, correção por supersessão</td>
+<td>✅ feito</td>
+<td>N2 + G3a record supersession</td>
+</tr>
+<tr>
+<td>§8.1 ir6</td>
+<td>Quarentena de evento órfão</td>
+<td>✅ feito</td>
+<td>N2 (CE.8): SECURITY_ALERT/FAILURE sobrevivem a wipe</td>
+</tr>
+<tr>
+<td>§8.1 ir8</td>
+<td>Trace completeness POR risk tier</td>
+<td>✅ feito</td>
+<td>L4 (feb73f3): doctor check 9 + riskTier no emit</td>
+</tr>
+<tr>
+<td>§8.1 ir9</td>
+<td>Reconciliação de usage por chamada de modelo</td>
+<td>🟡 parcial</td>
+<td>delegation ledger + token-audit; reconciliação por chamada ⬜ (campo no executor result)</td>
+</tr>
+<tr>
+<td>§8.1 ir2-5,10-14</td>
+<td>Demais integrity rules</td>
+<td>🟡 parcial</td>
+<td>refs de merge/failover/decisão existem nos records; cluster completo entra no self-assessment (rodada nº 1)</td>
+</tr>
+<tr>
+<td>§8.2</td>
+<td>Replay classes declaradas</td>
+<td>✅ feito</td>
+<td>L3</td>
+</tr>
+<tr>
+<td>§8.2</td>
+<td>Replay contrafactual de UMA variável</td>
+<td>🔬 research</td>
+<td>candidato a EXP (trocar router/modelo/memória num WF congelado); pré-req: corpus de WFs congelados (já temos 5)</td>
+</tr>
+<tr>
+<td>§8.3</td>
+<td>MCP como boundary; A2A</td>
+<td>🟡 / n/a</td>
+<td>MCP declarado em capabilities.json ✅; A2A sem caso de uso</td>
+</tr>
+<tr>
+<td>§8.3</td>
+<td>Matriz de capacidade por adapter + conformance suite</td>
+<td>🟡 parcial</td>
+<td>capabilities.json + correção pendente (A) da seção codex; suite de conformance → junto do self-assessment</td>
+</tr>
+<tr>
+<td>§8.4</td>
+<td>Estados de suporte native/emulated/degraded/unsupported</td>
+<td>⬜ aberto</td>
+<td>barato e útil: vocabulário nos cards de capabilities.json (a nota codex SubagentStop é exatamente isso)</td>
+</tr>
+<tr>
+<td>§8.4 c1-c14</td>
+<td>14 testes de conformance de adapter</td>
+<td>🔬 research</td>
+<td>subconjunto aplicável entra no self-assessment; esh (executor-spawn-hygiene) já cobre c2 parcial</td>
+</tr>
+<tr>
+<td>§8.4</td>
+<td>Avaliação 3-lanes cross-vendor (sem pooling)</td>
+<td>🔬→<strong>DESENHADO R5 = EXP-20 proposed</strong></td>
+<td>pré-registro completo (<code>exp20-three-lane-design.md</code>): 3 lanes sem pooling, split-plot (vendor=whole-plot), matched-budget por tokens observados, gap codex-nativo tratado como EMULATED. Medição OWNER-GATED (porta SPEC-116)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-9-avaliacao-cientifica-e-programa-experimental">§9 — Avaliação científica e programa experimental</h2>
+<p>O grosso do §9 é o programa de pesquisa DO ARTIGO (benchmarks acadêmicos, estudos
+humanos A-L, modelos hierárquicos). Adotamos a DISCIPLINA, não o programa. Linhas
+n/a agrupadas honestamente.</p>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§9.1</td>
+<td>Tupla de configuração experimental; nenhum benchmark único basta</td>
+<td>✅ feito</td>
+<td>C13 route tuple + D008 (harness pinado como tratamento)</td>
+</tr>
+<tr>
+<td>§9.2</td>
+<td>Baseline matched-budget OBRIGATÓRIO p/ claims multi-agente</td>
+<td>🔬 research</td>
+<td>EXP-15 ATIVO — é exatamente o braço que falta medir</td>
+</tr>
+<tr>
+<td>§9.2</td>
+<td>Famílias de baselines (routing, concorrência, evolução, AHHI, DGIOTS)</td>
+<td>📏 regra</td>
+<td>referência p/ quando compararmos; maioria fora do envelope hoje</td>
+</tr>
+<tr>
+<td>§9.3</td>
+<td>Benchmarks públicos (SWE-bench, OSWorld, WebArena…)</td>
+<td>— n/a</td>
+<td>não somos lab de benchmark; nossos "frozen tasks" = cenários+fixtures ✅</td>
+</tr>
+<tr>
+<td>§9.3</td>
+<td>Task snapshot congelado + exclusão de dados de desenvolvimento</td>
+<td>✅ feito</td>
+<td>cenários determinísticos + WFs congelados (corpus EXP-15/18)</td>
+</tr>
+<tr>
+<td>§9.4</td>
+<td>Classes de fatores (control/noise/hard-to-change/nuisance/prohibited)</td>
+<td>🟡 parcial</td>
+<td>livraria de métodos (L18) tem Taguchi/screening; tipagem formal de fatores → ⬜ adotar no EXPERIMENT_METHODOLOGY junto das constantes §6.6</td>
+</tr>
+<tr>
+<td>§9.4</td>
+<td>≥5 repetições / poder simulado; partições discovery/confirmation/promotion</td>
+<td>🟡 parcial</td>
+<td>pré-registro ✅ prática; partições e floor de repetições → mesma adoção ⬜</td>
+</tr>
+<tr>
+<td>§9.5</td>
+<td>Famílias de métricas (routing/contexto/concorrência/economia/governança)</td>
+<td>🔬 research</td>
+<td>temos: regret (EXP-17), evidence loss (EXP-16), noise floor (L13), Δ_m (probe EXP-15), CTS ⬜ barato (delegation ledger já tem custo+outcome); resto → rodada de métricas</td>
+</tr>
+<tr>
+<td>§9.5</td>
+<td>β_C / co-failure</td>
+<td>⛔ rejeitado (honesto)</td>
+<td>sem oráculo + roles diferenciadas (recon 2026-07-18)</td>
+</tr>
+<tr>
+<td>§9.6</td>
+<td>Modelos hierárquicos / split-plot / confidence sequences</td>
+<td>— n/a</td>
+<td>volume experimental não justifica; revisitar se EXPs/semana ≥ ~10</td>
+</tr>
+<tr>
+<td>§9.7</td>
+<td>Noise floor local + resultados negativos publicados</td>
+<td>✅ feito</td>
+<td>L13 + prática viva (EXP-1 fase 2 medida-e-revertida; probes refutados registrados)</td>
+</tr>
+<tr>
+<td>§9.7</td>
+<td>Pacote de reprodução completo</td>
+<td>🅿️ parked</td>
+<td>gatilho: publicação externa/multi-org</td>
+</tr>
+<tr>
+<td>§9.8</td>
+<td>Hierarquia de oráculos O1-O5; O5 (LLM-judge) nunca é oráculo único</td>
+<td>✅ feito</td>
+<td>O1=cenários/gates, O2=checks estáticos, O3/O4=owner; C8 + abandonCriteria do EXP-18 citam auditoria de viés p/ LLM-judge</td>
+</tr>
+<tr>
+<td>§9.8</td>
+<td>Registro DUPLO: agent_reported vs oracle_observed</td>
+<td>✅ feito</td>
+<td>CE.1/N1 é literalmente isso (a lição fundadora)</td>
+</tr>
+<tr>
+<td>§9.9</td>
+<td>Graus de replay contrafactual; só 1-2 sustentam claim causal</td>
+<td>📏 regra</td>
+<td>metodologia; replay contrafactual de 1 variável 🔬 (EXP candidato)</td>
+</tr>
+<tr>
+<td>§9.10</td>
+<td>TCO + regra lexicográfica (segurança primeiro, nunca trocada)</td>
+<td>🟡 parcial</td>
+<td>cost ledger + OB.2 trends ✅; regra lexicográfica → ⬜ declarar na metodologia (1 parágrafo)</td>
+</tr>
+<tr>
+<td>§9.11-12</td>
+<td>Estudos A-L (simuladores, estudos humanos)</td>
+<td>— n/a</td>
+<td>programa do artigo; exceções que nos servem: Study G ≈ família EXP-15/16; Study K alimenta o self-assessment (rodada nº 1)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-10-rqs-e-hipoteses-falsificaveis-h1-h46-as-que-nos-tocam">§10 — RQs e hipóteses falsificáveis (H1-H46) — as que NOS tocam</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1</td>
+<td>Router híbrido (regras+adaptativo) &lt; regret</td>
+<td>🟡 parcial</td>
+<td>SPEC-144 é regras+floor; EXP-17 mede o regret; fase adaptativa segue owner-gated (C4)</td>
+</tr>
+<tr>
+<td>H4</td>
+<td>Ownership único reduz conflito/rework</td>
+<td>✅ feito</td>
+<td>4 incidentes documentados motivaram N3/L11; evidência interna forte</td>
+</tr>
+<tr>
+<td>H6</td>
+<td>Separação dos 2 loops evita mutação persistente</td>
+<td>✅ feito</td>
+<td>SPEC-109 anti-Hive</td>
+</tr>
+<tr>
+<td>H7</td>
+<td>Enforcement executável &gt; prosa</td>
+<td>✅ feito</td>
+<td>C14 + achado codex (hooks advisory ≠ enforcement) REFORÇA: enforcement precisa ser da camada certa por vendor</td>
+</tr>
+<tr>
+<td>H14</td>
+<td>Contexto mínimo curado ≥ contexto gerado</td>
+<td>✅ feito</td>
+<td>C6 adotado como lei</td>
+</tr>
+<tr>
+<td>H15</td>
+<td>Catálogo pequeno diverso ≥ catálogo grande correlacionado</td>
+<td>🔬 research</td>
+<td>model-cards + delegation trends dão o corpus; rodada de catálogo se surgir pressão</td>
+</tr>
+<tr>
+<td>H16</td>
+<td>Lifecycle governado de memória &gt; append-only</td>
+<td>🔬 research</td>
+<td>rodada nº 3 (memória)</td>
+</tr>
+<tr>
+<td>H17</td>
+<td>Correção com evidência externa &gt; self-critique</td>
+<td>📏 regra</td>
+<td>C8; ritual review/oracle/gate</td>
+</tr>
+<tr>
+<td>H19</td>
+<td>Ledger durável + receipts elimina efeitos duplicados/unknown</td>
+<td>✅ feito</td>
+<td>N1 + F1/F2 (dispatch guard, stale holds)</td>
+</tr>
+<tr>
+<td>H20</td>
+<td>Diferenças &lt; noise floor não replicam</td>
+<td>✅ feito</td>
+<td>L13 + regra da metodologia (delta &lt; floor ≠ evidência)</td>
+</tr>
+<tr>
+<td>H21</td>
+<td>Grading por estado ≠ auto-relato</td>
+<td>✅ feito</td>
+<td>CE.1; validation.json vs claims</td>
+</tr>
+<tr>
+<td>H24-H29</td>
+<td>Família EDC (DOE &gt; OFAT; robustez control×noise; confirmação independente)</td>
+<td>🟡 parcial</td>
+<td>livraria de métodos + Taguchi EXP-18 rodada hoje = primeira instância viva; EDC completo 🅿️</td>
+</tr>
+<tr>
+<td>H30</td>
+<td>Labels de effort não equivalem entre vendors</td>
+<td>✅ feito</td>
+<td>adotado (model-cards; L17 unportable note)</td>
+</tr>
+<tr>
+<td>H31</td>
+<td>Ranking inverte entre lane normalizado e nativo</td>
+<td>🔬→<strong>DESENHADO R5</strong></td>
+<td>EXP-20 registrado (proposed): Kendall tau intra-lane vs Floor B detecta a inversão = interação model×harness. Medição owner-gated</td>
+</tr>
+<tr>
+<td>H32</td>
+<td>Controlador de effort por passo</td>
+<td>🅿️ parked</td>
+<td>gatilho: pressão de custo</td>
+</tr>
+<tr>
+<td>H35</td>
+<td>Delegação escopada ≥ herança de transcript</td>
+<td>✅ feito</td>
+<td>E1 digest (−63%) + E3 env + S4 output cap + M1 handoff budget — todos medidos</td>
+</tr>
+<tr>
+<td>H36</td>
+<td>Redução de trajetória sem perder evidência</td>
+<td>🔬 research</td>
+<td>EXP-1 (fase 2 revertida c/ caminho de re-teste) + EXP-16</td>
+</tr>
+<tr>
+<td>H37</td>
+<td>Concorrência por semântica de recurso elimina stale/conflito</td>
+<td>✅ feito</td>
+<td>worktrees + merge choreography + epoch; zero stale R2/R3 aceito até hoje</td>
+</tr>
+<tr>
+<td>H38</td>
+<td>Reparo semântico ADVISORY (validador determinístico comita)</td>
+<td>🟡 parcial</td>
+<td>EXP-18 shadow detector É a instância (advisory, nunca funde); medição 2: recall 0.6 &lt; barra 0.8 → segue shadow</td>
+</tr>
+<tr>
+<td>H39-H46</td>
+<td>Família AHHI/DGIOTS (estudos humanos + formal)</td>
+<td>— n/a / 🅿️</td>
+<td>fora do envelope; App I invariantes viram lei onde já batem (ver App I abaixo)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-11-qualidade-arquitetural-trade-offs-maturidade">§11 — Qualidade arquitetural, trade-offs, maturidade</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§11.1</td>
+<td>10 atributos de qualidade</td>
+<td>📏 regra</td>
+<td>rubrica p/ o self-assessment (rodada nº 1)</td>
+</tr>
+<tr>
+<td>ATAM 1-24</td>
+<td>24 cenários de mudança/estresse</td>
+<td>🔬 research</td>
+<td>insumo DIRETO da rodada nº 1: cada cenário vira um teste de mesa contra o repo (vários já passam: worktree pruner, failover, gate-hold recovery, C12 invalidation, quarentena N2…)</td>
+</tr>
+<tr>
+<td>M0-M7</td>
+<td>Modelo de maturidade cumulativo</td>
+<td>✅ feito</td>
+<td>D008 frame interno; D011 versão-produto parkeada; nossa posição ≈ M2-M3 sólido, M5 parcial, M6 embrionário</td>
+</tr>
+<tr>
+<td>§11.3-c</td>
+<td>Escala de evidência 0-3 por capacidade</td>
+<td>⬜ aberto</td>
+<td>adotar como coluna do self-assessment (barato, dá rigor ao M-frame)</td>
+</tr>
+<tr>
+<td>§11.3-g/h</td>
+<td>Confiabilidade 2-raters / validação multi-org</td>
+<td>— n/a</td>
+<td>single-org; gatilho D011</td>
+</tr>
+<tr>
+<td>§11.4</td>
+<td>Matriz de cobertura SDKs/runtimes/protocolos vs harness</td>
+<td>✅ feito</td>
+<td>visão de negócio da rodada de adoção (categoria "harness engineering")</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-12-15-discussao-roadmap-ameacas-conclusao">§12-§15 — Discussão, roadmap, ameaças, conclusão</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§12.2</td>
+<td>7 anti-padrões de multi-agente (quando NÃO usar)</td>
+<td>✅ feito</td>
+<td>D010 + EXP-15 são a versão operacional; playbook Phase 0 exige justificar largura</td>
+</tr>
+<tr>
+<td>§12.3</td>
+<td>Transferência de ownership + estado durável + envelopes</td>
+<td>✅ feito</td>
+<td>briefs/WORKER_RESULT/records — é o desenho vigente</td>
+</tr>
+<tr>
+<td>§12.4</td>
+<td>Self-regulation ≠ soberania; verifiable improvement &gt; change-rate</td>
+<td>📏 regra</td>
+<td>anti-Hive + D008</td>
+</tr>
+<tr>
+<td>§12.5</td>
+<td>Repo machine-readable p/ agentes (SDD/BDD/CI/policy-as-code)</td>
+<td>✅ feito</td>
+<td>é o produto inteiro (specs+gates+graphify+records)</td>
+</tr>
+<tr>
+<td>§12.6</td>
+<td>Façade não pode apagar revisão independente / consenso falso</td>
+<td>📏 regra</td>
+<td>reduce preserva conflitos (<code>preserveConflicts</code>) + sourceWorkerIds = proveniência correlacionada</td>
+</tr>
+<tr>
+<td>§12.7-8</td>
+<td>P1-P28 (princípios)</td>
+<td>✅ feito (maioria)</td>
+<td>24/28 são lei viva citável (decisões+specs); abertos: P12 diversidade-por-falha (🔬 catálogo), P19 ledger reconciliado (🅿️ A_ctx)</td>
+</tr>
+<tr>
+<td>§13</td>
+<td>Fases 0-10 + gates de saída do programa</td>
+<td>📏 regra</td>
+<td>régua de posição: estamos ≈ fases 0-6 "lite" (protocolo/arquitetura/routing/IR/correção/aprendizado local) com gates informais; fases 7-10 = programa acadêmico</td>
+</tr>
+<tr>
+<td>§14.1-6</td>
+<td>Ameaças a validade + mitigation bundles</td>
+<td>✅ feito (subset)</td>
+<td>noise floor (L13), D-level labeling (📏), pré-registro, corpus congelado; <strong>⬜ residual risk register</strong> (§14.7-2) é o gap barato</td>
+</tr>
+<tr>
+<td>§14.7</td>
+<td>Claim de assurance limitado + registro de risco residual</td>
+<td>⬜ aberto</td>
+<td>schema pronto no artigo; 1 arquivo em .harness/state + doctor advisory</td>
+</tr>
+<tr>
+<td>§15</td>
+<td>Princípio central (probabilístico onde julga, determinístico onde limita)</td>
+<td>✅ feito</td>
+<td>é a tese da nossa arquitetura (gate+hooks+owner-gates) — validação externa</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-apendices-a-i">Apêndices A-I</h2>
+<table>
+<thead>
+<tr>
+<th>ref</th>
+<th>item</th>
+<th>status</th>
+<th>evidência / próximo passo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App A</td>
+<td>Formulário de extração p/ living review</td>
+<td>— n/a</td>
+<td>não somos o living review; nosso equivalente: research playbook + records</td>
+</tr>
+<tr>
+<td>App B</td>
+<td>Evidence envelope completo (claims/artifacts/validations/approvals/effects/costs + hash)</td>
+<td>🟡 parcial</td>
+<td>WORKER_RESULT cobre claims/artifacts/validations; <strong>⬜ barato: blocos costs (tokens por worker já existem no token-audit — juntar) e approvals refs</strong>; hash/assinatura 🅿️</td>
+</tr>
+<tr>
+<td>App C</td>
+<td>Grafo de evidência tipado</td>
+<td>🅿️ parked</td>
+<td>records ledger + doc-find conceitos são a versão lite; gatilho: escala de queries</td>
+</tr>
+<tr>
+<td>App D</td>
+<td>Compilação de constituição (deny-overrides)</td>
+<td>🅿️ parked</td>
+<td>junto do ECA §5.6; deny-overrides já é real em protected-files/hooks</td>
+</tr>
+<tr>
+<td>App E</td>
+<td>Contrato de pré-registro + partições de evidência</td>
+<td>🟡 parcial</td>
+<td>registry cobre hipótese/baseline/critérios/reversal ✅; <strong>⬜ adotar: tipagem de fatores + partições discovery/confirmation (lite)</strong></td>
+</tr>
+<tr>
+<td>App F</td>
+<td>16 suites de conformance (uma por plano)</td>
+<td>🔬 research</td>
+<td>ESPINHA DA RODADA Nº 1: mapear nossos gates/cenários/fixtures às 16 suites; F-17/18 (suite falha → capa a dimensão de maturidade) adotar como regra do self-assessment</td>
+</tr>
+<tr>
+<td>App G</td>
+<td>Critérios de fechamento da tese bounded-control</td>
+<td>📏 regra</td>
+<td>referência; G-5 (terceiro reconstrói decisões do pacote) é norte p/ records</td>
+</tr>
+<tr>
+<td>App H</td>
+<td>Gatilhos de seleção EDC + graus de evidência 1-4</td>
+<td>⬜ aberto</td>
+<td><strong>adotar vocabulário "grau 1-4" (exploratório/atributivo/confirmatório/qualificado-a-promoção) no EXPERIMENT_METHODOLOGY + campo no registry</strong> — barato, muda conversa de promoção</td>
+</tr>
+<tr>
+<td>App I</td>
+<td>Perfil normativo AHHI-DGIOTS (schemas de evento/regra/aprovação/worker)</td>
+<td>🅿️ parked</td>
+<td>kernel formal; MAS I.8-1..11 (invariantes finais) já são lei nossa em 8 de 11 casos (documentar equivalências no self-assessment)</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-rollup-contagem-por-status-itens-consolidados">Rollup (contagem por status, itens consolidados)</h2>
+<table>
+<thead>
+<tr>
+<th>status</th>
+<th>~itens</th>
+<th>leitura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ feito</td>
+<td>~78</td>
+<td>o núcleo do artigo (ownership, receipts, enforcement, envelopes, tiers, aprovação, noise floor, anti-Hive, contexto mínimo) JÁ É o repo</td>
+</tr>
+<tr>
+<td>📏 regra</td>
+<td>~24</td>
+<td>disciplina adotada como lei (decisões/playbooks/ritual)</td>
+</tr>
+<tr>
+<td>🟡 parcial</td>
+<td>~38</td>
+<td>slice entregue com o resto nomeado</td>
+</tr>
+<tr>
+<td>⬜ aberto</td>
+<td>~16</td>
+<td>buildáveis baratos — candidatos diretos a LOOP QUEUE 7</td>
+</tr>
+<tr>
+<td>🔬 research</td>
+<td>~18</td>
+<td>precisam de rodada/experimento antes de construir</td>
+</tr>
+<tr>
+<td>🅿️ parked</td>
+<td>~17</td>
+<td>gatilho registrado (maioria: multi-tenant/escala/formal kernel)</td>
+</tr>
+<tr>
+<td>⛔ rejeitado</td>
+<td>4</td>
+<td>router aprendido; compressão head+tail; β_C; bandit §6.3 (por ora, evidência própria)</td>
+</tr>
+<tr>
+<td>🚫 contra-sinal</td>
+<td>3</td>
+<td>contexto gerado; workflow auto-gerado; append-only memory</td>
+</tr>
+<tr>
+<td>— n/a</td>
+<td>~12</td>
+<td>fora do envelope (benchmarks acadêmicos, estudos humanos, multi-org)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-rodadas-de-research-propostas-o-bucket-vamos-rodar-research-em-cima">Rodadas de research propostas (o bucket "vamos rodar research em cima")</h2>
+<p>Ordem por (valor × desbloqueio), cada uma com pergunta e produto definidos:</p>
+<ol>
+<li><strong>Self-assessment de conformidade</strong> (§5.9 + App F 16 suites + ATAM 1-24 + escala 0-3 do §11.3-c). Pergunta: que fração do contrato mínimo do artigo nossos gates/cenários JÁ provam, e onde está o gap real? Produto: matriz suite×evidência com nota 0-3, gaps viram intake. Interna, zero web, ~2 workers focados (D010: focada). É o mapa que torna todas as outras rodadas endereçáveis.</li>
+<li><strong>Harness-own sandbox — design round</strong> (§5.9 runtime plane, §7.4 s5, CaMeL, o REQUISITO da investigação codex 2026-07-18). Pergunta: qual contenção fs/proc/net vendor-agnóstica no spawn cobre open models + reforça claude/codex? Produto: SPEC via porta NEW + o parser apply_patch como building block. <strong>P0 — já era o próximo antes deste backlog.</strong></li>
+<li><strong>Memória governada</strong> (§6.2 completo + H16 + eval adversarial 4-condições). Refina <code>docs/research/memory-context-management.md</code> com lifecycle candidate→…→expired, trust rules por camada e o eval adversarial. Gatilho N6 continua valendo para a parte enforcement.</li>
+<li><strong>Métricas de construto</strong> (§3.5 + §9.5): route churn, CTS, Π-lite, autonomy/governance observáveis. Produto: 2-3 probes measure-only + rodada de definição pré-registrada. CTS sai quase de graça do delegation ledger.</li>
+<li><strong>3-lanes cross-vendor / EXP-20</strong> (§8.4, §9.4-t, H31): fork-join harness vs fork-join NATIVO codex vs híbrido governado, no MESMO task class com budget igualado. D009 deu a direção; EXP-19 deu o maquinário; pré-registrar antes de integrar aposta D no core.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-candidatos-a-loop-queue-7-baratos-aguardando-sua-ordem">Candidatos a LOOP QUEUE 7 (⬜ baratos, aguardando sua ordem)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>item</th>
+<th>ref</th>
+<th>tamanho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1</td>
+<td>Constantes de decisão (α, power, δ_Q/δ_C/δ_L/δ_V, ECE) + regra lexicográfica + graus de evidência 1-4 + tipagem de fatores → EXPERIMENT_METHODOLOGY.md + campo <code>evidenceGrade</code> no registry</td>
+<td>§6.6, §9.10-g, App E/H</td>
+<td>S</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Residual risk register (.harness/state, schema §14.7-2) + doctor advisory; casa com security-directive-map</td>
+<td>§7.5, §14.7</td>
+<td>S</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Estados native/emulated/degraded/unsupported por capability no capabilities.json (formaliza a correção pendente (A) da nota codex SubagentStop)</td>
+<td>§8.4</td>
+<td>S</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>WORKER_RESULT: bloco costs (ligar token-audit por worker) + refs de approval</td>
+<td>App B</td>
+<td>S-M</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>Métricas do decide inbox (volume/latência/override/expiry) no <code>metrics</code></td>
+<td>§7.7</td>
+<td>S</td>
+</tr>
+<tr>
+<td>C6</td>
+<td>CTS (cost-to-success) no <code>metrics</code> a partir do delegation ledger (custo+outcome já gravados)</td>
+<td>§9.5-b</td>
+<td>S</td>
+</tr>
+<tr>
+<td>C7</td>
+<td>Trust rules por camada de memória (doc curto mapeando as 7 camadas ao que já existe)</td>
+<td>§6.2</td>
+<td>S</td>
+</tr>
+<tr>
+<td><del>C8</del> ✅</td>
+<td><del>Doctor advisory: EXP com reviewBy vencido</del> JÁ SHIPADO — <code>repo_health.checks</code> check (6) <code>experiment-overdue</code> (WARN em <code>stale_active</code>); item fantasma removido da fila LQ7 no recon 2026-07-18</td>
+<td>§6.4</td>
+<td>—</td>
+</tr>
+<tr>
+<td>C9</td>
+<td>Histerese/cooldown no route-loop — <strong>desbloqueado por R4</strong>: a fórmula de route churn está pré-registrada (<code>construct-metrics.md</code>), buildável já como probe; C9 controle só DEPOIS de medir o churn</td>
+<td>§4.2</td>
+<td>M</td>
+</tr>
+<tr>
+<td>C18</td>
+<td>probe measure-only de route churn (fórmula R4 + Floor L13); pré-req de C9</td>
+<td>§3.5</td>
+<td>S</td>
+</tr>
+<tr>
+<td>C19</td>
+<td>probe measure-only de Π-lite (perfil de previsibilidade §3.5; casa com regra lexicográfica do C1)</td>
+<td>§3.5</td>
+<td>S</td>
+</tr>
+<tr>
+<td>C20</td>
+<td>probes measure-only de recovery (orphaned work, time-to-resume, provenance continuity, recovery-point error) do records ledger</td>
+<td>§5.7</td>
+<td>S-M</td>
+</tr>
+<tr>
+<td>C10</td>
+<td>Resource manifest tipado por worker no workflow.json (footprint declarado hoje só no brief)</td>
+<td>§3.5</td>
+<td>M</td>
+</tr>
+<tr>
+<td>C11</td>
+<td>Envelope operacional como doc versionado único (task classes, vendors, budgets, tiers — hoje espalhado)</td>
+<td>§3.5</td>
+<td>S</td>
+</tr>
+<tr>
+<td>C12b</td>
+<td>Reconciliação de usage por chamada (campo no executor result vs delegation ledger)</td>
+<td>§8.1 ir9</td>
+<td>M</td>
+</tr>
+<tr>
+<td>C13b</td>
+<td>Alinhar SPEC-126 failure-patterns às 11 classes do §6.1</td>
+<td>§6.1</td>
+<td>M</td>
+</tr>
+<tr>
+<td>C14b</td>
+<td>Red-team fixture: mutação de POLÍTICA (spoof epoch, guard negado, digest trocado)</td>
+<td>§7.2</td>
+<td>M</td>
+</tr>
+<tr>
+<td>C15b</td>
+<td>Parent ids causais nos eventos (DAG explícito, campo aditivo)</td>
+<td>§8.1</td>
+<td>M</td>
+</tr>
+<tr>
+<td>C16b</td>
+<td>Accounting-semantics disclosure no executor card (native/emulated/unknown)</td>
+<td>§5.5</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+<p>| C17 | ATAM mesa-test checklist: os 15 cenários "desconhecido" do R1 viram testes de mesa documentados (prioridade: A13 crash-antes-de-receipt, A14 revogação de memória envenenada, A18 oracle-gaming) | R1 self-assessment | S |</p>
+<p><strong>Não iniciar sem ordem do owner:</strong> tudo acima de S/M aqui é pós-rodadas; o P0
+continua sendo a rodada nº 2 (harness-own sandbox). Este doc supersede a lista
+"Próxima leva de prospecção" do round doc de adoção (que cobria só 4 itens).</p>
+</section>
+<section class="section content"><h2 id="ed-incremento-r1-self-assessment-executado-2026-07-18-d012">Incremento R1 — self-assessment executado (2026-07-18, D012)</h2>
+<p>Rodada 1 CONCLUÍDA via NVIDIA (round doc: <code>docs/research/conformance-selfassessment.md</code>;
+WFs <code>...215453</code> + follow-up B3 <code>...220210</code>). Resultado em uma linha: <strong>nota 2
+(implementado+testado internamente) em ~70% do contrato mínimo; nota 3 em NADA;
+os 5 buracos nomeados são os já-parkeados (ECA, hash-chain, privacy formal,
+interop conformance) + 1 correção a nosso favor (F15 promotion = 2).</strong></p>
+<ul>
+<li>Rollup App F: 11 suites nota 2; 5 suites nota 1 (F1, F12, F13, F15→2 corrigida, F16).</li>
+<li>Planos §5.9/I.8: maioria 2; gaps em P5 (accounting por chamada → C12b) e I10 (formal 🅿️).</li>
+<li>ATAM: 9 provável-passa, 15 desconhecido (→ C17 novo), 0 falha confirmada.</li>
+<li>Regra de capa F-17/18 adotada: M-interna confirmada M2-M3; subir exige os
+slices nomeados de F1/F12, não média.</li>
+<li>Novo 🔬: crash-injection na fronteira do adapter (A13/§5.7) — candidato a
+fixture; entra na rodada de métricas/recovery (R4) como desenho.</li>
+</ul>
+<hr/>
+<h1>ORDEM DE EXECUÇÃO DO BACKLOG INTEIRO (arquiteto, 2026-07-18)</h1>
+<p>Owner: "derive mais pesquisas e insira no backlog; depois pega o backlog INTEIRO
+(não só o das pesquisas) e ordena ele todinho pra gente começar a trabalhar, na
+ordem mais eficiente — sem criar features sem dependência pronta, sem priorizar
+o que seria muito mais rápido se tivéssemos feito as tasks certas primeiro."</p>
+</section>
+<section class="section content"><h2 id="ed-parte-1-itens-novos-derivados-das-rodadas-r1-r5-inseridos-no-backlog">Parte 1 — itens NOVOS derivados das rodadas R1-R5 (inseridos no backlog)</h2>
+<h3 id="ed-enablers-pequenos-destravam-familias-inteiras-o-coracao-da-eficiencia">Enablers (pequenos, destravam famílias inteiras — o coração da eficiência)</h3>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>destrava</th>
+<th>fonte</th>
+<th>tam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>E-ROUTESCORES</strong></td>
+<td>persistir os <code>scores</code> que o router JÁ emite (<code>route_dispatcher.py:131</code>) na row do route ledger + <code>predictedP</code> = score normalizado</td>
+<td>ECE (calibração) + route regret + RF.1 fase 2</td>
+<td>R4 (needs-new-state era MENOR que campo novo)</td>
+<td>S</td>
+</tr>
+<tr>
+<td><strong>E-SCOPETAG</strong></td>
+<td>campo <code>scopeTag</code> (paths/deps que a memória referencia) por item de memória</td>
+<td>TODO o track de memória governada (GM-1/2/5, N6) + scope-match</td>
+<td>R3 (o "writer changes" do N6, agora dimensionado)</td>
+<td>S</td>
+</tr>
+<tr>
+<td><strong>E-UNIQTOK</strong></td>
+<td>contador de tokens por item ÚNICO no <code>context_digest</code> (hoje só hasheia por arquivo)</td>
+<td>A_ctx amplification + ctx recall + ContextLedger + amplificação real do CE.2</td>
+<td>R4 (denominador que não existe)</td>
+<td>S</td>
+</tr>
+<tr>
+<td><strong>E-3LANE</strong></td>
+<td>instrumento de teste 3-lanes: task set congelado + oráculo stdlib (parse/compile) + tabela de gap</td>
+<td>EXP-20 medição + EXP-15 matched-budget (mesmo instrumento)</td>
+<td>R5</td>
+<td>M</td>
+</tr>
+<tr>
+<td><strong>E-EFFECTID</strong></td>
+<td>effect-id/idempotency-key nos records de efeito externo</td>
+<td>duplicate-effect + compensation metrics (§5.7) + effect lifecycle</td>
+<td>R4</td>
+<td>M</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-tasks-novas-fecham-gaps-nota-1-do-r1">Tasks novas (fecham gaps nota-1 do R1)</h3>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>fecha</th>
+<th>tam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T-HASHCHAIN</strong></td>
+<td>hash-chain + assinatura nos eventos críticos (§8.1 ir4)</td>
+<td>App F F12 (trajectory) nota 1→2</td>
+<td>M</td>
+</tr>
+<tr>
+<td><strong>T-ADAPTERCONF</strong></td>
+<td>suite de conformance por adapter (subconjunto §8.4 c1-c14) + C16b accounting-semantics</td>
+<td>App F F16 (interop) nota 1→2</td>
+<td>M</td>
+</tr>
+<tr>
+<td><strong>T-CAUSALPARENT</strong></td>
+<td>= C15b: parent ids causais nos eventos (DAG explícito)</td>
+<td>§8.1 DAG + habilita replay contrafactual</td>
+<td>M</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-experimentos-novos-registrados">Experimentos novos registrados</h3>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>status</th>
+<th>o que</th>
+<th>fonte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EXP-21</strong></td>
+<td>proposed</td>
+<td>crash-injection na fronteira do adapter (recovery sem órfãos/duplicatas, ATAM A13/A6)</td>
+<td>R1/R4</td>
+</tr>
+<tr>
+<td><strong>EXP-20</strong></td>
+<td>proposed (R5)</td>
+<td>3-lane harness vs codex nativo</td>
+<td>R5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-rodadas-de-research-novas-derivadas-o-owner-pediu-pesquisas-nao-so-tasks">Rodadas de RESEARCH novas derivadas (o owner pediu pesquisas, não só tasks)</h3>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>pergunta</th>
+<th>destrava</th>
+<th>gatilho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RD-U</strong></td>
+<td>qual a função de utilidade <code>U(rota, outcome, custo)</code> do harness?</td>
+<td>route regret + ECE viram buildáveis (hoje needs-new-state por falta de U)</td>
+<td>antes de qualquer métrica de regret/calibração</td>
+</tr>
+<tr>
+<td><strong>RD-CRASH</strong></td>
+<td>como injetar crash deterministicamente na fronteira do adapter no Windows?</td>
+<td>EXP-21 + fixture de recovery + duplicate-effect</td>
+<td>antes de EXP-21</td>
+</tr>
+<tr>
+<td><strong>RD-TAINT</strong></td>
+<td>taint de dado-não-confiável / CaMeL (§7.1 o2: secret_read nunca egressa)</td>
+<td>fecha o gap o2 que nem o sandbox pega</td>
+<td>depois do Q7-1</td>
+</tr>
+<tr>
+<td><strong>RD-ECA</strong></td>
+<td>ECA-lite: vale precedência compilada na nossa escala, ou fica parked?</td>
+<td>App F F1 (constitution, nossa MENOR nota)</td>
+<td>trigger: 2ª disputa de precedência real</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-parte-2-ordem-do-backlog-inteiro-fases-por-dependencia">Parte 2 — ORDEM DO BACKLOG INTEIRO (fases por dependência)</h2>
+<p>Regra: enabler barato ANTES do que destrava; near-bug real ANTES de feature nova;
+medir ANTES de controlar; owner-gate/pesquisa atrás do seu pré-requisito. Cada
+fase é um lote; dentro da fase a ordem é livre.</p>
+<h3 id="ed-fase-0-near-bugs-reais-enablers-baratos-dias-destrava-tudo">FASE 0 — near-bugs reais + enablers baratos (dias, destrava tudo)</h3>
+<p><strong>Correção do overseer (loop 2026-07-18): os 3 near-bugs JÁ ESTAVAM SHIPADOS</strong> —
+linhas herdadas dos roadmaps de jul/12, verificadas como done:</p>
+<ol>
+<li><del><code>path-hygiene-scrub-and-gate</code></del> ✅ regex <code>LOCAL_ABSOLUTE_PATH_PATTERNS</code> já cobre doubled-backslash/<code>/c/</code>/<code>/mnt/c/</code>; gate <code>release-hygiene:local-absolute-paths</code> + <code>ph_path_hygiene.py</code>; zero leaks vivos; <code>harness.py:308</code> usa basename</li>
+<li><del><code>win-hidden-spawn-helper</code></del> ✅ <code>processes.py</code> tem o helper CREATE_NO_WINDOW; supervisor async usa <code>process_group_kwargs</code> (async_runtime:402,789), NÃO DETACHED_PROCESS</li>
+<li><del><code>target-gate-env-filter</code></del> ✅ <code>gate_generic.py:187</code> aplica <code>filter_spawn_env</code> deny-by-default + escape hatch <code>workerEnvFilter</code>
+Trabalho REAL da Fase 0 (enablers, disjuntos → paralelizáveis):</li>
+<li><strong>C1</strong> constantes + <code>evidenceGrade</code> — governança fundacional de TODO experimento</li>
+<li><strong>E-ROUTESCORES</strong> — enabler (scores já existem; persistir)</li>
+<li><strong>C3</strong> capability support-states — enabler (EXP-20 lane + manifest do sandbox + F16)</li>
+</ol>
+<h3 id="ed-fase-1-o-p0-de-seguranca">FASE 1 — o P0 de segurança</h3>
+<ol start="7">
+<li><strong>Q7-1 harness-own sandbox SB-1/2/3</strong> (SPEC-151) — ESTENDE o <code>sandbox_spawn</code> que já existe (SPEC-148: <code>risk_tier</code>, <code>fs_confine_nt</code> via icacls, Job Object caps) → cobrir o worker HTTP open-model + manifest + honestidade de egress. <code>/verify</code> em máquina Windows real</li>
+<li><strong>C2</strong> residual risk register — consome a saída do Q7-1</li>
+</ol>
+<h3 id="ed-fase-2-probes-measure-only-medir-antes-de-controlar">FASE 2 — probes measure-only (medir antes de controlar)</h3>
+<ol start="9">
+<li><strong>C18</strong> route churn (pré-req de C9) · 10. <strong>C6</strong> CTS · 11. <strong>C19 Π-lite + C20 recovery</strong> · 12. <strong>C5</strong> decide-inbox metrics · 13. <strong>E-UNIQTOK</strong> → probe A_ctx</li>
+</ol>
+<h3 id="ed-fase-3-memoria-governada-re-escopada-pelo-overseer-2026-07-18">FASE 3 — memória governada (RE-ESCOPADA pelo overseer 2026-07-18)</h3>
+<p><strong>Correção de dependência:</strong> NÃO existe um store de itens de memória governada
+hoje (<code>ui_memory</code> é read-only snapshot; auto-memory é escrita pelo runtime, não
+pelo harness; N6 foi diferido justamente porque o store/campo não existe). Então
+E-SCOPETAG NÃO é "campo num store existente" — o 1º artefato da Fase 3 tem que
+BOOTSTRAPAR o registro mínimo de item.
+14. <strong>GM-5 shadow-challenge ledger (measure-only) — INCLUI o bootstrap do registro
+mínimo de item COM <code>scopeTag</code></strong> (E-SCOPETAG folda aqui): define o record, mede
+quantos itens SERIAM challenged por commit (scope-match contra <code>git diff     --name-only</code>), zero enforcement. É o 1º passo committável da R3.
+15. <strong>GM-3 provenance firewall</strong> — aplica quando o retrieval de itens governados
+existir; enforcement owner-gated (gatilho N6).</p>
+<h3 id="ed-fase-4-hardening-trajetoria-adapter-instrumento">FASE 4 — hardening trajetória/adapter + instrumento</h3>
+<ol start="17">
+<li><strong>T-HASHCHAIN</strong> (F12) · <strong>T-CAUSALPARENT/C15b</strong> · <strong>T-ADAPTERCONF+C16b</strong> (F16) · 18. <strong>E-3LANE</strong> (instrumento de EXP-20 E EXP-15)</li>
+</ol>
+<h3 id="ed-fase-5-controles-que-a-medicao-justificou">FASE 5 — controles que a medição justificou</h3>
+<ol start="19">
+<li><strong>C9</strong> histerese — <strong>DIFERIDO com gatilho (overseer 2026-07-19)</strong>: o C18
+probe mediu route churn ~zero (corpus de route ledger transiente/vazio — zeros
+honestos). Construir a histerese agora seria controle SEM a medição que o
+justifica — o anti-padrão measure-before-control que a pesquisa (e o nosso
+D008) condenam. <strong>Gatilho de revisita: primeira medição de churn acima do
+noise floor L13.</strong> O probe (C18) está pronto e mede continuamente. · 20. o que
+a Fase 2 provar que vale (ex.: A_ctx dominante → CE.7) — mesmo gatilho de sinal.</li>
+</ol>
+<h3 id="ed-loop-queue-7-fechada-2026-07-19-fila-buildavel-zerada">LOOP QUEUE 7 — FECHADA (2026-07-19): fila buildável ZERADA</h3>
+<p>Fases 0-4 entregues (14 itens, 13 delegações kept ~1.66M tok). Restam apenas
+owner-gated + N-* de design (que dependem de decisão do owner) + C9 diferido por
+medição. Ver o summary de fecho no IMPLEMENTATION_BACKLOG.md.</p>
+<h3 id="ed-research-rodar-quando-o-pre-requisito-chegar">RESEARCH (rodar quando o pré-requisito chegar)</h3>
+<p>RD-U ✅ CONCLUÍDA (rodada rd-u-utility-function-round.md, D021: U weighted-linear) → destrava regret/ECE (buildável measure-only). RD-CRASH ✅ CONCLUÍDA (rd-crash-injection-round.md, D022: injetor híbrido) → habilita EXP-21 (injetor buildável com o EXP-21, owner-gated). RD-TAINT ✅ CONCLUÍDA (rd-taint-camel-round.md, D023: envelope não-forjável no seam do secret-scan) → fecha o gap o2 (probe buildável; enforcement owner-gated+security-review). Resta só RD-ECA (trigger: 2ª disputa de precedência real — não bateu). As 3 rodadas de implementação-research (RD-U/RD-CRASH/RD-TAINT) estão FECHADAS.</p>
+<h3 id="ed-owner-gated-fora-da-fila-ate-voce-decidir">OWNER-GATED (fora da fila até você decidir)</h3>
+<p>EXP-20 medição · EXP-21 execução · enforcement de memória · route regret/ECE ·
+RF.1 fase 2 · CQ.1 enforce · DW.4 auto-fork · target-worker-world.</p>
+<h3 id="ed-itens-novos-derivados-das-decisoes-do-owner-d013-d017-2026-07-18">Itens NOVOS derivados das decisões do owner D013-D017 (2026-07-18)</h3>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>fonte</th>
+<th>tam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>N-AUTHCHAIN</strong> (C2-v2)</td>
+<td>acceptanceAuthority vira registro TIPADO de cadeia de responsabilidade <code>{actorType: user\|worker\|overseer, identity, at, sessionRef?}</code>; padrao unificado de credito de decisao/aprovacao/aceite (casa com subject dimension + C12 digest). Upgrada o brief do C2.</td>
+<td>D013</td>
+<td>M</td>
+</tr>
+<tr>
+<td><strong>N-SECREVIEWER</strong></td>
+<td>perfil de agente <code>security-reviewer</code> (.claude/agents + espelho codex) + fluxo de parecer que o humano RATIFICA. Escala expertise; humano vira ratificador.</td>
+<td>D014</td>
+<td>M</td>
+</tr>
+<tr>
+<td><strong>N-TRUTHRECON</strong></td>
+<td>motor de reconciliacao de FONTES DA VERDADE (codigo/docs/historico/3os): doc como fonte preferida; deducao auditavel quando diverge. Direcao-MAE da memoria governada -- GM-3 vira uma fatia. Confirma o achado do GM-5.</td>
+<td>D015; GM-5</td>
+<td>L (research-&gt;spec)</td>
+</tr>
+<tr>
+<td><strong>N-RACEMODE</strong></td>
+<td>topologia de workflow opt-in "race mode": varios modelos correm na mesma task+contexto pra achar o melhor. EXP-20 valida.</td>
+<td>D016</td>
+<td>M</td>
+</tr>
+<tr>
+<td><strong>N-VENDORCREDIT</strong></td>
+<td>tracking de credito/quota restante por vendor + U(custo_tokens ponderado por preco, tempo, escassez) -- alimenta routing/regret/ECE.</td>
+<td>D017</td>
+<td>M</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-n-truthrecon-decomposto-pela-rodada-3-2026-07-19-wf-050502-5-ideadores-nvidia">N-TRUTHRECON decomposto pela rodada #3 (2026-07-19, WF-...050502, 5 ideadores NVIDIA)</h3>
+<p>Rodada <code>docs/research/truth-reconciliation-round.md</code>. <strong>Planos detalhados: <code>docs/research/truth-reconciliation-implementation-plans.md</code></strong> (N-TRUTHRECON-PROBE já CONSTRUÍDO = EXP-22/truth-divergence probe). Convergencia independente: precedencia = funcao pura, probe measure-only antes de enforcement, degradacao emergente, reusa T-HASHCHAIN+GM-3. DNS (RFC 1035/2181/4035/2308) e a arquitetura de referencia (w-005). Fatiado:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>fonte</th>
+<th>tam</th>
+<th>gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>N-TRUTHRECON-PROBE</strong> (EXP-22)</td>
+<td>probe measure-only: mede <code>divergenceCount</code> entre as 4 fontes por commit/retrieval (estende o GM-5 doc↔codigo pras 4 fontes). ZERO enforcement. Log = contagem/hashes, NUNCA conteudo (w-004 sink-risk). O UNICO buildavel ja (medicao, nao controle).</td>
+<td>rodada #3; EXP-22; D008</td>
+<td>M</td>
+<td><strong>buildavel</strong></td>
+</tr>
+<tr>
+<td><strong>N-TRUTHRECON-CORE</strong></td>
+<td>motor ATIVO: PrecedenceResolver funcao pura 2-tier (autoritativo=git+records / advisory=specs+vendor; doc-preferida = mapeamento de tier) + ReconciliationRecord <code>{fact,winningSource,loserSources,precedenceRuleApplied,tier,degraded,absentSources,inputHashes,at,subject}</code>. Nomenclatura DNS (TR-DNS).</td>
+<td>rodada #3; D020</td>
+<td>L</td>
+<td><strong>owner-gated</strong> (e controle: precisa EXP-22 justificar, como C9)</td>
+</tr>
+<tr>
+<td><strong>N-TRUTHRECON-TRUST</strong></td>
+<td>hardening (w-004): <code>absentSourceName</code> e side-channel (expor so a papel autorizado); vendor docs = input nao-confiavel (parsing sandboxed); registro herda provenance-firewall do GM-3. Dobra no N-SECREVIEWER.</td>
+<td>rodada #3; D014</td>
+<td>M</td>
+<td>owner-gated (contingencia)</td>
+</tr>
+<tr>
+<td><strong>N-SCANNER-FP</strong></td>
+<td>bug achado pela rodada: o <code>openai-style-key</code> do secret-scan casa <code>sk-</code> DENTRO de "ta<strong>sk</strong>-slug" -&gt; withheld 2 resultados validos. Fix = ancora word-boundary antes de <code>sk-</code>. Caminho de seguranca -&gt; review isolado.</td>
+<td>achado rodada #3</td>
+<td>S</td>
+<td>owner-gated (security path)</td>
+</tr>
+<tr>
+<td><del>N-TRUTHRECON-PERF</del></td>
+<td>pipeline O(S×R)+cache+paralelo+backpressure (w-002). ESTACIONADO: YAGNI ate o EXP-22 medir volume. Upgrade path guardado.</td>
+<td>rodada #3</td>
+<td>—</td>
+<td>estacionado (measure-first)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-n-compaction-compactacao-automatica-de-contexto-rodada-compaction-round-md-2026-07-19">N-COMPACTION — compactação automática de contexto (rodada compaction-round.md, 2026-07-19)</h3>
+<p>Convergência 4 ondas (NVIDIA 5 + Sonnet 3): A_ctx-watermark+histerese, tiers-GC, measure-first.
+<strong>Planos de implementação detalhados (implementer-ready): <code>docs/research/compaction-implementation-plans.md</code>.</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>fonte</th>
+<th>tam</th>
+<th>gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>N-COMPACTION-CFP</strong> (EXP-23)</td>
+<td>Context Fill Probe: loga fill%(declared+A_ctx)/canary-recall/latência/custo/cache-hit/compact-events+outcome; tabela (modelo,role,task,fill%)→qualidade com noise-floor gating. NUNCA compacta.</td>
+<td>rodada; EXP-23; D008</td>
+<td>M</td>
+<td><strong>buildável</strong></td>
+</tr>
+<tr>
+<td><strong>N-COMPACTION-CTRL</strong></td>
+<td>Compact Controller: gatilho A_ctx×role×task + histerese + snap-em-fronteira; preservação tiers keep-GC/summarize/drop; re-sumarização depth-bound=1; fail-safe por checkpoint + validação determinística.</td>
+<td>rodada; D029</td>
+<td>L</td>
+<td><strong>owner-gated</strong> (controle: precisa EXP-23)</td>
+</tr>
+<tr>
+<td><strong>N-COMPACTION-SECRET</strong></td>
+<td>secret-tier never-summarize/never-persist no checkpoint; dobra o RD-TAINT/D023 (o taint-envelope marca Tier-0-secret; o sumarizador é sink).</td>
+<td>rodada NVIDIA w-004; D023</td>
+<td>M</td>
+<td>owner-gated (security review)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-n-ptc-programmatic-tool-calling-rodada-ptc-round-md-2026-07-19">N-PTC — Programmatic Tool Calling (rodada ptc-round.md, 2026-07-19)</h3>
+<p>Convergência 4 ondas (NVIDIA 5 + 3 Sonnet high WebSearch): loop no nosso sandbox p/ todo vendor, probe-first.
+<strong>Planos de implementação detalhados (implementer-ready): <code>docs/research/ptc-implementation-plans.md</code>.</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>fonte</th>
+<th>tam</th>
+<th>gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>N-PTC-PROBE</strong> (EXP-24)</td>
+<td>probe measure-only: latência/token/CPU tradicional-vs-PTC-emulado na cadeia discover, matched-budget, noise-floor gated. NUNCA muda produção.</td>
+<td>rodada; EXP-24; D008</td>
+<td>M</td>
+<td><strong>buildável</strong></td>
+</tr>
+<tr>
+<td><strong>N-PTC-ENGINE</strong></td>
+<td>módulo harness_tools (funções dict→str no sandbox) + loop pause/resume + code-extraction + gate AST estático + return filtrado; rota o loop pelo nosso sandbox p/ todo executor.</td>
+<td>rodada; D030</td>
+<td>L</td>
+<td><strong>owner-gated</strong> (controle+segurança: precisa EXP-24 + security review)</td>
+</tr>
+<tr>
+<td><strong>N-PTC-TAINT4</strong></td>
+<td>4º sink de taint = o stdout/stderr do sandbox; dobra o RD-TAINT/D023 (o check roda no stdout capturado). + lethal-trifecta invariant.</td>
+<td>rodada parity+NVIDIA w-004; D023</td>
+<td>M</td>
+<td>owner-gated (security)</td>
+</tr>
+<tr>
+<td><strong>N-PTC-CONFORMANCE</strong></td>
+<td>capability programmatic-tool-calling + supportState + c9 ptcTokenScope + c5 no-amplification (stub-set ⊆ tools declaradas).</td>
+<td>rodada; T-ADAPTERCONF</td>
+<td>M</td>
+<td>owner-gated</td>
+</tr>
+<tr>
+<td><strong>N-TOOLSEARCH</strong> (fronteira)</td>
+<td>tool-search/RAG-sobre-tools: carregar só os schemas relevantes (append-not-swap p/ cache) quando há muitas tools/MCP. Testável SEM o PTC engine.</td>
+<td>rodada fronteira; Gorilla arXiv:2305.15334</td>
+<td>M</td>
+<td>buildável (mede token)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-n-u-funcao-de-utilidade-u-rota-outcome-custo-rodada-rd-u-d021">N-U — função de utilidade U(rota,outcome,custo) (rodada rd-u, D021)</h3>
+<p><strong>Planos detalhados: <code>docs/research/rd-u-implementation-plans.md</code>.</strong> Destrava regret (EXP-17) + ECE.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>fonte</th>
+<th>tam</th>
+<th>gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>N-U-FUNCTION</strong></td>
+<td>U = w_q·Q·τ − w_c·C·S − w_t·T como função pura sobre o route_ledger → probe de regret measure-only (EXP-17). + calibrar reverted=0.5.</td>
+<td>rodada; D021</td>
+<td>M</td>
+<td><strong>buildável</strong></td>
+</tr>
+<tr>
+<td><strong>N-U-DRIVING</strong></td>
+<td>U dirigindo routing (bandit/C4/RF.1).</td>
+<td>rodada; SPEC-144</td>
+<td>L</td>
+<td>owner-gated (controle)</td>
+</tr>
+<tr>
+<td><del>N-U-VARIANCE</del></td>
+<td>termo de variância Sharpe (σ²=noise floor). ADIADO até corpus por-rota.</td>
+<td>rodada w-005</td>
+<td>M</td>
+<td>adiado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-n-crash-crash-injection-deterministica-rodada-rd-crash-d022">N-CRASH — crash injection determinística (rodada rd-crash, D022)</h3>
+<p><strong>Planos detalhados: <code>docs/research/rd-crash-implementation-plans.md</code>.</strong> Habilita EXP-21.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>fonte</th>
+<th>tam</th>
+<th>gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>N-CRASH-INJECTOR</strong></td>
+<td>injetor híbrido: cooperativo HARNESS_CRASH_AT (a/c/d) + Job-Object (b hang), contador determinístico, guard no entrypoint do worker. Windows-real.</td>
+<td>rodada; D022</td>
+<td>M</td>
+<td>buildável test-infra (com EXP-21)</td>
+</tr>
+<tr>
+<td><strong>N-CRASH-EXP21</strong></td>
+<td>a medição de recovery (duplicate-effect/orphaned-work/time-to-resume) por modo.</td>
+<td>rodada; EXP-21</td>
+<td>M</td>
+<td>owner-gated (medição)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-n-taint-taint-camel-rodada-rd-taint-camel-round-md-d023-priorizado-dep-do-ptc">N-TAINT — taint / CaMeL (rodada rd-taint-camel-round.md, D023) — PRIORIZADO (dep do PTC)</h3>
+<p><strong>Planos detalhados: <code>docs/research/rd-taint-implementation-plans.md</code>.</strong> Cadeia cross-rodada:
+<strong>N-TAINT-ENVELOPE + N-TAINT-SINKS → N-PTC-TAINT4 → N-PTC-ENGINE</strong> (por isso priorizado).</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>item</th>
+<th>fonte</th>
+<th>tam</th>
+<th>gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>N-TAINT-PROBE</strong></td>
+<td>would-block probe: quantos valores tainted (secret-read/web-fetch/worker-output) egressariam num sink hoje. Reusa secret_scan. NUNCA enforça.</td>
+<td>rodada; D008</td>
+<td>M</td>
+<td><strong>buildável</strong></td>
+</tr>
+<tr>
+<td><strong>N-TAINT-ENVELOPE</strong></td>
+<td>o metadado de taint NÃO-forjável harness-injetado (source-stamp nas 3 origens; taint_map; opcional no hash-chain).</td>
+<td>rodada; D023</td>
+<td>L</td>
+<td>owner-gated (security)</td>
+</tr>
+<tr>
+<td><strong>N-TAINT-SINKS</strong></td>
+<td>enforcement fail-closed nos 3 sinks (prompt/persistido/log) + <strong>o 4º (PTC stdout)</strong> estendendo o secret-scan; O(campos-tainted), break-glass rate-limited, checker fail-closed.</td>
+<td>rodada; D023</td>
+<td>M</td>
+<td>owner-gated (security) — <strong>pré-req do PTC engine</strong></td>
+</tr>
+<tr>
+<td><strong>N-TAINT-CAMEL</strong></td>
+<td>control-plane capabilities (trust-tiers + GM-3 authority), sem IFC runtime por-valor.</td>
+<td>rodada; GM-3</td>
+<td>M</td>
+<td>owner-gated</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-backlog-classico-nao-artigo-interleave-por-prioridade-propria">Backlog clássico não-artigo (interleave por prioridade própria)</h3>
+<p>Verificado 2026-07-18: CE.2/CE.3/OB.1/OB.2 JÁ SHIPADOS (cenários existem). Abertos:</p>
+<ul>
+<li><strong>P1:</strong> en-gui-strings + en-lib-strings + en-default-guard (terminologia EN); security-baseline-sdd.</li>
+<li><strong>P2:</strong> DW.5 (re-decomposition at settle), SEC.4 (hash-pin admission), CQ.1-enforce (owner-gated), CQ.4 (precisa oracle-runner), codex-stream-parity, config-keys-gui, graphs-screen-gui, M5.sum, records-subject-dimension, workspace-state-exclusion, handoff-subject-confinement, svc-mcp-wiring (owner MCP-transport decision).</li>
+<li><strong>P3/parked:</strong> wiki-sources/screen/spec-guard, docs-consolidation, en-docs/en-comments, pyo3, UX-GA.4, CE.5-9, DW.6-8, SEC.5-7, CAP.4/5, tasks-enqueue, queue-reorder/start-action, research-run-form.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-porque-desta-ordem-logica-de-arquiteto">Porquê desta ordem (lógica de arquiteto)</h2>
+<ol>
+<li><strong>Enablers custam uma tarde e pagam semanas.</strong> E-ROUTESCORES (10 linhas) destrava regret+ECE; E-SCOPETAG destrava o track de memória inteiro; E-3LANE serve DOIS experimentos.</li>
+<li><strong>O sandbox parecia greenfield e NÃO é</strong> — <code>sandbox_spawn</code> (SPEC-148) já tem tier+icacls+Job Object. Esse recon mudou o Q7-1 de "L do zero" para "estender um M". Sem ele, re-planejaríamos 60% de algo que já existe.</li>
+<li><strong>Medir antes de controlar</strong> (C18→C9, GM-5→enforcement, A_ctx→CE.7): controle sem a medição que o justifica é o anti-padrão que a própria pesquisa condena.</li>
+<li><strong>Owner-gate e research atrás do pré-requisito, nunca na frente</strong> — regret não entra na fila porque needs U (RD-U); EXP-21 não roda sem RD-CRASH. É literalmente "não criar feature sem dependência pronta".</li>
+</ol>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/article-coverage-backlog.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/article-coverage-backlog.md</code></li><li>Source SHA-256: <code>12e135202245a7c5beeaca9666b95a750e799fa64bfec7cf4a83e8e20bdb7f9a</code></li><li>Edition-input SHA-256: <code>12e135202245a7c5beeaca9666b95a750e799fa64bfec7cf4a83e8e20bdb7f9a</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

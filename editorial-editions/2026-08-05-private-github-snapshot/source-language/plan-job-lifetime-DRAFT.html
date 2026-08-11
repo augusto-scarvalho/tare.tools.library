@@ -1,0 +1,246 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Per-task process-tree lifetime — CONSOLIDATED PLAN (supersedes all prior drafts) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-1-the-settled-core-accepted-across-review-restated-standalone">1. The settled core (accepted across review; restated standalone)</a></li><li class="h2"><a href="#ed-2-the-policy-stated-symmetrically">2. The policy, stated symmetrically</a></li><li class="h2"><a href="#ed-3-the-measurement-probe-p1-the-decider-owner-run-zero-repo-code">3. The measurement — probe P1, the decider (owner-run, zero repo code)</a></li><li class="h2"><a href="#ed-4-the-declaration-spec-163-extension-treekillreach-landable-now-before-p1-concludes">4. The declaration — SPEC-163 extension treeKillReach (landable NOW, before P1 concludes)</a></li><li class="h2"><a href="#ed-5-the-control-conditional-on-p1-nonzero-one-commit-nt-only-behavior-change">5. The control — conditional on P1 nonzero, one commit, nt-only behavior change</a></li><li class="h2"><a href="#ed-6-the-disparity-ledger-every-gap-as-evolve-up-or-intentional-never-subtraction">6. The disparity ledger — every gap as EVOLVE-UP or INTENTIONAL (never subtraction)</a></li><li class="h2"><a href="#ed-7-backlog-rows-registerable-verbatim-via-tasks-add-body">7. Backlog rows (registerable verbatim via tasks add --body - )</a></li><li class="h2"><a href="#ed-8-phased-plan">8. Phased plan</a></li><li class="h2"><a href="#ed-9-what-i-would-not-build">9. What I would NOT build</a></li><li class="h2"><a href="#ed-10-open-owner-decisions-recommendation-first">10. Open owner decisions (recommendation first)</a></li><li class="h2"><a href="#ed-11-amendment-targets-spec-116-door">11. Amendment targets (SPEC-116 door)</a></li><li class="h2"><a href="#ed-overseer-verification-2026-07-27-independent-of-the-author">Overseer verification (2026-07-27, independent of the author)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>Per-task process-tree lifetime — CONSOLIDATED PLAN (supersedes all prior drafts)</h1><p class="subtitle">Historical implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>09e14d862ab0b8dd837f…</span></div><div><b>Edition SHA-256</b><span>09e14d862ab0b8dd837f…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Author: <code>planner-xhigh</code> spawn (Fable, effort <code>xhigh</code>), 2026-07-27, over three
+review rounds. Read-only run; written to disk by the overseer. Supersedes the
+original plan and its delta, both of which lived at this path.</p>
+<p>Governing principle: <strong>D045</strong> (<code>.harness/context/DECISIONS.md:741-754</code>, owner,
+2026-07-21) — never regress, never level down, declare the gap, pursue parity
+when it pays. This plan is that ratified decision applied to <em>who dies when a
+task is killed</em>. Overseer verification of the load-bearing claims is at the end.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-1-the-settled-core-accepted-across-review-restated-standalone">1. The settled core (accepted across review; restated standalone)</h2>
+<ol>
+<li><strong>The lifetime axis is per-CHILD and seam-keyed, not per-profile and not <code>risk</code>-keyed.</strong> One real worker tree simultaneously holds members that must die with the task (MCP servers, shell tool children) and members that exist to outlive it (a <code>gate-staged</code> runner via <code>launch_detached</code>, <code>gate_staged.py:107</code>; a nested supervisor, <code>async_runtime.py:897</code>). No profile boolean can split a tree; <code>risk</code> already drives sandbox tier and routing and must not be overloaded. The declaration the owner asked "where to put" already exists in code as <strong>which spawn primitive creates the child</strong>. No new profile field; the per-spawn opt-out is the existing <code>job_limits=None</code> (<code>sandbox_spawn.py:41,:350</code>).</li>
+<li><strong>Determinism (the owner's "o modelo decide?" objection, answered):</strong> the model never decides — or even declares — lifetime. It decides <em>what to run</em>; the kernel assigns the lifetime class by <strong>inheritance</strong>: every child, grandchild, or process nobody anticipated is born inside the task's cage (Job Object on nt, session on POSIX) because its parent was. Default = caged, enforced by the OS with zero harness bookkeeping. The only exit is a fixed harness code path — <code>launch_detached</code> / the supervisor spawn — whose semantics never vary per call. Deterministic, child-aware, zero micro-decisions accumulating on the worker.</li>
+<li><strong><code>KILL_ON_JOB_CLOSE</code> is rejected everywhere.</strong> It couples worker lifetime to handle lifetime; a supervisor crash would close handles and kill every in-flight worker — destroying exactly the work <code>workflow_async_recover</code> salvages (<code>async_runtime.py:314-320</code>). SPEC-163 invariant 7 (<code>sandbox-manifest-honesty.md:61-63</code>) currently names it as an acceptable mechanism; that parenthetical is struck (section 4). <code>TerminateJobObject</code> at the kill decision is the correct primitive.</li>
+<li><strong>Two pid-only kill sites on the async seam</strong>, not one: the timeout reap (<code>async_runtime.py:485-489</code>, job handle in scope) and <code>workflow_cancel.terminate_pid</code> (<code>:984,:991</code>, different process, unnamed job unreachable). Both covered below.</li>
+<li><strong>Measure-before-control binds</strong> (EXP-21 <code>active</code>; <code>docs/EXPERIMENT_METHODOLOGY.md:48-56</code>). Two measurements were being conflated: <strong>mechanism</strong> (a grandchild CAN survive — already measured) and <strong>incidence</strong> (real vendor workers DO leave one — unmeasured). The stub differential manufactures its own orphan (rate = 1 by construction) and cannot output zero, so it is demoted to regression check; the decider is probe P1 (section 3).</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-2-the-policy-stated-symmetrically">2. The policy, stated symmetrically</h2>
+<blockquote>
+<p><strong>The task's cage is the session (POSIX) / the Job Object (nt). Everything born inside it dies at the task's timeout kill. The one exit is the detached primitive — <code>start_new_session=True</code> today, <code>CREATE_BREAKAWAY_FROM_JOB</code> as its missing Windows twin — which is harness code, not a per-child judgment. Operator cancel is deliberately more aggressive (visible-tree kill): a human "stop this" outranks a background child's plans. Every reach difference between OS/seam is DECLARED machine-readably and audited (section 4), and every gap is an evolve-UP item or an intentional difference — never a subtraction (D045).</strong></p>
+</blockquote>
+<p>POSIX already ships the timeout half: async workers spawn via <code>process_group_kwargs()</code> (<code>async_runtime.py:419</code> → <code>processes.py:248</code> <code>start_new_session=True</code>), so <code>killpg</code> reaps the cage and only a deliberate new session escapes — which <code>launch_detached</code> takes through the same function (<code>processes.py:265</code>). Windows is where the policy is silently not honored: <code>CREATE_NEW_PROCESS_GROUP</code> affects Ctrl-C only; the async kill is pid-only; detached children stay in the parent's job. The control is nt catching up to shipped POSIX semantics — evolve-up, per D045.</p>
+</section>
+<section class="section content"><h2 id="ed-3-the-measurement-probe-p1-the-decider-owner-run-zero-repo-code">3. The measurement — probe P1, the decider (owner-run, zero repo code)</h2>
+<p><strong>Population (verified):</strong> MCP grandchildren exist only when a workflow carries a <code>target</code> whose <code>graphify-out/targets/&lt;t&gt;/adapter/mcp-config.json</code> exists (<code>harness.py:1427-1439</code>); none exists on disk today, so the MCP class is a future-live population — claude-only (<code>codex</code>'s template has no MCP wiring; its <code>--sandbox {sandbox}</code> runs its own sandboxed tool children, a second live tool-child shape). Tool children are live today on both vendors. The three <code>type: http</code> executors have no children (measured NEGATIVE).</p>
+<p><strong>Arms: 2 vendors × 2 seams</strong> (claude/codex × async/bounded), ×3 repetitions, on this nt machine. Per arm: 1-worker workflow, small <code>workerTimeoutSeconds</code> (~60), prompt instructing the agent to run a long <em>silent</em> command (<code>python -c "import time;time.sleep(600)"</code>) via its own shell tool; claude arms additionally carry a fabricated probe target mcp-config naming one real stdio server (the spawn is fully vendor-real; only the config file is fabricated, deleted after). Before the timeout: snapshot the task pid's descendant closure via PowerShell <code>Get-CimInstance Win32_Process</code>, classifying each pid <code>mcp | tool-child | vendor-internal</code>. After settle: re-snapshot; <strong>survivors = orphans, per class per vendor per seam.</strong> Kill leftovers. Bounded arms are the control (expect zero); a bounded survivor is a separate new finding.</p>
+<p><strong>Pre-registered expectations (so either result is believed):</strong> MCP class likely 0 — stdio children self-reap on stdin EOF when the vendor dies; tool-child class likely ≥1 — a silent sleeper never reads its dead pipe. Codex may differ (its sandbox may reap its own children). (referência: judgment; the probe exists to test it.)</p>
+<p><strong>Decision rule, committed before running:</strong></p>
+<ul>
+<li><strong>Zero across both vendors and all classes, all repetitions → the control is DEAD.</strong> Owner appends the zero to EXP-21 <code>measurements[]</code>; a dossier note records "vendor children self-reap via stdio EOF at measured incidence zero"; the declaration (section 4) still lands and permanently shows async-nt reach = <code>pid</code> as a declared, intentional-until-reopen gap. Reopen triggers: the first production MCP target config, or any vendor/tool whose children hold no stdio tether.</li>
+<li><strong>Any nonzero on async with bounded zero → control justified</strong>; number to <code>measurements[]</code>, verdict <code>shipped</code>, sections 5-6 proceed.</li>
+</ul>
+<p><strong>Why nt-only is sufficient to decide:</strong> every line of the control diff is nt-gated; the POSIX side ships zero behavior change — POSIX is the <em>reference semantics being copied</em>, in production for months. A probe cannot justify or kill a diff that does not exist on its OS. The POSIX-side items are separate evolve-up rows with their own checks, exercised by the real CI matrix.</p>
+</section>
+<section class="section content"><h2 id="ed-4-the-declaration-spec-163-extension-treekillreach-landable-now-before-p1-concludes">4. The declaration — SPEC-163 extension <code>treeKillReach</code> (landable NOW, before P1 concludes)</h2>
+<p><strong>Where:</strong> the sandbox manifest. Not a new surface — the third column of a discipline SPEC-163 already ratified: <code>*Enforced</code> = host capability, <code>*Applied</code> = per-spawn application fact, and now <strong>reach</strong> = what the owner's kill decision would actually hit. The shelf has precedent for scope qualifiers: <code>procAppliedScope="parent-process-lifetime"</code> (<code>harness.py:2580</code>, in <code>MANIFEST_KEYS</code> at <code>sandbox_spawn.py:224-226</code>).</p>
+<p><strong>What:</strong> <code>treeKillReach: "job" | "session" | "tree" | "pid" | "none"</code> — a deterministic pure function of (seam mode, <code>os.name</code>, job-assigned), ~10 lines in <code>sandbox_spawn.py</code>, stamped into the receipt where each seam already stamps <code>procApplied</code> (bounded <code>sandbox_spawn.py:357</code>; async <code>async_runtime.py:447</code>; detached <code>harness.py:2571</code> → <code>"none"</code>, since nothing kills a detached spawn; its frontier is the recover sweep). <code>MANIFEST_KEYS</code> gains the key. Declared matrix at landing time — today's truth, disparities visible on purpose:</p>
+<table>
+<thead>
+<tr>
+<th>seam</th>
+<th>nt</th>
+<th>linux</th>
+<th>darwin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bounded</td>
+<td><code>tree</code> (taskkill /T)</td>
+<td><code>tree</code> (killpg + /proc walk)</td>
+<td><code>session</code> (killpg; no /proc)</td>
+</tr>
+<tr>
+<td>async</td>
+<td><strong><code>pid</code></strong> (the defect, now declared)</td>
+<td><code>session</code></td>
+<td><code>session</code></td>
+</tr>
+<tr>
+<td>detached</td>
+<td><code>none</code></td>
+<td><code>none</code></td>
+<td><code>none</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honesty check (the teeth):</strong> extend <code>testing/scenarios/hsb_sandbox_spawn.py</code> (existing, glob-discovered — zero <code>spec_test_gate.py</code> lines against the 1659/1660 gs-7 ceiling) with the matrix assertion: a spawn on each reachable seam must stamp exactly the matrix value for the running OS. CI's three-OS matrix runs all three columns. When Phase C changes the async-nt kill to job-scoped, this check FORCES the declaration update in the same commit (red otherwise) — declaration and code cannot drift. Behavioral reach is proven by exp21-8 (section 5); the two are complementary teeth.</p>
+<p><strong>Phase-law argument for landing early:</strong> this is exactly the SPEC-163 Phase-1 shape — "no behavior change, the manifest stops overstating" — a measurement/honesty artifact, admissible under the <code>active</code> EXP-21 the same way <code>procApplied:false</code> was. It lands as a versioned amendment to a covered spec, bundled with the <strong>invariant-7 strike</strong>. Landing it before P1 strengthens the probe: P1's expected values become declared values.</p>
+</section>
+<section class="section content"><h2 id="ed-5-the-control-conditional-on-p1-nonzero-one-commit-nt-only-behavior-change">5. The control — conditional on P1 nonzero, one commit, nt-only behavior change</h2>
+<ol>
+<li><code>processes.py</code>: new <code>terminate_win_job(handle, exit_code=15) -&gt; bool</code> — ctypes <code>TerminateJobObject</code>, no-op/False off nt or falsy handle (mirrors <code>close_win_handle:434-440</code>). ~10 lines. Exit code 15 matches today's kill forensics; classification is unaffected (the <code>timed_out</code> flag, not rc, lands <code>timeout</code> at <code>:559-562</code>).</li>
+<li><code>async_runtime.py:485-489</code> (timeout): nt with <code>async_job</code> → <code>terminate_win_job(async_job)</code> as the kill; else the current <code>safe_signal_pid</code> ladder unchanged (POSIX; nt job-assign-failed corner). <code>await proc.wait()</code> completes; the <code>finally:497</code> still closes the handle. ~4 lines.</li>
+<li><code>async_runtime.py:984,:991</code> (cancel): swap <code>safe_signal_pid</code> → <code>processes.signal_process_tree</code>. The job is unreachable cross-process (unnamed); <code>taskkill /T</code> on a live pid is the primitive bounded already trusts; POSIX semantics preserved. 2 words. Cancel's aggressive reach is the <strong>intentional</strong> operator-kill policy of section 2, declared in the amendment; the precision upgrade path is row B4.</li>
+<li><strong>Breakaway — the nt twin of <code>setsid</code>, in-increment as OS parity (D045 rule 1: the control must not regress nt's detached seam below POSIX's):</strong> <code>DEFAULT_JOB_LIMITS</code> gains <code>"breakawayOk": True</code> mapped to <code>JOB_OBJECT_LIMIT_BREAKAWAY_OK</code> (0x800) in <code>_win_job_set_limits</code> (<code>processes.py:334-341</code>, ~3 lines); the two detached spawn sites — <code>launch_detached</code> (<code>processes.py:263</code>) and the supervisor <code>Popen</code> (<code>async_runtime.py:897</code>) — add <code>CREATE_BREAKAWAY_FROM_JOB</code> (0x01000000) with an ACCESS_DENIED (WinError 5) retry-without-flag, failing <strong>closed to containment</strong> (a foreign deny-breakaway job leaves the child caged-but-killable, one log line). ~5 lines each. NOT added to <code>process_group_kwargs()</code> wholesale: its worker-spawn consumers must not break out of foreign jobs. <code>SILENT_BREAKAWAY_OK</code> stays rejected (would exempt every grandchild and falsify <code>procApplied</code>).</li>
+<li>Declaration update rides the same commit: async-nt row <code>pid → job</code>; the hsb matrix check enforces it.</li>
+</ol>
+<p><strong>The falsifiable check — exp21-8</strong>, one new section in the existing <code>testing/scenarios/exp21_crash_injection.py</code> (zero gate-wiring lines). The stub's <code>hang</code> mode (<code>_exp21_crash_stub.py:129-141</code>, <code>EXP21_GRANDCHILD_PID</code> hook shipped) gains a second grandchild spawned via the real <code>processes.launch_detached</code>. Post-timeout assertions, identical on every OS: <strong>caged grandchild dead</strong> (nt: job; POSIX: killpg) — red today on nt, green after, re-reds on revert; <strong>detached grandchild alive</strong> (nt: breakaway; POSIX: setsid), reaped by the scenario's <code>finally</code>. Arm 1's falsifiability is nt-only (POSIX already passes — recorded honestly); arm 2 is falsifiable on all three OSes and turns red if anyone ever "fixes" reaping with <code>KILL_ON_JOB_CLOSE</code> or a blanket walk.</p>
+</section>
+<section class="section content"><h2 id="ed-6-the-disparity-ledger-every-gap-as-evolve-up-or-intentional-never-subtraction">6. The disparity ledger — every gap as EVOLVE-UP or INTENTIONAL (never subtraction)</h2>
+<p>The "Form A" idea (dropping Linux's descendant walk to match macOS) is rejected on D045 grounds and is additionally expensive: <code>signal_process_tree</code> has 31 call sites. Nothing below removes capability from anywhere.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>disparity</th>
+<th>resolution</th>
+<th>route</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>async-nt kill reach <code>pid</code> (the orphan defect)</td>
+<td>evolve nt up to <code>job</code> (5.1-2)</td>
+<td><strong>attack now</strong> (post-P1-nonzero)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>nt has no detached breakaway; POSIX has <code>setsid</code></td>
+<td>evolve nt up: <code>CREATE_BREAKAWAY_FROM_JOB</code> + <code>breakawayOk</code> (5.4)</td>
+<td><strong>attack now</strong> (same commit)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>async cancel reach <code>pid</code> (second orphan site)</td>
+<td>evolve up to <code>tree</code> (5.3)</td>
+<td><strong>attack now</strong> (same commit)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>darwin <code>tree</code> reach missing at bounded/cancel: <code>process_children_map</code> reads <code>/proc</code> only</td>
+<td>evolve darwin up: <code>ps -axo pid,ppid</code> fallback — blast radius one function (zero external callers), Linux unchanged (/proc wins), nt unchanged (early return), exercised by the macOS CI leg</td>
+<td><strong>queue</strong> (B1); recommend riding Phase C</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>suspected darwin defect (new this pass):</strong> <code>pid_alive</code> (<code>processes.py:187-193</code>) returns False on <code>FileNotFoundError</code> from <code>/proc/&lt;pid&gt;/stat</code> — correct on Linux, but darwin has no <code>/proc</code> at all, so every pid may read as dead, mis-orphaning live workers</td>
+<td>verify on the macOS CI leg, then guard the <code>/proc</code> read (fall through to <code>os.kill(pid,0)</code> when <code>/proc</code> is absent) — one function</td>
+<td><strong>queue</strong> (B2, verify-first, elevated)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>POSIX cage is escapable by a child's own <code>setsid</code>; the nt job is deny-able and stronger</td>
+<td><strong>intentional platform ceiling</strong>, declared: closing it is cgroup/PID-namespace territory</td>
+<td><strong>queue</strong> (B3, distant)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>cancel kills detached children (nt/linux) while timeout spares them</td>
+<td><strong>intentional policy</strong> (operator kill is aggressive), declared in the amendment</td>
+<td><strong>queue</strong> (B4, trigger-gated)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>MCP plumbing exists only in the claude template; codex has none</td>
+<td>vendor gap, declared</td>
+<td><strong>queue</strong> (B5)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>detached supervisor runs uncapped (D044 option-b ceiling)</td>
+<td>already declared (<code>procAppliedScope</code> precedent)</td>
+<td>declared — no new row</td>
+</tr>
+<tr>
+<td>10</td>
+<td>http executors spawn no children</td>
+<td>intentional no-op</td>
+<td>declared</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-7-backlog-rows-registerable-verbatim-via-tasks-add-body">7. Backlog rows (registerable verbatim via <code>tasks add --body -</code>)</h2>
+<p><strong>B1</strong> — id <code>proc-darwin-descendants-walk</code>, S/P2 — <em>darwin tree-kill reach: ps-based process_children_map fallback (D045 evolve-up)</em>: <code>process_children_map</code> (<code>processes.py:89-112</code>) reads <code>/proc</code> and returns <code>{}</code> on darwin, so the descendants walk in <code>signal_process_tree</code> is empty there: bounded/cancel reach is <code>session</code> on macOS vs <code>tree</code> on linux/nt (declared in the SPEC-163 <code>treeKillReach</code> matrix). Evolve darwin UP: when <code>/proc</code> is absent and <code>os.name != "nt"</code>, build the PPID map from <code>ps -axo pid,ppid</code> (stdlib subprocess, ~10 lines). Blast radius: one function, zero callers outside <code>processes.py</code> (verified 2026-07-27); linux keeps the <code>/proc</code> path, nt keeps the early return. Teeth: the hsb <code>treeKillReach</code> matrix flips darwin bounded/cancel to <code>tree</code> in the same commit; the CI macos leg exercises it. Dep: land after the SPEC-163 amendment.</p>
+<p><strong>B2</strong> — id <code>proc-darwin-pid-alive-procfs</code>, S/P1 — <em>SUSPECTED darwin defect: <code>pid_alive</code> conflates "no /proc filesystem" with "process dead"</em>: <code>pid_alive</code> (<code>processes.py:187-193</code>) returns False on <code>FileNotFoundError</code> reading <code>/proc/&lt;pid&gt;/stat</code>. Correct on linux (entry gone = dead); darwin has no <code>/proc</code> at all, so every pid may read dead — and <code>workflow_async_recover</code> keys on it (<code>async_runtime.py:321</code>), so recover would mis-orphan LIVE workers on macOS; <code>supervisor_alive</code> (<code>:305</code>) and lock-staleness (<code>:1080</code>) read from the same function. Unverified on real darwin (source reading 2026-07-27 on an nt machine). Step 1: one CI-macos assertion that <code>pid_alive(os.getpid())</code> is True — would fail today if the defect is real. Step 2 (if confirmed): guard the <code>/proc</code> read (attempt zombie detection only when <code>Path("/proc").exists()</code>, else fall through to the existing <code>os.kill(pid,0)</code> path). One function.</p>
+<p><strong>B3</strong> — id <code>proc-linux-cgroup-cage</code>, L/P3 — <em>POSIX task cage that survives setsid (cgroup/PID-ns), declared platform ceiling</em>: the POSIX cage is the session; a child calling <code>setsid()</code> escapes <code>killpg</code>. The nt Job Object is deny-able and stronger. Closing the gap is linux-only cgroup v2 / PID-namespace territory — unjustified until a measured POSIX orphan exists. Reopen trigger: any measured setsid-escapee orphan on a POSIX host, or deployment to a linux prod runner.</p>
+<p><strong>B4</strong> — id <code>proc-cancel-named-jobs</code>, M/P3 — <em>precise operator-cancel reach via named Job Objects (spare detached children)</em>: <code>workflow_cancel</code> kills the visible tree; on nt/linux this includes breakaway/setsid detached children. Declared INTENTIONAL operator-kill policy. If ever rejected: name the per-task jobs (<code>Local\harness-&lt;wfid&gt;-&lt;task&gt;</code>), let the cancel CLI <code>OpenJobObject</code> + <code>TerminateJobObject</code> cross-process, fallback <code>signal_process_tree</code>. Trigger: first real incident of a cancel stranding a wanted detached child.</p>
+<p><strong>B5</strong> — id <code>vendor-codex-mcp-parity</code>, M/P3 — <em>codex MCP parity: <code>{mcpConfig}</code> plumbing exists only in the claude template (D045 vendor gap)</em>: <code>harness.py:1427-1439</code> renders <code>{mcpConfig}</code> for claude's <code>--strict-mcp-config</code>; codex's template has no MCP slot, so target-scoped MCP tooling is claude-only. Declared vendor disparity; evolve codex up when the first production MCP target config ships. Until then this row IS the declaration.</p>
+</section>
+<section class="section content"><h2 id="ed-8-phased-plan">8. Phased plan</h2>
+<ul>
+<li><strong>Phase D (declaration — now, parallel with P1):</strong> SPEC-163 amendment part 1 (invariant-7 strike + <code>treeKillReach</code> vocabulary + today's matrix incl. the declared <code>pid</code> defect) + ~12 stamping lines + <code>MANIFEST_KEYS</code> entry + hsb matrix assertions + register B1-B5. Check: hsb/hos green on all three CI OSes. Rollback: revert one commit.</li>
+<li><strong>Phase 0 (probe P1 — owner-run, no repo code):</strong> section 3. Acceptance: per-class/vendor/seam counts ×3 into EXP-21 <code>measurements[]</code> (owner-gated).</li>
+<li><strong>Phase Z (zero branch):</strong> dossier note + reopen triggers; nothing else — the Phase-D declaration remains the permanent honest record of the gap. Done.</li>
+<li><strong>Phase B (nonzero):</strong> SPEC-163 amendment part 2 — invariant 8: async kill decisions are job-scoped on nt / session-scoped on POSIX; detached breaks away on both OSes; cites EXP-21 + P1 numbers. Check: <code>spec-pack</code> green.</li>
+<li><strong>Phase C (nonzero, one commit):</strong> section 5 diffs (~25 production lines) + exp21-8 (~45 scenario lines) + matrix update (<code>pid → job</code>, forced red-to-green by hsb). Acceptance: exp21-8 arm 1 red→green on nt, arm 2 green everywhere; exp21-1..7 untouched; suite green on POSIX. Rollback: revert the commit.</li>
+<li><strong>Phase C2 (optional, owner call):</strong> B1 riding the same verdict batch.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-9-what-i-would-not-build">9. What I would NOT build</h2>
+<p><code>KILL_ON_JOB_CLOSE</code> anywhere (inverts recover salvage); a per-profile lifetime field (per-child property; 12 identical values; the feared "micro-decision chain" is what the field would create); the stub differential as decider (cannot output zero); Toolhelp32 walker or psutil (job + taskkill + B1's <code>ps</code> fallback cover every seam); passive production telemetry at the timeout branch (P1 decides; ~25 probe-admissible lines only if the owner wants an ongoing rate); <code>SILENT_BREAKAWAY_OK</code>; any Form-A subtraction (D045); the workspace-pruner track in this increment (separate metric, separate control, separate spec door).</p>
+</section>
+<section class="section content"><h2 id="ed-10-open-owner-decisions-recommendation-first">10. Open owner decisions (recommendation first)</h2>
+<ol>
+<li><strong>Go on Phase D now</strong> (declaration + invariant-7 strike + backlog rows, before P1 concludes). Recommend: yes — it is the M2 shape, and it makes P1's expectations declared values.</li>
+<li><strong>Ratify P1</strong> (2 vendors × 2 seams, decision rule and zero rule as written, pre-committed). Recommend: yes.</li>
+<li><strong>Cancel-policy distinction</strong> (operator kill = aggressive visible-tree, declared intentional; B4 is the precision path). Recommend: accept as stated.</li>
+<li><strong>B1 scope call</strong>: does widening darwin's bounded/cancel reach fall under the EXP-21 verdict (ride Phase C) or stand alone after it? Recommend: ride Phase C.</li>
+<li><strong>B2 priority</strong>: confirm P1 (a suspected live-correctness defect on a CI-supported OS). Recommend: yes; the verify-first step is one CI assertion.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-11-amendment-targets-spec-116-door">11. Amendment targets (SPEC-116 door)</h2>
+<ul>
+<li><strong><code>specs/40-features/sandbox-manifest-honesty.md</code> (SPEC-163) — covered, versioned amendment in two parts:</strong> part 1 (Phase D): <code>treeKillReach</code> vocabulary + matrix + invariant-7 strike; part 2 (Phase B): invariant 8, citing EXP-21 and the P1 numbers.</li>
+<li><strong><code>specs/40-features/harness-own-sandbox.md</code> (SPEC-151) — covered; expected untouched</strong> (verify at amendment time).</li>
+<li><strong>Not specs:</strong> EXP-21 <code>measurements[]</code> append (owner-gated); rows B1-B5 via the tasks CLI; <code>DECISIONS.md</code> needs no new entry — this plan implements D045, it does not amend it.</li>
+</ul>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-overseer-verification-2026-07-27-independent-of-the-author">Overseer verification (2026-07-27, independent of the author)</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>verdict</th>
+<th>evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D045 ratifies the owner's principle already</td>
+<td><strong>CONFIRMED, verbatim</strong></td>
+<td><code>DECISIONS.md:741-754</code>: <em>"não regredir, não nivelar por baixo, declarar o gap, perseguir quando vale"</em> — and it names SPEC-113's <code>supportState</code> as the declaration vocabulary, generalized from vendors to OS</td>
+</tr>
+<tr>
+<td>B2 — darwin <code>pid_alive</code> reads every pid as dead</td>
+<td><strong>CONFIRMED AS READ</strong> (cannot be run on this nt machine)</td>
+<td><code>processes.py:187-193</code>: <code>except FileNotFoundError: return False</code> on the <code>/proc/&lt;pid&gt;/stat</code> read; darwin has no <code>/proc</code>, so the <code>os.kill(pid,0)</code> fallback below is unreachable there</td>
+</tr>
+<tr>
+<td>B2 blast radius</td>
+<td><strong>CONFIRMED, and it is severe</strong></td>
+<td><code>workflow_process_alive</code> is a one-line wrapper (<code>async_state.py:224-225</code>); consumers include the orphan decision (<code>async_runtime.py:321</code>), the supervisor-alive guard (<code>:305</code>), the cancel grace loop (<code>:986-993</code>), doctor (<code>:1066</code>) and lock staleness (<code>:1080</code>)</td>
+</tr>
+<tr>
+<td>the <code>treeKillReach</code> shelf has precedent</td>
+<td><strong>CONFIRMED</strong></td>
+<td><code>MANIFEST_KEYS</code> (<code>sandbox_spawn.py:224-226</code>) already carries <code>procAppliedScope</code></td>
+</tr>
+</tbody>
+</table>
+<p>Not re-verified by the overseer, carried at the author's confidence: the P1
+recording procedure, the stdio-EOF self-reap mechanism (marked
+<code>referência: judgment</code> by the author), and the BREAKAWAY WinAPI mechanics.</p>
+<p><strong>One overseer note the owner should weigh:</strong> D045 rule 3 names SPEC-113's
+<code>supportState</code> (<code>native/emulated/degraded/unsupported</code>) as <em>the</em> declaration
+vocabulary, generalized to OS. The plan proposes a new <code>treeKillReach</code> enum in
+the SPEC-163 manifest instead. Both are defensible — reach is a richer fact than
+a support tier — but if the owner wants one declaration vocabulary rather than
+two, that is a design call to make before Phase D lands.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-job-lifetime-DRAFT.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-job-lifetime-DRAFT.md</code></li><li>Source SHA-256: <code>09e14d862ab0b8dd837fa2618401425e689333b8677316c365a16a1c1d0fc7ba</code></li><li>Edition-input SHA-256: <code>09e14d862ab0b8dd837fa2618401425e689333b8677316c365a16a1c1d0fc7ba</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

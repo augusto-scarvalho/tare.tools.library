@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-memory-extract.md",
+  "sourceSha256": "ce4daa2f373da063048f83099b1c316660866f4e3858ea847e6f753645d1aff1",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-memory-extract.en.md",
+  "translationSha256": "0ac11f85ea4fba131b4a85e3d468d64bc51ca747bb60f4613c0a6fe473ccb1e7",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

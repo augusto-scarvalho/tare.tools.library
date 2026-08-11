@@ -1,0 +1,232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Round — Adoption of the Multi-Agent Harness Reference Article — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-fact-update-2026-07-18-codex-caught-up-with-claude-document-was-stale">FACT UPDATE 2026-07-18 — Codex caught up with Claude (document was stale)</a></li><li class="h3"><a href="#ed-experimental-investigation-2026-07-18-codex-has-hooks-codex-enforces">Experimental investigation 2026-07-18 — “Codex has hooks” ≠ “Codex enforces”</a></li><li class="h3"><a href="#ed-decisive-conclusion-2026-07-18-parser-built-and-proven-sandbox-is-the-requirement">DECISIVE CONCLUSION 2026-07-18 (parser built and proven; sandbox is the requirement)</a></li><li class="h2"><a href="#ed-track-s-containment-isolation-and-role-hardening-owner-request-2026-07-17">Track S — containment, isolation, and role hardening (owner request 2026-07-17)</a></li><li class="h2"><a href="#ed-second-prospecting-wave-recon-fan-out-2026-07-18-verdict">Second prospecting wave (recon fan-out 2026-07-18) — verdict</a></li><li class="h3"><a href="#ed-parked-over-engineering-at-current-stage-article-itself-is-evidence-gated">Parked (over-engineering at current stage; article itself is evidence-gated)</a></li><li class="h3"><a href="#ed-rejected-counter-evidence">Rejected (counter-evidence)</a></li><li class="h2"><a href="#ed-afk-loop-2026-07-18-core-queue-exhausted-n5-n6-deferred-by-discipline">AFK loop 2026-07-18 — core queue exhausted; N5/N6 deferred by discipline</a></li><li class="h3"><a href="#ed-next-prospecting-batch">Next prospecting batch</a></li><li class="h2"><a href="#ed-ux-validation-two-items">UX (validation + two items)</a></li><li class="h2"><a href="#ed-business-view">Business view</a></li><li class="h2"><a href="#ed-traceability">Traceability</a></li><li class="h2"><a href="#ed-human-gate-decisions-requested-from-owner">HUMAN GATE — decisions requested from owner</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Round — Adoption of the Multi-Agent Harness Reference Article</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>4b5a1c5db4c47c1e2d50…</span></div><div><b>Edition SHA-256</b><span>4f5b02698f50e0bb58d3…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Study of “what should we adopt from X” (playbook <code>.harness/prompts/research-playbook.md</code>). External source: <em>Adaptive, Project-Oriented Multi-Agent Harness Architectures with Dynamic Routing, Self-Correction, and Governed Self-Evolution</em> — manuscript v1.6, cutoff 2026-07-17, multivocal synthesis + DSR protocol (read in full, 2,414 lines). Internal source: repo capability inventory (scanner, 2026-07-17).</p>
+<p><strong>Status: GATE APPROVED by owner on 2026-07-17</strong> (“approved everything; start with the most critical; revisit the article as we evolve”). Decisions: core N1–N6 in proposed order; EXP-15/16/17 registered (E1–E3); EXP-1 phase 2 greenlit; M0–M7 vision becomes D008 in <code>DECISIONS.md</code>.</p>
+<p><strong>Execution (iteration 1, 2026-07-17):</strong> N1 verified ALREADY DELIVERED (CE.1 fixed on 2026-07-12 — seam <code>_record_executor_outcome</code>, scenario <code>ce1_containment.py</code> 5/5; backlog row was stale and crossed out). N2 SHIPPED: generic <code>*_escalation</code> fallback in <code>compact_supervision_events</code> (CE.8-lite; essc-6 check) — any raise with escalationId survives wipe without a type-specific branch.</p>
+</section>
+<section class="section content"><h2 id="ed-fact-update-2026-07-18-codex-caught-up-with-claude-document-was-stale">FACT UPDATE 2026-07-18 — Codex caught up with Claude (document was stale)</h2>
+<p>Owner flagged this; investigated through primary sources (Codex CLI 0.143–0.144, Jul 8–9 2026). <strong>Several assumptions from this round about “Codex = weaker vendor” became FALSE.</strong> Native capabilities gained that week:</p>
+<ul>
+<li><strong>Subagents GA</strong> — <code>.codex/agents/*.toml</code> (<code>name</code>/<code>description</code>/<code>developer_instructions</code> + per-agent <code>model</code>/<code>model_reasoning_effort</code>/<code>sandbox_mode</code>/<code>mcp_servers</code>/<code>skills.config</code>). <code>[agents]</code>: <code>max_threads</code>=6, <code>max_depth</code>=1. <strong>Sibling structure to <code>.claude/agents/*.md</code>.</strong></li>
+<li><strong>Native fork-join</strong> — parallel execution that waits for all results then returns consolidated response; <code>spawn_agents_on_csv</code> (map per row with <code>output_schema</code>). Multi-agent <strong>v2</strong> under <code>collaboration</code> namespace.</li>
+<li><strong>Dynamic workflows</strong> — thread forking (“fork history through a specific turn”).</li>
+<li><strong>Full hooks</strong> — SessionStart, PreToolUse, PermissionRequest, PostToolUse, UserPromptSubmit, <strong>SubagentStart, SubagentStop, Stop</strong>, PreCompact, PostCompact.</li>
+<li><strong>Sandbox</strong> — “writes app approval mode” + worktrees (<code>.worktreeinclude</code>).</li>
+<li><strong>Our CE.1 fixed natively</strong>: July — parent agents now receive terminal subagent errors rather than empty successful completion.</li>
+</ul>
+<p>Sources: learn.chatgpt.com/docs/agent-configuration/subagents; changelog; developers.openai.com/codex/hooks.</p>
+<p><strong>Pending corrections:</strong> (A) <code>capabilities.json</code> note “Codex synchronous, no SubagentStop, no mirror” is now FALSE — re-evaluate Codex leg of gate-wait hook (commit f016aa9). (B) <code>agent_spawn_economy</code> matches <code>multi_agent_v1</code> — verify rename to v2. (C) this section. Bets aligned to owner direction: (D) adopt native Codex fork-join/subagents; (E) native SPEC-113 parity via <code>.codex/agents/*.toml</code>. Caveat before changing hook: Codex SubagentStop fires in its INTERNAL multi-agent runtime; we invoke single-shot <code>codex exec</code> — whether that path emits events determines Codex gate-wait leg.</p>
+<h3 id="ed-experimental-investigation-2026-07-18-codex-has-hooks-codex-enforces">Experimental investigation 2026-07-18 — “Codex has hooks” ≠ “Codex enforces”</h3>
+<p>Ran Codex 0.144.4 FOR REAL (five execs), rather than trusting docs. Finding reversing optimism: <strong>write enforcement for our Codex workers is INERT, and wiring alone does not fix it.</strong> Three live-proven gaps:</p>
+<ol>
+<li><strong>Trust</strong> — <code>codex exec</code> only fires hooks with <code>--dangerously-bypass-hook-trust</code> (or persisted trust). Experiment 1 without flag: NO hook fired. Experiment 3 with flag: SessionStart/PreToolUse/Stop fired. Our template does not pass flag → Codex worker hooks are <strong>silent</strong> today.</li>
+<li><strong>Matcher</strong> — <code>protect-files</code> had <code>Edit|Write|MultiEdit</code>, excluding native Codex <code>apply_patch</code>. FIXED in-session (capabilities.json + vendor files, timeouts preserved; <code>agents pair --apply</code> is lossy for these fields — intake).</li>
+<li><strong>Payload shape (the killer)</strong> — even with trust + matcher, <code>protect_files</code> DID NOT deny: <code>codex exec</code> edited protected <code>AGENTS.md</code> with hook fully enabled. Root: Codex <code>apply_patch</code> embeds path in patch BODY (<code>*** Update File: &lt;path&gt;</code>), not <code>file_path</code>; <code>protect_files.candidate_paths()</code> and <code>workflow_write_guard</code> only read <code>file_path</code>/<code>path</code> → target unseen → fail-open. Codex honors hook deny exit-2 according to docs, but hook never reaches deny because it cannot see target.</li>
+</ol>
+<p><strong>Consequence:</strong> Codex workers can write anywhere, including protected canonical files, today. Fix requires an <code>apply_patch</code> body parser in <code>protect_files</code> + <code>workflow_write_guard</code> (extract <code>*** Update/Add/Delete File:</code> and <code>+++ b/&lt;path&gt;</code>), PLUS trust flag — not merely hook mirroring. Trust was NOT activated, because doing so with gap 3 open would create false security. Matcher fix and corrected notes were committed. Intake captured. Implication for D/E: Codex-worker containment should come from <strong>NATIVE sandbox</strong> (<code>sandbox_mode</code> read-only/workspace-write, “writes app approval”), NOT our path-based hooks — S3 (native sandbox by role) is the right lever for Codex.</p>
+<h3 id="ed-decisive-conclusion-2026-07-18-parser-built-and-proven-sandbox-is-the-requirement">DECISIVE CONCLUSION 2026-07-18 (parser built and proven; sandbox is the requirement)</h3>
+<p>Continued experimenting (eight execs total). Live-proven facts:</p>
+<ul>
+<li>Captured real <code>apply_patch</code> payload: target in <code>tool_input.command</code> as <code>*** Update File: &lt;absolute path&gt;</code> rather than <code>file_path</code>. <strong>Built parser</strong> (<code>protect_files.apply_patch_paths</code> + <code>candidate_paths</code>, self-check green) extracting target correctly.</li>
+<li><strong>BUT even with parser + matcher + trust, <code>protect_files</code> DID NOT block</strong> Codex editing <code>AGENTS.md</code> (three tests). Payload shows <code>permission_mode: bypassPermissions</code> — Codex <strong>does not honor hook deny</strong> on this path.</li>
+<li><strong><code>--sandbox read-only</code> BLOCKED</strong> (“No file change was possible”). → native sandbox is RELIABLE Codex write control; <strong>Codex hooks are advisory, not enforcement.</strong></li>
+</ul>
+<p><strong>Containment architecture crystallized (multi-vendor + open-model requirement from §5.9/§7.4/§7.5):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Claude</th>
+<th>Codex</th>
+<th>Open models (HTTP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vendor-native inner control</td>
+<td>allowedTools + permission mode (deny honored)</td>
+<td><code>sandbox_mode</code> (S3) — ONLY reliable write control</td>
+<td><strong>NONE</strong></td>
+</tr>
+<tr>
+<td>Path-based hooks</td>
+<td>enforce (deny honored)</td>
+<td><strong>advisory only</strong> (deny ignored)</td>
+<td>do not run</td>
+</tr>
+<tr>
+<td><strong>Harness-owned sandbox (REQUIREMENT)</strong></td>
+<td>reinforcement</td>
+<td>covers “protected off-limits” beyond workspace-write</td>
+<td><strong>ONLY possible containment</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Confirmed requirement:</strong> open-model workers (<code>openai-compat</code>/NVIDIA/Gemini) have no sandbox or hooks — only a <strong>harness-owned sandbox</strong> (fs/proc/net constrained at spawn, vendor-agnostic; §5.9 runtime plane MANDATORY) makes them safe. This is prerequisite for multi-vendor + open models together. Parser remains committed as a <strong>building block</strong> for harness-owned sandbox (observation of what worker attempts to write), not Codex-hook enforcement. Next: design harness-owned sandbox (SPEC-116 door NEW) + extend S3 to Codex native <code>sandbox_mode</code> per role.</p>
+<p><strong>EXP-1 phase 2 (same session): implemented, measured and REVERTED.</strong> Head+tail candidates lost MORE decisive lines than head-only in real corpus (345 and 335 vs 312; only firing sample is a giant gate doc with path-dense head). First live application of D008 discipline: metric decides, candidate does not ship; preserved in probe (<code>truncate_text_head_tail</code>) with metric-validity finding and retest path (enrich corpus with OUTPUT_CAP chat/ui outputs or preregister tail-weighted metric).</p>
+<p><strong>N3 SHIPPED (same session, minimum scope after fan-out of three recons):</strong> “general epoch” was honestly discarded — no identity shared among five ledgers, and only two gaps WITH incidents were closed: (F1) duplicate-dispatch guard in <code>tasks_board._dispatch</code> — fix from incident a6c9af5 existed only in experiment path, sibling task-card path remained open; (F2) <code>_recover_stale_holds</code> now refuses (high) to recover a hold belonging to LIVE pid — also becomes missing mutex between concurrent gates. Deferred with record (no incident, C-level): breaker fencing by executor (last-write-wins across runs), lost updates in experiments/tasks/handoff ledgers, presence-only lock in route-loop (accepted ceiling, over-blocks). U1/U2 shipped in 2af7787 (Opus xhigh delegation + ritual).</p>
+<p>Next: N4 as read-only retrospective regret probe (feeds EXP-17, zero behavior change), then N5/N6.</p>
+</section>
+<section class="section content"><h2 id="ed-track-s-containment-isolation-and-role-hardening-owner-request-2026-07-17">Track S — containment, isolation, and role hardening (owner request 2026-07-17)</h2>
+<p>Re-read article focused on sandbox/capabilities (§5.5 capability-scoped delegation; §5.7 resource semantics; §7.3 trust zones; §7.4 defense in depth; §7.7/SF-5e containment &gt; approval fatigue; Rule of Two [119]; CaMeL [118]) × two fan-out recons (role enforcement; sandbox/env/egress).</p>
+<p>Diagnosis: role enforcement was ~all prose (SPEC-140/142/143 self-declared non-applicable; only 1/9 profiles with <code>tools:</code> ceiling); only real block was ui-overseer glob (Edit/Write through allowedTools — Bash remained unconstrained by path); least-privilege env filter (SPEC-119 <code>filter_spawn_env</code>) existed only in workflow-worker path — detached dispatch and rooms inherited full env with all secrets.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Item</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>Env least-privilege in detached dispatch (<code>cmd_route</code> → <code>build_worker_spawn_env</code>; keep <code>workerEnvFilter=false</code> escape hatch)</td>
+<td><strong>shipped in this session</strong></td>
+</tr>
+<tr>
+<td>S2</td>
+<td>Add <code>tools:</code> ceilings to remaining eight <code>.claude/agents/</code> profiles (read roles: no Edit/Write; write roles: no spawn; role-shaped least privilege)</td>
+<td><strong>shipped</strong></td>
+</tr>
+<tr>
+<td>S3</td>
+<td>Codex native sandbox mode per role; do not pretend hook parity is enforcement</td>
+<td><strong>promoted after live tests</strong></td>
+</tr>
+<tr>
+<td>S4/S5</td>
+<td>Path/egress hardening through harness-owned substrate rather than vendor-only rules</td>
+<td><strong>research/build prerequisite</strong></td>
+</tr>
+<tr>
+<td>S6</td>
+<td>Preserve observable escape hatches and fail-closed behavior rather than silent permissive fallback</td>
+<td><strong>shipped/minimalized</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The key architectural correction from this track is historical but important: “same hook file on two vendors” is not equivalent capability. The actual security property is effect containment, and its trusted substrate differs by runtime.</p>
+</section>
+<section class="section content"><h2 id="ed-second-prospecting-wave-recon-fan-out-2026-07-18-verdict">Second prospecting wave (recon fan-out 2026-07-18) — verdict</h2>
+<p>Two article ideas prospected against real code:</p>
+<ul>
+<li><strong>Approval-digest binding (C12, §7.7) → PROMOTED to core (next, P1).</strong> Mechanism already exists and works: <code>tools/plan_gate.py:118</code> writes <code>planSha256 = sha256(plan.read_bytes())</code> into grant and rechecks on consumption. Decide inbox (<code>decision_inbox.apply_decision</code>) and escalation resolve write only id+choice+note — zero binding, TOCTOU open. Cheap seam: port one-line sha256 into <code>apply_decision</code>, same grant form, no new state.</li>
+<li><strong>ContextLedger-lite / A_ctx (§4.1/§6.2) → DEFERRED with trigger.</strong> CE.2 (<code>cost_metrics.record_workflow</code>) already shipped but measures <code>communicationAmplification = input/output tokens</code> — DIFFERENT ratio from article A_ctx (presented/unique). Denominator “unique logical tokens” exists nowhere: <code>context_digest.py</code> deduplicates read lists by identity, does not count bytes/tokens per unique item. Real cost requires token count per unique digest input, not zero-state like CE.2. Revisit trigger: measured context-budget pressure or multi-worker duplication becoming dominant cost (signal already in delegation-cost-trend).</li>
+</ul>
+<h3 id="ed-parked-over-engineering-at-current-stage-article-itself-is-evidence-gated">Parked (over-engineering at current stage; article itself is evidence-gated)</h3>
+<p>Full Effective Constitution Compiler; typed workflow IR with soundness proof; full EDC (factorial designs, sealed holdouts); dynamic AHHI profiles by task; full ATP with signature/hash-chain. Revisit with real multi-tenant.</p>
+<h3 id="ed-rejected-counter-evidence">Rejected (counter-evidence)</h3>
+<p>Learned router now; automatic generation of context files; multi-agent by default; append-only memory; self-evolution beyond anti-Hive invariant.</p>
+</section>
+<section class="section content"><h2 id="ed-afk-loop-2026-07-18-core-queue-exhausted-n5-n6-deferred-by-discipline">AFK loop 2026-07-18 — core queue exhausted; N5/N6 deferred by discipline</h2>
+<p>Overseer loop swept approved queue. Shipped: N1–N4, U1–U2, S1–S3, S6, C12 (8 commits: 4a326c5, 5b82952, 2af7787, 5e7091f, 6ca15dd, 8bec647, 7c1c960, 1f963c0); EXP-1 phase 2 measured-and-reverted; EXP-15/16/17 registered. Last two core items deferred by evidence-gated decision, not blockage:</p>
+<ul>
+<li><strong>N5 (R0–R3 tiers in vocabulary) — DEFERRED.</strong> Pure vocabulary without consumer = no-behavior-change → SPEC-116 “no artifact” exit. Scale already referenced here through article. Trigger: a gate/owner-gate consuming tier.</li>
+<li><strong>N6 (claim lifecycle + doctor advisory) — DEFERRED.</strong> Recon confirmed no trustworthy claim-date field; proxy via NEXT_STEPS mtime is theater (rewritten every workflow, always fresh → never fires); real version (<code>valid-until</code> + writer changes) is larger and speculative without incident. Seam mapped and clonable (EXP-2 pattern in <code>repo_health.checks</code>, id in <code>rh_repo_health.py</code> IDS). Trigger: first expired claim that misleads a run.</li>
+</ul>
+<p><strong>Loop finding captured as intake:</strong> <code>subagent_gate_wait.py</code> (SubagentStop) holds read-only recon until gate settles even without touching <code>.harness</code> — three stalls measured (~660s/32k tokens each). Proposed fix: immediately release subagent without writes/<code>.harness</code> mutation.</p>
+<h3 id="ed-next-prospecting-batch">Next prospecting batch</h3>
+<blockquote>
+<p><strong>SUPERSEDED 2026-07-18:</strong> TOTAL manuscript coverage (every item, not just critical ones) lives in <code>docs/research/article-coverage-backlog.md</code> — use that document for next queue. Four items below remain historical.</p>
+</blockquote>
+<ol>
+<li><del><strong>Co-failure reporting in reduce</strong></del> <strong>PROSPECTED AND RESCOPED 2026-07-18.</strong> Recon killed literal β_C here for two honest reasons: (a) no oracle — status is 100% self-reported, so “wrong” is unmeasurable; (b) our fork-join workers are role-differentiated (<code>ideator-*</code>, <code>critic-*</code>), not N role-symmetric attempts at same task assumed by β_C [101]. A β_C probe would be theater. <strong>Honest version delivered:</strong> <code>testing/probes/exp15_fanout_convergence_probe.py</code> measures CO-DETECTION of findings (<code>sourceWorkerIds</code> already computed by reduce), the marginal-contribution question (§5.5a), explicitly NOT β_C. Measurement on activated EXP-15: <strong>unique-rate=1.0, convergence=0.0</strong> in five fork-joins (83 findings, ALL from one worker). Two interpretations probe cannot disambiguate: (a) fan-out buys pure coverage; (b) dedup key is too strict for semantic agreement.
+<strong>Candidate probe 2026-07-18 (LOOP QUEUE 4 L6, measure-only): normalization hypothesis REFUTED.</strong> Two candidate keyings measured on real 83-findings corpus: <code>normalizedTitleCategory</code> (strip enumerative prefixes) merged ZERO pairs — convergent titles are PARAPHRASES (“Mock-vs-real matrix” ⇔ “flight simulator vs wind tunnel”), not enumeration; <code>categoryFirstEvidence</code> merged 1/83 (genuine but immaterial). Distance to manual truth: 1.0 for all three including baseline. Conclusion: string-key change in <code>normalize_finding_key</code> does NOT recover semantic convergence without semantic matching (high cost, no trigger). Artifact <code>.harness/runs/exp15-dedup-candidates-*.json</code>.
+<strong>DISAMBIGUATED 2026-07-18</strong> by manual sample of WF-...162849: (b) confirmed. Five workers surfaced SAME five ideas with different prefixes. <code>normalize_finding_key</code> title+category+evidence did not merge because TITLES differ. <code>unique-rate=1.0</code> is INFLATED; real convergence nearly total → on this fork-join fan-out bought <strong>redundancy, not coverage</strong> (signal for single-agent on this class; EXP-15). Concrete owner-gated derivative: normalize enumerative prefixes before keying OR dedup by category+evidence without title; risk: over-merge genuinely distinct findings.</li>
+<li><strong>Replay-class in events</strong> (§8.2) — additive <code>exact|approximate|external</code> per event; cheap, aligns with ATP replay discipline.</li>
+<li><strong>Approval SLO/expiry in decide inbox</strong> (§7.7) — approval expires; no reviewer within SLO → safe pause. Extends shipped C12 (plan-gate grants already have expiry).</li>
+<li><strong>Trace-completeness report</strong> (§8.1) — R2/R3 blocked by missing authorization/effect/validation evidence. Larger; depends on naming R0–R3 (N5).</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-ux-validation-two-items">UX (validation + two items)</h2>
+<p>Current design (gatekeeper façade → explicit rooms when topology matters, typed decide inbox, plan HUD) <strong>independently converges with AHHI</strong> — external confirmation of direction, not gap. New items: (U1) visible room/worker lifecycle states — “disappeared from chat is not a state” (with N3); (U2) level-0 takeover card: objective, owner, next effect, recovery path — extension of existing plan HUD.</p>
+</section>
+<section class="section content"><h2 id="ed-business-view">Business view</h2>
+<ol>
+<li><strong>Named category:</strong> article establishes “harness engineering” as evaluable, multi-vendor architectural object — exactly this repo’s product. Article thesis (probabilistic adaptation inside deterministic validated action space) already matches current architecture (gate + hooks + owner gates).</li>
+<li><strong>Defensible differentiators in article’s light:</strong> vendor-neutral canonical layer (<code>.harness/</code>), cheap-first economy (discover/doc-find), anti-Hive invariant (evolution with separate authority — risk article discusses and we close by design), multi-vendor rooms. With 2026-07-18 update, Codex reached native parity for subagents/workflows, making C3VR a real competitive field between two capable vendors rather than embryonic feature.</li>
+<li><strong>M0–M7 instrument as product:</strong> maturity assessment (§11.3) is commercial framing for <code>targets</code> verb (SPEC-110): assess adopting repo’s harness maturity and prescribe path. Today: us ≈ M2–M3; core roadmap closes M2 for real (C1/C2 are prerequisites of “governed”).</li>
+<li><strong>Credibility through honest evaluation:</strong> matched-budget (E1) and noise floor (A3) become rare technical-marketing material — few competitors publish sampling/noise controls.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-traceability">Traceability</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Problem</th>
+<th>Item</th>
+<th>Post-gate destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1 + CE.1</td>
+<td>silent failure becomes expensive success</td>
+<td>N1</td>
+<td><code>agentic-async-await.md</code> amendment + fix</td>
+</tr>
+<tr>
+<td>C2 + CE.8</td>
+<td>security alert disappears on wipe</td>
+<td>N2</td>
+<td>event-log seam + doctor</td>
+</tr>
+<tr>
+<td>C3 + Jul-2026 incidents</td>
+<td>stale run commits state</td>
+<td>N3</td>
+<td>short ownership-epoch spec</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>router without measurement</td>
+<td>N4</td>
+<td>SPEC-144 amendment</td>
+</tr>
+<tr>
+<td>C7</td>
+<td>context claims rot</td>
+<td>N6</td>
+<td>doctor advisory</td>
+</tr>
+<tr>
+<td>C5/C35-36</td>
+<td>multi-agent cost unproven</td>
+<td>E1/E2</td>
+<td><code>experiment add</code></td>
+</tr>
+<tr>
+<td>C4</td>
+<td>RF.1 phase 2 unjustified</td>
+<td>E3</td>
+<td><code>experiment add</code></td>
+</tr>
+<tr>
+<td>C16</td>
+<td>positioning</td>
+<td>business §3</td>
+<td><code>DECISIONS.md</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-human-gate-decisions-requested-from-owner">HUMAN GATE — decisions requested from owner</h2>
+<ol>
+<li><strong>Approve buckets?</strong> Core N1–N6 in proposed order (N1/N2 are P0 already recognized by backlog — article supplies principle and correct fix)?</li>
+<li><strong>Register E1–E3</strong> in experiment registry (<code>experiment add</code>)?</li>
+<li><strong>EXP-1 phase 2</strong> (tail-preserving truncation, currently owner-gated) greenlit? E2 partly depends on it.</li>
+<li><strong>Critique wave</strong> (<code>research-critique</code>, ~60k tokens) over portfolio before promotion, or promote directly (article already embeds external critique)?</li>
+<li><strong>Business vision §3</strong> (M-scale as instrument for targets) enters <code>DECISIONS.md</code> as direction?</li>
+</ol>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/harness-reference-architecture-adoption.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/harness-reference-architecture-adoption.en.md</code></li><li>Source SHA-256: <code>4b5a1c5db4c47c1e2d50d6b10b38befe1cc891c1b244c43df8f9bd7002a8dee6</code></li><li>Edition-input SHA-256: <code>4f5b02698f50e0bb58d36bda07d837b835fa3e6e1bc4e727af2c056e0b2715c0</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

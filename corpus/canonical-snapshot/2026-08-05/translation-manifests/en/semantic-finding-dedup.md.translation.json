@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/semantic-finding-dedup.md",
+  "sourceSha256": "e4fe4bd80ca19591f6f2f219dfab3ff44ddba08c4f9a9c7e808727b3e66424f1",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/semantic-finding-dedup.en.md",
+  "translationSha256": "aa6ef097c242a9c2ab612a09fb48c77f9010447104ad882ef47433c6edac8981",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

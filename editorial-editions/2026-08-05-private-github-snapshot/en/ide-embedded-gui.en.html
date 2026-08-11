@@ -1,0 +1,280 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research round — embedded IDE/editor for the chat GUI (vibe + copilot modes) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-question">Question</a></li><li class="h2"><a href="#ed-success-criteria-from-owner-existing-constraints">Success criteria (from owner + existing constraints)</a></li><li class="h2"><a href="#ed-declared-budget">Declared budget</a></li><li class="h2"><a href="#ed-evidence-register-phase-1-2026-07-17">Evidence register (Phase 1, 2026-07-17)</a></li><li class="h2"><a href="#ed-evidence-matrix-decision-phase-2">Evidence matrix → decision (Phase 2)</a></li><li class="h2"><a href="#ed-briefs-define-output-human-gate">Briefs (Define output — human gate)</a></li><li class="h2"><a href="#ed-gate-status">Gate status</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research round — embedded IDE/editor for the chat GUI (vibe + copilot modes)</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">NATIVE_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>376dd81ed438d5d1447f…</span></div><div><b>Edition SHA-256</b><span>376dd81ed438d5d1447f…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English source reformatted without semantic refresh.</div></section>
+<section class="section content">
+<p>Status: Phase 1 (Discover) in progress. Owner request 2026-07-17; extends
+<code>docs/roadmap/chat-workspace.md</code> (the claim on the freed side columns).</p>
+</section>
+<section class="section content"><h2 id="ed-question">Question</h2>
+<p>Which editing surface should power the chat workspace's two modes —
+<strong>vibe</strong> (3/5 chat + 2/5 advanced diff viewer, opened from diff chips) and
+<strong>copilot</strong> (1/2 chat + 1/2 full IDE: syntax highlight, lint, diffs, real
+editing, floating file explorer at 1/4 overlay) — adopt an existing embeddable
+editor or build on our vendored tree-sitter stack from scratch?</p>
+</section>
+<section class="section content"><h2 id="ed-success-criteria-from-owner-existing-constraints">Success criteria (from owner + existing constraints)</h2>
+<ol>
+<li><strong>Responsividade first</strong>: fast load, fast typing latency, handles big files;
+the panel is a single self-contained page — startup weight matters.</li>
+<li><strong>CSP-compatible vendoring</strong>: <code>default-src 'none'; connect-src 'self'; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'</code> — no CDN, assets pinned under <code>vendor/</code> behind the
+token-gated <code>/vendor/</code> route (tree-sitter precedent).</li>
+<li><strong>Extensibilidade</strong>: room to grow (LSP later, more languages, themes).</li>
+<li><strong>AI autocomplete path</strong>: inline/ghost-text completions feedable by our own
+backend in copilot mode.</li>
+<li><strong>Diff parity</strong>: one surface serves both the vibe-mode diff viewer (chip →
+full diff) and copilot-mode editing; unified + side-by-side.</li>
+<li><strong>Write discipline</strong>: editing routes through an allowlisted server path with
+<code>/api/action</code>-style token confirm (roadmap constraint — unchanged).</li>
+<li><strong>Linter</strong>: project's ruff via server endpoint surfaced as editor
+diagnostics (roadmap constraint — no JS reimplementation).</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-declared-budget">Declared budget</h2>
+<p>Single-orchestrator round (no worker waves): Phase 1 web discovery + Phase 2
+matrix ≈ 60k tokens. Develop/critique waves only if the Define gate demands a
+deeper bake-off (not expected for a lib-adoption question).</p>
+</section>
+<section class="section content"><h2 id="ed-evidence-register-phase-1-2026-07-17">Evidence register (Phase 1, 2026-07-17)</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>year</th>
+<th>method</th>
+<th>limitations</th>
+<th>confidence</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[web] Monaco = 5-10MB uncompressed; CM6 core ≈300KB, tree-shakeable from ~50KB</td>
+<td>pkgpulse.com/guides/monaco-editor-vs-codemirror-6-vs-sandpack-in-browser-2026 + npm-compare.com/codemirror,monaco-editor</td>
+<td>guide/registry</td>
+<td>2026</td>
+<td>secondary comparison</td>
+<td>not a measured benchmark by us</td>
+<td>moderada</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>[web] Monaco is unusable on mobile; CM6 has native touch/screen-reader support</td>
+<td>agenthicks.com/research/codemirror-vs-monaco-editor-comparison + replit blog code-editors</td>
+<td>comparison/blog</td>
+<td>2023-2025</td>
+<td>vendor experience reports</td>
+<td>secondary</td>
+<td>moderada</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>[web] Sourcegraph dropped Monaco: −43% JS (6MB→3.4MB), Monaco was 2.4MB = 40% of search-page JS; global config blocks multi-instance; theming needs hard-coded hex</td>
+<td>sourcegraph.com/blog/migrating-monaco-codemirror</td>
+<td>blog (primary migration report)</td>
+<td>2022</td>
+<td>production migration</td>
+<td>one org's stack</td>
+<td>forte</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>[web] Monaco under strict CSP needs: self-hosted codicon font (<code>font-src</code>), worker config via <code>MonacoEnvironment.getWorker</code>, and has open inline-style CSP violations (#4927); keycloak considered replacing it over CSP (#32901)</td>
+<td>github.com/microsoft/monaco-editor/issues/4927 + github.com/keycloak/keycloak/issues/32901</td>
+<td>issue tracker</td>
+<td>2024-2025</td>
+<td>reported defects</td>
+<td>workaroundable</td>
+<td>forte</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>[web] @codemirror/merge ships BOTH side-by-side MergeView and unifiedMergeView with per-chunk accept/reject (<code>acceptChunk</code>/<code>rejectChunk</code>, buttons on by default, <code>accept</code>/<code>revert</code> user events)</td>
+<td>github.com/codemirror/merge + npmjs.com/package/@codemirror/merge</td>
+<td>repo/docs</td>
+<td>2025</td>
+<td>official docs</td>
+<td>—</td>
+<td>forte</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>[web] CM6 handles multi-million-line docs by design (viewport rendering, work-limited parser, "avoid performance cliffs" philosophy)</td>
+<td>codemirror.net/examples/million/ + marijnhaverbeke.nl/blog/codemirror-6-beta.html</td>
+<td>official demo + author blog</td>
+<td>2022-2025</td>
+<td>live demo</td>
+<td>demo ≠ our workload</td>
+<td>forte</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>[web] Ghost-text AI completion over a custom backend exists as ≥3 independent CM6 extensions (asadm/codemirror-copilot, marimo-team/codemirror-ai w/ next-edit prediction, val-town/codemirror-codeium)</td>
+<td>github repos cited</td>
+<td>repo</td>
+<td>2023-2025</td>
+<td>community impls</td>
+<td>community-maintained</td>
+<td>moderada</td>
+<td>protótipo→validado</td>
+</tr>
+<tr>
+<td>[web] Official @codemirror/lsp-client exists (completion, hover, diagnostics via setDiagnostics/@codemirror/lint); plus mature community codemirror-languageserver</td>
+<td>github.com/codemirror/lsp-client + FurqanSoftware/marimo forks</td>
+<td>repo</td>
+<td>2025</td>
+<td>official + community</td>
+<td>young official pkg</td>
+<td>moderada</td>
+<td>protótipo (official) / validado (community)</td>
+</tr>
+<tr>
+<td>[repo] Panel CSP: <code>default-src 'none'; connect-src 'self'; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'</code> — no fonts, no CDN; token-gated <code>/vendor/</code> static route + pinned manifest already serve tree-sitter WASM</td>
+<td>scripts/harness_ui_page.py:14-15, scripts/harness_ui.py:140-173, vendor/tree-sitter/manifest.json</td>
+<td>repo</td>
+<td>2026</td>
+<td>read</td>
+<td>—</td>
+<td>forte</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>[repo] Roadmap constraints pre-exist: vendoring precedent, editor-as-WRITE-surface token discipline, ruff-via-endpoint linter</td>
+<td>docs/roadmap/chat-workspace.md</td>
+<td>repo</td>
+<td>2026-07-17</td>
+<td>read</td>
+<td>—</td>
+<td>forte</td>
+<td>—</td>
+</tr>
+<tr>
+<td>[judgment] CM6 highlight uses Lezer, not tree-sitter — vendored tree-sitter stays for chat chips; CM6 brings its own per-language grammar bundles (tens of KB each); a tree-sitter→CM6 bridge exists in community but is not needed for v1</td>
+<td>referência: judgment</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>duplication of grammar assets, small</td>
+<td>teórica</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-evidence-matrix-decision-phase-2">Evidence matrix → decision (Phase 2)</h2>
+<table>
+<thead>
+<tr>
+<th>criterion</th>
+<th>CodeMirror 6</th>
+<th>Monaco</th>
+<th>from scratch (tree-sitter)</th>
+<th>Ace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>responsividade (load)</td>
+<td>~300KB core, modular</td>
+<td>5-10MB + workers + font</td>
+<td>n/a (years of work)</td>
+<td>mid</td>
+</tr>
+<tr>
+<td>responsividade (typing/large files)</td>
+<td>million-line by design</td>
+<td>good</td>
+<td>unknown, ours to build</td>
+<td>weaker</td>
+</tr>
+<tr>
+<td>CSP/vendoring fit</td>
+<td>styles inline-injected (allowed), no fonts, no required workers; one esbuild pin under <code>vendor/codemirror/</code></td>
+<td>needs <code>font-src 'self'</code> + worker env + known inline-style violations</td>
+<td>already fits</td>
+<td>fits</td>
+</tr>
+<tr>
+<td>diff (vibe mode)</td>
+<td>side-by-side + unified + chunk accept/reject built-in</td>
+<td>DiffEditor built-in</td>
+<td>build it</td>
+<td>plugin, weak</td>
+</tr>
+<tr>
+<td>edição (copilot mode)</td>
+<td>full editing surface</td>
+<td>full editing surface</td>
+<td>IME/undo/a11y = ours</td>
+<td>dated</td>
+</tr>
+<tr>
+<td>AI autocomplete path</td>
+<td>ghost-text ext + 3 reference impls, custom-fetch friendly</td>
+<td>inline completions API (mature)</td>
+<td>ours</td>
+<td>none</td>
+</tr>
+<tr>
+<td>extensibilidade (LSP/lint)</td>
+<td>@codemirror/lint + official lsp-client</td>
+<td>monaco-languageclient</td>
+<td>ours</td>
+<td>poor</td>
+</tr>
+<tr>
+<td>mobile/touch</td>
+<td>native</td>
+<td>unusable</td>
+<td>ours</td>
+<td>poor</td>
+</tr>
+<tr>
+<td>license</td>
+<td>MIT</td>
+<td>MIT</td>
+<td>—</td>
+<td>BSD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Operations</strong> (set-based): CodeMirror 6 → <strong>núcleo</strong>. Monaco → <strong>rejeitada</strong>
+(CSP friction + 10-20× asset weight buys nothing we need; its one edge —
+TS IntelliSense — is off-mission). From scratch → <strong>rejeitada</strong> (editing
+surface = IME/undo/selection/a11y years; violates responsividade). Ace →
+<strong>rejeitada</strong> (legacy, weak diff/AI ecosystem). Contingência real if CM6
+fails validation: Monaco self-hosted is the fallback, documented here.</p>
+</section>
+<section class="section content"><h2 id="ed-briefs-define-output-human-gate">Briefs (Define output — human gate)</h2>
+<ol>
+<li><strong>Diff-in-chat (vibe mode)</strong>: user clicks a diff chip → 2/5 right pane
+renders the full diff (unified default, side-by-side toggle) without
+leaving the chat. Actors: owner reviewing turns. Constraints: read-only,
+reuse turn-diff events, CSP-vendored assets. Success: chip→pane &lt;100ms
+perceived, byte-parity with <code>git diff</code> content.</li>
+<li><strong>Edit-in-chat (copilot mode)</strong>: 1/2 IDE pane with highlight, ruff
+diagnostics, real editing; saves route through an allowlisted token-gated
+write endpoint. Success: type latency imperceptible; a save is auditable
+like <code>/api/action</code>; lint markers from the project's real ruff.</li>
+<li><strong>Project navigation (floating explorer)</strong>: toggle button inside the IDE
+pane edge; expanded = 1/4-screen overlay; tree navigation + open/create/
+rename/delete with the same write discipline. Success: full file ops
+without leaving chat; every mutating op token-confirmed.</li>
+<li><em>(extension of 2, later)</em>: <strong>AI ghost-text autocomplete</strong> fed by our own
+backend via the CM6 inline-completion extension pattern.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-gate-status">Gate status</h2>
+<p>Awaiting owner approval of: núcleo = CodeMirror 6 (vendored, esbuild-pinned),
+briefs 1-3 to SPEC-116 intake as one write-capable spec. Develop/critique
+waves judged unnecessary for a lib-adoption question — evidence converged
+(uma fonte primária de migração em produção + issues oficiais + docs oficiais).</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/ide-embedded-gui.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/ide-embedded-gui.md</code></li><li>Source SHA-256: <code>376dd81ed438d5d1447f3cf98838eabad36702d49d0bbb5e3a9fe57ec1448279</code></li><li>Edition-input SHA-256: <code>376dd81ed438d5d1447f3cf98838eabad36702d49d0bbb5e3a9fe57ec1448279</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

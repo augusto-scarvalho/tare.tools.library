@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-implementation-plans.md",
+  "sourceSha256": "c915c4de4c2d06806b9efbd6e1004469b21c3928434045c30e4ad016ae064059",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-u-implementation-plans.en.md",
+  "translationSha256": "961febce44f78928bba022c65fa128e17bc80146f9de1dcc4b03a8310e2680d1",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

@@ -1,0 +1,1678 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Consolidated Research: AI Agents for Designing, Inspiring, Implementing, Testing, and Refining Interfaces — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-translation-of-docs-research-ux-agents-consolidated-2026-07-13-md-source-snapshot-2026-08-05-private-github-snapshot-source-language-pt-br-language-en-translation-status-machine-translated-unreviewed-authority-status-derived-non-authoritative-editorial-migration-true-scientific-refresh-false-historical-reference-date-2026-07-13">translation_of: docs/research/ux-agents-consolidated-2026-07-13.md
+source_snapshot: 2026-08-05-private-github-snapshot
+source_language: pt-BR
+language: en
+translation_status: MACHINE_TRANSLATED_UNREVIEWED
+authority_status: DERIVED_NON_AUTHORITATIVE
+editorial_migration: true
+scientific_refresh: false
+historical_reference_date: 2026-07-13</a></li><li class="h2"><a href="#ed-how-to-read-this-document">How to read this document</a></li><li class="h2"><a href="#ed-numbered-index">Numbered index</a></li><li class="h2"><a href="#ed-epistemic-convention">Epistemic convention</a></li><li class="h2"><a href="#ed-1-1-problem-and-objectives">1.1 Problem and objectives</a></li><li class="h2"><a href="#ed-1-2-state-of-the-field-as-of-july-13-2026">1.2 State of the field as of July 13, 2026</a></li><li class="h2"><a href="#ed-1-3-central-thesis">1.3 Central thesis</a></li><li class="h2"><a href="#ed-1-4-principal-conclusions">1.4 Principal conclusions</a></li><li class="h3"><a href="#ed-design-system-as-executable-grammar">Design system as executable grammar</a></li><li class="h3"><a href="#ed-references-must-be-compiled-not-merely-attached">References must be compiled, not merely attached</a></li><li class="h3"><a href="#ed-diversity-before-convergence">Diversity before convergence</a></li><li class="h3"><a href="#ed-there-is-no-single-ux-oracle">There is no single UX oracle</a></li><li class="h3"><a href="#ed-safe-autonomy-is-a-gradient">Safe autonomy is a gradient</a></li><li class="h3"><a href="#ed-synthetic-users-are-scouts-not-real-users">Synthetic users are scouts, not real users</a></li><li class="h3"><a href="#ed-provenance-and-originality-are-infrastructure">Provenance and originality are infrastructure</a></li><li class="h3"><a href="#ed-security-starts-at-capture">Security starts at capture</a></li><li class="h2"><a href="#ed-1-5-product-proposal-inspiration-grounded-ux-factory">1.5 Product proposal: Inspiration-Grounded UX Factory</a></li><li class="h2"><a href="#ed-2-1-method">2.1 Method</a></li><li class="h2"><a href="#ed-2-2-ui2app-interaction-changes-the-priority">2.2 UI2App: interaction changes the priority</a></li><li class="h2"><a href="#ed-2-3-dashboard2code-dashboards-as-data-bound-systems">2.3 Dashboard2Code: dashboards as data-bound systems</a></li><li class="h2"><a href="#ed-2-4-wuicc-bench-visual-regression-needs-semantics">2.4 WUICC-bench: visual regression needs semantics</a></li><li class="h2"><a href="#ed-2-5-prismata-contextual-least-privilege">2.5 Prismata: contextual least privilege</a></li><li class="h2"><a href="#ed-2-6-workflow-level-jailbreaks-trajectory-safety">2.6 Workflow-level jailbreaks: trajectory safety</a></li><li class="h2"><a href="#ed-2-7-creativity-fixation-and-seeding-can-coexist">2.7 Creativity: fixation and seeding can coexist</a></li><li class="h2"><a href="#ed-2-8-updated-synthesis">2.8 Updated synthesis</a></li><li class="h2"><a href="#ed-3-1-the-real-automation-problem">3.1 The real automation problem</a></li><li class="h2"><a href="#ed-3-2-recommended-autonomous-cycle">3.2 Recommended autonomous cycle</a></li><li class="h2"><a href="#ed-3-3-autonomy-contract">3.3 Autonomy contract</a></li><li class="h2"><a href="#ed-4-1-discover-signals-actors-and-tensions">4.1 Discover — signals, actors, and tensions</a></li><li class="h2"><a href="#ed-4-2-define-problem-map-and-theses">4.2 Define — problem map and theses</a></li><li class="h2"><a href="#ed-4-3-develop-architecture-and-portfolio">4.3 Develop — architecture and portfolio</a></li><li class="h2"><a href="#ed-4-4-deliver-gate-precedence">4.4 Deliver — gate precedence</a></li><li class="h2"><a href="#ed-7-1-08-weeks-foundation-and-observer">7.1 0–8 weeks — foundation and observer</a></li><li class="h2"><a href="#ed-7-2-24-months-pr-copilot">7.2 2–4 months — PR copilot</a></li><li class="h2"><a href="#ed-7-3-48-months-canary-and-specialization">7.3 4–8 months — canary and specialization</a></li><li class="h2"><a href="#ed-7-4-812-months-preference-and-renewal">7.4 8–12 months — preference and renewal</a></li><li class="h2"><a href="#ed-7-5-research-horizon">7.5 Research horizon</a></li><li class="h2"><a href="#ed-10-1-historical-premises">10.1 Historical premises</a></li><li class="h2"><a href="#ed-10-2-executive-answer">10.2 Executive answer</a></li><li class="h2"><a href="#ed-10-3-foundations">10.3 Foundations</a></li><li class="h3"><a href="#ed-human-centered-design">Human-centered design</a></li><li class="h3"><a href="#ed-measurement">Measurement</a></li><li class="h3"><a href="#ed-design-system-as-grammar">Design system as grammar</a></li><li class="h3"><a href="#ed-accessibility">Accessibility</a></li><li class="h3"><a href="#ed-perceptible-technical-quality">Perceptible technical quality</a></li><li class="h3"><a href="#ed-surface-specific-contracts">Surface-specific contracts</a></li><li class="h2"><a href="#ed-10-4-taxonomy-of-the-field">10.4 Taxonomy of the field</a></li><li class="h3"><a href="#ed-input-categories">Input categories</a></li><li class="h3"><a href="#ed-generation-categories">Generation categories</a></li><li class="h3"><a href="#ed-evaluation-categories">Evaluation categories</a></li><li class="h2"><a href="#ed-10-5-state-of-the-art-and-practice">10.5 State of the art and practice</a></li><li class="h2"><a href="#ed-10-6-bleeding-edge-and-emerging-signals">10.6 Bleeding edge and emerging signals</a></li><li class="h2"><a href="#ed-10-7-critiques-divergences-and-negative-results">10.7 Critiques, divergences, and negative results</a></li><li class="h3"><a href="#ed-pixel-perfect-is-incomplete">Pixel-perfect is incomplete</a></li><li class="h3"><a href="#ed-llm-as-judge-is-not-neutral">LLM-as-judge is not neutral</a></li><li class="h3"><a href="#ed-automated-accessibility-is-necessary-and-insufficient">Automated accessibility is necessary and insufficient</a></li><li class="h3"><a href="#ed-synthetic-users-can-create-false-confidence">Synthetic users can create false confidence</a></li><li class="h3"><a href="#ed-multi-agent-systems-can-amplify-bloat">Multi-agent systems can amplify bloat</a></li><li class="h3"><a href="#ed-agent-testers-expand-the-attack-surface">Agent-testers expand the attack surface</a></li><li class="h3"><a href="#ed-hidden-cost-matters">Hidden cost matters</a></li><li class="h2"><a href="#ed-10-8-double-diamond-discover">10.8 Double Diamond — Discover</a></li><li class="h2"><a href="#ed-10-9-double-diamond-define">10.9 Double Diamond — Define</a></li><li class="h2"><a href="#ed-10-10-double-diamond-develop-proposal-cards">10.10 Double Diamond — Develop: proposal cards</a></li><li class="h3"><a href="#ed-proposal-1-ui-constitution-context-compiler">Proposal 1 — UI Constitution &amp; Context Compiler</a></li><li class="h3"><a href="#ed-proposal-2-multi-oracle-ux-gates">Proposal 2 — Multi-Oracle UX Gates</a></li><li class="h3"><a href="#ed-proposal-3-diff-aware-visual-repair">Proposal 3 — Diff-Aware Visual Repair</a></li><li class="h3"><a href="#ed-proposal-4-grounded-synthetic-ux-scout">Proposal 4 — Grounded Synthetic UX Scout</a></li><li class="h3"><a href="#ed-proposal-5-ui-digital-twin-journey-graph">Proposal 5 — UI Digital Twin / Journey Graph</a></li><li class="h3"><a href="#ed-proposal-6-verified-dashboard-composer">Proposal 6 — Verified Dashboard Composer</a></li><li class="h3"><a href="#ed-proposal-7-dual-audience-cli-contract">Proposal 7 — Dual-Audience CLI Contract</a></li><li class="h3"><a href="#ed-proposal-8-value-of-information-agent-router">Proposal 8 — Value-of-Information Agent Router</a></li><li class="h2"><a href="#ed-10-11-double-diamond-deliver-and-prioritization">10.11 Double Diamond — Deliver and prioritization</a></li><li class="h2"><a href="#ed-10-12-red-team-and-1224-month-pre-mortem">10.12 Red team and 12–24 month pre-mortem</a></li><li class="h2"><a href="#ed-10-13-evidence-gaps">10.13 Evidence gaps</a></li><li class="h2"><a href="#ed-10-14-operational-recommendations">10.14 Operational recommendations</a></li><li class="h3"><a href="#ed-adopt-immediately">Adopt immediately</a></li><li class="h3"><a href="#ed-prototype">Prototype</a></li><li class="h3"><a href="#ed-research">Research</a></li><li class="h3"><a href="#ed-monitor">Monitor</a></li><li class="h3"><a href="#ed-avoid">Avoid</a></li><li class="h2"><a href="#ed-10-15-part-i-reference-architecture">10.15 Part I reference architecture</a></li><li class="h2"><a href="#ed-10-16-multi-agent-escalation-without-bloat">10.16 Multi-agent escalation without bloat</a></li><li class="h2"><a href="#ed-10-17-part-i-experimental-plan">10.17 Part I experimental plan</a></li><li class="h2"><a href="#ed-10-18-evaluation-system">10.18 Evaluation system</a></li><li class="h3"><a href="#ed-outcome-metrics">Outcome metrics</a></li><li class="h3"><a href="#ed-process-metrics">Process metrics</a></li><li class="h3"><a href="#ed-security-privacy">Security/privacy</a></li><li class="h3"><a href="#ed-cost-performance">Cost/performance</a></li><li class="h3"><a href="#ed-robustness">Robustness</a></li><li class="h2"><a href="#ed-10-19-open-questions-and-opportunity-map">10.19 Open questions and opportunity map</a></li><li class="h2"><a href="#ed-10-20-part-i-synthesis">10.20 Part I synthesis</a></li><li class="h2"><a href="#ed-11-1-executive-answer">11.1 Executive answer</a></li><li class="h2"><a href="#ed-11-2-what-the-evidence-supported">11.2 What the evidence supported</a></li><li class="h2"><a href="#ed-11-3-product-thesis">11.3 Product thesis</a></li><li class="h2"><a href="#ed-11-4-foundations-how-designers-use-examples">11.4 Foundations: how designers use examples</a></li><li class="h3"><a href="#ed-inspiration-is-a-cognitive-operation">Inspiration is a cognitive operation</a></li><li class="h3"><a href="#ed-semantic-retrieval-before-raw-pixel-proximity">Semantic retrieval before raw pixel proximity</a></li><li class="h3"><a href="#ed-global-and-local-references">Global and local references</a></li><li class="h3"><a href="#ed-intermediate-representation">Intermediate representation</a></li><li class="h3"><a href="#ed-reuse-the-local-system">Reuse the local system</a></li><li class="h2"><a href="#ed-11-5-taxonomy-of-the-solution-space">11.5 Taxonomy of the solution space</a></li><li class="h3"><a href="#ed-reference-types">Reference types</a></li><li class="h3"><a href="#ed-transfer-modes">Transfer modes</a></li><li class="h3"><a href="#ed-objectives-that-must-not-collapse-into-one-score">Objectives that must not collapse into one score</a></li><li class="h2"><a href="#ed-11-6-historical-line-and-state-of-the-art">11.6 Historical line and state of the art</a></li><li class="h2"><a href="#ed-11-7-negative-results-tensions-and-limits">11.7 Negative results, tensions, and limits</a></li><li class="h3"><a href="#ed-inspiration-can-reduce-creativity">Inspiration can reduce creativity</a></li><li class="h3"><a href="#ed-remix-does-not-guarantee-coherence">Remix does not guarantee coherence</a></li><li class="h3"><a href="#ed-homogenization-risk">Homogenization risk</a></li><li class="h3"><a href="#ed-one-ai-judge-does-not-know-what-is-beautiful">One AI judge does not know what is beautiful</a></li><li class="h3"><a href="#ed-perceptual-similarity-is-not-identical-to-copying">Perceptual similarity is not identical to copying</a></li><li class="h3"><a href="#ed-screenshot-without-text-context-is-insufficient">Screenshot without text/context is insufficient</a></li><li class="h3"><a href="#ed-references-can-be-hostile">References can be hostile</a></li><li class="h2"><a href="#ed-11-8-rights-permission-and-provenance">11.8 Rights, permission, and provenance</a></li><li class="h2"><a href="#ed-11-9-double-diamond-for-reference-driven-ui">11.9 Double Diamond for reference-driven UI</a></li><li class="h3"><a href="#ed-discover">Discover</a></li><li class="h3"><a href="#ed-define">Define</a></li><li class="h3"><a href="#ed-develop">Develop</a></li><li class="h3"><a href="#ed-deliver">Deliver</a></li><li class="h2"><a href="#ed-11-10-proposed-architecture-inspiration-compiler">11.10 Proposed architecture: Inspiration Compiler</a></li><li class="h3"><a href="#ed-logical-flow">Logical flow</a></li><li class="h3"><a href="#ed-reference-manifest">Reference Manifest</a></li><li class="h3"><a href="#ed-safe-capture">Safe capture</a></li><li class="h3"><a href="#ed-reference-ir">Reference IR</a></li><li class="h3"><a href="#ed-index-and-retrieval">Index and retrieval</a></li><li class="h3"><a href="#ed-composition-plan">Composition Plan</a></li><li class="h3"><a href="#ed-local-design-dna">Local Design DNA</a></li><li class="h3"><a href="#ed-generation-and-refinement">Generation and refinement</a></li><li class="h3"><a href="#ed-evaluation-mesh">Evaluation mesh</a></li><li class="h3"><a href="#ed-rollout-and-learning">Rollout and learning</a></li><li class="h2"><a href="#ed-11-11-proposal-cards-reference-driven-ui">11.11 Proposal cards — Reference-driven UI</a></li><li class="h3"><a href="#ed-proposal-1-inspiration-compiler">Proposal 1 — Inspiration Compiler</a></li><li class="h3"><a href="#ed-proposal-2-multi-granular-diversity-aware-rag">Proposal 2 — Multi-granular, diversity-aware RAG</a></li><li class="h3"><a href="#ed-proposal-3-dimension-specific-composition-planner">Proposal 3 — Dimension-specific Composition Planner</a></li><li class="h3"><a href="#ed-proposal-4-originality-and-provenance-firewall">Proposal 4 — Originality and Provenance Firewall</a></li><li class="h3"><a href="#ed-proposal-5-secure-policy-controlled-reference-capturer">Proposal 5 — Secure, policy-controlled Reference Capturer</a></li><li class="h3"><a href="#ed-proposal-6-personal-taste-model-from-sparse-feedback">Proposal 6 — Personal Taste Model from Sparse Feedback</a></li><li class="h3"><a href="#ed-proposal-7-autonomous-renovator-with-change-budget">Proposal 7 — Autonomous Renovator with Change Budget</a></li><li class="h3"><a href="#ed-proposal-8-reference-evaluation-arena-gold-set">Proposal 8 — Reference Evaluation Arena / Gold Set</a></li><li class="h2"><a href="#ed-11-12-prioritization">11.12 Prioritization</a></li><li class="h2"><a href="#ed-11-13-experiments-and-ablations">11.13 Experiments and ablations</a></li><li class="h2"><a href="#ed-11-14-metrics">11.14 Metrics</a></li><li class="h3"><a href="#ed-retrieval">Retrieval</a></li><li class="h3"><a href="#ed-visual-and-structural-result">Visual and structural result</a></li><li class="h3"><a href="#ed-ux-and-engineering">UX and engineering</a></li><li class="h3"><a href="#ed-originality-compliance">Originality/compliance</a></li><li class="h3"><a href="#ed-security">Security</a></li><li class="h3"><a href="#ed-economics">Economics</a></li><li class="h2"><a href="#ed-11-15-reference-driven-red-team">11.15 Reference-driven red team</a></li><li class="h2"><a href="#ed-11-16-pre-mortem">11.16 Pre-mortem</a></li><li class="h2"><a href="#ed-11-17-reference-driven-roadmap">11.17 Reference-driven roadmap</a></li><li class="h3"><a href="#ed-030-days-safe-proof-of-value">0–30 days — safe proof of value</a></li><li class="h3"><a href="#ed-3190-days-implementation-copilot">31–90 days — implementation copilot</a></li><li class="h3"><a href="#ed-36-months-calibration-and-moderate-scale">3–6 months — calibration and moderate scale</a></li><li class="h3"><a href="#ed-612-months-personalization-and-renewal">6–12 months — personalization and renewal</a></li><li class="h3"><a href="#ed-12-months-research">12+ months — research</a></li><li class="h2"><a href="#ed-11-18-remaining-research-gaps">11.18 Remaining research gaps</a></li><li class="h2"><a href="#ed-11-19-practical-historical-recommendation">11.19 Practical historical recommendation</a></li><li class="h2"><a href="#ed-11-20-differentiation-opportunities">11.20 Differentiation opportunities</a></li><li class="h2"><a href="#ed-11-21-part-ii-synthesis">11.21 Part II synthesis</a></li><li class="h2"><a href="#ed-appendix-a-historical-machine-readable-examples-preserved-from-the-source">Appendix A — Historical machine-readable examples preserved from the source</a></li><li class="h3"><a href="#ed-a-1-reference-manifest-example">A.1 Reference Manifest example</a></li><li class="h3"><a href="#ed-a-2-reference-ir-example">A.2 Reference IR example</a></li><li class="h3"><a href="#ed-a-3-composition-plan-example">A.3 Composition-plan example</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Consolidated Research: AI Agents for Designing, Inspiring, Implementing, Testing, and Refining Interfaces</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>3391883cf010da5a21f5…</span></div><div><b>Edition SHA-256</b><span>a756190c32f5a39858e7…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content"><hr/>
+</section>
+<section class="section content"><h2 id="ed-translation-of-docs-research-ux-agents-consolidated-2026-07-13-md-source-snapshot-2026-08-05-private-github-snapshot-source-language-pt-br-language-en-translation-status-machine-translated-unreviewed-authority-status-derived-non-authoritative-editorial-migration-true-scientific-refresh-false-historical-reference-date-2026-07-13">translation_of: docs/research/ux-agents-consolidated-2026-07-13.md
+source_snapshot: 2026-08-05-private-github-snapshot
+source_language: pt-BR
+language: en
+translation_status: MACHINE_TRANSLATED_UNREVIEWED
+authority_status: DERIVED_NON_AUTHORITATIVE
+editorial_migration: true
+scientific_refresh: false
+historical_reference_date: 2026-07-13</h2>
+
+<p><strong>Consolidation date:</strong> July 13, 2026<br/>
+<strong>Literature horizon:</strong> July 13, 2026, including a focused scan of work published from July 6–13 and adjacent sources that materially changed the conclusions.<br/>
+<strong>Scope:</strong> web applications, SaaS, dashboards, GUIs, CLIs/TUIs, and adjacent interfaces produced or refined by generative-AI agents, with controlled use of websites, screenshots, moodboards, design files, and design systems as references.<br/>
+<strong>Historical application context:</strong> a multi-agent, multi-vendor harness intended to deliver polished and useful interfaces with progressively less human intervention without sacrificing functionality, accessibility, security, originality, maintainability, or reversibility.</p>
+<blockquote>
+<p><strong>Historical editorial English edition.</strong> This document is an English translation and editorial migration of the exact source present in the private GitHub snapshot dated 2026-08-05. It preserves the scientific horizon, vendor state, proposals, doubts, and terminology of the July 13 research. It is <strong>RESEARCH / historical design evidence</strong>, not proof of CURRENT implementation and not automatic TARGET authority. No scientific refresh to August 11 has been performed silently.</p>
+</blockquote>
+</section>
+<section class="section content"><h2 id="ed-how-to-read-this-document">How to read this document</h2>
+<p>The source consolidated three stages of work into one large dossier:</p>
+<ol>
+<li>the original question: how AI agents can build, test, and improve UX/UI across web apps, dashboards, GUIs, and CLIs;</li>
+<li>the operational question: how those capabilities can improve <em>vibe-coded</em> SaaS products without human micromanagement;</li>
+<li>the deeper reference-design question: how a system can use a list of websites as inspiration without degenerating into a screenshot-cloning pipeline.</li>
+</ol>
+<p>This English edition preserves that structure. It begins with the integrated synthesis and unified Double Diamond, then preserves <strong>Part I — Autonomous UX/UI Engineering</strong> and <strong>Part II — Reference-Driven UI / Inspiration Compiler</strong> as distinct but connected research dossiers.</p>
+</section>
+<section class="section content"><h2 id="ed-numbered-index">Numbered index</h2>
+<ol>
+<li>Integrated premises and executive answer</li>
+<li>Literature update: July 6–13, 2026</li>
+<li>Autonomous improvement of vibe-coded SaaS</li>
+<li>Unified Double Diamond</li>
+<li>Integrated reference architecture</li>
+<li>Integrated experimental program</li>
+<li>Unified roadmap</li>
+<li>Red team and pre-mortem</li>
+<li>Integrated proposal portfolio</li>
+<li>Part I — Autonomous UX/UI engineering</li>
+<li>Part II — Reference-driven UI and Inspiration Compiler</li>
+<li>Consolidated conclusion and TL;DR</li>
+<li>Future research pointers</li>
+<li>Bibliography</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-epistemic-convention">Epistemic convention</h2>
+<ul>
+<li><strong>F — observed fact:</strong> directly supported by a source, experiment, specification, or official documentation.</li>
+<li><strong>C — supported conclusion:</strong> synthesis consistent with multiple pieces of evidence.</li>
+<li><strong>I — inference:</strong> plausible extrapolation for the historical harness context.</li>
+<li><strong>H — hypothesis:</strong> claim requiring experiment in the project context.</li>
+<li><strong>S — speculation:</strong> high-uncertainty research direction.</li>
+<li><strong>P — experimental proposal:</strong> intervention with baseline, metric, and abandonment criteria.</li>
+</ul>
+<p>Proposal labels from the historical source are preserved conceptually:</p>
+<ul>
+<li><strong>E1–E4:</strong> consolidated evidence → hypothesis;</li>
+<li><strong>N1–N4:</strong> known application → speculative proposal;</li>
+<li><strong>M1–M5:</strong> production-proven → conceptual;</li>
+<li><strong>A1–A4:</strong> immediately applicable → dependent on external advances.</li>
+</ul>
+<h1>1. Integrated premises and executive answer</h1>
+</section>
+<section class="section content"><h2 id="ed-1-1-problem-and-objectives">1.1 Problem and objectives</h2>
+<p>The historical harness could coordinate agents, read and modify repositories, run commands, render interfaces, and operate browsers or equivalent tools. The target question was therefore not merely whether a model could generate frontend code. The research asked how to turn those capabilities into a <strong>governed UX engineering process</strong> that could:</p>
+<ul>
+<li>understand product and user intent rather than optimize a screenshot in isolation;</li>
+<li>use the local design system and component inventory before inventing replacements;</li>
+<li>handle states, viewports, extreme data, interaction flows, accessibility, and performance;</li>
+<li>use external references without leaking authority, executing hostile instructions, or copying protected material too literally;</li>
+<li>produce more than one plausible design direction before converging;</li>
+<li>evaluate functionality, usability, visual quality, originality, and security through different oracles;</li>
+<li>localize and repair defects instead of repeatedly regenerating whole screens;</li>
+<li>make autonomy proportional to risk and reversibility;</li>
+<li>preserve provenance and support PR, preview, canary, rollback, and evidence review;</li>
+<li>learn from human choices and real outcomes without turning preference optimization into dark-pattern optimization.</li>
+</ul>
+<p>The historical research treats “beautiful” as <strong>product-appropriate visual and functional quality</strong>: hierarchy, coherence, rhythm, density, typography, content, states, accessibility, performance, and trust—not decorative polish alone.</p>
+<p>External pages, screenshots, issues, design files, and retrieved material are untrusted inputs. They can carry prompt injection, sensitive data, protected assets, hostile instructions, or misleading design signals. Rights, trademarks, <em>trade dress</em>, terms of service, privacy, and copyright vary by jurisdiction; the system can reduce risk and preserve provenance, but it cannot manufacture a legal conclusion.</p>
+</section>
+<section class="section content"><h2 id="ed-1-2-state-of-the-field-as-of-july-13-2026">1.2 State of the field as of July 13, 2026</h2>
+<p><strong>(C)</strong> The field had moved beyond “prompt → component.” Contemporary systems could combine text, screenshots, wireframes, Figma-like design artifacts, code, components, and visual feedback. Yet the source found a persistent asymmetry: producing a convincing-looking image or page had advanced faster than implementing complete interaction, demonstrating usability, respecting mature design systems, avoiding fixation, and operating autonomously with sufficient safety.</p>
+<p>Benchmarks such as <a href="https://aclanthology.org/2025.naacl-long.199/">Design2Code</a>, <a href="https://arxiv.org/abs/2411.03292">Interaction2Code</a>, <a href="https://arxiv.org/abs/2506.13832">FrontendBench</a>, <a href="https://arxiv.org/abs/2505.17399">FullFront</a>, and <a href="https://arxiv.org/abs/2506.06251">DesignBench</a> were important precisely because static visual similarity or compilation alone did not represent real interface engineering. In parallel, <a href="https://arxiv.org/abs/2501.17799">S&amp;UI</a>, <a href="https://arxiv.org/abs/2601.18759">UI Remix</a>, <a href="https://arxiv.org/abs/2509.07334">SpecifyUI</a>, and <a href="https://arxiv.org/abs/2404.12500">UIClip</a> suggested that inspiration retrieval could be semantic, multi-granular, structured, and quality-aware rather than a collection of screenshots.</p>
+</section>
+<section class="section content"><h2 id="ed-1-3-central-thesis">1.3 Central thesis</h2>
+<p>The harness should not receive a list of websites and ask one model to “absorb the vibe.” The historical proposal decomposes the problem into two coupled systems:</p>
+<ol>
+<li><strong>Inspiration Compiler</strong> — transforms external and internal references into principles, structure, relative tokens, components, behavior, preferences, and provenance.</li>
+<li><strong>UI Engineering Loop</strong> — transforms that specification into implementation using local components, renders it, tests it, critiques it, repairs localized defects, and controls rollout.</li>
+</ol>
+<p>The bridge is a versioned intermediate representation described in the source as <strong>UI Intent IR + Design DNA</strong>. It records:</p>
+<ul>
+<li>the user, job, task, and outcome the interface serves;</li>
+<li>which reference influenced which design dimension;</li>
+<li>local components and tokens capable of expressing that intent;</li>
+<li>mandatory states, viewports, extreme-data conditions, and accessibility requirements;</li>
+<li>which statements are facts, interpretations, hypotheses, or preferences;</li>
+<li>applicable risk classes and gates;</li>
+<li>provenance and transformation evidence;</li>
+<li>rollout and rollback requirements.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-1-4-principal-conclusions">1.4 Principal conclusions</h2>
+<h3 id="ed-design-system-as-executable-grammar">Design system as executable grammar</h3>
+<p>A design system should not be treated as a PDF-style guide pasted into prompts. Tokens, components, variants, stories, accessibility contracts, and examples form an executable grammar. A system that ignores that grammar may produce attractive screens while increasing inconsistency and maintenance cost.</p>
+<h3 id="ed-references-must-be-compiled-not-merely-attached">References must be compiled, not merely attached</h3>
+<p>A URL, screenshot, or moodboard is an ambiguous signal. The system needs to separate observed structure from interpretation, global influence from local influence, transferable principles from literal assets, and intended inspiration from accidental copying.</p>
+<h3 id="ed-diversity-before-convergence">Diversity before convergence</h3>
+<p>One-reference/top-1 retrieval tends toward fixation. The system should intentionally retrieve diverse examples and generate several structural directions before converging. Diversity is not decorative randomness; it protects the search process from premature narrowing.</p>
+<h3 id="ed-there-is-no-single-ux-oracle">There is no single UX oracle</h3>
+<p>Build success, visual similarity, accessibility lint, multimodal critique, synthetic-user behavior, human preference, and production metrics measure different things. No one score can safely collapse them. Earlier gates should dominate later aesthetic preferences when the dimensions are non-compensatory.</p>
+<h3 id="ed-safe-autonomy-is-a-gradient">Safe autonomy is a gradient</h3>
+<p>Low-risk reversible fixes may be automated aggressively. Authentication, payments, consent, deletion, permissions, safety-critical flows, and irreversible external publication require stronger gates and human involvement.</p>
+<h3 id="ed-synthetic-users-are-scouts-not-real-users">Synthetic users are scouts, not real users</h3>
+<p>Synthetic personas and agent-based interaction can discover obvious problems, generate hypotheses, and expand test coverage. They are not calibrated substitutes for representative real users.</p>
+<h3 id="ed-provenance-and-originality-are-infrastructure">Provenance and originality are infrastructure</h3>
+<p>Reference use requires source identity, permission/risk class, transformation record, provenance, and an originality/proximity check. These are not paperwork added after generation; they belong in the generation pipeline.</p>
+<h3 id="ed-security-starts-at-capture">Security starts at capture</h3>
+<p>External pages must be treated as hostile. Reference capture should use isolation, minimal privilege, no secrets, explicit network policy, taint tracking, and limited retention.</p>
+</section>
+<section class="section content"><h2 id="ed-1-5-product-proposal-inspiration-grounded-ux-factory">1.5 Product proposal: Inspiration-Grounded UX Factory</h2>
+<p>The integrated historical product proposal is a governed pipeline:</p>
+<pre><code class="language-text">Product objective / UI Contract
+        +
+Local codebase / design system
+        +
+Reference Manifest
+        ↓
+Safe capture and normalization
+        ↓
+Semantic + structural reference IR
+        ↓
+Diverse ideation / retrieval
+        ↓
+Typed composition plan
+        ↓
+Local component-first implementation
+        ↓
+Render + interaction execution
+        ↓
+Multi-oracle validation
+        ↓
+Originality / provenance firewall
+        ↓
+Localized repair or human checkpoint
+        ↓
+PR / preview / canary / rollback
+        ↓
+Learning from choices, edits, and real metrics
+</code></pre>
+<p>The source argues that this architecture is more robust than “design agent” as a monolithic role because it makes inputs, decisions, tests, and effects separately inspectable.</p>
+<h1>2. Literature update — July 6 to July 13, 2026</h1>
+</section>
+<section class="section content"><h2 id="ed-2-1-method">2.1 Method</h2>
+<p>The historical update prioritized work that changed the architectural conclusion rather than merely adding another UI-generation benchmark. Sources were separated by evidentiary strength: peer-reviewed work when available, recent preprints with clear methods/code, official vendor or standards documentation, and lower-strength community signals for hypothesis generation only.</p>
+</section>
+<section class="section content"><h2 id="ed-2-2-ui2app-interaction-changes-the-priority">2.2 UI2App: interaction changes the priority</h2>
+<p>The source identifies <strong>UI2App</strong> as one of the most consequential additions because it focuses on inferring executable interaction, not just visual reconstruction. The implication is direct: the pipeline cannot optimize screenshots first and interaction later. State transitions, event handlers, data dependencies, and feedback behavior must become part of the representation and evaluation contract.</p>
+<p><strong>Experiment U1 — visual versus interaction objective.</strong> Compare a screenshot-dominant generation loop against one that receives an explicit interaction contract. Measure task completion, state coverage, invalid transitions, interaction defects, and visual quality. The historical hypothesis is that interaction-aware generation will lose little visual quality while substantially reducing behavioral errors.</p>
+</section>
+<section class="section content"><h2 id="ed-2-3-dashboard2code-dashboards-as-data-bound-systems">2.3 Dashboard2Code: dashboards as data-bound systems</h2>
+<p>The July update elevated <strong>Dashboard2Code</strong> from an emerging signal to a peer-reviewed reference. The main architectural inference is that dashboards should not be treated as generic visual pages. They bind data semantics, chart choice, layout, filters, empty/error states, density, and analytical tasks.</p>
+<p>The derived proposal was a <strong>Verified Dashboard Composer</strong> that receives data schema, analytical questions, chart constraints, and accessibility rules, and is evaluated against data correctness before visual taste.</p>
+</section>
+<section class="section content"><h2 id="ed-2-4-wuicc-bench-visual-regression-needs-semantics">2.4 WUICC-bench: visual regression needs semantics</h2>
+<p>The historical analysis uses <strong>WUICC-bench</strong> to reinforce that visual difference is more useful when the system can explain <em>what changed</em> and whether the difference is semantically important. A raw pixel diff does not tell whether the defect is a clipped label, wrong hierarchy, missing control, intended responsive shift, or harmless antialiasing.</p>
+<p><strong>Experiment U2 — semantic visual regression.</strong> Compare pixel/perceptual diffs, multimodal captioning of changes, and combined localized evidence. Measure true-positive defect localization and repair efficiency.</p>
+</section>
+<section class="section content"><h2 id="ed-2-5-prismata-contextual-least-privilege">2.5 Prismata: contextual least privilege</h2>
+<p>The source uses <strong>Prismata</strong> as a pointer toward a stronger capture model: not just “sanitize the page,” but constrain what information and authority are exposed according to context. This strengthens a zero-trust interpretation of reference capture.</p>
+<p><strong>Experiment U3 — contextual least privilege.</strong> Compare broad browser capture with a minimal, policy-scoped capture environment. Measure attack success, reference usefulness, and information retained.</p>
+</section>
+<section class="section content"><h2 id="ed-2-6-workflow-level-jailbreaks-trajectory-safety">2.6 Workflow-level jailbreaks: trajectory safety</h2>
+<p>The update highlights <strong>“Refused in Chat, Written in Code”</strong> as evidence that security cannot be evaluated only turn-by-turn. An agent may refuse a harmful instruction in natural language yet compose a harmful effect through tools or code later in the workflow.</p>
+<p>The design consequence is <strong>trajectory safety</strong>: evaluation must include accumulated actions, generated artifacts, capability use, and eventual effects.</p>
+<p><strong>Experiment U4 — workflow-composed harm.</strong> Seed benign-looking reference content that attempts to redirect later implementation or tool use. Measure whether pointwise safeguards versus trajectory/effect controls prevent the composed violation.</p>
+</section>
+<section class="section content"><h2 id="ed-2-7-creativity-fixation-and-seeding-can-coexist">2.7 Creativity: fixation and seeding can coexist</h2>
+<p>The source reconciles two seemingly conflicting literatures: examples can produce fixation, but structured co-creation and seeding can also improve ideation for some tasks and people. The implication is not “show no examples”; it is to control <em>when</em>, <em>how many</em>, <em>how diverse</em>, and <em>how explicitly dimensioned</em> the examples are.</p>
+<p><strong>Experiment U5 — seeding versus fixation.</strong> Compare no references, one dominant reference, diverse references, and staged reveal. Evaluate novelty, coherence, task fit, preference, and similarity concentration.</p>
+</section>
+<section class="section content"><h2 id="ed-2-8-updated-synthesis">2.8 Updated synthesis</h2>
+<p>The July update broadens the initial architecture into:</p>
+<blockquote>
+<p><strong>Inspiration Compiler + Interaction Contract + Semantic Regression Mesh + Contextual Confinement + Trajectory Safety.</strong></p>
+</blockquote>
+<p>This is a historical research synthesis, not a claim that all named components existed in code.</p>
+<h1>3. Autonomous improvement of vibe-coded SaaS</h1>
+</section>
+<section class="section content"><h2 id="ed-3-1-the-real-automation-problem">3.1 The real automation problem</h2>
+<p>A vibe-coded product may be visually inconsistent, structurally fragile, under-tested, over-generic, and locally optimized page by page. “Make it prettier” is therefore under-specified. The system needs to infer product intent, detect cross-page patterns, prioritize defects, respect local conventions, and improve without creating churn.</p>
+<p>The source recommends prioritizing issues roughly by <strong>impact × severity × confidence × reversibility</strong>, with explicit exceptions for hard policy/security gates.</p>
+</section>
+<section class="section content"><h2 id="ed-3-2-recommended-autonomous-cycle">3.2 Recommended autonomous cycle</h2>
+<pre><code class="language-text">Audit product and evidence
+        ↓
+Prioritize high-impact defects
+        ↓
+Compile task-specific UI context
+        ↓
+Generate 2–4 structurally distinct directions when design is underdetermined
+        ↓
+Converge using non-compensatory gates + preference evidence
+        ↓
+Implement by reusing local tokens/components
+        ↓
+Build / types / stories / E2E / keyboard / a11y / extreme-data / viewport / performance checks
+        ↓
+Critique localized defects
+        ↓
+Patch locally rather than regenerate globally
+        ↓
+PR + preview + provenance + canary + rollback
+        ↓
+Learn from accepted/rejected changes and field metrics
+</code></pre>
+<p>The source explicitly warns against an endless autonomous “beautification” loop. Each iteration needs a budget, target evidence, stopping conditions, and a change budget.</p>
+</section>
+<section class="section content"><h2 id="ed-3-3-autonomy-contract">3.3 Autonomy contract</h2>
+<ul>
+<li><strong>Low risk:</strong> spacing, token normalization, obvious accessibility fixes, component reuse, copy consistency, tests, and reversible local refactors can often be fixed and proposed automatically.</li>
+<li><strong>Medium risk:</strong> information architecture, major layout changes, new interaction patterns, or high-visibility design changes should usually produce alternatives and request approval before broad rollout.</li>
+<li><strong>High risk:</strong> authentication, payment, consent, deletion, permissions, legal notices, safety-critical journeys, and irreversible publication require stronger authority and human review.</li>
+<li><strong>Forbidden by default:</strong> unauthorized capture of private/authenticated sources, reuse of protected third-party assets/code/text, obedience to instructions found in untrusted reference content, or production publication without a rollback path.</li>
+</ul>
+<h1>4. Unified Double Diamond</h1>
+</section>
+<section class="section content"><h2 id="ed-4-1-discover-signals-actors-and-tensions">4.1 Discover — signals, actors, and tensions</h2>
+<p>The historical research combines signals from multimodal UI generation, iterative render-and-repair loops, portable design context, semantic retrieval, remix/riff systems, interaction benchmarks, dashboard benchmarks, browser agents, prompt injection research, creative fixation studies, preference learning, and current vendor/product behavior.</p>
+<p>Relevant actors include product owner/founder, end user, designer, frontend engineer, harness supervisor, reference author/owner, security reviewer, accessibility specialist, and legal/compliance stakeholders.</p>
+<p>The source maps recurring tensions:</p>
+<table>
+<thead>
+<tr>
+<th>Tension</th>
+<th>Historical response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>automation vs control</td>
+<td>UI Intent IR + risk-proportional autonomy</td>
+</tr>
+<tr>
+<td>inspiration vs fixation</td>
+<td>diverse retrieval + multiple directions</td>
+</tr>
+<tr>
+<td>fidelity vs originality</td>
+<td>relative principles + provenance + similarity firewall</td>
+</tr>
+<tr>
+<td>beauty vs usability</td>
+<td>functionality/accessibility gate precedence</td>
+</tr>
+<tr>
+<td>generic model vs local system</td>
+<td>Context Compiler + local design-system grammar</td>
+</tr>
+<tr>
+<td>observability vs privacy</td>
+<td>minimal capture + TTL + provenance</td>
+</tr>
+<tr>
+<td>more critics vs cost/bloat</td>
+<td>value-of-information routing and ablation</td>
+</tr>
+<tr>
+<td>personalization vs caricature</td>
+<td>uncertainty, decay, sparse feedback</td>
+</tr>
+<tr>
+<td>renewal vs brand stability</td>
+<td>versioned Design DNA + change budget</td>
+</tr>
+</tbody>
+</table>
+<p>The source explicitly borrows useful mental models from compilers, feedback control, distributed systems, zero trust, metamorphic testing, value of information, and creative cognition.</p>
+</section>
+<section class="section content"><h2 id="ed-4-2-define-problem-map-and-theses">4.2 Define — problem map and theses</h2>
+<p>The integrated problem is decomposed into five major theses:</p>
+<ul>
+<li><strong>T1 — Compiled context:</strong> agents should receive task-specific UI context derived from product goals, code, design system, component inventory, risk, and relevant evidence.</li>
+<li><strong>T2 — Typed references:</strong> external inspiration should be represented by influence dimension, provenance, confidence, and allowed use—not by undifferentiated screenshots.</li>
+<li><strong>T3 — Multi-oracle evaluation:</strong> correctness, interaction, accessibility, robustness, performance, design-system fit, aesthetics, and originality need different evidence producers.</li>
+<li><strong>T4 — Graduated autonomy:</strong> autonomy expands with reversibility, evidence quality, and policy eligibility.</li>
+<li><strong>T5 — Sparse taste learning:</strong> human preference should be learned cautiously, with uncertainty and decay, rather than hard-coded from a few approvals.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-4-3-develop-architecture-and-portfolio">4.3 Develop — architecture and portfolio</h2>
+<p>The source proposes the following core artifacts:</p>
+<ul>
+<li><code>ui-contract.yaml</code></li>
+<li><code>reference-manifest.yaml</code></li>
+<li><code>reference-card.json</code></li>
+<li><code>design-dna.json</code> or <code>DESIGN.md</code></li>
+<li><code>inspiration-plan.json</code></li>
+<li><code>journey-graph.json</code></li>
+<li><code>evidence-ledger.jsonl</code></li>
+<li><code>ui-eval-report.json</code></li>
+</ul>
+<p>The names are historical design roles, not current canonical tare.tools primitives.</p>
+</section>
+<section class="section content"><h2 id="ed-4-4-deliver-gate-precedence">4.4 Deliver — gate precedence</h2>
+<p>A major historical contribution is the explicit <strong>non-compensatory ordering</strong> of gates:</p>
+<ol>
+<li>policy / security / provenance;</li>
+<li>build / type correctness;</li>
+<li>functionality / data / interaction;</li>
+<li>accessibility and sensitive-flow constraints;</li>
+<li>responsive behavior / robustness;</li>
+<li>performance;</li>
+<li>design-system and product-intent conformance;</li>
+<li>aesthetics / diversity;</li>
+<li>originality / proximity;</li>
+<li>human preference / behavioral outcome.</li>
+</ol>
+<p>A beautiful result cannot compensate for a failed earlier gate. If subjective judges disagree at a materially important boundary, the system should abstain or escalate rather than average away uncertainty.</p>
+<h1>5. Integrated reference architecture</h1>
+<pre><code class="language-text">Product / task intent
+        ↓
+Context Compiler
+        ↓
+UI Intent IR + risk profile
+        ↓
+Reference Manifest ──→ Safe Capture ──→ Reference IR
+        │                                 ↓
+        │                         Diverse Retriever
+        │                                 ↓
+        └──────────────────────→ Composition / Inspiration Plan
+                                          ↓
+                                  Design DNA + local design system
+                                          ↓
+                                Planner / Variant Explorer
+                                          ↓
+                                Component-First Builder
+                                          ↓
+                                  Sandbox Render / Execute
+                                          ↓
+         deterministic gates → interaction gates → a11y/perf → semantic visual regression
+                                          ↓
+                            localized repair / multimodal review
+                                          ↓
+                            originality + provenance firewall
+                                          ↓
+                       human checkpoint when uncertainty/risk is high
+                                          ↓
+                               Evidence Bundle / PR / Preview
+                                          ↓
+                                   Canary / Rollback
+                                          ↓
+                           accepted edits + field outcomes
+</code></pre>
+<p>The architecture intentionally keeps reference capture, generation, evaluation, and release as separable responsibilities. That makes it possible to replace models/tools without redefining the whole product process.</p>
+<h1>6. Integrated experimental program</h1>
+<p>The consolidated historical program includes:</p>
+<table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>Question</th>
+<th>Baseline</th>
+<th>Candidate</th>
+<th>Primary measurements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gold UX tasks</td>
+<td>Can we evaluate anything consistently?</td>
+<td>ad-hoc review</td>
+<td>curated representative tasks</td>
+<td>reproducibility, coverage, reviewer agreement</td>
+</tr>
+<tr>
+<td>Reference format</td>
+<td>What form of inspiration helps?</td>
+<td>prompt with URLs</td>
+<td>screenshot / structured IR / IR + local design system</td>
+<td>task quality, novelty, similarity, cost</td>
+</tr>
+<tr>
+<td>Retrieval</td>
+<td>Does diversity help?</td>
+<td>top-1</td>
+<td>top-k / MMR / typed retrieval</td>
+<td>relevance, novelty, fixation, output diversity</td>
+</tr>
+<tr>
+<td>Multi-oracle</td>
+<td>Do combined gates catch more meaningful defects?</td>
+<td>one judge</td>
+<td>deterministic + agentic + human layers</td>
+<td>false pass/fail, cost-to-detection</td>
+</tr>
+<tr>
+<td>Context Compiler</td>
+<td>Does compiled local context improve quality?</td>
+<td>large generic prompt</td>
+<td>task-specific local context</td>
+<td>reuse, consistency, tokens, repair rate</td>
+</tr>
+<tr>
+<td>Diff-aware repair</td>
+<td>Is local repair better than regeneration?</td>
+<td>full regenerate</td>
+<td>localized diff repair</td>
+<td>regression rate, cost, edit size</td>
+</tr>
+<tr>
+<td>UX Scout</td>
+<td>Are synthetic users useful?</td>
+<td>no scout</td>
+<td>grounded synthetic exploration</td>
+<td>issue recall, false confidence, correlation with real users</td>
+</tr>
+<tr>
+<td>Dashboard composer</td>
+<td>Can data semantics constrain UI generation?</td>
+<td>generic page generation</td>
+<td>schema/goal-bound composer</td>
+<td>data correctness, analytical task success</td>
+</tr>
+<tr>
+<td>Originality firewall</td>
+<td>Can we detect over-proximity without blocking legitimate inspiration?</td>
+<td>none</td>
+<td>multi-signal proximity/provenance gate</td>
+<td>precision/recall, false blocks</td>
+</tr>
+<tr>
+<td>Taste learning</td>
+<td>Can sparse feedback improve preference without caricature?</td>
+<td>static style prompt</td>
+<td>uncertainty-aware preference model</td>
+<td>acceptance, diversity, drift</td>
+</tr>
+<tr>
+<td>Autonomous renovator</td>
+<td>Can ongoing improvement stay bounded?</td>
+<td>manual review</td>
+<td>change-budgeted autonomous PR/canary</td>
+<td>accepted value, rollback, churn, cost</td>
+</tr>
+<tr>
+<td>Reference security</td>
+<td>Can hostile sources redirect the workflow?</td>
+<td>broad capture</td>
+<td>contextual confinement + taint</td>
+<td>exploit success, utility retained</td>
+</tr>
+</tbody>
+</table>
+<p>The document repeatedly insists on local baselines: external benchmark scores do not prove the same gains in the project harness.</p>
+<h1>7. Unified roadmap</h1>
+</section>
+<section class="section content"><h2 id="ed-7-1-08-weeks-foundation-and-observer">7.1 0–8 weeks — foundation and observer</h2>
+<ul>
+<li>create representative gold tasks and a failure taxonomy;</li>
+<li>inventory design tokens, components, stories, journeys, and critical flows;</li>
+<li>define a minimal UI Contract and UI Intent IR;</li>
+<li>add deterministic build/type/a11y/interaction checks;</li>
+<li>add isolated reference capture and provenance logging;</li>
+<li>run multimodal/agentic critics in observe-only or shadow mode;</li>
+<li>measure cost and disagreement before granting repair authority.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-7-2-24-months-pr-copilot">7.2 2–4 months — PR copilot</h2>
+<ul>
+<li>Context Compiler for task-specific UI bundles;</li>
+<li>component-first generation and local reuse;</li>
+<li>multi-oracle evidence reports;</li>
+<li>diff-aware localized repair;</li>
+<li>typed reference retrieval and composition planning;</li>
+<li>PR/preview-based delivery with explicit evidence.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-7-3-48-months-canary-and-specialization">7.3 4–8 months — canary and specialization</h2>
+<ul>
+<li>risk-class autonomy;</li>
+<li>canary rollout for eligible surfaces;</li>
+<li>dashboard specialization;</li>
+<li>semantic visual regression;</li>
+<li>journey-aware testing;</li>
+<li>calibrated originality/provenance checks.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-7-4-812-months-preference-and-renewal">7.4 8–12 months — preference and renewal</h2>
+<ul>
+<li>sparse preference learning with uncertainty/decay;</li>
+<li>Design DNA versioning;</li>
+<li>bounded autonomous renovation with change budget;</li>
+<li>stronger production-outcome feedback.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-7-5-research-horizon">7.5 Research horizon</h2>
+<ul>
+<li>causal relation between aesthetic quality and user outcomes;</li>
+<li>independent validation of synthetic users and multimodal judges;</li>
+<li>originality measurement under multi-source inspiration;</li>
+<li>long-horizon brand stability;</li>
+<li>interaction- and motion-aware generation;</li>
+<li>economic and ecological cost of agentic UX loops.</li>
+</ul>
+<h1>8. Red team and pre-mortem</h1>
+<p>The consolidated source records the following major failure classes:</p>
+<ol>
+<li><strong>Beautiful screenshot, broken journey.</strong> The system optimizes render quality while task completion fails.</li>
+<li><strong>Distributed copying.</strong> No one source is copied literally, but combined fragments reproduce a recognizable protected design.</li>
+<li><strong>Source laundering.</strong> Multiple references obscure the provenance of a dominant borrowed pattern.</li>
+<li><strong>Reference compromise.</strong> A crawler or browser agent follows hostile instructions, leaks context, or reaches sensitive resources.</li>
+<li><strong>Metric-induced dark patterns.</strong> Preference or conversion metrics reward manipulative interface behavior.</li>
+<li><strong>Sophisticated judge bias.</strong> A critic prefers visually complex output even when simpler output is more usable or correct.</li>
+<li><strong>Taste caricature.</strong> Sparse feedback collapses into a narrow aesthetic stereotype.</li>
+<li><strong>Reference drift.</strong> A source changes after capture, making historical influence difficult to reconstruct.</li>
+<li><strong>Third-party persistence.</strong> Content survives in embeddings, caches, or generated assets after raw capture should have expired.</li>
+<li><strong>Automation erodes brand identity.</strong> Continuous “improvement” becomes continuous churn.</li>
+<li><strong>Pipeline cost exceeds review value.</strong> Too many agents, renders, and judges make automation slower or more expensive than a focused human review.</li>
+<li><strong>Ontology becomes bureaucracy.</strong> Rich intermediate representations become harder to maintain than the interface work they were intended to support.</li>
+<li><strong>No evaluation truth.</strong> The system accumulates scores without any externally grounded outcome.</li>
+</ol>
+<p>Early-warning indicators include rising full-page regeneration, increasing component duplication, high judge disagreement, rollback growth, reference concentration, declining design-token reuse, unexplained originality alerts, and rising evaluation cost per accepted improvement.</p>
+<h1>9. Integrated proposal portfolio</h1>
+<table>
+<thead>
+<tr>
+<th>Proposal</th>
+<th>Purpose</th>
+<th>Historical priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UI Constitution + Context Compiler</td>
+<td>compile product/design/risk context into task-specific constraints</td>
+<td>P0/P1</td>
+</tr>
+<tr>
+<td>Inspiration Compiler</td>
+<td>turn references into typed, auditable design influence</td>
+<td>strategic core</td>
+</tr>
+<tr>
+<td>Multi-Oracle UX Gates</td>
+<td>separate correctness, accessibility, interaction, aesthetics, originality</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>Diff-Aware Repair</td>
+<td>repair localized visual/interaction defects</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>Diverse Typed RAG</td>
+<td>reduce top-1 fixation and retrieve by influence dimension</td>
+<td>P1/P2</td>
+</tr>
+<tr>
+<td>Originality + Provenance Firewall</td>
+<td>limit literal proximity and preserve source lineage</td>
+<td>P1/P2</td>
+</tr>
+<tr>
+<td>Journey Graph / UI Digital Twin</td>
+<td>represent interaction paths/states for testing and change impact</td>
+<td>P2 strategic</td>
+</tr>
+<tr>
+<td>Personal Taste Model</td>
+<td>learn sparse preference with uncertainty</td>
+<td>P2/research</td>
+</tr>
+<tr>
+<td>Continuous Renovator</td>
+<td>bounded autonomous improvement under change budget</td>
+<td>later-stage</td>
+</tr>
+<tr>
+<td>Value-of-Information Router</td>
+<td>spend expensive model/judge calls only where uncertainty warrants</td>
+<td>research</td>
+</tr>
+</tbody>
+</table>
+<p>The source recommends building evaluation and context foundations before highly autonomous generation. The ordering is intentional: autonomy without measurement amplifies uncertainty rather than removing it.</p>
+<h1>10. Part I — Technical dossier: UX with generative AI in the harness</h1>
+</section>
+<section class="section content"><h2 id="ed-10-1-historical-premises">10.1 Historical premises</h2>
+<p>Part I examines autonomous interface engineering independently of the later Inspiration Compiler. It assumes the harness can inspect and modify code, execute tests, render pages, call multimodal models, and delegate specialized work. The objective is not to build a generic app-builder product; it is to improve the quality of interfaces in real repositories while preserving product semantics and engineering constraints.</p>
+<p>Web/SaaS is the primary surface, but the source deliberately includes dashboards, desktop/mobile GUI, and CLI/TUI because each surface has different observability, interaction, and accessibility contracts. The historical research argues that the shared abstraction should be <strong>interface intent and evidence</strong>, not one universal pixel metric.</p>
+</section>
+<section class="section content"><h2 id="ed-10-2-executive-answer">10.2 Executive answer</h2>
+<p>The source separates four capabilities that are often conflated:</p>
+<ol>
+<li><strong>visual synthesis</strong> — producing a plausible visual composition;</li>
+<li><strong>frontend engineering</strong> — translating intent into maintainable code using local components and constraints;</li>
+<li><strong>interaction engineering</strong> — implementing states, transitions, validation, async behavior, keyboard interaction, and data-bound behavior;</li>
+<li><strong>demonstrated UX quality</strong> — evidence that representative users can accomplish meaningful tasks efficiently, safely, and accessibly.</li>
+</ol>
+<p>The historical conclusion is that progress in visual synthesis was ahead of interaction engineering and demonstrated UX. Therefore a harness should not infer “good UX” from a screenshot score.</p>
+<p>Initial recommendations were:</p>
+<ul>
+<li>require a <strong>UI Contract</strong> before open-ended implementation;</li>
+<li>compile local design and product context rather than continually prepend broad documentation;</li>
+<li>generate two to four structural alternatives when the solution is underdetermined;</li>
+<li>use multi-oracle gates with deterministic checks before subjective critics;</li>
+<li>perform localized repair from rendered evidence;</li>
+<li>maintain representative gold UX tasks;</li>
+<li>never auto-release high-impact authentication, payment, consent, deletion, or permission changes merely because automated judges agree.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-10-3-foundations">10.3 Foundations</h2>
+<h3 id="ed-human-centered-design">Human-centered design</h3>
+<p>The dossier draws on the human-centered design tradition around ISO 9241-210: understand context of use, specify user requirements, produce design solutions, and evaluate against those requirements. In harness terms, that argues against a one-shot generator and toward an iterative evidence loop.</p>
+<h3 id="ed-measurement">Measurement</h3>
+<p>The historical research uses established instruments and frameworks such as SUS, HEART, task completion, errors, time-on-task, accessibility, and engineering reliability. It treats these as complementary lenses rather than a universal score.</p>
+<h3 id="ed-design-system-as-grammar">Design system as grammar</h3>
+<p>Tokens and components constrain the solution space. The dossier points to Design Tokens Community Group work, Storybook-style executable component catalogs, and Figma Code Connect-like mappings as examples of design knowledge that can be made machine-consumable. The useful transfer is architectural: agents should reason over <strong>available semantic components and variants</strong> rather than repeatedly inventing markup from screenshots.</p>
+<h3 id="ed-accessibility">Accessibility</h3>
+<p>WCAG 2.2 and ARIA Authoring Practices are treated as stronger external constraints than aesthetic preference. Automated accessibility tools are necessary but incomplete; keyboard navigation, focus behavior, semantics, dynamic states, screen-reader behavior, and representative human evaluation remain important.</p>
+<h3 id="ed-perceptible-technical-quality">Perceptible technical quality</h3>
+<p>Core Web Vitals are used as examples of technical properties users experience directly. The historical source cites the then-current thresholds—LCP around 2.5 seconds, INP around 200 ms, CLS around 0.1—as operational targets, while recognizing that product-specific budgets matter.</p>
+<h3 id="ed-surface-specific-contracts">Surface-specific contracts</h3>
+<ul>
+<li><strong>Web/SaaS:</strong> responsive layout, browser semantics, forms, async data, navigation, accessibility, performance.</li>
+<li><strong>Dashboard:</strong> data correctness, analytical intent, chart semantics, density, filtering, extreme values, export/inspection.</li>
+<li><strong>Desktop/mobile GUI:</strong> native interaction conventions, state restoration, platform-specific accessibility, device constraints.</li>
+<li><strong>CLI/TUI:</strong> stable textual semantics, keyboard-first interaction, scriptability, discoverability, accessible output, machine-readable modes.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-10-4-taxonomy-of-the-field">10.4 Taxonomy of the field</h2>
+<h3 id="ed-input-categories">Input categories</h3>
+<ul>
+<li>text/product intent;</li>
+<li>sketches and wireframes;</li>
+<li>screenshots;</li>
+<li>design files;</li>
+<li>existing code;</li>
+<li>component libraries and design systems;</li>
+<li>interaction traces;</li>
+<li>reference sites;</li>
+<li>production telemetry and user feedback.</li>
+</ul>
+<h3 id="ed-generation-categories">Generation categories</h3>
+<ul>
+<li>text-to-UI;</li>
+<li>screenshot/design-to-code;</li>
+<li>component synthesis;</li>
+<li>layout generation;</li>
+<li>interaction synthesis;</li>
+<li>agentic code editing;</li>
+<li>iterative render-and-repair;</li>
+<li>multi-agent decomposition;</li>
+<li>dashboard/data-bound composition.</li>
+</ul>
+<h3 id="ed-evaluation-categories">Evaluation categories</h3>
+<ul>
+<li>compilation/type checks;</li>
+<li>DOM/component structural checks;</li>
+<li>unit/integration/E2E tests;</li>
+<li>visual regression;</li>
+<li>multimodal critique;</li>
+<li>accessibility automation and manual protocols;</li>
+<li>interaction/task benchmarks;</li>
+<li>synthetic-user exploration;</li>
+<li>human preference and usability studies;</li>
+<li>production behavioral metrics.</li>
+</ul>
+<p>The source warns against common category errors: visual similarity is not usability; successful build is not successful task; browser-agent success is not proof of human comprehensibility; and model preference is not product outcome.</p>
+</section>
+<section class="section content"><h2 id="ed-10-5-state-of-the-art-and-practice">10.5 State of the art and practice</h2>
+<p>The dossier reviews work such as Design2Code, Interaction2Code, FrontendBench, FullFront, DesignBench, and adjacent systems including UICoder/DCGen/UICopilot/UIOrchestra/UI2Code-style approaches. Their combined signal is that benchmark design is moving from static render similarity toward executable interaction, repository context, component reuse, and realistic frontend tasks.</p>
+<p>It also considers agents as interface testers through environments and benchmarks such as OSWorld, VisualWebArena, WorkArena, BrowserGym, AndroidWorld, Terminal-Bench, and CLI-oriented tool benchmarks. The key inference is that a browser/computer-use agent can be a useful <strong>evidence producer</strong>, but the agent’s ability to solve a task is not identical to a human user’s experience.</p>
+<p>Historical product signals from Figma, v0, Replit, Stitch, and similar tools are treated as evidence of market direction rather than independent scientific validation. Vendor behavior changes quickly; this editorial edition does not refresh those July 2026 claims.</p>
+</section>
+<section class="section content"><h2 id="ed-10-6-bleeding-edge-and-emerging-signals">10.6 Bleeding edge and emerging signals</h2>
+<p>The source highlights several frontier directions:</p>
+<ul>
+<li>generation conditioned on interaction/state rather than screenshot alone;</li>
+<li>agents that operate the generated interface as part of evaluation;</li>
+<li>repository-level frontend benchmarks;</li>
+<li>semantic visual regression rather than raw image distance;</li>
+<li>multi-agent critics and repair loops;</li>
+<li>synthetic users and personas;</li>
+<li>data-aware/dashboard-aware generation;</li>
+<li>agent-safe browsing and prompt-injection defenses;</li>
+<li>richer preference signals for aesthetics and product fit.</li>
+</ul>
+<p>These are treated as research directions, not mature foundations.</p>
+</section>
+<section class="section content"><h2 id="ed-10-7-critiques-divergences-and-negative-results">10.7 Critiques, divergences, and negative results</h2>
+<h3 id="ed-pixel-perfect-is-incomplete">Pixel-perfect is incomplete</h3>
+<p>A pixel-perfect replica may reproduce an accessibility failure, broken responsive behavior, incorrect content hierarchy, or a design irrelevant to the product. Visual similarity is useful as one signal when fidelity is actually the goal, not as a universal UX objective.</p>
+<h3 id="ed-llm-as-judge-is-not-neutral">LLM-as-judge is not neutral</h3>
+<p>A multimodal judge can be sensitive to presentation, verbosity, visual sophistication, prompt framing, and model family. The dossier therefore recommends judge calibration, disagreement tracking, human anchors, and deterministic checks for objective properties.</p>
+<h3 id="ed-automated-accessibility-is-necessary-and-insufficient">Automated accessibility is necessary and insufficient</h3>
+<p>Static scanners catch a subset of accessibility failures. Focus order, meaningful announcements, dynamic behavior, cognitive clarity, and task experience require additional methods.</p>
+<h3 id="ed-synthetic-users-can-create-false-confidence">Synthetic users can create false confidence</h3>
+<p>Generated personas can produce plausible narratives with weak empirical grounding. The source uses them as scouts for hypotheses and coverage, never as a replacement for representative users.</p>
+<h3 id="ed-multi-agent-systems-can-amplify-bloat">Multi-agent systems can amplify bloat</h3>
+<p>More specialized critics can increase tokens, latency, duplicated observations, and contradictory recommendations. The historical response is ablation plus a value-of-information policy: a new reviewer should justify its marginal evidence.</p>
+<h3 id="ed-agent-testers-expand-the-attack-surface">Agent-testers expand the attack surface</h3>
+<p>A browser agent reads hostile content and has tools. Therefore a test harness can itself become a prompt-injection execution path. Isolation and capability limits are part of UX automation safety.</p>
+<h3 id="ed-hidden-cost-matters">Hidden cost matters</h3>
+<p>Repeated renders, multimodal calls, browser sessions, multiple judges, and broad context can make “automated review” more expensive than a focused human review. Cost-to-useful-evidence is therefore a first-class metric.</p>
+</section>
+<section class="section content"><h2 id="ed-10-8-double-diamond-discover">10.8 Double Diamond — Discover</h2>
+<p>Signals collected in the source include rapidly improving UI generation, weak interaction assurance, increasingly executable design systems, multimodal visual feedback, browser agents, data-oriented UI work, accessibility requirements, synthetic users, preference learning, and security failures in tool-using agents.</p>
+<p>The dossier frames key jobs-to-be-done for the product owner (“improve the product without constant art direction”), user (“complete my task clearly and safely”), designer (“preserve intent and system coherence”), engineer (“receive maintainable diffs rather than regenerated sludge”), and harness supervisor (“know why a change was made and what evidence supports it”).</p>
+</section>
+<section class="section content"><h2 id="ed-10-9-double-diamond-define">10.9 Double Diamond — Define</h2>
+<p>The source turns those signals into problems:</p>
+<ul>
+<li>agents lack a stable representation of product/UI intent;</li>
+<li>generic context weakens local consistency;</li>
+<li>evaluation is fragmented across incompatible metrics;</li>
+<li>visual errors are often repaired by costly global regeneration;</li>
+<li>representative journey evidence is sparse;</li>
+<li>risk is not uniform across interface surfaces;</li>
+<li>frontend changes can pass technical checks while harming users;</li>
+<li>tool-using evaluators can be compromised by the interfaces they inspect.</li>
+</ul>
+<p>“How might we” questions focus on compiling context, measuring UX with multiple independent signals, localizing repairs, simulating journeys without overtrusting synthetic users, and allocating expensive evaluators only where they add information.</p>
+</section>
+<section class="section content"><h2 id="ed-10-10-double-diamond-develop-proposal-cards">10.10 Double Diamond — Develop: proposal cards</h2>
+<h3 id="ed-proposal-1-ui-constitution-context-compiler">Proposal 1 — UI Constitution &amp; Context Compiler</h3>
+<p><strong>Problem:</strong> generic prompts and large context dumps fail to preserve project-specific design rules.<br/>
+<strong>Proposal:</strong> compile product intent, design tokens, components, relevant stories, accessibility requirements, risk rules, current task, and nearby code into a task-specific context bundle.<br/>
+<strong>Evidence base:</strong> context engineering, executable design systems, repository-aware coding agents.<br/>
+<strong>Experiment:</strong> generic prompt versus compiled local context on matched tasks.<br/>
+<strong>Success:</strong> more component reuse, fewer style deviations, lower context/token cost, fewer repair cycles.<br/>
+<strong>Abandon/pivot:</strong> if compilation cost exceeds gains or bundles become stale/unreliable.</p>
+<h3 id="ed-proposal-2-multi-oracle-ux-gates">Proposal 2 — Multi-Oracle UX Gates</h3>
+<p><strong>Problem:</strong> one evaluator collapses incompatible dimensions.<br/>
+<strong>Proposal:</strong> orchestrate deterministic tests, accessibility checks, interaction evidence, visual/semantic diff, multimodal critique, synthetic exploration, and selective human review under ordered gates.<br/>
+<strong>Success:</strong> higher material-defect recall without unacceptable false blocks or cost.<br/>
+<strong>Critical constraint:</strong> early safety/functionality gates cannot be compensated by later aesthetic scores.</p>
+<h3 id="ed-proposal-3-diff-aware-visual-repair">Proposal 3 — Diff-Aware Visual Repair</h3>
+<p><strong>Problem:</strong> full regeneration introduces regressions and churn.<br/>
+<strong>Proposal:</strong> detect/localize a defect, retrieve the responsible component/style/state, and patch the smallest plausible region.<br/>
+<strong>Experiment:</strong> full regenerate versus localized repair on planted visual/interaction defects.<br/>
+<strong>Metrics:</strong> regression rate, changed lines/components, cost, repair success, time-to-green.</p>
+<h3 id="ed-proposal-4-grounded-synthetic-ux-scout">Proposal 4 — Grounded Synthetic UX Scout</h3>
+<p><strong>Problem:</strong> exhaustive human testing is expensive and sparse.<br/>
+<strong>Proposal:</strong> use constrained synthetic personas/agents to traverse representative journeys, log confusion/failure hypotheses, and propose human follow-up.<br/>
+<strong>Boundary:</strong> scouts generate leads, not user truth.<br/>
+<strong>Abandon:</strong> if correlation with real-user findings remains too low or induces systematic false reassurance.</p>
+<h3 id="ed-proposal-5-ui-digital-twin-journey-graph">Proposal 5 — UI Digital Twin / Journey Graph</h3>
+<p><strong>Problem:</strong> page-based validation misses cross-page state and journey dependencies.<br/>
+<strong>Proposal:</strong> maintain a graph of states, actions, transitions, data requirements, and critical journeys connected to executable tests/evidence.<br/>
+<strong>Use:</strong> change-impact analysis, test selection, missing-state detection, and repair localization.<br/>
+<strong>Risk:</strong> high modeling overhead; should emerge from code/traces where possible rather than become manual bureaucracy.</p>
+<h3 id="ed-proposal-6-verified-dashboard-composer">Proposal 6 — Verified Dashboard Composer</h3>
+<p><strong>Problem:</strong> generic UI generators may create aesthetically plausible but semantically wrong analytical interfaces.<br/>
+<strong>Proposal:</strong> constrain generation with schema, analytical jobs, metric definitions, chart appropriateness, data quality states, and dashboard-specific validation.<br/>
+<strong>Gate order:</strong> data/metric correctness before chart beauty.</p>
+<h3 id="ed-proposal-7-dual-audience-cli-contract">Proposal 7 — Dual-Audience CLI Contract</h3>
+<p><strong>Problem:</strong> agent-oriented CLIs can become hostile to humans, while human-only interfaces are hard to automate reliably.<br/>
+<strong>Proposal:</strong> stable structured/machine-readable outputs plus concise human-friendly interaction, predictable exit/status semantics, keyboard accessibility, and discoverable help.<br/>
+<strong>Historical relevance:</strong> a bridge between UX research and the harness’s agent-facing surfaces.</p>
+<h3 id="ed-proposal-8-value-of-information-agent-router">Proposal 8 — Value-of-Information Agent Router</h3>
+<p><strong>Problem:</strong> sending every artifact to every critic wastes cost and often duplicates evidence.<br/>
+<strong>Proposal:</strong> estimate uncertainty and expected marginal information to decide whether another renderer, multimodal critic, browser agent, specialist, or human is worth calling.<br/>
+<strong>Status:</strong> explicitly research-oriented in the source.</p>
+</section>
+<section class="section content"><h2 id="ed-10-11-double-diamond-deliver-and-prioritization">10.11 Double Diamond — Deliver and prioritization</h2>
+<p>Historical priority:</p>
+<ul>
+<li><strong>P0:</strong> Multi-Oracle UX Gates; representative gold tasks.</li>
+<li><strong>P0/P1:</strong> UI Constitution &amp; Context Compiler.</li>
+<li><strong>P1:</strong> Dual-Audience CLI Contract; Diff-Aware Repair.</li>
+<li><strong>P2 controlled:</strong> Grounded Synthetic UX Scout.</li>
+<li><strong>P2 domain:</strong> Verified Dashboard Composer.</li>
+<li><strong>P2 strategic:</strong> Journey Graph / Digital Twin.</li>
+<li><strong>Research:</strong> Value-of-Information Router.</li>
+</ul>
+<p>The portfolio is divided into <strong>adopt now</strong>, <strong>prototype</strong>, <strong>monitor</strong>, <strong>strategic bet</strong>, and <strong>avoid</strong>. The “avoid” category includes autonomous high-risk release, screenshot-only optimization, uncalibrated model judges, and multi-agent review without marginal-value measurement.</p>
+</section>
+<section class="section content"><h2 id="ed-10-12-red-team-and-1224-month-pre-mortem">10.12 Red team and 12–24 month pre-mortem</h2>
+<p>The Part I pre-mortem anticipates:</p>
+<ul>
+<li>polished demos that fail real tasks;</li>
+<li>component/design-system erosion;</li>
+<li>excessive autonomous churn;</li>
+<li>expensive evaluation meshes nobody trusts;</li>
+<li>accessibility regressions hidden behind automated scores;</li>
+<li>synthetic-user reports becoming theater;</li>
+<li>UI agents following malicious content;</li>
+<li>dashboard visualizations that misrepresent data;</li>
+<li>preference optimization drifting toward dark patterns;</li>
+<li>multiple agents expanding code and process without measurable benefit.</li>
+</ul>
+<p>The source requires each risk to have leading indicators, tripwires, and a rollback/abandon path rather than becoming a generic “risk” section.</p>
+</section>
+<section class="section content"><h2 id="ed-10-13-evidence-gaps">10.13 Evidence gaps</h2>
+<p>The dossier explicitly records missing evidence instead of converting open questions into conclusions:</p>
+<ul>
+<li>cross-model reliability of multimodal UI judges;</li>
+<li>calibration of synthetic users against representative humans;</li>
+<li>long-horizon effect of autonomous UI refactoring on maintainability;</li>
+<li>reliable measurement of originality versus legitimate design-system conventions;</li>
+<li>causal relationship between aesthetic improvements and product outcomes;</li>
+<li>robust evaluation of CLI/TUI usability for both humans and agents;</li>
+<li>cost-effectiveness of multi-agent review versus targeted deterministic tooling.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-10-14-operational-recommendations">10.14 Operational recommendations</h2>
+<h3 id="ed-adopt-immediately">Adopt immediately</h3>
+<ul>
+<li>component/design-system inventory;</li>
+<li>UI task contracts;</li>
+<li>build/type/E2E/a11y gates;</li>
+<li>representative critical journeys;</li>
+<li>render evidence and PR previews;</li>
+<li>explicit risk classes for UI changes;</li>
+<li>provenance for external references.</li>
+</ul>
+<h3 id="ed-prototype">Prototype</h3>
+<ul>
+<li>semantic visual regression;</li>
+<li>task-specific Context Compiler;</li>
+<li>localized repair;</li>
+<li>interaction-aware multimodal critics;</li>
+<li>dashboard-specific constraints.</li>
+</ul>
+<h3 id="ed-research">Research</h3>
+<ul>
+<li>synthetic-user validity;</li>
+<li>personal taste modeling;</li>
+<li>value-of-information routing;</li>
+<li>causal UX metrics;</li>
+<li>automated journey-model induction.</li>
+</ul>
+<h3 id="ed-monitor">Monitor</h3>
+<ul>
+<li>rapidly evolving vendor UI generators;</li>
+<li>multimodal agent benchmarks;</li>
+<li>browser-agent security;</li>
+<li>accessibility evaluation research;</li>
+<li>design-system interchange standards.</li>
+</ul>
+<h3 id="ed-avoid">Avoid</h3>
+<ul>
+<li>one aesthetic score as merge authority;</li>
+<li>direct capture of private/authenticated references without policy;</li>
+<li>unbounded autonomous “redesign everything” loops;</li>
+<li>copying a reference’s visual identity without transformation/provenance;</li>
+<li>treating generated personas as evidence of user needs.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-10-15-part-i-reference-architecture">10.15 Part I reference architecture</h2>
+<pre><code class="language-text">Product objective / change request
+        ↓
+Context Compiler
+        ↓
+UI Intent IR + Risk Profile
+        ↓
+Planner / Variant Explorer
+        ↓
+Component-First Builder
+        ↓
+Sandbox Render
+        ↓
+Deterministic Gates
+        ↓
+Localized Repair? ───────────────┐
+        │                         │
+        no                        yes → patch → rerun affected gates
+        ↓
+Multimodal / Interaction / Agent Review
+        ↓
+High uncertainty or high risk?
+        ├── yes → Human checkpoint
+        └── no
+        ↓
+Evidence Bundle
+        ↓
+PR / Preview / Canary / Rollback
+</code></pre>
+<p>Historical supporting stores/contracts include a design registry, story graph, journey registry, evidence store, gold-task set, and model/evaluator registry.</p>
+<p>A minimal <code>UI Intent IR</code> example from the design includes conceptual fields for actor, job, desired outcomes, data, states, actions, components, constraints, risk, and metrics. The exact schema was research material, not a ratified kernel primitive.</p>
+</section>
+<section class="section content"><h2 id="ed-10-16-multi-agent-escalation-without-bloat">10.16 Multi-agent escalation without bloat</h2>
+<p>The source does not recommend a permanent committee of design agents. Instead it proposes progressive escalation:</p>
+<ol>
+<li>deterministic checks first;</li>
+<li>one general multimodal critic when evidence is ambiguous;</li>
+<li>specialist reviewer only for a relevant dimension (accessibility, dashboard/data, security, etc.);</li>
+<li>second independent critic when uncertainty remains materially high;</li>
+<li>human review when risk or disagreement justifies it.</li>
+</ol>
+<p>This is an early historical form of <strong>evidence-driven evaluator selection</strong>.</p>
+</section>
+<section class="section content"><h2 id="ed-10-17-part-i-experimental-plan">10.17 Part I experimental plan</h2>
+<ul>
+<li><strong>E1 — Baseline and gold tasks:</strong> build stable representative frontend tasks and manually characterized failure sets.</li>
+<li><strong>E2 — Multi-Oracle shadow gate:</strong> run automated critics without blocking and compare to human/material defects.</li>
+<li><strong>E3 — Context Compiler:</strong> compare generic versus compiled task-specific context.</li>
+<li><strong>E4 — Diff-Aware Repair:</strong> compare localized repair against regeneration.</li>
+<li><strong>E5 — UX Scout validity:</strong> measure synthetic findings against human or production findings.</li>
+<li><strong>E6 — Dashboard:</strong> test data-bound generation with planted semantic traps and extreme data.</li>
+</ul>
+<p>For stochastic evaluators, repeated trials and uncertainty intervals are preferred to one-shot pass/fail declarations.</p>
+</section>
+<section class="section content"><h2 id="ed-10-18-evaluation-system">10.18 Evaluation system</h2>
+<h3 id="ed-outcome-metrics">Outcome metrics</h3>
+<ul>
+<li>representative task completion;</li>
+<li>failure/error rate;</li>
+<li>human preference with calibrated protocol;</li>
+<li>accessibility success;</li>
+<li>time-on-task where measurable;</li>
+<li>production adoption/rollback;</li>
+<li>change acceptance and rework.</li>
+</ul>
+<h3 id="ed-process-metrics">Process metrics</h3>
+<ul>
+<li>component reuse;</li>
+<li>changed lines/components;</li>
+<li>repair iterations;</li>
+<li>evaluator disagreement;</li>
+<li>evidence latency;</li>
+<li>autonomous abstention/escalation rate.</li>
+</ul>
+<h3 id="ed-security-privacy">Security/privacy</h3>
+<ul>
+<li>hostile-reference attack success;</li>
+<li>unauthorized network/data access;</li>
+<li>secret exposure;</li>
+<li>tainted-content propagation;</li>
+<li>provenance coverage.</li>
+</ul>
+<h3 id="ed-cost-performance">Cost/performance</h3>
+<ul>
+<li>tokens and model calls;</li>
+<li>browser/render time;</li>
+<li>wall-clock time-to-evidence;</li>
+<li>cost per accepted improvement;</li>
+<li>cost per material defect found.</li>
+</ul>
+<h3 id="ed-robustness">Robustness</h3>
+<ul>
+<li>multiple viewports;</li>
+<li>localization/text expansion;</li>
+<li>extreme/empty/error/loading data;</li>
+<li>keyboard-only flow;</li>
+<li>browser/platform variation;</li>
+<li>evaluator/model variation.</li>
+</ul>
+<p>Leading indicators monitor process drift; lagging indicators measure real outcome and maintainability.</p>
+</section>
+<section class="section content"><h2 id="ed-10-19-open-questions-and-opportunity-map">10.19 Open questions and opportunity map</h2>
+<p>Open questions include whether visual judges generalize across product styles, how to separate brand taste from individual preference, when agentic UX testing adds enough value, how much design knowledge should be compiled versus retrieved, and how to quantify the value of an additional reviewer.</p>
+<p>The opportunity map favors infrastructure that makes the whole loop more measurable—Context Compiler, evidence mesh, localized repair, journey/state models—over another monolithic “designer model.”</p>
+</section>
+<section class="section content"><h2 id="ed-10-20-part-i-synthesis">10.20 Part I synthesis</h2>
+<p>The historical synthesis is:</p>
+<blockquote>
+<p>High-quality autonomous UI engineering requires <strong>intent + executable design system + component-first implementation + render/interaction evidence + multi-oracle gates + localized repair + risk-proportional human validation</strong>.</p>
+</blockquote>
+<p>Generation is only one stage in that system.</p>
+<h1>11. Part II — Technical dossier: Reference-Driven UI and the Inspiration Compiler</h1>
+</section>
+<section class="section content"><h2 id="ed-11-1-executive-answer">11.1 Executive answer</h2>
+<p>The short answer of the historical source is <strong>yes</strong>: there was already a meaningful body of research relevant to agents that use websites, screenshots, and other interfaces as inspiration. But it was distributed across several communities rather than organized under one “AI inspiration compiler” label:</p>
+<ul>
+<li>design by example and creativity support;</li>
+<li>multimodal UI retrieval;</li>
+<li>screenshot/specification-conditioned UI generation;</li>
+<li>layout and component mining;</li>
+<li>design analogy and remix;</li>
+<li>quality, similarity, and preference evaluation;</li>
+<li>provenance, copyright/security, and safe web-agent interaction.</li>
+</ul>
+<p>The dossier’s central claim is that <strong>references should be transformed into an auditable intermediate representation before they guide generation</strong>. Instead of asking a model to imitate a page, the system should extract which dimensions are relevant—information hierarchy, density, rhythm, typography, navigation, interaction, component treatment, content pattern, motion, or overall product mood—and compose those influences under explicit limits.</p>
+<p>The proposed product role is the <strong>Inspiration Compiler</strong>.</p>
+</section>
+<section class="section content"><h2 id="ed-11-2-what-the-evidence-supported">11.2 What the evidence supported</h2>
+<p>The source highlights several signals:</p>
+<ul>
+<li><strong>S&amp;UI</strong> suggests UI retrieval can use semantic representations rather than purely visual similarity (<a href="https://arxiv.org/abs/2501.17799">S&amp;UI</a>).</li>
+<li><strong>UI Remix</strong> supports the distinction between global and local reference influence (<a href="https://arxiv.org/abs/2601.18759">UI Remix</a>).</li>
+<li><strong>SpecifyUI</strong> explores structured specifications derived from one or multiple references (<a href="https://arxiv.org/abs/2509.07334">SpecifyUI</a>).</li>
+<li><strong>UIClip</strong> investigates quality/relevance signals for UI representations (<a href="https://arxiv.org/abs/2404.12500">UIClip</a>).</li>
+<li>creativity research shows examples can both inspire and constrain; multiple concepts can reduce narrowing, but seeding effects depend on context.</li>
+</ul>
+<p>The historical conclusion is not that these systems prove the proposed architecture. They make it plausible that reference use can be decomposed into retrieval, representation, composition, evaluation, and provenance instead of remaining an opaque prompt trick.</p>
+</section>
+<section class="section content"><h2 id="ed-11-3-product-thesis">11.3 Product thesis</h2>
+<p>The <strong>Inspiration Compiler</strong> should guarantee, as far as the evidence and policy allow:</p>
+<ol>
+<li>understand a reference at global, region, component, and behavioral levels;</li>
+<li>separate observed facts from model interpretation;</li>
+<li>explain which part of a reference influenced which part of the candidate design;</li>
+<li>combine several references without allowing one source to dominate silently;</li>
+<li>translate influence into the project’s local tokens/components rather than copy raw visual artifacts;</li>
+<li>measure task quality, diversity, and proximity to references;</li>
+<li>preserve source, permission/risk class, transformation, and decision provenance;</li>
+<li>support human review and rollback when uncertainty or legal/security risk is high.</li>
+</ol>
+<p>It can automate audits of generic-looking pages, reference selection, multiple design directions, token/composition derivation, component refactoring, viewport/state validation, provenance reports, and bounded repair.</p>
+<p>It should not silently automate authenticated/private capture, third-party asset/text/code reuse, sensitive-flow redesign, high-impact publication, or legal conclusions about whether copying is permissible.</p>
+</section>
+<section class="section content"><h2 id="ed-11-4-foundations-how-designers-use-examples">11.4 Foundations: how designers use examples</h2>
+<h3 id="ed-inspiration-is-a-cognitive-operation">Inspiration is a cognitive operation</h3>
+<p>Examples do not simply provide pixels. Designers use them for framing, generation, communication, comparison, and justification. The same artifact can therefore serve different roles depending on the design question.</p>
+<h3 id="ed-semantic-retrieval-before-raw-pixel-proximity">Semantic retrieval before raw pixel proximity</h3>
+<p>A login page may be visually similar to another page but irrelevant to a dashboard navigation problem. The dossier therefore prefers semantic/task relevance as a first filter, then uses visual/style similarity as another dimension.</p>
+<h3 id="ed-global-and-local-references">Global and local references</h3>
+<p>A system may use one reference for macro information architecture, another for typography/density, another for a table or command palette, and a fourth as a negative example. This motivates dimension-specific influence rather than whole-page cloning.</p>
+<h3 id="ed-intermediate-representation">Intermediate representation</h3>
+<p>A <strong>Reference IR</strong> captures observed hierarchy, regions, relative spacing, typography roles, components, behaviors, interaction evidence, confidence, provenance, and policy status. Relative values and semantic roles are preferred to literal copied CSS values where possible.</p>
+<h3 id="ed-reuse-the-local-system">Reuse the local system</h3>
+<p>Reference interpretation should end by asking “which local components and tokens express this principle?” rather than “how do I recreate these foreign pixels?”</p>
+</section>
+<section class="section content"><h2 id="ed-11-5-taxonomy-of-the-solution-space">11.5 Taxonomy of the solution space</h2>
+<h3 id="ed-reference-types">Reference types</h3>
+<ul>
+<li>public websites;</li>
+<li>screenshots;</li>
+<li>design-system examples;</li>
+<li>Figma/design files;</li>
+<li>product galleries and curated libraries;</li>
+<li>competitor/reference products;</li>
+<li>internal previous versions;</li>
+<li>component examples;</li>
+<li>interaction recordings;</li>
+<li>negative references (“avoid this”).</li>
+</ul>
+<h3 id="ed-transfer-modes">Transfer modes</h3>
+<ul>
+<li>global structure;</li>
+<li>information hierarchy;</li>
+<li>layout rhythm/density;</li>
+<li>typography roles;</li>
+<li>color/tokens;</li>
+<li>component treatment;</li>
+<li>microinteraction;</li>
+<li>navigation behavior;</li>
+<li>content pattern;</li>
+<li>motion/temporality;</li>
+<li>product mood/brand cues.</li>
+</ul>
+<h3 id="ed-objectives-that-must-not-collapse-into-one-score">Objectives that must not collapse into one score</h3>
+<ul>
+<li>relevance;</li>
+<li>visual quality;</li>
+<li>task fit;</li>
+<li>novelty/diversity;</li>
+<li>brand compatibility;</li>
+<li>originality/proximity;</li>
+<li>permission/policy risk;</li>
+<li>implementation cost;</li>
+<li>accessibility and usability.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-11-6-historical-line-and-state-of-the-art">11.6 Historical line and state of the art</h2>
+<p>The dossier connects older example-based design/mining systems to modern multimodal retrieval and generation. Layout is treated as structure, not just image appearance. Preference learning is considered useful but underdetermined: approval history can help retrieval and ranking, but a small number of preferences should not become an immutable “taste profile.”</p>
+<p>Historical product signals are included to illustrate market direction but are not treated as independent proof. This English edition intentionally does not update vendor capabilities beyond the July 13 source horizon.</p>
+</section>
+<section class="section content"><h2 id="ed-11-7-negative-results-tensions-and-limits">11.7 Negative results, tensions, and limits</h2>
+<h3 id="ed-inspiration-can-reduce-creativity">Inspiration can reduce creativity</h3>
+<p>A prominent reference can anchor the search space. The proposed mitigation is diverse retrieval, staged reveal, negative references, and explicit generation of multiple structural alternatives.</p>
+<h3 id="ed-remix-does-not-guarantee-coherence">Remix does not guarantee coherence</h3>
+<p>Combining parts from several attractive products can produce a collage. The composition plan needs a hierarchy of design intent and consistency with local Design DNA.</p>
+<h3 id="ed-homogenization-risk">Homogenization risk</h3>
+<p>If many systems retrieve the same popular products and optimize against the same aesthetic judges, the web may converge toward a narrow SaaS template. Diversity itself therefore becomes something to measure and budget.</p>
+<h3 id="ed-one-ai-judge-does-not-know-what-is-beautiful">One AI judge does not know what is beautiful</h3>
+<p>Aesthetic preference is contextual and partly subjective. The source rejects a universal “beauty score” as merge authority.</p>
+<h3 id="ed-perceptual-similarity-is-not-identical-to-copying">Perceptual similarity is not identical to copying</h3>
+<p>Two interfaces can look similar because they use common conventions; conversely, a design can distribute borrowed distinctive elements across regions while avoiding a high global similarity score. Originality needs multiple signals plus provenance and human/legal review where material.</p>
+<h3 id="ed-screenshot-without-text-context-is-insufficient">Screenshot without text/context is insufficient</h3>
+<p>Content, user job, data semantics, interaction, responsive states, and product constraints affect whether a pattern is appropriate.</p>
+<h3 id="ed-references-can-be-hostile">References can be hostile</h3>
+<p>Web content can contain prompt injection or action-inducing instructions. Reference systems therefore need the same or stronger security discipline as general browser agents.</p>
+</section>
+<section class="section content"><h2 id="ed-11-8-rights-permission-and-provenance">11.8 Rights, permission, and provenance</h2>
+<p>The dossier explicitly frames this as an <strong>operational risk model, not legal advice</strong>.</p>
+<p>A practical source policy distinguishes public/allowed references, sources requiring terms or permission review, internal/licensed materials, authenticated/private materials, and prohibited/untrusted sources.</p>
+<p>For each influential source the system should preserve, where feasible:</p>
+<ul>
+<li>canonical URL/source identifier;</li>
+<li>capture timestamp/version;</li>
+<li>source class and permission basis;</li>
+<li>regions/assets actually inspected;</li>
+<li>extracted observations;</li>
+<li>derived interpretations;</li>
+<li>influence dimensions;</li>
+<li>candidate artifacts influenced;</li>
+<li>transformation steps;</li>
+<li>proximity/originality evidence;</li>
+<li>reviewer/approval when required.</li>
+</ul>
+<p>This is the basis of the historical <strong>originality + provenance firewall</strong>.</p>
+</section>
+<section class="section content"><h2 id="ed-11-9-double-diamond-for-reference-driven-ui">11.9 Double Diamond for reference-driven UI</h2>
+<h3 id="ed-discover">Discover</h3>
+<p>The source explores why teams use references, what “I like Linear/Stripe/Notion” actually communicates, where examples improve ideation, where they create fixation, how retrieval changes the search space, and what risks arise from crawling arbitrary sites.</p>
+<h3 id="ed-define">Define</h3>
+<p>The problem is reframed from “clone these sites” to:</p>
+<blockquote>
+<p>How can an agent system compile distributed, ambiguous design inspiration into explainable, diverse, locally implementable design constraints while preserving originality, provenance, security, and product fit?</p>
+</blockquote>
+<p>Principles include semantic before literal, local system before foreign implementation, multi-source composition, explicit dominance limits, safe capture, provenance by construction, and uncertainty-aware preference.</p>
+<h3 id="ed-develop">Develop</h3>
+<p>The source compares several solution families:</p>
+<ul>
+<li><strong>A — prompt with URLs:</strong> cheapest baseline, weak provenance/structure.</li>
+<li><strong>B — VLM moodboard summary:</strong> useful compression, still opaque and unstable.</li>
+<li><strong>C — component/reference RAG:</strong> better retrieval, incomplete composition semantics.</li>
+<li><strong>D — Inspiration Compiler:</strong> principal proposal; typed IR + composition + provenance.</li>
+<li><strong>E — personal taste model:</strong> later personalization layer.</li>
+<li><strong>F — continuous renovator:</strong> long-horizon destination requiring strong evidence and change budgets.</li>
+</ul>
+<h3 id="ed-deliver">Deliver</h3>
+<p>Autonomy evolves through an observer, PR copilot, limited autonomous canary, bounded renovator, and only later preference-driven renewal. The roadmap deliberately separates building trustworthy capture/evaluation from granting broader action authority.</p>
+</section>
+<section class="section content"><h2 id="ed-11-10-proposed-architecture-inspiration-compiler">11.10 Proposed architecture: Inspiration Compiler</h2>
+<h3 id="ed-logical-flow">Logical flow</h3>
+<pre><code class="language-text">Reference Manifest
+        ↓
+Policy / eligibility check
+        ↓
+Isolated Capture
+        ↓
+Reference IR + provenance
+        ↓
+Multi-granular index
+        ↓
+Diversity-aware retrieval
+        ↓
+Composition Plan
+        ↓
+Local Design DNA + component inventory
+        ↓
+Candidate generation
+        ↓
+Render / interaction / evaluation mesh
+        ↓
+Originality + provenance firewall
+        ↓
+PR / rollout / learning
+</code></pre>
+<h3 id="ed-reference-manifest">Reference Manifest</h3>
+<p>A manifest gives the system explicit source intent. Conceptual fields include source URL/id, purpose, allowed influence dimensions, negative/positive reference, permission/risk classification, capture policy, and expected freshness.</p>
+<h3 id="ed-safe-capture">Safe capture</h3>
+<p>The historical security posture includes:</p>
+<ul>
+<li>validate URL/domain/DNS/redirects against SSRF-style abuse;</li>
+<li>ephemeral browser context;</li>
+<li>no logged-in state, extensions, or secrets by default;</li>
+<li>block uploads/downloads and external mutations unless explicitly necessary;</li>
+<li>collect only required screenshot, accessibility tree, sanitized DOM/computed-style metadata, and bounded interaction evidence;</li>
+<li>taint outputs derived from untrusted sources;</li>
+<li>use retention/TTL for raw captures;</li>
+<li>never treat instructions inside a reference as harness instructions.</li>
+</ul>
+<h3 id="ed-reference-ir">Reference IR</h3>
+<p>The IR distinguishes <strong>observed</strong> from <strong>interpreted</strong> properties and records confidence. It favors relative structure—hierarchy, role, density, relationships—over unexamined literal copying.</p>
+<h3 id="ed-index-and-retrieval">Index and retrieval</h3>
+<p>The source proposes a conceptual ranking objective:</p>
+<pre><code class="language-text">S(r,q) = w1·R + w2·Q + w3·N + w4·F + w5·D − w6·L − w7·K
+</code></pre>
+<p>where the terms represent relevance, quality, novelty, preference fit, domain compatibility, literal proximity/dominance, and policy/security risk. The formula is a research sketch, not a calibrated production model.</p>
+<p>MMR/submodular-style selection is proposed to balance relevance and diversity. A healthy reference set may intentionally include a global-structure example, a content/hierarchy example, a local-component example, a serendipitous analog, and a negative reference.</p>
+<h3 id="ed-composition-plan">Composition Plan</h3>
+<p>The plan states which source can influence which dimension and how strongly. A candidate should be able to answer why its navigation came from one reference while its density or component pattern came from another. Dominance limits reduce accidental whole-product imitation.</p>
+<h3 id="ed-local-design-dna">Local Design DNA</h3>
+<p>Design DNA represents durable local product identity: typography roles, spacing/density, shape, color semantics, component conventions, content tone, motion principles, navigation style, and explicitly protected brand invariants. It is versioned and can evolve, but references do not overwrite it implicitly.</p>
+<h3 id="ed-generation-and-refinement">Generation and refinement</h3>
+<p>Candidates are implemented through local tokens/components where possible. Multiple structural directions are useful when the Composition Plan leaves real degrees of freedom. Render feedback should drive localized repair.</p>
+<h3 id="ed-evaluation-mesh">Evaluation mesh</h3>
+<p>The historical mesh includes build, interaction, layout, accessibility, performance, design-system conformance, intent, diversity, originality/proximity, security, and product outcome. No single judge owns all dimensions.</p>
+<h3 id="ed-rollout-and-learning">Rollout and learning</h3>
+<p>Eligible changes progress through PR/preview and, for sufficiently qualified low-risk areas, canary/feature flag. Learning comes from accepted/rejected alternatives, subsequent edits, task outcomes, and rollback—not merely from a model declaring its own design successful.</p>
+</section>
+<section class="section content"><h2 id="ed-11-11-proposal-cards-reference-driven-ui">11.11 Proposal cards — Reference-driven UI</h2>
+<h3 id="ed-proposal-1-inspiration-compiler">Proposal 1 — Inspiration Compiler</h3>
+<p>The end-to-end typed pipeline above. Its main novelty is making inspiration <strong>explainable and auditable</strong> rather than prompt ambience.</p>
+<h3 id="ed-proposal-2-multi-granular-diversity-aware-rag">Proposal 2 — Multi-granular, diversity-aware RAG</h3>
+<p>Retrieve at page, region, component, interaction, and concept levels while explicitly rewarding useful diversity. Compare top-1, top-k, MMR, typed selection, and analogical retrieval.</p>
+<h3 id="ed-proposal-3-dimension-specific-composition-planner">Proposal 3 — Dimension-specific Composition Planner</h3>
+<p>Bind sources to influence dimensions and dominance ceilings. Measure whether this improves coherence and reduces over-proximity versus free-form multi-reference prompting.</p>
+<h3 id="ed-proposal-4-originality-and-provenance-firewall">Proposal 4 — Originality and Provenance Firewall</h3>
+<p>Combine provenance, asset/text reuse checks, structural/perceptual proximity, concentration of influence, and policy rules. The firewall should abstain/escalate where the metric is not reliable enough; it does not issue legal judgments.</p>
+<h3 id="ed-proposal-5-secure-policy-controlled-reference-capturer">Proposal 5 — Secure, policy-controlled Reference Capturer</h3>
+<p>Treat arbitrary references as hostile external content. Use isolated capture, minimal network/data authority, taint, TTL, and explicit source policy.</p>
+<h3 id="ed-proposal-6-personal-taste-model-from-sparse-feedback">Proposal 6 — Personal Taste Model from Sparse Feedback</h3>
+<p>Learn preferences from choices and edits while preserving uncertainty, diversity, decay, and separation between individual taste and product/brand identity.</p>
+<h3 id="ed-proposal-7-autonomous-renovator-with-change-budget">Proposal 7 — Autonomous Renovator with Change Budget</h3>
+<p>Continuously identify eligible UX debt and open bounded improvements, constrained by product invariants, evidence, risk class, maximum change magnitude, canary, and rollback. This is a later-stage proposal, not an initial capability.</p>
+<h3 id="ed-proposal-8-reference-evaluation-arena-gold-set">Proposal 8 — Reference Evaluation Arena / Gold Set</h3>
+<p>A curated set of tasks, references, expected influence boundaries, adversarial cases, and human judgments used to evaluate retrieval, composition, originality, and safety before broad autonomy.</p>
+</section>
+<section class="section content"><h2 id="ed-11-12-prioritization">11.12 Prioritization</h2>
+<p>The source prioritizes foundations over autonomy:</p>
+<ol>
+<li>gold evaluation arena;</li>
+<li>isolated capture + source policy;</li>
+<li>minimal Reference IR;</li>
+<li>local Design DNA/component inventory;</li>
+<li>multi-granular retrieval;</li>
+<li>composition planner;</li>
+<li>originality/provenance firewall;</li>
+<li>calibrated taste learning;</li>
+<li>bounded autonomous renovation.</li>
+</ol>
+<p>It explicitly would <strong>not</strong> start by building a crawler that indiscriminately indexes the web, a universal beauty score, or a fully autonomous continuous redesign agent.</p>
+</section>
+<section class="section content"><h2 id="ed-11-13-experiments-and-ablations">11.13 Experiments and ablations</h2>
+<ul>
+<li><strong>Experiment 0 — Gold set:</strong> create representative reference-driven tasks with human characterization.</li>
+<li><strong>Experiment 1 — Reference format:</strong> URLs-only vs screenshot vs VLM summary vs structured IR vs IR + local design-system context.</li>
+<li><strong>Experiment 2 — Retrieval:</strong> top-1 vs top-k vs MMR/diverse vs typed/multi-granular retrieval.</li>
+<li><strong>Experiment 3 — IR ablation:</strong> remove behavior, provenance, hierarchy, confidence, or local-component mapping to identify what matters.</li>
+<li><strong>Experiment 4 — Composition/dominance:</strong> free-form multi-reference prompting vs explicit dimension binding and dominance ceilings.</li>
+<li><strong>Experiment 5 — Firewall calibration:</strong> planted near-copy, common convention, transformed pattern, distributed-copy, and benign-similarity cases.</li>
+<li><strong>Experiment 6 — Taste learning:</strong> static preference prompt vs sparse uncertainty-aware model, measuring acceptance and diversity collapse.</li>
+<li><strong>Experiment 7 — Existing-SaaS autonomy:</strong> observer vs PR copilot vs bounded canary, measuring accepted value, regressions, rollback, and churn.</li>
+<li><strong>Experiment 8 — Adversarial security:</strong> prompt injection, redirect abuse, private-resource targeting, exfiltration attempts, malicious assets, and reference poisoning.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-11-14-metrics">11.14 Metrics</h2>
+<h3 id="ed-retrieval">Retrieval</h3>
+<ul>
+<li>semantic relevance;</li>
+<li>diversity/coverage;</li>
+<li>reference concentration;</li>
+<li>novelty;</li>
+<li>retrieval precision for intended influence dimensions.</li>
+</ul>
+<h3 id="ed-visual-and-structural-result">Visual and structural result</h3>
+<ul>
+<li>local design-system conformance;</li>
+<li>layout/region correctness;</li>
+<li>semantic visual differences;</li>
+<li>cross-viewport robustness;</li>
+<li>human preference with uncertainty.</li>
+</ul>
+<h3 id="ed-ux-and-engineering">UX and engineering</h3>
+<ul>
+<li>task completion;</li>
+<li>interaction defects;</li>
+<li>accessibility;</li>
+<li>component reuse;</li>
+<li>repair iterations;</li>
+<li>maintainability/rework.</li>
+</ul>
+<h3 id="ed-originality-compliance">Originality/compliance</h3>
+<ul>
+<li>provenance coverage;</li>
+<li>asset/text copying incidents;</li>
+<li>structural/perceptual proximity;</li>
+<li>dominance concentration;</li>
+<li>human-review escalation quality.</li>
+</ul>
+<h3 id="ed-security">Security</h3>
+<ul>
+<li>hostile-reference attack success;</li>
+<li>unauthorized accesses/effects;</li>
+<li>tainted-data propagation;</li>
+<li>secrets/private-data exposure.</li>
+</ul>
+<h3 id="ed-economics">Economics</h3>
+<ul>
+<li>model/browser calls;</li>
+<li>tokens;</li>
+<li>wall-clock time;</li>
+<li>cost per accepted change;</li>
+<li>cost per defect avoided or discovered.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-11-15-reference-driven-red-team">11.15 Reference-driven red team</h2>
+<p>The source explicitly attacks the proposal from ten directions:</p>
+<ol>
+<li>“I like Linear, Stripe, and Notion” collapses into the same generic SaaS template.</li>
+<li>Distributed copying reconstructs a distinctive product from fragments.</li>
+<li>Multi-source laundering hides the true dominant influence.</li>
+<li>Visual/web prompt injection manipulates the agent.</li>
+<li>Aesthetic metrics reward dark patterns.</li>
+<li>A judge prefers a sophisticated render that is functionally broken.</li>
+<li>Taste-profile poisoning or accidental feedback corrupts preference learning.</li>
+<li>A reference changes after it influenced the design.</li>
+<li>Third-party content persists in embeddings or caches.</li>
+<li>“No intervention” becomes loss of brand identity and uncontrolled churn.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-11-16-pre-mortem">11.16 Pre-mortem</h2>
+<p>The system is assumed to have failed after 12–24 months. Likely causes:</p>
+<ul>
+<li>screenshots looked good but real usage was poor;</li>
+<li>automation cost more than focused human review;</li>
+<li>a copying incident destroyed trust;</li>
+<li>taste learning became a caricature;</li>
+<li>the crawler became a major attack surface;</li>
+<li>the reference ontology became bureaucracy;</li>
+<li>there was no trustworthy evaluation truth.</li>
+</ul>
+<p>For each cause the source recommends an early warning metric and an abandonment/pivot trigger.</p>
+</section>
+<section class="section content"><h2 id="ed-11-17-reference-driven-roadmap">11.17 Reference-driven roadmap</h2>
+<h3 id="ed-030-days-safe-proof-of-value">0–30 days — safe proof of value</h3>
+<ul>
+<li>curated gold reference tasks;</li>
+<li>explicit source policy;</li>
+<li>isolated capture proof;</li>
+<li>minimal Reference IR;</li>
+<li>provenance end-to-end;</li>
+<li>human-only approval for generated design changes.</li>
+</ul>
+<h3 id="ed-3190-days-implementation-copilot">31–90 days — implementation copilot</h3>
+<ul>
+<li>typed/multi-granular retrieval;</li>
+<li>local Design DNA;</li>
+<li>composition plan;</li>
+<li>component-first generation;</li>
+<li>evidence report and PR workflow;</li>
+<li>originality/proximity shadow checks.</li>
+</ul>
+<h3 id="ed-36-months-calibration-and-moderate-scale">3–6 months — calibration and moderate scale</h3>
+<ul>
+<li>retrieval/composition ablations;</li>
+<li>firewall calibration;</li>
+<li>semantic regression;</li>
+<li>selective automatic localized repair;</li>
+<li>bounded low-risk canaries.</li>
+</ul>
+<h3 id="ed-612-months-personalization-and-renewal">6–12 months — personalization and renewal</h3>
+<ul>
+<li>sparse preference learning;</li>
+<li>change budgets;</li>
+<li>bounded renovator;</li>
+<li>longer-horizon product outcome analysis.</li>
+</ul>
+<h3 id="ed-12-months-research">12+ months — research</h3>
+<ul>
+<li>robust originality metrics;</li>
+<li>causal aesthetic→behavior relationship;</li>
+<li>motion/temporal reference semantics;</li>
+<li>cross-surface transfer;</li>
+<li>independent evaluation of commercial design agents;</li>
+<li>ecological/operational economics.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-11-18-remaining-research-gaps">11.18 Remaining research gaps</h2>
+<ol>
+<li>transfer from mobile-app reference research to complex web/SaaS;</li>
+<li>operational definition of originality that is useful but not overblocking;</li>
+<li>aesthetic quality versus behavioral outcome;</li>
+<li>personal taste versus brand taste;</li>
+<li>motion and temporality as first-class reference dimensions;</li>
+<li>ecological and operational cost of repeated multimodal generation/evaluation;</li>
+<li>adapting to design trends without eroding product identity;</li>
+<li>independent product evaluation outside vendor benchmarks.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-11-19-practical-historical-recommendation">11.19 Practical historical recommendation</h2>
+<p>If the goal is to improve an existing SaaS immediately, the source recommends a conservative sequence:</p>
+<ol>
+<li>inventory local design tokens/components and critical journeys;</li>
+<li>define a UI Contract and protected product invariants;</li>
+<li>curate a small number of public/authorized references with explicit influence roles;</li>
+<li>capture them in isolation and compile a minimal Reference IR;</li>
+<li>create several structural alternatives;</li>
+<li>implement through local components;</li>
+<li>run deterministic/interaction/a11y gates before aesthetic critique;</li>
+<li>produce provenance and similarity/originality evidence;</li>
+<li>ship through PR/preview and only later canary;</li>
+<li>learn from accepted/rejected changes without erasing uncertainty.</li>
+</ol>
+<p>The historical autonomy contract remains risk-based: reversible cosmetic/system-consistency work can progress further automatically; sensitive workflows and high-impact releases cannot.</p>
+</section>
+<section class="section content"><h2 id="ed-11-20-differentiation-opportunities">11.20 Differentiation opportunities</h2>
+<p>The source records several product/research opportunities that were not central enough to become immediate implementation requirements:</p>
+<ul>
+<li><strong>Explainable inspiration diff:</strong> show exactly which reference influenced which dimension and what was transformed.</li>
+<li><strong>References as tests:</strong> references constrain or validate desired properties rather than merely seed generation.</li>
+<li><strong>Taste with uncertainty:</strong> store preferences probabilistically and decay weak evidence.</li>
+<li><strong>Diversity budget:</strong> explicitly control how concentrated the inspiration set and output space may become.</li>
+<li><strong>Counterfactual renewal:</strong> ask whether a redesign would still be proposed if the fashionable references were removed.</li>
+<li><strong>Licensed/curated library:</strong> reduce permission uncertainty and improve benchmark reproducibility.</li>
+<li><strong>Anti-template mode:</strong> penalize overused compositions and reward useful structural novelty.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-11-21-part-ii-synthesis">11.21 Part II synthesis</h2>
+<p>The historical dossier’s central product statement is:</p>
+<blockquote>
+<p><strong>Do not make references a prompt attachment. Compile them into an auditable, typed, diverse, provenance-aware design influence that is expressed through the local system and evaluated for functionality, originality, security, and product fit.</strong></p>
+</blockquote>
+<h1>12. Consolidated conclusion</h1>
+<p>The two dossiers converge on a single systems view.</p>
+<p>A reliable agentic UI pipeline does not begin with “which model designs best?” It begins with <strong>what work must be accomplished, what product/design knowledge is authoritative, what references are admissible, what effects are allowed, what evidence is required, and what uncertainty remains</strong>.</p>
+<p>The research therefore favors:</p>
+<pre><code class="language-text">Intent
+  + local executable design knowledge
+  + governed reference evidence
+        ↓
+compiled task representation
+        ↓
+diverse but bounded generation
+        ↓
+component-first implementation
+        ↓
+interaction-aware execution
+        ↓
+ordered evidence gates
+        ↓
+localized repair / abstention / human review
+        ↓
+reversible delivery
+        ↓
+learning from real choices and outcomes
+</code></pre>
+<p>Historically, the source used terms such as <strong>Context Compiler, UI Intent IR, Design DNA, Inspiration Compiler, Multi-Oracle Gates, Journey Graph, and Originality Firewall</strong>. In the present tare.tools program these should be treated as <strong>historical semantic roles and research proposals</strong> until reconciled against current canonical bounded contexts and contracts. This English edition intentionally does not perform that reconciliation.</p>
+<h1>13. TL;DR</h1>
+<ul>
+<li>Agents can already generate attractive interface artifacts, but visual synthesis is not equivalent to demonstrated UX.</li>
+<li>The design system should act as executable grammar.</li>
+<li>External inspiration should be compiled into typed, provenance-aware design influence rather than copied or attached as raw screenshots.</li>
+<li>Generate diversity before convergence to reduce fixation.</li>
+<li>Interaction, accessibility, robustness, performance, originality, and product fit require different evidence producers.</li>
+<li>Functional/security gates outrank aesthetic preference.</li>
+<li>Synthetic users are useful scouts, not substitutes for representative users.</li>
+<li>Browser/reference capture is a security boundary.</li>
+<li>Localized repair is preferable to repeated whole-page regeneration when the defect can be isolated.</li>
+<li>Autonomy should scale with reversibility, evidence quality, and risk.</li>
+<li>Continuous autonomous renovation is a later-stage capability requiring change budgets, canary, rollback, and trustworthy outcome evidence.</li>
+</ul>
+<h1>14. Future research pointers preserved from the historical source</h1>
+<p>These pointers are preserved for later conversations. They are <strong>historical/open research directions</strong>, not automatically CURRENT project gaps:</p>
+<ol>
+<li><strong>Interaction-aware UI generation and testing</strong> — executable state/transition inference, UI2App-like evaluation, and state coverage.</li>
+<li><strong>Semantic visual regression</strong> — explaining visual changes, localizing causes, and distinguishing intended responsive changes from defects.</li>
+<li><strong>Contextual confinement for design/reference agents</strong> — least privilege, taint, isolation, prompt-injection resilience, and trajectory safety.</li>
+<li><strong>Creativity, seeding, fixation, and diversity budgets</strong> — when examples improve ideation versus narrow the search space.</li>
+<li><strong>UX evaluator metrology</strong> — calibration and validity of multimodal judges, accessibility scanners, browser agents, synthetic users, and humans.</li>
+<li><strong>Journey graph / digital-twin induction</strong> — extracting durable interaction/state models from code and traces without excessive manual modeling.</li>
+<li><strong>Value-of-information routing for assurance</strong> — deciding when an additional critic, browser agent, specialist, or human adds enough marginal evidence.</li>
+<li><strong>Operational originality</strong> — multi-source proximity, provenance, common conventions, and defensible abstention thresholds.</li>
+<li><strong>Preference learning with uncertainty</strong> — individual taste, brand identity, decay, disagreement, poisoning, and negative preference memory.</li>
+<li><strong>Workflow-level UI safety</strong> — unsafe outcomes emerging across multiple apparently benign tool/action steps.</li>
+<li><strong>Agent-friendly + human-friendly interface contracts</strong> — especially CLI/TUI and machine-readable operational surfaces.</li>
+<li><strong>Causal UX outcomes</strong> — when aesthetic or interaction changes actually improve retention, task success, trust, or business outcomes.</li>
+<li><strong>Economic and ecological UX automation</strong> — cost-to-trust, render/judge/model budgets, and whether automated evaluation beats focused human review.</li>
+<li><strong>Cross-surface design transfer</strong> — web, mobile, desktop, dashboards, CLI/TUI, and motion/temporal interaction.</li>
+<li><strong>Independent evaluation of design-agent products</strong> — avoiding vendor self-benchmarking as the only evidence.</li>
+</ol>
+<h1>15. Bibliography and source links preserved from the historical dossier</h1>
+<p>The following bibliography preserves the external source links embedded in the July 13, 2026 source. Titles and publication state remain historical; this editorial translation does not silently revalidate them. Duplicate URLs were collapsed for navigation.</p>
+<ol>
+<li><a href="https://aclanthology.org/2025.naacl-long.199/">Design2Code</a></li>
+<li><a href="https://arxiv.org/abs/2411.03292">Interaction2Code</a></li>
+<li><a href="https://arxiv.org/abs/2506.13832">FrontendBench</a></li>
+<li><a href="https://arxiv.org/abs/2505.17399">FullFront</a></li>
+<li><a href="https://arxiv.org/abs/2506.06251">DesignBench</a></li>
+<li><a href="https://arxiv.org/abs/2501.17799">S&amp;UI</a></li>
+<li><a href="https://arxiv.org/abs/2601.18759">UI Remix</a></li>
+<li><a href="https://arxiv.org/abs/2509.07334">SpecifyUI</a></li>
+<li><a href="https://arxiv.org/abs/2404.12500">UIClip</a></li>
+<li><a href="https://www.designtokens.org/TR/2025.10/format/">DTCG 2025.10</a></li>
+<li><a href="https://storybook.js.org/docs/get-started/why-storybook">Storybook</a></li>
+<li><a href="https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect">Figma Code Connect</a></li>
+<li><a href="https://v0.app/docs/design-systems-2">v0 Design Systems 2.0</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/1978942.1979359">Prototyping Dynamics</a></li>
+<li><a href="https://arxiv.org/abs/2403.11164">Design Fixation</a></li>
+<li><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">OWASP Prompt Injection</a></li>
+<li><a href="https://www.anthropic.com/engineering/claude-code-sandboxing">Anthropic sandboxing</a></li>
+<li><a href="https://aclanthology.org/2026.acl-long.1750/">Dashboard2Code</a></li>
+<li><a href="https://arxiv.org/abs/2607.06306">UI2App</a></li>
+<li><a href="https://arxiv.org/abs/2607.08147">Prismata</a></li>
+<li><a href="https://arxiv.org/abs/2607.03968">Workflow-Level Jailbreak Construction</a></li>
+<li><a href="https://arxiv.org/abs/2607.07522">Two-player Alternate Uses Test</a></li>
+<li><a href="https://arxiv.org/abs/2607.01728">Beyond Pixel Diffs / WUICC-bench</a></li>
+<li><a href="https://arxiv.org/abs/2509.10652">Vibe Coding in Product Teams</a></li>
+<li><a href="https://aclanthology.org/2024.naacl-long.417/">UICoder</a></li>
+<li><a href="https://arxiv.org/abs/2406.16386">DCGen</a></li>
+<li><a href="https://arxiv.org/abs/2505.09904">UICopilot</a></li>
+<li><a href="https://aclanthology.org/2025.findings-emnlp.150/">UIOrchestra</a></li>
+<li><a href="https://arxiv.org/abs/2511.08195">UI2Code-N</a></li>
+<li><a href="https://arxiv.org/abs/2410.18362">WAFFLE</a></li>
+<li><a href="https://arxiv.org/abs/2406.07791">LLM judge position bias</a></li>
+<li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a></li>
+<li><a href="https://arxiv.org/abs/2502.12561">UXAgent</a></li>
+<li><a href="https://arxiv.org/abs/2601.17087">Lost in Simulation</a></li>
+<li><a href="https://arxiv.org/abs/2603.11245">Mind the Sim2Real Gap</a></li>
+<li><a href="https://arxiv.org/abs/2605.20204">RealUserSim</a></li>
+<li><a href="https://www.w3.org/WAI/ARIA/apg/">ARIA APG</a></li>
+<li><a href="https://arxiv.org/abs/2504.18575">WASP</a></li>
+<li><a href="https://www.anthropic.com/research/prompt-injection-defenses">Anthropic browser defenses</a></li>
+<li><a href="https://www.iso.org/standard/77520.html">ISO 9241-210:2019</a></li>
+<li><a href="https://digital.ahrq.gov/sites/default/files/docs/survey/systemusabilityscale%2528sus%2529_comp%255B1%255D.pdf">Brooke, 1996</a></li>
+<li><a href="https://research.google.com/pubs/archive/36299.pdf">Rodden, Hutchinson e Fu, 2010</a></li>
+<li><a href="https://www.nngroup.com/articles/ten-usability-heuristics/">Nielsen</a></li>
+<li><a href="https://www.cs.umd.edu/users/ben/goldenrules.html">Shneiderman</a></li>
+<li><a href="https://www.w3.org/community/design-tokens/2025/10/28/design-tokens-specification-reaches-first-stable-version/">DTCG</a></li>
+<li><a href="https://storybook.js.org/docs/writing-tests">Storybook testing</a></li>
+<li><a href="https://www.figma.com/dev-mode/">Figma Dev Mode</a></li>
+<li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/">ARIA APG Patterns</a></li>
+<li><a href="https://www.w3.org/WAI/tutorials/images/complex/">W3C Complex Images</a></li>
+<li><a href="https://web.dev/articles/vitals">Web Vitals</a></li>
+<li><a href="https://vis.csail.mit.edu/pubs/vega-lite/">Vega-Lite</a></li>
+<li><a href="https://clig.dev/">clig.dev</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/standard/commandline/design-guidance">Microsoft CLI guidance</a></li>
+<li><a href="https://arxiv.org/abs/2403.09029">WebSight</a></li>
+<li><a href="https://arxiv.org/abs/2404.06369">WebCode2M</a></li>
+<li><a href="https://aclanthology.org/2025.naacl-long.198/">Sketch2Code</a></li>
+<li><a href="https://aclanthology.org/2026.findings-acl.220/">FrontCoder</a></li>
+<li><a href="https://arxiv.org/abs/2404.07972">OSWorld</a></li>
+<li><a href="https://arxiv.org/abs/2401.13649">VisualWebArena</a></li>
+<li><a href="https://arxiv.org/abs/2412.05467">BrowserGym</a></li>
+<li><a href="https://arxiv.org/abs/2403.07718">WorkArena</a></li>
+<li><a href="https://arxiv.org/abs/2405.14573">AndroidWorld</a></li>
+<li><a href="https://arxiv.org/abs/2606.29537">OSWorld 2.0</a></li>
+<li><a href="https://openreview.net/forum?id=a7Qa4CcHak">Terminal-Bench</a></li>
+<li><a href="https://cispa.de/en/research/publications/104620-terminal-bench-benchmarking-agents-on-hard-realistic-tasks-in-command-line-interfaces">CISPA summary</a></li>
+<li><a href="https://v0.app/">v0</a></li>
+<li><a href="https://vercel.com/blog/ai-sdk-3-generative-ui">Vercel AI SDK</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/">Google Stitch</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/">DESIGN.md do Stitch</a></li>
+<li><a href="https://replit.com/blog/introducing-agent-4-built-for-creativity">Replit Agent 4</a></li>
+<li><a href="https://arxiv.org/abs/2604.25914">DV-World</a></li>
+<li><a href="https://arxiv.org/abs/2604.06742">CLI-Tool-Bench</a></li>
+<li><a href="https://arxiv.org/abs/2605.28116">Context-aware prompt injection</a></li>
+<li><a href="https://arxiv.org/abs/2606.23130">VibeApps/VibeVulns</a></li>
+<li><a href="https://arxiv.org/abs/2509.26072">shortcut bias</a></li>
+<li><a href="https://arxiv.org/abs/2509.20293">benchmark validity</a></li>
+<li><a href="https://storybook.js.org/docs/writing-tests/accessibility-testing">Storybook a11y</a></li>
+<li><a href="https://arxiv.org/abs/2502.10884">CodeA11y</a></li>
+<li><a href="https://arxiv.org/abs/2501.04543">AI personas</a></li>
+<li><a href="https://arxiv.org/abs/2505.23695">Data-to-Dashboard</a></li>
+<li><a href="https://arxiv.org/abs/2504.11281">Fine-print attacks</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/build-with-claude/computer-use">Anthropic computer use</a></li>
+<li><a href="https://openai.com/index/operator-system-card/">OpenAI Operator System Card</a></li>
+<li><a href="https://playwright.dev/docs/test-snapshots">Playwright</a></li>
+<li><a href="https://arxiv.org/abs/2601.22288">PersonaCite</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/3643834.3660720">Generative AI in UX Design and Research</a></li>
+<li><a href="https://playwright.dev/docs/accessibility-testing">Playwright accessibility</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/3706599.3720079">Link</a></li>
+<li><a href="https://aclanthology.org/2025.acl-long.1208/">Link</a></li>
+<li><a href="https://arxiv.org/abs/2504.04927">Link</a></li>
+<li><a href="https://www.engr.psu.edu/britelab/chi2009final.pdf">Herring et al., CHI 2009</a></li>
+<li><a href="https://hci.stanford.edu/publications/2010/examples/lee-chi2010-examples.pdf">Designing with Interactive Example Galleries, CHI 2010</a></li>
+<li><a href="https://arxiv.org/abs/2108.03353">Screen2Words</a></li>
+<li><a href="https://hci.stanford.edu/publications/2011/Bricolage/Bricolage-CHI2011.pdf">Bricolage, CHI 2011</a></li>
+<li><a href="https://arxiv.org/abs/2309.09506">LayoutNUWA</a></li>
+<li><a href="https://arxiv.org/abs/2510.26141">StructLayoutFormer</a></li>
+<li><a href="https://aclanthology.org/2025.emnlp-main.458.pdf">SlideCoder, EMNLP 2025</a></li>
+<li><a href="https://help.figma.com/hc/en-us/articles/38978644498199-AI-workflows-collection-Best-practices-to-help-Figma-AI-understand-your-design-system">Figma: design system para IA</a></li>
+<li><a href="https://interactionmining.org/rico">Rico</a></li>
+<li><a href="https://vis.csail.mit.edu/pubs/webzeitgeist/">Webzeitgeist, CHI 2013</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/2702123.2702149">DesignScape, CHI 2015</a></li>
+<li><a href="https://arxiv.org/abs/2001.05424">Scout, CHI 2020</a></li>
+<li><a href="https://chensivan.github.io/papers/UIST2021_umitation.pdf">Umitation, UIST 2021</a></li>
+<li><a href="https://arxiv.org/abs/2203.03827">GANSpiration</a></li>
+<li><a href="https://arxiv.org/abs/2412.04237">VASCAR</a></li>
+<li><a href="https://arxiv.org/abs/2502.09411">ImageRAG</a></li>
+<li><a href="https://arxiv.org/abs/2501.18748">UIDEC</a></li>
+<li><a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Patil_LayoutGMN_Neural_Graph_Matching_for_Structural_Layout_Similarity_CVPR_2021_paper.pdf">LayoutGMN, CVPR 2021</a></li>
+<li><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Shabani_Visual_Layout_Composer_Image-Vector_Dual_Diffusion_Model_for_Design_Layout_CVPR_2024_paper.pdf">CVPR 2024</a></li>
+<li><a href="https://openaccess.thecvf.com/content/WACV2025/papers/Manandhar_CLASS_Conditional_Latent_Architecture_for_Search_and_Synthesis_of_Design_WACV_2025_paper.pdf">CLASS, WACV 2025</a></li>
+<li><a href="https://arxiv.org/abs/2509.16779">CHI 2026</a></li>
+<li><a href="https://machinelearning.apple.com/research/designer-feedback">Apple ML summary</a></li>
+<li><a href="https://arxiv.org/abs/2601.17614">AlignUI</a></li>
+<li><a href="https://arxiv.org/abs/2604.09876">Efficient Personalization of Generative UIs</a></li>
+<li><a href="https://docs.replit.com/learn/design/canvas">Replit</a></li>
+<li><a href="https://v0.app/docs/figma">v0 Figma</a></li>
+<li><a href="https://help.figma.com/hc/en-us/articles/23870272542231-Use-AI-tools-in-Figma-Design">Figma AI</a></li>
+<li><a href="https://help.figma.com/hc/en-us/articles/37998629035799-Work-with-the-Figma-agent-in-design-files">Figma agent</a></li>
+<li><a href="https://arxiv.org/abs/2501.18588">Inkspire</a></li>
+<li><a href="https://arxiv.org/abs/2602.09423">Rethinking Creativity through Design-by-Analogy</a></li>
+<li><a href="https://aux.engineering.ucsc.edu/publications/Goree_Doosti_Crandall_Su-HomogenizationWebDesign-CHI21.pdf">Homogenization of Web Design, CHI 2021</a></li>
+<li><a href="https://arxiv.org/abs/2601.04126">Scalable Web Environment Synthesis</a></li>
+<li><a href="https://arxiv.org/abs/2505.05026">WiserUI-Bench</a></li>
+<li><a href="https://arxiv.org/abs/2510.08783">MLLM as UI Judge</a></li>
+<li><a href="https://arxiv.org/abs/2510.22373">VisJudge-Bench</a></li>
+<li><a href="https://arxiv.org/abs/2306.09344">DreamSim</a></li>
+<li><a href="https://openai.com/index/clip/">CLIP</a></li>
+<li><a href="https://arxiv.org/abs/2503.08723">limitações geométricas de CLIP</a></li>
+<li><a href="https://arxiv.org/abs/2405.19598">visual similarity anti-phishing</a></li>
+<li><a href="https://arxiv.org/abs/2312.03584">Context Diffusion</a></li>
+<li><a href="https://arxiv.org/abs/2507.15807">Multimodal ICL</a></li>
+<li><a href="https://arxiv.org/abs/2506.02456">Visual Prompt Injection</a></li>
+<li><a href="https://arxiv.org/abs/2505.11717">WebInject</a></li>
+<li><a href="https://www.gov.br/inpi/en/services/software/laws-and-regulations">INPI</a></li>
+<li><a href="https://www.wipo.int/wipolex/en/legislation/details/23318">WIPO Lex — Lei 9.610</a></li>
+<li><a href="https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-3-Generative-AI-Training-Report-Pre-Publication-Version.pdf">USCO Part 3, 2025</a></li>
+<li><a href="https://www.rfc-editor.org/info/rfc9309/">RFC 9309</a></li>
+<li><a href="https://www.w3.org/TR/prov-o/">W3C PROV-O</a></li>
+<li><a href="https://spec.c2pa.org/specifications/specifications/2.4/index.html">C2PA</a></li>
+<li><a href="https://arxiv.org/abs/2508.20410">UI-Bench</a></li>
+<li><a href="https://arxiv.org/abs/2510.23272">OpenDesign</a></li>
+<li><a href="https://faculty.washington.edu/ajko/papers/Swearngin2018Rewire.pdf">PDF</a></li>
+<li><a href="https://people.eecs.berkeley.edu/~bjoern/papers/duan-uicrit-uist2024.pdf">PDF</a></li>
+<li><a href="https://arxiv.org/abs/2412.20071">arXiv</a></li>
+<li><a href="https://arxiv.org/abs/2406.13631">arXiv</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/3582269.3615596">ACM</a></li>
+<li><a href="https://arxiv.org/abs/2604.10575">arXiv</a></li>
+<li><a href="https://arxiv.org/abs/2606.05697">arXiv</a></li>
+<li>Historical placeholder URL preserved from source: <a href="https://example.com/reference">https://example.com/reference</a></li>
+</ol>
+<hr/>
+<p><strong>Editorial provenance note:</strong> this English edition is derived from the private-GitHub historical source and is not a scientific refresh. A future updated research edition should revalidate source status, add newer literature, and record changes as a separate lineage rather than altering this historical translation.</p>
+</section>
+<section class="section content"><h2 id="ed-appendix-a-historical-machine-readable-examples-preserved-from-the-source">Appendix A — Historical machine-readable examples preserved from the source</h2>
+<p>The following three examples are preserved as code/configuration evidence from the historical Portuguese dossier. Keys are intentionally kept stable because they functioned as proposed schemas rather than narrative prose.</p>
+<h3 id="ed-a-1-reference-manifest-example">A.1 Reference Manifest example</h3>
+<pre><code class="language-yaml">version: 1
+references:
+  - id: linear-dashboard
+    url: https://example.com/reference
+    ownership: public-analysis
+    allowed_use: principles-only
+    roles: [density, navigation, microinteraction]
+    dislikes: [dark-only, tiny-body-text]
+    notes: "gosto do foco e da velocidade percebida"
+capture:
+  viewports: [390x844, 1440x1000]
+  authenticated: false
+  retain_raw_days: 7
+policy:
+  max_source_dominance: 0.35
+  third_party_assets: deny
+  require_provenance: true
+</code></pre>
+<h3 id="ed-a-2-reference-ir-example">A.2 Reference IR example</h3>
+<pre><code class="language-json">{
+  "identity": {"source_id": "ref_17", "captured_at": "2026-07-12T12:00:00-03:00"},
+  "policy": {"class": "C", "use": "principles-only", "retain_assets": false},
+  "semantics": {"archetype": "analytics-dashboard", "audience": "ops", "mood": ["precise", "calm"]},
+  "global": {"density": 0.72, "hierarchy": "sidebar+workspace", "content_rhythm": "compact"},
+  "tokens_relative": {"radius": "low", "contrast": "high", "space_scale": "tight"},
+  "regions": [],
+  "components": [],
+  "behaviors": [],
+  "principles": [
+    {"claim": "filters stay adjacent to affected data", "why": "reduces mapping cost"}
+  ]
+}
+</code></pre>
+<h3 id="ed-a-3-composition-plan-example">A.3 Composition-plan example</h3>
+<pre><code class="language-json">{
+  "goal": "reduzir sensação de template no onboarding B2B",
+  "directions": [
+    {
+      "name": "editorial-precise",
+      "global": "ref_02",
+      "dimensions": {
+        "density": [{"source": "ref_11", "weight": 0.25}],
+        "step-navigation": [{"source": "ref_08", "weight": 0.20}],
+        "trust-content": [{"source": "ref_19", "weight": 0.15}]
+      },
+      "local_translation": ["OnboardingShell", "StepNav", "InlineHelp"],
+      "forbidden": ["source logos", "source copy", "identical hero silhouette"]
+    }
+  ]
+}
+</code></pre>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/ux-agents-consolidated-2026-07-13.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ux-agents-consolidated-2026-07-13.en.md</code></li><li>Source SHA-256: <code>3391883cf010da5a21f51c1fbbb6cbe8b8170918c83950be088c27ead042b235</code></li><li>Edition-input SHA-256: <code>a756190c32f5a39858e712e3da158510ffb40d96342a45acd57e90054a187aa1</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

@@ -1,0 +1,324 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research round — dynamic workflows in generative-AI agents — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-phase-0-question-criteria-budget">Phase 0 — Question, criteria, budget</a></li><li class="h2"><a href="#ed-phase-1-evidence-matrix-verified-2026-07-12">Phase 1 — Evidence matrix (verified 2026-07-12)</a></li><li class="h2"><a href="#ed-phase-2-briefs-and-gate">Phase 2 — Briefs and gate</a></li><li class="h2"><a href="#ed-phase-3-wave-1-divergence">Phase 3 — Wave 1 (divergence)</a></li><li class="h2"><a href="#ed-phase-4-wave-2-critique-done">Phase 4 — Wave 2 (critique) — done</a></li><li class="h2"><a href="#ed-phase-5-portfolio-backlog">Phase 5 — Portfolio &amp; backlog</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research round — dynamic workflows in generative-AI agents</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">NATIVE_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>95c18133e06e7980ab10…</span></div><div><b>Edition SHA-256</b><span>95c18133e06e7980ab10…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English source reformatted without semantic refresh.</div></section>
+<section class="section content">
+<p>Round opened 2026-07-12 by the <code>research</code> skill (SPEC-119). Orchestrator: overseer session
+(running in parallel with the 4 CE-batch worktree implementers). Primary evidence: the owner's
+study (2026-07-12) applied to a multi-agent/multi-vendor harness — thesis: the field is moving
+from hand-written <strong>static</strong> workflows to <strong>Agentic Computation Graphs</strong> that can be selected /
+synthesized / pruned / routed / replanned; the template vs realized-graph vs trace distinction
+is the evaluative axis; "more agents = better" is <strong>false</strong> (single-agent matches or beats
+multi-agent under equal budget except when subtasks are genuinely independent / parallel / the
+context-isolation win outweighs coordination) → <strong>topology must be routable</strong> (single ↔ multi ↔
+specialized-workflow). Central recommendation: a <strong>hybrid, restricted orchestrator</strong> — a
+deterministic, durable, auditable core runs a typed graph; the LLM only fills/chooses/revises
+explicitly-dynamic "slots" inside policies/budgets/gates (Blueprint-First-Model-Second).</p>
+</section>
+<section class="section content"><h2 id="ed-phase-0-question-criteria-budget">Phase 0 — Question, criteria, budget</h2>
+<p><strong>Question.</strong> Which dynamic-workflow capabilities should THIS harness adopt, given it already
+owns a strong deterministic control plane (DAG fork-join/map-reduce, async supervisor, circuit
+breaker, locks/leases, SPEC-115 mid-workflow failover, model routing, token-audit/budgets), and
+given the study's OWN deterministic-first thesis (the runtime owns graph/schedule/budget/policy;
+the LLM only the semantically-hard slot)?</p>
+<p><strong>Success criteria.</strong></p>
+<ul>
+<li>Backlog of buildable items, each mapped to a NAMED gap + a concrete integration seam
+(file/module) + ONE metric (graph-shape / cost / risk / result).</li>
+<li>Deterministic-first: prefer a typed IR, a deterministic router with an LLM-only estimate,
+decompose-on-demand (only when the executor fails), dependency-DAG dispatch, shadow-mode
+promotion — over free-running runtime improvisation or learned self-modification.</li>
+<li>Every item respects our invariants: eviction ≠ deletion, no resident daemon, stdlib-only
+core, GUI writes no state, verify-on-demand, summaries are a view not the source of truth,
+a new/adapted workflow is a <strong>software change</strong> (test/review/rollback — ties SPEC-116).</li>
+<li>Critique must reject over-engineering: single-agent is ALWAYS the baseline (the study's own
+finding); topology/decomposition adaptation must pay for its coordination cost; replanning ≠
+guaranteed self-correction; LLM-as-judge ≠ ground truth; observation must pay for itself.</li>
+</ul>
+<p><strong>Declared budget.</strong> claude executor; 1 divergence wave (5 ideators) + 1 critique wave (4
+critics); research-profile budgets; no wave 3.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-1-evidence-matrix-verified-2026-07-12">Phase 1 — Evidence matrix (verified 2026-07-12)</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>prov</th>
+<th>conf</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Template vs realized-graph vs trace is the right decomposition of "dynamic"; Agentic Computation Graph (ACG) formalization</td>
+<td>[web] Yue et al. 2026, arXiv:2603.22386</td>
+<td>web</td>
+<td>moderada</td>
+<td>preprint</td>
+</tr>
+<tr>
+<td>Single-agent matches/beats multi-agent under equal reasoning budget on multi-hop; MAS wins only with independent subtasks / real specialization / useful parallelism / context-isolation payoff</td>
+<td>[web] Tran &amp; Kiela 2026 (arXiv:2604.02460); Su &amp; Wu 2026 (arXiv:2602.08272)</td>
+<td>web</td>
+<td>moderada</td>
+<td>preprint</td>
+</tr>
+<tr>
+<td>A hybrid router single-agent↔multi-agent improved accuracy AND cut cost in the authors' scenarios → topology should be routable</td>
+<td>[web] Gao et al. 2025, arXiv:2505.18286</td>
+<td>web</td>
+<td>moderada</td>
+<td>preprint</td>
+</tr>
+<tr>
+<td>Decompose only when the executor can't complete a subtask (recursive, on-demand) beats max decomposition</td>
+<td>[web] ADaPT, Prasad et al. 2024, Findings NAACL</td>
+<td>web</td>
+<td>forte</td>
+<td>protótipo reproduzível</td>
+</tr>
+<tr>
+<td>Compile a plan into a dependency DAG, dispatch independent ops in parallel; separate planner/dispatch/executor; ~3.7× latency, ~6.7× cost, ~9% acc vs ReAct (authors' tests)</td>
+<td>[web] LLMCompiler, Kim et al. 2024, ICML</td>
+<td>web</td>
+<td>forte</td>
+<td>protótipo sólido</td>
+</tr>
+<tr>
+<td>Decouple deterministic procedure (blueprint) from LLM generation in bounded subtasks; +10.1pp over authors' baseline on τ-bench (benchmark-specific)</td>
+<td>[web] Blueprint-First-Model-Second, Qiu et al. 2025, arXiv:2508.02721</td>
+<td>web</td>
+<td>moderada</td>
+<td>preprint</td>
+</tr>
+<tr>
+<td>Agents as computation graphs whose edges are info flow; prompts/connectivity optimizable</td>
+<td>[web] GPTSwarm, Zhuge et al. 2024, ICLR</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Workflow patterns + Petri-net soundness/deadlock/reachability transfer; agents only make transition conditions probabilistic</td>
+<td>[web] van der Aalst et al. 2003</td>
+<td>web</td>
+<td>forte</td>
+<td>consolidado</td>
+</tr>
+<tr>
+<td>Distributed-systems primitives (event sourcing, leases, bulkheads, circuit breakers, idempotency, sagas/compensation, structured cancellation, per-tenant isolation) are the durable core</td>
+<td>[web] study §3.5</td>
+<td>web</td>
+<td>forte</td>
+<td>consolidado</td>
+</tr>
+<tr>
+<td>Autonomous persistent workflow changes must be treated as software: test, review, rollback, shadow/promote — not free self-improvement</td>
+<td>[web] study §2/§5; risk list</td>
+<td>web</td>
+<td>forte</td>
+<td>judgment (norma)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Baseline — what the harness ALREADY has (do NOT rebuild):</strong> workflow DAG (fork-join / map-
+reduce) + <code>workflow plan</code> packet (a plan JSON) + async supervisor (schedule/execute) + circuit
+breaker (containment gap <strong>just fixed</strong>, CE.1) + locks/leases + SPEC-115 mid-workflow failover
+(swap executor on rate-limit/block); <strong>model routing</strong> (cards/effort/profiles) = per-node model
+selection; token-audit + budgets per profile; <strong>cost_metrics + the CE.2 economy meter</strong> (token/
+amplification trace, landing now); <code>validate-results</code> + <code>reduce</code> + <code>review-reduce</code> (verify);
+<code>self-review</code> + <code>spec_test_gate</code> (policy); <code>workflow resume</code>/<code>unlock</code>/<code>async-recover</code> (durable/
+resumable); typed WORKER_RESULT/REDUCE_RESULT node contracts; the <strong>two-door SDD+BDD flow</strong>
+(SPEC-116: intake→template/Gherkin) = the "workflow-change-is-software" gate already exists for
+UI features; <code>trace</code>/<code>trace-export</code>/<code>trace-push</code>.</p>
+<p><strong>Named gaps (candidate backlog anchors):</strong></p>
+<ul>
+<li><strong>DW1 — no topology router (single ↔ multi ↔ specialized).</strong> Fan-out (worker count) is fixed
+at plan time; there is no single-agent-baseline → "decompose only if subtasks are genuinely
+independent" decision. The study's #2 priority and its strongest evidence ("more agents ≠
+better"). Deterministic classifier + budget gate; LLM only for the decomposability estimate.
+Ties the comm-round G4/CE.9 (adaptive fan-out) — reuses CE.2's useful-fan-out signal.</li>
+<li><strong>DW2 — no on-demand re-decomposition (ADaPT).</strong> A failing/partial worker triggers executor
+<em>failover</em> (SPEC-115) but never <em>task re-decomposition</em> (split the hard subtask into sub-
+subtasks). Deterministic trigger (worker status failed/partial), bounded depth, idempotent.</li>
+<li><strong>DW3 — no canonical workflow IR / blueprint with authorized dynamic slots.</strong> The plan packet
+fixes topology; there is no ONE typed graph IR that plan/schedule/execute/verify/policy all
+read, and no "dynamic slot" the LLM may fill <em>within</em> a deterministic blueprint (Blueprint-
+First). This is the structural foundation the other items stand on.</li>
+<li><strong>DW4 — scheduler is fixed map-reduce, not dependency-DAG dispatch.</strong> Fan-out is uniform
+branches; there is no critical-path parallelism / dispatch-by-readiness across heterogeneous
+nodes (LLMCompiler's separation of planner/dispatch/executor). Deterministic scheduler gain.</li>
+<li><strong>DW5 — no graph/risk trace metrics; no shadow-mode promotion.</strong> CE.2 covers token/cost but
+not graph-shape (topology, decomposition depth, critical path) or per-node risk; and a new/
+adapted workflow template goes straight to prod with no replay/shadow/promote gate. Ties the
+two-door SDD flow (SPEC-116): an adaptation is a software change.</li>
+<li><strong>DW6 (likely PARK) — inter-run evolution / learned router.</strong> Learning a router or promoting
+templates from traces — overfitting/regression risk; the study warns against self-improvement
+without external evaluation. Needs DW5's metrics + shadow mode as a precondition.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-2-briefs-and-gate">Phase 2 — Briefs and gate</h2>
+<p><strong>Brief 1 — route the topology, decompose on demand (DW1+DW2; highest-leverage, evidence-backed).</strong>
+How might the harness pick single-agent vs multi-agent vs a specialized workflow per request,
+deterministically (a cheap classifier + budget gate; the LLM only estimates decomposability),
+with single-agent as the hard baseline — and re-decompose a subtask ONLY when its worker fails/
+returns partial (ADaPT trigger), bounded-depth and idempotent, reusing SPEC-115's settle seam
+and CE.2's fan-out signal — WITHOUT letting fan-out inflate cost or loop?</p>
+<p><strong>Brief 2 — a typed workflow IR + dependency-DAG dispatch + shadow-mode promotion (DW3+DW4+DW5).</strong>
+How might we give the harness ONE canonical typed workflow IR (that plan/schedule/execute/verify/
+policy all read) with explicit LLM-fillable "slots" inside a deterministic blueprint, a scheduler
+that dispatches by dependency-readiness/critical-path instead of uniform map-reduce, and graph/
+risk trace metrics + a shadow-mode replay-and-promote gate so a NEW or ADAPTED workflow is
+treated as a software change (test/review/rollback, ties SPEC-116) — all stdlib-only, durable,
+summaries-are-a-view, no resident daemon?</p>
+<p><strong>Parked (future round / needs a signal):</strong> DW6 inter-run learned router (needs DW5 metrics +
+shadow mode + an external evaluator, else overfitting/regression); full runtime graph-rewrite
+(irreproducibility risk — confine to authorized slots first).</p>
+<p><strong>Gate.</strong> Scope/waves/budget pre-approved by the owner (this invocation). Deterministic-first +
+single-agent-baseline + net-cost-positive + adaptation-is-software are hard constraints on the
+critique wave.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-3-wave-1-divergence">Phase 3 — Wave 1 (divergence)</h2>
+<p><code>WF-20260712-183958-135463</code>, <code>research-divergence</code>, 5 ideators (simplicity, performance,
+reliability, trust-boundary, analogy), claude executor. All 5 fulfilled (no length-rejections).
+Heavy convergence on the 6 gaps; every concept is deterministic-first, no daemon/new-state-family.
+Standout convergences: <strong>workflow.json IS already the IR</strong> (schemaVersion 1.1, read by plan/
+schedule/execute/policy — all 5 landed here for DW3); a <strong>plan-time verdict that defaults to
+single-agent</strong> (DW1); <strong>depth-1 scope-split at the settle seam</strong> adjacent to CE.1 (DW2); <strong>graph-
+shape fields that EXTEND cost_metrics/CE.2</strong> + <strong>shadow = deterministic plan-level replay-diff on
+archived WF dirs</strong> (DW5). Cross-domain transfers: DB cost-based optimizer EXPLAIN→DW1; delta-
+debugging ddmin→DW2; compiler IR/SSA→DW3; Tomasulo dataflow→DW4; SRE dark-launch→DW5. The
+trust-boundary lens surfaced <strong>2 verified source holes</strong>: generated worker prompts + context-
+digest.md are never secret-scanned yet fan out N× across possibly-different-vendor executors;
+executor/model cards carry no trust tier.</p>
+<p>Orchestrator consolidated the 25 concepts into <strong>6 candidates</strong>:</p>
+<ul>
+<li><strong>D1 topology router</strong> (DW1) — a deterministic verdict in the plan compile loop that DEFAULTS
+to single-agent (N=1), forking only when a token-audit budget gate + independence check +
+operational health (circuit state, CE.2 cost-per-finding) justify it. Seam: <code>harness.py</code> plan
+compile + token-audit. Analogy: cost-based query optimizer.</li>
+<li><strong>D2 depth-1 re-decomposition at settle</strong> (DW2) — recovery action on worker failed/partial:
+deterministic scope-split (split shard paths, reuse round/maxRounds), depth-1, breaker-
+integrated (ties CE.1), LLM split only as escalation. Seam: <code>async_runtime.py</code> worker-settle.</li>
+<li><strong>D3 formalize workflow.json as the typed IR + slots</strong> (DW3) — stdlib schema validated at
+plan, explicit LLM-fillable "slots", unify the 3 budget locations into one typed section.
+Zero migration. Seam: workflow.json schema + plan/validate. Analogy: compiler IR/SSA.</li>
+<li><strong>D4 graph-shape metrics + shadow-mode plan-replay promotion</strong> (DW5) — 4 deterministic graph
+fields (fan-out/depth/makespan/critical-path) into <code>cost_metrics.record_workflow</code> (extends
+CE.2, zero new state); shadow = plan-level replay-diff (topology + token-audit) of old-vs-new
+profile on ARCHIVED WF dirs (zero execution/prod exposure) as the promote gate, ties SPEC-116.</li>
+<li><strong>D5 the fork boundary is a trust boundary</strong> (trust-lens, cross-cutting) — secret_scan the
+generated worker prompts + context-digest before they fan out; add an executor/model-card
+trust tier; wire sealed-fold + trace-push allowlist into D1-D4 as cheap deterministic gates.
+Seam: <code>secret_scan</code> seams + executor cards.</li>
+<li><strong>D6 (mostly PARK)</strong> — reserve a <code>dependsOn</code> field + ship LPT (longest-prompt-first) queue
+ordering for makespan now (cheap, offline-replayable); PARK the full critical-path scheduler
+(no dependent workloads yet, DW4) and the inter-run learned router (DW6; needs D4 + external
+evaluator).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-4-wave-2-critique-done">Phase 4 — Wave 2 (critique) — done</h2>
+<p><code>WF-20260712-190529-589401</code>, <code>research-critique</code>, 4 critics (validity/architecture/cost/
+security), <code>--seed</code> = the divergence reduce. All 4 fulfilled. Verified anchors: the "3 budget
+places" premise of D3 CONFIRMED (<code>harness.py:1448</code>, <code>workflow_token_audit.py:217</code>,
+<code>workflow_writes.py:208</code> — three separate schemaVersion-1.1 docs); D5's two holes CONFIRMED in
+source (<code>plan_workflow</code> at <code>harness.py:1636-1666</code> writes worker prompts + context-digest with
+NO secret_scan; the K1 scan at <code>harness.py:1589-1593</code> runs only on <code>--validate-only</code> over argv;
+<code>context_digest.py</code> has zero scan calls; fold scan at <code>workflow_lifecycle.py:224</code> only scans
+<code>*.result.json</code> POST-dispatch, after prompts already fanned out N×; <code>executors.json</code> has no
+trust/tier field); D2's settle seam real at <code>async_runtime.py:337</code>; D4's data already in
+<code>record_workflow</code> (cost_metrics.py:108). Load-bearing caveat (validity): ALL external evidence
+is preprint + benchmark-specific, none measured on THIS harness → <strong>D4 is the epistemic keystone</strong>
+(the mechanism that converts priors into local evidence).</p>
+<p><strong>Cross-lens verdicts:</strong></p>
+<table>
+<thead>
+<tr>
+<th>cand</th>
+<th>validity</th>
+<th>architecture</th>
+<th>cost</th>
+<th>security</th>
+<th>net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 topology router</td>
+<td>keep-w/-ch (thresholds unsourced → --explain first)</td>
+<td>keep-w/-ch (record router inputs+verdict in workflow.json or plans aren't replayable)</td>
+<td>keep-w/-ch (observe-only first; sparse data early)</td>
+<td>keep-w/-ch (trust-term)</td>
+<td><strong>KEEP-CHANGES</strong> — ship as observe-only <code>--explain</code> verdict, record inputs+verdict, NO auto-fork yet</td>
+</tr>
+<tr>
+<td>D2 depth-1 re-decomp</td>
+<td>keep-w/-ch (needs failure-class precondition)</td>
+<td>keep-w/-ch (reuse plan-time packet builder; mid-flight children can double-/never-settle)</td>
+<td>keep-w/-ch (children MUST inherit remaining wave budget)</td>
+<td>keep-w/-ch (subset-scope invariant)</td>
+<td><strong>KEEP-CHANGES, LATER</strong> — hard preconditions: failure-class gate, budget inheritance, subset scope, one generator, no double-settle</td>
+</tr>
+<tr>
+<td>D3 workflow.json IR</td>
+<td>keep (verify 3-budget claim)</td>
+<td><strong>keep, build EARLY</strong> (D1/D2/D4 all write into it)</td>
+<td>keep (near-zero cost; closes silent budget bypass)</td>
+<td>keep</td>
+<td><strong>KEEP, FOUNDATION</strong> — 3-budget premise CONFIRMED; fold D6's dependsOn reservation in</td>
+</tr>
+<tr>
+<td>D4 graph metrics + shadow</td>
+<td><strong>keep (epistemic keystone)</strong></td>
+<td><strong>SPLIT</strong> (metrics now; replay-gate defer until D3)</td>
+<td>keep-w/-ch (replay must be provably LLM-free)</td>
+<td>keep-w/-ch (sealed-only replay corpus)</td>
+<td><strong>KEEP, SPLIT</strong> — metrics now (extends CE.2, ~0 cost); shadow-replay deferred, LLM-free + sealed-only</td>
+</tr>
+<tr>
+<td>D5 fork=trust boundary</td>
+<td><strong>keep (only CONFIRMED load-bearing claim)</strong></td>
+<td>keep (fix at prompt/digest generation seam, before fan-out)</td>
+<td>keep (scan once; gate cost &lt;&lt; incident cost, GEMINI-leak precedent)</td>
+<td><strong>keep, build FIRST</strong></td>
+<td><strong>KEEP, BUILD FIRST</strong> — scan prompts+digest at <code>harness.py:1636-1666</code> pre-fan-out; add card trust tier</td>
+</tr>
+<tr>
+<td>D6 dependsOn/LPT/learned</td>
+<td>PARK-mostly, swap order</td>
+<td>park LPT; fold dependsOn into D3</td>
+<td>dependsOn-reserve only (concurrency=1 → LPT nil today)</td>
+<td>keep-w/-ch (PARK learned router: feedback-poisoning)</td>
+<td><strong>FOLD+PARK</strong> — dependsOn reservation → D3; PARK LPT + learned router</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unanimous-ish build order:</strong> <strong>D5 → D3 → D4-metrics → D1-explain → D2</strong> (D6's dependsOn folded
+into D3; LPT + learned router parked). D5 and D3 are the two "build-first" anchors (a confirmed
+cheap security fix + the IR foundation everything writes into); D4-metrics is the zero-cost
+keystone that makes the rest measurable; D1 ships observe-only; D2 last, gated by preconditions.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-5-portfolio-backlog">Phase 5 — Portfolio &amp; backlog</h2>
+<p>Deterministic-first held under critique: every survivor is a plan-time/settle-time/finalize-time
+extension of an existing seam — no daemon, no new state family, no LLM in a control loop (D1's
+LLM estimate is observe-only; D2's LLM split is escalation-only behind a deterministic failure
+gate). The critique's sharpest correction: <strong>measurement before control</strong> — D4's graph metrics
+and D1's <code>--explain</code> verdict must exist and be trusted BEFORE any auto-fork/auto-split flips on,
+because all the pro-adaptation evidence is preprint-grade and none is measured on this harness
+yet. Portfolio → the <strong>Dynamic workflows roadmap</strong> section in <code>docs/IMPLEMENTATION_BACKLOG.md</code>
+(DW.1–DW.8), each row = named gap + a verified seam + the metric it moves + ship/defer/PARK.</p>
+<p><strong>Ship spine:</strong> DW.1 secret-scan the fan-out surface + card trust tier (D5, build first) ·
+DW.2 formalize workflow.json as the typed IR + slots + dependsOn reservation (D3, foundation) ·
+DW.3 graph-shape metrics into cost_metrics (D4-metrics, extends CE.2) · DW.4 topology-router
+<code>--explain</code> observe-only (D1) · DW.5 depth-1 re-decomposition at settle, precondition-gated (D2).
+<strong>Deferred/parked with an explicit signal:</strong> DW.6 shadow-mode plan-replay promotion (needs DW.2;
+LLM-free + sealed-only) · DW.7 LPT queue ordering (needs concurrency&gt;1 to matter) · DW.8 inter-
+run learned router (needs DW.3 + external evaluator; feedback-poisoning risk).</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/dynamic-workflows.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/dynamic-workflows.md</code></li><li>Source SHA-256: <code>95c18133e06e7980ab10410b09a7f0aecb88c74b309737042aacb7fff2e61040</code></li><li>Edition-input SHA-256: <code>95c18133e06e7980ab10410b09a7f0aecb88c74b309737042aacb7fff2e61040</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>
