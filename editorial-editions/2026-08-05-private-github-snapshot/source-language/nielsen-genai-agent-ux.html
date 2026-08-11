@@ -1,0 +1,188 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Heurísticas de Nielsen × UX de IA Generativa e Agentes (round 2026-07-13) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-pergunta">Pergunta</a></li><li class="h2"><a href="#ed-criterios-de-sucesso">Critérios de sucesso</a></li><li class="h2"><a href="#ed-orcamento-declarado">Orçamento declarado</a></li><li class="h2"><a href="#ed-evidencia-ancora-fase-1-flow-a-2026-07-13">Evidência âncora (Fase 1, Flow A — 2026-07-13)</a></li><li class="h2"><a href="#ed-fases-3-4-preenchido-pelo-orquestrador-ao-coletar-as-ondas">Fases 3-4 (preenchido pelo orquestrador ao coletar as ondas)</a></li><li class="h2"><a href="#ed-sintese-orquestrador-2026-07-13">Síntese (orquestrador, 2026-07-13)</a></li><li class="h3"><a href="#ed-portfolio-operacoes-por-card">Portfólio (operações por card)</a></li><li class="h3"><a href="#ed-follow-ups-de-harness-desta-rodada-processo-nao-tema">Follow-ups de harness desta rodada (processo, não tema)</a></li><li class="h3"><a href="#ed-rastreabilidade">Rastreabilidade</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Heurísticas de Nielsen × UX de IA Generativa e Agentes (round 2026-07-13)</h1><p class="subtitle">Edição histórica — research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">pt-BR</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>2e0a3ad63ae855fc1c64…</span></div><div><b>Edition SHA-256</b><span>2e0a3ad63ae855fc1c64…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Owner ask: rodada em background — divergência nos modelos simples (Gemini
+free tier), crítica nos modelos inteligentes da NVIDIA Build (glm-5.2 /
+nemotron-ultra / step-flash, prospectados em <code>nvidia-smart-models.md</code>).</p>
+</section>
+<section class="section content"><h2 id="ed-pergunta">Pergunta</h2>
+<p>Como as 10 heurísticas de usabilidade de Nielsen se <strong>traduzem, quebram ou
+se estendem</strong> quando a interface inclui IA generativa (saída não
+determinística, incerteza, geração aberta) e agentes (ações autônomas em
+nome do usuário, supervisão humana, HITL)? Que heurísticas novas ou
+reformuladas o harness deveria adotar nos seus painéis de supervisão
+(SPEC-114) e no chat operator?</p>
+</section>
+<section class="section content"><h2 id="ed-criterios-de-sucesso">Critérios de sucesso</h2>
+<ol>
+<li>Cada heurística candidata mapeia explicitamente para uma heurística de
+Nielsen (mantida / reformulada / nova), com o PORQUÊ da mudança.</li>
+<li>Cada claim normativo carrega fonte + data + classe de confiança
+(<code>forte…promocional</code>); sem fonte verificável → <code>referência: judgment</code>.</li>
+<li>Pelo menos 3 candidatas acionáveis no harness (painel/chat/escalações),
+com anti-padrão correspondente.</li>
+<li>Novidade e maturidade pontuadas em eixos separados (playbook princípio 2).</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-orcamento-declarado">Orçamento declarado</h2>
+<ul>
+<li>Onda 1 (divergência, 5 ideadores, <code>gemini-compat</code> / gemini-2.5-flash-lite,
+free tier interativo — sem batch, ver <code>nvidia-smart-models.md</code> §A): ≤30k
+tokens estimados (packet-only: workers HTTP não leem o repo).</li>
+<li>Onda 2 (crítica seedada, 4 críticos, <code>nvidia-compat</code>: validity/architecture
+→ glm-5.2, cost → step-3.7-flash, security → nemotron-3-ultra): ≤30k tokens
+(~4-6 créditos NVIDIA).</li>
+<li>Gate de 60%: sem onda 3 salvo sinal forte + folga.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-evidencia-ancora-fase-1-flow-a-2026-07-13">Evidência âncora (Fase 1, Flow A — 2026-07-13)</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>year</th>
+<th>confiança</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>As 10 heurísticas seguem canônicas e ativamente mantidas pela NN/g</td>
+<td>nngroup.com/articles (Ten Usability Heuristics)</td>
+<td>docs</td>
+<td>2024+</td>
+<td>forte</td>
+</tr>
+<tr>
+<td>Análise dedicada das heurísticas para agentes GenAI existe (Agent Experience)</td>
+<td>Goldenberg &amp; Goldenberg, researchgate 392368707</td>
+<td>paper</td>
+<td>2025</td>
+<td>moderada (não peer-review confirmado)</td>
+</tr>
+<tr>
+<td>Princípios de design para aplicações GenAI (IBM) formalizados</td>
+<td>arXiv:2401.14484</td>
+<td>paper</td>
+<td>2024</td>
+<td>forte</td>
+</tr>
+<tr>
+<td>Heurísticas aumentadas para computer-use agents propostas</td>
+<td>arXiv:2605.02729</td>
+<td>paper</td>
+<td>2026</td>
+<td>preliminar</td>
+</tr>
+<tr>
+<td>Avaliação heurística sintética (IA avaliadora) comparada a humana</td>
+<td>arXiv:2507.02306</td>
+<td>paper</td>
+<td>2025</td>
+<td>preliminar</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-fases-3-4-preenchido-pelo-orquestrador-ao-coletar-as-ondas">Fases 3-4 (preenchido pelo orquestrador ao coletar as ondas)</h2>
+<ul>
+<li>Wave 1 (ABORTADA, lição de processo): <code>WF-20260713-122514-240276</code> — 2 falhas
+compostas: (a) Gemini free tier em episódio 503 (sonda de saúde recuperou em
+~4min; 3 retries queimaram os maxRounds); (b) <strong>todos os 4 resultados vieram
+ocos (0 findings)</strong> — causa raiz: a regra do packet "scope sem material →
+done com findings vazios" (correta para análise de código) instrui a saída
+preguiçosa em briefs de conhecimento puro, que não têm arquivos em escopo.
+Fix: onda nova com override explícito no brief (tarefa = GERAÇÃO; 4-8
+findings <code>category: concept</code> obrigatórios; vazio = falha). Follow-up de
+harness anotado: perfil de divergência knowledge-domain merece um packet
+próprio sem a regra de escopo-vazio.</li>
+<li>Wave 1b: <code>WF-20260713-123540-504689</code> — o override do brief FUNCIONOU
+(worker-001/simplicidade: 5 findings reais), mas o Gemini free tier entrou
+em throttle sustentado (sonda de 25min: maioria 429, 503/200 intermitentes
+— as próprias tentativas comeram o RPM). 1 resultado válido aproveitado.</li>
+<li>Wave 1c: <code>WF-20260713-130602-119672</code> — divergência movida pra
+<code>nvidia-compat</code> (outage do provedor barato). DESVIO REGISTRADO: branches
+de perfil <code>plan</code> roteiam pra glm-5.2 (ideação em modelo smart, não cheap);
+mitigação da regra "gerador nunca é o único avaliador": críticos em
+nemotron-ultra (security) + step-flash (cost) + síntese pelo orquestrador
+(Fable), e o resultado gemini da 1b entra na síntese (sangue cross-provider).</li>
+<li>Wave 2 (crítica): <code>WF-20260713-131740-274585</code> — 4/4 críticos entregaram
+(validity/architecture no glm-5.2, cost no step-3.7-flash, security no
+nemotron-3-ultra). O reduce invalidou os 4 pela régua code-oriented
+(<code>sourceFilesVerified</code> exigido em findings high) — mesma família do bug do
+escopo-vazio; síntese feita pelo orquestrador direto dos WORKER_RESULTs.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-sintese-orquestrador-2026-07-13">Síntese (orquestrador, 2026-07-13)</h2>
+<p>Fontes: 25 conceitos de 4 ideadores GLM (waves 1c) + 5 do ideador Gemini
+(wave 1b) + 23 findings de 4 críticos. Convergência forte: 4/4 ideadores
+independentes propuseram variações de "visibilidade de estado probabilístico"
+e "aprovação em camadas por reversibilidade" — sinal de robustez (nominal
+groups). Ressalva dos críticos, aceita: as referências das candidatas são
+majoritariamente <code>judgment</code> (o seed digest comprime evidence; e os workers
+HTTP não acessam web) — as âncoras bibliográficas da Fase 1 sustentam o
+mapeamento a Nielsen, não as candidatas individualmente.</p>
+<h3 id="ed-portfolio-operacoes-por-card">Portfólio (operações por card)</h3>
+<p><strong>Núcleo</strong> (adotar nos painéis SPEC-114 / chat operator):</p>
+<ol>
+<li><code>H-visibilidade-probabilistica</code> (reformula Nielsen #1) — estado do sistema
+inclui incerteza + fonte, com CALIBRAÇÃO explícita (crítico security:
+confiança não-calibrada gera falsa confiança). Ops: reformulada.</li>
+<li><code>H-aprovacao-por-reversibilidade</code> (reformula #3+#5; merge de 3 candidatas
+sobrepostas apontado pelo crítico validity) — granularidade de aprovação
+proporcional à irreversibilidade da ação; anti-padrão: diálogo constante.
+Ops: combinada.</li>
+<li><code>H-auditoria-persistente</code> (reformula #6, reconhecimento&gt;recordação) — o
+harness JÁ TEM o records ledger; a heurística é expô-lo como timeline de
+supervisão. Ops: mantida (baixo custo, infra existente).</li>
+<li><code>H-custo-visivel</code> (nova, deriva #1) — crítico cost pediu telemetria "não
+existente"; ela EXISTE no harness (cost ledger R26) — o crítico não vê o
+repo (packet sem escopo, limitação registrada). Ops: mantida.</li>
+<li><code>H-carga-calibrada-por-severidade</code> (nova, #6+#8; análogo EHR) — alertas de
+fronteira separados do ruído operacional (painel já agrupa por tier).
+Ops: mantida.</li>
+<li><code>H-consistencia-de-template</code> (reformula #4) — voz/formato estáveis sobre
+conteúdo variável. Ops: mantida.</li>
+</ol>
+<p><strong>Contingência</strong>: <code>H-presets-de-autonomia</code> (depende de classificação de dados
+confiável — crítico security); <code>H-validacao-de-fronteira</code> (consentimento de
+dados pré-envio; parcialmente coberto pelo classify_command HITL).</p>
+<p><strong>Experimentos</strong> (template hipótese/baseline/métricas no doc antes de adotar):
+<code>H-emergency-stop-com-revogacao</code> (1 blocker de custo do crítico cost;
+mecanismo de revogação não especificado — hipótese: suspender + revogar sem
+perda de contexto; baseline: taskkill atual; métrica: tempo-até-parada e
+integridade pós-parada); <code>H-undo-semantico-checkpoint</code> (exige estado
+transacional; rollback externo infeasível → compensating transactions).</p>
+<p><strong>Já-produção (mantidas, reconhecidas no harness)</strong>: circuit breaker com
+cooldown (safe-action breaker) — a analogia financeira do ideador descreve o
+que o SPEC-109 já faz; validação de saída pré-commit (gates SDD).</p>
+<p><strong>Rejeitadas</strong>: rollback granular de superfícies externas como heurística
+standalone (crítico security: infeasível; vira parte do experimento de
+compensating transactions).</p>
+<h3 id="ed-follow-ups-de-harness-desta-rodada-processo-nao-tema">Follow-ups de harness desta rodada (processo, não tema)</h3>
+<ol>
+<li><strong>Perfis knowledge-domain</strong>: a regra "scope vazio → findings vazios" e o
+lint "sourceFilesVerified em findings high" são code-oriented e invalidam
+rodadas de conhecimento (3 ocorrências hoje). Candidato: flag de perfil
+<code>knowledgeDomain: true</code> que troca as duas réguas.</li>
+<li><strong>Seed digest comprime evidence</strong> — críticos de validade não veem as
+referências dos conceitos; carregar evidence no seed (cap por item).</li>
+<li>Gemini free tier: 429/503 sob rajada mesmo a concorrência 1; sonda de
+saúde + resume funcionou (recuperou 3 workers), mas o RPM é frágil de
+manhã — preferir NVIDIA p/ ondas &gt;3 workers no free tier.</li>
+</ol>
+<h3 id="ed-rastreabilidade">Rastreabilidade</h3>
+<p>Evidência (Fase 1, 5 âncoras) → Problema (supervisão de agentes viola/estende
+Nielsen) → Ideias (30 conceitos, genealogia por workerRole/wave nos WFs) →
+Crítica (23 findings, 4 modelos) → Portfólio acima → Próximo: intake SPEC-116
+das heurísticas núcleo no backlog do painel (decisão do dono).</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/nielsen-genai-agent-ux.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/nielsen-genai-agent-ux.md</code></li><li>Source SHA-256: <code>2e0a3ad63ae855fc1c64ed0100028939c93c861e36f5a225f1ce90686f18c0ee</code></li><li>Edition-input SHA-256: <code>2e0a3ad63ae855fc1c64ed0100028939c93c861e36f5a225f1ce90686f18c0ee</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

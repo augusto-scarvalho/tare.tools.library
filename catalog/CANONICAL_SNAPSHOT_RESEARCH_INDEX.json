@@ -31,8 +31,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/acceptance-authority-proposals.en.md",
+      "translationSha256": "b9c6dd659d3820b735d6606acdbef10b19877dca7bc83082f9b46084a7d501f9"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.adocao-governanca-contexto-md",
@@ -44,8 +46,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/adocao-governanca-contexto.en.md",
+      "translationSha256": "644fe1dbba730dd945859d3e65b677948726617775968c8991ae3e26bb24ed34"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.agent-communication-protocols-md",
@@ -83,8 +87,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/article-coverage-backlog.en.md",
+      "translationSha256": "45a5af3f685bfc0770a7b4a2cb9471b34fe4c0a88f15864e8457798cb0b9c1db"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.audit-playbook-injection-surfaces-md",
@@ -122,8 +128,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/audit-quorum-dinamico.en.md",
+      "translationSha256": "986cab8e7d9dd2b3265ff55ed37e4115771a5b0475f83837d1214bf16e798fd0"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.backlog-dependency-graph-implementation-plans-md",
@@ -191,8 +199,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-22-windown.en.md",
+      "translationSha256": "dad1b9361c521d23784b5d663a4152624aad9a5bc38d8d529b7e797b575241cc"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.backlog-groom-2026-07-22-md",
@@ -234,8 +244,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-23.en.md",
+      "translationSha256": "1db442606a73e03833b8d1f582aaa4f56cbc0ac07d1e987484f57cb11a63f5f8"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.backlog-groom-2026-07-29-md",
@@ -301,8 +313,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/compaction-implementation-plans.en.md",
+      "translationSha256": "33ee26ab570fb53671d9ed8f96e1498f1005f7a072e520c8424a62106408133e"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.compaction-round-md",
@@ -314,8 +328,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/compaction-round.en.md",
+      "translationSha256": "05b7cd2ac3960c149323f85d82a32473b94767ccee80c7f40707c48e23877a0d"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.conformance-selfassessment-md",
@@ -327,8 +343,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/conformance-selfassessment.en.md",
+      "translationSha256": "5b49962dd030ed51d2ab4d91cdcc6c4232b712e48fc544cb7fe9e3feb2559280"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.construct-metrics-md",
@@ -340,8 +358,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/construct-metrics.en.md",
+      "translationSha256": "478bc158c6f02ba2546b98cc9d4adfca4f34c8dcfdc4a627c74d8b3a96257487"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.deep-research-pipelines-md",
@@ -405,8 +425,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/empirical-pin-verification-2026-07-23.en.md",
+      "translationSha256": "665c3d211a84b8505f4b97cb0595cfaeedbe5808a79398b3668104eb4be4df64"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.estudo-governanca-contexto-v2-md",
@@ -418,8 +440,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/estudo-governanca-contexto-v2.en.md",
+      "translationSha256": "fbef86da60c0989580383e9ec287380ac7a0afab3a5f1c90554c9c4983e653c3"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.event-log-integrity-under-compaction-md",
@@ -431,8 +455,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/event-log-integrity-under-compaction.en.md",
+      "translationSha256": "5959fe3dc352df680b9cb2948b7c10317f6265f736128874ce574f454088d9ce"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.exp20-three-lane-design-md",
@@ -444,8 +470,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/exp20-three-lane-design.en.md",
+      "translationSha256": "7c09b45e2fab255267b73b49e03d622a85480728d249c0a5ff8318adc7d66329"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.exp21-p1-orphan-probe-2026-07-27-md",
@@ -509,8 +537,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/gate-perf-fail-fast-2026-07-16.en.md",
+      "translationSha256": "509bf78deb337aadf9fd799b9733c9d1168ae622d8e1dc5ad001b5ce44cbf9da"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.gate-phase2-safety-round-md",
@@ -535,8 +565,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/gate-surface-definition-2026-07-26.en.md",
+      "translationSha256": "941056b501d02a9c8debc92e108e9f02e5deb68886a1ea0c7e16d28adc1cedf9"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.graph-round2-ideation-divergence-md",
@@ -561,8 +593,10 @@
       "languageClassification": "heuristic-low",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/guia-playbooks-engineering-2026-07-29.en.md",
+      "translationSha256": "95b1ff13b4f5ac129492936eaa84e2a701faf7fdff8a6f5e18c6b9c1c842d8fa"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.harness-own-sandbox-md",
@@ -574,8 +608,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/harness-own-sandbox.en.md",
+      "translationSha256": "f7e8d1e2a09a63279387db8d4e483347a79476bd849d84cbee63c01a9dd06f15"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.harness-reference-architecture-adoption-md",
@@ -587,8 +623,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/harness-reference-architecture-adoption.en.md",
+      "translationSha256": "4f5b02698f50e0bb58d36bda07d837b835fa3e6e1bc4e727af2c056e0b2715c0"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ide-embedded-gui-md",
@@ -665,8 +703,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/lq7-implementation-briefs.en.md",
+      "translationSha256": "7b43cb82943496d98741de85d952357bbdb7e1e40dde66fba7b1d475be47609c"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.memory-context-management-md",
@@ -691,8 +731,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/naming-round.en.md",
+      "translationSha256": "4a04df7af4c1d38f77c2ffc9a77dee9649711e168a1f0f541cd42b2ce3d7fb95"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.nielsen-genai-agent-ux-md",
@@ -704,8 +746,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/nielsen-genai-agent-ux.en.md",
+      "translationSha256": "e62317c82414fa50454ab62d0bea0df225dd6f62a222f0d0f66b63a43d8e4f68"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.nvidia-smart-models-md",
@@ -743,8 +787,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/opus-overseer-quality-2026-07-23.en.md",
+      "translationSha256": "0398a273937736567c61bbec4afb5f85129b6c274242392aedf9d7f11eaad0d4"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.pipeline-metamodel-md",
@@ -756,8 +802,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/pipeline-metamodel.en.md",
+      "translationSha256": "10ee51e21ba1859062c05d4cfe1c47cbaed681fadaf8337e3474b1f0af245a03"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.plan-backlog-json-canonical-draft-md",
@@ -899,8 +947,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ptc-implementation-plans.en.md",
+      "translationSha256": "8d8ea3db99a7e6dfec7d829c4285a923b55b7026eea1f90af65f6037debaa470"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ptc-round-md",
@@ -912,8 +962,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ptc-round.en.md",
+      "translationSha256": "97f645bab309473bc72bab8eb949c41ea381279756a305dd35ba0b381232ab87"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.race-mode-test-1-md",
@@ -940,8 +992,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-adapter-boundary.en.md",
+      "translationSha256": "08fca825727ef7cf2d77a90195eab760f07d3ebdddbe1a52cb6007ff0f48486f"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-crash-implementation-plans-md",
@@ -953,8 +1007,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-implementation-plans.en.md",
+      "translationSha256": "240c62c717183338ff8f5024c1aba952b85162169fc7ef1e4eb69ccf6e67293d"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-crash-injection-round-md",
@@ -966,8 +1022,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-injection-round.en.md",
+      "translationSha256": "50a44436afab6b87f21c17d5041401b11620a0d11ac19b5612a34cae46133ee0"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-taint-camel-round-md",
@@ -979,8 +1037,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-taint-camel-round.en.md",
+      "translationSha256": "b1e26a2c98de1e51390475140ee8221e7b46ee96f32a58874e822c6e03b35619"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-taint-implementation-plans-md",
@@ -992,8 +1052,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-taint-implementation-plans.en.md",
+      "translationSha256": "1be3e05a948273753fa82906c7ec8337139836d89b76e24e96f61dc77344ca50"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-u-implementation-plans-md",
@@ -1005,8 +1067,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-u-implementation-plans.en.md",
+      "translationSha256": "961febce44f78928bba022c65fa128e17bc80146f9de1dcc4b03a8310e2680d1"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-u-utility-function-round-md",
@@ -1018,8 +1082,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-u-utility-function-round.en.md",
+      "translationSha256": "2fd9b5a5fd4f76d58c983bfb0902de57aa7c88e9874f24858ba28a04924aaaf5"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.reckon-efficiency-round-md",
@@ -1044,8 +1110,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/semantic-finding-dedup.en.md",
+      "translationSha256": "aa6ef097c242a9c2ab612a09fb48c77f9010447104ad882ef47433c6edac8981"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.sources-adaptive-project-oriented-multi-agent-harness-architectures-md",
@@ -1096,8 +1164,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/truth-reconciliation-implementation-plans.en.md",
+      "translationSha256": "0109c39d1b9e7257413b8e98fec07df714d67b8f52226b8a354125375bbe53ba"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.truth-reconciliation-round-md",
@@ -1109,8 +1179,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/truth-reconciliation-round.en.md",
+      "translationSha256": "e91590f433440c6d55d2f3dd883531ec8b6a6d6454b84f59900b1a247fbc8355"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ux-agents-consolidated-2026-07-13-md",
@@ -1122,8 +1194,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ux-agents-consolidated-2026-07-13.en.md",
+      "translationSha256": "a756190c32f5a39858e712e3da158510ffb40d96342a45acd57e90054a187aa1"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ux-agents-consolidated-analysis-md",
@@ -1135,8 +1209,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ux-agents-consolidated-analysis.en.md",
+      "translationSha256": "65d51c0e7fea2df219dcee831af975cd9303ee50b299e01ced7df6736e02cf15"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ux-ui-generative-md",
@@ -1161,8 +1237,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/vendor-credit-tracking-log.en.md",
+      "translationSha256": "dbe95f35a8c7aa510b29a4978fbe542ceeeb3d48ee2bad02f62d53e0095abda3"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.w29-evidence-gated-assurance-round-md",
@@ -1174,8 +1252,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/w29-evidence-gated-assurance-round.en.md",
+      "translationSha256": "ff3c29ee48d0fae4ed17299e1f46f15b4d84afc0a66e86e7f911a70e65685ffd"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.weekly-monitor-w28-code-quality-extract-md",
@@ -1187,8 +1267,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-code-quality-extract.en.md",
+      "translationSha256": "7bef5889e084c2195931855fa29a07bfbccfcab3d641c4ed444d97ec0cc1f69d"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.weekly-monitor-w28-dynamic-workflows-extract-md",
@@ -1200,8 +1282,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-dynamic-workflows-extract.en.md",
+      "translationSha256": "c8c6766389541b750ac06b43aad0a153a8ab501fd699462b083c3281eb677dc1"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.weekly-monitor-w28-memory-extract-md",
@@ -1213,8 +1297,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-memory-extract.en.md",
+      "translationSha256": "0ac11f85ea4fba131b4a85e3d468d64bc51ca747bb60f4613c0a6fe473ccb1e7"
     },
     {
       "snapshotDocumentId": "snapshot.2026-08-05.docs-research.weekly-monitor-w28-multiagent-extract-md",
@@ -1226,8 +1312,10 @@
       "languageClassification": "heuristic-high",
       "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
       "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
-      "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
-      "baselineId": "baseline.private-github-main.2026-08-05"
+      "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+      "baselineId": "baseline.private-github-main.2026-08-05",
+      "englishTranslationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-multiagent-extract.en.md",
+      "translationSha256": "90b1c5f67a1667fa7f015742063bdf29f47793c6b7e6762e33ff5779f43bad5c"
     }
   ]
 }

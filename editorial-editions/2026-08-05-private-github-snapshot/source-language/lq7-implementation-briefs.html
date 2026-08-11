@@ -1,0 +1,114 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LOOP QUEUE 7 — briefs prontos + perguntas salvas (backlog-first, pós-D012) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-q7-1-harness-own-sandbox-spec-151-plano-a-propria-spec">Q7-1 — harness-own sandbox (SPEC-151, plano = a própria spec)</a></li><li class="h2"><a href="#ed-c1-constantes-de-decisao-graus-de-evidencia-plan-lq7-c1">C1 — constantes de decisão + graus de evidência ( plan-lq7-c1 )</a></li><li class="h2"><a href="#ed-c18-route-churn-probe-plan-lq7-c18-measure-only">C18 — route churn probe ( plan-lq7-c18 ), measure-only</a></li><li class="h2"><a href="#ed-c19-c20-lite-recovery-probes-plan-lq7-c19-c20-measure-only">C19+C20 — Π-lite + recovery probes ( plan-lq7-c19-c20 ), measure-only</a></li><li class="h2"><a href="#ed-c6-cost-to-success-no-metrics-plan-lq7-c6">C6 — cost-to-success no metrics ( plan-lq7-c6 )</a></li><li class="h2"><a href="#ed-c3-estados-native-emulated-degraded-unsupported-de-capability-plan-lq7-c3">C3 — estados native/emulated/degraded/unsupported de capability ( plan-lq7-c3 )</a></li><li class="h2"><a href="#ed-c2-residual-risk-register-doctor-advisory-plan-lq7-c2">C2 — residual risk register + doctor advisory ( plan-lq7-c2 )</a></li><li class="h2"><a href="#ed-c5-metricas-do-servico-de-aprovacao-plan-lq7-c5">C5 — métricas do serviço de aprovação ( plan-lq7-c5 )</a></li><li class="h2"><a href="#ed-c8-doctor-advisory-de-exp-vencido-ja-existia">C8 — doctor advisory de EXP vencido JÁ EXISTIA</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>LOOP QUEUE 7 — briefs prontos + perguntas salvas (backlog-first, pós-D012)</h1><p class="subtitle">Edição histórica — implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">pt-BR</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>d108b21acb6ad97025b6…</span></div><div><b>Edition SHA-256</b><span>d108b21acb6ad97025b6…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Índice DURÁVEL dos plan briefs. Os briefs completos vivem em <code>.harness/handoff/ plan-lq7-*.md</code> (gitignored); as decisões finais + <strong>perguntas salvas</strong> estão
+espelhadas aqui. As 5 rodadas D012 FECHARAM; owner: "começa a elaborar os
+planos, ordem sequencial por criticidade".</p>
+<p><strong>Ordem de criticidade (LOOP QUEUE 7 no IMPLEMENTATION_BACKLOG.md, decidida pelo
+overseer):</strong></p>
+<ol>
+<li><strong>Q7-1 harness-own sandbox</strong> — SPEC-151 completa (<code>specs/40-features/harness-own-sandbox.md</code>), P0 segurança.</li>
+<li><strong>Q7-2 C1</strong> constantes + graus de evidência (governança fundacional).</li>
+<li><strong>Q7-3 C18 route churn + C6 CTS</strong> (measure-only; desbloqueia histerese C9).</li>
+<li><strong>Q7-4 C3</strong> capability support-states.</li>
+<li><strong>Q7-5 C2</strong> residual risk register (consome a saída do Q7-1).</li>
+<li><strong>Q7-6 C5</strong> métricas de aprovação.</li>
+<li><strong>Q7-7 C19 Π-lite + C20 recovery</strong> (measure-only, menor urgência).</li>
+</ol>
+<p>Implementação começa do topo quando o owner mandar; um item por vez.</p>
+</section>
+<section class="section content"><h2 id="ed-q7-1-harness-own-sandbox-spec-151-plano-a-propria-spec">Q7-1 — harness-own sandbox (SPEC-151, plano = a própria spec)</h2>
+<p>Spec completa em <code>specs/40-features/harness-own-sandbox.md</code> (não é brief
+gitignored — é spec committada). SB-1 Job Object + SB-2 NTFS ACL dual-mode +
+SB-3 manifest de degradação = núcleo sem-admin. Perguntas salvas (Q1-Q4) na
+seção final da spec.</p>
+</section>
+<section class="section content"><h2 id="ed-c1-constantes-de-decisao-graus-de-evidencia-plan-lq7-c1">C1 — constantes de decisão + graus de evidência (<code>plan-lq7-c1</code>)</h2>
+<p>Tabela §6.6 (α/power/δ_Q/δ_C/δ_L/δ_V/ECE) + regra lexicográfica + graus 1-4 +
+tipagem de fatores em <code>EXPERIMENT_METHODOLOGY.md</code>; campo <code>evidenceGrade</code> no
+registry. Footprint: metodologia, experiment_registry.py, spec exl, cenário exl.
+<strong>Perguntas salvas:</strong></p>
+<ul>
+<li>Q1: <code>evidenceGrade</code> vira coluna no painel pxe agora ou follow-up?</li>
+<li>Q2: <code>_advise</code> sugere grau por heurística (shipped→≥3) ou só aponta a doc? (prop: só aponta)</li>
+<li>Q3: EXPs já shipped ganham grau retroativo numa curadoria do owner? (~10 min)</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-c18-route-churn-probe-plan-lq7-c18-measure-only">C18 — route churn probe (<code>plan-lq7-c18</code>), measure-only</h2>
+<p>Probe <code>route_churn_probe.py</code> sobre o route ledger (churn por demandId + reversals),
+Floor L13 como piso. Pré-req da histerese C9 (medir antes de controlar). Não toca
+o route-loop. <strong>Perguntas salvas:</strong></p>
+<ul>
+<li>Q1: "evidência material" = proxy simples (nova outcome/riskFlag) ou critério mais rico?</li>
+<li>Q2: tile no painel agora ou só artefato? (prop: artefato)</li>
+<li>Q3: churn cross-sessão ou por período? (prop: global + byRoute)</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-c19-c20-lite-recovery-probes-plan-lq7-c19-c20-measure-only">C19+C20 — Π-lite + recovery probes (<code>plan-lq7-c19-c20</code>), measure-only</h2>
+<p>Π = ⟨1−viol, 1−overrun, 1−replay_div, recovery, 1−unknown⟩ com veto de violação
+crítica (espelha a lexicográfica do C1); 4 métricas de recovery do records ledger.
+Componente sem dado = n/a honesto, nunca fabricado. <strong>Perguntas salvas:</strong></p>
+<ul>
+<li>Q1: Π agregado ou só vetor? (prop: vetor + flag de veto, nunca escalar sozinho)</li>
+<li>Q2: "último-bom" p/ recovery-point-error = último gate pass? (prop: sim)</li>
+<li>Q3: um probe ou dois? (prop: dois, worker unifica se o reader for o mesmo)</li>
+<li>Q4: acopla ao M-frame D008 ou fica artefato? (prop: artefato; acoplamento é decisão do owner)</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-c6-cost-to-success-no-metrics-plan-lq7-c6">C6 — cost-to-success no <code>metrics</code> (<code>plan-lq7-c6</code>)</h2>
+<p><code>cost_metrics.summarize()</code> +<code>costToSuccess</code>/<code>costToUsefulOutcome</code> + <code>byModelCTS</code>,
+derivado do delegation ledger. Footprint: cost_metrics.py, cenário ob, spec cost.
+<strong>Perguntas salvas:</strong></p>
+<ul>
+<li>Q1: <code>partial</code> entra no denominador de costToUsefulOutcome? (prop: não)</li>
+<li>Q2: CTS por task-class? depende de taxonomia de task (prop: adiar)</li>
+<li>Q3: CTS por sessão ou só global+byModel? (prop: global+byModel)</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-c3-estados-native-emulated-degraded-unsupported-de-capability-plan-lq7-c3">C3 — estados native/emulated/degraded/unsupported de capability (<code>plan-lq7-c3</code>)</h2>
+<p>Campo <code>supportState</code> em capabilities.json (formaliza a nota codex SubagentStop);
+helper + audit em agent_parity.py. <strong>capabilities.json NÃO é protegido (recon
+confirmou)</strong> → edição livre. Footprint: capabilities.json, agent_parity.py,
+spec SPEC-113, cenário ap.
+<strong>Perguntas salvas:</strong></p>
+<ul>
+<li>Q2: <code>supportState</code> por capability ou por (capability × vendor)? (prop: por vendor quando divergem)</li>
+<li>Q3: <code>degraded</code> rebaixa nota de maturidade do self-assessment automaticamente? (prop: sim, follow-up)</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-c2-residual-risk-register-doctor-advisory-plan-lq7-c2">C2 — residual risk register + doctor advisory (<code>plan-lq7-c2</code>)</h2>
+<p><code>.harness/state/residual-risk-register.json</code> (schema §14.7-2) + verbo <code>risk list/show</code> + doctor <code>residual-risk-review-due</code>. Door NEW SPEC-116. <strong>Consome a
+saída da R2</strong> (a lista-semente muda quando o sandbox fecha o risco "HTTP sem
+sandbox"). Footprint: state json, repo_health.py, cli_registry, spec nova, cenário rr.
+<strong>Perguntas salvas:</strong></p>
+<ul>
+<li>Q1: quem é a <code>acceptanceAuthority</code> default dos riscos seed? (precisa nome/handle real)</li>
+<li>Q2: <code>risk add/accept</code> via CLI agora ou follow-up? (prop: follow-up — aceitação é ato de autoridade)</li>
+<li>Q3: eu listo os 4 riscos-semente ou o owner revisa antes? coordenar C2 DEPOIS da R2</li>
+<li>Q4: cadência de <code>reviewDate</code>? (prop: 90d, alinhado ao reviewBy dos EXPs)</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-c5-metricas-do-servico-de-aprovacao-plan-lq7-c5">C5 — métricas do serviço de aprovação (<code>plan-lq7-c5</code>)</h2>
+<p>Bloco <code>approvals</code> no metrics (pending/sloBreached/median-p95 age/overrideRate/
+invalidatedCount/expired), reusando <code>_age_fields</code>/<code>sloHours</code> do decision_inbox.
+Footprint: cost_metrics.py ou collector do inbox, cenário di, spec.
+<strong>Perguntas salvas:</strong></p>
+<ul>
+<li>Q1: <code>overrideRate</code> é mensurável? só se o registro guardar o recomendado vs escolhido
+(se não guarda hoje, a métrica vira 🔬 e sai da fatia) — VERIFICAR no recon</li>
+<li>Q2: por sessão ou agregado? (prop: agregado)</li>
+<li>Q3: <code>post-approval incidents</code> exige linkar decisão→efeito → fora desta fatia</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-c8-doctor-advisory-de-exp-vencido-ja-existia">C8 — <del>doctor advisory de EXP vencido</del> JÁ EXISTIA</h2>
+<p>Recon achou <code>repo_health.checks</code> check (6) <code>experiment-overdue</code> já fazendo isso.
+Removido da fila; backlog corrigido (§6.4 → ✅ feito).</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/lq7-implementation-briefs.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/lq7-implementation-briefs.md</code></li><li>Source SHA-256: <code>d108b21acb6ad97025b6bd6c935e809faa049b91e570dfaa6d7c677d9c22f261</code></li><li>Edition-input SHA-256: <code>d108b21acb6ad97025b6bd6c935e809faa049b91e570dfaa6d7c677d9c22f261</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

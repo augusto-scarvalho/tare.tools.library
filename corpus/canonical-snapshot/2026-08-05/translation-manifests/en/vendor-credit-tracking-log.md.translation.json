@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/vendor-credit-tracking-log.md",
+  "sourceSha256": "8f2333628a3adb5db8dffeba5c6cfa5aca6930863a51e69a94656d1e68d19b10",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/vendor-credit-tracking-log.en.md",
+  "translationSha256": "dbe95f35a8c7aa510b29a4978fbe542ceeeb3d48ee2bad02f62d53e0095abda3",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

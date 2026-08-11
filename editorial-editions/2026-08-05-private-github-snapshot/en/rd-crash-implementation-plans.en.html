@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Implementation Plans — Deterministic Crash Injection (RD-CRASH) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-n-crash-injector-hybrid-injector-buildable-test-infra-with-exp-21-size-m">N-CRASH-INJECTOR — hybrid injector · BUILDABLE (test infra, with EXP-21) · size M</a></li><li class="h2"><a href="#ed-n-crash-exp21-recovery-measurement-owner-gated-size-m">N-CRASH-EXP21 — recovery measurement · OWNER-GATED · size M</a></li><li class="h2"><a href="#ed-suggested-order">Suggested order</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>Implementation Plans — Deterministic Crash Injection (RD-CRASH)</h1><p class="subtitle">Historical implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>f58f110448d890ff8923…</span></div><div><b>Edition SHA-256</b><span>240c62c717183338ff8f…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Parked in the backlog. Derived from <code>rd-crash-injection-round.md</code> (5 NVIDIA ideators) + D022.
+Enables <strong>EXP-21</strong> (measure recovery: duplicate-effect, orphaned-work, time-to-resume) + the recovery
+fixture. Windows-real (no POSIX SIGKILL/SIGSEGV).</p>
+<p><strong>Reuse:</strong> <code>scripts/harness_lib/processes.py</code> (subprocess spawn — propagates env); <code>sandbox_spawn.py</code>
+(the SPEC-151 Job Object — kills hang mode); circuit breaker + gate-hold auto-recovery (already react);
+secret scan (scrub truncated stdout). Analogy: SQLite crash VFS + Chaos Monkey + circuit breaker/fuse.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-crash-injector-hybrid-injector-buildable-test-infra-with-exp-21-size-m">N-CRASH-INJECTOR — hybrid injector · BUILDABLE (test infra, with EXP-21) · size M</h2>
+<p><strong>Goal:</strong> crash the worker DETERMINISTICALLY and reproducibly on Windows, covering 4 opt-in modes
+(EXP-21/fixture only, NEVER production). It is measurement-supporting test infrastructure — buildable
+when the owner opens EXP-21 (the measurement itself is owner-gated).</p>
+<p><strong>Approach (hybrid, D022):</strong></p>
+<ul>
+<li><strong>Cooperative via <code>HARNESS_CRASH_AT</code> env</strong> INSIDE the worker (modes a/c/d — only cooperative injection
+guarantees the EXACT point; external kill races pipe flush):<ul>
+<li>(a) abrupt: <code>abrupt:call=N</code> → <code>os._exit()</code> on call N, no flush.</li>
+<li>(c) truncated: <code>partial:bytes=K</code> → write K stdout bytes, then <code>os._exit()</code> (JSON cut in the middle).</li>
+<li>(d) dirty exit: <code>dirty:code=N</code> → non-zero <code>sys.exit(N)</code> + stderr.</li>
+</ul>
+</li>
+<li><strong>External kill through Job Object</strong> (the sandbox_spawn one) only for (b) hang: <code>hang:after=N</code> → block
+forever → parent Job Object reaps it on timeout.</li>
+<li><strong>COUNTER-based triggers, never probabilistic</strong> (contrast with Linux kernel FAIL_MAKE_REQUEST).</li>
+<li><strong>Guard lives at the worker ENTRYPOINT</strong> (reads <code>HARNESS_CRASH_AT</code> at startup — ZERO cost without env).
+<code>processes.py</code> only PROPAGATES the env (~3 lines). <code>sandbox_spawn.py</code> does NOT change (only supplies Job Object).</li>
+</ul>
+<p><strong>Mandatory traps (w-004):</strong> exit codes MUST NOT collide with <code>0xC0000005</code> (access violation) — otherwise
+the parent mistakes a FAKE crash for a real OS fault; <strong>scrub truncated stdout</strong> (it may contain a partial
+secret — reuse secret scan); env scoped to the SPECIFIC subprocess (Windows inherits env → otherwise ALL
+workers crash); truncation INSIDE <code>maxWorkerOutputChars</code> (otherwise recovery cannot distinguish crash from
+oversize rejection); mode (b) kill goes through the Job Object (kills the process tree), not TerminateProcess
+on one PID.</p>
+<p><strong>Footprint (when opened):</strong> cooperative <code>HARNESS_CRASH_AT</code> module at the worker entrypoint + ~3-line
+propagation in <code>processes.py</code> + recovery fixture; scenario (each mode triggers deterministically; parent
+SURVIVES and recovers; guard off without env).</p>
+<p><strong>Acceptance:</strong> each of the 4 modes crashes at the exact reproducible point; parent harness survives +
+recovers; without <code>HARNESS_CRASH_AT</code> the guard is a no-op (zero production cost); exit codes do not collide
+with OS codes.</p>
+<p><strong>Gate:</strong> buildable test infra WHEN owner opens EXP-21 (only makes sense WITH measurement). EXP-21
+(recovery measurement) remains OWNER-GATED. <strong>Dependency:</strong> processes.py + sandbox_spawn (exist). <strong>Size:</strong> M.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-crash-exp21-recovery-measurement-owner-gated-size-m">N-CRASH-EXP21 — recovery measurement · OWNER-GATED · size M</h2>
+<p><strong>Goal:</strong> with the injector, measure duplicate-effect / orphaned-work / time-to-resume for each crash mode — EXP-21.</p>
+<p><strong>Approach:</strong> trigger each N-CRASH-INJECTOR mode in a controlled WF and measure: duplicated effect
+(did task run twice?), orphaned work (did killed worker leave garbage?), time-to-resume (how long until
+existing gate-hold auto-recovery resumed?). Reuse the breaker + gate-hold that already react.</p>
+<p><strong>Footprint (when opened):</strong> register EXP-21; run injector + measure through event log + existing recovery.
+<strong>Acceptance:</strong> table <code>(crash mode) → (duplicate-effect, orphaned-work, time-to-resume)</code>.
+<strong>Gate:</strong> OWNER-GATED (measurement). <strong>Dependency:</strong> N-CRASH-INJECTOR. <strong>Size:</strong> M.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-suggested-order">Suggested order</h2>
+<ol>
+<li><strong>N-CRASH-INJECTOR</strong> — test infrastructure; build when owner opens EXP-21 (not earlier — without the
+measurement, the injector is code with no consumer).</li>
+<li><strong>N-CRASH-EXP21</strong> — owner-gated recovery measurement immediately afterward.</li>
+</ol>
+<blockquote>
+<p>Note: a probabilistic injector is rejected — EXP-21 needs DETERMINISM (Linux kernel
+FAIL_MAKE_REQUEST is the counterexample).</p>
+</blockquote>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-implementation-plans.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-implementation-plans.en.md</code></li><li>Source SHA-256: <code>f58f110448d890ff8923a7c4373b9a763a9c0b2e54a79b956ac6dd94283abcd1</code></li><li>Edition-input SHA-256: <code>240c62c717183338ff8f5024c1aba952b85162169fc7ef1e4eb69ccf6e67293d</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

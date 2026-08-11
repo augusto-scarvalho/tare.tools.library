@@ -1,0 +1,232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research Round — Programmatic Tool Calling (PTC) + Tool-Calling Frontier — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-what-ptc-is-framing">What PTC is (framing)</a></li><li class="h2"><a href="#ed-what-the-harness-already-has-substrate">What the harness ALREADY has (substrate)</a></li><li class="h2"><a href="#ed-the-question">The question</a></li><li class="h2"><a href="#ed-subquestions">Subquestions</a></li><li class="h2"><a href="#ed-criteria-harness-dna">Criteria (harness DNA)</a></li><li class="h2"><a href="#ed-waves">Waves</a></li><li class="h2"><a href="#ed-convergence-phase-5">Convergence (Phase 5)</a></li><li class="h2"><a href="#ed-what-it-is-the-win-unanimous">What it is + the win (unanimous)</a></li><li class="h2"><a href="#ed-the-reframe-that-changes-the-design-parity-wave-load-bearing">The REFRAME that changes the design (parity wave — load-bearing)</a></li><li class="h2"><a href="#ed-fit-in-harness-where-it-wins">Fit in harness (where it wins)</a></li><li class="h2"><a href="#ed-cross-vendor-parity">Cross-vendor parity</a></li><li class="h2"><a href="#ed-security-trust-waves-2-strong-findings">Security (trust waves — 2 strong findings)</a></li><li class="h2"><a href="#ed-new-failure-classes-nvidia-w-003">New failure classes (NVIDIA w-003)</a></li><li class="h2"><a href="#ed-conformance-accounting-t-adapterconf">Conformance / accounting (T-ADAPTERCONF)</a></li><li class="h2"><a href="#ed-measure-before-control-the-gate-critical">Measure-before-control (the gate — CRITICAL)</a></li><li class="h2"><a href="#ed-portfolio-buildable">Portfolio / buildable</a></li><li class="h2"><a href="#ed-frontier-that-fits-flow-a-web-cited-dated">Frontier that fits (Flow A web, cited + dated)</a></li><li class="h2"><a href="#ed-traceability">Traceability</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">RESEARCH ITERATION · 2026-08-05 snapshot</div><h1>Research Round — Programmatic Tool Calling (PTC) + Tool-Calling Frontier</h1><p class="subtitle">Historical research iteration/round. Preserved as an intermediate research artifact.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>a96a37742c2fd4574043…</span></div><div><b>Edition SHA-256</b><span>97f645bab309473bc72b…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Owner 2026-07-19: broad research (NVIDIA + Sonnet 5 HIGH) on PTC — how the harness and repositories
+benefit (focus on LATENCY, EFFICIENCY, TOKEN CONSUMPTION); how to implement across different vendors +
+OpenAI-compatible open weights + PARITY; and scan the FRONTIER of tool-calling knowledge and fit it into PTC</p>
+<ul>
+<li>the traditional tool calling we already have. Orchestrator = this session.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-what-ptc-is-framing">What PTC is (framing)</h2>
+<p>TRADITIONAL tool calling: model emits ONE call at a time → model round trip per call; result (even huge)
+returns to model context at every step. <strong>PTC:</strong> model writes CODE that PROGRAMMATICALLY ORCHESTRATES
+multiple tools (loop/filter/composition) in a sandbox; intermediate results remain in sandbox and do not feed
+back into model. Gain: fewer round trips (latency), fewer tokens (large output does not return to context),
+more efficiency (model filters/aggregates in code before deciding). Anthropic (code execution / tool-as-code),
+OpenAI (code interpreter + function calling) already ship; open weights (glm/llama) generally do NOT have it
+natively → harness provides it.</p>
+</section>
+<section class="section content"><h2 id="ed-what-the-harness-already-has-substrate">What the harness ALREADY has (substrate)</h2>
+<ul>
+<li><strong>Sandbox SPEC-151</strong> (<code>sandbox_spawn.py</code>: fs-confine + Job Object + tier) — execution substrate for
+model-emitted code. Key parity piece for open weights without native code-exec.</li>
+<li><strong>Discover chain</strong> (<code>discovery.py</code>: Gemini→NVIDIA for bulk text/image) + <strong>Graphify</strong> (code AST) — bulk-read
+orchestration = PTC’s MOTHER use case (one code call iterates N reads).</li>
+<li><strong>5 executors</strong> (<code>executors.json</code>: claude/codex CLI, openai-compat/nvidia-compat/gemini-compat HTTP) —
+PARITY surface where PTC must behave the same.</li>
+<li><strong>Adapter conformance</strong> (T-ADAPTERCONF, <code>accountingSemantics</code>, trust tiers) — parity discipline.</li>
+<li><strong>Model economy + delegation ledger</strong> — cost/token DNA PTC optimizes.</li>
+<li><strong>MCP</strong> (<code>capabilities_view.py</code>, capabilities.json) — exposed tools.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-the-question">The question</h2>
+<blockquote>
+<p>How do the harness (and repos we work on) benefit from PTC — quantifying LATENCY, EFFICIENCY and TOKEN
+CONSUMPTION? How do we IMPLEMENT PTC across vendors (native Anthropic/OpenAI) AND OpenAI-compatible open
+weights (without native PTC), with PARITY? And what does the tool-calling frontier bring that fits PTC and
+our existing traditional tool calling?</p>
+</blockquote>
+</section>
+<section class="section content"><h2 id="ed-subquestions">Subquestions</h2>
+<ol>
+<li><strong>Where PTC wins in the harness:</strong> which flows (bulk discover, graphify, workflow fan-out, mass reads,
+reduce) cut round trips/tokens with PTC? Quantify expected gain.</li>
+<li><strong>Mechanism:</strong> how model emits code calling harness tools (harness.py verbs, MCP) and runs it in SPEC-151
+sandbox; what exposes tools as functions; how results return (filtered only). Deterministic and safe.</li>
+<li><strong>Cross-vendor parity:</strong> vendors with NATIVE code-exec (Anthropic/OpenAI) vs open weights
+(glm/llama through nvidia/openai-compat) without it → harness runs emitted code in its own sandbox to give
+SAME capability. How adapter-conformance/accountingSemantics covers this.</li>
+<li><strong>Security:</strong> PTC = model writing executable code → connects to sandbox (SPEC-151) + RD-TAINT (D023,
+secret never egresses) + secret scan. What emitted code MAY touch.</li>
+<li><strong>Frontier (Flow A web):</strong> MCP, tool-search/RAG-over-tools (many tools), parallel tool calling,
+computer use, structured outputs, tool-result caching, “tools as code” — what is new and how each fits PTC
+vs traditional.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-criteria-harness-dna">Criteria (harness DNA)</h2>
+<ul>
+<li><strong>Measure-before-control:</strong> PTC latency/token gain is MEASURED (traditional baseline vs PTC on same task),
+not asserted. Reuse delegation ledger + accountingSemantics.</li>
+<li><strong>Real parity:</strong> same behavior across executors, verified by adapter conformance.</li>
+<li><strong>Security:</strong> emitted code runs contained (sandbox); secret does not egress (RD-TAINT).</li>
+<li><strong>Anti-fabrication:</strong> citation → source + date (frontier is web; mark <code>[web]</code> untrusted-until-verified).</li>
+<li><strong>Reuse</strong> sandbox + discover + executors + MCP — not a parallel runtime.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-waves">Waves</h2>
+<ul>
+<li>Wave A (NVIDIA, 5): design/reasoning — PTC mechanism in harness, sandbox reuse, parity abstraction,
+where latency/token improves.</li>
+<li>Wave B (Sonnet 5 HIGH, 3, WITH WebSearch): web frontier — (1) state of the art of PTC across vendors +
+evidence of latency/token gain; (2) parity implementation (native vs sandbox-side for open weights);
+(3) tool-calling frontier (MCP/tool search/parallel/computer use/…) + fit.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-convergence-phase-5">Convergence (Phase 5)</h2>
+<p>Isolate: where PTC wins (quantified), mechanism (sandbox + tools-as-functions), cross-vendor parity abstraction,
+security controls, frontier map → PTC/traditional. What is buildable now (measure-only latency/token
+PTC-vs-traditional probe on a task) vs engine (owner-gated). Synthesize into design + backlog increments +
+verifiable citations.</p>
+<hr/>
+<h1>Phase 5 — Convergence (4 waves: NVIDIA 5 + 3 Sonnet 5 high with WebSearch)</h1>
+</section>
+<section class="section content"><h2 id="ed-what-it-is-the-win-unanimous">What it is + the win (unanimous)</h2>
+<p>PTC = model emits CODE that orchestrates tools in sandbox; intermediate results stay LOCAL (do not feed
+context); only filtered output returns. Win = fewer round trips (LATENCY, 1:1) + fewer TOKENS (large output
+does not return). <strong>Non-linear with result-set size.</strong> Tightest analogy (NVIDIA w-005): <strong>database query
+pushdown</strong> (MapReduce/Spark) — push imperative code to where data lives, intermediate rows stay on worker
+node, only aggregate returns; PTC code = UDF.</p>
+</section>
+<section class="section content"><h2 id="ed-the-reframe-that-changes-the-design-parity-wave-load-bearing">The REFRAME that changes the design (parity wave — load-bearing)</h2>
+<p>“Native vs sandbox” is the WRONG question. Pause/resume protocol (Anthropic, read in primary docs): execution
+pauses on EACH tool_use, returns to OUR server, WE run the tool, return result. <strong>Tool bodies ALWAYS run on
+our side</strong>; vendor container only holds orchestration LOOP. → <strong>Route the loop through OUR <code>sandbox_spawn</code>
+by default for EVERY executor</strong> (including Claude); native container = opt-in. Gains uniform
+conformance/taint/accounting.</p>
+</section>
+<section class="section content"><h2 id="ed-fit-in-harness-where-it-wins">Fit in harness (where it wins)</h2>
+<ul>
+<li><strong>Substrate:</strong> SPEC-151 sandbox ALREADY is what PTC needs. Thin layer (NVIDIA w-001): a <code>harness_tools</code>
+function module (Anthropic signature async <code>dict → str</code>) injected into sandbox namespace; model emits ONE
+script; only filtered <code>stdout</code> returns.</li>
+<li><strong>Highest-gain flows:</strong> <strong>bulk discover</strong> chain (MOTHER case), workflow <strong>reduce/fan-out</strong>, <strong>bulk graphify</strong>
+— many reads → one script. (Fork-join ALREADY is parallel calling at orchestration level; PTC = IN-TURN
+loop of ONE worker.)</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-cross-vendor-parity">Cross-vendor parity</h2>
+<ul>
+<li><strong>CodeAct (arXiv:2402.01030, ICML 2024)</strong> = academic root + portable BEHAVIOR (+20% success vs JSON).
+HOSTED PTC infrastructure = only 2 vendors: <strong>Anthropic (Nov/2025, Python)</strong> + <strong>OpenAI
+(GPT-5.6, 2026-07-09, JavaScript/V8)</strong> — SAME <code>allowed_callers</code> (industry convergence).
+<strong>Round premise changed mid-flight</strong> (round doc assumed OpenAI only had code interpreter).</li>
+<li><strong>Open weights (glm/llama/deepseek/qwen/mistral + NVIDIA NIM)</strong> = NO native hosted PTC → <strong>emulated by OUR
+sandbox loop</strong>: prompt contract (signatures + one ```python block) → deterministic code extraction (reuse
+<code>HARNESS_RESULT</code> idiom) → <strong>static AST gate BEFORE execution</strong> (reuse <code>ast.walk</code> from
+<code>sandbox_spawn.evaluate_chokepoint</code>) → <code>sandbox_spawn(bounded)</code> with injected namespace → only filtered
+output returns. Model-agnostic buildability supported by LangChain Open PTC, Cloudflare Code Mode,
+HF smolagents.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-security-trust-waves-2-strong-findings">Security (trust waves — 2 strong findings)</h2>
+<ul>
+<li><strong>🔒 4th TAINT SINK (new, on top of D023):</strong> D023 lists 3 sinks (prompt/persisted result/log). PTC opens a
+FOURTH: <strong>sandbox stdout/stderr</strong> (returns to model by design). A secret <code>print()</code>ed in script crosses
+WITHOUT touching the 3 sinks → <strong>taint check must run on captured sandbox stdout</strong> or PTC reopens D023 gap.
+One extra call site in existing envelope.</li>
+<li><strong>Lethal trifecta (Willison):</strong> PTC collapses “private data + untrusted content + egress” into one script,
+removing natural per-call checkpoint → NEW invariant: stub namespace must not combine secret-reading stub +
+egress-capable stub without <code>declares_egress</code> + active 4th sink.</li>
+<li>Stubs only <code>dict → str</code> (NEVER <code>run_shell(str)</code> — closes command injection by construction); dangerous
+builtins absent from namespace (AST-gate backstop); <code>HARNESS_SANDBOX_OVERRIDE</code> unreachable from emitted
+code. Filtered return = only trust chokepoint.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-new-failure-classes-nvidia-w-003">New failure classes (NVIDIA w-003)</h2>
+<ul>
+<li><strong>Partial batch:</strong> script failure loses ENTIRE BATCH (per-call retry is granular; PTC is not) →
+checkpoint/resume INSIDE sandbox.</li>
+<li><strong>CPU time = UNTRACKED cost axis:</strong> PTC trades tokens for COMPUTE → measure sandbox CPU.</li>
+<li><strong>Liveness:</strong> hung script yields no model turn → timeout detection.</li>
+<li><strong>Accounting blind spot:</strong> ledger does not see tool calls internal to sandbox → close it.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-conformance-accounting-t-adapterconf">Conformance / accounting (T-ADAPTERCONF)</h2>
+<p>New <code>programmatic-tool-calling</code> capability with <code>supportState</code> (claude/openai=native, remainder=emulated).</p>
+<ul>
+<li><strong>c9 <code>ptcTokenScope</code></strong> (new subfield): Anthropic DISCOUNTS native tool-result tokens → naive comparison of
+“billed tokens” native-vs-emulated favors Claude for a reason unrelated to our design. Field
+<code>vendor-discounted|full-emulated|unknown</code>, report-only, never gates.</li>
+<li><strong>c5 no-amplification:</strong> PTC worker stub-set must be a PROVABLE subset of already-declared tools — worker
+emitting code cannot gain reach unavailable one-call-at-a-time.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-measure-before-control-the-gate-critical">Measure-before-control (the gate — CRITICAL)</h2>
+<p>PTC is a WORKLOAD-SHAPE BET, NOT default-on. <strong>τ²-bench (Anthropic’s OWN data): +8% cost on short sequential
+flow</strong> (“sequential single-call workflows do not benefit”). Vendor numbers (20–98%) WITHOUT independent
+replication; PointFive (arXiv:2607.12161, 2026-07): token reduction ≠ billed cost with caching (r=0.15).
+Best NON-vendor number: LLMCompiler (ICML 2024) 3.7× latency/6× cost vs ReAct. → <strong>measure-only probe FIRST:</strong>
+run discover chain TRADITIONAL vs emulated-PTC on OUR traffic, matched budget, log in <code>cost_metrics</code>
+(observed vs estimated) + CPU time, gate at L13 noise floor. Break-even hypothesis to FALSIFY: N&gt;~3–4 calls.</p>
+</section>
+<section class="section content"><h2 id="ed-portfolio-buildable">Portfolio / buildable</h2>
+<ul>
+<li><strong>BUILDABLE NOW (measure-only): N-PTC-PROBE (EXP-24)</strong> — latency/token/CPU traditional-vs-emulated-PTC
+comparison on real task (discover), noise-floor gated. NEVER changes production path.</li>
+<li><strong>OWNER-GATED:</strong> <strong>N-PTC-ENGINE</strong> (<code>harness_tools</code> module + sandbox loop + caller-tag pause/resume relay) —
+control + security → probe must justify + security review. <strong>4th taint sink</strong> (fold into RD-TAINT/D023).
+Conformance/accounting extension.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-frontier-that-fits-flow-a-web-cited-dated">Frontier that fits (Flow A web, cited + dated)</h2>
+<ul>
+<li><strong>Tool Search / RAG-over-tools</strong> (Gorilla arXiv:2305.15334; Anthropic Tool Search Tool, 85% reduction,
+APPEND-not-swap to preserve cache) — stacks with PTC (script finds tool before invoking). Testable WITHOUT
+engine. High value (harness already merges MCP from 5 surfaces).</li>
+<li><strong>MCP-as-code</strong> — when <code>capabilities.json.mcpServers</code> (currently <code>{}</code>) is populated; same stub module.</li>
+<li><strong>Structured outputs / constrained code grammar</strong> — defense in depth over sandbox (code limited to safe
+subset before execution). <code>[judgment]</code>, no shipped product.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-traceability">Traceability</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Idea</th>
+<th>Experiment</th>
+<th>Task</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4/4 (code-orchestrates-tools) + CodeAct + pushdown</td>
+<td>harness_tools in sandbox + loop</td>
+<td>N-PTC-PROBE = EXP-24</td>
+<td>N-PTC</td>
+<td>designed; probe buildable, engine owner-gated</td>
+</tr>
+<tr>
+<td>parity w-004 + NVIDIA w-004 (4th sink)</td>
+<td>taint on sandbox stdout</td>
+<td>—</td>
+<td>folds RD-TAINT/D023</td>
+<td>designed (security)</td>
+</tr>
+<tr>
+<td>vendor scan (OpenAI 2026-07-09 PTC)</td>
+<td>premise updated; parity = sandbox only for open weights</td>
+<td>—</td>
+<td>N-PTC-ENGINE</td>
+<td>[web] verify</td>
+</tr>
+<tr>
+<td>τ²-bench/PointFive/LLMCompiler</td>
+<td>PTC is workload bet; measure on our traffic</td>
+<td>EXP-24</td>
+<td>—</td>
+<td>measure-first</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/ptc-round.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ptc-round.en.md</code></li><li>Source SHA-256: <code>a96a37742c2fd4574043371882f4b255605ab03f331b2ff58d8181fbb92ef874</code></li><li>Edition-input SHA-256: <code>97f645bab309473bc72bab8eb949c41ea381279756a305dd35ba0b381232ab87</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

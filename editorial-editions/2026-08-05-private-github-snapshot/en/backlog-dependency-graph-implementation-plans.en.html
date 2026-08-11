@@ -1,0 +1,267 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Backlog dependency + provenance graph — implementation plans — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-the-convergent-architecture-near-unanimous-across-53-cards-both-vendors">The convergent architecture (near-unanimous across 53 cards, BOTH vendors)</a></li><li class="h2"><a href="#ed-portfolio-phase-5-buckets">Portfolio (Phase 5 buckets)</a></li><li class="h2"><a href="#ed-p0-measure-first-edge-inference-probe-noise-floor-do-first-gates-all-ai">P0 — Measure-first edge-inference probe + noise floor  [DO FIRST; gates all AI]</a></li><li class="h2"><a href="#ed-p1-deps-as-tags-kahn-topo-floor-in-tasks-board-classic-cheapest-no-ai-ship-now">P1 — deps-as-tags + Kahn topo floor in tasks_board [classic, cheapest, no AI, ship now]</a></li><li class="h2"><a href="#ed-p2-derived-provenance-dependency-graph-edge-as-claim-schema-brief-b">P2 — Derived provenance+dependency graph + edge-as-claim schema [Brief B]</a></li><li class="h2"><a href="#ed-p3-ripple-plan-revision-flags-conflict-color-no-hairball-brief-c">P3 — Ripple -&gt; plan-revision flags, conflict-color, no hairball [Brief C]</a></li><li class="h2"><a href="#ed-p4-lazy-retrieval-over-the-graph-genealogy-edges-brief-d">P4 — Lazy retrieval over the graph + genealogy edges [Brief D]</a></li><li class="h2"><a href="#ed-p5-trust-egress-layer-cross-cutting-ships-with-p0-s-first-external-api-call">P5 — Trust + egress layer [cross-cutting; ships WITH P0&#x27;s first external-API call]</a></li><li class="h2"><a href="#ed-frontier-bets-park-with-a-trigger-do-not-build-first">Frontier bets (park with a trigger; do NOT build first)</a></li><li class="h2"><a href="#ed-traceability-matrix">Traceability matrix</a></li><li class="h2"><a href="#ed-sequencing-the-dependency-chain-the-owner-asked-to-make-explicit">Sequencing (the dependency chain the owner asked to make explicit)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>Backlog dependency + provenance graph — implementation plans</h1><p class="subtitle">Historical implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">en</span><span class="badge">NATIVE_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>27f8949e4b7ff442c600…</span></div><div><b>Edition SHA-256</b><span>27f8949e4b7ff442c600…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English source reformatted without semantic refresh.</div></section>
+<section class="section content">
+<p>Deliverable of the research round <code>docs/research/backlog-dependency-graph-round.md</code> (Double Diamond).
+Phase 3 divergence ran <strong>balanced cross-vendor</strong>: Sonnet 5 (6 lenses, ~31 cards, via <code>model:sonnet</code>
+subagents — the workflow's <code>claude</code>/"plan" leg maps to Fable, so subagents are the reliable Sonnet-5
+path) + NVIDIA (<code>nvidia-compat</code> workflow WF-20260719-152134-492945, 5 lenses, ~22 cards). Phase 4
+convergence + Phase 5 plans channelled by the orchestrator (this session). <strong>No Fable credits spent</strong>
+(nothing ran on the <code>claude</code> executor; the planned Sonnet-workflow WF was cancelled before any run).</p>
+</section>
+<section class="section content"><h2 id="ed-the-convergent-architecture-near-unanimous-across-53-cards-both-vendors">The convergent architecture (near-unanimous across 53 cards, BOTH vendors)</h2>
+<p>Independent generation, two vendors, eleven lenses — they landed on the SAME backbone. That agreement
+is the round's strongest evidence signal (heterogeneous generators converging, not one model's bias):</p>
+<ol>
+<li><strong>Cheap-first, measure-gated pipeline.</strong> embeddings + ANN top-k candidate gen (cuts O(n^2)-&gt;O(n*k))
+-&gt; LLM-judge typed edge {blocks/depends-on/relates-to/duplicates}+confidence, ontology-constrained
+-&gt; <strong>independent Grounder audit</strong> (never the same call self-checking) -&gt; promote. Gate the whole
+thing on a <strong>measure-only probe</strong> that beats the classic <strong>Kahn/keyword noise floor</strong> FIRST.</li>
+<li><strong>Derived-not-stored graph.</strong> Regenerated fresh each pass from existing signals; minimal PROV
+backbone (Entity=item, Activity=round, Agent=decider); full PROV-O over-models. Reuses the
+<code>tasks_board</code> derive-fresh idiom + git-as-DAG + <code>DECISIONS.md</code> tokens + the traceability matrix.</li>
+<li><strong>Edge = CLAIM, never fact.</strong> Every inferred edge carries status (PROPOSED/VERIFIED/REJECTED),
+confidence, source, provenance tag (<code>[web]</code>/<code>[repo]</code>/<code>[judgment]</code>). Downstream (ripple/sequencing/
+retrieval) reads VERIFIED only by default. Promotion needs the independent audit. This is the
+measure-honesty invariant made structural — the schema has no field for "fact".</li>
+<li><strong>Ripple = conflict-color inline flags, no hairball.</strong> A new item ripples via bounded-hop BFS;
+affected plans get a conflict-color flag (repurpose Jira red-line -&gt; "premise invalidated");
+the raw graph is NEVER rendered — a task-specific subgraph is derived on demand + discarded.</li>
+<li><strong>Lazy retrieval.</strong> LazyGraphRAG deferred (query-time, ~900 vs ~40k tokens); genealogy edges
+(CHIMERA descends-from) are the pre-computed hot path (prevent re-proposing dead branches).</li>
+<li><strong>Trust layer (cross-cutting, non-optional given external-API egress).</strong> Redact before egress;
+confine the inference worker; PROPOSED-until-audited promotion gate; tag-laundering guard.</li>
+<li><strong>The wedge (why this is OURS): STALENESS is the universal gap no tool solves — answered by
+derive-fresh + edge-as-claim + measure-honesty, all existing house idioms.</strong></li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-portfolio-phase-5-buckets">Portfolio (Phase 5 buckets)</h2>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Items</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>núcleo</strong> (build, staged by dependency)</td>
+<td>P0 measure-probe · P1 deps-tags+Kahn floor · P2 derived graph + edge-as-claim · P3 ripple flags · P4 lazy retrieval + genealogy</td>
+</tr>
+<tr>
+<td><strong>contingência / cross-cutting</strong></td>
+<td>P5 trust+egress layer (gates any external-API inference; ships WITH P0)</td>
+</tr>
+<tr>
+<td><strong>aposta-de-fronteira</strong> (experiment/park, triggered)</td>
+<td>F1 Uzzi Z-score novelty confidence · F2 W3C PROV <code>wasInvalidatedBy</code> ripple primitive · F3 GNN link-prediction (cold-start — park)</td>
+</tr>
+<tr>
+<td><strong>experimentos</strong> (register)</td>
+<td>EXP-BDG-1 edge-inference precision vs noise floor (P0) · EXP-BDG-2 incremental-derive correctness (P2/P5-scale)</td>
+</tr>
+<tr>
+<td><strong>estacionadas</strong></td>
+<td>raw-graph render UI (C-I4 — riskiest, cut from v1); GraphRAG eager summaries (E11 cost)</td>
+</tr>
+<tr>
+<td><strong>rejeitadas</strong></td>
+<td>continuous production LLM edge-inference before the probe clears the floor; a stored/materialized graph artifact (staleness rot)</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-p0-measure-first-edge-inference-probe-noise-floor-do-first-gates-all-ai">P0 — Measure-first edge-inference probe + noise floor  [DO FIRST; gates all AI]</h2>
+<p><strong>Goal.</strong> Before ANY auto-linking acts, prove (or disprove) that AI-inferred typed edges beat the
+classic floor on OUR backlog — and build the labeled set that makes every later confidence score mean
+something (E8: no backlog benchmark exists). Read-only; nothing is written to the backlog.
+<strong>Mechanism.</strong> On a FROZEN slice of ~50-200 audited items: (a) classic floor = literal <code>blocks:/ depends-on:</code> keyword scan + Kahn topo (E1); (b) candidate gen = embed items once + ANN top-k
+(k=10-20) to cut O(n^2)-&gt;O(n<em>k) (P1/PC-1); (c) LLM-judge each candidate pair -&gt; {edge-type,
+confidence}, ontology-constrained to E3; (d) independent Grounder audit (evidence-check vs the cited
+source span — grep/diff, not another LLM opinion) (E7/R-2/CARD-T3). Grade precision/recall/F1 vs the
+floor + repeated-run confidence stability (the LLM's own noise floor, R-1). Classify each miss into a
+failure-mode taxonomy (false-block, type-confusion, relates-to dumping — R1/E6).
+<strong>Footprint.</strong> New <code>testing/probes/edge_inference_probe.py</code> (measure-only, like the existing
+`testing/probes/</em><code>); a frozen fixture slice under </code>testing/probes/fixtures/<code>; grading in stdlib. Reuses the </code>backlog-groom<code>Mine-&gt;Audit split (miner proposes, orchestrator audits) — point one miner at the "edges" corpus (SIM-5). NO writes to</code>.harness` or the backlog.
+<strong>Experiment.</strong> EXP-BDG-1 (measure-before-control + noise-floor + evidence-grades): hypothesis "LLM-
+judge precision beats the keyword/Kahn floor by &gt;X% on the frozen slice"; baseline = the floor;
+metric = precision/recall/F1 + confidence stability; decision = auto-linking stays OFF until the delta
+clears the floor at a confirmatory evidence grade. Reversal = Kahn-only mode.
+<strong>Depends on.</strong> nothing (this is step 0). <strong>Novelty</strong> baixa · <strong>Maturity</strong> conceitual.
+<strong>Descends from.</strong> SIM-1/SIM-5, R-1/R-2, PC-1, P1/P4, CARD-005-A (gene-regulatory measure-first),
+S1, E1/E5/E6/E7/E8.</p>
+</section>
+<section class="section content"><h2 id="ed-p1-deps-as-tags-kahn-topo-floor-in-tasks-board-classic-cheapest-no-ai-ship-now">P1 — deps-as-tags + Kahn topo floor in <code>tasks_board</code> [classic, cheapest, no AI, ship now]</h2>
+<p><strong>Goal.</strong> Make the classic dependency floor real and immediately useful (sequencing + cycle
+detection) with zero AI and zero new storage — this IS the noise floor P0 grades against.
+<strong>Mechanism.</strong> Parse an inline convention LEGAL in today's free text (no schema migration): <code>blocks:ID / depends-on:ID / relates-to:ID / duplicates:ID</code> tokens (E3) from the three corpora <code>tasks_snapshot</code>
+already reads (backlog md, <code>tasks.json</code>, <code>intake-queue.json</code>). Emit one derived key per row
+<code>deps:{blocks,dependsOn,relatesTo,duplicates}</code> + a stdlib Kahn function -&gt; topo order + hard-cycle
+list, exposed as <code>tasks list --topo</code>.
+<strong>Footprint.</strong> <code>scripts/harness_lib/tasks_board.py</code> (same module, derive-never-store + never-crash-
+per-row idiom, ~30 lines); one <code>cli_registry.register()</code> verb flag. GUI-writes-no-state preserved.
+<strong>Depends on.</strong> nothing. <strong>Novelty</strong> baixa · <strong>Maturity</strong> produção (Kahn 1962 + E3 taxonomy).
+<strong>Descends from.</strong> SIM-1, S1, PC-3, P3, E1/E3.</p>
+</section>
+<section class="section content"><h2 id="ed-p2-derived-provenance-dependency-graph-edge-as-claim-schema-brief-b">P2 — Derived provenance+dependency graph + edge-as-claim schema [Brief B]</h2>
+<p><strong>Goal.</strong> One derived-fresh graph unifying dependencies (P1) + provenance (where each item came from),
+queryable, never a stored decaying artifact.
+<strong>Mechanism.</strong> A read-only <code>deriveGraph(signals)</code> (git-blame analogy, CARD-005-B): minimal PROV
+backbone Entity=item / Activity=round / Agent=session-or-decider, built from signals we ALREADY keep —
+<code>DECISIONS.md</code> reference tokens (<code>EXP-N/SPEC-N/D0xx/T-xxx</code>, co-occurrence = edges, SIM-2), git commit
+trailers (session/decision refs — git IS the provenance DAG, XD1/CARD-005-B), the per-round
+traceability matrix, <code>tasks.json</code>/experiments/intake. Every edge is a CLAIM record: <code>{type, from, to, confidence, status:PROPOSED|VERIFIED|REJECTED, source, provenanceTag, inferredBy, lastVerifiedAt}</code>
+(R-3/TB-2). Incremental at scale: content-hash items, dirty-item one-hop recompute + per-pair cache
+keyed by (hashA,hashB), whole-pass hash short-circuit (P2/P5-Sonnet, PC-3); a periodic full-recompute-
+on-a-sample self-check keeps "derived-fresh" honest (catches removed-edge drift). Expose <code>harness.py provenance &lt;token&gt;</code> -&gt; "what cites this / what this cites" (bounded slice, never the whole graph).
+<strong>Footprint.</strong> New <code>scripts/harness_lib/dep_graph.py</code> (pure derive, stdlib) + one <code>cli_registry</code> verb;
+optional: ONLY genealogy edges (descends-from) persisted (E10) if a measured retrieval win justifies
+it (else fully derived). No 2nd write path; no new canonical store.
+<strong>Experiment.</strong> EXP-BDG-2 (incremental-derive correctness): the dirty-set recompute must equal a full
+recompute on a sample (guards the "looks-fresh-but-stale" failure R-2/P2 flags).
+<strong>Depends on.</strong> P1 (dependency edges). <strong>Novelty</strong> média · <strong>Maturity</strong> conceitual.
+<strong>Descends from.</strong> SIM-2, R-2/R-5, XD1/XD4, CARD-005-B, PC-4, T2, E9/E10/E15.</p>
+</section>
+<section class="section content"><h2 id="ed-p3-ripple-plan-revision-flags-conflict-color-no-hairball-brief-c">P3 — Ripple -&gt; plan-revision flags, conflict-color, no hairball [Brief C]</h2>
+<p><strong>Goal.</strong> When a new item lands, flag which plans need revision — legibly, without a graph hairball.
+<strong>Mechanism.</strong> Bounded-hop BFS (depth D~3, P3-Sonnet) from the changed item along blocks/depends-on
+edges only -&gt; the affected set (compiler-error-cascade analogy: propagate to break-sites, don't render
+the graph — CARD-005-C). Surface as ONE new <code>StatusKind</code> <code>needs-revision</code> (a 12th state, distinct
+glyph, tone=danger — reuse the F4 Status pill/rail: color+icon+text, daltonic-safe; this is the design
+law's ESCALATE-to-a-primitive path, NOT new CSS — C-I2). The flag inherits the MIN confidence along
+the chain (propagate, don't launder — R-5) and shows a truncation notice past depth D ("N more hops",
+P3). Escalation to a derived 1-hop subgraph is an explicit action, rendered in a Drawer, discarded on
+close (C-I4 — but this render is the RISKIEST card, parked to a later slice; C-I1/C-I3 answer
+"what's linked / why" without ever drawing a graph).
+<strong>Footprint.</strong> <code>dep_graph.py</code> ripple fn + <code>/api/tasks</code> (+experiments/research) derived <code>rippleFlag</code>
+key; F5 Status amendment for the new kind (spec'd, not a silent edit to the frozen primitive — C-I2).
+<strong>Depends on.</strong> P1 + P2. <strong>Novelty</strong> média · <strong>Maturity</strong> conceitual.
+<strong>Descends from.</strong> SIM-3, R-5, C-I1/C-I2/C-I3, XD2 (dirty-propagation, hard vs soft edges),
+CARD-005-C, T5, E12/E13.</p>
+</section>
+<section class="section content"><h2 id="ed-p4-lazy-retrieval-over-the-graph-genealogy-edges-brief-d">P4 — Lazy retrieval over the graph + genealogy edges [Brief D]</h2>
+<p><strong>Goal.</strong> Make the NEXT groom/research round retrieve over what we already learned instead of
+re-mining raw history — cheaply.
+<strong>Mechanism.</strong> Genealogy edges (CHIMERA descends-from/recombined-from, E10) are the hot path: a query
+"what killed lineage does this idea belong to" prunes dead branches before candidate gen. Retrieval is
+LazyGraphRAG (deferred query-time summaries, ~900 tokens, E11) — NEVER eager (~40k). Formalize the
+Phase-0 "grep DECISIONS/INDEX/prior rounds first" habit into <code>doc-find</code> as the mandatory first call of
+any groom/research orchestration (SIM-4). A query-planner cost model picks the cheapest traversal
+(CARD-005-D). Cache keyed to graph-state hash (fresh, not recomputed when nothing changed; R-4).
+<strong>Footprint.</strong> <code>doc-find</code> grep-target widening (DECISIONS/INDEX/experiment+intake titles); a lazy
+summarize-on-query fn in <code>dep_graph.py</code>; staleness stamp + cache-invalidation (R-4).
+<strong>Depends on.</strong> P2 (the graph). <strong>Novelty</strong> média · <strong>Maturity</strong> conceitual.
+<strong>Descends from.</strong> SIM-4, R-4, XD5, CARD-005-D, PC-2, S4, E10/E11.</p>
+</section>
+<section class="section content"><h2 id="ed-p5-trust-egress-layer-cross-cutting-ships-with-p0-s-first-external-api-call">P5 — Trust + egress layer [cross-cutting; ships WITH P0's first external-API call]</h2>
+<p><strong>Goal.</strong> Edge inference sends work-item text to an EXTERNAL API (NVIDIA/OpenAI). Keep that trust
+boundary honest: nothing sensitive egresses, an inferred edge never silently gains authority.
+<strong>Mechanism.</strong> (a) <strong>Egress scope card</strong> (TB-1): before egress, reduce each item to {id, type,
+redacted-summary} with secret-shaped tokens masked using the detectors <code>protect_files</code> already carries;
+allow-list exactly the inference endpoint (sandbox network allow-list, not model good behavior). (b)
+<strong>Inference-worker confinement</strong> (TB-4): run the miner as an R1 <code>sandbox_spawn</code> (SPEC-148) — isolated
+cwd, deny-write on protected paths, endpoint-scoped network, no graph-write path (only a proposal
+file the audit consumes). (c) <strong>Promotion gate</strong> (TB-2): edges are PROPOSED until the independent
+audit attaches a <code>[repo]</code> citation or the owner signs off via the intake queue; revocable to REJECTED.
+(d) <strong>Tag-laundering guard</strong> (TB-3): a write-time validator rejects a <code>[repo]</code> tag with no resolvable
+file+line, or an upgrade of <code>[web]</code>/<code>[judgment]</code>-&gt;<code>[repo]</code> without a fresh direct read. (e) verified-
+only default retrieval (TB-5).
+<strong>Footprint.</strong> reuse <code>discover</code> pre-egress + <code>sandbox_spawn</code> (SPEC-148) + <code>protect_files</code> detectors +
+the <code>[web]/[repo]/[judgment]</code> convention + intake as the promotion gate. Mostly wiring/config + the
+tag-laundering validator (new, small).
+<strong>Depends on.</strong> P0 (the first external-API inference). <strong>Novelty</strong> média · <strong>Maturity</strong> protótipo
+(sandbox/detectors exist; the wiring is new). <strong>Descends from.</strong> TB-1..5, CARD-T1..T5.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-frontier-bets-park-with-a-trigger-do-not-build-first">Frontier bets (park with a trigger; do NOT build first)</h2>
+<ul>
+<li><strong>F1 — Uzzi atypical-combination Z-score as the measure-first confidence number</strong> (XD3). Novelty
+ALTA / maturity conceitual. A statistic over a degree-preserving randomized null of the tag-
+cooccurrence graph gives a citable novelty/conventionality number (vs an LLM vibe). <strong>Trigger:</strong> P0
+ships + the backlog/tag vocabulary is large enough for a null model to have power. Goodhart risk if
+ideators learn it's scored.</li>
+<li><strong>F2 — W3C PROV <code>wasInvalidatedBy</code> as the formal ripple primitive</strong> (XD4/CARD-T2). Novelty ALTA /
+maturity conceitual (PROV-DM is produção AS A STANDARD; the transplant is untested). Borrow the
+VOCABULARY onto flat JSON (not RDF machinery). <strong>Trigger:</strong> P2's ad-hoc edge schema starts needing a
+standard invalidation semantics; adopt the vocabulary, not the triple-store.</li>
+<li><strong>F3 — GNN link-prediction over the backlog graph.</strong> Novelty alta / maturity conceitual — COLD-START
+loser (needs a populated labeled graph to train). <strong>Trigger:</strong> the audited-edge corpus grows large
+enough to be training data; until then LLM few-shot judgment wins.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-traceability-matrix">Traceability matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Evidência</th>
+<th>Problema (JTBD)</th>
+<th>Ideia (cards)</th>
+<th>Experimento/ADR</th>
+<th>Plano</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1/E5/E6/E7/E8</td>
+<td>J1 sequence</td>
+<td>SIM-1/5, R-1/2, PC-1, 005-A, P1/4</td>
+<td>EXP-BDG-1</td>
+<td>P0, P1</td>
+<td>plano</td>
+</tr>
+<tr>
+<td>E9/E10/E15</td>
+<td>J1/J3/J4 graph+genealogy</td>
+<td>SIM-2, R-2/5, XD1/4, 005-B, PC-4</td>
+<td>EXP-BDG-2</td>
+<td>P2, P4</td>
+<td>plano</td>
+</tr>
+<tr>
+<td>E12/E13</td>
+<td>J2 ripple</td>
+<td>SIM-3, R-5, C-I1/2, XD2, 005-C</td>
+<td>—</td>
+<td>P3</td>
+<td>plano</td>
+</tr>
+<tr>
+<td>E11</td>
+<td>J4 retrieve cheaper</td>
+<td>SIM-4, R-4, XD5, 005-D, PC-2</td>
+<td>—</td>
+<td>P4</td>
+<td>plano</td>
+</tr>
+<tr>
+<td>E6/E7 + egress</td>
+<td>trust boundary</td>
+<td>TB-1..5, CARD-T1..5</td>
+<td>—</td>
+<td>P5</td>
+<td>plano</td>
+</tr>
+<tr>
+<td>Uzzi/PROV/GNN</td>
+<td>frontier</td>
+<td>XD3/4, F3</td>
+<td>(park)</td>
+<td>F1/F2/F3</td>
+<td>estacionado</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-sequencing-the-dependency-chain-the-owner-asked-to-make-explicit">Sequencing (the dependency chain the owner asked to make explicit)</h2>
+<p><code>P0 (measure) + P1 (classic floor) do-first, independent</code> -&gt; <code>P2 (graph) needs P1</code> -&gt; <code>P3 (ripple) needs P1+P2</code> and <code>P4 (retrieval) needs P2</code> -&gt; <code>P5 (trust) ships WITH P0's first external call</code>.
+Frontier F1/F2/F3 park behind their triggers. Nothing AI auto-links until P0 clears the noise floor.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/backlog-dependency-graph-implementation-plans.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/backlog-dependency-graph-implementation-plans.md</code></li><li>Source SHA-256: <code>27f8949e4b7ff442c6009f08e2815fc2e3ea02f82b5dfb507deaadcb97cda38d</code></li><li>Edition-input SHA-256: <code>27f8949e4b7ff442c6009f08e2815fc2e3ea02f82b5dfb507deaadcb97cda38d</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

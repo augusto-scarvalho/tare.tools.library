@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/truth-reconciliation-implementation-plans.md",
+  "sourceSha256": "40a5a28cb4274cde235dce91f04bea024652e8bcfcc349fea5fe9f85b86fc5d4",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/truth-reconciliation-implementation-plans.en.md",
+  "translationSha256": "0109c39d1b9e7257413b8e98fec07df714d67b8f52226b8a354125375bbe53ba",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

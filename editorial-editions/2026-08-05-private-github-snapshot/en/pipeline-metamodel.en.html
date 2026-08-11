@@ -1,0 +1,430 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research Round — Pipeline Metamodel (Short Double Diamond) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-question">Question</a></li><li class="h2"><a href="#ed-success-criteria">Success criteria</a></li><li class="h2"><a href="#ed-declared-budget-and-width-d010">Declared budget and width (D010)</a></li><li class="h2"><a href="#ed-phase-1-evidence-all-repo-collected-2026-08-04">Phase 1 — Evidence (all [repo], collected 2026-08-04)</a></li><li class="h3"><a href="#ed-flow-a-external-state-of-the-art-collected-2026-08-04-after-gate-at-owner-request">Flow A — external state of the art (collected 2026-08-04 after gate, at owner request)</a></li><li class="h3"><a href="#ed-flow-a-comparative-scientific-literature-collected-2026-08-04-owner-ordered-comparison-with-scientific-work">Flow A — comparative scientific literature (collected 2026-08-04, owner ordered comparison with scientific work)</a></li><li class="h3"><a href="#ed-flow-a-bleeding-edge-last-2436-months">Flow A — bleeding edge, last 24–36 months</a></li><li class="h2"><a href="#ed-phase-2-briefs">Phase 2 — Briefs</a></li><li class="h3"><a href="#ed-brief-a-direction-and-reconciliation">Brief A — direction and reconciliation</a></li><li class="h3"><a href="#ed-brief-b-marginal-value-per-derivation-yagni-test">Brief B — marginal value per derivation (YAGNI test)</a></li><li class="h3"><a href="#ed-brief-c-parameterization-by-type-vs-config-swamp">Brief C — parameterization by type vs config swamp</a></li><li class="h2"><a href="#ed-human-gate-phase-2-3">Human gate (Phase 2 → 3)</a></li><li class="h2"><a href="#ed-phase-4-critique-and-operations-manual-join-2026-08-04">Phase 4 — Critique and operations (manual join, 2026-08-04)</a></li><li class="h2"><a href="#ed-phase-5-deliver-portfolio">Phase 5 — Deliver (portfolio)</a></li><li class="h2"><a href="#ed-traceability">Traceability</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research Round — Pipeline Metamodel (Short Double Diamond)</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>6d74519e9f1be9e3d664…</span></div><div><b>Edition SHA-256</b><span>10ee51e21ba1859062c0…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Opened: 2026-08-04. Orchestrator: overseer (Fable). Origin: <code>pipeline-metamodel</code> row (P1/L, mechanized-audit-pipeline arc item 6; owner ordered ROUTE research first).</p>
+</section>
+<section class="section content"><h2 id="ed-question">Question</h2>
+<p>Should the delivery-pipeline blueprint BY workflow type (inline, delegated lane, fork-join, research round) become a canonical object (<code>.harness/routing/pipeline-metamodel.json</code>) with derivations — (a) compiled playbook sections, (b) generated delivery bar, (c) conformance check — or is the value already covered by existing mechanisms (ritual-enforcement map + delivery-bar advisor + directive maps)?</p>
+</section>
+<section class="section content"><h2 id="ed-success-criteria">Success criteria</h2>
+<ol>
+<li><strong>One source of truth per piece of information.</strong> If the object is created, decide what happens to the ritual-enforcement map (derived, retired, or scoped) — never two canons for “who enforces step X.”</li>
+<li><strong>Declared direction.</strong> Bottom-up (prose → mapping, directive-map style) vs top-down (object → compiled prose, SPEC-173 style) — with migration cost and drift risk for each direction.</li>
+<li><strong>Every derivation has a named consumer</strong> and a delta versus what exists today (explicit YAGNI test per derivation).</li>
+<li><strong>Honest blast radius</strong>: is the stage ladder parameterizable by type, or do N divergent types become a configuration swamp?</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-declared-budget-and-width-d010">Declared budget and width (D010)</h2>
+<ul>
+<li><strong>FOCUSED</strong> research (one shape decision; feature already sketched in the row) → width <strong>2 workers PER wave</strong> (perspectives: simplicity/YAGNI vs reliability/enforcement). Rationale: EXP-15 measured redundancy with five workers on a single theme; two are enough to stress directions per brief.</li>
+<li><strong>Human gate 2026-08-04: owner approved all 3 briefs</strong> — one divergence wave per brief (A, B, C; width 2 each) + one seeded critique wave. Revised round budget: <strong>≤200k tokens</strong> (60% playbook gate per wave). <code>workflow token-audit</code> before every start.</li>
+<li>Experiment design (L18): N/A at this stage — output is a form decision, not a measurable claim; if a derivation is promoted, it receives a scenario (gate), not EXP.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-1-evidence-all-repo-collected-2026-08-04">Phase 1 — Evidence (all [repo], collected 2026-08-04)</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>method</th>
+<th>limitations</th>
+<th>confidence</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A top-down precedent exists in production: canonical object GENERATED from legacy sources, byte-identical frozen projections, drift check, playbook compiled by ONE assembler</td>
+<td><code>scripts/harness_lib/role_metamodel.py:1-40</code>, <code>playbook_compiler.py:1-25</code> (SPEC-173)</td>
+<td>repo</td>
+<td>direct reading</td>
+<td>ROLE metamodel, not pipeline stages</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>A bottom-up precedent exists in production: prose sources remain canonical, mapping declares enforcement by id-hash, gate fails an item without mapping</td>
+<td><code>scripts/harness_lib/security_directives.py:1-25</code></td>
+<td>repo</td>
+<td>direct reading</td>
+<td>security directives only</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>Arc item 5 ALREADY delivers “every overseer-playbook step names who enforces it” — statuses hook/gate/leg/doctor/advisory/gap, <code>ritual-enforcement-map</code> gate, id = hash of step prose</td>
+<td><code>scripts/harness_lib/ritual_map.py:1-25</code> (a731198)</td>
+<td>repo</td>
+<td>direct reading</td>
+<td>bottom-up: does not DERIVE playbook or delivery bar; scope = 2 overseer playbooks</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>Delivery bar today is a hand-written advisory R1-R11 over staged surface; never blocks</td>
+<td><code>tools/hooks/delivery_bar_advisor.py:1-42</code></td>
+<td>repo</td>
+<td>direct reading</td>
+<td>rules have rule-specific logic, not merely “stage present”</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>Runner workflow types are <code>map-reduce</code>/<code>fork-join</code> + profiles; row “types” (inline, lane, fork-join, research round) are DELIVERY-PIPELINE types one level above runner</td>
+<td><code>.harness/workflows/WORKFLOWS.md:5-15</code> vs <code>pipeline-metamodel</code> row</td>
+<td>repo</td>
+<td>direct reading</td>
+<td>row taxonomy does not exist as an object anywhere</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>No prior round/decision record exists for pipeline-metamodel</td>
+<td><code>records search</code> (empty) + <code>doc-find</code></td>
+<td>repo</td>
+<td>search</td>
+<td>—</td>
+<td>moderate</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-flow-a-external-state-of-the-art-collected-2026-08-04-after-gate-at-owner-request">Flow A — external state of the art (collected 2026-08-04 after gate, at owner request)</h3>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>limitations</th>
+<th>confidence</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[web] SPEM (OMG) is widely used to MODEL software process but “lacks built-in enactment capabilities — no tool or process engine executes it”; it does not cover execution/monitoring; adoption is scattered. A descriptive metamodel without an ENGINE that executes it drifts from practice</td>
+<td>ResearchGate “Software Process Engineering Metamodel (SPEM)”; scirp.org “Comparative Analysis BPMN vs SPEM”; omg.org/spec/SPEM/2.0 (primary)</td>
+<td>paper/spec</td>
+<td>academic analyses, not industrial measurement</td>
+<td>moderate</td>
+<td>validated</td>
+</tr>
+<tr>
+<td>[web] Pipeline-as-code in CI (GitHub Actions/GitLab) WORKS as a canonical object — because the object is ENACTED by an engine (the YAML IS the pipeline, not a description); enforcement is automatic by construction</td>
+<td>TechTarget “Pipeline as Code”; harness.io academy</td>
+<td>docs/vendor</td>
+<td>vendor/promotional sources</td>
+<td>moderate</td>
+<td>production</td>
+</tr>
+<tr>
+<td>[web] PaC lesson: object complexity becomes “pipeline debt”; enforcement “is rarely binary” — deviation acceptable in dev may block prod (graded status is necessary)</td>
+<td>Puppet “Policy as Code Beyond the Pipeline”; TechTarget</td>
+<td>blog/vendor</td>
+<td>promotional</td>
+<td>preliminary</td>
+<td>production</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-flow-a-comparative-scientific-literature-collected-2026-08-04-owner-ordered-comparison-with-scientific-work">Flow A — comparative scientific literature (collected 2026-08-04, owner ordered comparison with scientific work)</h3>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>year</th>
+<th>method</th>
+<th>limitations</th>
+<th>confidence</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[web] Original top-down thesis: “software processes are software too” — process encoded in executable language (process programming) should be central to software engineering</td>
+<td>Osterweil, ICSE 9 (1987); “Revisited” ICSE 19 (1997), dl.acm.org/doi/10.1145/253228.253440</td>
+<td>paper</td>
+<td>1987/1997</td>
+<td>position + prototypes (Arcadia/Little-JIL)</td>
+<td>research thesis, not empirical adoption study</td>
+<td>strong (as thesis source)</td>
+<td>conceptual demonstration</td>
+</tr>
+<tr>
+<td>[web] The generation implementing that thesis (PSEEs: Marvel, SPADE, EPOS...) saw LOW industrial adoption; literature cites “lack of flexibility in software process modeling” as a primary cause and “the highly dynamic nature of the software process” as a documented reason for few commercial applications</td>
+<td>Fuggetta et al., “PSEEs: A Brief History and Future Challenges”, Annals of SE (2002); “Comparative Review of PSEEs”, Annals of SE (2002); Matinnejad &amp; Ramsin, IEEE ECBS 2012</td>
+<td>survey/review</td>
+<td>1997–2012</td>
+<td>comparative multi-system review</td>
+<td>pre-DevOps era; academic systems</td>
+<td>strong (3+ survey convergence)</td>
+<td>validated</td>
+</tr>
+<tr>
+<td>[web] Surviving rigidity required DEVIATION as a first-class citizen: formal deviation-tolerance model (accept/reject constraint violation during enactment); “without managing evolution during enactment, PSEEs are doomed to fail in adoption”</td>
+<td>Cugola, deviation management (IEEE TSE 1998 / Springer); “Review of Detecting and Correcting Deviations on Software Processes” (2015)</td>
+<td>paper</td>
+<td>1998–2015</td>
+<td>formalization + case studies</td>
+<td>limited case validation</td>
+<td>moderate</td>
+<td>prototype→validated</td>
+</tr>
+<tr>
+<td>[web] The scientific branch that SUCCEEDED for “declared vs practiced” is conformance checking (process mining): normative model × observed event log, alignment and deviation diagnosis — ex-post detection, not ex-ante prescription</td>
+<td>van der Aalst, <em>Process Mining</em> (Springer, 2nd ed. 2016); “Process Mining in the Large” tutorial</td>
+<td>book/paper</td>
+<td>2011–2016</td>
+<td>formal + mature tools (ProM, etc.)</td>
+<td>BPM domain, not agent pipelines</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>[web] Enacted pipeline-as-code measured at scale: 49K+ repos, 267K+ histories, 3.4M+ workflow versions (2019–2025) — median 3 workflows/repo, <strong>7.3% of workflow files change PER WEEK</strong>, ~3/4 workflow commits contain ONE change, mostly task configuration</td>
+<td>Mazrae, Decan, Mens, Wessel, “An Empirical Study of the Evolution of GitHub Actions Workflows”, arXiv:2602.14572 / JSS 2026</td>
+<td>empirical paper</td>
+<td>2026</td>
+<td>large-scale mining</td>
+<td>public OSS only</td>
+<td>strong</td>
+<td>validated</td>
+</tr>
+<tr>
+<td>[web] Pipeline-object maintenance has real ongoing cost (“hidden costs of automation”; CI/CD bug fixing and improvement are major drivers); workflow complexity/heterogeneity/compliance is itself a research topic</td>
+<td>arXiv:2409.02366 (~200 mature projects); arXiv:2507.18062</td>
+<td>empirical papers</td>
+<td>2024–2025</td>
+<td>mining + qualitative analysis</td>
+<td>public OSS</td>
+<td>moderate</td>
+<td>validated</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-flow-a-bleeding-edge-last-2436-months">Flow A — bleeding edge, last 24–36 months</h3>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>year</th>
+<th>method</th>
+<th>limitations</th>
+<th>confidence</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[web] LLM-agent workflow as a declarative OBJECT (DAG, “workflows as data rather than code”) in PayPal production: −60% dev time, 3× deployment speed, 50 DSL lines vs 500+ imperative — canonical object ENACTED by engine, in this repo’s exact domain</td>
+<td>Daunis, “A Declarative Language for Building And Orchestrating LLM-Powered Agent Workflows”, arXiv:2512.19769 (Dec 2025)</td>
+<td>industrial paper</td>
+<td>2025</td>
+<td>production case</td>
+<td>single company; peer review unconfirmed</td>
+<td>moderate</td>
+<td>production</td>
+</tr>
+<tr>
+<td>[web] RUNTIME enforcement through declared rules: lightweight DSL with trigger + predicate + enforcement mechanism per rule; prevents &gt;90% unsafe executions in code agents with millisecond overhead — structurally similar to <code>check:</code>/<code>trigger:</code> vocabulary in this repo’s directive maps</td>
+<td>Wang et al., “AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents”, arXiv:2503.18666</td>
+<td>paper</td>
+<td>2025</td>
+<td>multi-domain evaluation</td>
+<td>benchmarks, not production</td>
+<td>moderate</td>
+<td>validated</td>
+</tr>
+<tr>
+<td>[web] PROCEDURAL conformance of agent trajectories as trace verification (LTL): measure, enforce AND train process compliance in tool-using agents — conformance checking entering the agent domain</td>
+<td>“AgentLTL: A Trace-Verification Framework...”, arXiv:2607.02599; PMAx arXiv:2603.15351 (EMMSAD 2026); MANTRA arXiv:2605.06334</td>
+<td>papers</td>
+<td>2026</td>
+<td>formal + benchmarks</td>
+<td>preprint/tool-demo</td>
+<td>preliminary</td>
+<td>prototype</td>
+</tr>
+<tr>
+<td>[web] Emerging “workflow fidelity” metric beyond task success: the pipeline FOLLOWED matters as much as outcome, measured by replay/alignment against normative model in agentic payments</td>
+<td>“Beyond Task Success: Measuring Workflow Fidelity in LLM-Based Agentic Payment Systems”, arXiv:2605.06457</td>
+<td>paper</td>
+<td>2026</td>
+<td>replay/conformance</td>
+<td>payments domain</td>
+<td>preliminary</td>
+<td>prototype</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Frontier pattern (fact, not opinion):</strong> all THREE forms contested in this round coexist in 2025–26 agent literature: (i) enacted declarative object, (ii) bottom-up enforcement rules with trigger/predicate (AgentSpec), (iii) ex-post trace conformance (AgentLTL/PMAx/MANTRA). None has won; (i) appears only when ENACTED by an engine, never as documentation from which other docs are derived. Added critique question: which of the three is isomorphic to what the row proposes, and what does the repo already have of each?</p>
+<p><strong>Literature → briefs mapping (QUESTIONS for critique wave, not conclusions):</strong></p>
+<ul>
+<li>Brief A: is Osterweil→PSEE→rigidity-kills-adoption analogous to top-down here, or does the analogy fail because the object consumer would be a deterministic gate rather than humans? Is conformance checking (normative × observed) the scientific analogue of bottom-up mapping + gate, or a genuine third path (ex-post detection) distinct from both directions?</li>
+<li>Brief B: does the GitHub Actions finding (7.3%/week churn, small changes, task-config dominant) transfer to this repo pipeline (~3 measured changes/week)? Does it strengthen or weaken cutting derivations?</li>
+<li>Brief C: does Cugola deviation-tolerance imply that ANY type schema needs graded deviation status (does ritual_map advisory/gap vocabulary cover it?) — and do 2024–26 empirical maintenance costs calibrate the “config swamp”?</li>
+</ul>
+<p><strong>Flow A synthesis (Define, revised):</strong> the external discriminant is <strong>enactment</strong>: a canonical pipeline object works when an ENGINE executes it (CI-as-code) and fails as hand-synchronized documentation (SPEM). The row proposes a DESCRIPTIVE object (derives playbooks/delivery bar) — SPEM regime, not CI regime — independently corroborating the bottom-up verdict of waves A/B. Honest counter-case: if the harness someday ENACTS stages (<code>route --loop</code> already executes hard-coded stage choreography), the object would cease being description and become program — that is the external revisit trigger, alongside internal FINDING-010. PaC’s graded-enforcement lesson already exists in <code>ritual_map</code> vocabulary (advisory/gap).</p>
+<p><strong>Central finding (Define):</strong> the two precedents point in OPPOSITE directions, and the newly shipped ritual-enforcement map already occupies part of the territory. If a top-down object is created and COMPILES playbook sections, ritual-map ids (hashes of prose) begin tracking generated text — the mechanisms collide. The real decision is not “JSON or no JSON”; it is <strong>direction + reconciliation</strong>.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-2-briefs">Phase 2 — Briefs</h2>
+<h3 id="ed-brief-a-direction-and-reconciliation">Brief A — direction and reconciliation</h3>
+<p>Problem: two canonical architectures coexist in the repo (bottom-up directive map, top-down SPEC-173). Which direction minimizes drift and migration cost for the pipeline, and what happens to ritual-enforcement-map in each?
+Actors: overseer (consumes playbook), gate (enforces conformance), owner (audits diffs).
+Constraints: never two sources of truth; SPEC-173-style migration requires frozen projections + drift check; mapping-file-only requires prose to remain canonical.
+Success: one recommended direction with explicit, reversible reconciliation plan.</p>
+<h3 id="ed-brief-b-marginal-value-per-derivation-yagni-test">Brief B — marginal value per derivation (YAGNI test)</h3>
+<p>Problem: what does the object deliver that ritual-map + delivery-bar + directive maps do NOT deliver today? For each derivation — (a) role-adaptable playbook sections, (b) generated delivery bar, (c) <code>spec_conformance</code>-style conformance check — name the concrete consumer and delta. Derivation with no delta = cut.
+Actors: each named consumer. Constraints: R1–R11 have per-rule logic that a “declared stage” does not express; compiled playbook already exists through another path.
+Success: derivation → consumer → delta → verdict (worth it/not worth it).</p>
+<h3 id="ed-brief-c-parameterization-by-type-vs-config-swamp">Brief C — parameterization by type vs config swamp</h3>
+<p>Problem: is the ladder (route → brief → implement → verify → gate‖reckon‖mutate‖audit → commit → close-out) ONE pipeline with optional stages by type, or do four types diverge enough to become four hand-maintained pipelines? Maintenance cost of each form.
+Actors: whoever edits the object whenever ritual changes. Constraints: the arc changed the pipeline three times in one week — overly rigid object becomes friction.
+Success: recommended schema form with a concrete example of all four types.</p>
+</section>
+<section class="section content"><h2 id="ed-human-gate-phase-2-3">Human gate (Phase 2 → 3)</h2>
+<p><strong>STOPPED HERE for owner approval</strong> before spending the Develop wave (research-divergence, width 2, budget above). Options: approve all three briefs, cut to A+B, or decide inline without wave (evidence already stresses the directions enough that the owner may judge directly and skip to Deliver).</p>
+</section>
+<section class="section content"><h2 id="ed-phase-4-critique-and-operations-manual-join-2026-08-04">Phase 4 — Critique and operations (manual join, 2026-08-04)</h2>
+<p>Critique: WF-20260804-092656-940830, four cross-vendor critics (validity sonnet·xhigh, architecture nvidia·glm-5.2, cost nvidia·glm-5.2 — respawn after Gemini 401, row <code>gemini-compat-chat-401</code>; INV-1 vetoed Claude on retry —, security sonnet·xhigh). Zero security blockers.</p>
+<p><strong>Join provenance:</strong> WF reduce artifact silently EXCLUDED workers 002/003 (HTTP seats without <code>sourceFilesVerified</code> but with high findings — bug recorded <code>reduce-drops-repo-blind-highs</code>, P1). This join was performed by the orchestrator over all FOUR raw results; nothing was lost.</p>
+<p><strong>What critique changed:</strong></p>
+<ol>
+<li>(validity, high) 6/6 convergence of generation waves is <strong>corpus-shaped</strong>: same model + evidence PRE-FRAMED by orchestrator briefs. It does not invalidate the direction — cross-vendor critique (Sonnet+GLM) independently endorsed bottom-up — but lowers class: direction = <strong>moderate-strong</strong>, not “unanimous.” Positive control: numerical [repo] claims verified exactly.</li>
+<li>(validity, high) Literature tables have asymmetric verification: arXiv:2602.14572 verified against primary source by orchestrator (numbers matched); PSEE/rigidity corroborated by 3+ surveys through search; remaining items = search snippets. Confidence classes adjusted to avoid conflating “source agreement” with “verified existence.” No round decision depends on a snippet-only claim.</li>
+<li>(architecture, high) Wave C shape (base-ladder + overlays) <strong>risks recreating the canonical object through the back door</strong> → C3 operation downgraded to parked.</li>
+<li>(architecture+cost, high) <strong>Ex-post conformance over traces</strong> (AgentLTL/PMAx/process mining) is a genuine third path not considered by generators — with uncosted observation infrastructure overhead. Becomes frontier bet.</li>
+<li>(security, medium) Enforcement locators (<code>hook:</code>/<code>gate:</code>/<code>check:</code>/<code>trigger:</code>) in EXISTING maps are free-form self-attested text with no liveness check — stale pointer silently passes. Becomes its own task (valuable independently of this round).</li>
+</ol>
+<p><strong>Operations by concept:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>concept</th>
+<th>operation</th>
+<th>basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1</td>
+<td>Bottom-up direction: DO NOT create <code>.harness/routing/pipeline-metamodel.json</code>; playbook prose remains canonical</td>
+<td><strong>kept</strong></td>
+<td>waves A/B + architecture/cost critique; PSEE rigidity; no legacy machine taxonomy to consolidate; AgentSpec isomorphism with existing mechanisms</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Derivations (a) playbook compiled from object, (b) generated delivery bar, (c) conformance check derived from object</td>
+<td><strong>rejected</strong></td>
+<td>YAGNI (wave B): zero/negative delta per derivation; R1-R11 irreducible; ritual-map already supplies the tooth of (c)</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Sparse base-ladder+overlays form (wave C schema)</td>
+<td><strong>parked</strong></td>
+<td>direction-neutral but no consumer today + back-door risk (architecture critique); recorded for the day a consumer appears</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>Ex-post conformance of pipeline traces (workflow fidelity)</td>
+<td><strong>frontier bet</strong></td>
+<td>genuine third path (AgentLTL/PMAx/MANTRA, 2026); uncosted observation overhead; prototype maturity</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>Extend SCOPE of ritual-enforcement-map to other pipeline-defining playbooks (route/research/workflow)</td>
+<td><strong>kept → task</strong></td>
+<td>only surviving B/C delta: mechanism is source-generic; extension = RITUAL_SOURCES + mappings in same commit</td>
+</tr>
+<tr>
+<td>C6</td>
+<td>Liveness check for enforcement locators in existing maps</td>
+<td><strong>kept → task</strong></td>
+<td>security critique finding; applies to shipped ritual-map + security-directive-map</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-phase-5-deliver-portfolio">Phase 5 — Deliver (portfolio)</h2>
+<ul>
+<li><strong>core:</strong> C5 (<code>ritual-map-scope-extension</code>), C6 (<code>enforcement-locator-liveness</code>)</li>
+<li><strong>contingency:</strong> C3 (recorded form; activates IF a per-spawn consumer is born)</li>
+<li><strong>frontier bet:</strong> C4 (trace conformance; no EXP — no measurable claim yet)</li>
+<li><strong>parked:</strong> top-down canonical object — revisit triggers: (i) pipeline prose stable &lt;1 structural edit/month (today ~3/week) AND ≥2 named per-spawn consumers; OR (ii) an engine begins to ENACT stages (e.g. generalized <code>route --loop</code>) — then object is program, not documentation (CI/PayPal regime, not SPEM)</li>
+<li><strong>rejected:</strong> derivations (a)/(b)/(c) from a canonical object</li>
+<li>Canonical decision: <code>DECISIONS.md</code> <strong>D056</strong>. <code>pipeline-metamodel</code> row closes in this round.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-traceability">Traceability</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Problem</th>
+<th>Idea</th>
+<th>Decision</th>
+<th>Task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ritual_map/role_metamodel/security_directives [repo] + PSEE rigidity + AgentSpec [web]</td>
+<td>colliding canonical directions</td>
+<td>bottom-up, canonical prose</td>
+<td>D056</td>
+<td>—</td>
+</tr>
+<tr>
+<td>irreducible R1-R11 [repo] + zero delta per derivation</td>
+<td>speculative derivations</td>
+<td>cut (a)(b)(c)</td>
+<td>D056</td>
+<td>—</td>
+</tr>
+<tr>
+<td>B: “extend RITUAL_SOURCES” + 2/8 playbook scope</td>
+<td>pipeline steps outside overseer lack enforcement tooth</td>
+<td>extend map scope</td>
+<td>D056</td>
+<td>ritual-map-scope-extension</td>
+</tr>
+<tr>
+<td>security critique: stale locator silently passes</td>
+<td>self-attested enforcement</td>
+<td>locator liveness probe</td>
+<td>D056</td>
+<td>enforcement-locator-liveness</td>
+</tr>
+<tr>
+<td>AgentLTL/PMAx/MANTRA + workflow fidelity [web]</td>
+<td>ex-post declared-vs-practiced conformance</td>
+<td>trace conformance</td>
+<td>D056 (frontier)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>WF-092656 reduce excluded HTTP seats</td>
+<td>compat-seat citizenship in reduce</td>
+<td>single validator + honest summary</td>
+<td>—</td>
+<td>reduce-drops-repo-blind-highs</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/pipeline-metamodel.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/pipeline-metamodel.en.md</code></li><li>Source SHA-256: <code>6d74519e9f1be9e3d66430ac26801b33fc806cc152d25ee7cf704d3e60599ecd</code></li><li>Edition-input SHA-256: <code>10ee51e21ba1859062c05d4cfe1c47cbaed681fadaf8337e3474b1f0af245a03</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/conformance-selfassessment.md",
+  "sourceSha256": "190e511e0f45618f8676199cefb198dde1b27f234c4a8bd2f9e9e61fbfcec68d",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/conformance-selfassessment.en.md",
+  "translationSha256": "5b49962dd030ed51d2ab4d91cdcc6c4232b712e48fc544cb7fe9e3feb2559280",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

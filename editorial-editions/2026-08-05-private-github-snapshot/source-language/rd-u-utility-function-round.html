@@ -1,0 +1,243 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rodada RD-U — a função de utilidade U(rota, outcome, custo) do harness — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-por-que-esta-rodada-existe">Por que esta rodada existe</a></li><li class="h2"><a href="#ed-pergunta-da-rodada">Pergunta da rodada</a></li><li class="h2"><a href="#ed-criterios-de-sucesso">Critérios de sucesso</a></li><li class="h2"><a href="#ed-orcamento-largura-design-declarado">Orçamento + largura + design declarado</a></li><li class="h2"><a href="#ed-fase-3-brief-da-onda-1">Fase 3 — brief da onda 1</a></li><li class="h2"><a href="#ed-convergencia-independente-o-sinal-forte-todos-os-5">Convergência independente (o sinal forte — TODOS os 5)</a></li><li class="h2"><a href="#ed-a-funcao-convergida">A função convergida</a></li><li class="h2"><a href="#ed-o-que-cada-perspectiva-adicionou">O que cada perspectiva adicionou</a></li><li class="h2"><a href="#ed-cartas-de-conceito-operacao">Cartas de conceito + operação</a></li><li class="h2"><a href="#ed-buildavel-vs-owner-gated">Buildável vs owner-gated</a></li><li class="h2"><a href="#ed-rastreabilidade">Rastreabilidade</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">RESEARCH ITERATION · 2026-08-05 snapshot</div><h1>Rodada RD-U — a função de utilidade U(rota, outcome, custo) do harness</h1><p class="subtitle">Edição histórica — research iteration/round. Preserved as an intermediate research artifact.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">pt-BR</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>53eb29f7f24fcceac381…</span></div><div><b>Edition SHA-256</b><span>53eb29f7f24fcceac381…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Research-gated backlog item RD-U (article-coverage-backlog.md). Owner 2026-07-19:
+"faça uma lista e rode o research usando nvidia sequencialmente". 1ª das 3 rodadas
+de implementação-research. Orquestrador = esta sessão. Divergência via <strong>NVIDIA</strong>
+(<code>nvidia-compat</code>, glm-5.2).</p>
+</section>
+<section class="section content"><h2 id="ed-por-que-esta-rodada-existe">Por que esta rodada existe</h2>
+<p>Route <strong>regret</strong> (EXP-17) e <strong>ECE/calibração</strong> hoje são NEEDS-NEW-STATE: não dá
+pra computar regret sem uma função de utilidade <code>U</code> que diga o quão boa foi uma
+decisão de rota. Sem U, "a rota A foi melhor que a B" é opinião. RD-U destrava os
+dois de uma vez. Isto é research de COMO IMPLEMENTAR (que termos, que forma, como
+estimar), não de medição acadêmica.</p>
+</section>
+<section class="section content"><h2 id="ed-pergunta-da-rodada">Pergunta da rodada</h2>
+<blockquote>
+<p>Qual é a função de utilidade <code>U(rota, outcome, custo)</code> do harness — quais termos
+ela combina, que forma (linear/ponderada/lexicográfica/...), e como estimar cada
+termo A PARTIR DO QUE JÁ TEMOS (delegation ledger: custo em tokens, latência,
+outcome kept/rejected; escassez por vendor do N-VENDORCREDIT; accountingSemantics
+do T-ADAPTERCONF dizendo quais tokens são medidos vs estimados)?</p>
+</blockquote>
+</section>
+<section class="section content"><h2 id="ed-criterios-de-sucesso">Critérios de sucesso</h2>
+<ul>
+<li><strong>Atores:</strong> o router (usa U pra escolher/avaliar rota), o EXP-17 (computa regret =
+U(ótima) − U(escolhida)), a calibração ECE (confiança da rota vs outcome).</li>
+<li><strong>Estimável do corpus atual:</strong> cada termo de U tem que mapear pra um campo que o
+delegation ledger / model-cards / vendor-credit JÁ produzem — nada que exija
+instrumentação nova cara. O owner (D017): "o que pesa mais são tokens gastos e
+tempo; token e tempo são dinheiro" — U tem que honrar isso.</li>
+<li><strong>Honesta sobre incerteza:</strong> onde o outcome é subjetivo (qualidade), U marca o
+termo como estimado/proxy, não finge medir. accountingSemantics: vendors que
+não medem token de verdade entram com peso de confiança menor.</li>
+<li><strong>Determinística de computar:</strong> dado (rota, outcome, custo), U(...) é um número
+reproduzível — sem LLM no caminho de cálculo (LLM pode ter ajudado a DESENHAR U,
+nunca a computá-la em produção).</li>
+<li><strong>Não reinventa:</strong> reusa delegation ledger (route_ledger), cost_metrics, os
+route scores (E-ROUTESCORES), o noise floor L13 (diferença menor que jitter não
+é sinal de regret).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-orcamento-largura-design-declarado">Orçamento + largura + design declarado</h2>
+<ul>
+<li><strong>Onda 1:</strong> 5 ideadores NVIDIA, teto ~65k tok (free-tier). Gate a 60%.</li>
+<li><strong>Largura (D010): EXPLORATÓRIA → 5.</strong> Desenho de função de utilidade cruza
+teoria de decisão, MAUT/utilidade multi-atributo, bandit reward design, RL
+reward shaping, econometria de custo — campo amplo, sem forma fixa ainda. Grupo
+nominal paga.</li>
+<li><strong>Design (L18):</strong> a rodada FEEDA o EXP-17 (regret) e a calibração ECE. Cartas de
+método candidatas (o advisory agora dispara — commit e5a1a4b): <strong>evidence-grades</strong>
+(o quão forte a evidência de que U reflete a realidade) + <strong>matched-budget
+controls</strong> (comparar rotas com orçamento igualado, senão U confunde "melhor" com
+"gastou mais"). A carta final entra na síntese.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-fase-3-brief-da-onda-1">Fase 3 — brief da onda 1</h2>
+<blockquote>
+<p>Projete a função de utilidade <code>U(rota, outcome, custo)</code> do harness. Ela precisa:
+combinar custo-em-tokens (ponderado por preço/vendor), tempo/latência, e
+qualidade-de-outcome (kept vs rejected/reverted) num número comparável entre
+rotas; ter forma justificada (por que ponderada e não lexicográfica, ou
+vice-versa); estimar CADA termo de campos que o delegation ledger / model-cards /
+vendor-credit JÁ produzem; honrar o accountingSemantics (peso de confiança menor
+pra vendor que estima token em vez de medir) e a escassez por vendor (token
+escasso vale mais); e ser determinística de computar (sem LLM no cadeia de
+cálculo). Entregue: os TERMOS de U, a FORMA (com a justificativa), o MAPA
+termo→campo-do-ledger, e como regret = U(ótima)−U(escolhida) e a confiança pra
+ECE saem de U.</p>
+</blockquote>
+<hr/>
+<h1>Fase 3-5 — resultado e síntese (RD-U)</h1>
+<p>Onda 1: <code>WF-20260719-054755-523380</code>, 5 ideadores NVIDIA (glm-5.2).</p>
+</section>
+<section class="section content"><h2 id="ed-convergencia-independente-o-sinal-forte-todos-os-5">Convergência independente (o sinal forte — TODOS os 5)</h2>
+<p><strong>Forma = WEIGHTED-LINEAR, normalizada/bounded.</strong> Os 5 escolheram linear sobre
+lexicográfica E sobre Cobb-Douglas, com a MESMA justificativa tripla (w-001, w-004):
+linear é a única forma que (a) dá um escalar comparável entre rotas, (b) é O(1)
+determinística, (c) permite comparação por-termo contra o noise floor. Lexicográfica
+não produz um ΔU escalar pra ECE; Cobb-Douglas (multiplicativa) quebra a comparação
+com o L13 e colapsa U→0 quando Q=0 (rota rejeitada) — o próprio w-005 refutou a
+Cobb-Douglas que ele mesmo sugeriu (honestidade de ideador).</p>
+</section>
+<section class="section content"><h2 id="ed-a-funcao-convergida">A função convergida</h2>
+<pre><code>U(rota) = w_q·Q·τ  −  w_c·C·S  −  w_t·T
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>termo</th>
+<th>o quê</th>
+<th>campo do corpus (zero instrumentação nova)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Q</strong></td>
+<td>qualidade do outcome: kept=1, reverted=0.5*, rejected=0</td>
+<td><code>route_ledger</code> outcome enum</td>
+</tr>
+<tr>
+<td><strong>τ</strong> (w-004)</td>
+<td>trust-discount do accountingSemantics: vendor que MEDE token τ=1, que ESTIMA τ&lt;1</td>
+<td>T-ADAPTERCONF <code>accountingSemantics</code></td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>custo = tokens × preço-do-vendor, normalizado por route-class</td>
+<td>ledger token-cost + model-cards price</td>
+</tr>
+<tr>
+<td><strong>S</strong></td>
+<td>escassez = <code>max(1, 1/(remainingCredit/initialCredit))</code> — token de vendor quase esgotado vale mais</td>
+<td>N-VENDORCREDIT</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td>latência normalizada pelo budget/p99 da route-class</td>
+<td>ledger latency + E-ROUTESCORES/cost_metrics</td>
+</tr>
+</tbody>
+</table>
+<p>* <code>reverted=0.5</code> é a ÚNICA constante subjetiva de U (w-001 sinalizou: validar; se
+revert ≈ near-failure, 0.25 é melhor). Registrado como o único parâmetro a calibrar.</p>
+</section>
+<section class="section content"><h2 id="ed-o-que-cada-perspectiva-adicionou">O que cada perspectiva adicionou</h2>
+<ul>
+<li><strong>w-001 (simplicidade):</strong> S e τ como MULTIPLICADORES no termo de custo/qualidade,
+não termos separados — mantém 3 termos. <code>regret = U(best)−U(chosen)</code>; ECE via
+U-gap sigmoid-normalizado; <code>|ΔU| &lt; noiseFloor L13 → empate</code> (sem sinal de regret).</li>
+<li><strong>w-002 (escala):</strong> normalização bounded [0,1] pra comparabilidade cross-route;
+T normalizado pelo p99 da route-class (do cost_metrics).</li>
+<li><strong>w-003 (confiabilidade):</strong> edge-case de OPS — definir U para <strong>timeout/falha
+parcial</strong> (U=0 ou penalidade explícita), senão uma rota que trava vira ruído.</li>
+<li><strong>w-004 (trust-boundary):</strong> o τ (trust-discount) — sem ele, U trata um vendor que
+CHUTA token igual a um que MEDE. + <strong>privacidade:</strong> U toca só AGREGADOS (custo/
+latência/outcome), NUNCA conteúdo de payload; computada na trust-zone do ledger,
+SEM chamar API de vendor (senão o vendor observa a decisão de routing e infere uso
+do concorrente). ECE usa Q·τ como probabilidade prevista.</li>
+<li><strong>w-005 (analogia): Sharpe ratio / mean-variance de finanças</strong> — <code>U = E[R] − (λ/2)·σ²·scarcity</code>: retorno=qualidade, RISCO=variância, custo=fees. <strong>A variância
+do Sharpe É o noise floor L13</strong> — uma rota de alta variância de outcome é mais
+arriscada. + <strong>Brier score (meteorologia)</strong> decompõe em reliability = ECE. O termo
+de variância fica pra v2 (a linear é v1).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-cartas-de-conceito-operacao">Cartas de conceito + operação</h2>
+<table>
+<thead>
+<tr>
+<th>carta</th>
+<th>operação</th>
+<th>por quê</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>U-LINEAR</strong> (a função acima)</td>
+<td><strong>mantida</strong> — o núcleo</td>
+<td>forma comprovada, determinística, todos os termos do corpus atual</td>
+</tr>
+<tr>
+<td><strong>U-TAU</strong> (trust-discount accountingSemantics)</td>
+<td><strong>mantida</strong></td>
+<td>fecha o buraco "vendor que chuta = vendor que mede"</td>
+</tr>
+<tr>
+<td><strong>U-SCARCITY</strong> (S do N-VENDORCREDIT)</td>
+<td><strong>mantida</strong></td>
+<td>honra o D017 (token escasso vale mais) — mas depende do N-VENDORCREDIT ter o <code>remainingCredit</code></td>
+</tr>
+<tr>
+<td><strong>U-VARIANCE</strong> (Sharpe: penalizar variância de outcome)</td>
+<td><strong>adiada (v2)</strong></td>
+<td>precisa de N observações por rota pra estimar σ²; a linear v1 não precisa. Upgrade quando houver corpus</td>
+</tr>
+<tr>
+<td><strong>U-OPS</strong> (U em timeout/falha)</td>
+<td><strong>dividida</strong></td>
+<td>define U=0/penalidade pra falha — vira parte do spec de U</td>
+</tr>
+<tr>
+<td><strong>reverted=0.5</strong></td>
+<td><strong>experimento</strong></td>
+<td>o único parâmetro subjetivo; calibrar contra dados reais de revert</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-buildavel-vs-owner-gated">Buildável vs owner-gated</h2>
+<ul>
+<li><strong>Buildável já (medição):</strong> U como FUNÇÃO PURA computada sobre o route_ledger
+existente, alimentando um probe de regret measure-only (EXP-17). Não muda routing,
+só mede — dentro da alçada measure-first, como os outros probes.</li>
+<li><strong>Owner-gated:</strong> usar U pra DIRIGIR routing (bandit/C4/RF.1 fase 2) — já é
+owner-gated. E o N-VENDORCREDIT precisa existir pro termo S ter dados reais (até
+lá, S=1, honestamente marcado).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-rastreabilidade">Rastreabilidade</h2>
+<table>
+<thead>
+<tr>
+<th>Evidência</th>
+<th>Ideia</th>
+<th>Experimento</th>
+<th>Task</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5/5 (weighted-linear) + w-005 Sharpe/Brier</td>
+<td>U-LINEAR + U-TAU + U-SCARCITY</td>
+<td>alimenta EXP-17 regret + ECE</td>
+<td>RD-U→U-função</td>
+<td>desenhado, buildável (measure-only)</td>
+</tr>
+<tr>
+<td>w-001 (reverted=0.5)</td>
+<td>calibrar a constante</td>
+<td>EXP candidato</td>
+<td>reverted-calibration</td>
+<td>aberto</td>
+</tr>
+<tr>
+<td>w-005 (variância=L13)</td>
+<td>U-VARIANCE v2</td>
+<td>—</td>
+<td>parked</td>
+<td>adiada</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-utility-function-round.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-utility-function-round.md</code></li><li>Source SHA-256: <code>53eb29f7f24fcceac38134e69117b2dbb56204b484ff48dba54590a6d9c0a908</code></li><li>Edition-input SHA-256: <code>53eb29f7f24fcceac38134e69117b2dbb56204b484ff48dba54590a6d9c0a908</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

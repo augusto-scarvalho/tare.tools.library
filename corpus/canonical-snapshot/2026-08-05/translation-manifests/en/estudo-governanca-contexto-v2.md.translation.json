@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/estudo-governanca-contexto-v2.md",
+  "sourceSha256": "7ebe9e14acfbeadf50fa2e8de1a3783f68ec52566dbc734d97766a835e51902e",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/estudo-governanca-contexto-v2.en.md",
+  "translationSha256": "fbef86da60c0989580383e9ec287380ac7a0afab3a5f1c90554c9c4983e653c3",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

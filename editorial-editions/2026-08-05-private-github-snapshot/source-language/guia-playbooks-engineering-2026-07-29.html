@@ -1,0 +1,919 @@
+<!doctype html><html lang="mixed"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Engenharia de Playbooks para Harnesses Multiagênticos — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h3"><a href="#ed-conclusao-central">Conclusão central</a></li><li class="h2"><a href="#ed-1-como-usar-este-documento">1 Como usar este documento</a></li><li class="h3"><a href="#ed-para-arquitetura">Para arquitetura</a></li><li class="h3"><a href="#ed-para-prompts-e-custo">Para prompts e custo</a></li><li class="h3"><a href="#ed-para-implementar">Para implementar</a></li><li class="h2"><a href="#ed-2-definicoes-e-modelo-mental">2 Definições e modelo mental</a></li><li class="h3"><a href="#ed-2-1-playbook-nao-e-sinonimo-de-prompt">2.1 Playbook não é sinônimo de prompt</a></li><li class="h3"><a href="#ed-2-2-cinco-artefatos-diferentes">2.2 Cinco artefatos diferentes</a></li><li class="h3"><a href="#ed-2-3-a-equacao-operacional">2.3 A equação operacional</a></li><li class="h2"><a href="#ed-3-evolucao-do-padrao-de-persona-para-programa-operacional">3 Evolução do padrão: de persona para programa operacional</a></li><li class="h3"><a href="#ed-sops-e-papeis">SOPs e papéis</a></li><li class="h3"><a href="#ed-estrategias-e-interfaces">Estratégias e interfaces</a></li><li class="h3"><a href="#ed-sop-estruturado-policy-e-context-engineering">SOP estruturado, policy e context engineering</a></li><li class="h3"><a href="#ed-compilacao-benchmarks-e-economia">Compilação, benchmarks e economia</a></li><li class="h2"><a href="#ed-4-modelo-de-fontes-o-que-deve-permanecer-fixo">4 Modelo de fontes: o que deve permanecer fixo</a></li><li class="h2"><a href="#ed-5-arquitetura-do-playbook-compiler">5 Arquitetura do Playbook Compiler</a></li><li class="h3"><a href="#ed-5-1-compilador-linker-e-renderer">5.1 Compilador, linker e renderer</a></li><li class="h3"><a href="#ed-compiler">Compiler</a></li><li class="h3"><a href="#ed-linker">Linker</a></li><li class="h3"><a href="#ed-renderer">Renderer</a></li><li class="h3"><a href="#ed-5-2-pipeline-recomendado">5.2 Pipeline recomendado</a></li><li class="h3"><a href="#ed-5-3-representacao-intermediaria">5.3 Representação intermediária</a></li><li class="h3"><a href="#ed-5-4-diagnosticos-obrigatorios">5.4 Diagnósticos obrigatórios</a></li><li class="h2"><a href="#ed-6-effective-playbook-lockfile">6 Effective Playbook Lockfile</a></li><li class="h2"><a href="#ed-7-compilacao-do-prompt-inicial-spawn-envelope">7 Compilação do prompt inicial: Spawn Envelope</a></li><li class="h3"><a href="#ed-7-1-por-que-nao-copiar-o-contexto-do-pai">7.1 Por que não copiar o contexto do pai</a></li><li class="h3"><a href="#ed-7-2-estrutura-recomendada">7.2 Estrutura recomendada</a></li><li class="h3"><a href="#ed-7-3-exemplo">7.3 Exemplo</a></li><li class="h3"><a href="#ed-7-4-layout-cache-aware-e-attention-aware">7.4 Layout cache-aware e attention-aware</a></li><li class="h2"><a href="#ed-8-limites-de-vendors-e-orcamento-de-injecao">8 Limites de vendors e orçamento de injeção</a></li><li class="h3"><a href="#ed-8-1-orcamentos-iniciais-para-eval">8.1 Orçamentos iniciais para eval</a></li><li class="h2"><a href="#ed-9-estrategia-de-reducao-de-tokens">9 Estratégia de redução de tokens</a></li><li class="h3"><a href="#ed-9-1-ordem-recomendada">9.1 Ordem recomendada</a></li><li class="h3"><a href="#ed-9-2-o-que-a-evidencia-recente-mostra">9.2 O que a evidência recente mostra</a></li><li class="h3"><a href="#ed-9-3-conteudo-protegido-contra-compressao">9.3 Conteúdo protegido contra compressão</a></li><li class="h3"><a href="#ed-preservar-literalmente">Preservar literalmente</a></li><li class="h3"><a href="#ed-pode-ser-condensado">Pode ser condensado</a></li><li class="h2"><a href="#ed-10-tools-schemas-e-observacoes-o-maior-desperdicio-oculto">10 Tools, schemas e observações: o maior desperdício oculto</a></li><li class="h3"><a href="#ed-10-1-tool-discovery">10.1 Tool discovery</a></li><li class="h3"><a href="#ed-10-2-filtragem-deterministica">10.2 Filtragem determinística</a></li><li class="h3"><a href="#ed-10-3-ferramenta-e-contrato-nao-documentacao">10.3 Ferramenta é contrato, não documentação</a></li><li class="h2"><a href="#ed-11-playbooks-por-papel">11 Playbooks por papel</a></li><li class="h3"><a href="#ed-11-1-overseer">11.1 Overseer</a></li><li class="h3"><a href="#ed-11-2-router-gatekeeper">11.2 Router / gatekeeper</a></li><li class="h3"><a href="#ed-11-3-implementer">11.3 Implementer</a></li><li class="h3"><a href="#ed-11-4-reviewer">11.4 Reviewer</a></li><li class="h2"><a href="#ed-12-domain-packs-para-coding-agents">12 Domain packs para coding agents</a></li><li class="h3"><a href="#ed-12-1-composicao-nao-explosao-de-agentes">12.1 Composição, não explosão de agentes</a></li><li class="h3"><a href="#ed-12-2-frontend-pack">12.2 Frontend pack</a></li><li class="h3"><a href="#ed-12-3-backend-pack">12.3 Backend pack</a></li><li class="h3"><a href="#ed-12-4-compatibility-manifest">12.4 Compatibility manifest</a></li><li class="h2"><a href="#ed-13-workflow-compiler-e-runtime-pager">13 Workflow compiler e runtime pager</a></li><li class="h3"><a href="#ed-13-1-paging-do-frame-ativo">13.1 Paging do frame ativo</a></li><li class="h2"><a href="#ed-14-seguranca-e-governanca">14 Segurança e governança</a></li><li class="h3"><a href="#ed-14-1-prompt-nao-e-enforcement">14.1 Prompt não é enforcement</a></li><li class="h3"><a href="#ed-14-2-trust-boundaries">14.2 Trust boundaries</a></li><li class="h3"><a href="#ed-14-3-regras-de-precedencia">14.3 Regras de precedência</a></li><li class="h2"><a href="#ed-15-evals-provar-que-o-playbook-ajuda">15 Evals: provar que o playbook ajuda</a></li><li class="h3"><a href="#ed-15-1-unidade-experimental">15.1 Unidade experimental</a></li><li class="h3"><a href="#ed-15-2-baselines">15.2 Baselines</a></li><li class="h3"><a href="#ed-15-3-metricas">15.3 Métricas</a></li><li class="h3"><a href="#ed-15-4-gates-de-promocao">15.4 Gates de promoção</a></li><li class="h2"><a href="#ed-16-arquitetura-de-implementacao-proposta">16 Arquitetura de implementação proposta</a></li><li class="h3"><a href="#ed-16-1-estrutura-de-diretorios">16.1 Estrutura de diretórios</a></li><li class="h3"><a href="#ed-16-2-interfaces-principais">16.2 Interfaces principais</a></li><li class="h2"><a href="#ed-17-roadmap-incremental">17 Roadmap incremental</a></li><li class="h2"><a href="#ed-18-anti-patterns">18 Anti-patterns</a></li><li class="h3"><a href="#ed-god-prompt">God prompt</a></li><li class="h3"><a href="#ed-persona-teatral">Persona teatral</a></li><li class="h3"><a href="#ed-concatenacao-cega">Concatenação cega</a></li><li class="h3"><a href="#ed-full-context-spawn">Full-context spawn</a></li><li class="h3"><a href="#ed-tool-catalog-integral">Tool catalog integral</a></li><li class="h3"><a href="#ed-truncamento-silencioso">Truncamento silencioso</a></li><li class="h3"><a href="#ed-compressao-de-gramatica">Compressão de gramática</a></li><li class="h3"><a href="#ed-policy-textual">Policy textual</a></li><li class="h3"><a href="#ed-skill-sem-compatibilidade">Skill sem compatibilidade</a></li><li class="h3"><a href="#ed-autoedicao-apos-uma-falha">Autoedição após uma falha</a></li><li class="h2"><a href="#ed-19-checklist-de-implementacao-saudavel">19 Checklist de implementação saudável</a></li><li class="h2"><a href="#ed-20-agenda-de-pesquisa-para-o-multi-agent-harness">20 Agenda de pesquisa para o Multi Agent Harness</a></li><li class="h2"><a href="#ed-a-apendice-schema-de-playbook">A Apêndice — Schema de Playbook</a></li><li class="h2"><a href="#ed-b-apendice-esqueleto-do-compiler">B Apêndice — Esqueleto do compiler</a></li><li class="h2"><a href="#ed-c-apendice-algoritmo-de-spawn">C Apêndice — Algoritmo de Spawn</a></li><li class="h2"><a href="#ed-21-bibliografia-e-fontes">21 Bibliografia e fontes</a></li><li class="h3"><a href="#ed-arquiteturas-de-harness-multiagentico-com-roteamento-adaptativo-por-projeto-workflows-dinamicos-autocorrecao-e-autoevolucao-sob-controle-deterministico">Arquiteturas de Harness Multiagêntico com Roteamento Adaptativo por Projeto, Workflows Dinâmicos, Autocorreção e Autoevolução sob Controle Determinístico</a></li><li class="h3"><a href="#ed-metagpt-meta-programming-for-a-multi-agent-collaborative-framework">MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</a></li><li class="h3"><a href="#ed-agentcoder-multi-agent-based-code-generation-with-iterative-testing-and-optimisation">AgentCoder: Multi-Agent-based Code Generation with Iterative Testing and Optimisation</a></li><li class="h3"><a href="#ed-masai-modular-architecture-for-software-engineering-ai-agents">MASAI: Modular Architecture for Software-engineering AI Agents</a></li><li class="h3"><a href="#ed-swe-agent-agent-computer-interfaces-enable-automated-software-engineering">SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering</a></li><li class="h3"><a href="#ed-lost-in-the-middle-how-language-models-use-long-contexts">Lost in the Middle: How Language Models Use Long Contexts</a></li><li class="h3"><a href="#ed-prompting-is-programming-a-query-language-for-large-language-models-lmql">Prompting Is Programming: A Query Language for Large Language Models (LMQL)</a></li><li class="h3"><a href="#ed-pdl-a-declarative-prompt-programming-language">PDL: A Declarative Prompt Programming Language</a></li><li class="h3"><a href="#ed-prompt-declaration-language-tutorial-e-documentacao">Prompt Declaration Language — Tutorial e documentação</a></li><li class="h3"><a href="#ed-dspy-program-dont-prompt">DSPy — Program, don’t prompt</a></li><li class="h3"><a href="#ed-dspy-signatures-in-depth">DSPy Signatures in Depth</a></li><li class="h3"><a href="#ed-dspy-gepa-optimization">DSPy GEPA Optimization</a></li><li class="h3"><a href="#ed-github-agentic-workflows-overview">GitHub Agentic Workflows — Overview</a></li><li class="h3"><a href="#ed-github-agentic-workflows-compilation-process">GitHub Agentic Workflows — Compilation Process</a></li><li class="h3"><a href="#ed-agent-skills-specification">Agent Skills Specification</a></li><li class="h3"><a href="#ed-best-practices-for-skill-creators">Best Practices for Skill Creators</a></li><li class="h3"><a href="#ed-codex-best-practices">Codex Best Practices</a></li><li class="h3"><a href="#ed-codex-sample-configuration-project-doc-max-bytes">Codex Sample Configuration — project_doc_max_bytes</a></li><li class="h3"><a href="#ed-build-skills">Build Skills</a></li><li class="h3"><a href="#ed-run-long-horizon-tasks-with-codex">Run Long-Horizon Tasks with Codex</a></li><li class="h3"><a href="#ed-shell-skills-compaction-tips-for-long-running-agents">Shell + Skills + Compaction: Tips for Long-Running Agents</a></li><li class="h3"><a href="#ed-testing-agent-skills-systematically-with-evals">Testing Agent Skills Systematically with Evals</a></li><li class="h3"><a href="#ed-build-an-agent-improvement-loop-with-traces-evals-and-codex">Build an Agent Improvement Loop with Traces, Evals, and Codex</a></li><li class="h3"><a href="#ed-prompt-caching">Prompt Caching</a></li><li class="h3"><a href="#ed-create-custom-subagents">Create Custom Subagents</a></li><li class="h3"><a href="#ed-extend-claude-with-skills">Extend Claude with Skills</a></li><li class="h3"><a href="#ed-effective-context-engineering-for-ai-agents">Effective Context Engineering for AI Agents</a></li><li class="h3"><a href="#ed-building-effective-agents">Building Effective Agents</a></li><li class="h3"><a href="#ed-how-we-built-our-multi-agent-research-system">How We Built Our Multi-Agent Research System</a></li><li class="h3"><a href="#ed-code-execution-with-mcp-building-more-efficient-ai-agents">Code Execution with MCP: Building More Efficient AI Agents</a></li><li class="h3"><a href="#ed-prompt-caching-2">Prompt Caching</a></li><li class="h3"><a href="#ed-context-windows">Context Windows</a></li><li class="h3"><a href="#ed-creating-custom-agents-for-copilot-cloud-agent">Creating Custom Agents for Copilot Cloud Agent</a></li><li class="h3"><a href="#ed-adding-repository-custom-instructions-for-github-copilot">Adding Repository Custom Instructions for GitHub Copilot</a></li><li class="h3"><a href="#ed-simple-agents-with-llmagent">Simple Agents with LlmAgent</a></li><li class="h3"><a href="#ed-template-agent-workflows">Template Agent Workflows</a></li><li class="h3"><a href="#ed-safety-and-security-for-ai-agents">Safety and Security for AI Agents</a></li><li class="h3"><a href="#ed-skills-for-adk-agents">Skills for ADK Agents</a></li><li class="h3"><a href="#ed-thinking-in-langgraph">Thinking in LangGraph</a></li><li class="h3"><a href="#ed-langgraph-persistence-and-checkpointers">LangGraph Persistence and Checkpointers</a></li><li class="h3"><a href="#ed-agentspec-customizable-runtime-enforcement-for-safe-and-reliable-llm-agents">AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents</a></li><li class="h3"><a href="#ed-compile-then-page-executable-sop-programs-and-a-capability-gated-runtime-for-procedural-llm-agents">Compile, Then Page: Executable SOP Programs and a Capability-Gated Runtime for Procedural LLM Agents</a></li><li class="h3"><a href="#ed-sop-agent-empower-general-purpose-ai-agent-with-domain-specific-sops">SOP-Agent: Empower General Purpose AI Agent with Domain-Specific SOPs</a></li><li class="h3"><a href="#ed-aorchestra-automating-sub-agent-creation-for-agentic-orchestration">AOrchestra: Automating Sub-Agent Creation for Agentic Orchestration</a></li><li class="h3"><a href="#ed-perspectivegap-a-benchmark-for-multi-agent-orchestration-prompting">PerspectiveGap: A Benchmark for Multi-Agent Orchestration Prompting</a></li><li class="h3"><a href="#ed-agentspawn-adaptive-multi-agent-collaboration-through-dynamic-agent-spawning">AgentSpawn: Adaptive Multi-Agent Collaboration Through Dynamic Agent Spawning</a></li><li class="h3"><a href="#ed-skillsmith-compiling-agent-skills-into-boundary-guided-runtime-interfaces">SkillSmith: Compiling Agent Skills into Boundary-Guided Runtime Interfaces</a></li><li class="h3"><a href="#ed-skillsbench-benchmarking-how-well-agent-skills-work-across-diverse-tasks">SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks</a></li><li class="h3"><a href="#ed-swe-skills-bench-do-agent-skills-actually-help-in-real-world-software-engineering">SWE-Skills-Bench: Do Agent Skills Actually Help in Real-World Software Engineering?</a></li><li class="h3"><a href="#ed-skillreducer-optimizing-llm-agent-skills-for-token-efficiency">SkillReducer: Optimizing LLM Agent Skills for Token Efficiency</a></li><li class="h3"><a href="#ed-what-should-a-skill-remember-quality-cost-trade-offs-in-cost-aware-skill-rewriting">What Should a Skill Remember? Quality-Cost Trade-offs in Cost-Aware Skill Rewriting</a></li><li class="h3"><a href="#ed-reducing-cost-of-llm-agents-with-trajectory-reduction-agentdiet">Reducing Cost of LLM Agents with Trajectory Reduction (AgentDiet)</a></li><li class="h3"><a href="#ed-swe-pruner-self-adaptive-context-pruning-for-coding-agents">SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents</a></li><li class="h3"><a href="#ed-swe-pruner-pro-the-coder-llm-already-knows-what-to-prune">SWE-Pruner Pro: The Coder LLM Already Knows What to Prune</a></li><li class="h3"><a href="#ed-llmlingua-compressing-prompts-for-accelerated-inference-of-large-language-models">LLMLingua: Compressing Prompts for Accelerated Inference of Large Language Models</a></li><li class="h3"><a href="#ed-longllmlingua-accelerating-and-enhancing-llms-in-long-context-scenarios">LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios</a></li><li class="h3"><a href="#ed-agentfold-long-horizon-web-agents-with-proactive-context-folding">AgentFold: Long-Horizon Web Agents with Proactive Context Folding</a></li><li class="h3"><a href="#ed-agora-adapter-grounded-observation-action-retention-for-efficient-agent-contexts">AGORA: Adapter-Grounded Observation-Action Retention for Efficient Agent Contexts</a></li><li class="h3"><a href="#ed-budget-aware-context-management-for-long-horizon-agents">Budget-Aware Context Management for Long-Horizon Agents</a></li><li class="h3"><a href="#ed-agentic-context-management-for-long-horizon-tasks">Agentic Context Management for Long-Horizon Tasks</a></li><li class="h3"><a href="#ed-vigil-runtime-enforcement-of-behavioral-specifications-in-ai-agent-skills">VIGIL: Runtime Enforcement of Behavioral Specifications in AI Agent Skills</a></li><li class="h3"><a href="#ed-prompt-engineering">Prompt Engineering</a></li><li class="h3"><a href="#ed-why-evaluate-agents">Why Evaluate Agents</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Engenharia de Playbooks para Harnesses Multiagênticos</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">mixed</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>6d17ea257d77930b37b4…</span></div><div><b>Edition SHA-256</b><span>6d17ea257d77930b37b4…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content"><div class="container">
+<section class="section hero-section" id="executive-summary">
+<div class="eyebrow">Guia de arquitetura e implementação • versão 1.0</div>
+
+<p class="subtitle">Como modelar, compilar, injetar, executar, avaliar e evoluir instruções de agentes especializados com eficiência de contexto, governança determinística e portabilidade entre vendors.</p>
+<div class="meta-grid">
+<div><strong>Data de referência</strong><span>29 de julho de 2026</span></div>
+<div><strong>Projeto-alvo</strong><span>Multi Agent Harness</span></div>
+<div><strong>Formato</strong><span>Guia prático + arquitetura de referência</span></div>
+<div><strong>Base</strong><span>63 fontes acadêmicas, oficiais e de engenharia</span></div>
+</div>
+<div class="callout primary">
+<h3 id="ed-conclusao-central">Conclusão central</h3>
+<p>Playbooks devem continuar existindo como fontes humanas versionadas — Markdown, YAML, schemas, políticas, scripts e referências — mas o agente deve consumir um <strong>playbook efetivo compilado</strong> para a tarefa corrente. Para subagentes, o runtime deve derivar uma cápsula ainda menor, o <strong>Spawn Envelope</strong>, e paginar somente o frame ativo do procedimento.</p>
+</div>
+</section>
+<section class="section" id="reading-guide">
+<h2 id="ed-1-como-usar-este-documento"><span class="num">1</span> Como usar este documento</h2>
+<p>Este guia transforma a pesquisa sobre papéis, SOPs, skills, prompt programming, context engineering e runtime enforcement em uma proposta implementável para o harness. Ele assume a arquitetura de projeto já definida: uma camada intermediária entre modelos, agentes, tools, repositórios e usuários, com um intelligence plane probabilístico contido por um control plane determinístico. <a class="cite" href="#ref-1" title="Arquiteturas de Harness Multiagêntico com Roteamento Adaptativo por Projeto, Workflows Dinâmicos, Autocorreção e Autoevolução sob Controle Determinístico">[1]</a></p>
+<div class="three-col">
+<article class="mini-card"><h3 id="ed-para-arquitetura">Para arquitetura</h3><p>Leia as seções 3 a 7: metamodelo, compilador, IR, lockfile e runtime pager.</p></article>
+<article class="mini-card"><h3 id="ed-para-prompts-e-custo">Para prompts e custo</h3><p>Leia as seções 8 a 11: spawn, orçamento, caching, pruning e compressão.</p></article>
+<article class="mini-card"><h3 id="ed-para-implementar">Para implementar</h3><p>Leia as seções 12 a 17 e os apêndices: schemas, código, evals e roadmap.</p></article>
+</div>
+<div class="callout warning"><strong>Sobre atualidade:</strong> documentação de vendors e preprints de 2026 podem mudar rapidamente. O documento marca fontes como “documentação viva”, “preprint recente” ou “referência consolidada” e propõe uma política de revalidação.</div>
+</section>
+<section class="section" id="definitions">
+<h2 id="ed-2-definicoes-e-modelo-mental"><span class="num">2</span> Definições e modelo mental</h2>
+<h3 id="ed-2-1-playbook-nao-e-sinonimo-de-prompt">2.1 Playbook não é sinônimo de prompt</h3>
+<p>Na prática atual, “playbook” é um termo guarda-chuva. A literatura usa SOP, role profile, agent skill, instruction set, workflow, scaffold, policy, prompt program e orchestration prompt. MetaGPT consolidou a ideia de codificar SOPs em sequências de prompts; MASAI e AgentCoder mostraram que papéis úteis possuem estratégias, tools e feedback distintos; SWE-agent mostrou que a interface oferecida ao agente altera o comportamento tanto quanto a instrução textual. <a class="cite" href="#ref-2" title="MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework">[2]</a><a class="cite" href="#ref-3" title="AgentCoder: Multi-Agent-based Code Generation with Iterative Testing and Optimisation">[3]</a><a class="cite" href="#ref-4" title="MASAI: Modular Architecture for Software-engineering AI Agents">[4]</a><a class="cite" href="#ref-5" title="SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering">[5]</a></p>
+<div class="formula-box">
+<code>Playbook-fonte ≠ Prompt final ≠ Workflow ≠ Política ≠ Estado de execução</code>
+</div>
+<h3 id="ed-2-2-cinco-artefatos-diferentes">2.2 Cinco artefatos diferentes</h3>
+<table>
+<thead><tr><th>Artefato</th><th>Função</th><th>Mutabilidade</th><th>Consumidor</th></tr></thead>
+<tbody>
+<tr><td><strong>Playbook Source</strong></td><td>Fonte humana: papel, procedimento, domínio, referências.</td><td>Versionado</td><td>Compiler e mantenedores</td></tr>
+<tr><td><strong>Playbook Package</strong></td><td>Fonte normalizada, validada, com dependências e compatibilidade.</td><td>Imutável por versão</td><td>Registry</td></tr>
+<tr><td><strong>Effective Playbook</strong></td><td>Composição para tarefa, projeto, path, risco, modelo e vendor.</td><td>Por execução</td><td>Runtime</td></tr>
+<tr><td><strong>Spawn Envelope</strong></td><td>Perspectiva mínima de um subagente no nascimento.</td><td>Por delegação</td><td>Subagente</td></tr>
+<tr><td><strong>Execution Frame</strong></td><td>Passo atual, tools e saída esperada.</td><td>Por transição</td><td>Modelo na chamada atual</td></tr>
+</tbody>
+</table>
+<h3 id="ed-2-3-a-equacao-operacional">2.3 A equação operacional</h3>
+<pre><code>EffectivePlaybook =
+    GlobalConstitution
+  + OrganizationRules
+  + RoleCharter
+  + TaskProcedure
+  + DomainSkills
+  + ProjectProfile
+  + PathScopedRules
+  + RiskPolicy
+  + CapabilityBinding
+  + ModelAdapter
+  + OutputContract
+  + EvaluationProfile</code></pre>
+<p>O padrão Agent Skills materializa parte dessa composição por progressive disclosure: metadata é descoberta primeiro, o corpo principal é carregado quando ativado e recursos são lidos sob demanda. A especificação recomenda um corpo principal com menos de aproximadamente 5.000 tokens e referências focadas. <a class="cite" href="#ref-15" title="Agent Skills Specification">[15]</a><a class="cite" href="#ref-16" title="Best Practices for Skill Creators">[16]</a></p>
+</section>
+<section class="section" id="evolution">
+<h2 id="ed-3-evolucao-do-padrao-de-persona-para-programa-operacional"><span class="num">3</span> Evolução do padrão: de persona para programa operacional</h2>
+<div class="timeline">
+<div class="timeline-item"><span>2023</span><div><h3 id="ed-sops-e-papeis">SOPs e papéis</h3><p>MetaGPT e AgentCoder codificam processos humanos e separam implementação, testes e execução. A contribuição durável é a separação de responsabilidades e feedback executável, não a teatralização dos cargos. <a class="cite" href="#ref-2" title="MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework">[2]</a><a class="cite" href="#ref-3" title="AgentCoder: Multi-Agent-based Code Generation with Iterative Testing and Optimisation">[3]</a></p></div></div>
+<div class="timeline-item"><span>2024</span><div><h3 id="ed-estrategias-e-interfaces">Estratégias e interfaces</h3><p>MASAI usa subagentes com objetivos e estratégias diferentes; SWE-agent demonstra que comandos, edição e observações formam uma Agent-Computer Interface que condiciona o desempenho. <a class="cite" href="#ref-4" title="MASAI: Modular Architecture for Software-engineering AI Agents">[4]</a><a class="cite" href="#ref-5" title="SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering">[5]</a></p></div></div>
+<div class="timeline-item"><span>2025</span><div><h3 id="ed-sop-estruturado-policy-e-context-engineering">SOP estruturado, policy e context engineering</h3><p>SOP-Agent representa procedimentos como pseudocódigo/grafo; AgentSpec transforma restrições em regras executáveis; vendors passam a enfatizar progressive disclosure, contexto mínimo e workflows determinísticos quando possível. <a class="cite" href="#ref-41" title="AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents">[41]</a><a class="cite" href="#ref-43" title="SOP-Agent: Empower General Purpose AI Agent with Domain-Specific SOPs">[43]</a><a class="cite" href="#ref-27" title="Effective Context Engineering for AI Agents">[27]</a><a class="cite" href="#ref-28" title="Building Effective Agents">[28]</a></p></div></div>
+<div class="timeline-item"><span>2026</span><div><h3 id="ed-compilacao-benchmarks-e-economia">Compilação, benchmarks e economia</h3><p>Compile, Then Page e SkillSmith estudam compilação de SOPs/skills; AOrchestra trata o agente criado como uma composição de Instruction, Context, Tools e Model; SkillsBench, SWE-Skills-Bench e SkillReducer medem utilidade e custo. <a class="cite" href="#ref-42" title="Compile, Then Page: Executable SOP Programs and a Capability-Gated Runtime for Procedural LLM Agents">[42]</a><a class="cite" href="#ref-44" title="AOrchestra: Automating Sub-Agent Creation for Agentic Orchestration">[44]</a><a class="cite" href="#ref-47" title="SkillSmith: Compiling Agent Skills into Boundary-Guided Runtime Interfaces">[47]</a><a class="cite" href="#ref-48" title="SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks">[48]</a><a class="cite" href="#ref-49" title="SWE-Skills-Bench: Do Agent Skills Actually Help in Real-World Software Engineering?">[49]</a><a class="cite" href="#ref-50" title="SkillReducer: Optimizing LLM Agent Skills for Token Efficiency">[50]</a></p></div></div>
+</div>
+<div class="callout insight"><strong>Padrão destilado:</strong> especialização útil muda o contrato operacional — inputs, tools, estratégia, authority, artefatos, verificação e parada — e não apenas o texto “você é especialista”.</div>
+</section>
+<section class="section" id="source-model">
+<h2 id="ed-4-modelo-de-fontes-o-que-deve-permanecer-fixo"><span class="num">4</span> Modelo de fontes: o que deve permanecer fixo</h2>
+<p>O compilador não elimina documentos. Ele permite que cada documento tenha responsabilidade e ciclo de vida próprios.</p>
+<table>
+<thead><tr><th>Fonte</th><th>Conteúdo</th><th>Exemplo</th><th>Frequência de mudança</th></tr></thead>
+<tbody>
+<tr><td>Constituição</td><td>Invariantes, separação de autoridade, princípios globais.</td><td><code>constitution/global.yaml</code></td><td>Baixa</td></tr>
+<tr><td>Role charter</td><td>Missão, ownership, não-ownership, escalada.</td><td><code>roles/implementer.yaml</code></td><td>Baixa/média</td></tr>
+<tr><td>Task procedure</td><td>Sequência, branches, gates, retry e conclusão.</td><td><code>procedures/bugfix.yaml</code></td><td>Média</td></tr>
+<tr><td>Domain skill</td><td>Conhecimento procedural e referências.</td><td><code>skills/react-accessibility/</code></td><td>Média/alta</td></tr>
+<tr><td>Project profile</td><td>Comandos, arquitetura, convenções e ambientes.</td><td><code>projects/checkout.yaml</code></td><td>Alta</td></tr>
+<tr><td>Path rule</td><td>Regras locais e riscos de uma superfície de código.</td><td><code>paths/payment.yaml</code></td><td>Alta</td></tr>
+<tr><td>Policy</td><td>Allow/deny/approval/budget executável.</td><td><code>policies/tools.rego</code></td><td>Média</td></tr>
+<tr><td>Contract</td><td>Schema de input, output, evidence e handoff.</td><td><code>contracts/result.v2.json</code></td><td>Média</td></tr>
+<tr><td>Eval suite</td><td>Tasks, fixtures, graders, thresholds e regressões.</td><td><code>evals/frontend/</code></td><td>Contínua</td></tr>
+</tbody>
+</table>
+<p>Codex, Copilot e Claude já carregam instruções em camadas e por escopo; GitHub suporta regras específicas por path, enquanto Codex recomenda AGENTS.md curtos e práticos em diferentes níveis da árvore. <a class="cite" href="#ref-17" title="Codex Best Practices">[17]</a><a class="cite" href="#ref-34" title="Adding Repository Custom Instructions for GitHub Copilot">[34]</a><a class="cite" href="#ref-25" title="Create Custom Subagents">[25]</a></p>
+</section>
+<section class="section" id="compiler">
+<h2 id="ed-5-arquitetura-do-playbook-compiler"><span class="num">5</span> Arquitetura do Playbook Compiler</h2>
+<h3 id="ed-5-1-compilador-linker-e-renderer">5.1 Compilador, linker e renderer</h3>
+<p>O componente proposto combina três responsabilidades tradicionais:</p>
+<div class="three-col">
+<article class="mini-card"><h3 id="ed-compiler">Compiler</h3><p>Parseia, normaliza, tipa, valida e converte fontes em IR.</p></article>
+<article class="mini-card"><h3 id="ed-linker">Linker</h3><p>Resolve versões, dependências, precedência, imports e capabilities.</p></article>
+<article class="mini-card"><h3 id="ed-renderer">Renderer</h3><p>Produz prompts, schemas, tool bindings e payloads específicos por vendor.</p></article>
+</div>
+<p>GitHub Agentic Workflows é o exemplo industrial mais claro de fonte humana separada do artefato executável: Markdown é compilado em <code>.lock.yml</code> após parsing, validação, construção de jobs, resolução de dependências e hardening. <a class="cite" href="#ref-13" title="GitHub Agentic Workflows — Overview">[13]</a><a class="cite" href="#ref-14" title="GitHub Agentic Workflows — Compilation Process">[14]</a> Compile, Then Page e SkillSmith mostram a mesma tendência em pesquisa: compilar procedimentos ou skills antes da execução, em vez de reinjetar documentos crus em todo turno. <a class="cite" href="#ref-42" title="Compile, Then Page: Executable SOP Programs and a Capability-Gated Runtime for Procedural LLM Agents">[42]</a><a class="cite" href="#ref-47" title="SkillSmith: Compiling Agent Skills into Boundary-Guided Runtime Interfaces">[47]</a></p>
+<h3 id="ed-5-2-pipeline-recomendado">5.2 Pipeline recomendado</h3>
+<div class="pipeline">
+<div>Parse</div><span>→</span><div>Normalize</div><span>→</span><div>Resolve</div><span>→</span><div>Type check</div><span>→</span><div>Policy check</div><span>→</span><div>Lowering</div><span>→</span><div>Lock</div>
+</div>
+<ol class="steps">
+<li><strong>Parse:</strong> Markdown frontmatter, YAML, JSON Schema e policy modules.</li>
+<li><strong>Normalize:</strong> converter sinônimos, defaults e versões para uma AST canônica.</li>
+<li><strong>Resolve:</strong> selecionar papel, procedimento, skills, projeto e paths afetados.</li>
+<li><strong>Type check:</strong> verificar handoffs, state schemas, tool arguments e outputs.</li>
+<li><strong>Policy check:</strong> aplicar deny-overrides, approvals e budgets antes do modelo.</li>
+<li><strong>Lowering:</strong> gerar workflow graph, prompt plan, capabilities e adapters.</li>
+<li><strong>Lock:</strong> produzir manifesto com hashes, proveniência e configuração efetiva.</li>
+</ol>
+<h3 id="ed-5-3-representacao-intermediaria">5.3 Representação intermediária</h3>
+<pre><code>EffectivePlaybookIR:
+  identity:
+  authority:
+  activation:
+  taskContract:
+  contextPlan:
+  procedures:
+  decisionGraph:
+  workflowGraph:
+  capabilities:
+  toolBindings:
+  policies:
+  validators:
+  outputContracts:
+  budgets:
+  modelBinding:
+  provenance:</code></pre>
+<p>PDL, LMQL e DSPy mostram três estilos complementares: PDL mantém a estrutura declarativa e os prompts visíveis; LMQL compila constraints e controle para uma execução de geração restrita; DSPy descreve contratos e otimiza instruções/demonstrações contra métricas. <a class="cite" href="#ref-7" title="Prompting Is Programming: A Query Language for Large Language Models (LMQL)">[7]</a><a class="cite" href="#ref-8" title="PDL: A Declarative Prompt Programming Language">[8]</a><a class="cite" href="#ref-9" title="Prompt Declaration Language — Tutorial e documentação">[9]</a><a class="cite" href="#ref-10" title="DSPy — Program, don’t prompt">[10]</a><a class="cite" href="#ref-11" title="DSPy Signatures in Depth">[11]</a><a class="cite" href="#ref-12" title="DSPy GEPA Optimization">[12]</a> Nenhum deles substitui o compiler do harness, mas todos podem ser backends ou inspirações para a IR.</p>
+<h3 id="ed-5-4-diagnosticos-obrigatorios">5.4 Diagnósticos obrigatórios</h3>
+<div class="check-grid">
+<div>Dois owners exclusivos para o mesmo artefato</div>
+<div>Ciclo sem condição de saída</div>
+<div>Tool inexistente ou incompatível</div>
+<div>Policy deny violado</div>
+<div>Output schema incompatível</div>
+<div>Skill expirada ou version-mismatched</div>
+<div>Reviewer com write indevido</div>
+<div>Prompt excedendo limite do adapter</div>
+<div>Regra de path ambígua</div>
+<div>Gate obrigatório ausente</div>
+</div>
+</section>
+<section class="section" id="lockfile">
+<h2 id="ed-6-effective-playbook-lockfile"><span class="num">6</span> Effective Playbook Lockfile</h2>
+<p>O lockfile é o registro imutável de tudo que foi efetivamente aplicado. Ele serve para replay, auditoria, comparação de versões, cache keys e explicação de comportamento.</p>
+<pre><code>apiVersion: harness.ai/v1
+kind: EffectivePlaybook
+metadata:
+  taskId: TASK-142
+  compilerVersion: 0.4.0
+  sourceHash: sha256:8de...
+  generatedAt: 2026-07-29T22:03:00-03:00
+binding:
+  role: implementer@2.1.0
+  procedure: bugfix@1.4.0
+  domains: [frontend@3.2.0]
+  project: checkout-web@17
+  pathRules: [payment@4]
+  modelProfile: coding-high-reasoning
+effectiveTools:
+  allow: [repository.read, repository.search, repository.edit, test.run]
+  deny: [network.external, production.deploy, secrets.read]
+verification:
+  required: [typecheck, component-tests, browser-e2e, independent-review]
+provenance:
+  - roles/implementer.yaml@2.1.0
+  - procedures/bugfix.yaml@1.4.0
+  - skills/react-state-debugging@2.0.1
+  - projects/checkout-web.yaml@17
+  - paths/payment.yaml@4</code></pre>
+<p>O padrão <code>.md → .lock.yml</code> do GitHub Agentic Workflows demonstra a utilidade prática de manter fonte e artefato compilado no controle de versão. <a class="cite" href="#ref-13" title="GitHub Agentic Workflows — Overview">[13]</a><a class="cite" href="#ref-14" title="GitHub Agentic Workflows — Compilation Process">[14]</a></p>
+</section>
+<section class="section" id="spawn">
+<h2 id="ed-7-compilacao-do-prompt-inicial-spawn-envelope"><span class="num">7</span> Compilação do prompt inicial: Spawn Envelope</h2>
+<h3 id="ed-7-1-por-que-nao-copiar-o-contexto-do-pai">7.1 Por que não copiar o contexto do pai</h3>
+<p>AOrchestra compara explicitamente subagentes com contexto nenhum, contexto completo e contexto curado; sua abstração cria cada executor como uma tupla de instrução, contexto, ferramentas e modelo. PerspectiveGap mostra que decidir qual informação pertence a qual papel é uma capacidade distinta e ainda difícil. AgentSpawn investiga transferência seletiva de memória durante o spawning. <a class="cite" href="#ref-44" title="AOrchestra: Automating Sub-Agent Creation for Agentic Orchestration">[44]</a><a class="cite" href="#ref-45" title="PerspectiveGap: A Benchmark for Multi-Agent Orchestration Prompting">[45]</a><a class="cite" href="#ref-46" title="AgentSpawn: Adaptive Multi-Agent Collaboration Through Dynamic Agent Spawning">[46]</a></p>
+<div class="callout danger"><strong>Anti-pattern:</strong> <code>spawn_prompt = parent_transcript + all_tools + full_playbook</code>. Isso duplica custo, propaga ruído, amplia prompt injection e confunde ownership.</div>
+<h3 id="ed-7-2-estrutura-recomendada">7.2 Estrutura recomendada</h3>
+<pre><code>SpawnEnvelope =
+    RoleKernel
+  + DelegationCapsule
+  + RelevantBindingState
+  + CapabilityIndex
+  + CurrentExecutionFrame
+  + ReturnContract</code></pre>
+<table>
+<thead><tr><th>Bloco</th><th>Deve conter</th><th>Não deve conter</th></tr></thead>
+<tbody>
+<tr><td>Role Kernel</td><td>Missão, ownership, authority e fronteiras.</td><td>Biografia e melhores práticas enciclopédicas.</td></tr>
+<tr><td>Delegation Capsule</td><td>Objetivo local, critérios, non-goals e dependências.</td><td>Conversa inteira do overseer.</td></tr>
+<tr><td>Binding State</td><td>Fatos confirmados, decisões vinculantes e riscos ativos.</td><td>Hipóteses refutadas e logs crus.</td></tr>
+<tr><td>Capability Index</td><td>Tools carregadas, descobríveis e proibidas.</td><td>Catálogo inteiro de schemas.</td></tr>
+<tr><td>Current Frame</td><td>Passo atual, instrução imediata, saída esperada.</td><td>Todo o workflow futuro em detalhes.</td></tr>
+<tr><td>Return Contract</td><td>Schema, evidência, stop e escalation.</td><td>Relato narrativo sem estrutura.</td></tr>
+</tbody>
+</table>
+<h3 id="ed-7-3-exemplo">7.3 Exemplo</h3>
+<pre><code>apiVersion: harness.ai/v1
+kind: SpawnEnvelope
+metadata:
+  taskId: TASK-142
+  agentId: frontend-implementer-07
+  parentAgentId: overseer-01
+  estimatedTokens: 1840
+role:
+  mission: Implementar a correção frontend delegada.
+  owns: [patch, testes-relacionados, evidência]
+  doesNotOwn: [aprovação-final, requisitos, deploy]
+task:
+  objective: Corrigir duplicação do botão após retry.
+  acceptanceCriteria:
+    - somente um pagamento pode ser submetido
+    - retry não duplica o botão
+    - navegação por teclado permanece funcional
+activeState:
+  knownFacts:
+    - o problema exige falha seguida de retry
+    - PaymentForm controla pending
+  bindingDecisions:
+    - usar o design system existente
+    - não introduzir estado global
+contextReferences:
+  - uri: repo://src/frontend/payment/PaymentButton.tsx
+  - uri: artifact://TASK-142/reproduction.md
+capabilities:
+  loaded: [repository.read, repository.search, test.run]
+  discoverable: [repository.edit, browser.inspect, accessibility.scan]
+  denied: [production.deploy, network.external, secrets.read]
+activeFrame:
+  step: inspect
+  instructions:
+    - localize owners de pending, retry e submission
+    - não edite nesta etapa
+returnContract:
+  finalSchema: implementation-result/v2
+  escalateWhen: [backend-change-needed, protected-path, policy-conflict]</code></pre>
+<h3 id="ed-7-4-layout-cache-aware-e-attention-aware">7.4 Layout cache-aware e attention-aware</h3>
+<div class="stack-diagram">
+<div class="stack static"><strong>Prefixo estático e cacheável</strong><span>papel, authority, políticas, tools comuns</span></div>
+<div class="stack dynamic"><strong>Corpo dinâmico</strong><span>tarefa, fatos, artefatos e referências</span></div>
+<div class="stack terminal"><strong>Frame terminal</strong><span>passo atual, output, stop e escalation</span></div>
+</div>
+<p>OpenAI e Anthropic exigem prefixos idênticos para maximizar cache hits: conteúdo estático deve vir primeiro e o variável depois. Entretanto, tokens cacheados continuam ocupando a janela; caching reduz prefill, latência e custo, mas não substitui seleção ou pruning. <a class="cite" href="#ref-24" title="Prompt Caching">[24]</a><a class="cite" href="#ref-31" title="Prompt Caching">[31]</a><a class="cite" href="#ref-32" title="Context Windows">[32]</a></p>
+</section>
+<section class="section" id="limits">
+<h2 id="ed-8-limites-de-vendors-e-orcamento-de-injecao"><span class="num">8</span> Limites de vendors e orçamento de injeção</h2>
+<p>Há quatro limites diferentes: janela do modelo, limite da plataforma, limite de arquivo/instrução e orçamento saudável de atenção. O compiler deve registrar todos por adapter.</p>
+<table>
+<thead><tr><th>Superfície</th><th>Limite observado em 29/07/2026</th><th>Implicação</th></tr></thead>
+<tbody>
+<tr><td>GitHub Copilot custom agent</td><td>Prompt Markdown de até 30.000 caracteres.</td><td>Obrigatório compilar e truncar de forma diagnóstica, nunca silenciosa. <a class="cite" href="#ref-33" title="Creating Custom Agents for Copilot Cloud Agent">[33]</a></td></tr>
+<tr><td>Codex AGENTS.md</td><td><code>project_doc_max_bytes</code> padrão de 32.768 bytes.</td><td>Orientações locais precisam ser curtas e hierárquicas. <a class="cite" href="#ref-18" title="Codex Sample Configuration — project_doc_max_bytes">[18]</a></td></tr>
+<tr><td>Agent Skills</td><td>Metadata pequena; SKILL.md recomendado abaixo de ~5.000 tokens/500 linhas.</td><td>Referências e scripts devem ser carregados sob demanda. <a class="cite" href="#ref-15" title="Agent Skills Specification">[15]</a><a class="cite" href="#ref-16" title="Best Practices for Skill Creators">[16]</a></td></tr>
+<tr><td>Claude Code skills após compaction</td><td>Até 5.000 tokens por skill reanexada e orçamento agregado de 25.000 tokens.</td><td>Skills antigas podem ser descartadas; conteúdo essencial deve estar no início. <a class="cite" href="#ref-26" title="Extend Claude with Skills">[26]</a></td></tr>
+</tbody>
+</table>
+<h3 id="ed-8-1-orcamentos-iniciais-para-eval">8.1 Orçamentos iniciais para eval</h3>
+<p class="muted">Heurísticas de engenharia propostas neste guia; não são limites científicos universais.</p>
+<table>
+<thead><tr><th>Papel</th><th>Spawn inicial sugerido</th><th>Estratégia</th></tr></thead>
+<tbody>
+<tr><td>Router / gatekeeper</td><td>400–1.200 tokens</td><td>Output tipado, poucas tools e abstention.</td></tr>
+<tr><td>Explorer read-only</td><td>700–1.800 tokens</td><td>Objetivo de descoberta e contrato de evidência.</td></tr>
+<tr><td>Reviewer</td><td>800–2.000 tokens</td><td>Diff, requisitos, regras locais e rubric.</td></tr>
+<tr><td>Implementer</td><td>1.500–4.000 tokens</td><td>Procedimento mínimo + referências on demand.</td></tr>
+<tr><td>Overseer</td><td>2.000–6.000 tokens</td><td>Estado global compacto, budgets e dependências.</td></tr>
+</tbody>
+</table>
+<pre><code>B_spawn = min(vendor_limit, role_limit, task_budget)
+          - tool_schema_tokens
+          - output_schema_tokens
+          - safety_margin</code></pre>
+<p>Mesmo com janelas longas, a posição e a densidade de informação continuam importando. Lost in the Middle mostrou degradação quando a evidência relevante fica enterrada no meio do contexto. <a class="cite" href="#ref-6" title="Lost in the Middle: How Language Models Use Long Contexts">[6]</a></p>
+</section>
+<section class="section" id="token-strategy">
+<h2 id="ed-9-estrategia-de-reducao-de-tokens"><span class="num">9</span> Estratégia de redução de tokens</h2>
+<h3 id="ed-9-1-ordem-recomendada">9.1 Ordem recomendada</h3>
+<ol class="ladder">
+<li><strong>Deduplicar:</strong> remover regras repetidas, backstory e exemplos equivalentes.</li>
+<li><strong>Compor seletivamente:</strong> carregar apenas papel, procedimento, domínio e paths aplicáveis.</li>
+<li><strong>Referenciar:</strong> substituir documentos extensos por URIs recuperáveis.</li>
+<li><strong>Descobrir tools sob demanda:</strong> expor um índice pequeno e carregar schemas quando usados.</li>
+<li><strong>Filtrar observações:</strong> resumir logs, listas e resultados no ambiente determinístico.</li>
+<li><strong>Materializar estado:</strong> manter decisões e artefatos fora da transcrição.</li>
+<li><strong>Remover trajetória expirada:</strong> descartar outputs redundantes ou já substituídos.</li>
+<li><strong>Pruning task-aware:</strong> preservar sintaxe, IDs e relações necessárias.</li>
+<li><strong>Compressão semântica:</strong> último recurso para prosa e documentação narrativa.</li>
+</ol>
+<h3 id="ed-9-2-o-que-a-evidencia-recente-mostra">9.2 O que a evidência recente mostra</h3>
+<table>
+<thead><tr><th>Trabalho</th><th>Técnica</th><th>Resultado reportado</th><th>Cuidado</th></tr></thead>
+<tbody>
+<tr><td>AgentDiet</td><td>Remove trajetória inútil, redundante e expirada.</td><td>39,9–59,7% menos input tokens, mantendo desempenho nos experimentos.</td><td>Avaliação limitada a agentes/modelos/benchmarks específicos. <a class="cite" href="#ref-52" title="Reducing Cost of LLM Agents with Trajectory Reduction (AgentDiet)">[52]</a></td></tr>
+<tr><td>SWE-Pruner</td><td>Pruning de linhas guiado por objetivo da tarefa.</td><td>23–54% de redução em tarefas agênticas reportadas.</td><td>Precisa preservar estrutura de código. <a class="cite" href="#ref-53" title="SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents">[53]</a></td></tr>
+<tr><td>SWE-Pruner Pro</td><td>Cabeça sobre representações internas do coder model.</td><td>Até 39% de economia em prompt/completion.</td><td>Requer modelos abertos e acesso interno. <a class="cite" href="#ref-54" title="SWE-Pruner Pro: The Coder LLM Already Knows What to Prune">[54]</a></td></tr>
+<tr><td>LLMLingua / LongLLMLingua</td><td>Compressão coarse-to-fine e query-aware.</td><td>Altas razões de compressão em tarefas não agênticas.</td><td>Não aplicar cegamente a policies, code, schemas e tool grammar. <a class="cite" href="#ref-55" title="LLMLingua: Compressing Prompts for Accelerated Inference of Large Language Models">[55]</a><a class="cite" href="#ref-56" title="LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios">[56]</a></td></tr>
+<tr><td>AGORA</td><td>Preservação de observação-ação.</td><td>Mostra risco de compressores genéricos destruírem estrutura operacional.</td><td>Preservar IDs, brackets, tools e argumentos. <a class="cite" href="#ref-58" title="AGORA: Adapter-Grounded Observation-Action Retention for Efficient Agent Contexts">[58]</a></td></tr>
+<tr><td>SkillReducer</td><td>Compressão estrutural de skills.</td><td>Reduções expressivas de corpo em SkillsBench.</td><td>Deve ser validado por tarefa e modelo. <a class="cite" href="#ref-50" title="SkillReducer: Optimizing LLM Agent Skills for Token Efficiency">[50]</a></td></tr>
+<tr><td>Skill cost-aware rewriting</td><td>Preserva âncoras de API, workflow e regras.</td><td>Mostra que “mais curto” pode gerar maior custo downstream.</td><td>Otimizar custo total, não só tamanho inicial. <a class="cite" href="#ref-51" title="What Should a Skill Remember? Quality-Cost Trade-offs in Cost-Aware Skill Rewriting">[51]</a></td></tr>
+</tbody>
+</table>
+<h3 id="ed-9-3-conteudo-protegido-contra-compressao">9.3 Conteúdo protegido contra compressão</h3>
+<div class="two-col">
+<div class="card good"><h3 id="ed-preservar-literalmente">Preservar literalmente</h3><ul><li>Policies e proibições</li><li>Acceptance criteria</li><li>Tool names e argumentos</li><li>Schemas e tipos</li><li>IDs, paths e comandos</li><li>State transitions</li><li>Diferenças e patches relevantes</li></ul></div>
+<div class="card"><h3 id="ed-pode-ser-condensado">Pode ser condensado</h3><ul><li>Documentação narrativa</li><li>Exploração antiga materializada</li><li>Logs após extração de erro</li><li>Explicações duplicadas</li><li>Histórico de hipóteses refutadas</li><li>Resultados extensos com artefato salvo</li></ul></div>
+</div>
+<p>AgentFold e abordagens de budget-aware context tratam o contexto como workspace que precisa ser reestruturado continuamente, em vez de um log append-only. <a class="cite" href="#ref-57" title="AgentFold: Long-Horizon Web Agents with Proactive Context Folding">[57]</a><a class="cite" href="#ref-59" title="Budget-Aware Context Management for Long-Horizon Agents">[59]</a><a class="cite" href="#ref-60" title="Agentic Context Management for Long-Horizon Tasks">[60]</a></p>
+</section>
+<section class="section" id="tool-efficiency">
+<h2 id="ed-10-tools-schemas-e-observacoes-o-maior-desperdicio-oculto"><span class="num">10</span> Tools, schemas e observações: o maior desperdício oculto</h2>
+<p>Em agentes reais, o custo frequentemente vem mais de definições de ferramentas e resultados brutos que das instruções. A recomendação é manter poucas tools comuns carregadas e permitir discovery das demais.</p>
+<h3 id="ed-10-1-tool-discovery">10.1 Tool discovery</h3>
+<pre><code>capabilities:
+  loaded:
+    - repository.read
+    - repository.search
+    - test.run
+  discoverable:
+    - browser.inspect
+    - accessibility.scan
+    - git.history
+  denied:
+    - production.deploy
+    - secrets.read</code></pre>
+<p>Anthropic documentou um caso em que converter MCP servers em uma interface navegável e carregar apenas definições necessárias reduziu 150.000 tokens para 2.000 tokens naquele workflow específico. O número não é uma expectativa universal, mas ilustra a magnitude potencial do overhead de schemas. <a class="cite" href="#ref-30" title="Code Execution with MCP: Building More Efficient AI Agents">[30]</a></p>
+<h3 id="ed-10-2-filtragem-deterministica">10.2 Filtragem determinística</h3>
+<pre><code>raw = tool.get_test_log()
+result = {
+  "exit_code": raw.exit_code,
+  "failed_tests": extract_failed_tests(raw.stdout),
+  "error_signatures": classify_errors(raw.stderr),
+  "artifact_uri": save_full_log(raw)
+}
+return result</code></pre>
+<p>O modelo recebe o resumo acionável e uma referência para o log completo. Isso reduz tokens sem destruir auditabilidade.</p>
+<h3 id="ed-10-3-ferramenta-e-contrato-nao-documentacao">10.3 Ferramenta é contrato, não documentação</h3>
+<p>A interface precisa ter nomes não sobrepostos, argumentos tipados, side effects declarados, erros acionáveis e output com densidade alta. SWE-agent reforça que a ACI precisa ser desenhada para as habilidades do agente, enquanto Google ADK permite callbacks antes e depois de model/tool calls para observar ou bloquear ações. <a class="cite" href="#ref-5" title="SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering">[5]</a><a class="cite" href="#ref-35" title="Simple Agents with LlmAgent">[35]</a><a class="cite" href="#ref-37" title="Safety and Security for AI Agents">[37]</a></p>
+</section>
+<section class="section" id="roles">
+<h2 id="ed-11-playbooks-por-papel"><span class="num">11</span> Playbooks por papel</h2>
+<h3 id="ed-11-1-overseer">11.1 Overseer</h3>
+<pre><code>mission:
+  owns: [resultado-global, decomposição, delegação, integração, encerramento]
+procedure:
+  - understand-objective
+  - classify-complexity-and-risk
+  - construct-work-graph
+  - delegate-with-boundaries
+  - monitor-evidence
+  - replan-when-needed
+  - integrate
+  - request-independent-validation
+invariants:
+  - do-not-spawn-unbounded-workers
+  - do-not-accept-assertion-as-evidence
+  - do-not-approve-own-governance-change</code></pre>
+<p>A experiência da Anthropic indica que a delegação deve especificar objetivo, formato esperado, fontes/tools, fronteiras e esforço; instruções vagas causam duplicação e lacunas. <a class="cite" href="#ref-29" title="How We Built Our Multi-Agent Research System">[29]</a></p>
+<h3 id="ed-11-2-router-gatekeeper">11.2 Router / gatekeeper</h3>
+<pre><code>mission:
+  objective: Select an eligible route or abstain.
+  doesNotOwn: [task-execution, implementation, policy-modification]
+tools:
+  allow: [capability-registry.read, project-profile.read, routing-history.read]
+  deny: [repository.edit, shell.run, agent.create-unregistered]
+output:
+  schema: routing-decision/v2
+control:
+  abstainBelowConfidence: 0.70
+  requireReasonCodes: true</code></pre>
+<p>O router deve ter prompt pequeno, pouca memória, output estruturado e capacidade de abstenção. PerspectiveGap sugere avaliar tanto omissão quanto vazamento de informações de outros papéis. <a class="cite" href="#ref-45" title="PerspectiveGap: A Benchmark for Multi-Agent Orchestration Prompting">[45]</a></p>
+<h3 id="ed-11-3-implementer">11.3 Implementer</h3>
+<pre><code>mission:
+  owns: [patch, testes-relacionados, evidência]
+  doesNotOwn: [aprovação-final, requisitos, deploy]
+procedure:
+  - inspect-existing-patterns
+  - map-criteria-to-changes-and-tests
+  - implement-minimal-coherent-change
+  - verify
+  - handoff</code></pre>
+<p>MASAI sugere especializar estratégias por subproblema, e AgentCoder mostra o valor de separar desenho e execução de testes do programador. <a class="cite" href="#ref-3" title="AgentCoder: Multi-Agent-based Code Generation with Iterative Testing and Optimisation">[3]</a><a class="cite" href="#ref-4" title="MASAI: Modular Architecture for Software-engineering AI Agents">[4]</a></p>
+<h3 id="ed-11-4-reviewer">11.4 Reviewer</h3>
+<pre><code>mission:
+  owns: [independent-findings]
+  doesNotOwn: [silent-patch-rewrite]
+tools:
+  defaultMode: read-only
+procedure:
+  - reconstruct-intended-behavior
+  - inspect-diff-and-impact-surface
+  - attempt-to-refute-correctness
+  - verify-tests-cover-risk
+  - classify-findings-by-severity</code></pre>
+<p>O reviewer precisa receber requisitos, diff, evidências e regras locais, mas não a cadeia de raciocínio privada do implementer.</p>
+</section>
+<section class="section" id="coding-domains">
+<h2 id="ed-12-domain-packs-para-coding-agents"><span class="num">12</span> Domain packs para coding agents</h2>
+<h3 id="ed-12-1-composicao-nao-explosao-de-agentes">12.1 Composição, não explosão de agentes</h3>
+<pre><code>Frontend Implementer =
+  role/implementer
+  + procedure/feature
+  + domain/frontend
+  + framework/react-19
+  + skill/accessibility
+  + project/checkout-web
+  + path/payment
+  + risk/high</code></pre>
+<p>Skills focadas tendem a ser mais úteis que documentação universal. SkillsBench encontrou ganho médio significativo, mas com grande variação e casos negativos; SWE-Skills-Bench encontrou ganhos bem menores em software engineering e regressões causadas por incompatibilidade de versão. <a class="cite" href="#ref-48" title="SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks">[48]</a><a class="cite" href="#ref-49" title="SWE-Skills-Bench: Do Agent Skills Actually Help in Real-World Software Engineering?">[49]</a></p>
+<h3 id="ed-12-2-frontend-pack">12.2 Frontend pack</h3>
+<pre><code>frontend:
+  architecture:
+    - preserve-component-boundaries
+    - prefer-existing-primitives
+    - avoid-duplicated-state
+  designSystem:
+    - inspect-existing-tokens-and-components
+    - justify-new-primitives
+  accessibility:
+    - semantic-html-first
+    - keyboard-navigation
+    - visible-focus
+    - accessible-names
+  states:
+    - loading
+    - empty
+    - error
+    - success
+  conditionalVerification:
+    layoutChanged: [visual-regression]
+    interactionChanged: [browser-e2e, keyboard-check]
+    semanticChanged: [accessibility-scan]</code></pre>
+<h3 id="ed-12-3-backend-pack">12.3 Backend pack</h3>
+<pre><code>backend:
+  apiContracts:
+    - preserve-backward-compatibility
+    - validate-error-semantics
+  persistence:
+    - inspect-transaction-boundaries
+    - migration-order-and-rollback
+    - avoid-unbounded-queries
+  concurrency:
+    - idempotency
+    - retries
+    - locking
+    - duplicate-delivery
+  observability:
+    - structured-logs
+    - metrics
+    - traces</code></pre>
+<h3 id="ed-12-4-compatibility-manifest">12.4 Compatibility manifest</h3>
+<pre><code>compatibility:
+  frameworks:
+    react: "&gt;=18 &lt;20"
+  testedWith:
+    - react: 19.1
+      harness: 0.9.0
+      models: [gpt-codex-current, claude-code-current]
+  revalidateOn:
+    - framework-major-change
+    - model-snapshot-change
+    - tool-schema-change</code></pre>
+<p>A compatibilidade precisa ser executável, pois SWE-Skills-Bench observou skills que degradaram desempenho ao conflitar com versões e contexto do projeto. <a class="cite" href="#ref-49" title="SWE-Skills-Bench: Do Agent Skills Actually Help in Real-World Software Engineering?">[49]</a></p>
+</section>
+<section class="section" id="workflow-runtime">
+<h2 id="ed-13-workflow-compiler-e-runtime-pager"><span class="num">13</span> Workflow compiler e runtime pager</h2>
+<p>O playbook compiler produz dois artefatos ligados: um manifesto efetivo e um workflow executável. Google ADK oferece sequências, loops e paralelismo determinísticos; LangGraph recomenda manter estado bruto e formatar prompts sob demanda, usando checkpointers para persistência e replay. <a class="cite" href="#ref-36" title="Template Agent Workflows">[36]</a><a class="cite" href="#ref-39" title="Thinking in LangGraph">[39]</a><a class="cite" href="#ref-40" title="LangGraph Persistence and Checkpointers">[40]</a></p>
+<pre><code>workflow:
+  nodes:
+    - route
+    - explore
+    - reproduce
+    - implement
+    - verify
+    - review
+  edges:
+    - route -&gt; explore
+    - explore -&gt; reproduce
+    - reproduce -&gt; implement
+    - implement -&gt; verify
+    - verify.pass -&gt; review
+    - verify.fail -&gt; implement
+  termination:
+    maxRepairLoops: 2
+  gates:
+    - before: protected-write
+      require: approval</code></pre>
+<h3 id="ed-13-1-paging-do-frame-ativo">13.1 Paging do frame ativo</h3>
+<p>Compile, Then Page recomenda compilar primeiro e habilitar paging somente após avaliar se o modelo consegue seguir disciplina de estado; no estudo, modelos mais fracos foram prejudicados por alguns modos de guidance. <a class="cite" href="#ref-42" title="Compile, Then Page: Executable SOP Programs and a Capability-Gated Runtime for Procedural LLM Agents">[42]</a></p>
+<div class="callout insight"><strong>Recomendação:</strong> implemente três modos por modelo: <code>full-program</code>, <code>active-frame + program-index</code> e <code>active-frame-only</code>. Selecione por eval, não por preferência arquitetural.</div>
+</section>
+<section class="section" id="security">
+<h2 id="ed-14-seguranca-e-governanca"><span class="num">14</span> Segurança e governança</h2>
+<h3 id="ed-14-1-prompt-nao-e-enforcement">14.1 Prompt não é enforcement</h3>
+<p>Instruções naturais orientam comportamento; policies, callbacks, sandbox e tool gates limitam ações. AgentSpec propõe regras com trigger, predicate e enforcement; VIGIL estende a ideia para políticas temporais e value flows em eventos agent-tool. Google ADK recomenda callbacks/plugins para pre-validação de tool calls. <a class="cite" href="#ref-41" title="AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents">[41]</a><a class="cite" href="#ref-61" title="VIGIL: Runtime Enforcement of Behavioral Specifications in AI Agent Skills">[61]</a><a class="cite" href="#ref-37" title="Safety and Security for AI Agents">[37]</a></p>
+<pre><code>policy:
+  id: protect-production
+  trigger:
+    tool: deploy
+  predicate:
+    environment: production
+  enforce:
+    requireApproval: release-manager</code></pre>
+<h3 id="ed-14-2-trust-boundaries">14.2 Trust boundaries</h3>
+<div class="check-grid">
+<div>Documento de repositório não confiável</div>
+<div>Playbook assinado e versionado</div>
+<div>Skill de terceiro em quarentena</div>
+<div>Tool com side effects declarados</div>
+<div>Policy engine independente do modelo</div>
+<div>Reviewer sem poder de promoção</div>
+<div>Proposal agent ≠ approval authority</div>
+<div>Lockfile com provenance</div>
+</div>
+<h3 id="ed-14-3-regras-de-precedencia">14.3 Regras de precedência</h3>
+<ol>
+<li><strong>Deny explícito</strong> vence allow e instruções naturais.</li>
+<li><strong>Autoridade superior</strong> vence regra local quando há conflito de segurança.</li>
+<li><strong>Regra mais específica</strong> vence apenas dentro do espaço permitido pela superior.</li>
+<li><strong>Obrigação</strong> gera gate, não apenas lembrete textual.</li>
+<li><strong>Conflito não resolvível</strong> falha a compilação.</li>
+</ol>
+</section>
+<section class="section" id="evaluation">
+<h2 id="ed-15-evals-provar-que-o-playbook-ajuda"><span class="num">15</span> Evals: provar que o playbook ajuda</h2>
+<p>OpenAI recomenda transformar traces e feedback em evals antes de modificar o harness; Google ADK separa avaliação da trajetória/tool use da avaliação do resultado final. SkillsBench usa tarefas containerizadas, verificadores determinísticos e comparação com/sem skill. <a class="cite" href="#ref-22" title="Testing Agent Skills Systematically with Evals">[22]</a><a class="cite" href="#ref-23" title="Build an Agent Improvement Loop with Traces, Evals, and Codex">[23]</a><a class="cite" href="#ref-48" title="SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks">[48]</a><a class="cite" href="#ref-63" title="Why Evaluate Agents">[63]</a></p>
+<h3 id="ed-15-1-unidade-experimental">15.1 Unidade experimental</h3>
+<pre><code>EvalCase =
+  Task
+  + RepositorySnapshot
+  + EffectivePlaybookVersion
+  + ModelSnapshot
+  + ToolsetVersion
+  + Budget
+  + TrialSeed
+  + Verifier</code></pre>
+<h3 id="ed-15-2-baselines">15.2 Baselines</h3>
+<table>
+<thead><tr><th>Variante</th><th>Objetivo</th></tr></thead>
+<tbody>
+<tr><td>Sem playbook</td><td>Medir capacidade base do agente/harness.</td></tr>
+<tr><td>Persona simples</td><td>Isolar efeito de rotulagem de papel.</td></tr>
+<tr><td>Playbook cru</td><td>Comparar documento integral com compilação.</td></tr>
+<tr><td>Playbook compilado</td><td>Medir composição seletiva e policies.</td></tr>
+<tr><td>Spawn full-context</td><td>Baseline de contexto copiado.</td></tr>
+<tr><td>Spawn curated</td><td>Medir context slicing.</td></tr>
+<tr><td>Oracle capsule</td><td>Limite superior com contexto mínimo perfeito.</td></tr>
+</tbody>
+</table>
+<h3 id="ed-15-3-metricas">15.3 Métricas</h3>
+<div class="metrics-grid">
+<div><h4>Resultado</h4><p>success, acceptance coverage, regressions, human rework</p></div>
+<div><h4>Trajetória</h4><p>first-action correctness, tool selection, retries, route churn</p></div>
+<div><h4>Contexto</h4><p>injected tokens, critical-fact recall, leakage, compression ratio</p></div>
+<div><h4>Economia</h4><p>cost-to-success, TTFT, total latency, cache hit rate</p></div>
+<div><h4>Governança</h4><p>policy violations, denied calls, approval frequency, trace completeness</p></div>
+<div><h4>Manutenção</h4><p>regression rate, compatibility failures, rollback rate</p></div>
+</div>
+<h3 id="ed-15-4-gates-de-promocao">15.4 Gates de promoção</h3>
+<pre><code>promotion:
+  require:
+    passRateDelta: "&gt;= 0"
+    criticalPolicyRecall: "= 1.0"
+    noHighSeverityRegression: true
+    costToSuccessDelta: "&lt;= +5%"
+    minimumTrialsPerClass: 10
+  rollout:
+    - shadow
+    - canary: 10%
+    - staged: 50%
+    - full</code></pre>
+<p>OpenAI recomenda fixar snapshots e manter suites de avaliação ao mudar prompts ou modelos, porque pequenas diferenças de modelo podem alterar instruction following. <a class="cite" href="#ref-62" title="Prompt Engineering">[62]</a></p>
+</section>
+<section class="section" id="implementation">
+<h2 id="ed-16-arquitetura-de-implementacao-proposta"><span class="num">16</span> Arquitetura de implementação proposta</h2>
+<div class="architecture">
+<div class="arch-row"><div class="arch-box wide"><strong>Source Registry</strong><span>roles • procedures • skills • policies • schemas • projects • path rules</span></div></div>
+<div class="arrow">↓</div>
+<div class="arch-row"><div class="arch-box"><strong>Static Compiler</strong><span>parse • validate • type • package</span></div><div class="arch-box"><strong>Compatibility Index</strong><span>versions • vendors • tools • models</span></div></div>
+<div class="arrow">↓</div>
+<div class="arch-row"><div class="arch-box wide accent"><strong>Effective Playbook Compiler</strong><span>resolve • policy • capabilities • context plan • provenance</span></div></div>
+<div class="arrow split">↙       ↘</div>
+<div class="arch-row"><div class="arch-box"><strong>Workflow Compiler</strong><span>graph • gates • retry • checkpoints</span></div><div class="arch-box"><strong>Spawn Compiler</strong><span>perspective • budget • cache • rendering</span></div></div>
+<div class="arrow">↓</div>
+<div class="arch-row"><div class="arch-box wide"><strong>Runtime Pager + Policy Interceptor</strong><span>active frame • tool gates • observation filter • state</span></div></div>
+<div class="arrow">↓</div>
+<div class="arch-row"><div class="arch-box wide"><strong>Vendor Adapters</strong><span>OpenAI • Claude • Gemini/ADK • Copilot • Kimi • GLM • OpenAI-compatible local</span></div></div>
+</div>
+<h3 id="ed-16-1-estrutura-de-diretorios">16.1 Estrutura de diretórios</h3>
+<pre><code>agent-system/
+├── constitution/
+├── roles/
+│   ├── overseer/
+│   ├── router/
+│   ├── implementer/
+│   └── reviewer/
+├── procedures/
+│   ├── feature/
+│   ├── bugfix/
+│   ├── migration/
+│   └── review/
+├── skills/
+│   ├── frontend/
+│   ├── backend/
+│   ├── database/
+│   └── security/
+├── contracts/
+├── policies/
+├── projects/
+├── paths/
+├── adapters/
+├── compiler/
+│   ├── parser/
+│   ├── resolver/
+│   ├── ir/
+│   ├── lowering/
+│   └── diagnostics/
+└── evals/</code></pre>
+<h3 id="ed-16-2-interfaces-principais">16.2 Interfaces principais</h3>
+<pre><code>PlaybookSourceRepository
+PlaybookPackageRegistry
+CompatibilityResolver
+EffectivePlaybookCompiler
+WorkflowCompiler
+SpawnEnvelopeCompiler
+TokenBudgetAllocator
+ContextSelector
+PolicyEngine
+VendorRenderer
+RuntimePager
+PlaybookTraceRecorder
+EvaluationRunner</code></pre>
+</section>
+<section class="section" id="roadmap">
+<h2 id="ed-17-roadmap-incremental"><span class="num">17</span> Roadmap incremental</h2>
+<table>
+<thead><tr><th>Fase</th><th>Entregas</th><th>Critério de saída</th></tr></thead>
+<tbody>
+<tr><td><strong>0 — Baseline</strong></td><td>Inventário de prompts atuais, token telemetry, traces.</td><td>Custos e falhas observáveis.</td></tr>
+<tr><td><strong>1 — Metamodelo</strong></td><td>Schemas de role, procedure, skill, policy e handoff.</td><td>Validação estática e fixtures.</td></tr>
+<tr><td><strong>2 — Compiler v0</strong></td><td>Composição determinística e lockfile.</td><td>Replay idêntico por hash.</td></tr>
+<tr><td><strong>3 — Spawn v0</strong></td><td>Role kernel + task capsule + return contract.</td><td>Menos tokens sem queda de success.</td></tr>
+<tr><td><strong>4 — Progressive disclosure</strong></td><td>Reference index, tool discovery e artifact URIs.</td><td>Redução de schemas e contexto inicial.</td></tr>
+<tr><td><strong>5 — Runtime pager</strong></td><td>Frames, state machine e checkpoints.</td><td>Long tasks sem perda de invariantes.</td></tr>
+<tr><td><strong>6 — Context GC</strong></td><td>Expiration, observation filtering e folding.</td><td>Redução de cost-to-success.</td></tr>
+<tr><td><strong>7 — Optimization</strong></td><td>DSPy/GEPA ou optimizer próprio offline.</td><td>Promoção somente por evals.</td></tr>
+<tr><td><strong>8 — Multi-vendor</strong></td><td>Renderers e budget profiles por modelo.</td><td>Paridade comportamental medida.</td></tr>
+</tbody>
+</table>
+<div class="callout primary"><strong>Não começar por autoevolução:</strong> primeiro construa provenance, lockfiles, evals, rollback, policy enforcement e observabilidade. Só depois permita que agentes proponham mudanças em playbooks.</div>
+</section>
+<section class="section" id="antipatterns">
+<h2 id="ed-18-anti-patterns"><span class="num">18</span> Anti-patterns</h2>
+<div class="anti-grid">
+<article><h3 id="ed-god-prompt">God prompt</h3><p>Um Markdown universal com todas as práticas, tools e exceções.</p></article>
+<article><h3 id="ed-persona-teatral">Persona teatral</h3><p>Biografia extensa sem mudança de contrato operacional.</p></article>
+<article><h3 id="ed-concatenacao-cega">Concatenação cega</h3><p><code>global + role + skill + repo</code> sem IR, precedência ou deduplicação.</p></article>
+<article><h3 id="ed-full-context-spawn">Full-context spawn</h3><p>Copiar toda a memória do overseer para cada worker.</p></article>
+<article><h3 id="ed-tool-catalog-integral">Tool catalog integral</h3><p>Carregar centenas de schemas em todo turno.</p></article>
+<article><h3 id="ed-truncamento-silencioso">Truncamento silencioso</h3><p>Cortar o fim do prompt quando o limite do vendor é atingido.</p></article>
+<article><h3 id="ed-compressao-de-gramatica">Compressão de gramática</h3><p>Remover tokens de paths, IDs, code, schemas e tool calls.</p></article>
+<article><h3 id="ed-policy-textual">Policy textual</h3><p>Dizer “não faça” enquanto a tool continua disponível.</p></article>
+<article><h3 id="ed-skill-sem-compatibilidade">Skill sem compatibilidade</h3><p>Práticas de framework sem versão e sem revalidação.</p></article>
+<article><h3 id="ed-autoedicao-apos-uma-falha">Autoedição após uma falha</h3><p>Modificar playbook sem gerar eval, comparação e canary.</p></article>
+</div>
+</section>
+<section class="section" id="decision-checklist">
+<h2 id="ed-19-checklist-de-implementacao-saudavel"><span class="num">19</span> Checklist de implementação saudável</h2>
+<div class="checklist">
+<label><input type="checkbox"/> Cada role possui ownership e does-not-own explícitos.</label>
+<label><input type="checkbox"/> Skills são modulares e carregadas sob demanda.</label>
+<label><input type="checkbox"/> O compiler possui uma IR tipada.</label>
+<label><input type="checkbox"/> Conflitos e overflows falham com diagnóstico.</label>
+<label><input type="checkbox"/> O lockfile registra hashes e provenance.</label>
+<label><input type="checkbox"/> Spawn não copia transcrição do pai.</label>
+<label><input type="checkbox"/> Tools são bound por capability e policy.</label>
+<label><input type="checkbox"/> Observações extensas viram artefatos + resumo.</label>
+<label><input type="checkbox"/> Policies críticas são aplicadas no runtime.</label>
+<label><input type="checkbox"/> Toda skill tem compatibility e freshness.</label>
+<label><input type="checkbox"/> Evals medem trajetória, resultado e custo.</label>
+<label><input type="checkbox"/> Mudanças passam por shadow, canary e rollback.</label>
+</div>
+</section>
+<section class="section" id="research-agenda">
+<h2 id="ed-20-agenda-de-pesquisa-para-o-multi-agent-harness"><span class="num">20</span> Agenda de pesquisa para o Multi Agent Harness</h2>
+<ol>
+<li>Qual composição mínima de <code>RoleKernel + TaskCapsule + ActiveState</code> maximiza success por token?</li>
+<li>Em quais modelos o active-frame paging ajuda ou prejudica?</li>
+<li>Qual é o ganho de context curated versus full-context para cada role?</li>
+<li>Quando um especialista deve ser um agent separado e quando basta uma skill?</li>
+<li>Qual política de pruning preserva invariantes em coding agents?</li>
+<li>Como comparar adapters multi-vendor sem confundir modelo e harness?</li>
+<li>Quais campos do playbook são estáveis entre modelos e quais precisam de tuning?</li>
+<li>Como medir context leakage entre overseer, implementer e reviewer?</li>
+<li>Qual é o efeito de tool discovery na taxa de sucesso e no tempo até a primeira ação útil?</li>
+<li>Como otimizar custo total sem remover âncoras procedurais que evitam exploração desnecessária?</li>
+</ol>
+</section>
+<section class="section appendix" id="appendix-schema">
+<h2 id="ed-a-apendice-schema-de-playbook"><span class="num">A</span> Apêndice — Schema de Playbook</h2>
+<pre><code>apiVersion: harness.ai/v1alpha1
+kind: Playbook
+metadata:
+  id: frontend-implementer
+  version: 1.0.0
+  owner: frontend-platform
+  status: active
+  lastValidatedAt: 2026-07-25
+  revalidateAfter: 2026-10-25
+compatibility:
+  harness: "&gt;=0.8 &lt;1.0"
+  frameworks:
+    react: "&gt;=18 &lt;20"
+activation:
+  taskTypes: [frontend-feature, frontend-bugfix]
+  pathPatterns: ["src/frontend/**"]
+mission:
+  objective: Implement frontend behavior with executable evidence.
+  owns: [implementation-patch, relevant-tests, evidence]
+  doesNotOwn: [requirements-approval, final-review, deployment]
+context:
+  required: [task-spec, acceptance-criteria, repository-profile]
+  retrieveOnDemand: [nearby-components, nearby-tests, design-system]
+  excluded: [unrelated-history, private-agent-scratchpads]
+procedure:
+  - inspect-existing-patterns
+  - reproduce-current-behavior
+  - map-criteria-to-changes-and-tests
+  - implement-minimal-change
+  - verify
+  - produce-evidence
+tools:
+  allow: [repository.read, repository.search, repository.edit, command.test]
+  deny: [production.deploy, secrets.read, policy.modify]
+verification:
+  required: [typecheck, relevant-tests]
+handoff:
+  outputSchema: implementation-result/v2
+control:
+  maxRetries: 2
+  retryRequiresNewStrategy: true
+evaluation:
+  suite: frontend-implementer-evals/v3</code></pre>
+</section>
+<section class="section appendix" id="appendix-code">
+<h2 id="ed-b-apendice-esqueleto-do-compiler"><span class="num">B</span> Apêndice — Esqueleto do compiler</h2>
+<pre><code>from dataclasses import dataclass
+from typing import Any
+
+@dataclass(frozen=True)
+class CompilationContext:
+    task: dict[str, Any]
+    project: dict[str, Any]
+    selected_role: str
+    selected_model: str
+    vendor: str
+
+@dataclass(frozen=True)
+class EffectivePlaybook:
+    manifest: dict[str, Any]
+    workflow: dict[str, Any]
+    prompt_plan: dict[str, Any]
+    provenance: list[str]
+
+class PlaybookCompiler:
+    def compile(self, context: CompilationContext) -&gt; EffectivePlaybook:
+        sources = self.registry.resolve(context)
+        ast = self.parser.parse_all(sources)
+        normalized = self.normalizer.normalize(ast)
+        self.schema_validator.validate(normalized)
+        compatible = self.compatibility.filter(normalized, context)
+        merged = self.precedence.resolve(compatible)
+        capabilities = self.capability_binder.bind(merged, context)
+        policy = self.policy_engine.evaluate(context, capabilities)
+        policy.raise_if_denied()
+        workflow = self.workflow_compiler.compile(merged, policy)
+        prompt_plan = self.context_compiler.plan(merged, workflow, context)
+        manifest = self.lock_builder.build(
+            context, merged, capabilities, policy, workflow, prompt_plan
+        )
+        return EffectivePlaybook(
+            manifest=manifest,
+            workflow=workflow,
+            prompt_plan=prompt_plan,
+            provenance=[s.uri for s in sources],
+        )</code></pre>
+</section>
+<section class="section appendix" id="appendix-spawn-code">
+<h2 id="ed-c-apendice-algoritmo-de-spawn"><span class="num">C</span> Apêndice — Algoritmo de Spawn</h2>
+<pre><code>def compile_spawn_envelope(parent_state, delegated_task, profile, vendor):
+    role_kernel = resolve_role_kernel(profile)
+    task_capsule = build_task_capsule(delegated_task)
+
+    relevant_state = select_state(
+        parent_state,
+        preserve=[
+            "binding_decisions",
+            "open_dependencies",
+            "known_evidence",
+            "active_risks",
+        ],
+        exclude=[
+            "private_reasoning",
+            "unrelated_workstreams",
+            "expired_tool_outputs",
+        ],
+    )
+
+    capabilities = bind_capabilities(
+        profile=profile,
+        task=delegated_task,
+        common_tool_limit=3,
+        defer_remaining=True,
+    )
+
+    envelope = assemble(
+        static_prefix=role_kernel,
+        dynamic_body=[task_capsule, relevant_state, capabilities.index],
+        terminal_frame=[delegated_task.current_step,
+                        delegated_task.return_contract],
+    )
+
+    envelope = reduce_to_budget(
+        envelope,
+        tokenizer=vendor.tokenizer,
+        budget=vendor.spawn_budget,
+        protected_sections=[
+            "authority",
+            "objective",
+            "acceptance_criteria",
+            "policies",
+            "active_state",
+            "output_contract",
+        ],
+    )
+
+    validate_no_silent_truncation(envelope)
+    return envelope</code></pre>
+</section>
+<section class="section bibliography" id="bibliography">
+<h2 id="ed-21-bibliografia-e-fontes"><span class="num">21</span> Bibliografia e fontes</h2>
+<p>As datas abaixo representam publicação ou, para documentação viva, a data de consulta. Preprints recentes são úteis como bleeding edge, mas devem ser reproduzidos antes de fundamentar decisões irreversíveis.</p>
+<div id="references-list"><article class="reference" id="ref-1"><div class="ref-number">[1]</div><div><div class="ref-meta"><span class="source-badge">Documento interno</span><time>2026-07-14</time></div><h3 id="ed-arquiteturas-de-harness-multiagentico-com-roteamento-adaptativo-por-projeto-workflows-dinamicos-autocorrecao-e-autoevolucao-sob-controle-deterministico">Arquiteturas de Harness Multiagêntico com Roteamento Adaptativo por Projeto, Workflows Dinâmicos, Autocorreção e Autoevolução sob Controle Determinístico</h3><p class="ref-author">Documento interno do projeto Multi Agent Harness</p><p>Plano formal de pesquisa fornecido pelo usuário.</p></div></article>
+<article class="reference" id="ref-2"><div class="ref-number">[2]</div><div><div class="ref-meta"><span class="source-badge">Paper</span><time>2023-08-01</time></div><h3 id="ed-metagpt-meta-programming-for-a-multi-agent-collaborative-framework"><a href="https://arxiv.org/abs/2308.00352" rel="noopener" target="_blank">MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</a></h3><p class="ref-author">Hong et al.</p><p>SOPs, papéis e artefatos intermediários em colaboração multiagente.</p></div></article>
+<article class="reference" id="ref-3"><div class="ref-number">[3]</div><div><div class="ref-meta"><span class="source-badge">Paper</span><time>2023-12-20</time></div><h3 id="ed-agentcoder-multi-agent-based-code-generation-with-iterative-testing-and-optimisation"><a href="https://arxiv.org/abs/2312.13010" rel="noopener" target="_blank">AgentCoder: Multi-Agent-based Code Generation with Iterative Testing and Optimisation</a></h3><p class="ref-author">Huang et al.</p><p>Separação entre programmer, test designer e test executor.</p></div></article>
+<article class="reference" id="ref-4"><div class="ref-number">[4]</div><div><div class="ref-meta"><span class="source-badge">Paper</span><time>2024-06-17</time></div><h3 id="ed-masai-modular-architecture-for-software-engineering-ai-agents"><a href="https://arxiv.org/abs/2406.11638" rel="noopener" target="_blank">MASAI: Modular Architecture for Software-engineering AI Agents</a></h3><p class="ref-author">Arora et al.</p><p>Subagentes com objetivos e estratégias específicas; redução de trajetórias desnecessárias.</p></div></article>
+<article class="reference" id="ref-5"><div class="ref-number">[5]</div><div><div class="ref-meta"><span class="source-badge">Paper</span><time>2024-05-06</time></div><h3 id="ed-swe-agent-agent-computer-interfaces-enable-automated-software-engineering"><a href="https://arxiv.org/abs/2405.15793" rel="noopener" target="_blank">SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering</a></h3><p class="ref-author">Yang et al.</p><p>Efeito da interface agente-computador no comportamento e desempenho.</p></div></article>
+<article class="reference" id="ref-6"><div class="ref-number">[6]</div><div><div class="ref-meta"><span class="source-badge">Paper</span><time>2023-07-06</time></div><h3 id="ed-lost-in-the-middle-how-language-models-use-long-contexts"><a href="https://arxiv.org/abs/2307.03172" rel="noopener" target="_blank">Lost in the Middle: How Language Models Use Long Contexts</a></h3><p class="ref-author">Liu et al.</p><p>Degradação posicional em contextos longos.</p></div></article>
+<article class="reference" id="ref-7"><div class="ref-number">[7]</div><div><div class="ref-meta"><span class="source-badge">Paper / PLDI</span><time>2022-12-12</time></div><h3 id="ed-prompting-is-programming-a-query-language-for-large-language-models-lmql"><a href="https://arxiv.org/abs/2212.06094" rel="noopener" target="_blank">Prompting Is Programming: A Query Language for Large Language Models (LMQL)</a></h3><p class="ref-author">Beurer-Kellner et al.</p><p>Prompt programming, constraints e compilação para execução eficiente.</p></div></article>
+<article class="reference" id="ref-8"><div class="ref-number">[8]</div><div><div class="ref-meta"><span class="source-badge">Paper</span><time>2024-10-25</time></div><h3 id="ed-pdl-a-declarative-prompt-programming-language"><a href="https://arxiv.org/abs/2410.19135" rel="noopener" target="_blank">PDL: A Declarative Prompt Programming Language</a></h3><p class="ref-author">Vaziri et al.</p><p>Linguagem YAML declarativa para prompts, tools, controle e tipos.</p></div></article>
+<article class="reference" id="ref-9"><div class="ref-number">[9]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-prompt-declaration-language-tutorial-e-documentacao"><a href="https://ibm.github.io/prompt-declaration-language/" rel="noopener" target="_blank">Prompt Declaration Language — Tutorial e documentação</a></h3><p class="ref-author">IBM</p><p>Documentação viva; consultada em 29/07/2026.</p></div></article>
+<article class="reference" id="ref-10"><div class="ref-number">[10]</div><div><div class="ref-meta"><span class="source-badge">Framework / documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-dspy-program-dont-prompt"><a href="https://dspy.ai/" rel="noopener" target="_blank">DSPy — Program, don’t prompt</a></h3><p class="ref-author">Stanford NLP</p><p>Signatures, módulos e optimizers para sistemas de linguagem.</p></div></article>
+<article class="reference" id="ref-11"><div class="ref-number">[11]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-dspy-signatures-in-depth"><a href="https://dspy.ai/diving-deeper/signatures-in-depth/" rel="noopener" target="_blank">DSPy Signatures in Depth</a></h3><p class="ref-author">DSPy</p><p>Contratos tipados de entrada, saída e intenção.</p></div></article>
+<article class="reference" id="ref-12"><div class="ref-number">[12]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-dspy-gepa-optimization"><a href="https://dspy.ai/getting-started/gepa-optimization/" rel="noopener" target="_blank">DSPy GEPA Optimization</a></h3><p class="ref-author">DSPy</p><p>Otimização iterativa de instruções a partir de métricas e traces.</p></div></article>
+<article class="reference" id="ref-13"><div class="ref-number">[13]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial / Public Preview</span><time>2026-07-29</time></div><h3 id="ed-github-agentic-workflows-overview"><a href="https://github.github.com/gh-aw/" rel="noopener" target="_blank">GitHub Agentic Workflows — Overview</a></h3><p class="ref-author">GitHub / Microsoft</p><p>Markdown compilado para GitHub Actions com guardrails.</p></div></article>
+<article class="reference" id="ref-14"><div class="ref-number">[14]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-github-agentic-workflows-compilation-process"><a href="https://github.github.com/gh-aw/reference/compilation-process/" rel="noopener" target="_blank">GitHub Agentic Workflows — Compilation Process</a></h3><p class="ref-author">GitHub / Microsoft</p><p>Parsing, validação, construção de jobs, resolução e geração de lockfile.</p></div></article>
+<article class="reference" id="ref-15"><div class="ref-number">[15]</div><div><div class="ref-meta"><span class="source-badge">Especificação aberta</span><time>2026-07-29</time></div><h3 id="ed-agent-skills-specification"><a href="https://agentskills.io/specification" rel="noopener" target="_blank">Agent Skills Specification</a></h3><p class="ref-author">Agent Skills</p><p>Progressive disclosure, SKILL.md, resources e validação.</p></div></article>
+<article class="reference" id="ref-16"><div class="ref-number">[16]</div><div><div class="ref-meta"><span class="source-badge">Guia oficial</span><time>2026-07-29</time></div><h3 id="ed-best-practices-for-skill-creators"><a href="https://agentskills.io/skill-creation/best-practices" rel="noopener" target="_blank">Best Practices for Skill Creators</a></h3><p class="ref-author">Agent Skills</p><p>Detalhe moderado, progressive disclosure e controle proporcional à fragilidade.</p></div></article>
+<article class="reference" id="ref-17"><div class="ref-number">[17]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-codex-best-practices"><a href="https://developers.openai.com/codex/learn/best-practices" rel="noopener" target="_blank">Codex Best Practices</a></h3><p class="ref-author">OpenAI</p><p>Contexto, AGENTS.md, planos e verificação.</p></div></article>
+<article class="reference" id="ref-18"><div class="ref-number">[18]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-codex-sample-configuration-project-doc-max-bytes"><a href="https://developers.openai.com/codex/config-sample" rel="noopener" target="_blank">Codex Sample Configuration — project_doc_max_bytes</a></h3><p class="ref-author">OpenAI</p><p>Limite padrão de 32 KiB para AGENTS.md nas instruções do primeiro turno.</p></div></article>
+<article class="reference" id="ref-19"><div class="ref-number">[19]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-build-skills"><a href="https://developers.openai.com/codex/build-skills" rel="noopener" target="_blank">Build Skills</a></h3><p class="ref-author">OpenAI</p><p>Skills como instruções, recursos e scripts carregados conforme a tarefa.</p></div></article>
+<article class="reference" id="ref-20"><div class="ref-number">[20]</div><div><div class="ref-meta"><span class="source-badge">Engineering blog oficial</span><time>2026-02-23</time></div><h3 id="ed-run-long-horizon-tasks-with-codex"><a href="https://developers.openai.com/blog/run-long-horizon-tasks-with-codex" rel="noopener" target="_blank">Run Long-Horizon Tasks with Codex</a></h3><p class="ref-author">OpenAI</p><p>Spec, planos, runbook, validação e documentação contínua.</p></div></article>
+<article class="reference" id="ref-21"><div class="ref-number">[21]</div><div><div class="ref-meta"><span class="source-badge">Engineering blog oficial</span><time>2026-02-11</time></div><h3 id="ed-shell-skills-compaction-tips-for-long-running-agents"><a href="https://developers.openai.com/blog/skills-shell-tips" rel="noopener" target="_blank">Shell + Skills + Compaction: Tips for Long-Running Agents</a></h3><p class="ref-author">OpenAI</p><p>Descrições como lógica de roteamento, exemplos negativos e compaction.</p></div></article>
+<article class="reference" id="ref-22"><div class="ref-number">[22]</div><div><div class="ref-meta"><span class="source-badge">Engineering blog oficial</span><time>2026-01-22</time></div><h3 id="ed-testing-agent-skills-systematically-with-evals"><a href="https://developers.openai.com/blog/eval-skills" rel="noopener" target="_blank">Testing Agent Skills Systematically with Evals</a></h3><p class="ref-author">OpenAI</p><p>Transformação de skills em artefatos testáveis.</p></div></article>
+<article class="reference" id="ref-23"><div class="ref-number">[23]</div><div><div class="ref-meta"><span class="source-badge">Cookbook oficial</span><time>2026-05-12</time></div><h3 id="ed-build-an-agent-improvement-loop-with-traces-evals-and-codex"><a href="https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop" rel="noopener" target="_blank">Build an Agent Improvement Loop with Traces, Evals, and Codex</a></h3><p class="ref-author">OpenAI</p><p>Traces → feedback → evals → mudanças no harness.</p></div></article>
+<article class="reference" id="ref-24"><div class="ref-number">[24]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-prompt-caching"><a href="https://developers.openai.com/api/docs/guides/prompt-caching" rel="noopener" target="_blank">Prompt Caching</a></h3><p class="ref-author">OpenAI</p><p>Prefixos idênticos, conteúdo estático primeiro e conteúdo variável depois.</p></div></article>
+<article class="reference" id="ref-25"><div class="ref-number">[25]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-create-custom-subagents"><a href="https://docs.anthropic.com/en/docs/claude-code/sub-agents" rel="noopener" target="_blank">Create Custom Subagents</a></h3><p class="ref-author">Anthropic</p><p>Subagentes especializados com contexto isolado, tools e modelos distintos.</p></div></article>
+<article class="reference" id="ref-26"><div class="ref-number">[26]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-extend-claude-with-skills"><a href="https://docs.anthropic.com/en/docs/claude-code/skills" rel="noopener" target="_blank">Extend Claude with Skills</a></h3><p class="ref-author">Anthropic</p><p>Skills e limites de reanexação após compaction.</p></div></article>
+<article class="reference" id="ref-27"><div class="ref-number">[27]</div><div><div class="ref-meta"><span class="source-badge">Engineering blog oficial</span><time>2025-09-29</time></div><h3 id="ed-effective-context-engineering-for-ai-agents"><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" rel="noopener" target="_blank">Effective Context Engineering for AI Agents</a></h3><p class="ref-author">Anthropic</p><p>Contexto como recurso finito, recuperação just-in-time e isolamento.</p></div></article>
+<article class="reference" id="ref-28"><div class="ref-number">[28]</div><div><div class="ref-meta"><span class="source-badge">Engineering blog oficial</span><time>2024-12-19</time></div><h3 id="ed-building-effective-agents"><a href="https://www.anthropic.com/engineering/building-effective-agents" rel="noopener" target="_blank">Building Effective Agents</a></h3><p class="ref-author">Anthropic</p><p>Padrões simples, workflows determinísticos e agentes adaptativos.</p></div></article>
+<article class="reference" id="ref-29"><div class="ref-number">[29]</div><div><div class="ref-meta"><span class="source-badge">Engineering blog oficial</span><time>2025-06-13</time></div><h3 id="ed-how-we-built-our-multi-agent-research-system"><a href="https://www.anthropic.com/engineering/multi-agent-research-system" rel="noopener" target="_blank">How We Built Our Multi-Agent Research System</a></h3><p class="ref-author">Anthropic</p><p>Delegação com objetivo, formato, ferramentas, fronteiras e orçamento.</p></div></article>
+<article class="reference" id="ref-30"><div class="ref-number">[30]</div><div><div class="ref-meta"><span class="source-badge">Engineering blog oficial</span><time>2025-11-04</time></div><h3 id="ed-code-execution-with-mcp-building-more-efficient-ai-agents"><a href="https://www.anthropic.com/engineering/code-execution-with-mcp" rel="noopener" target="_blank">Code Execution with MCP: Building More Efficient AI Agents</a></h3><p class="ref-author">Anthropic</p><p>Descoberta sob demanda de ferramentas e redução de schemas/resultados no contexto.</p></div></article>
+<article class="reference" id="ref-31"><div class="ref-number">[31]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-prompt-caching-2"><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching" rel="noopener" target="_blank">Prompt Caching</a></h3><p class="ref-author">Anthropic</p><p>Cache de prefixos, breakpoints e TTL.</p></div></article>
+<article class="reference" id="ref-32"><div class="ref-number">[32]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-context-windows"><a href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows" rel="noopener" target="_blank">Context Windows</a></h3><p class="ref-author">Anthropic</p><p>Tokens cacheados continuam contando para a janela.</p></div></article>
+<article class="reference" id="ref-33"><div class="ref-number">[33]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-creating-custom-agents-for-copilot-cloud-agent"><a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents" rel="noopener" target="_blank">Creating Custom Agents for Copilot Cloud Agent</a></h3><p class="ref-author">GitHub</p><p>Perfis Markdown; prompt com limite de 30.000 caracteres.</p></div></article>
+<article class="reference" id="ref-34"><div class="ref-number">[34]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-adding-repository-custom-instructions-for-github-copilot"><a href="https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot" rel="noopener" target="_blank">Adding Repository Custom Instructions for GitHub Copilot</a></h3><p class="ref-author">GitHub</p><p>Instruções de repositório e específicas por caminho.</p></div></article>
+<article class="reference" id="ref-35"><div class="ref-number">[35]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-simple-agents-with-llmagent"><a href="https://google.github.io/adk-docs/agents/llm-agents/" rel="noopener" target="_blank">Simple Agents with LlmAgent</a></h3><p class="ref-author">Google ADK</p><p>Instruction, description, tools, callbacks e agentes em grafos.</p></div></article>
+<article class="reference" id="ref-36"><div class="ref-number">[36]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-template-agent-workflows"><a href="https://google.github.io/adk-docs/agents/workflow-agents/" rel="noopener" target="_blank">Template Agent Workflows</a></h3><p class="ref-author">Google ADK</p><p>Sequencial, paralelo e loop determinísticos.</p></div></article>
+<article class="reference" id="ref-37"><div class="ref-number">[37]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-safety-and-security-for-ai-agents"><a href="https://google.github.io/adk-docs/safety/" rel="noopener" target="_blank">Safety and Security for AI Agents</a></h3><p class="ref-author">Google ADK</p><p>Callbacks e plugins como enforcement antes de tools e model calls.</p></div></article>
+<article class="reference" id="ref-38"><div class="ref-number">[38]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial / experimental</span><time>2026-07-29</time></div><h3 id="ed-skills-for-adk-agents"><a href="https://google.github.io/adk-docs/skills/" rel="noopener" target="_blank">Skills for ADK Agents</a></h3><p class="ref-author">Google ADK</p><p>Skills incrementais para minimizar impacto na janela.</p></div></article>
+<article class="reference" id="ref-39"><div class="ref-number">[39]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-thinking-in-langgraph"><a href="https://docs.langchain.com/oss/python/langgraph/thinking-in-langgraph" rel="noopener" target="_blank">Thinking in LangGraph</a></h3><p class="ref-author">LangChain</p><p>Estado bruto e prompts formatados sob demanda.</p></div></article>
+<article class="reference" id="ref-40"><div class="ref-number">[40]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-langgraph-persistence-and-checkpointers"><a href="https://docs.langchain.com/oss/python/langgraph/persistence" rel="noopener" target="_blank">LangGraph Persistence and Checkpointers</a></h3><p class="ref-author">LangChain</p><p>Checkpoints, memória curta, replay e tolerância a falhas.</p></div></article>
+<article class="reference" id="ref-41"><div class="ref-number">[41]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint</span><time>2025-03-24</time></div><h3 id="ed-agentspec-customizable-runtime-enforcement-for-safe-and-reliable-llm-agents"><a href="https://arxiv.org/abs/2503.18666" rel="noopener" target="_blank">AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents</a></h3><p class="ref-author">Wang, Poskitt e Sun</p><p>DSL de triggers, predicates e enforcement em runtime.</p></div></article>
+<article class="reference" id="ref-42"><div class="ref-number">[42]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-07-13</time></div><h3 id="ed-compile-then-page-executable-sop-programs-and-a-capability-gated-runtime-for-procedural-llm-agents"><a href="https://arxiv.org/abs/2607.11346" rel="noopener" target="_blank">Compile, Then Page: Executable SOP Programs and a Capability-Gated Runtime for Procedural LLM Agents</a></h3><p class="ref-author">Yu et al.</p><p>Compilação de SOPs em pseudocódigo executável e paging do frame ativo.</p></div></article>
+<article class="reference" id="ref-43"><div class="ref-number">[43]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint</span><time>2025-01-16</time></div><h3 id="ed-sop-agent-empower-general-purpose-ai-agent-with-domain-specific-sops"><a href="https://arxiv.org/abs/2501.09316" rel="noopener" target="_blank">SOP-Agent: Empower General Purpose AI Agent with Domain-Specific SOPs</a></h3><p class="ref-author">Lu et al.</p><p>SOP em pseudocódigo e decision graph navegável.</p></div></article>
+<article class="reference" id="ref-44"><div class="ref-number">[44]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-02-03</time></div><h3 id="ed-aorchestra-automating-sub-agent-creation-for-agentic-orchestration"><a href="https://arxiv.org/abs/2602.03786" rel="noopener" target="_blank">AOrchestra: Automating Sub-Agent Creation for Agentic Orchestration</a></h3><p class="ref-author">Ruan et al.</p><p>Subagente como tupla Instruction, Context, Tools, Model e contexto curado.</p></div></article>
+<article class="reference" id="ref-45"><div class="ref-number">[45]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-06-07</time></div><h3 id="ed-perspectivegap-a-benchmark-for-multi-agent-orchestration-prompting"><a href="https://arxiv.org/abs/2606.08878" rel="noopener" target="_blank">PerspectiveGap: A Benchmark for Multi-Agent Orchestration Prompting</a></h3><p class="ref-author">Sun et al.</p><p>Mede atribuição de informação e vazamento entre papéis.</p></div></article>
+<article class="reference" id="ref-46"><div class="ref-number">[46]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-02-06</time></div><h3 id="ed-agentspawn-adaptive-multi-agent-collaboration-through-dynamic-agent-spawning"><a href="https://arxiv.org/abs/2602.07072" rel="noopener" target="_blank">AgentSpawn: Adaptive Multi-Agent Collaboration Through Dynamic Agent Spawning</a></h3><p class="ref-author">Costa et al.</p><p>Spawning adaptativo e transferência seletiva de memória.</p></div></article>
+<article class="reference" id="ref-47"><div class="ref-number">[47]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-05-12</time></div><h3 id="ed-skillsmith-compiling-agent-skills-into-boundary-guided-runtime-interfaces"><a href="https://arxiv.org/abs/2605.15215" rel="noopener" target="_blank">SkillSmith: Compiling Agent Skills into Boundary-Guided Runtime Interfaces</a></h3><p class="ref-author">Xu et al.</p><p>Compilação offline de skills em interfaces mínimas executáveis.</p></div></article>
+<article class="reference" id="ref-48"><div class="ref-number">[48]</div><div><div class="ref-meta"><span class="source-badge">Paper / benchmark</span><time>2026-02-13</time></div><h3 id="ed-skillsbench-benchmarking-how-well-agent-skills-work-across-diverse-tasks"><a href="https://arxiv.org/abs/2602.12670" rel="noopener" target="_blank">SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks</a></h3><p class="ref-author">Li et al.</p><p>86 tarefas, verificação determinística e comparação com/sem skills.</p></div></article>
+<article class="reference" id="ref-49"><div class="ref-number">[49]</div><div><div class="ref-meta"><span class="source-badge">Paper / benchmark</span><time>2026-03-16</time></div><h3 id="ed-swe-skills-bench-do-agent-skills-actually-help-in-real-world-software-engineering"><a href="https://arxiv.org/abs/2603.15401" rel="noopener" target="_blank">SWE-Skills-Bench: Do Agent Skills Actually Help in Real-World Software Engineering?</a></h3><p class="ref-author">Han et al.</p><p>Utilidade marginal de skills em SWE, overhead e incompatibilidade de versões.</p></div></article>
+<article class="reference" id="ref-50"><div class="ref-number">[50]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-03-31</time></div><h3 id="ed-skillreducer-optimizing-llm-agent-skills-for-token-efficiency"><a href="https://arxiv.org/abs/2603.29919" rel="noopener" target="_blank">SkillReducer: Optimizing LLM Agent Skills for Token Efficiency</a></h3><p class="ref-author">Autores do SkillReducer</p><p>Compressão estrutural de skills e redução de tokens.</p></div></article>
+<article class="reference" id="ref-51"><div class="ref-number">[51]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-06-08</time></div><h3 id="ed-what-should-a-skill-remember-quality-cost-trade-offs-in-cost-aware-skill-rewriting"><a href="https://arxiv.org/abs/2606.09421" rel="noopener" target="_blank">What Should a Skill Remember? Quality-Cost Trade-offs in Cost-Aware Skill Rewriting</a></h3><p class="ref-author">Xing et al.</p><p>Skills menores podem remover âncoras operacionais e aumentar custo downstream.</p></div></article>
+<article class="reference" id="ref-52"><div class="ref-number">[52]</div><div><div class="ref-meta"><span class="source-badge">Paper / PACMSE-FSE</span><time>2025-09-28 / 2026</time></div><h3 id="ed-reducing-cost-of-llm-agents-with-trajectory-reduction-agentdiet"><a href="https://arxiv.org/abs/2509.23586" rel="noopener" target="_blank">Reducing Cost of LLM Agents with Trajectory Reduction (AgentDiet)</a></h3><p class="ref-author">Xiao et al.</p><p>Remoção de informação inútil, redundante e expirada em trajetórias.</p></div></article>
+<article class="reference" id="ref-53"><div class="ref-number">[53]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-01-23</time></div><h3 id="ed-swe-pruner-self-adaptive-context-pruning-for-coding-agents"><a href="https://arxiv.org/abs/2601.16746" rel="noopener" target="_blank">SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents</a></h3><p class="ref-author">Wang et al.</p><p>Pruning task-aware de código e observações para coding agents.</p></div></article>
+<article class="reference" id="ref-54"><div class="ref-number">[54]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint muito recente</span><time>2026-07-20</time></div><h3 id="ed-swe-pruner-pro-the-coder-llm-already-knows-what-to-prune"><a href="https://arxiv.org/abs/2607.18213" rel="noopener" target="_blank">SWE-Pruner Pro: The Coder LLM Already Knows What to Prune</a></h3><p class="ref-author">Wang et al.</p><p>Cabeça de pruning sobre representações internas de modelos abertos.</p></div></article>
+<article class="reference" id="ref-55"><div class="ref-number">[55]</div><div><div class="ref-meta"><span class="source-badge">Paper</span><time>2023-10-09</time></div><h3 id="ed-llmlingua-compressing-prompts-for-accelerated-inference-of-large-language-models"><a href="https://arxiv.org/abs/2310.05736" rel="noopener" target="_blank">LLMLingua: Compressing Prompts for Accelerated Inference of Large Language Models</a></h3><p class="ref-author">Jiang et al.</p><p>Compressão coarse-to-fine e budget controller.</p></div></article>
+<article class="reference" id="ref-56"><div class="ref-number">[56]</div><div><div class="ref-meta"><span class="source-badge">Paper</span><time>2023-10-10</time></div><h3 id="ed-longllmlingua-accelerating-and-enhancing-llms-in-long-context-scenarios"><a href="https://arxiv.org/abs/2310.06839" rel="noopener" target="_blank">LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios</a></h3><p class="ref-author">Jiang et al.</p><p>Compressão query-aware em contexto longo.</p></div></article>
+<article class="reference" id="ref-57"><div class="ref-number">[57]</div><div><div class="ref-meta"><span class="source-badge">Paper / ICLR 2026</span><time>2025-10-28 / 2026</time></div><h3 id="ed-agentfold-long-horizon-web-agents-with-proactive-context-folding"><a href="https://arxiv.org/abs/2510.24699" rel="noopener" target="_blank">AgentFold: Long-Horizon Web Agents with Proactive Context Folding</a></h3><p class="ref-author">Ye et al.</p><p>Contexto como workspace dinâmico com folding proativo.</p></div></article>
+<article class="reference" id="ref-58"><div class="ref-number">[58]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-05-26</time></div><h3 id="ed-agora-adapter-grounded-observation-action-retention-for-efficient-agent-contexts"><a href="https://arxiv.org/abs/2605.26596" rel="noopener" target="_blank">AGORA: Adapter-Grounded Observation-Action Retention for Efficient Agent Contexts</a></h3><p class="ref-author">Autores do AGORA</p><p>Alerta sobre compressão token-level destruir gramática de ação.</p></div></article>
+<article class="reference" id="ref-59"><div class="ref-number">[59]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-04-02</time></div><h3 id="ed-budget-aware-context-management-for-long-horizon-agents"><a href="https://arxiv.org/abs/2604.01664" rel="noopener" target="_blank">Budget-Aware Context Management for Long-Horizon Agents</a></h3><p class="ref-author">Autores do BACM</p><p>Context management como decisão sequencial sob orçamento.</p></div></article>
+<article class="reference" id="ref-60"><div class="ref-number">[60]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-07-24</time></div><h3 id="ed-agentic-context-management-for-long-horizon-tasks"><a href="https://arxiv.org/abs/2607.23809" rel="noopener" target="_blank">Agentic Context Management for Long-Horizon Tasks</a></h3><p class="ref-author">Autores do ACM</p><p>Ferramentas de edição de contexto e gestão lossless; evidência muito recente.</p></div></article>
+<article class="reference" id="ref-61"><div class="ref-number">[61]</div><div><div class="ref-meta"><span class="source-badge">Paper / preprint recente</span><time>2026-06-25</time></div><h3 id="ed-vigil-runtime-enforcement-of-behavioral-specifications-in-ai-agent-skills"><a href="https://arxiv.org/abs/2606.26524" rel="noopener" target="_blank">VIGIL: Runtime Enforcement of Behavioral Specifications in AI Agent Skills</a></h3><p class="ref-author">Li et al.</p><p>Políticas temporais sobre eventos agent-tool e enforcement com constraints.</p></div></article>
+<article class="reference" id="ref-62"><div class="ref-number">[62]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-prompt-engineering"><a href="https://developers.openai.com/api/docs/guides/prompt-engineering" rel="noopener" target="_blank">Prompt Engineering</a></h3><p class="ref-author">OpenAI</p><p>Pinning de snapshots e evals ao evoluir prompts e modelos.</p></div></article>
+<article class="reference" id="ref-63"><div class="ref-number">[63]</div><div><div class="ref-meta"><span class="source-badge">Documentação oficial</span><time>2026-07-29</time></div><h3 id="ed-why-evaluate-agents"><a href="https://google.github.io/adk-docs/evaluate/" rel="noopener" target="_blank">Why Evaluate Agents</a></h3><p class="ref-author">Google ADK</p><p>Avaliação de trajetória/tool use e resultado final.</p></div></article></div>
+</section>
+<div class="footer">Documento gerado para o projeto Multi Agent Harness • pesquisa atualizada em 29/07/2026</div></div></section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/guia-playbooks-engineering-2026-07-29.html</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/guia-playbooks-engineering-2026-07-29.html</code></li><li>Source SHA-256: <code>6d17ea257d77930b37b430d3b13163c96e6d1db84b760dd546eeeccad55e2383</code></li><li>Edition-input SHA-256: <code>6d17ea257d77930b37b430d3b13163c96e6d1db84b760dd546eeeccad55e2383</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

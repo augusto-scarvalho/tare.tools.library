@@ -1,0 +1,678 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research round — what the harness should adopt from multi-agent deep-research pipelines — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-phase-0-question-criteria-budget">Phase 0 — Question, criteria, budget</a></li><li class="h2"><a href="#ed-phase-1-evidence-matrix">Phase 1 — Evidence matrix</a></li><li class="h2"><a href="#ed-phase-2-brief-and-gate">Phase 2 — Brief and gate</a></li><li class="h2"><a href="#ed-phase-3-wave-1-divergence-done">Phase 3 — Wave 1 (divergence) — done</a></li><li class="h2"><a href="#ed-phase-4-wave-2-critique-done">Phase 4 — Wave 2 (critique) — done</a></li><li class="h2"><a href="#ed-phase-5-portfolio-traceability">Phase 5 — Portfolio &amp; traceability</a></li><li class="h3"><a href="#ed-traceability-matrix">Traceability matrix</a></li><li class="h2"><a href="#ed-e4-spawn-context-diet-payload-audit-2026-07-11-spec-118-v4">E4 — spawn-context diet &amp; payload audit (2026-07-11, SPEC-118 v4)</a></li><li class="h3"><a href="#ed-phase-a-session-diet-measurement-live-4-minimal-calls-claude-p-stream-json">Phase A — session-diet measurement (live, 4 minimal calls, claude -p stream-json )</a></li><li class="h3"><a href="#ed-phase-b-1-worker-live-smoke-before-vs-after-same-packet-haiku-low">Phase B — 1-worker live smoke, before vs after (same packet, haiku low)</a></li><li class="h3"><a href="#ed-payload-audit-every-byte-the-harness-hands-a-worker-chars-tok-3-1">Payload audit — every byte the harness hands a worker (chars → tok @ 3.1)</a></li><li class="h3"><a href="#ed-changes-applied-safe-now">Changes applied (safe now)</a></li><li class="h3"><a href="#ed-recommendations-measured-not-applied-need-their-own-scoped-change">Recommendations (measured, NOT applied — need their own scoped change)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research round — what the harness should adopt from multi-agent deep-research pipelines</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">NATIVE_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>4f167bcbd71d9694b826…</span></div><div><b>Edition SHA-256</b><span>4f167bcbd71d9694b826…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English source reformatted without semantic refresh.</div></section>
+<section class="section content">
+<p>Round opened 2026-07-11 by the <code>research</code> skill (SPEC-119, playbook
+<code>.harness/prompts/research-playbook.md</code>). Orchestrator: overseer session; workers:
+harness fork-join waves on the <code>claude</code> executor (Max window). First real run of the
+skill — this round also validates the playbook end-to-end.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-0-question-criteria-budget">Phase 0 — Question, criteria, budget</h2>
+<p><strong>Question.</strong> Which mechanisms from deep-research pipelines (Anthropic research
+system, STORM, GPT-Researcher, Deep Research-class products) should this harness
+adopt to improve the quality and cost of its own multi-agent research rounds?</p>
+<p><strong>Success criteria.</strong></p>
+<ul>
+<li>Portfolio with ≥3 genuinely distinct mechanisms (not tool variations), each
+traceable to an evidence row below.</li>
+<li>Every <code>núcleo</code>/<code>experimentos</code> item names its concrete harness integration point
+(file/module/config).</li>
+<li>Counter-evidence considered (MAD-overvalued, diversity collapse).</li>
+<li>≥2 actionable outcomes (tasks/experiments promoted or SPEC-116 intakes).</li>
+<li>Round cost within declared budget.</li>
+</ul>
+<p><strong>Declared budget (claude executor, Max window; real cost ≈ estimate × 1.3).</strong></p>
+<ul>
+<li>Wave 1 divergence (5 workers): ≤ ~90k input + ~10k output tokens.</li>
+<li>Agentic reduce: ≤ ~30k.</li>
+<li>Wave 2 critique (4 workers): ≤ ~75k input + ~7k output.</li>
+<li>Hard stop: no wave beyond these two (plan-approved scope: 1 divergence + 1 critique).</li>
+</ul>
+<p><strong>Internal baseline</strong> (records search: no prior entries on this topic; sources:
+workflow-machinery audit 2026-07-11, session evidence):</p>
+<ul>
+<li>Required-reads block ≈ 9,371 tokens/worker at the old <code>chars/4</code> (~16× the packet;
+~46,855 tokens per 5-worker wave). <strong>Reproduced (TASK-002 E1):</strong> the multiplier is a
+char ratio — 37,484 required-read chars ÷ ~2,285 packet chars = <strong>16.4×</strong>, so the "16×"
+claim holds and is estimator-invariant; at the calibrated <code>charsPerToken 3.1</code> it is
+≈ 12,092 tokens/worker (~60,460 per 5-worker wave). The E1 wave-shared digest cuts
+required-reads ~63% to ≈ 4,477 tokens/worker (≈ 22,385 per wave) — measured in
+<code>token-audit.json</code> (<code>requiredReads</code> with/without digest).</li>
+<li><code>chars/4</code> token estimator underestimated ~30% (measured 1.29-1.35×). <strong>Calibrated
+(TASK-002 E2):</strong> <code>charsPerToken</code> is now <code>3.1</code>; a punctuation/path-aware heuristic vs
+<code>chars/4</code> on real packets+required-reads measured 1.31× overall (3.05 chars/token) and
+budgets were rebased ~1.3× so effective ceilings are unchanged.</li>
+<li><code>round</code> = retry of the same plan; seeded next waves require a NEW plan.</li>
+<li>Reduce is single-pass (no hierarchical/tree reduce); best-attempt selection exists.</li>
+<li>One executor per group (cross-vendor per wave only); circuit breaker is global
+per-executor; <code>minSuccess</code> gates settlement, not reduce status.</li>
+<li>Machinery correctness: audited sound (3 suspected bugs refuted, truth net green).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-1-evidence-matrix">Phase 1 — Evidence matrix</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>year</th>
+<th>method</th>
+<th>limitations</th>
+<th>confidence</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orchestrator-worker with 3-5 parallel search subagents beats single-agent research by 90.2% on internal evals</td>
+<td><a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic engineering</a></td>
+<td>blog (primary, vendor)</td>
+<td>2025</td>
+<td>internal eval</td>
+<td>vendor-reported, not replicated externally</td>
+<td>moderada</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>A separate citation pass (CitationAgent) after synthesis improves attribution</td>
+<td><a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic engineering</a></td>
+<td>blog (primary, vendor)</td>
+<td>2025</td>
+<td>system description</td>
+<td>no isolated ablation published</td>
+<td>preliminar</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>Perspective-guided question asking (mined personas) broadens coverage; +25% organization, +10% breadth vs baseline</td>
+<td><a href="https://github.com/stanford-oval/storm">STORM, NAACL 2024</a></td>
+<td>paper + repo</td>
+<td>2024</td>
+<td>human+auto eval vs baselines</td>
+<td>Wikipedia-article domain</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Planner→parallel executors→publisher separation gives stable, faster research</td>
+<td><a href="https://github.com/assafelovic/gpt-researcher">GPT-Researcher</a></td>
+<td>repo</td>
+<td>2023-26</td>
+<td>architecture + adoption (28k★)</td>
+<td>no controlled eval</td>
+<td>relato</td>
+<td>produção</td>
+</tr>
+<tr>
+<td>Recursive depth/breadth exploration ("deep research" tree) reaches subtopics flat fan-out misses</td>
+<td><a href="https://github.com/assafelovic/gpt-researcher">GPT-Researcher deep mode</a></td>
+<td>repo</td>
+<td>2025</td>
+<td>feature description</td>
+<td>no controlled eval</td>
+<td>relato</td>
+<td>protótipo</td>
+</tr>
+<tr>
+<td>Independent (nominal) generation ≈2× ideas vs interacting groups — production blocking</td>
+<td><a href="https://homepages.se.edu/cvonbergen/files/2013/01/Productivity-Loss-In-Brainstorming_Toward-the-Solution-of-a-Riddle.pdf">Diehl &amp; Stroebe, JPSP 53(3)</a></td>
+<td>paper</td>
+<td>1987</td>
+<td>4 controlled experiments</td>
+<td>human groups, pre-LLM</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Multiagent debate improves factuality/reasoning</td>
+<td><a href="https://composable-models.github.io/llm_debate/">Du et al., ICML 2024</a></td>
+<td>paper</td>
+<td>2023</td>
+<td>benchmark evals</td>
+<td>same-model instances; cost ↑</td>
+<td>moderada</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>MAD is overvalued when model heterogeneity is ignored</td>
+<td><a href="https://arxiv.org/abs/2502.08788">arXiv:2502.08788</a></td>
+<td>paper</td>
+<td>2025</td>
+<td>re-evaluation study</td>
+<td>—</td>
+<td>moderada</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Structural coupling between agents collapses idea diversity in open-ended generation</td>
+<td><a href="https://arxiv.org/pdf/2604.18005">arXiv:2604.18005</a></td>
+<td>paper</td>
+<td>2026</td>
+<td>controlled generation study</td>
+<td>recent, limited replication</td>
+<td>preliminar</td>
+<td>demonstração conceitual</td>
+</tr>
+<tr>
+<td>LLMs cannot reliably self-correct reasoning without external feedback</td>
+<td><a href="https://arxiv.org/abs/2310.01798">Huang et al., ICLR 2024</a></td>
+<td>paper</td>
+<td>2024</td>
+<td>controlled evals</td>
+<td>reasoning tasks</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Set-based convergence (keep option sets, eliminate by evidence) outperforms early commitment</td>
+<td><a href="https://sloanreview.mit.edu/article/toyotas-principles-of-setbased-concurrent-engineering/">Sobek, Ward &amp; Liker, SMR 40</a></td>
+<td>paper</td>
+<td>1999</td>
+<td>5-year field study (Toyota)</td>
+<td>manufacturing domain</td>
+<td>forte</td>
+<td>produção</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-phase-2-brief-and-gate">Phase 2 — Brief and gate</h2>
+<p><strong>Brief (drives Wave 1).</strong> How might we raise the quality and lower the cost of a
+harness research round — for the human supervisor and the overseer — under these
+constraints: stdlib-only runtime, no resident processes, enforced token budgets,
+read-only workers, single-pass reduce, and full traceability — knowing that
+required-reads dominate cost 16× and estimates run ~30% low?</p>
+<ul>
+<li>Actors: human supervisor; overseer/orchestrator; fork-join workers.</li>
+<li>Constraints: as above; changes must be reversible and auditable.</li>
+<li>Success: mechanisms with named integration points; measurable cost/quality effect;
+no new always-on infrastructure.</li>
+</ul>
+<p><strong>Parked brief</strong> (future round): scaling worker counts beyond a single reducer's
+context (hierarchical reduce) — deferred, depends on Wave 1 signal.</p>
+<p><strong>Gate.</strong> Pre-approved by the human at plan approval (plan step 11: topic, executor
+claude/Max, wave sizes 5+4, budgets above). Recorded here per playbook Phase 2.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-3-wave-1-divergence-done">Phase 3 — Wave 1 (divergence) — done</h2>
+<p><code>WF-20260711-202902-946083</code>, profile <code>research-divergence</code>, executor <code>claude</code>
+(Max window), 5/5 ideators settled (~15 min wall, sequential), token-audit pass.
+Reduce: deterministic (25 deduplicated concept findings, 0 conflicts); semantic
+clustering done by the orchestrator (playbook allows overseer-as-reducer) — one
+model call saved.</p>
+<p><strong>Independent convergence</strong> (strong signal): 4/5 ideators independently proposed a
+wave-shared context digest for the 16× required-reads cost; 4/5 proposed estimator
+calibration. <strong>Real divergence:</strong> the simplicity ideator explicitly recommended
+REJECTING hierarchical reduce + recursive deep mode at current scale (≤5 workers).</p>
+<p><strong>Consolidated clusters (genealogy: wave-1 worker findings → cluster):</strong></p>
+<ul>
+<li>C1 wave-shared-context-digest (broadcast prelude / orchestrator-prepared reads
+digest / shared required-reads digest — workers 1, 2, 5)</li>
+<li>C2 estimator-calibration chars/4 → ×1.3 (workers 1, 2, 5)</li>
+<li>C3 seeded-next-wave: <code>plan --seed &lt;WF&gt;</code> + REDUCE_RESULT as Delphi facilitator
+summary, depth-bounded (workers 3, 5)</li>
+<li>C4 checkpoint-resume for workers (worker 3; Anthropic pattern)</li>
+<li>C5 citation-verification folded into the critique wave (worker 4)</li>
+<li>C6 research-worker sandbox: least-privilege env + egress allowlist + provenance
+quarantine + secret-scrub at reduce boundary (worker 4)</li>
+<li>C7 effort-scaling + early-stopping (workers 3, 5)</li>
+<li>C8 hierarchical reduce — contested (proposed by worker 2, rejected by worker 1)</li>
+<li>C9 decision-pattern telemetry (worker 4)</li>
+</ul>
+<p><strong>Machinery findings exposed by running the round (evidence for the round itself):</strong></p>
+<ol>
+<li><code>existing_rel_path</code> used <code>lstrip("./")</code> — a char-set strip that removed the
+leading dot of dot-dirs (<code>.harness/...</code> → <code>harness/...</code>), failing existence
+validation for every dot-dir path; and its URL guard ran AFTER the <code>:</code>-split,
+making it dead code — every URL in evidence was rejected as a missing path.
+Both fixed (harness.py <code>existing_rel_path</code>, result_contracts <code>_pathish</code>).</li>
+<li><code>claude</code> executor could not spawn headless on Windows: npm shim not resolvable
+by CreateProcess (fixed: <code>_resolve_argv0</code> via <code>shutil.which</code> at the single
+spawn choke point) and the template lacked <code>-p</code> (fixed in executors.json).</li>
+<li>Profile output caps were miscalibrated for concept-card payloads: 3/5 valid
+results exceeded <code>maxWorkerOutputChars: 5000</code> by ~6-60%; recalibrated to 9000
+(divergence) / 8000→10000 (critique — all 4 honest critics exceeded 8000) in
+the profile and in the WFs' frozen limits (operator action, disclosed; worker
+outputs untouched).</li>
+<li><code>generate_handoff</code> emits context packs that violate its own budget: the
+canonical required-read set is ~25.4KB ≈ 6.3k tokens vs <code>maxRequiredReadTokens 5000</code>, and the generator only demotes <em>conditional</em> reads — any freshly
+regenerated handoff fails <code>workflow:handoff-context-pack</code>. Same defect class as
+the audit's required-reads finding (E1/C1 evidence). Not fixed this round
+(restored the passing committed handoff); recorded as a draft task.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-phase-4-wave-2-critique-done">Phase 4 — Wave 2 (critique) — done</h2>
+<p><code>WF-20260711-204952-828293</code>, profile <code>research-critique</code>, 4 critics with explicit
+branch roles (validity → <code>review</code>, architecture → <code>review</code>, cost/ops → <code>scan</code>,
+security/product-risk → <code>security</code>), seeded with C1-C9. 4/4 settled; 36 deduplicated
+critique findings; token-audit pass. Calibration note: all 4 honest critic results
+exceeded the 8000-char cap (8.4-9k) — recalibrated to 10000 (operator action,
+disclosed; outputs untouched).</p>
+<p><strong>Consolidated verdicts (explicit operations per card):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cluster</th>
+<th>Verdict</th>
+<th>Operation</th>
+<th>Key critique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1 digest</td>
+<td>viável com condições</td>
+<td>mantida</td>
+<td>multiplier must be reproduced; digest stays NON-authoritative (canonical files remain source of truth); correlated-failure risk; required-reads list is a hardcoded choke point</td>
+</tr>
+<tr>
+<td>C2 calibration</td>
+<td>viável</td>
+<td>simplificada</td>
+<td>"mostly already built — run it, not build it" (knob at <code>token_economics.charsPerToken</code>)</td>
+</tr>
+<tr>
+<td>C3 seeded waves</td>
+<td>experimento</td>
+<td>limitada</td>
+<td>convergence-only (seeding divergence waves contradicts this round's own independence evidence); dangling seeds after scrub; injection-laundering / autonomy-creep risk; no direct evidence for REDUCE-as-Delphi</td>
+</tr>
+<tr>
+<td>C4 checkpoint-resume</td>
+<td>rejeitar</td>
+<td>rejeitada</td>
+<td>3/4 critics: contradicts the stateless read-only worker contract; premise does not transfer at current worker sizes</td>
+</tr>
+<tr>
+<td>C5 citation verification</td>
+<td>viável</td>
+<td>mantida</td>
+<td>"already operational this round" — the validity critic did exactly this; formalize in the playbook, not a new agent</td>
+</tr>
+<tr>
+<td>C6 sandbox</td>
+<td>experimento (split)</td>
+<td>dividida</td>
+<td>full-env inheritance is a REAL gap today (high — workers inherit parent env incl. API keys); but 2 of 4 bundled mechanisms unsourced → split: least-privilege env + secret-scrub slice first; egress allowlist + provenance quarantine parked</td>
+</tr>
+<tr>
+<td>C7 effort-scaling / early-stopping</td>
+<td>split</td>
+<td>dividida</td>
+<td>effort-scaling viável (plan-time knob exists); early-stopping rejeitar (needs a mid-wave judge; borrows statistical rigor without its assumptions)</td>
+</tr>
+<tr>
+<td>C8 hierarchical reduce</td>
+<td>rejeitar</td>
+<td>rejeitada</td>
+<td>wave-1 rejection adjudicated CORRECT: semantic join is not associative; revisit trigger: workers per wave &gt; one reducer context</td>
+</tr>
+<tr>
+<td>C9 decision telemetry</td>
+<td>rejeitar</td>
+<td>rejeitada</td>
+<td>unfalsifiable as stated — no definition, no source, no consumer</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-phase-5-portfolio-traceability">Phase 5 — Portfolio &amp; traceability</h2>
+<p><strong>Núcleo (próximo incremento):</strong></p>
+<ul>
+<li>N1 Estimator calibration (C2): measure observed chars/token on this round's two
+real waves, set <code>charsPerToken</code> (~3) in <code>.harness/project.json</code> tokenBudget.</li>
+<li>N2 Citation-verification duty (C5): playbook amendment — the validity critic's
+branch text gains an explicit "verify every evidence URL/claim" duty. No new agent.</li>
+<li>N3 Effort-scaling guidance (C7a): playbook budget section — size waves (3-5) to
+question complexity via existing <code>--max-workers</code>.</li>
+</ul>
+<p><strong>Contingência:</strong> digest experiment fails (quality drop / correlated failures) →
+keep per-worker required-reads (config revert, zero migration).</p>
+<p><strong>Aposta de fronteira:</strong> C3 seeded-next-wave, convergence-only (<code>plan --seed &lt;WF&gt;</code>),
+depth-bounded, packets marked as seeded (injection-laundering mitigation).</p>
+<p><strong>Experimentos:</strong></p>
+<ul>
+<li>E1 (C1) digest A/B: same brief, 5-worker wave with vs without wave-shared digest;
+metrics: input tokens/worker, findings count/quality, failure correlation.
+Decision: adopt if ≥40% input-token cut with no quality drop.</li>
+<li>E2 (C2) calibration measurement: compute real tokens vs chars/4 on WF-202902 +
+WF-204952 logs; decision: set charsPerToken to measured value.</li>
+<li>E3 (C6a) least-privilege env slice: spawn research workers with allowlisted env
+(strip API keys not needed by the executor) + deterministic secret-scrub check at
+collect; decision: adopt if zero worker breakage.</li>
+</ul>
+<p><strong>Estacionadas:</strong> C6b egress allowlist + provenance quarantine (needs platform
+support); C9 reworked with a falsifiable definition and a named consumer.</p>
+<p><strong>Rejeitadas (com motivo):</strong> C4 checkpoint-resume (stateless contract; scale); C7b
+mid-wave early-stopping (judge cost &gt; wave cost at 3-5 workers); C8 hierarchical
+reduce (join non-associative; trigger recorded).</p>
+<p><strong>Draft tasks:</strong> 10 promoted to <code>tasks/generated/</code> (runtime), curated 2026-07-11
+into <code>tasks/research-portfolio/PLAN.md</code> (TASK-002: E1/E2/E3 + seeded-wave bet +
+handoff-budget defect; the 3 checkpoint-resume drafts closed as recorded rejections).</p>
+<h3 id="ed-traceability-matrix">Traceability matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Evidência</th>
+<th>Problema</th>
+<th>Ideia/Decisão</th>
+<th>Experimento/ADR</th>
+<th>Spec</th>
+<th>Task</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>audit 2026-07-11: required-reads 16×/wave</td>
+<td>custo por onda</td>
+<td>C1 digest → D004</td>
+<td>E1</td>
+<td>SPEC-119 v2 (pendente)</td>
+<td>draft tasks</td>
+<td>experimento</td>
+</tr>
+<tr>
+<td>audit: chars/4 −30%; Phase-1 row 6</td>
+<td>orçamento irreal</td>
+<td>C2 → D003/D004</td>
+<td>E2</td>
+<td>—</td>
+<td>draft tasks</td>
+<td>núcleo</td>
+</tr>
+<tr>
+<td>Anthropic citation pass (Phase-1 row 2)</td>
+<td>evidência não verificada</td>
+<td>C5 → playbook duty</td>
+<td>rodada (operacional)</td>
+<td>SPEC-119 v2</td>
+<td>—</td>
+<td>núcleo</td>
+</tr>
+<tr>
+<td>Diehl &amp; Stroebe; Diversity Collapse</td>
+<td>independência das ondas</td>
+<td>C3 convergence-only</td>
+<td>aposta</td>
+<td>—</td>
+<td>draft</td>
+<td>fronteira</td>
+</tr>
+<tr>
+<td>crítico de segurança: full-env inheritance</td>
+<td>vazamento potencial de chaves</td>
+<td>C6a slice</td>
+<td>E3</td>
+<td>follow-up security</td>
+<td>draft</td>
+<td>experimento</td>
+</tr>
+<tr>
+<td>críticos 1-4 (C4/C8/C9)</td>
+<td>complexidade especulativa</td>
+<td>rejeições D004</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>rejeitadas</td>
+</tr>
+<tr>
+<td>bugs de validador/executor achados ao vivo</td>
+<td>máquina vs pesquisa</td>
+<td>fixes desta rodada</td>
+<td>regressões rs:*</td>
+<td>SPEC-119 v2</td>
+<td>—</td>
+<td>corrigido</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Round cost:</strong> 2 waves (9 workers claude, Max window) + 1 smoke worker; wall ~35
+min; well under the declared budget (no wave beyond the approved two).</p>
+</section>
+<section class="section content"><h2 id="ed-e4-spawn-context-diet-payload-audit-2026-07-11-spec-118-v4">E4 — spawn-context diet &amp; payload audit (2026-07-11, SPEC-118 v4)</h2>
+<p>Continues the cost thread (E1 digest, E2 calibration, E3 env slice). E1-E3 cut the
+harness-authored <em>payload</em>; E4 also attacks the vendor <em>session</em> a claude worker loads,
+and audits every byte the harness itself hands a worker.</p>
+<h3 id="ed-phase-a-session-diet-measurement-live-4-minimal-calls-claude-p-stream-json">Phase A — session-diet measurement (live, 4 minimal calls, <code>claude -p stream-json</code>)</h3>
+<p><code>context</code> = the turn's full input the model saw = <code>input + cache_creation + cache_read</code>
+(cache only splits cost, not context size). Single-turn, so no turn-count confound.</p>
+<table>
+<thead>
+<tr>
+<th>variant</th>
+<th style="text-align:right">input</th>
+<th style="text-align:right">cache_creation</th>
+<th style="text-align:right">cache_read</th>
+<th style="text-align:right"><strong>context</strong></th>
+<th style="text-align:right">cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 baseline (v3 flags)</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">15,853</td>
+<td style="text-align:right">20,986</td>
+<td style="text-align:right"><strong>36,841</strong></td>
+<td style="text-align:right">$0.101</td>
+</tr>
+<tr>
+<td>2 + <code>--strict-mcp-config</code></td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">9,912</td>
+<td style="text-align:right">26,789</td>
+<td style="text-align:right"><strong>36,703</strong></td>
+<td style="text-align:right">$0.068</td>
+</tr>
+<tr>
+<td>3 + <code>--setting-sources project,local</code></td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">8,875</td>
+<td style="text-align:right">15,309</td>
+<td style="text-align:right"><strong>24,194</strong></td>
+<td style="text-align:right">$0.019</td>
+</tr>
+<tr>
+<td>4 + all four diet flags</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">21,769</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right"><strong>21,779</strong></td>
+<td style="text-align:right">$0.044</td>
+</tr>
+</tbody>
+</table>
+<p><code>--setting-sources project,local</code> is the lever (<strong>−12,647</strong>, −34%); <code>--strict-mcp-config</code>
+alone ≈ 0 on total (kept anyway: cost-split + no user-MCP leak). Full set: <strong>−41%/turn</strong>.
+The Figma/obsidian MCP + user skills ride USER settings, so dropping user scope (not
+strict-mcp) is what removes them. Variant 4's <code>cache_read 0</code> is a cold prefix (the flags
+changed the cached prefix), not a real cost — steady-state a wave shares that 21.8k prefix.</p>
+<h3 id="ed-phase-b-1-worker-live-smoke-before-vs-after-same-packet-haiku-low">Phase B — 1-worker live smoke, before vs after (same packet, haiku low)</h3>
+<table>
+<thead>
+<tr>
+<th>run</th>
+<th style="text-align:right">observedTokens</th>
+<th style="text-align:right">input</th>
+<th style="text-align:right">cache_creation</th>
+<th style="text-align:right">cache_read</th>
+<th style="text-align:right">turns</th>
+<th style="text-align:right">tools</th>
+<th style="text-align:right">cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before (baseline template)</td>
+<td style="text-align:right">117,578</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">15,326</td>
+<td style="text-align:right">102,246</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">$0.138</td>
+</tr>
+<tr>
+<td>after (diet template)</td>
+<td style="text-align:right">134,496</td>
+<td style="text-align:right">42</td>
+<td style="text-align:right">12,507</td>
+<td style="text-align:right">121,947</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">$0.050</td>
+</tr>
+</tbody>
+</table>
+<p><strong>observedTokens is turn-count-bound, not a clean acceptance metric.</strong> The diet run
+happened to take 15 turns vs 6, so its summed usage <em>rose</em> despite a smaller per-turn
+prefix (<code>cache_creation</code> 15,326 → 12,507). The ≤50k target (vs the recorded historical
+151,216, a different model/turn-count) is <strong>not met and not soundly measurable this way</strong>;
+the real, transferable win is the Phase A per-turn context cut. Both runs authenticated
+(rc=0) under <code>--setting-sources project,local</code>, so the diet does not break subscription
+auth. Verdict: keep the flags on the per-turn cut + cache-prefix stability + security, and
+retire <code>observedTokens ≤ target</code> as an acceptance gate (record per-turn context instead).</p>
+<h3 id="ed-payload-audit-every-byte-the-harness-hands-a-worker-chars-tok-3-1">Payload audit — every byte the harness hands a worker (chars → tok @ 3.1)</h3>
+<table>
+<thead>
+<tr>
+<th>piece</th>
+<th style="text-align:right">chars</th>
+<th style="text-align:right">tok</th>
+<th>consumed by</th>
+<th>verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spawn prompt ("Read <code>X</code> and execute…")</td>
+<td style="text-align:right">168</td>
+<td style="text-align:right">54</td>
+<td>claude/HTTP (1st user msg)</td>
+<td>essencial</td>
+</tr>
+<tr>
+<td>packet header (10 fields)</td>
+<td style="text-align:right">378</td>
+<td style="text-align:right">122</td>
+<td>LLM; HTTP reads Role + WF-id</td>
+<td>essencial (no zero-consumer field)</td>
+</tr>
+<tr>
+<td>Parent task</td>
+<td style="text-align:right">54</td>
+<td style="text-align:right">17</td>
+<td>all</td>
+<td>essencial</td>
+</tr>
+<tr>
+<td>Worker scope + paths</td>
+<td style="text-align:right">145</td>
+<td style="text-align:right">47</td>
+<td>all</td>
+<td>essencial</td>
+</tr>
+<tr>
+<td>Required reads — non-digest</td>
+<td style="text-align:right">203</td>
+<td style="text-align:right">65</td>
+<td>CLI worker; DEAD for HTTP</td>
+<td>só-alguns → <strong>stripped for HTTP</strong></td>
+</tr>
+<tr>
+<td>Required reads — digest</td>
+<td style="text-align:right">727</td>
+<td style="text-align:right">235</td>
+<td>research CLI worker</td>
+<td>essencial (digest-first)</td>
+</tr>
+<tr>
+<td>Rules block</td>
+<td style="text-align:right">1,227</td>
+<td style="text-align:right">396</td>
+<td>all</td>
+<td>essencial (largest section; shared, byte-guarded)</td>
+</tr>
+<tr>
+<td>WORKER_RESULT reminder — non-digest</td>
+<td style="text-align:right">177</td>
+<td style="text-align:right">57</td>
+<td>all</td>
+<td>essencial</td>
+</tr>
+<tr>
+<td>WORKER_RESULT reminder — digest</td>
+<td style="text-align:right">177→~90</td>
+<td style="text-align:right">57→~29</td>
+<td>research</td>
+<td><strong>dedupe applied</strong> (pointer to verbatim contract)</td>
+</tr>
+<tr>
+<td>context digest (research only)</td>
+<td style="text-align:right">13,877</td>
+<td style="text-align:right">4,476</td>
+<td>research workers</td>
+<td>essencial (replaces 12,092-tok reads)</td>
+</tr>
+<tr>
+<td>└ verbatim WORKER_RESULT contract in digest</td>
+<td style="text-align:right">2,257</td>
+<td style="text-align:right">728</td>
+<td>research</td>
+<td>essencial (lossless contract)</td>
+</tr>
+<tr>
+<td>required-read FILES if obeyed — non-digest</td>
+<td style="text-align:right">37,484</td>
+<td style="text-align:right">12,092</td>
+<td>CLI worker</td>
+<td><strong>formato-subótimo</strong> (16×; digest fixes only research today)</td>
+</tr>
+<tr>
+<td>HTTP inlined contract <code>subagent-contract.md[:8000]</code></td>
+<td style="text-align:right">8,000</td>
+<td style="text-align:right">2,581</td>
+<td>HTTP worker</td>
+<td><strong>formato-subótimo</strong> (needs only the 485-tok WR slice)</td>
+</tr>
+<tr>
+<td>env <code>HARNESS_*</code></td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">n/a</td>
+<td>worker process</td>
+<td>essencial (not model tokens)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-changes-applied-safe-now">Changes applied (safe now)</h3>
+<ul>
+<li><strong>Session diet</strong> (D005): four flags on the claude template — −41%/turn context.</li>
+<li><strong>Research reminder → pointer</strong> (2a): the digest already carries the WORKER_RESULT
+contract verbatim; the packet stops re-listing the keys. Marginal (~28 tok/worker) —
+the real research-side win was already E1's digest, not this.</li>
+<li><strong>HTTP packet trim</strong> (4): <code>openai_worker</code> drops the <code>Required reads</code> block a single-POST
+worker can't act on — −65 tok/call and removes a misleading instruction.</li>
+</ul>
+<h3 id="ed-recommendations-measured-not-applied-need-their-own-scoped-change">Recommendations (measured, NOT applied — need their own scoped change)</h3>
+<ul>
+<li><strong>Digest for non-research profiles</strong> — biggest packet-side lever: −7,615 tok/worker
+(required-reads 12,092 → 4,477). Guarded by <code>rs:digest-optout</code> deliberate byte-identity;
+warrants its own spec decision (which analysis profiles opt in).</li>
+<li><strong>HTTP contract slice</strong> — return only the <code>WORKER_RESULT</code> section from <code>_read_contract</code>:
+−2,096 tok/call (2,581 → 485). The rest (HARNESS_RESULT / REDUCE / REVIEWER /
+controlled-write / verification policy) is dead weight for a single-shot HTTP worker.</li>
+<li><strong>Phase C <code>--tools</code> read-only allowlist</strong> — residual ~21.8k/turn after the diet; built-in
+tool schemas are the largest remaining lever, but the cut needs a live measurement +
+write-workflow safety review before adding the seam.</li>
+</ul>
+<p>Live-call budget: 4 Phase-A + 2 smoke (before/after) = 6; no commit (per task).</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/deep-research-pipelines.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/deep-research-pipelines.md</code></li><li>Source SHA-256: <code>4f167bcbd71d9694b826c4815483f4425b0caac1c04ea4c1b6ff3b1f2c7efc8b</code></li><li>Edition-input SHA-256: <code>4f167bcbd71d9694b826c4815483f4425b0caac1c04ea4c1b6ff3b1f2c7efc8b</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

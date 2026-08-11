@@ -1,0 +1,212 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plan (DRAFT) — the backlog becomes the JSON store; the markdown tables retire — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-1-verdict-on-the-brief">1. Verdict on the brief</a></li><li class="h2"><a href="#ed-2-target-design">2. Target design</a></li><li class="h2"><a href="#ed-3-phased-plan">3. Phased plan</a></li><li class="h2"><a href="#ed-4-migration-phase-2-detail">4. Migration (Phase 2 detail)</a></li><li class="h2"><a href="#ed-5-what-i-would-not-build">5. What I would NOT build</a></li><li class="h2"><a href="#ed-6-open-owner-decisions">6. Open owner decisions</a></li><li class="h2"><a href="#ed-7-amendment-targets-spec-116-versioned-amendment-door-no-new-intake">7. Amendment targets (SPEC-116 — versioned amendment door, no new intake)</a></li><li class="h2"><a href="#ed-overseer-verification-2026-07-27-independent-of-the-author">Overseer verification (2026-07-27, independent of the author)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>Plan (DRAFT) — the backlog becomes the JSON store; the markdown tables retire</h1><p class="subtitle">Historical implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>ae40a02e29c1d0c789a6…</span></div><div><b>Edition SHA-256</b><span>ae40a02e29c1d0c789a6…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Author: <code>planner</code> spawn (Fable, effort <code>high</code>), 2026-07-27. Read-only run; plan
+returned as result text and written to disk by the overseer, unmodified except
+for HTML-entity unescaping.</p>
+<p>Brief: <code>.harness/handoff/plan-backlog-json-canonical.READY</code>. Measured facts taken
+as GIVEN (2026-07-27, HEAD <code>a91b85f</code>). Code anchors verified by the author by
+reading source; the overseer independently re-verified V2, V3, V4 and the
+phantom-row counts (see "Overseer verification" at the end).</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-1-verdict-on-the-brief">1. Verdict on the brief</h2>
+<p><strong>The direction is right, and the numbers prove it more strongly than the brief argues.</strong> Fact 1 (0 of 284 board rows come from the markdown) means the markdown is <em>already</em> not the operational backlog — every operational consumer (board, <code>/api/tasks</code>, GUI views, <code>dep_graph</code>, <code>provenance</code>) is store-fed today. The only markdown readers left are the two guards, the advisor, and the manual import seam (brief's "two universes" table, verified at <code>testing/scenarios/bc_backlog_closure.py:103</code>, <code>testing/scenarios/eg_entry_groom.py:100,106</code>, <code>tools/hooks/delivery_bar_advisor.py:128</code>). Retiring the tables is not a migration of the operational system; it is a migration of the <em>writers</em> and the <em>guards</em>. That reframing drives the phasing below. (fonte: brief facts 1-2 + verified anchors, 2026-07-27, alta confiança)</p>
+<p>Where the brief is wrong or under-weighted:</p>
+<p><strong>V1 — Fact 8 must lead the plan, not sit at question #2.</strong> The empty dep graph is not a design question; it is a two-site import bug: <code>import_backlog</code>'s <code>meta</code> dict (<code>tasks_store.py:102-104</code>) drops the <code>deps</code> that <code>_backlog_rows</code> <em>already parses</em> (<code>tasks_board.py:128</code>), and <code>board_rows</code> (<code>tasks_store.py:271-282</code>) doesn't emit them, so <code>tasks_snapshot:308</code> <code>setdefault</code>s an empty map onto every store row. Consequence: <code>topo_order</code> (284 nodes, 0 edges), <code>dep_graph.derive_graph</code> (<code>dep_graph.py:216,298</code>), <code>harness.py provenance</code>, and the <em>rationale</em> of SPEC-155 all run on empty input — a whole shipped subsystem dead-armed by ~4 missing lines. This fix is shippable today, independent of retirement, and is the highest value-per-line item in the entire plan. Phase 1 below is exactly this, and it would be Phase 1 even if the owner reversed the retirement decision tomorrow. (fonte: código verificado nas linhas citadas, 2026-07-27, alta confiança)</p>
+<p><strong>V2 — The brief's root-cause sentence is incomplete, and it matters for migration.</strong> "We froze the reader without freezing the writer" explains the 16 missing rows, but NOT the 15 lane drifts. Those are caused by shipped invariant 2 itself: <code>import_backlog</code> PRESERVES an existing row's lane on re-import (<code>tasks_store.py:111</code>, spec <code>tasks-store.md</code> inv 2 — "a manual move survives re-import"). That preservation is correct for manual moves and <em>wrong</em> for markdown strikes made while the markdown was still the live writer: re-running today's import fixes 0 of the 15 drifts. Any migration that "just re-imports" — even with the deps/prose fix — leaves closed items rendering as open. The migration import needs a one-time done-propagation override (Phase 2). The brief's Risk "Import reuse" names the cap and the deps but misses this third inherited defect. (fonte: <code>tasks_store.py:105-111</code> + brief fact 6, alta confiança)</p>
+<p><strong>V3 — The regrowth lever is misnamed: AGENTS.md contains no backlog instruction at all.</strong> Verified: zero matches for <code>backlog</code>/<code>IMPLEMENTATION_BACKLOG</code>/<code>table row</code> in the 153-line <code>AGENTS.md</code>. The row-add discipline lives in the playbook chain and in the guards' own error text: <code>overseer-playbook.md:79</code> (row-strikes), <code>:205-207</code> (SPEC-154 lockstep — "the row struck in the SAME commit"), <code>overseer-loop-playbook.md:122</code> ("gets a backlog row"), <code>backlog-groom-playbook.md:36</code> (groom route <code>backlog</code>), plus <code>bc-1</code>'s message "mark the row done/archive" (<code>bc_backlog_closure.py:128</code>) and <code>eg-1</code>'s "map deps ... or mark no-deps" (<code>eg_entry_groom.py:112-113</code>). Open Q3's "corresponding change to AGENTS.md" targets the wrong file — and adding it there would violate AGENTS.md's own content-hygiene rule (project-specific process belongs in the playbook chain; SPEC-170 Q3 thin-shim). The Phase 4 write-path edits target the playbooks and the guard messages. (fonte: grep + leitura integral de AGENTS.md, 2026-07-27, alta confiança)</p>
+<p><strong>V4 — A missing risk that is a hard deadlock, not a data-loss footnote.</strong> The brief lists "the hold" only as write-erasure risk (fact 12). The sharper problem: <code>scenario_isolation.hold_dirty_baseline</code> special-cases the backlog with <code>git checkout-index</code> so SPEC-154/155 validate the <strong>STAGED</strong> rows during the gate (<code>scenario_isolation.py:197-204</code> — the comment says exactly why). If the guards are repointed to the store WITHOUT extending that special case to <code>.harness/state/tasks.json</code>, then during <code>gate-staged</code> the guards read the store at <strong>HEAD</strong> — and the commit that ships a scenario plus its <code>tasks close</code> can <em>never</em> pass bc-1, because the close is staged, not at HEAD. SPEC-154's closure-lockstep becomes structurally unsatisfiable. Phase 3 carries this as a required change with its own check. (fonte: <code>scenario_isolation.py:169-204</code> lido hoje, alta confiança)</p>
+<p><strong>V5 — Decided #2 keeps one live table in a "tables retire" document; make the exception structural, and note its corollary.</strong> The self-review inbox is a marker-delimited auto-generated <em>table</em> (<code>self_review.py:462-486</code>, <code>INBOX_START/END</code> at :38-39). Keeping it is right (it is triage, not tasks; eg-1 already excludes it). But two consequences the brief doesn't draw: (a) the retirement tripwire and any residual parse must exclude the marker block; (b) <code>tasks import</code> must RETIRE with the tables — today it happily imports inbox findings as store rows (they are <code>_backlog_rows</code> output and not in a "loop queue" section), which means the live store almost certainly carries inbox-finding phantom rows plus the GUI phase-matrix phantoms eg-1 papers over (<code>eg_entry_groom.py:19-24</code>). Migration purges both classes (Phase 2, owner-confirmable list). Not a disagreement with Decided #2 — a required tightening.</p>
+<p><strong>V6 — Decided items I examined and accept without reservation.</strong> #1 (direction — argued above), #3 (no renderer — <code>write_json</code> emits <code>indent=2</code> (<code>common.py:141-150</code>), so a one-row change is a small per-field git diff, not an opaque 149 KB blob; the review-surface risk is real but mild), #4 (no-loss migration — it is the whole point). On open Q8 I recommend <em>closing</em> concurrency now rather than deferring: this plan's explicit purpose is to multiply writers onto the single RMW path (<code>load</code>→mutate→<code>_save</code>), which converts today's theoretical race into the expected steady state. Deferring it would be deferring a defect into the traffic the plan itself creates. It costs ~15 lines (Phase 5).</p>
+</section>
+<section class="section content"><h2 id="ed-2-target-design">2. Target design</h2>
+<p>Stated as a testable contract.</p>
+<p><strong>Source of truth.</strong> <code>.harness/state/tasks.json</code> is THE backlog. <code>docs/IMPLEMENTATION_BACKLOG.md</code> survives as prose: section headers, the numbered owner-decision list, the marker-delimited self-review inbox block. It contains zero task-table rows outside the inbox markers. <code>docs/backlog-archive.md</code> stays as frozen history. The store stays git-tracked.</p>
+<p><strong>Schema (<code>schemaVersion: "2.0"</code>).</strong> Per task:</p>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>slug, unique (enforced at <code>add</code>, at migration import, and by the parity check)</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>display line, ≤160 chars, required</td>
+</tr>
+<tr>
+<td><code>body</code></td>
+<td>full prose (multi-KB). New. <code>BODY_CAP = 16000</code> (= existing <code>NOTES_CAP</code>); a write over cap is <strong>refused</strong> (exit 2, "split or move to plan") — never truncated. Largest migrated row is 8,959 (fact 7): fits.</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>unchanged — owner's complementary notes only (<code>tasks_store.py:188-195</code>). Migration does NOT write into it; row prose is provenance-distinct from owner notes.</td>
+</tr>
+<tr>
+<td><code>plan</code></td>
+<td>unchanged (<code>PLAN_CAP</code> 64000, append-only)</td>
+</tr>
+<tr>
+<td><code>deps</code></td>
+<td><strong>structured, first-class</strong>: <code>{"dependsOn": [], "blocks": [], "relatesTo": [], "duplicates": []}</code>. Written at migration (parsed once from the raw Item cell via <code>_parse_deps</code>) and afterward only by <code>tasks dep</code> / <code>tasks add --dep</code>. Never re-parsed from free text on read: <code>tasks_snapshot</code> and <code>board_rows</code> pass the stored map through; <code>topo_order</code> and <code>dep_graph</code> consume <code>row["deps"]</code> <strong>unchanged</strong> — they already read exactly this shape (<code>tasks_board.py:267-273</code>, <code>dep_graph.py:216</code>).</td>
+</tr>
+<tr>
+<td><code>noDeps</code></td>
+<td>boolean — the explicit SPEC-155 assessment marker, replacing the <code>" no-deps"</code> string appended to titles (<code>tasks_store.py:137-141</code>). Assessment := <code>any(deps values) or noDeps</code>.</td>
+</tr>
+<tr>
+<td>rest</td>
+<td><code>category,size,priority,section,source,lane,wfid,createdAt,updatedAt,closedAt,dispatch*</code> unchanged</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Write path.</strong> All writes via the <code>tasks</code> verb, whole-doc mutation under a lockfile (Phase 5):</p>
+<ul>
+<li><code>tasks add &lt;title&gt; [--id] [--category] [--size] [--priority] [--dep &lt;kind&gt;:&lt;id&gt; ...] [--no-deps] [--body -]</code> — body is read from <strong>stdin only</strong> (<code>keys set</code> precedent, owner decision 2026-07-13 #2 wording); never argv.</li>
+<li><code>tasks note &lt;id&gt; -</code> gains the same stdin form (today's <code>--text</code> argv stays for short notes).</li>
+<li><code>tasks dep &lt;id&gt; &lt;depends-on|blocks|relates-to|duplicates&gt; &lt;otherId&gt;</code> and <code>tasks dep &lt;id&gt; --none</code>. Unknown <code>&lt;otherId&gt;</code> warns (topo already ignores ghost edges, <code>tasks_board.py:261-263</code>) but is allowed — cross-referencing future work is legitimate.</li>
+<li><code>tasks import</code> <strong>retires</strong> after migration (Phase 4): the seam it bridges no longer exists, and leaving it live re-imports inbox findings from the residual doc.</li>
+<li><code>move/close/delete/plan/refine/dispatch</code> unchanged.</li>
+</ul>
+<p><strong>Snapshot honesty.</strong> <code>tasks_snapshot</code> declares the source it actually read: <code>sourcePath: ".harness/state/tasks.json"</code> (or the markdown path only in the genuine pre-store fallback, which remains for storeless roots/targets — <code>tb-1</code>/A0 behavior and the SPEC-110 seam are untouched). <code>backlogPath</code> is removed from the payload and from <code>ui/src/api/tasks.ts:62</code>. This kills the fact-2 declared-vs-real lie.</p>
+<p><strong>Guards.</strong> SPEC-154 open-ness and SPEC-155 assessment read the store; during <code>gate-staged</code> they read the <strong>staged</strong> store via the same checkout-index mechanism the backlog uses today (V4). Exact invariant deltas in §7.</p>
+</section>
+<section class="section content"><h2 id="ed-3-phased-plan">3. Phased plan</h2>
+<p>Each phase independently shippable; each check runs against the LIVE store/doc (not its own fixture), fails today, passes after. Gate wiring: prefer extending existing scenarios; exactly one new scenario file (<code>sp_store_parity.py</code>), one line in <code>spec_test_gate.py</code> (ratchet safe).</p>
+<p><strong>Phase 1 — Import/row fidelity (the fact-8 fix).</strong></p>
+<ul>
+<li>Touches: <code>scripts/harness_lib/tasks_store.py</code> (<code>import_backlog</code> meta gains <code>deps</code> + <code>body</code>; duplicate-id-in-one-parse detection → collected and reported loudly; <code>board_rows</code> emits <code>deps</code>/<code>body</code>), <code>scripts/harness_lib/tasks_board.py</code> (<code>_backlog_rows</code> rows gain <code>"body"</code>: the raw Item cell before the <code>[:160]</code> cap — additive key, no consumer breaks), <code>testing/scenarios/ts_tasks_store.py</code>.</li>
+<li>Check (fails today): live-corpus round-trip — parse the LIVE <code>docs/IMPLEMENTATION_BACKLOG.md</code>, import into a <strong>temp</strong> store, assert (a) count of rows carrying ≥1 dep tag in the doc == count carrying structured deps in the temp store (today: 77 → 0), (b) per-id <code>len(body)</code> ≥ len of the cleaned Item cell (today: 151 rows truncated), (c) the duplicate id (<code>wf-parallel-default-flip</code>) is <em>reported</em>. Live read + hermetic write — this is the brief's own fact-4 proof method, and it is not the import-then-read-a-fixture tautology because its input is the live document.</li>
+<li>Acceptance: check green; existing ts-1..ts-4 green; live store untouched (repo import remains owner-triggered, tasks-store.md Applicability).</li>
+<li>Rollback: revert the commit; store schema untouched (fields are additive).</li>
+</ul>
+<p><strong>Phase 2 — Migration execution + the parity guard.</strong> (Details in §4.)</p>
+<ul>
+<li>Touches: <code>docs/IMPLEMENTATION_BACKLOG.md</code> (dup-id rename only), <code>.harness/state/tasks.json</code> (via the migration import), new <code>testing/scenarios/sp_store_parity.py</code>, one gate line.</li>
+<li>Check (fails today in four directions): <code>sp_store_parity</code> against the LIVE pair — every open doc row id exists in the store (16 missing today); every store id exists in doc or archive (84 ghosts today); lane parity for shared ids (15+1 drifts today); doc dep-tag rows ⊆ store structured-deps rows (77→0 today); no duplicate store ids. This scenario is the standing anti-divergence teeth for the whole window between Phase 2 and Phase 4 — while both surfaces exist, any writer touching only one of them turns the gate red, which forcibly ends the dual-writer era <em>before</em> the tables leave.</li>
+<li>Acceptance: parity green; reconciliation report printed with the §4 numbers.</li>
+<li>Rollback: <code>git revert</code> of the store+doc commit (both tracked — fact 11 is the recovery surface).</li>
+</ul>
+<p><strong>Phase 3 — Guards repoint + staged-store seam + source honesty.</strong></p>
+<ul>
+<li>Touches: <code>testing/scenarios/bc_backlog_closure.py</code> (<code>open_slugs</code> → store lanes; bc-2 existence → store ids ∪ archive text), <code>testing/scenarios/eg_entry_groom.py</code> (assessment → structured <code>deps</code>/<code>noDeps</code>; delete the phase-matrix and inbox scope-out ceilings and the raw-line <code>no-deps</code> scan — all three exist only because the source was free text), <code>tools/hooks/delivery_bar_advisor.py:120-130</code> (same one-function swap, still fail-open), <code>scripts/harness_lib/scenario_isolation.py</code> (generalize the <code>_BACKLOG_REL</code> checkout-index special case at :197-204 into a two-entry validated-docs list including <code>.harness/state/tasks.json</code> — V4), <code>scripts/harness_lib/tasks_board.py</code> (<code>sourcePath</code> honesty), <code>ui/src/api/tasks.ts</code>.</li>
+<li>Check (fails today): <code>bc.open_slugs(ROOT) ⊆ {store ids}</code> — false today because the 16 post-07-24 rows are open in the markdown and absent from the store; plus snapshot honesty: the payload's declared source is a file whose parsed rows == the payload's non-derived rows (false today, fact 2). The staged-seam gets its own assertion in the isolation self-check (staged store content visible under a hold).</li>
+<li>Acceptance: bc/eg/advisor produce identical verdicts from the store as from the (now-parity) markdown; gate green including a simulated staged <code>tasks close</code>.</li>
+<li>Rollback: revert; markdown is still intact and parity-true, so guards can point back.</li>
+<li>Ordering constraint (hard): must land AFTER Phase 2 — repointing before reconciliation makes bc-1 red on ghost-open store rows and eg-1 red on 265 dep-less rows.</li>
+</ul>
+<p><strong>Phase 4 — Agent write path, playbooks, and table retirement.</strong></p>
+<ul>
+<li>4a (write path, shippable alone): <code>tasks add --body -</code> / <code>--dep</code> / <code>--no-deps</code> structural, <code>tasks note &lt;id&gt; -</code>, new <code>tasks dep</code> sub-action, <code>BODY_CAP</code> refusal; playbook edits (V3 targets: <code>overseer-playbook.md:205-207</code> lockstep now says "run <code>tasks close &lt;slug&gt;</code> in the same commit", <code>overseer-loop-playbook.md:122</code>, <code>backlog-groom-playbook.md</code> route <code>backlog</code> → <code>tasks add</code>; guard messages updated) via <code>protect_canonical_files.py edit</code> where protected. Check (fails today): <code>tasks add</code> with a 5 KB stdin body stores it un-truncated and dep tags land structured — today there is no body field at all and <code>add</code> caps title at 160.</li>
+<li>4b (retirement, requires 4a+P3): delete the task tables from the doc (prose/decisions/inbox stay); retire <code>tasks import</code> (surface delta registered in <code>testing/scenarios/cli_registry.py</code>); morph <code>sp_store_parity</code> into the regrowth tripwire: <code>_backlog_rows(live doc)</code> minus the inbox marker block == 0 rows (fails today: 198). Check = that tripwire.</li>
+<li>Acceptance: tripwire green; bc-2 still resolves archived slugs; GUI unchanged (it never read the markdown).</li>
+<li>Rollback: 4b is a single doc+scenario commit; <code>git revert</code> restores the tables byte-identically.</li>
+</ul>
+<p><strong>Phase 5 — Concurrency close (Q8).</strong></p>
+<ul>
+<li>Touches: <code>tasks_store.py</code> only — an <code>O_CREAT|O_EXCL</code> lockfile (<code>tasks.json.lock</code>) context manager wrapping each verb's load→mutate→<code>_save</code>; retry ~10 s; stale-lock break after 30 s with a loud print naming the holder pid. ~15 lines. <code># ponytail: single-host file lock; upgrade to per-id merge only if lock contention is ever measured.</code></li>
+<li>Check: deterministic self-check — with the lock held by a live pid, a second acquire waits then raises cleanly; with a dead-pid stale lock, it breaks through. (An 8-way subprocess add smoke is optional color, not the gate check — probabilistic failure is not falsifiable.)</li>
+<li>Acceptance: all verbs route through the lock; <code>write_json</code> atomic-replace behavior unchanged.</li>
+<li>Rollback: revert; behavior degrades to today's RMW.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-4-migration-phase-2-detail">4. Migration (Phase 2 detail)</h2>
+<p>Baseline numbers = facts 4-8. Order:</p>
+<ol>
+<li><strong>Pre-step (owner, markdown edit):</strong> rename the open L574 duplicate to <code>wf-parallel-default-flip-phase2</code> (recommendation; owner may pick the slug). This is the only doc edit before the final import — resolving fact 9 at the source, where a human can still see the collision.</li>
+<li><strong>Final import</strong> (<code>tasks import --migrate</code>, a one-time flag on the Phase-1 importer) over the live pair, with three one-time overrides that the steady-state importer never had: (a) done-propagation — a struck doc row forces <code>lane: done</code> on its store row (fixes the 15 drifts; V2); (b) body/deps backfill onto EXISTING rows, not just new ones; (c) refuse to write if any unresolved duplicate id remains.</li>
+<li><strong>Ghost reconciliation (groom, not code — Q9):</strong> store rows absent from the doc AND whole-token-present in <code>docs/backlog-archive.md</code> → <code>lane: done</code> + <code>archivedAt</code> stamp. <strong>Keep, don't delete</strong> — done rows are invisible operationally, preserve id-existence for bc-2, and deletion buys nothing. Expected: 84. Rows absent from BOTH → printed for owner triage (expected ≈ the phantom classes below, else ~0).</li>
+<li><strong>Phantom purge (owner-confirmed list):</strong> GUI phase-matrix pseudo-rows (<code>0 Fundacao</code>…) and self-review-inbox findings that earlier imports minted as tasks → <code>tasks delete</code> (they are re-derivable / not tasks by design; V5).</li>
+<li><strong>Reconciliation proof, printed and kept in the migration commit message:</strong><ul>
+<li>rows: every one of the 16 fact-4 ids present and open in the store; store total == (doc open+done rows − loop-queue − phantoms) + archived-done ghosts;</li>
+<li>prose: Σ store <code>body</code> chars ≥ 130,030 minus strike-markup chars; per-id <code>len(body)</code> ≥ cleaned Item-cell length; zero truncation warnings;</li>
+<li>deps: structured-deps row count == 77 (doc dep-tag rows), tag-for-tag per id;</li>
+<li>lanes: 0 drifts (the 15+1 resolved); duplicate ids: 0.</li>
+</ul>
+</li>
+<li><code>sp_store_parity</code> goes green and stays in the gate.</li>
+</ol>
+<p><strong>One-way steps and sufficiency of git.</strong> The table deletion (Phase 4b) and the phantom purge are the only one-way steps, and both are single tracked-file commits — git history holds the tables byte-identically, the archive doc survives untouched, and post-migration the store's <code>body</code> carries the full prose. That is sufficient: three independent copies of the history (git log of the doc, archive doc, store bodies), versus today's one truncated copy. <code>frozenBacklogAt</code> becomes a historical stamp; the migration import updates it once, then the concept retires with the verb.</p>
+</section>
+<section class="section content"><h2 id="ed-5-what-i-would-not-build">5. What I would NOT build</h2>
+<ul>
+<li><strong>JSON→markdown renderer</strong> (Decided #3, agreed). Change condition: a real incident where a bad store change passed review because the diff was unreadable.</li>
+<li><strong>Per-task files / directory-sharded store</strong> (one file per task for diff ergonomics and lock-free concurrency). Condition: measured merge conflicts or lock contention on <code>tasks.json</code> across concurrent branches/agents.</li>
+<li><strong>SQLite or any non-JSON backend.</strong> Condition: store size &gt; ~2 MB or measured GUI read latency. 149 KB indent-2 JSON read whole per poll is nothing.</li>
+<li><strong>A schema-migration framework.</strong> The <code>schemaVersion</code> string flips to <code>"2.0"</code>; all new fields are additive; <code>load()</code>'s empty-shell default already tolerates absence. Nothing else.</li>
+<li><strong>A generic dep editor / graph GUI, or the PROPOSED→VERIFIED promotion audit</strong> (<code>dep_graph.py:234-237</code>'s named deferred piece). Condition: the dep graph being non-empty for a while and someone actually consuming <code>provenance</code> in anger.</li>
+<li><strong>Moving the store out of <code>.harness/state/</code> (Q5 answer).</strong> It stays. Consequences accepted, named: (a) gate-held — a task write during a gate run is erased; that is the existing repo-wide rule ("never write <code>.harness/</code> while a gate is in flight") and the store is git-tracked, so the loss has a recovery surface; the guards' staged-view need is solved by the Phase-3 checkout-index seam, not by relocation. (b) It stays outside <code>precommitValidation.surfaceRoots</code> — exactly like <code>docs/</code> today; tracked as <code>gate-surface-definition</code>, not fixed or worsened here. (c) "state means transient" semantics bend — accepted; relocation would touch <code>STORE_REL</code>, isolation targets, two specs, and the SPEC-110 per-target mirror (<code>.harness/state/targets/&lt;name&gt;/tasks.json</code>, <code>panel-tasks-board.md</code> req 9) for purely semantic gain, and would <em>lose</em> the free scenario-isolation coverage the state dir already provides (<code>scenario_isolation.py:49</code>).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-6-open-owner-decisions">6. Open owner decisions</h2>
+<ol>
+<li><strong>Ghost policy (Q9):</strong> recommendation — keep all 84 as <code>done</code>+<code>archivedAt</code> (step 3 above); delete nothing. Alternative (delete) only saves ~45 KB of file.</li>
+<li><strong>Duplicate-id rename (Q4/fact 9):</strong> recommendation — <code>wf-parallel-default-flip-phase2</code>; any slug works, but it must happen before the final import (the importer will refuse otherwise).</li>
+<li><strong>Phantom purge list:</strong> recommendation — purge GUI phase-matrix rows and imported inbox findings from the store; the owner confirms the printed list before deletion since <code>tasks delete</code> is destructive.</li>
+<li><strong>Concurrency now vs deferred (Q8):</strong> recommendation — now (Phase 5, ~15 lines). If deferred, the recorded ceiling is: "whole-doc RMW; two concurrent <code>tasks</code> writes can lose one; single-writer discipline is contractual only" — and it must be written into the tasks-store spec amendment, not left implicit.</li>
+<li><strong>Decision-list amendment text:</strong> the owner appends the superseding decision under <code>docs/IMPLEMENTATION_BACKLOG.md</code> L183-195 (the list survives per Decided #2); the plan cannot write the owner's decision for them. Proposed wording is in §7.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-7-amendment-targets-spec-116-versioned-amendment-door-no-new-intake">7. Amendment targets (SPEC-116 — versioned amendment door, no new intake)</h2>
+<ul>
+<li><strong><code>specs/40-features/tasks-store.md</code> — amendment v2.</strong> Inv 1: single write path stands, now lock-enforced (Phase 5), and gains <code>body</code>/<code>deps</code>/<code>noDeps</code> fields with the cap-refusal rule (no silent truncation — Decided #4, house precedent <code>result_contracts.bound_soft_fields</code>, commit <code>a91b85f</code>). Inv 2 (idempotent import): <strong>retired</strong> after the one-time <code>--migrate</code> run; the import verb leaves the surface (cli_registry delta). Inv 3 (freeze semantics): reworded from "tables freeze after import" to "the store IS the backlog; the markdown parse survives only as the storeless-root fallback (A0/targets)". Inv 5 (<code>add</code>): dup-refusal unchanged; assessment becomes structural (<code>--dep</code>/<code>--no-deps</code>), stdin body.</li>
+<li><strong><code>specs/40-features/panel-tasks-board.md</code> — amendment v4.</strong> Req 1/v2: source honesty — the payload declares <code>sourcePath</code> = the file actually read; <code>backlogPath</code> removed (with <code>ui/src/api/tasks.ts:62</code>). Deps for store rows come from the structured field, <code>_parse_deps</code> demoted to the fallback parse only. Reqs 8-10 (SPEC-110) untouched.</li>
+<li><strong><code>specs/40-features/backlog-closure-guard.md</code> (SPEC-154) — amendment.</strong> bc-1 open-ness source: store lanes (staged content under the gate hold); bc-2 existence: store ids ∪ <code>docs/backlog-archive.md</code>; invariant meaning unchanged ("shipping a scenario obliges closing the task in the same commit" — now via <code>tasks close</code>). The doc-based "absent = archived = closed" clause is restated store-side.</li>
+<li><strong><code>specs/40-features/backlog-entry-groom.md</code> (SPEC-155) — amendment.</strong> eg-1 source: open store rows must satisfy <code>any(deps) or noDeps</code>; the phase-matrix ceiling, the inbox scope-out, and the raw-line <code>no-deps</code> scan are deleted (their causes — free-text source and phantom imports — no longer exist).</li>
+<li><strong><code>scripts/harness_lib/scenario_isolation.py</code></strong> — not a spec, but the gate-hold contract change (validated-docs checkout-index list gains the store) should be named inside the tasks-store amendment so the staged-view behavior is contractual, not incidental (V4).</li>
+<li><strong>Owner decision list</strong> (<code>docs/IMPLEMENTATION_BACKLOG.md</code> L183-190): proposed appended decision — "2026-07-xx: supersedes #3's freeze clause — the tables retire; <code>.harness/state/tasks.json</code> is the backlog; the markdown survives as prose + decisions + the self-review inbox block; writes only via <code>tasks</code> verbs (body via stdin); SPEC-154/155 enforce against the store."</li>
+<li><strong>Playbook chain</strong> (V3): <code>overseer-playbook.md</code>, <code>overseer-loop-playbook.md</code>, <code>backlog-groom-playbook.md</code> — the write-path sentences; edits through <code>tools/hooks/protect_canonical_files.py edit</code> (protected files).</li>
+</ul>
+<p>Fontes: all <code>file:line</code> anchors above read directly by the author (alta confiança); all counts/dates from the brief's measured facts (given); recommendations marked as such are <code>referência: judgment</code>.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-overseer-verification-2026-07-27-independent-of-the-author">Overseer verification (2026-07-27, independent of the author)</h2>
+<p>Four load-bearing claims re-checked directly before accepting this plan:</p>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>verdict</th>
+<th>evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V3 — <code>AGENTS.md</code> has no backlog instruction</td>
+<td><strong>CONFIRMED</strong></td>
+<td><code>grep -cE "backlog\|IMPLEMENTATION_BACKLOG" AGENTS.md</code> → <code>0</code> (153 lines). Discipline found instead at <code>overseer-loop-playbook.md:122</code>, <code>overseer-playbook.md:207</code>.</td>
+</tr>
+<tr>
+<td>V4 — the backlog is re-materialized from the index during the gate, so the guards see STAGED rows</td>
+<td><strong>CONFIRMED</strong></td>
+<td><code>scenario_isolation.py:197-204</code>, <code>git checkout-index -f -- &lt;backlog&gt;</code>, with the comment naming SPEC-154/155 explicitly. The deadlock V4 predicts for a store-backed guard is real.</td>
+</tr>
+<tr>
+<td>V2 — a plain re-import fixes 0 of the 15 lane drifts</td>
+<td><strong>CONFIRMED</strong></td>
+<td><code>tasks_store.py:105-111</code> — <code>continue  # lane/wfid/createdAt preserved</code>.</td>
+</tr>
+<tr>
+<td>V5 — the live store already carries phantom rows</td>
+<td><strong>CONFIRMED, quantified</strong></td>
+<td>13 rows whose <code>section</code> contains "inbox" (<code>delegation-cost-trend</code>, <code>self-lib-file-budget</code>, <code>workflow-cost-outlier</code>, the 10 <code>mf-*</code> triage rows) + 9 GUI phase-matrix pseudo-rows (<code>'0 Fundação'</code>, <code>'1 Shell'</code>, <code>'1 X-cutting'</code>, <code>'2 Workbench'</code>, <code>'3 Operations'</code>, <code>'4 Experiments'</code>, …).</td>
+</tr>
+</tbody>
+</table>
+<p>Consequence for the brief: open question 3 targeted the wrong file (V3), the root-cause sentence was incomplete (V2), and fact 12 understated the gate-hold problem — it is a deadlock, not only a data-loss window (V4). The brief is superseded by this document on those three points.</p>
+<p>Not yet verified by the overseer, carried at the author's confidence: the <code>sp_store_parity</code> design, the <code>BODY_CAP</code> refusal semantics, and the §4 reconciliation arithmetic.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-backlog-json-canonical-DRAFT.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-backlog-json-canonical-DRAFT.md</code></li><li>Source SHA-256: <code>ae40a02e29c1d0c789a650681650c29ace021e15399f53e89303e456252648e7</code></li><li>Edition-input SHA-256: <code>ae40a02e29c1d0c789a650681650c29ace021e15399f53e89303e456252648e7</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

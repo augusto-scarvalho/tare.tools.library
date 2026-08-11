@@ -1,0 +1,287 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research — Tamper-Evident Event-Log Integrity Under Compaction (SPEC-164 M4+M5) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-verified-foundations-discover">Verified foundations (Discover)</a></li><li class="h2"><a href="#ed-convergence-3-ideators-2-vendors-strong-signal">Convergence (3 ideators, 2 vendors — STRONG signal)</a></li><li class="h2"><a href="#ed-typed-divergence">Typed divergence</a></li><li class="h3"><a href="#ed-cross-vendor-divergence-nvidia-vs-sonnet-owner-requested">CROSS-VENDOR divergence (NVIDIA vs Sonnet — owner-requested)</a></li><li class="h3"><a href="#ed-new-strong-convergence-sonnet-crypto-nvidia-2-cross-vendor">New, strong convergence (Sonnet-crypto + NVIDIA-2, cross-vendor)</a></li><li class="h2"><a href="#ed-recommendation-orchestrator-synthesis">Recommendation (orchestrator synthesis)</a></li><li class="h2"><a href="#ed-direct-answer-to-owner">Direct answer to owner</a></li><li class="h2"><a href="#ed-cross-domain-papers-discover-2-verified">Cross-domain papers (Discover 2 — verified)</a></li><li class="h2"><a href="#ed-threat-model-reframing">Threat-model reframing</a></li><li class="h2"><a href="#ed-candidate-leverage-ladder-round-2-synthesis">Candidate leverage ladder (Round 2 synthesis)</a></li><li class="h2"><a href="#ed-immediate-implications-before-round-3">Immediate implications before Round 3</a></li><li class="h2"><a href="#ed-anti-anchor-succeeded-three-new-leverage-classes-and-one-new-adversary-layer">Anti-anchor succeeded: three NEW leverage classes and one NEW adversary layer</a></li><li class="h2"><a href="#ed-ratified-matrix-corrections-against-round-2-and-my-brief">Ratified matrix corrections (against Round 2 AND my brief)</a></li><li class="h2"><a href="#ed-verified-code-findings-during-the-round">VERIFIED code findings during the round</a></li><li class="h2"><a href="#ed-final-decision-card-for-owner-ratification">FINAL DECISION CARD (for owner ratification)</a></li><li class="h2"><a href="#ed-if-l6-owner-decision-2026-07-21-adopt-but-only-in-the-future">If L6 — owner decision 2026-07-21: ADOPT, but only in the FUTURE</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research — Tamper-Evident Event-Log Integrity Under Compaction (SPEC-164 M4+M5)</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>59456f89032ff9c887a1…</span></div><div><b>Edition SHA-256</b><span>5959fe3dc352df680b9c…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Ideation round, 2026-07-21. Question: does SPEC-164 <code>allow_gaps</code> weaken the model (owner question)? Which structures from blockchain / verifiable logs / authenticated data structures solve “legitimate removal while preserving integrity evidence without false positive”? Which is PROPORTIONAL to our ceiling (no key, single tenant, LOCAL verifier, transient live log + durable record)?</p>
+<p>Ideators (5 across 3 vendors): 2× <strong>Sonnet 5 High</strong> (Anthropic; cryptographic rigor and ops/cost) + 1× <strong>Gemini</strong> (Google) + 2× <strong>NVIDIA</strong> (<code>nemotron-3-nano-30b</code>; security and trust boundary). Infrastructure note: <code>NVIDIA_API_KEY</code> lives in <code>.env</code> (not keyring) and is loaded at harness boot — worker must run through harness spawn or with <code>.env</code> loaded; giant NVIDIA models (<code>nemotron-ultra-550b</code>) returned 503 under overload and nano-30b responded. Small model = shallower analysis, weighted lower.</p>
+</section>
+<section class="section content"><h2 id="ed-verified-foundations-discover">Verified foundations (Discover)</h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Source</th>
+<th>What it provides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Certificate Transparency / RFC 6962</td>
+<td>datatracker.ietf.org/doc/html/rfc6962 [web, strong]</td>
+<td>Consistency proof proves tree B is a PREFIX of A (only appended, never deleted). Merkle, O(log n), Signed Tree Head + THIRD-PARTY monitor. Does NOT support deletion.</td>
+</tr>
+<tr>
+<td>Crosby-Wallach 2009 (USENIX Security)</td>
+<td>usenix.org/legacy/event/sec09 [web, strong]</td>
+<td>Merkle history tree that SELECTIVELY DELETES old events while preserving tamper evidence (keeps internal hash, discards leaf). O(log n). Signing is orthogonal.</td>
+</tr>
+<tr>
+<td>Merkle Mountain Range</td>
+<td>eprint.iacr.org/2025/234, docs.grin.mw [web, moderate]</td>
+<td>Append-only accumulator; pruning old leaves while roots remain. Standard pruning is PREFIX/age based and does not match our removal-by-TYPE pattern.</td>
+</tr>
+<tr>
+<td>Sparse Merkle Tree / RSA-bilinear accumulator</td>
+<td>[judgment]</td>
+<td>(Non-)membership in keyspace; accumulator needs semi-trusted setup. Wrong tool for sequential log rather than key-value.</td>
+</tr>
+<tr>
+<td>KSI / hash calendar (Guardtime)</td>
+<td>[web, moderate]</td>
+<td>“Keyless” means no ASYMMETRIC subscriber key, but replaces it with PERIODIC external publication broadly witnessed. The witness is the disguised “key.”</td>
+</tr>
+<tr>
+<td>Rekor/Sigstore (Trillian)</td>
+<td>[judgment]</td>
+<td>Reuses CT tree + third-party monitors + log server + network. Disproportionate for local harness.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-convergence-3-ideators-2-vendors-strong-signal">Convergence (3 ideators, 2 vendors — STRONG signal)</h2>
+<ol>
+<li><strong>Merkle/CT/MMR/accumulator are OVER-ENGINEERING here.</strong> They solve three things absent from our case: (a) THIRD-PARTY verifier without raw-data access (we have ONE local verifier, <code>repo_health.checks</code>, already reading the full file → O(log n) proofs are moot); (b) BILLIONS-of-leaves scale (here tens per round); (c) RESOURCEFUL adversary + signature/witness. <strong>Without a key or external witness, a Merkle root recomputable by the writer is as forgeable as a simple hash</strong> — Merkle does NOT raise the ceiling without signature. [Sonnet-crypto + Sonnet-ops + Gemini, strong]</li>
+<li><strong>The REAL effort pays off in the DURABLE RECORD (<code>escalations.json</code>), NOT the live chain.</strong> Live chain is TRANSIENT (gates clean it) and check is ADVISORY/WARN-only → damage from gap is “doctor incorrectly says OK once.” Durable record SURVIVES gates, holds owner security decisions and has ZERO integrity today (each <code>resolvedRecord</code> overwritten by key, no chaining). Damage there is PERMANENT. [both Sonnet, strong]</li>
+<li><strong>Crosby-Wallach = option C without the tree.</strong> Paper solving our conceptual problem (delete while retaining evidence) is the SAME idea as “keep hash, discard content” — tree only pays with third-party verifier. [Sonnet-crypto, strong]</li>
+<li><strong>Finding correcting my framing:</strong> shipped <code>allow_gaps=True</code> is WEAKER than option C — it tolerates EVERY gap unconditionally AND accepts reordering of LIVE events (spec already declares this in invariant 3). It is not even option C. [both Sonnet, strong, code-verified]</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-typed-divergence">Typed divergence</h2>
+<table>
+<thead>
+<tr>
+<th>Axis</th>
+<th>Sonnet-crypto (rigor)</th>
+<th>Sonnet-ops (cost)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is option C sufficient?</td>
+<td><strong>NO</strong> — it has a HOLE: proves existence, not adjacency. Forger can cite ANY removed hash as <code>prevHash</code> of a new line. Fix: <strong>option C+</strong> = pairs <code>{successor_hash: removed_hash}</code> binding exception to successor identity via SHA-256 second-preimage hardness. Closes reorder + citation forgery. Seal must ACCUMULATE, not overwrite.</td>
+<td><strong>More than needed</strong> — C only matters if there is a second removal path outside compactor (marginal in threat model). Set grows unbounded in durable file.</td>
+</tr>
+<tr>
+<td>Where to invest</td>
+<td>C+ in live chain + note durable has marginal value without witness</td>
+<td><strong>Skip live chain; give SIMPLE hash chain to durable record</strong> (<code>stateHash</code> + <code>prevStateHash</code> per <code>escalations.json</code> write). Cheaper than C, cheaper than Merkle.</td>
+</tr>
+<tr>
+<td>Converge on</td>
+<td>No Merkle; durable matters; keyless ceiling is real</td>
+<td>same</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-cross-vendor-divergence-nvidia-vs-sonnet-owner-requested">CROSS-VENDOR divergence (NVIDIA vs Sonnet — owner-requested)</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>NVIDIA (<code>nemotron-nano</code>)</th>
+<th>Sonnet 5 High (both) + Gemini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Durable structure</td>
+<td><strong>MMR</strong> — O(log n) inclusion proof, “strong”</td>
+<td><strong>SIMPLE hash chain</strong> — MMR over-engineering</td>
+</tr>
+<tr>
+<td>Is O(log n) worth it?</td>
+<td>YES (NVIDIA-1 said “no external witness needed,” most aggressive position)</td>
+<td>NO — moot: verifier is LOCAL and reads whole file; O(log n) pays only with THIRD-PARTY verifier</td>
+</tr>
+<tr>
+<td>Need witness?</td>
+<td>NVIDIA-1 said no; <strong>NVIDIA-2 corrected: pure MMR needs STH</strong> → proposes <strong>Git anchoring</strong> as cheap witness</td>
+<td>Yes — without witness/signature, recomputable Merkle root is as forgeable as hash</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Real disagreement:</strong> VALUE of O(log n) inclusion proof. NVIDIA thinks it justifies MMR; Sonnet+Gemini say it is moot TODAY (local verifier already has everything) and only pays when a third-party verifier exists (future CI/multi-tenant) — same trigger as key infrastructure. [Sonnet strong, NVIDIA preliminary — smaller model]</p>
+<h3 id="ed-new-strong-convergence-sonnet-crypto-nvidia-2-cross-vendor">New, strong convergence (Sonnet-crypto + NVIDIA-2, cross-vendor)</h3>
+<p><strong>External anchoring through Git</strong> = CHEAP third-party witness without key infrastructure: periodically commit head-hash/seal to a git-tracked file reviewed by owner. Rewriting Git history is visible/forensic — meaningfully raises “no-key” ceiling without provisioning a key or service. Both vendors reached this independently. Best answer to “tamper-evident, not proof” ceiling. [cross-vendor, moderate]</p>
+</section>
+<section class="section content"><h2 id="ed-recommendation-orchestrator-synthesis">Recommendation (orchestrator synthesis)</h2>
+<p><strong>Do not move to Merkle/CT/MMR</strong> (unanimous — over-engineering without key). Two cheap, stdlib pieces with no new dependency:</p>
+<ol>
+<li><strong>Live chain → option C+ (successor→removed pairs), not current <code>allow_gaps</code>.</strong> Closes the hole owner sensed (reorder + self-consistent edit escaping today) by binding every tolerated gap to successor identity. Direct answer to “does allow_gaps weaken it?”</li>
+<li><strong>Durable record → simple one-link hash chain per write</strong> (<code>stateHash</code> = sha256 canonical doc without own field; <code>prevStateHash</code> = previous write). Closes DEEPER gap: zero integrity in file surviving gates and storing security decisions. Detects point edit AND rollback to old snapshot.</li>
+<li><strong>Git anchoring</strong> (new piece, Sonnet-crypto + NVIDIA-2 convergence) — periodically commit durable head hash/seal into owner-reviewed git-tracked file. Cheap external witness raising ceiling WITHOUT key infra.</li>
+</ol>
+<p><strong>Behind third-party-verifier/key-infra trigger (do not build now):</strong> MMR (NVIDIA) or SIGNED Merkle root (Crosby-Wallach/RFC-6962). O(log n) compact-proof gain only pays when verifier DOES NOT possess full file (external CI, multi-tenant). Until then simple hash-chain + Git anchoring yields same practical ceiling for far less code. [Sonnet strong; NVIDIA disagreement is the signal to reopen when trigger arrives]</p>
+</section>
+<section class="section content"><h2 id="ed-direct-answer-to-owner">Direct answer to owner</h2>
+<p>Yes, <code>allow_gaps</code> weakens the model — but the fix is <strong>not</strong> blockchain/Merkle (over-engineering without key, confirmed by two vendors). It is (1) option C+ in live chain and/or (2) simple hash chain in durable record, which is where integrity is actually absent. The ceiling “no key = tamper-evident, not tamper-proof” is intrinsic and honest; only signing + external witness raises it, behind key-infrastructure trigger.</p>
+<hr/>
+<h1>Round 2 — Double Diamond #2 (9 ideators, 9 divergences) — 2026-07-21</h1>
+<p>Owner request: deepen candidates, hunt papers CROSSING the domains, and run nine ideators (3 Sonnet 5 High × 3 NVIDIA-GLM × 3 Gemini) with nine divergences.</p>
+<p><strong>Model coverage (honest):</strong> Sonnet 5 High ×3 (Agent). NVIDIA-GLM = <code>z-ai/glm-5.2</code> all three (no fallback — GLM responded). Gemini: crypto seat ran <code>gemini-3-flash-preview</code> (owner request); other two fell to <code>gemini-2.5-flash</code> (3-flash-preview unavailable/limited). Each vendor ran three perspectives: A=minimal engineer, B=cryptographer, C=boundary architect.</p>
+</section>
+<section class="section content"><h2 id="ed-cross-domain-papers-discover-2-verified">Cross-domain papers (Discover 2 — verified)</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>What it crosses</th>
+<th>Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SealFS / SealFSv2</strong> (Computers &amp; Security 2021; Int. J. Info. Sec. 2022) [web, strong]</td>
+<td>secure logging single-machine × our local regime</td>
+<td>Local tamper evidence WITHOUT hardware/network. v1 = stored keystream (theoretical security), v2 = ratchet (linear degradation) — cost↔security knob. Guarantee: attacker cannot forge data generated BEFORE system compromise.</td>
+</tr>
+<tr>
+<td><strong>Bellare-Yee / Schneier-Kelsey / Ma-Tsudik FssAgg / Logcrypt</strong> [web, strong]</td>
+<td>forward integrity × evolving key</td>
+<td>Family of symmetric MACs with ratchet+delete → forward integrity WITHOUT PKI. Ceiling: protects PAST after FUTURE compromise; needs secret and key-erasure boundary.</td>
+</tr>
+<tr>
+<td><strong>Crosby-Wallach history trees</strong> [web, strong]</td>
+<td>redaction × verifiable append history</td>
+<td>Selective deletion while retaining cryptographic digest skeleton. Again, signatures/witness needed to prevent writer from recomputing history.</td>
+</tr>
+<tr>
+<td><strong>CT / verifiable logs / transparency systems</strong> [web, strong]</td>
+<td>append-only public log × third-party witness</td>
+<td>Merkle consistency becomes meaningful because independent monitors remember prior roots. Local sole-writer regime lacks that trust split.</td>
+</tr>
+<tr>
+<td><strong>Filesystem append/immutable controls</strong> (<code>chattr +a</code>, Windows ACL/<code>icacls</code>, BSD <code>uappnd</code>) [repo/web/judgment]</td>
+<td>OS boundary × local logging</td>
+<td>Raises bar against accidental or sandboxed-worker rewrite using existing mechanism; parity differs across OS and same-user deliberate attacker can often undo controls.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-threat-model-reframing">Threat-model reframing</h2>
+<p>Round 2 stopped treating “tampering” as one class and separated adversaries:</p>
+<ul>
+<li><strong>T1 — sandboxed worker / unprivileged child</strong>: cannot freely rewrite owner workspace; existing workspace boundaries matter.</li>
+<li><strong>T2 — same-user harness process with ordinary write access</strong>: can edit files and, if it knows the scheme, recompute simple chains.</li>
+<li><strong>T3 — deliberate same-user process with source/credentials</strong>: can re-ACL, recompute and steal same-user secrets unless an external boundary exists.</li>
+<li><strong>T4 — administrator/root/host compromise</strong>: out of scope for local bookkeeping; only external witness/hardware can meaningfully raise ceiling.</li>
+</ul>
+<p>This reframing corrected several earlier recommendations: a control can be very valuable against T1/T2-careless while worthless against T3, and calling it simply “secure” hides the real ceiling.</p>
+</section>
+<section class="section content"><h2 id="ed-candidate-leverage-ladder-round-2-synthesis">Candidate leverage ladder (Round 2 synthesis)</h2>
+<ul>
+<li><strong>L1 — simple durable hash chain + C+ seal</strong>: cheap tamper evidence; strong against careless/unknown-scheme edits, weak against source-aware T2/T3.</li>
+<li><strong>L2 — protected-file machinery / explicit override</strong>: leverages existing harness control-plane against workers; records deliberate bypass.</li>
+<li><strong>L3 — OS append/ACL boundary</strong>: useful parity option, but semantics differ strongly on Windows/Linux/macOS and same-user owner may reverse ACLs/flags.</li>
+<li><strong>L4 — Git anchor</strong>: external-ish witness when remote/review history exists; cheap, but only as strong as independent history/review.</li>
+<li><strong>L5 — forward-secure ratchet</strong>: attractive in theory, but ephemeral CLI architecture lacks long-lived memory-only key holder; persisting ratchet key collapses boundary.</li>
+<li><strong>L6 — owner signature for ratification events</strong>: can raise ceiling materially only when private-key use requires out-of-band owner presence; agent-triggered signing is not a trust boundary.</li>
+<li><strong>L7 — external timestamp/transparency witness (OTS/CT-style)</strong>: strongest no-local-trust direction, but adds network/service and is disproportionate before public/multi-tenant requirements.</li>
+<li><strong>L8/L9 — dedicated writer/daemon</strong>: potentially isolates write authority, but architectural weight is high and needs observed repeated T2 pressure.</li>
+</ul>
+<p>The practical Round-2 conclusion was therefore not “choose strongest crypto.” It was <strong>match the lever to the adversary we actually claim to resist</strong>, and declare residual ceiling.</p>
+</section>
+<section class="section content"><h2 id="ed-immediate-implications-before-round-3">Immediate implications before Round 3</h2>
+<ol>
+<li>Preserve L1/L2 because they cheaply catch the most likely accidental and repo-blind mutation classes.</li>
+<li>Verify whether worker workspace can read actual <code>.env</code>/secrets; if yes, credential exposure outranks ledger tampering.</li>
+<li>Treat Git anchor, forward-secure logging and owner keys as deferred behind explicit triggers rather than decorative crypto.</li>
+<li>Keep OS append-only as parity option, not default, until cross-platform semantics are measured.</li>
+</ol>
+<hr/>
+<h1>Round 3 — FINAL CONSOLIDATION (Double Diamond #3, 2026-07-21, orchestrator Fable 5 xhigh)</h1>
+<p>Brief reframed by reassessment (layered T1–T4 model, L1–L7 levers with honest corrections, explicit anti-anchor: “attack/expand &gt; rank”). Six-seat panel: Sonnet 5 High ×2 (RED, DECIDER), GLM-5.2 ×2 (same — no fallback), Gemini ×2 (2.5-flash; 3-flash-preview unavailable in this window). Prior Discover resolved citation (2512.17259 = Verifiability-First, verified) and multi-OS append-only asymmetry (<code>chattr +a</code> requires root to set AND unset; <code>icacls</code> per-user; <code>uappnd</code> reversible).</p>
+</section>
+<section class="section content"><h2 id="ed-anti-anchor-succeeded-three-new-leverage-classes-and-one-new-adversary-layer">Anti-anchor succeeded: three NEW leverage classes and one NEW adversary layer</h2>
+<ol>
+<li><strong>T1.5 “authentic garbage” (5/6 seats — strongest convergence).</strong> Worker poisons data/results; trusted context FAITHFULLY writes a syntactically perfect entry (chain OK, ACL OK, signature OK) that is semantically malicious. GLM-RED: “the chain is witness to the attack, not a barrier.” ALL L1–L7 authenticate form, not content. Real countermeasure (Sonnet-RED): <strong>decision provenance</strong> — chain causal references of what produced a ratified entry (tool outputs, worker results). Harness ALREADY has skeleton: <code>parentEventId</code> causal DAG + typed actor (SPEC-161) — wiring discipline, not new structure.</li>
+<li><strong>L10 kernel audit witness (4/6):</strong> ETW/USN/SACL (Windows), auditd (Linux), EndpointSecurity (macOS) — trail outside adversary userland write domain; stronger than ACL/attribute; honest fix for L3 asymmetry (install once with admin, read by separate reader).</li>
+<li><strong>Recovery/response (4/6):</strong> detection without response is theater — quarantine read-only on mismatch, fork append point from last known-good, resume only through owner action OUTSIDE agent loop (alarm cannot depend on drifted process acting against itself).</li>
+<li><strong>Rollback/freshness attack (Sonnet-RED):</strong> restore an OLD validly chained (even validly signed) snapshot to erase recent ratifications without breaking anything — chain/signature authenticate content-at-a-point, not recency. Cheap countermeasure discovered in synthesis: <strong>live↔durable cross-witness</strong> — compaction event in live log records durable <code>stateHash</code> that produced it; doctor compares → careless backup restore is caught. (Careful T2 rewrites both — ceiling unchanged and declared.)</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-ratified-matrix-corrections-against-round-2-and-my-brief">Ratified matrix corrections (against Round 2 AND my brief)</h2>
+<ul>
+<li><strong>“T2 trivially recomputes” assumes T2 KNOWS the scheme</strong> (GLM-DECIDER). Realistic T2 (injection from tool output, without harness source) leaves stale chain → L1/L2 catch much more than previously credited. L1 rises in value.</li>
+<li><strong>L6 “unforgeable by T2+T3” is FALSE as stated</strong> (6/6 in some form; Gemini-DECIDER strongest disagreement): key on disk under same user is stealable by T2/T3. Sonnet-RED deeper cut: <strong>agent-triggered signature</strong> lets T1.5 pass poison through signer with valid signature. L6 only works with (a) out-of-band signing secret (passphrase/hardware) and (b) human proof-of-presence showing LITERAL ratified text — never “agent concluded owner approved.” Without both, L6 is false confidence.</li>
+<li><strong>L5 dead in current architecture</strong> (5/6): ephemeral CLI processes → ratchet on disk → drifted process IS key holder. Defer ≈ never until long-lived daemon with memory-only ratchet exists.</li>
+<li><strong>L3 vs T3 ~zero even on Windows</strong> (Sonnet-RED): file owner (same user as T3) retains WRITE_DAC and can ACL back. L3 is anti-careless/anti-ignorant lever (T1, source-blind T2), never anti-deliberate-same-user. On Linux, interestingly STRONG against user-level T2 after set (unset requires root) — but setup requires root.</li>
+<li><strong>L1 without verifier running is inert</strong> (Sonnet-DECIDER): shipping L1 = ship verify TOGETHER in existing cadence (doctor/gate), or do not ship.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-verified-code-findings-during-the-round">VERIFIED code findings during the round</h2>
+<ul>
+<li><strong><code>.env</code> is NOT excluded from workspace</strong> (<code>workflow_runtime_ignore</code> does not list it) → NVIDIA/GEMINI keys readable by workspace worker. Panel (GLM-RED M4, Sonnet-RED) identified “inverted priority”: credential leak ≥ ledger tamper. One-line fix + fixture. CONFIRMED 2026-07-21.</li>
+<li><strong>Override is bare env</strong> (<code>HARNESS_ALLOW_PROTECTED_WRITE=1</code> in <code>protect_canonical_files.py</code>) — harden to per-session nonce to close accidental/replay bypass (honest label: does NOT close deliberate T2).</li>
+<li>To verify (backlog): TOCTOU at merge seam (GLM-RED M1); env scrub at worker spawn; T1→T2 promotion via unreviewed code artifacts executed in later round (Sonnet-RED).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-final-decision-card-for-owner-ratification">FINAL DECISION CARD (for owner ratification)</h2>
+<p><strong>BUILD NOW (revised M4+M5 train + urgent hygiene):</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Item</th>
+<th>Against what</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td><code>.env</code> in workspace exclusion (one line + fixture)</td>
+<td>T1 reading credentials — round’s top priority</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>L1: durable chain (<code>stateHash+prevStateHash</code>) + COUPLED C+ seal + <strong>verify in doctor/gate</strong> (inert without it) + <strong>live↔durable cross-witness</strong> (anti-careless rollback)</td>
+<td>T2-careless AND source-blind T2 (most likely realistic case)</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>L2: <code>escalations.json</code> in protected registry (reuse SPEC-148) + override env→nonce + override emits security event</td>
+<td>T1 escape; accidental/replay bypass</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>Decision provenance: <code>resolvedRecords</code> carry <code>parentEventId</code> chain + actor (SPEC-161/DAG skeleton already exists)</td>
+<td>T1.5 — ONLY lever touching authentic garbage</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>Policy: ledger outside ambient backup/sync (note + cheap doctor check)</td>
+<td>restore rollback + confidentiality leak</td>
+</tr>
+</tbody>
+</table>
+<p><strong>OWNER DECISION FORCED IN THIS ROUND</strong> (Sonnet-DECIDER: “deferring decision ≠ defer because technical prerequisite missing”): L6 yes/no — owner minisign/ed25519 key ONLY for ratification events, CONDITIONED on (a) out-of-band secret at signing + (b) proof-of-presence with literal text. If either condition unacceptable → honest defer with declared ceiling (careful T2/T3 remain open on durable record).</p>
+<p><strong>DEFER WITH NAMED TRIGGER:</strong> L3 (distinct-principal decision OR formal parity downgrade to “hash-chain parity only” + Windows-only declared); L4 Git anchor (remote out-of-reach + genuinely recurring owner review); L5 (long-lived daemon with memory-only ratchet); L7 OTS (external/compliance demand or multi-tenant); L9 writer daemon (observed recurring T2); L10 kernel audit (when L3 parity judged unacceptable — replaces L3, does not stack — or first confirmed T2 incident).</p>
+<p><strong>NEVER (tombstones):</strong> MMR (9/9 Round 2 — local verifier reads all); TPM/TEE at this tier (disproportionate multi-OS); per-event signature in live log (no trust boundary for hot-path signer); bespoke WORM layer (reinvents L3); own blockchain (consensus for a hash that one append can record); SIEM-as-integrity (fleet problem, not single-machine); <strong>signature triggered by agent inference</strong> (T1.5 anti-pattern); cadence-as-sufficiency (verify at point of USE for decisions; cadence is floor).</p>
+<p><strong>RESIDUAL CEILING AFTER BUILD-NOW (plain language):</strong> T1 closed (residual = escape bug, same accepted today). T2: careless/source-blind caught by next gate; careful source-aware T2 still forges — becomes unforgeable ONLY on ratifications and ONLY with L6 under both conditions. T3: L1/L2/L3 ~zero (recomputes/re-ACLs everything); only well-custodied L6 + external witness (L4/L7/L10) raise ceiling. T1.5: B4 gives audit trail; prevention is human review at ratification point, not cryptography. T4: out of scope.</p>
+</section>
+<section class="section content"><h2 id="ed-if-l6-owner-decision-2026-07-21-adopt-but-only-in-the-future">If L6 — owner decision 2026-07-21: ADOPT, but only in the FUTURE</h2>
+<p>Named trigger: <strong>before first PUBLIC release</strong> (owner: “we’ll adopt only in the future, before a public release”). Until then declared ceiling above is honest for single-tenant/local use. When built, BOTH use conditions (out-of-band passphrase/hardware at sign + proof-of-presence showing literal ratified text — never agent-inferred signing) are mandatory, PLUS three requirements imposed by key-loss analysis:</p>
+<ol>
+<li><strong>Authorized public-key list</strong> (<code>authorized_keys</code> style), not a single key — otherwise rotation INVALIDATES all already-signed history. Old ratifications verify under old public key; new under new.</li>
+<li><strong>Mandatory passphrase</strong> on private key — otherwise “lost key file” becomes “silent compromise” (finder signs as owner). With passphrase, disk key is useless without secret.</li>
+<li><strong>Documented rotation/revocation path</strong> — treat “lost/leaked key” as NORMAL flow, not emergency.</li>
+</ol>
+<p><strong>Loss semantics (why L6 is safe to defer AND adopt):</strong> losing key NEVER locks harness or erases past — it only lowers ceiling of FUTURE ratifications to bookkeeping level (today’s ceiling) until rotation. Worst-case loss = “back to current ceiling.” Honest tension: passphrase protects leak but creates passphrase-loss risk; password-manager backup helps but makes key security as good as that backup (same ladder, no magic). External timestamp (L4/L7) is what could prove which signatures came before/after leak — therefore L6 and external witness reinforce each other when public trigger arrives.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/event-log-integrity-under-compaction.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/event-log-integrity-under-compaction.en.md</code></li><li>Source SHA-256: <code>59456f89032ff9c887a160015b3bd05a79d8c80b2791ed0c6bc521fd56130747</code></li><li>Edition-input SHA-256: <code>5959fe3dc352df680b9cb2948b7c10317f6265f736128874ce574f454088d9ce</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

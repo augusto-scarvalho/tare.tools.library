@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Implementation Plans — RD-TAINT (Taint / CaMeL, Secret Never Egresses) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-n-taint-probe-would-block-probe-buildable-now-measure-only-size-m">N-TAINT-PROBE — “would-block” probe · BUILDABLE NOW (measure-only) · size M</a></li><li class="h2"><a href="#ed-n-taint-envelope-non-forgeable-envelope-owner-gated-security-size-l">N-TAINT-ENVELOPE — non-forgeable envelope · OWNER-GATED (security) · size L</a></li><li class="h2"><a href="#ed-n-taint-sinks-fail-closed-sink-enforcement-owner-gated-security-size-m">N-TAINT-SINKS — fail-closed sink enforcement · OWNER-GATED (security) · size M</a></li><li class="h2"><a href="#ed-n-taint-camel-control-plane-capabilities-owner-gated-size-m">N-TAINT-CAMEL — control-plane capabilities · OWNER-GATED · size M</a></li><li class="h2"><a href="#ed-suggested-order-and-ptc-dependency">Suggested order (and PTC dependency)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>Implementation Plans — RD-TAINT (Taint / CaMeL, Secret Never Egresses)</h1><p class="subtitle">Historical implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>80edbda1f357e9cc003b…</span></div><div><b>Edition SHA-256</b><span>1be3e05a948273753fa8…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Plans parked in the backlog (owner 2026-07-19: “make the plans very detailed, prioritize RD-TAINT because
+of the dependencies”). Derived from <code>rd-taint-camel-round.md</code> (5 NVIDIA ideators) + D023.
+<strong>Priority:</strong> <strong>N-PTC-TAINT4</strong> (PTC’s 4th sink) EXTENDS the envelope defined here — without this, the PTC
+engine reopens the secret-egress gap.</p>
+<p><strong>Existing machinery to reuse (DO NOT reinvent):</strong></p>
+<ul>
+<li><code>scripts/harness_lib/secret_scan.py</code> — secret scan already detects secret SHAPE at worker boundary and
+RETAINS the result. It is <strong>half-taint</strong> (detection at sink) — the seam extended by the sinks.</li>
+<li><code>scripts/harness_lib/records.py</code> — <strong>subject dimension</strong> (<code>subject=</code> in records/append_event): provenance
+self vs target, already attributable.</li>
+<li><code>.harness/routing/executors.json</code> — <strong>trust tiers</strong> (first-party/third-party) = CaMeL-like capabilities.</li>
+<li>GM-3 provenance firewall (<code>memory-context-management.md</code>: <code>authority &gt;= signed_policy</code>) = control-plane
+gate reused by CaMeL.</li>
+<li><code>append_event</code> (hash chain) — hook for the non-forgeable envelope to enter as a signed event.</li>
+</ul>
+<p><strong>Honest ceiling (declared by all 5 ideators; repeat in every plan):</strong> EXPLICIT taint marks the SOURCE,
+not derived content. If the LLM PARAPHRASES a secret, taint does not follow. <strong>Defense in depth, not proof.</strong>
+Shape-based secret scan catches patterns, not semantic laundering.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-taint-probe-would-block-probe-buildable-now-measure-only-size-m">N-TAINT-PROBE — “would-block” probe · BUILDABLE NOW (measure-only) · size M</h2>
+<p><strong>Goal:</strong> measure HOW MANY tainted values (secret-read/web-fetch/worker-output) WOULD REACH an egress sink
+today — before any enforcement. Measure-before-control: if almost nothing would egress, enforcement remains
+measure-only (destination of C9); if much would, the envelope is justified.</p>
+<p><strong>Reuse:</strong> <code>secret_scan.py</code> (already detects shape at sink); <code>records</code>/<code>append_event</code> (provenance).</p>
+<p><strong>Approach:</strong></p>
+<ol>
+<li><strong>Probe</strong> (<code>testing/probes/taint_reach_probe.py</code>, sibling of truth-divergence): over a corpus of real
+WORKER_RESULTs + vendor prompts + logs, shadow-source-stamp what IS tainted by origin (secret-read =
+matched secret scan; web-fetch = came from discovery; worker-output = subprocess) and count how many
+WOULD reach each sink (prompt/persisted/log) WITHOUT blocking today.</li>
+<li><strong>Deterministic, zero LLM:</strong> reuse secret scan as classifier for “is tainted”; “would reach a sink” is
+set membership (value appears in text headed for sink). Log counts + hashes/samples (NEVER raw value —
+the probe itself must not leak).</li>
+<li><strong>Reduction:</strong> by source type × sink, fraction that would egress; L13 noise floor; verdict.</li>
+</ol>
+<p><strong>Footprint:</strong> <code>testing/probes/taint_reach_probe.py</code> (new, self-check). Adds NO enforcement.</p>
+<p><strong>Acceptance:</strong> probe runs over ≥20 real WORKER_RESULTs/prompts, produces table <code>(source × sink) → fraction-that-would-egress</code> with noise-floor gating, ZERO raw values logged, ZERO enforcement.</p>
+<p><strong>Gate:</strong> measure-only, measure-first authority. <strong>Dependency:</strong> secret_scan (exists). <strong>Size:</strong> M.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-taint-envelope-non-forgeable-envelope-owner-gated-security-size-l">N-TAINT-ENVELOPE — non-forgeable envelope · OWNER-GATED (security) · size L</h2>
+<p><strong>Goal:</strong> the core — NON-FORGEABLE taint metadata injected by the HARNESS (never by worker), stamped at
+source, traveling with data. This is the only way in a subprocess+JSON model (worker writes arbitrary JSON →
+inline marker would be forgeable).</p>
+<p><strong>Reuse:</strong> records subject dimension (provenance exists); <code>append_event</code>/hash-chain (signed envelope);
+secret scan (secret-read source detector).</p>
+<p><strong>Approach:</strong></p>
+<ol>
+<li><strong>Source stamp</strong> at 3 origins: <code>secret_read</code> (matched secret scan when read), <code>web_fetch</code> (came from
+discovery/WebFetch), <code>worker_output</code> (produced by untrusted subprocess). HARNESS stamps — outside
+worker-controlled WORKER_RESULT (wrap/sign, not inline field).</li>
+<li><strong>Transport:</strong> taint travels in a harness-wrapped envelope around the value (key outside worker control).
+Optionally enters hash-chain (critical event) to resist rewriting.</li>
+<li><strong>taint_map:</strong> harness maintains value→{sources, at, subject} map — consulted by sinks.</li>
+</ol>
+<p><strong>Footprint (when opened):</strong> <code>harness_lib/taint.py</code> (envelope + source stamp + taint_map); source-stamp
+points (secret-scan seam on read; discovery on web-fetch; subprocess on worker-output). NEW spec door
+(SPEC-116) + scenario (worker cannot forge; stamp survives JSON).</p>
+<p><strong>Acceptance:</strong> a secret-read value carries taint envelope worker CANNOT remove/forge; taint_map resolves
+source+provenance. <strong>Gate:</strong> OWNER-GATED + security review. <strong>Dependency:</strong> N-TAINT-PROBE (justifies it).
+<strong>Size:</strong> L.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-taint-sinks-fail-closed-sink-enforcement-owner-gated-security-size-m">N-TAINT-SINKS — fail-closed sink enforcement · OWNER-GATED (security) · size M</h2>
+<p><strong>Goal:</strong> block egress — tainted data reaching a sink BLOCKS/redacts by default. <strong>Extends secret scan</strong>
+(which is already half-taint) to check <code>taint_map</code>, not just shape.</p>
+<p><strong>Reuse:</strong> <code>secret_scan.py</code> (the seam — today detects shape; also checks taint_map).</p>
+<p><strong>Approach:</strong></p>
+<ol>
+<li><strong>Sinks (D023):</strong> (1) prompt to vendor, (2) persisted WORKER_RESULT, (3) log. <strong>+ PTC’s 4th sink
+(N-PTC-TAINT4): sandbox stdout/stderr</strong> — same checker, one more call site (why this item precedes PTC engine).</li>
+<li><strong>Fail-closed:</strong> tainted at sink → block/redact (audited break-glass for deliberate egress, parallel to
+sandbox_prepare SPEC-151).</li>
+<li><strong>Robustness (w-002/w-003):</strong> check O(reachable-tainted-fields) (not O(all)); break-glass rate-limited/
+batched (avoid append_event flood); rollback partial write (no half-redacted egress); <strong>checker itself
+fail-closed</strong> (if taint-check crashes, unredacted data does NOT egress).</li>
+</ol>
+<p><strong>Footprint (when opened):</strong> extend <code>secret_scan.py</code> (check taint_map) + 3 (→4) sink call sites; security
+scenario (tainted at each sink → blocked; checker crash → fail-closed).</p>
+<p><strong>Acceptance:</strong> tainted value NEVER egresses through 3 (→4) sinks without break-glass; crashing checker
+fails closed. <strong>Gate:</strong> OWNER-GATED + security review. <strong>Dependency:</strong> N-TAINT-ENVELOPE. <strong>Size:</strong> M.
+<strong>⚠️ Key dependency:</strong> <strong>N-PTC-TAINT4</strong> = 4th sink here; build this BEFORE PTC engine.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-taint-camel-control-plane-capabilities-owner-gated-size-m">N-TAINT-CAMEL — control-plane capabilities · OWNER-GATED · size M</h2>
+<p><strong>Goal:</strong> CaMeL’s value WITHOUT heavy runtime — map only the split control plane (policy/capability) vs
+data plane (values), reusing what is already capability-like.</p>
+<p><strong>Reuse:</strong> trust tiers (<code>executors.json</code>: first-party/third-party); GM-3 authority
+(<code>authority &gt;= signed_policy</code>) — both are already capability-like constraints.</p>
+<p><strong>Approach:</strong> control plane = which sources/tiers may produce data that egresses (policy); data plane =
+values (taint_map). NOT a per-value IFC runtime — decision is GM-3 authority + executor trust tier.
+Example: data from third-party worker (low trust tier) + secret-read = egress denied by policy, not flow analysis.</p>
+<p><strong>Footprint (when opened):</strong> connect taint_map to GM-3 authority + trust tiers at sink decision point;
+scenario (control-plane policy denies low-tier + secret egress). <strong>Acceptance:</strong> egress decision is
+authority/tier (control plane), not flow runtime. <strong>Gate:</strong> OWNER-GATED. <strong>Dependency:</strong> N-TAINT-SINKS + GM-3.
+<strong>Size:</strong> M.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-suggested-order-and-ptc-dependency">Suggested order (and PTC dependency)</h2>
+<ol>
+<li><strong>N-TAINT-PROBE</strong> — buildable; measure whether egress is real before building control.</li>
+<li><strong>N-TAINT-ENVELOPE</strong> — non-forgeable core.</li>
+<li><strong>N-TAINT-SINKS</strong> — enforcement; <strong>includes hook for the 4th sink used by N-PTC-TAINT4</strong> → THIS is the
+PTC engine security prerequisite (N-PTC-ENGINE does not ship without sinks + the 4th).</li>
+<li><strong>N-TAINT-CAMEL</strong> — control-plane policy above it.</li>
+</ol>
+<blockquote>
+<p>Cross-round dependency chain: <strong>N-TAINT-ENVELOPE + N-TAINT-SINKS → N-PTC-TAINT4 → N-PTC-ENGINE.</strong>
+That is why RD-TAINT was prioritized.</p>
+</blockquote>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/rd-taint-implementation-plans.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-taint-implementation-plans.en.md</code></li><li>Source SHA-256: <code>80edbda1f357e9cc003bee39a07a3b6b9a65b792e9cc34e0bceb34fb948c707c</code></li><li>Edition-input SHA-256: <code>1be3e05a948273753fa82906c7ec8337139836d89b76e24e96f61dc77344ca50</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

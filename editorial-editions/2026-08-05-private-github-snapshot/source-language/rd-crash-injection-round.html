@@ -1,0 +1,245 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rodada RD-CRASH — injeção de crash determinística na fronteira do adapter (Windows) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-por-que-esta-rodada-existe">Por que esta rodada existe</a></li><li class="h2"><a href="#ed-pergunta-da-rodada">Pergunta da rodada</a></li><li class="h2"><a href="#ed-criterios-de-sucesso">Critérios de sucesso</a></li><li class="h2"><a href="#ed-orcamento-largura-design-declarado">Orçamento + largura + design declarado</a></li><li class="h2"><a href="#ed-fase-3-brief-da-onda-1">Fase 3 — brief da onda 1</a></li><li class="h2"><a href="#ed-convergencia-independente">Convergência independente</a></li><li class="h2"><a href="#ed-ponto-de-instrumentacao-a-tensao-que-a-rodada-expos-e-resolveu">Ponto de instrumentação — a tensão que a rodada expôs (e resolveu)</a></li><li class="h2"><a href="#ed-armadilhas-reais-w-004-seguranca-w-002-escala">Armadilhas reais (w-004 segurança + w-002 escala)</a></li><li class="h2"><a href="#ed-analogias-comprovadas-w-005">Analogias comprovadas (w-005)</a></li><li class="h2"><a href="#ed-operacao">Operação</a></li><li class="h2"><a href="#ed-buildavel-vs-owner-gated">Buildável vs owner-gated</a></li><li class="h2"><a href="#ed-rastreabilidade">Rastreabilidade</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">RESEARCH ITERATION · 2026-08-05 snapshot</div><h1>Rodada RD-CRASH — injeção de crash determinística na fronteira do adapter (Windows)</h1><p class="subtitle">Edição histórica — research iteration/round. Preserved as an intermediate research artifact.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">pt-BR</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>25c577b1abf8609b2e19…</span></div><div><b>Edition SHA-256</b><span>25c577b1abf8609b2e19…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Research-gated backlog item RD-CRASH. 2ª das 3 rodadas de implementação-research
+(owner 2026-07-19). Orquestrador = esta sessão. Divergência via <strong>NVIDIA</strong>
+(<code>nvidia-compat</code>, glm-5.2).</p>
+</section>
+<section class="section content"><h2 id="ed-por-que-esta-rodada-existe">Por que esta rodada existe</h2>
+<p><strong>EXP-21</strong> (medir recovery: duplicate-effect, orphaned work, time-to-resume) e a
+fixture de recovery precisam de um jeito de FAZER o worker/adapter crashar de forma
+<strong>determinística e reprodutível</strong> — senão a medição de recovery é flaky (um crash
+que às vezes acontece não é um experimento). O harness roda em <strong>Windows</strong>
+(PowerShell + subprocess), onde os sinais POSIX (SIGKILL/SIGSEGV) não existem do
+mesmo jeito. Research de COMO IMPLEMENTAR o injetor, não de medição.</p>
+</section>
+<section class="section content"><h2 id="ed-pergunta-da-rodada">Pergunta da rodada</h2>
+<blockquote>
+<p>Como injetar um crash <strong>determinístico e reprodutível</strong> na fronteira
+adapter/worker do harness no <strong>Windows</strong> (subprocess criado via
+<code>harness_lib/processes.py</code> / <code>sandbox_spawn.py</code>), de forma que EXP-21 possa medir
+recovery sem flakiness — cobrindo os modos de crash que importam (morte abrupta
+do processo, hang/timeout, saída parcial/truncada, exit-code não-zero) e sem
+contaminar o harness pai?</p>
+</blockquote>
+</section>
+<section class="section content"><h2 id="ed-criterios-de-sucesso">Critérios de sucesso</h2>
+<ul>
+<li><strong>Atores:</strong> o EXP-21 (dispara o crash num ponto controlado e mede recovery), a
+fixture de recovery (regressão), o harness pai (deve sobreviver + recuperar).</li>
+<li><strong>Determinístico:</strong> o mesmo gatilho produz o mesmo crash no mesmo ponto — um
+"crash na chamada N" ou "crash após emitir K bytes", não um kill aleatório.</li>
+<li><strong>Windows-real:</strong> funciona com o modelo de processo do Windows (sem depender de
+SIGKILL/SIGSEGV POSIX). Reusa o <code>subprocess</code>/Job Object que o <code>sandbox_spawn</code> já
+monta (SPEC-148/151).</li>
+<li><strong>Cobre os modos que importam:</strong> (a) morte abrupta (processo some), (b) hang
+(nunca retorna → timeout), (c) saída parcial (stdout truncado no meio do
+WORKER_RESULT), (d) exit-code sujo. Cada um exercita um caminho de recovery
+diferente.</li>
+<li><strong>Não contamina:</strong> o crash fica CONTIDO no worker; o harness pai não morre junto,
+e o injetor é opt-in (só em EXP-21/fixture, nunca em produção). Reusa o breaker +
+gate-hold auto-recovery que já existem.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-orcamento-largura-design-declarado">Orçamento + largura + design declarado</h2>
+<ul>
+<li><strong>Onda 1:</strong> 5 ideadores NVIDIA, teto ~65k tok (free-tier). Gate a 60%.</li>
+<li><strong>Largura (D010): EXPLORATÓRIA → 5.</strong> Fault-injection cruza chaos engineering,
+modelo de processo Windows (Job Objects, TerminateProcess, exit codes), seams de
+teste (fault points determinísticos), e emulação de sinais — campo técnico amplo.</li>
+<li><strong>Design (L18):</strong> a rodada FEEDA o EXP-21 (medição de recovery, owner-gated).
+Carta de método candidata (advisory dispara pós-e5a1a4b): a família crash/recovery
+não tem carta própria ainda; o design experimental do EXP-21 usa noise-floor +
+matched controls. A carta final entra na síntese.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-fase-3-brief-da-onda-1">Fase 3 — brief da onda 1</h2>
+<blockquote>
+<p>Projete o mecanismo de injeção de crash determinística na fronteira adapter/worker
+do harness no Windows. O harness cria workers via subprocess (Python/PowerShell,
+com Job Object do sandbox_spawn SPEC-148/151). Precisa: (1) ser DETERMINÍSTICO —
+o mesmo gatilho crasha no mesmo ponto (ex.: "morre na chamada N", "morre após K
+bytes de stdout"), reprodutível entre execuções; (2) funcionar no modelo de
+processo do WINDOWS sem depender de SIGKILL/SIGSEGV POSIX (usar
+TerminateProcess/Job Object/exit codes, ou um fault-point cooperativo dentro do
+worker via env var); (3) cobrir 4 modos: morte abrupta, hang/timeout, saída
+parcial/truncada, exit-code sujo — cada um exercita um caminho de recovery
+diferente; (4) ficar CONTIDO (o harness pai sobrevive e recupera) e ser opt-in
+(só EXP-21/fixture, jamais produção); (5) reusar o breaker + gate-hold
+auto-recovery + o Job Object do sandbox que já existem. Entregue: o MECANISMO
+(fault-point cooperativo via env vs kill externo via Job Object — com trade-off),
+como cada um dos 4 modos é disparado deterministicamente, e o ponto exato de
+instrumentação no processes.py/sandbox_spawn.py.</p>
+</blockquote>
+<hr/>
+<h1>Fase 3-5 — resultado e síntese (RD-CRASH)</h1>
+<p>Onda 1: <code>WF-20260719-055620-000806</code>, 5 ideadores NVIDIA (glm-5.2).</p>
+</section>
+<section class="section content"><h2 id="ed-convergencia-independente">Convergência independente</h2>
+<p><strong>Mecanismo = HÍBRIDO</strong> (w-001, w-003, w-004, w-005 convergem):</p>
+<ul>
+<li><strong>Fault-point COOPERATIVO via env <code>HARNESS_CRASH_AT</code></strong> DENTRO do worker, para os
+modos (a) morte abrupta, (c) truncado, (d) exit sujo — porque só o cooperativo
+garante o PONTO EXATO. Razão técnica dura (w-002): um kill EXTERNO <strong>não</strong> garante
+truncar no meio do JSON — o OS pode dar flush no buffer do pipe antes do
+TerminateProcess pegar. Determinismo exige o worker se matar no ponto.</li>
+<li><strong>Kill EXTERNO via Job Object</strong> (o do sandbox_spawn SPEC-151) só para o modo (b)
+hang — um worker travado não se mata sozinho; o Job Object do pai o ceifa no
+timeout. Zero runtime de processo novo.</li>
+</ul>
+<p><strong>Gatilhos determinísticos — TODOS por contador, nunca probabilístico</strong> (w-005
+contrasta explícito com o <code>FAIL_MAKE_REQUEST</code> probabilístico do kernel Linux):</p>
+<table>
+<thead>
+<tr>
+<th>modo</th>
+<th>gatilho</th>
+<th>ação no worker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(a) abrupta</td>
+<td><code>HARNESS_CRASH_AT=abrupt:call=N</code></td>
+<td><code>os._exit()</code>/<code>os.abort()</code> na chamada N, sem flush</td>
+</tr>
+<tr>
+<td>(b) hang</td>
+<td><code>HARNESS_CRASH_AT=hang:after=N</code></td>
+<td>bloqueia pra sempre → Job Object do pai mata no timeout</td>
+</tr>
+<tr>
+<td>(c) truncado</td>
+<td><code>HARNESS_CRASH_AT=partial:bytes=K</code></td>
+<td>escreve K bytes de stdout, aí <code>os._exit()</code> — JSON cortado no meio</td>
+</tr>
+<tr>
+<td>(d) exit sujo</td>
+<td><code>HARNESS_CRASH_AT=dirty:code=N</code></td>
+<td><code>sys.exit(N)</code> não-zero + stderr</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-ponto-de-instrumentacao-a-tensao-que-a-rodada-expos-e-resolveu">Ponto de instrumentação — a tensão que a rodada expôs (e resolveu)</h2>
+<p>Os workers DISCORDARAM de onde mora o guard (sinal honesto):</p>
+<ul>
+<li>w-002: "processes.py é o caminho de PRODUÇÃO — instrumentar lá vaza lógica de
+crash pra produção." w-003: "no bootstrap do WORKER, NÃO no processes.py."</li>
+<li><strong>Resolução (síntese):</strong> o crash cooperativo mora no <strong>entrypoint do worker</strong>
+(lê <code>HARNESS_CRASH_AT</code> no startup — self-contained, custo ZERO quando o env está
+ausente). O <code>processes.py</code> só <strong>propaga</strong> a env var (~3 linhas) e lê exit/stdout
+como já faz. O <code>sandbox_spawn.py</code> <strong>não muda</strong> — só provê o Job Object pro modo
+(b). Isso satisfaz o w-002 (nada de lógica de crash no caminho de produção
+compartilhado) E o "JAMAIS em produção" (guard por ausência de env).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-armadilhas-reais-w-004-seguranca-w-002-escala">Armadilhas reais (w-004 segurança + w-002 escala)</h2>
+<ul>
+<li><strong>Exit codes (w-004):</strong> o modo (d) NÃO pode colidir com códigos de falha real do
+Windows (ex.: <code>0xC0000005</code> = access violation) — senão o pai lê um crash FAKE
+como falha OS real. Usar códigos reservados do harness, não-colidentes.</li>
+<li><strong>Scrub do truncado (w-004):</strong> o modo (c) corta stdout no meio do JSON, que pode
+conter campo de secret PARCIAL — o pai NÃO pode persistir o buffer truncado cru;
+scrub antes de logar. Reusa o secret-scan que já existe.</li>
+<li><strong>Env scoping (w-002):</strong> Windows herda env por padrão — <code>HARNESS_CRASH_AT</code> no
+processo PAI faria TODOS os workers paralelos crasharem. Tem que ser escopado ao
+dict de env do subprocess ESPECÍFICO, nunca no pai.</li>
+<li><strong>maxWorkerOutputChars (w-002):</strong> o ponto de truncagem do modo (c) tem que ficar
+DENTRO do limite, senão o recovery não distingue crash-truncado de oversize-reject
+normal.</li>
+<li><strong>Job Object no modo (b) (w-004):</strong> o kill externo tem que ir pelo Job Object
+(mata a árvore toda), não TerminateProcess no PID do worker direto.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-analogias-comprovadas-w-005">Analogias comprovadas (w-005)</h2>
+<ul>
+<li><strong>SQLite crash-injection VFS shim</strong> (<code>sqlite3_crash.c</code> intercepta I/O em offsets
+determinísticos) = o fault-point cooperativo no byte K. Referência forte (o
+crash-testing do SQLite é lendário).</li>
+<li><strong>Netflix Chaos Monkey</strong> opt-in por flag, só em ambiente de teste = o gate
+<code>HARNESS_CRASH_AT</code> (jamais produção).</li>
+<li><strong>Disjuntor + fusível elétrico:</strong> disjuntor protege o upstream (pai), fusível é a
+falha deliberada (worker) — mapeia no breaker que já temos.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-operacao">Operação</h2>
+<table>
+<thead>
+<tr>
+<th>carta</th>
+<th>operação</th>
+<th>por quê</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CRASH-HYBRID</strong> (cooperativo a/c/d + Job-Object b)</td>
+<td><strong>mantida</strong> — o núcleo</td>
+<td>só o híbrido cobre os 4 modos com determinismo real</td>
+</tr>
+<tr>
+<td><strong>CRASH-COOP-WORKER</strong> (guard no entrypoint do worker)</td>
+<td><strong>mantida</strong></td>
+<td>mantém lógica de crash FORA do caminho de produção (resolve a tensão w-002/w-003)</td>
+</tr>
+<tr>
+<td><strong>exit-code não-colidente + scrub do truncado</strong></td>
+<td><strong>dividida (regras de segurança)</strong></td>
+<td>dobram no spec do injetor; achado do w-004</td>
+</tr>
+<tr>
+<td><strong>injetor probabilístico</strong></td>
+<td><strong>rejeitada</strong></td>
+<td>EXP-21 precisa determinístico; probabilístico (kernel Linux) é o anti-padrão aqui</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-buildavel-vs-owner-gated">Buildável vs owner-gated</h2>
+<ul>
+<li><strong>Buildável (test-infra) quando o owner abrir EXP-21:</strong> o módulo cooperativo
+<code>HARNESS_CRASH_AT</code> no entrypoint do worker + a propagação de 3 linhas no
+processes.py + a fixture de recovery. É tooling de teste, opt-in, zero-custo em
+prod. Mas só faz sentido COM a medição.</li>
+<li><strong>Owner-gated:</strong> o EXP-21 em si (medir duplicate-effect/orphaned-work/
+time-to-resume) já era owner-gated. RD-CRASH entrega o injetor que ele precisa.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-rastreabilidade">Rastreabilidade</h2>
+<table>
+<thead>
+<tr>
+<th>Evidência</th>
+<th>Ideia</th>
+<th>Experimento</th>
+<th>Task</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4/5 (híbrido) + w-002 (flush-race) + SQLite VFS (w-005)</td>
+<td>CRASH-HYBRID + CRASH-COOP-WORKER</td>
+<td>habilita EXP-21</td>
+<td>RD-CRASH→injetor</td>
+<td>desenhado (build com EXP-21, owner-gated)</td>
+</tr>
+<tr>
+<td>w-004 (exit-code/scrub/Job-Object)</td>
+<td>regras de segurança do injetor</td>
+<td>—</td>
+<td>parte do spec</td>
+<td>desenhado</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-injection-round.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-injection-round.md</code></li><li>Source SHA-256: <code>25c577b1abf8609b2e19dfe058e875d1b9ddf080f31d688bfcaaf276923c9dd4</code></li><li>Edition-input SHA-256: <code>25c577b1abf8609b2e19dfe058e875d1b9ddf080f31d688bfcaaf276923c9dd4</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

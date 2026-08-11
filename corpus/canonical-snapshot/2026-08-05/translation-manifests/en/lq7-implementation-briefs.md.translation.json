@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/lq7-implementation-briefs.md",
+  "sourceSha256": "d108b21acb6ad97025b6bd6c935e809faa049b91e570dfaa6d7c677d9c22f261",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/lq7-implementation-briefs.en.md",
+  "translationSha256": "7b43cb82943496d98741de85d952357bbdb7e1e40dde66fba7b1d475be47609c",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

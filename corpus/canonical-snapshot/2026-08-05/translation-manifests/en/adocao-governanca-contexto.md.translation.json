@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/adocao-governanca-contexto.md",
+  "sourceSha256": "f0f41f5d4a2488eace6f1b1db75d65b695afa1d11a58662efec4fb20909a7053",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/adocao-governanca-contexto.en.md",
+  "translationSha256": "644fe1dbba730dd945859d3e65b677948726617775968c8991ae3e26bb24ed34",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

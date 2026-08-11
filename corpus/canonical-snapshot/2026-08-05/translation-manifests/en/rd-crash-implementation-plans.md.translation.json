@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-implementation-plans.md",
+  "sourceSha256": "f58f110448d890ff8923a7c4373b9a763a9c0b2e54a79b956ac6dd94283abcd1",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-implementation-plans.en.md",
+  "translationSha256": "240c62c717183338ff8f5024c1aba952b85162169fc7ef1e4eb69ccf6e67293d",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

@@ -1,0 +1,326 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research round — gate Phase-2 safety theory (safe-skip, default-flip, cleanliness contract) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-question">Question</a></li><li class="h2"><a href="#ed-success-criteria">Success criteria</a></li><li class="h2"><a href="#ed-declared-budget-width-d010">Declared budget &amp; width (D010)</a></li><li class="h2"><a href="#ed-declared-experiment-design-l18">Declared experiment design (L18)</a></li><li class="h2"><a href="#ed-phase-1-evidence-register">Phase 1 evidence (register)</a></li><li class="h2"><a href="#ed-phase-2-briefs-problem-framed">Phase 2 — briefs (problem-framed)</a></li><li class="h2"><a href="#ed-phase-3-divergence-wave-ran-2026-07-20">Phase 3 — divergence wave (ran 2026-07-20)</a></li><li class="h2"><a href="#ed-phase-4-operations-per-concept-set-based">Phase 4 — operations per concept (set-based)</a></li><li class="h2"><a href="#ed-phase-5-portfolio-delivery">Phase 5 — portfolio &amp; delivery</a></li><li class="h2"><a href="#ed-traceability">Traceability</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">RESEARCH ITERATION · 2026-08-05 snapshot</div><h1>Research round — gate Phase-2 safety theory (safe-skip, default-flip, cleanliness contract)</h1><p class="subtitle">Historical research iteration/round. Preserved as an intermediate research artifact.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>339fa401d61537f050f9…</span></div><div><b>Edition SHA-256</b><span>339fa401d61537f050f9…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Opened 2026-07-20 by the audit session (owner directive: "tudo que precisar de refinamento
+teórico/experimentação ainda não ideada, faça um research usando nvidia"). Double Diamond
+per <code>.harness/prompts/research-playbook.md</code>.</p>
+</section>
+<section class="section content"><h2 id="ed-question">Question</h2>
+<p>The 2026-07-20 audit shipped the mechanical fixes (SCENARIO-SKIP protocol, hold-set
+symmetry, guard teeth) but left three THEORY gaps that gate the Phase-2 wins:</p>
+<ol>
+<li><strong>SPEC-159 safe-skip enablement</strong> — under what conditions is skipping a cached,
+unaffected scenario PROVABLY safe? Sub-questions: verdict-cache semantics after
+skip≠pass (a LIVE falseSkip happened today: rt6's 0.4s self-skips were cached as
+passes for 10 runs, then its first real in-gate run failed — the shadow caught it);
+the enablement rule (falseSkip==0 over N runs — what N, with what statistical
+backing? what events must INVALIDATE the accumulated evidence?); and modeling the
+import-graph's subprocess blind spot beyond the <code>_GLOBAL_TRIGGERS</code> allowlist floor.</li>
+<li><strong>SPEC-160 default-flip equivalence</strong> — what protocol PROVES parallel == serial
+over the real 150-scenario battery (not the pure-orchestration fixture)? What must
+a HEAD-faithful worker copy contain (.git, HEAD .harness state) and how is
+faithfulness itself verified? Under what conditions can the SPEC-159 shadow be
+re-included in the worker path (today: deliberately excluded — copy-divergent
+verdicts must never feed the cache)?</li>
+<li><strong>Scenario↔gate-isolation cleanliness contract (the rt6 class)</strong> — what contract
+may a scenario that drives the REAL machinery assume about harness-regenerated
+docs inside the hold? Today rt6 hardcodes a <code>_REGEN</code> exclusion set; the writer set
+is discovered by archaeology, not declared by the harness.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-success-criteria">Success criteria</h2>
+<ul>
+<li>Each brief yields decision-ready options with named invalidation/failure conditions,
+not "do X": an enablement RULE for (1), a verifiable PROTOCOL for (2), a stated
+CONTRACT for (3).</li>
+<li>Every normative claim: <code>claim → source + date + confidence</code>; unverifiable → <code>judgment</code>.</li>
+<li>Novelty and maturity scored separately (playbook principle 2).</li>
+<li>Output feeds: EXP registration for (1)/(2) thresholds, backlog rows, and possibly a
+SPEC-116 amendment for (3).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-declared-budget-width-d010">Declared budget &amp; width (D010)</h2>
+<ul>
+<li><strong>Budget:</strong> 1 divergence wave on NVIDIA free-tier (<code>nvidia-compat</code>, credit cost ~0;
+declared ceiling ~70k est tokens incl. shared digest) + 1 agent-reduce. Critique wave
+only if the reduce shows contradictory or high-risk concepts (budget gate 60%).</li>
+<li><strong>Width: 4, mode custom.</strong> Focused-to-in-between per D010: the three sub-themes are
+coupled (all are "when is a gate shortcut trustworthy"), a defined feature set exists
+(SPEC-159/160 Phase 2), but the safety-proof space is genuinely open. One perspective
+per theme + one adversarial/cross-domain lens; EXP-15's over-fanning failure mode
+(5 workers, same 5 ideas) is the reason this is 4 and not 5.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-declared-experiment-design-l18">Declared experiment design (L18)</h2>
+<p>The round feeds measurable claims (enablement thresholds), so per L18:</p>
+<ul>
+<li>Safe-skip enablement (falseSkip==0 over N runs) → <strong>Confidence sequences</strong> card
+(<code>docs/EXPERIMENT_METHODS.md</code> §Confidence sequences): anytime-valid monitoring fits
+"keep watching shadow runs until the bound clears"; plus <strong>Noise floor</strong> (a falseSkip
+caused by scenario flakiness, not cache wrongness, must not count against the cache —
+today's rt6 event is exactly a non-cache-fault falseSkip).</li>
+<li>Default-flip equivalence → <strong>Non-inferiority</strong> card (parallel must be proven
+not-worse than serial within a stated margin, sustained) + <strong>Matched-budget controls</strong>
+(same battery, same order, paired runs).</li>
+<li>Cleanliness contract → no experiment; a design decision (SPEC-116 exit).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-1-evidence-register">Phase 1 evidence (register)</h2>
+<p>Prior art is largely in-repo (Flow B); the 2026-07-20 WF round already verified the
+external corpus this builds on.</p>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>year</th>
+<th>method</th>
+<th>limitations</th>
+<th>confidence</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[repo] Test-impact selection with conservative fallbacks (FB-0..4, every doubt runs) shipped shadow-only; falseSkip detector is the safety proof mechanism</td>
+<td><code>scripts/harness_lib/gate_affected.py</code>; <code>specs/40-features/gate-affected-cache.md</code></td>
+<td>repo</td>
+<td>2026</td>
+<td>code + spec</td>
+<td>Phase 1 only; subprocess blind spot floored by <code>_GLOBAL_TRIGGERS</code></td>
+<td>forte</td>
+<td>protótipo</td>
+</tr>
+<tr>
+<td>[repo] A REAL falseSkip occurred: skip-recorded-as-pass poisoned the cache (rt6, 10 runs at 0.4s), first real run failed, shadow SHOUTED</td>
+<td>gate-perf.jsonl rows 2026-07-19..20; audit session 2026-07-20</td>
+<td>measurement</td>
+<td>2026</td>
+<td>ledger forensics</td>
+<td>single event; root cause (skip≠pass) FIXED in the audit batch</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>[repo] Ekstazi/pytest-testmon/Bazel/TAP external evidence for dependency-based test selection + its false-negative risk</td>
+<td><code>docs/research/loop-workflow-efficiency-evidence.md</code></td>
+<td>repo(digest of web)</td>
+<td>2026</td>
+<td>prior round, primary sources</td>
+<td>web rows verified in that round, not re-fetched here</td>
+<td>moderada</td>
+<td>produção (external)</td>
+</tr>
+<tr>
+<td>[repo] Parallel worker copies omit .git + HEAD .harness state; divergence documented; equivalence proven only for pure orchestration (gps)</td>
+<td><code>scripts/harness_lib/gate_parallel.py</code> docstring; <code>specs/40-features/parallel-scenarios.md</code></td>
+<td>repo</td>
+<td>2026</td>
+<td>code + spec</td>
+<td>real-battery equivalence unmeasured</td>
+<td>forte</td>
+<td>protótipo</td>
+</tr>
+<tr>
+<td>[repo] The hold-set asymmetry class: regenerated docs (handoff/context) written mid-gate from live state</td>
+<td>audit session 2026-07-20 (fix A′: scenario_isolation.py <code>_targets</code>)</td>
+<td>measurement</td>
+<td>2026</td>
+<td>reproduced replica (1/5→5/5)</td>
+<td>writer set discovered by archaeology; no declared registry</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Anytime-valid inference (confidence sequences) suits sequential "watch until safe" monitoring</td>
+<td><code>docs/EXPERIMENT_METHODS.md</code> §Confidence sequences</td>
+<td>repo(methods)</td>
+<td>2026</td>
+<td>methods card</td>
+<td>applied here by analogy</td>
+<td>moderada</td>
+<td>validado (method)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-phase-2-briefs-problem-framed">Phase 2 — briefs (problem-framed)</h2>
+<ul>
+<li><strong>B1 (safe-skip):</strong> "How does the gate KNOW a skip cannot ship a false green?"
+Actors: gate, verdict cache, owner. Constraints: never false-green; skip evidence must
+be invalidated by the right events (gate-version bump, graph rebuild, scenario flake,
+cache-key scheme change); the subprocess blind spot must be modeled, not assumed away.</li>
+<li><strong>B2 (default-flip proof):</strong> "How do we PROVE the parallel battery is the same gate?"
+Actors: gate, worker copies, owner. Constraints: proof over the REAL battery;
+copy faithfulness verifiable; shadow re-inclusion must not poison the cache.</li>
+<li><strong>B3 (cleanliness contract):</strong> "What may a machinery-driving scenario assume about
+harness writes during the gate?" Actors: scenarios, isolation layer, harness writers.
+Constraints: no per-scenario archaeology; contract enforceable/testable.</li>
+</ul>
+<p>Human gate: the owner pre-authorized this round explicitly ("pode atacar tudo…faça um
+research usando nvidia", 2026-07-20); proceeding to one divergence wave.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-3-divergence-wave-ran-2026-07-20">Phase 3 — divergence wave (ran 2026-07-20)</h2>
+<p><code>WF-20260720-175712-339749</code>, fork-join, research-divergence, 4 ideators on
+<code>nvidia-compat</code>, shared digest (per-worker required-reads 13,871 → 4,893 tokens;
+wave 19,572 + packets ≈ 21.7k est, inside the 70k ceiling; free-tier credit cost ~0).</p>
+<p><strong>Wave health (recorded honestly):</strong> 2/4 ideators VALID (simplicidade, performance/
+escala). ideator-reliability and ideator-trust-boundary were REJECTED by the result
+contract — twice each (initial + one retry): findings at severity high/blocker without
+<code>sourceFilesVerified</code> (a text-only HTTP worker cannot verify files), and the
+trust-boundary draft additionally withheld by the pre-egress secret scan (it wrote
+literal <code>sk-…</code> example keys; the P5 guard fired correctly). Same failure class as the
+2026-07-20 WF round's worker-004. Rejected drafts are NOT cited below (anti-fabrication:
+rejected = out). Systemic fix promoted as a backlog row (<code>wf-research-packet-severity-cap</code>).
+An initially suspected validation race (result files present but classified failed) was
+investigated and REFUTED — the classifications were contract-correct.</p>
+<p>Agent-reduce (adopted): 6 concepts, 4 explicit conflicts — every conflict is the same
+axis: worker-001's deterministic/lighter design vs worker-002's statistical/layered
+design for the same sub-problem.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-4-operations-per-concept-set-based">Phase 4 — operations per concept (set-based)</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Genealogy</th>
+<th>Operation</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1 Deterministic skip invariant: skip ⇔ cached non-skip verdict AND zero invalidation events since (exhaustive enumerated set: gate-version bump, graph rebuild, closure-blob change, observed flake for that scenario, key-scheme change)</td>
+<td>w1-THEME1</td>
+<td><strong>mantida (núcleo)</strong></td>
+<td>The skip CONDITION must be deterministic — a probabilistic condition can ship a false green by construction</td>
+</tr>
+<tr>
+<td>C2 Statistical enablement (N≥20 window, confidence sequences / always-valid bounds; bounded shard concurrency during evidence accumulation)</td>
+<td>w2-P1</td>
+<td><strong>experimento (EXP-29)</strong></td>
+<td>Resolves CONFLICT-001 set-based: C1 is the runtime condition, C2 is the EVIDENCE BAR for turning Phase 2 on; noise floor excludes flake-caused falseSkips (today's rt6 event is the worked example)</td>
+</tr>
+<tr>
+<td>C3 Subprocess blind spot: static AST subprocess-edge extraction feeding a DECLARED edges manifest; an undeclared subprocess call ⇒ scenario stays affected (fail-to-run, never fail-the-gate)</td>
+<td>w1-THEME1b + w2-P3</td>
+<td><strong>combinada</strong></td>
+<td>Static tier is cheap and auditable; <code>_GLOBAL_TRIGGERS</code> stays as the floor; dynamic tracing tier estacionada (cost unproven)</td>
+</tr>
+<tr>
+<td>C4 Equivalence protocol: K≥3 paired serial‖parallel full-battery runs; ACCEPTANCE = verdict-map exact equality outside a declared flake-quarantine; durations advisory; verdict-vector hash as the comparison primitive</td>
+<td>w1-THEME2 + w2-P2</td>
+<td><strong>experimento (EXP-30), simplificada</strong></td>
+<td>Duration equality dropped from acceptance (noise); hash primitive kept for cheap comparison</td>
+</tr>
+<tr>
+<td>C5 HEAD-faithful copy + attestation: content-hash manifest (tracked files + HEAD .harness state + gate version) computed at fork = faithfulnessRoot; every worker copy must reproduce it; SPEC-159 shadow re-inclusion ONLY behind attestation + a copy-fidelity component in the cache key</td>
+<td>w2-P2/P5</td>
+<td><strong>mantida</strong></td>
+<td>Faithfulness becomes verifiable instead of assumed; keys copy-run verdicts separately so they can never poison live-cache entries</td>
+</tr>
+<tr>
+<td>C6 regen-manifest contract: harness publishes <code>regen-manifest.json</code> (every path it regenerates); scenarios import it (rt6's hardcoded <code>_REGEN</code> dies); a gate check diffs ACTUAL gate-run writes vs the manifest both ways</td>
+<td>w1-THEME3 + w2-P4 (2/2 convergence)</td>
+<td><strong>mantida (núcleo)</strong></td>
+<td>Replaces archaeology with a declared, tested contract; the audit's fix A′ exclusion set becomes one import</td>
+</tr>
+<tr>
+<td>Cross-theme <code>gate-state.json</code> unification (single manifest for all three)</td>
+<td>w1-cross</td>
+<td><strong>estacionada</strong></td>
+<td>Unify only if the three stores measurably rot apart — premature coupling today (ponytail)</td>
+</tr>
+<tr>
+<td>Write-suppression inside scenarios (alternative for THEME 3)</td>
+<td>w2-P4 alt</td>
+<td><strong>rejeitada</strong></td>
+<td>Runtime magic; the manifest + isolation targets already close the leak</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-phase-5-portfolio-delivery">Phase 5 — portfolio &amp; delivery</h2>
+<ul>
+<li><strong>núcleo:</strong> C1 (skip invariant), C6 (regen manifest → row <code>wf-regen-manifest</code>)</li>
+<li><strong>contingência:</strong> <code>_GLOBAL_TRIGGERS</code> floor stays if C3's extraction underdelivers</li>
+<li><strong>experimentos:</strong> EXP-29 (safe-skip enablement bound), EXP-30 (default-flip equivalence) — registered 2026-07-20, status proposed</li>
+<li><strong>estacionadas:</strong> dynamic subprocess tracing tier; gate-state unification</li>
+<li><strong>rejeitadas:</strong> write-suppression; statistics-as-skip-condition (either extreme alone)</li>
+</ul>
+<p>Backlog rows promoted (WF table): <code>wf-regen-manifest</code> (C6), <code>wf-subprocess-edges</code> (C3),
+<code>wf-research-packet-severity-cap</code> (wave-health fix); <code>wf-gate-cache-enable-skip</code> and
+<code>wf-parallel-default-flip</code> augmented with EXP-29/EXP-30 as their evidence bars.
+Decisions appended to <code>.harness/context/DECISIONS.md</code> (D-entries with trade-offs).</p>
+</section>
+<section class="section content"><h2 id="ed-traceability">Traceability</h2>
+<table>
+<thead>
+<tr>
+<th>Evidência</th>
+<th>Problema</th>
+<th>Ideia</th>
+<th>Experimento/ADR</th>
+<th>Spec</th>
+<th>Task</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>falseSkip real 2026-07-20 (gate-perf.jsonl) + FB-0..4</td>
+<td>quando skip é seguro</td>
+<td>C1+C2</td>
+<td>EXP-29</td>
+<td>SPEC-159 (fase 2 amendment futura)</td>
+<td>wf-gate-cache-enable-skip</td>
+<td>owner-gated, evidence bar declarada</td>
+</tr>
+<tr>
+<td>subprocess blind spot (<code>_GLOBAL_TRIGGERS</code>)</td>
+<td>TIA além do floor</td>
+<td>C3</td>
+<td>—</td>
+<td>amendment futuro</td>
+<td>wf-subprocess-edges</td>
+<td>promovida</td>
+</tr>
+<tr>
+<td>gps fixture-only equivalence; copy omite .git/HEAD</td>
+<td>prova do flip</td>
+<td>C4+C5</td>
+<td>EXP-30</td>
+<td>SPEC-160 (amendment futuro)</td>
+<td>wf-parallel-default-flip</td>
+<td>owner-gated, protocolo declarado</td>
+</tr>
+<tr>
+<td>fix A′ + <code>_REGEN</code> hardcoded (audit 2026-07-20)</td>
+<td>contrato de limpeza</td>
+<td>C6</td>
+<td>—</td>
+<td>SPEC-116 door NEW ao construir</td>
+<td>wf-regen-manifest</td>
+<td>promovida</td>
+</tr>
+<tr>
+<td>2×2 rejeições de contrato (esta wave + round anterior)</td>
+<td>saúde das waves NVIDIA</td>
+<td>severity cap no packet</td>
+<td>—</td>
+<td>—</td>
+<td>wf-research-packet-severity-cap</td>
+<td>promovida</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/gate-phase2-safety-round.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/gate-phase2-safety-round.md</code></li><li>Source SHA-256: <code>339fa401d61537f050f91a424e12765876998dbc32f2e6f70f422a7d87300ab9</code></li><li>Edition-input SHA-256: <code>339fa401d61537f050f91a424e12765876998dbc32f2e6f70f422a7d87300ab9</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

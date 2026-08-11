@@ -20,8 +20,14 @@ def main():
  idx=json.loads(INDEX.read_text(encoding='utf-8')); item=next((x for x in idx['items'] if x['sourcePath']=='docs/research/'+rel.as_posix()),None)
  if not item: raise SystemExit('source not in snapshot index')
  if sha(src)!=item['sha256']: raise SystemExit('source hash drift')
- suffix=''.join(rel.suffixes) or '.txt'; stem=rel.name[:-len(suffix)] if suffix else rel.name
- out=TRROOT/rel.parent/(stem+'.en'+suffix); out.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(supplied,out)
+ source_suffix=''.join(rel.suffixes) or '.txt'; stem=rel.name[:-len(source_suffix)] if source_suffix else rel.name
+ # Editorial translations may intentionally change representation (for example HTML source -> Markdown EN derivative).
+ # Preserve the supplied representation instead of forcing the source suffix.
+ supplied_suffix=''.join(supplied.suffixes) or source_suffix
+ # If the supplied file is already named <stem>.en.<ext>, avoid duplicating '.en'.
+ target_name = supplied.name if supplied.name.startswith(stem+'.en') else (stem+'.en'+supplied_suffix)
+ out=TRROOT/rel.parent/target_name; out.parent.mkdir(parents=True,exist_ok=True)
+ if supplied.resolve() != out.resolve(): shutil.copy2(supplied,out)
  trsha=sha(out)
  trrel=out.relative_to(ROOT).as_posix()
  item['englishTranslationPath']=trrel; item['translationStatus']='MACHINE_TRANSLATED_UNREVIEWED'; item['translationSha256']=trsha

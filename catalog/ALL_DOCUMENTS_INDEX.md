@@ -29,62 +29,62 @@ Documents: **93**.
 | Repository document | Language | Translation | SHA-256 |
 |---|---|---|---|
 | [RESEARCH.md](../corpus/canonical-snapshot/2026-08-05/docs/research/RESEARCH.md) | `en` | EN source | `1034b3d1bf904da4…` |
-| [acceptance-authority-proposals.md](../corpus/canonical-snapshot/2026-08-05/docs/research/acceptance-authority-proposals.md) | `pt-BR` | EN pending | `3017fe3c1237c810…` |
-| [adocao-governanca-contexto.md](../corpus/canonical-snapshot/2026-08-05/docs/research/adocao-governanca-contexto.md) | `pt-BR` | EN pending | `f0f41f5d4a2488ea…` |
+| [acceptance-authority-proposals.md](../corpus/canonical-snapshot/2026-08-05/docs/research/acceptance-authority-proposals.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/acceptance-authority-proposals.en.md) | `3017fe3c1237c810…` |
+| [adocao-governanca-contexto.md](../corpus/canonical-snapshot/2026-08-05/docs/research/adocao-governanca-contexto.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/adocao-governanca-contexto.en.md) | `f0f41f5d4a2488ea…` |
 | [agent-communication-protocols.md](../corpus/canonical-snapshot/2026-08-05/docs/research/agent-communication-protocols.md) | `en` | EN source | `295f190c211035bc…` |
 | [agent-gui-cli-features.md](../corpus/canonical-snapshot/2026-08-05/docs/research/agent-gui-cli-features.md) | `en` | EN source | `e0d10dd63f93e585…` |
-| [article-coverage-backlog.md](../corpus/canonical-snapshot/2026-08-05/docs/research/article-coverage-backlog.md) | `pt-BR` | EN pending | `12e135202245a7c5…` |
+| [article-coverage-backlog.md](../corpus/canonical-snapshot/2026-08-05/docs/research/article-coverage-backlog.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/article-coverage-backlog.en.md) | `12e135202245a7c5…` |
 | [audit-playbook-injection-surfaces.md](../corpus/canonical-snapshot/2026-08-05/docs/research/audit-playbook-injection-surfaces.md) | `en` | EN source | `adc03213290e09bd…` |
 | [audit-playbook-metrics-baseline.md](../corpus/canonical-snapshot/2026-08-05/docs/research/audit-playbook-metrics-baseline.md) | `en` | EN source | `3614bcffdfd51eed…` |
-| [audit-quorum-dinamico.md](../corpus/canonical-snapshot/2026-08-05/docs/research/audit-quorum-dinamico.md) | `pt-BR` | EN pending | `f03e6a7a5f2d33b3…` |
+| [audit-quorum-dinamico.md](../corpus/canonical-snapshot/2026-08-05/docs/research/audit-quorum-dinamico.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/audit-quorum-dinamico.en.md) | `f03e6a7a5f2d33b3…` |
 | [backlog-dependency-graph-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-dependency-graph-implementation-plans.md) | `en` | EN source | `27f8949e4b7ff442…` |
 | [backlog-dependency-graph-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-dependency-graph-round.md) | `en` | EN source | `5fb38fec0a107c27…` |
 | [backlog-groom-2026-07-18.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-18.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-18.en.md) | `72d25d68a2fa1505…` |
 | [backlog-groom-2026-07-21.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-21.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-21.en.md) | `26cd7a1d7e3b80e0…` |
-| [backlog-groom-2026-07-22-windown.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-22-windown.md) | `pt-BR` | EN pending | `e4a6827feec5f7f8…` |
+| [backlog-groom-2026-07-22-windown.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-22-windown.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-22-windown.en.md) | `e4a6827feec5f7f8…` |
 | [backlog-groom-2026-07-22.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-22.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-22.en.md) | `001a20da768839a0…` |
 | [backlog-groom-2026-07-22b.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-22b.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-22b.en.md) | `b50619962acd87f1…` |
-| [backlog-groom-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-23.md) | `pt-BR` | EN pending | `c376a89435ce56db…` |
+| [backlog-groom-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-23.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-23.en.md) | `c376a89435ce56db…` |
 | [backlog-groom-2026-07-29.md](../corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-29.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-29.en.md) | `9262afaa6b9a6d3b…` |
 | [baseline-delegations-frozen-2026-07-30.json](../corpus/canonical-snapshot/2026-08-05/docs/research/baseline-delegations-frozen-2026-07-30.json) | `en` | EN source | `e030f4f61a120644…` |
 | [code-quality-agents.md](../corpus/canonical-snapshot/2026-08-05/docs/research/code-quality-agents.md) | `en` | EN source | `8819981f8a046c43…` |
 | [code-security-agents.md](../corpus/canonical-snapshot/2026-08-05/docs/research/code-security-agents.md) | `en` | EN source | `d860d06f58b96e26…` |
-| [compaction-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/compaction-implementation-plans.md) | `pt-BR` | EN pending | `cae66f1d9f141eb6…` |
-| [compaction-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/compaction-round.md) | `pt-BR` | EN pending | `792a3c27d11e3bb4…` |
-| [conformance-selfassessment.md](../corpus/canonical-snapshot/2026-08-05/docs/research/conformance-selfassessment.md) | `pt-BR` | EN pending | `190e511e0f45618f…` |
-| [construct-metrics.md](../corpus/canonical-snapshot/2026-08-05/docs/research/construct-metrics.md) | `pt-BR` | EN pending | `7362f2cf5c678a89…` |
+| [compaction-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/compaction-implementation-plans.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/compaction-implementation-plans.en.md) | `cae66f1d9f141eb6…` |
+| [compaction-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/compaction-round.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/compaction-round.en.md) | `792a3c27d11e3bb4…` |
+| [conformance-selfassessment.md](../corpus/canonical-snapshot/2026-08-05/docs/research/conformance-selfassessment.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/conformance-selfassessment.en.md) | `190e511e0f45618f…` |
+| [construct-metrics.md](../corpus/canonical-snapshot/2026-08-05/docs/research/construct-metrics.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/construct-metrics.en.md) | `7362f2cf5c678a89…` |
 | [deep-research-pipelines.md](../corpus/canonical-snapshot/2026-08-05/docs/research/deep-research-pipelines.md) | `en` | EN source | `4f167bcbd71d9694…` |
 | [defect-decide-materialize-bridge.md](../corpus/canonical-snapshot/2026-08-05/docs/research/defect-decide-materialize-bridge.md) | `en` | EN source | `d4807f7ed9049829…` |
 | [divergence-graph-refresh-round2.md](../corpus/canonical-snapshot/2026-08-05/docs/research/divergence-graph-refresh-round2.md) | `en` | EN source | `920e6e8cf7d5a61f…` |
 | [dynamic-workflows.md](../corpus/canonical-snapshot/2026-08-05/docs/research/dynamic-workflows.md) | `en` | EN source | `95c18133e06e7980…` |
-| [empirical-pin-verification-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/empirical-pin-verification-2026-07-23.md) | `pt-BR` | EN pending | `f35c00cfea0cb79a…` |
-| [estudo-governanca-contexto-v2.md](../corpus/canonical-snapshot/2026-08-05/docs/research/estudo-governanca-contexto-v2.md) | `pt-BR` | EN pending | `7ebe9e14acfbeadf…` |
-| [event-log-integrity-under-compaction.md](../corpus/canonical-snapshot/2026-08-05/docs/research/event-log-integrity-under-compaction.md) | `pt-BR` | EN pending | `59456f89032ff9c8…` |
-| [exp20-three-lane-design.md](../corpus/canonical-snapshot/2026-08-05/docs/research/exp20-three-lane-design.md) | `pt-BR` | EN pending | `001faf1ffded00d3…` |
+| [empirical-pin-verification-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/empirical-pin-verification-2026-07-23.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/empirical-pin-verification-2026-07-23.en.md) | `f35c00cfea0cb79a…` |
+| [estudo-governanca-contexto-v2.md](../corpus/canonical-snapshot/2026-08-05/docs/research/estudo-governanca-contexto-v2.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/estudo-governanca-contexto-v2.en.md) | `7ebe9e14acfbeadf…` |
+| [event-log-integrity-under-compaction.md](../corpus/canonical-snapshot/2026-08-05/docs/research/event-log-integrity-under-compaction.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/event-log-integrity-under-compaction.en.md) | `59456f89032ff9c8…` |
+| [exp20-three-lane-design.md](../corpus/canonical-snapshot/2026-08-05/docs/research/exp20-three-lane-design.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/exp20-three-lane-design.en.md) | `001faf1ffded00d3…` |
 | [exp21-p1-orphan-probe-2026-07-27.md](../corpus/canonical-snapshot/2026-08-05/docs/research/exp21-p1-orphan-probe-2026-07-27.md) | `en` | EN source | `dd523c9a8debd2f6…` |
 | [experiment-result-format.md](../corpus/canonical-snapshot/2026-08-05/docs/research/experiment-result-format.md) | `en` | EN source | `9dc814c6574c5cb3…` |
 | [forensics-2026-07-24-postcommit-blocking-commit.md](../corpus/canonical-snapshot/2026-08-05/docs/research/forensics-2026-07-24-postcommit-blocking-commit.md) | `en` | EN source | `7651e1c08cd012e2…` |
 | [forensics-2026-07-25-codex-applypatch-split-writable-roots.md](../corpus/canonical-snapshot/2026-08-05/docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md) | `en` | EN source | `00021b74af5bb077…` |
-| [gate-perf-fail-fast-2026-07-16.md](../corpus/canonical-snapshot/2026-08-05/docs/research/gate-perf-fail-fast-2026-07-16.md) | `pt-BR` | EN pending | `73eb8521ed9468af…` |
+| [gate-perf-fail-fast-2026-07-16.md](../corpus/canonical-snapshot/2026-08-05/docs/research/gate-perf-fail-fast-2026-07-16.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/gate-perf-fail-fast-2026-07-16.en.md) | `73eb8521ed9468af…` |
 | [gate-phase2-safety-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/gate-phase2-safety-round.md) | `en` | EN source | `339fa401d61537f0…` |
-| [gate-surface-definition-2026-07-26.md](../corpus/canonical-snapshot/2026-08-05/docs/research/gate-surface-definition-2026-07-26.md) | `pt-BR` | EN pending | `51bd86cf16a19b66…` |
+| [gate-surface-definition-2026-07-26.md](../corpus/canonical-snapshot/2026-08-05/docs/research/gate-surface-definition-2026-07-26.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/gate-surface-definition-2026-07-26.en.md) | `51bd86cf16a19b66…` |
 | [graph-round2-ideation-divergence.md](../corpus/canonical-snapshot/2026-08-05/docs/research/graph-round2-ideation-divergence.md) | `en` | EN source | `b3cda7aae29597b9…` |
-| [guia-playbooks-engineering-2026-07-29.html](../corpus/canonical-snapshot/2026-08-05/docs/research/guia-playbooks-engineering-2026-07-29.html) | `mixed` | EN pending | `6d17ea257d77930b…` |
-| [harness-own-sandbox.md](../corpus/canonical-snapshot/2026-08-05/docs/research/harness-own-sandbox.md) | `pt-BR` | EN pending | `63ae0538101a3fd0…` |
-| [harness-reference-architecture-adoption.md](../corpus/canonical-snapshot/2026-08-05/docs/research/harness-reference-architecture-adoption.md) | `pt-BR` | EN pending | `4b5a1c5db4c47c1e…` |
+| [guia-playbooks-engineering-2026-07-29.html](../corpus/canonical-snapshot/2026-08-05/docs/research/guia-playbooks-engineering-2026-07-29.html) | `mixed` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/guia-playbooks-engineering-2026-07-29.en.md) | `6d17ea257d77930b…` |
+| [harness-own-sandbox.md](../corpus/canonical-snapshot/2026-08-05/docs/research/harness-own-sandbox.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/harness-own-sandbox.en.md) | `63ae0538101a3fd0…` |
+| [harness-reference-architecture-adoption.md](../corpus/canonical-snapshot/2026-08-05/docs/research/harness-reference-architecture-adoption.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/harness-reference-architecture-adoption.en.md) | `4b5a1c5db4c47c1e…` |
 | [ide-embedded-gui.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ide-embedded-gui.md) | `en` | EN source | `376dd81ed438d5d1…` |
 | [ide-shard-refinement-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ide-shard-refinement-2026-07-23.md) | `en` | EN source | `3d95574845cfef48…` |
 | [ideators-graph-refresh-queue-round1.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ideators-graph-refresh-queue-round1.md) | `en` | EN source | `c1eec672b9ff6cbf…` |
 | [loop-workflow-efficiency-evidence.md](../corpus/canonical-snapshot/2026-08-05/docs/research/loop-workflow-efficiency-evidence.md) | `en` | EN source | `523668c2307857b5…` |
 | [loop-workflow-efficiency-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/loop-workflow-efficiency-round.md) | `en` | EN source | `0d7ec9ab4de88b03…` |
-| [lq7-implementation-briefs.md](../corpus/canonical-snapshot/2026-08-05/docs/research/lq7-implementation-briefs.md) | `pt-BR` | EN pending | `d108b21acb6ad970…` |
+| [lq7-implementation-briefs.md](../corpus/canonical-snapshot/2026-08-05/docs/research/lq7-implementation-briefs.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/lq7-implementation-briefs.en.md) | `d108b21acb6ad970…` |
 | [memory-context-management.md](../corpus/canonical-snapshot/2026-08-05/docs/research/memory-context-management.md) | `en` | EN source | `5a89569fe59c6d00…` |
-| [naming-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/naming-round.md) | `pt-BR` | EN pending | `acb8c93ab727d4d7…` |
-| [nielsen-genai-agent-ux.md](../corpus/canonical-snapshot/2026-08-05/docs/research/nielsen-genai-agent-ux.md) | `pt-BR` | EN pending | `2e0a3ad63ae855fc…` |
+| [naming-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/naming-round.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/naming-round.en.md) | `acb8c93ab727d4d7…` |
+| [nielsen-genai-agent-ux.md](../corpus/canonical-snapshot/2026-08-05/docs/research/nielsen-genai-agent-ux.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/nielsen-genai-agent-ux.en.md) | `2e0a3ad63ae855fc…` |
 | [nvidia-smart-models.md](../corpus/canonical-snapshot/2026-08-05/docs/research/nvidia-smart-models.md) | `en` | EN source | `d6faf5422d01a9a1…` |
 | [observability-generative.md](../corpus/canonical-snapshot/2026-08-05/docs/research/observability-generative.md) | `en` | EN source | `4b85fa897239e187…` |
-| [opus-overseer-quality-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/opus-overseer-quality-2026-07-23.md) | `pt-BR` | EN pending | `50f6c438b45b0dec…` |
-| [pipeline-metamodel.md](../corpus/canonical-snapshot/2026-08-05/docs/research/pipeline-metamodel.md) | `pt-BR` | EN pending | `6d74519e9f1be9e3…` |
+| [opus-overseer-quality-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/opus-overseer-quality-2026-07-23.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/opus-overseer-quality-2026-07-23.en.md) | `50f6c438b45b0dec…` |
+| [pipeline-metamodel.md](../corpus/canonical-snapshot/2026-08-05/docs/research/pipeline-metamodel.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/pipeline-metamodel.en.md) | `6d74519e9f1be9e3…` |
 | [plan-backlog-json-canonical-DRAFT.md](../corpus/canonical-snapshot/2026-08-05/docs/research/plan-backlog-json-canonical-DRAFT.md) | `en` | EN source | `ae40a02e29c1d0c7…` |
 | [plan-exp21-crash-injection-DRAFT.md](../corpus/canonical-snapshot/2026-08-05/docs/research/plan-exp21-crash-injection-DRAFT.md) | `en` | EN source | `83b95fcf6c01ca79…` |
 | [plan-gate-browser-lane-DRAFT.md](../corpus/canonical-snapshot/2026-08-05/docs/research/plan-gate-browser-lane-DRAFT.md) | `en` | EN source | `b28ad8e1c30bc2f3…` |
@@ -95,32 +95,32 @@ Documents: **93**.
 | [playbook-hierarchy-refinement-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/playbook-hierarchy-refinement-2026-07-23.md) | `en` | EN source | `096d7f5e820eeb52…` |
 | [playbook-inheritance-article-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/playbook-inheritance-article-2026-07-23.md) | `en` | EN source | `2cb87ad1a5c24b51…` |
 | [playbook-inheritance-round-2026-07-23.md](../corpus/canonical-snapshot/2026-08-05/docs/research/playbook-inheritance-round-2026-07-23.md) | `en` | EN source | `5d077619b0a82f83…` |
-| [ptc-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ptc-implementation-plans.md) | `pt-BR` | EN pending | `fd3b1e74e700d8c3…` |
-| [ptc-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ptc-round.md) | `pt-BR` | EN pending | `a96a37742c2fd457…` |
+| [ptc-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ptc-implementation-plans.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ptc-implementation-plans.en.md) | `fd3b1e74e700d8c3…` |
+| [ptc-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ptc-round.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ptc-round.en.md) | `a96a37742c2fd457…` |
 | [race-mode-test-1.md](../corpus/canonical-snapshot/2026-08-05/docs/research/race-mode-test-1.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/race-mode-test-1.en.md) | `655afc08e89e0b43…` |
-| [rd-crash-adapter-boundary.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-adapter-boundary.md) | `pt-BR` | EN pending | `cac124f6f3caa896…` |
-| [rd-crash-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-implementation-plans.md) | `pt-BR` | EN pending | `f58f110448d890ff…` |
-| [rd-crash-injection-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-injection-round.md) | `pt-BR` | EN pending | `25c577b1abf8609b…` |
-| [rd-taint-camel-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-taint-camel-round.md) | `pt-BR` | EN pending | `7fef446e9203ce78…` |
-| [rd-taint-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-taint-implementation-plans.md) | `pt-BR` | EN pending | `80edbda1f357e9cc…` |
-| [rd-u-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-implementation-plans.md) | `pt-BR` | EN pending | `c915c4de4c2d0680…` |
-| [rd-u-utility-function-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-utility-function-round.md) | `pt-BR` | EN pending | `53eb29f7f24fccea…` |
+| [rd-crash-adapter-boundary.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-adapter-boundary.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-adapter-boundary.en.md) | `cac124f6f3caa896…` |
+| [rd-crash-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-implementation-plans.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-implementation-plans.en.md) | `f58f110448d890ff…` |
+| [rd-crash-injection-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-crash-injection-round.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-crash-injection-round.en.md) | `25c577b1abf8609b…` |
+| [rd-taint-camel-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-taint-camel-round.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-taint-camel-round.en.md) | `7fef446e9203ce78…` |
+| [rd-taint-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-taint-implementation-plans.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-taint-implementation-plans.en.md) | `80edbda1f357e9cc…` |
+| [rd-u-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-implementation-plans.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-u-implementation-plans.en.md) | `c915c4de4c2d0680…` |
+| [rd-u-utility-function-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/rd-u-utility-function-round.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/rd-u-utility-function-round.en.md) | `53eb29f7f24fccea…` |
 | [reckon-efficiency-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/reckon-efficiency-round.md) | `en` | EN source | `dd53c2dcab128fbf…` |
-| [semantic-finding-dedup.md](../corpus/canonical-snapshot/2026-08-05/docs/research/semantic-finding-dedup.md) | `pt-BR` | EN pending | `e4fe4bd80ca19591…` |
+| [semantic-finding-dedup.md](../corpus/canonical-snapshot/2026-08-05/docs/research/semantic-finding-dedup.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/semantic-finding-dedup.en.md) | `e4fe4bd80ca19591…` |
 | [sources/adaptive-project-oriented-multi-agent-harness-architectures.md](../corpus/canonical-snapshot/2026-08-05/docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md) | `en` | EN source | `5eeacc884342f526…` |
 | [spawn-cost-governance-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/spawn-cost-governance-implementation-plans.md) | `en` | EN source | `2b30f1f62de8554e…` |
 | [spawn-cost-governance-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/spawn-cost-governance-round.md) | `en` | EN source | `ce610b094f73737c…` |
-| [truth-reconciliation-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/truth-reconciliation-implementation-plans.md) | `pt-BR` | EN pending | `40a5a28cb4274cde…` |
-| [truth-reconciliation-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/truth-reconciliation-round.md) | `pt-BR` | EN pending | `545b53b1d33f0568…` |
-| [ux-agents-consolidated-2026-07-13.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ux-agents-consolidated-2026-07-13.md) | `pt-BR` | EN pending | `3391883cf010da5a…` |
-| [ux-agents-consolidated-analysis.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ux-agents-consolidated-analysis.md) | `pt-BR` | EN pending | `9668dcf20277fec1…` |
+| [truth-reconciliation-implementation-plans.md](../corpus/canonical-snapshot/2026-08-05/docs/research/truth-reconciliation-implementation-plans.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/truth-reconciliation-implementation-plans.en.md) | `40a5a28cb4274cde…` |
+| [truth-reconciliation-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/truth-reconciliation-round.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/truth-reconciliation-round.en.md) | `545b53b1d33f0568…` |
+| [ux-agents-consolidated-2026-07-13.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ux-agents-consolidated-2026-07-13.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ux-agents-consolidated-2026-07-13.en.md) | `3391883cf010da5a…` |
+| [ux-agents-consolidated-analysis.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ux-agents-consolidated-analysis.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/ux-agents-consolidated-analysis.en.md) | `9668dcf20277fec1…` |
 | [ux-ui-generative.md](../corpus/canonical-snapshot/2026-08-05/docs/research/ux-ui-generative.md) | `en` | EN source | `38d9280e2874e79f…` |
-| [vendor-credit-tracking-log.md](../corpus/canonical-snapshot/2026-08-05/docs/research/vendor-credit-tracking-log.md) | `pt-BR` | EN pending | `8f2333628a3adb5d…` |
-| [w29-evidence-gated-assurance-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/w29-evidence-gated-assurance-round.md) | `pt-BR` | EN pending | `dbb18dc623c079f0…` |
-| [weekly-monitor-w28-code-quality-extract.md](../corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-code-quality-extract.md) | `pt-BR` | EN pending | `78be92a039f9127d…` |
-| [weekly-monitor-w28-dynamic-workflows-extract.md](../corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-dynamic-workflows-extract.md) | `pt-BR` | EN pending | `c267e711253f6949…` |
-| [weekly-monitor-w28-memory-extract.md](../corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-memory-extract.md) | `pt-BR` | EN pending | `ce4daa2f373da063…` |
-| [weekly-monitor-w28-multiagent-extract.md](../corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-multiagent-extract.md) | `pt-BR` | EN pending | `5883f5807b92cd43…` |
+| [vendor-credit-tracking-log.md](../corpus/canonical-snapshot/2026-08-05/docs/research/vendor-credit-tracking-log.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/vendor-credit-tracking-log.en.md) | `8f2333628a3adb5d…` |
+| [w29-evidence-gated-assurance-round.md](../corpus/canonical-snapshot/2026-08-05/docs/research/w29-evidence-gated-assurance-round.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/w29-evidence-gated-assurance-round.en.md) | `dbb18dc623c079f0…` |
+| [weekly-monitor-w28-code-quality-extract.md](../corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-code-quality-extract.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-code-quality-extract.en.md) | `78be92a039f9127d…` |
+| [weekly-monitor-w28-dynamic-workflows-extract.md](../corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-dynamic-workflows-extract.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-dynamic-workflows-extract.en.md) | `c267e711253f6949…` |
+| [weekly-monitor-w28-memory-extract.md](../corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-memory-extract.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-memory-extract.en.md) | `ce4daa2f373da063…` |
+| [weekly-monitor-w28-multiagent-extract.md](../corpus/canonical-snapshot/2026-08-05/docs/research/weekly-monitor-w28-multiagent-extract.md) | `pt-BR` | [EN](../corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/weekly-monitor-w28-multiagent-extract.en.md) | `5883f5807b92cd43…` |
 
 ## 3. File Library references awaiting exact-byte rehydration
 

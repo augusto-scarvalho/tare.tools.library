@@ -1,0 +1,286 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research round — bridging `intake decide` → materialization — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-question">Question</a></li><li class="h2"><a href="#ed-success-criteria-what-a-good-answer-must-satisfy">Success criteria (what a good answer must satisfy)</a></li><li class="h2"><a href="#ed-declared-budget-width-phase-0">Declared budget &amp; width (Phase 0)</a></li><li class="h2"><a href="#ed-genealogy-results">Genealogy / results</a></li><li class="h3"><a href="#ed-the-12-cards-one-ladder-least-bridge-most-bridge">The 12 cards → one ladder (least-bridge → most-bridge)</a></li><li class="h3"><a href="#ed-cross-vendor-divergence-the-point-of-the-mixed-fleet">Cross-vendor divergence (the point of the mixed fleet)</a></li><li class="h3"><a href="#ed-portfolio-set-based-each-card-in-exactly-one-bucket">Portfolio (set-based; each card in exactly one bucket)</a></li><li class="h3"><a href="#ed-second-diamond-crossed-critique-cross-vendor-non-frontier">Second diamond — crossed critique (cross-vendor, non-frontier)</a></li><li class="h3"><a href="#ed-portfolio-revised-after-crossed-critique-set-based-each-card-one-bucket">Portfolio (REVISED after crossed critique; set-based, each card one bucket)</a></li><li class="h3"><a href="#ed-recommendation-ponytail-post-critique">Recommendation (ponytail, post-critique)</a></li><li class="h3"><a href="#ed-spinoff-experiment-exp-37-cheap-independent-auditor-for-a-carimbo-owner-idea-2026-08-01">Spinoff experiment — EXP-37: cheap independent auditor for a &quot;carimbo&quot; (owner idea, 2026-08-01)</a></li><li class="h3"><a href="#ed-traceability">Traceability</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research round — bridging `intake decide` → materialization</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>d4807f7ed90498295d02…</span></div><div><b>Edition SHA-256</b><span>d4807f7ed90498295d02…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Slug: <code>defect-decide-materialize-bridge</code> · opened 2026-08-01 · orchestrator: overseer (opus-4-8 fallback)</p>
+</section>
+<section class="section content"><h2 id="ed-question">Question</h2>
+<p>The defect/intake pipeline is automatic from <code>audit → defect ingest → sink + intake-pending</code>
+up to <code>intake decide</code>. But <code>decide</code> (<code>intake_queue.py:97-111</code>) is <strong>only a status flip</strong>:
+it stamps <code>status</code>/<code>decidedAt</code>/<code>note</code> and writes the queue. Nothing downstream is created:</p>
+<ul>
+<li><code>decide backlog</code> → no <code>tasks_store</code> row</li>
+<li><code>decide spec</code> → no spec file / no SPEC-116 intake</li>
+<li><code>decide experiment</code> → no <code>experiment add</code> / registry row</li>
+<li>and there is <strong>no enforcement</strong> that a <code>decide spec</code> is ever followed by a real spec.</li>
+</ul>
+<p>Acting on a decided defect is 100% human (via <code>backlog-groom</code>). The decided entry then ages
+out of the bounded queue (<code>cost_metrics.py:603</code> trims oldest DECIDED first), read only by
+<code>_approvals</code> as a by-choice counter.</p>
+<p><strong>HMW:</strong> How (if at all) should the harness bridge a <code>decide &lt;choice&gt;</code> to a durable downstream
+artifact — or deliberately keep it manual — such that decisions don't rot into "decided but
+never acted on" with no trace?</p>
+</section>
+<section class="section content"><h2 id="ed-success-criteria-what-a-good-answer-must-satisfy">Success criteria (what a good answer must satisfy)</h2>
+<p>Actors: overseer (runs <code>decide</code>), backlog-groom human, workers (would consume any created row),
+<code>doctor</code> (staleness nag), <code>_approvals</code> metric.</p>
+<p>Constraints (hard):</p>
+<ul>
+<li>No hand-written markdown ledgers (SPEC-112); canonical state is the registry/store, not a doc.</li>
+<li>Materialization must be <strong>gate-hold-safe</strong> — like <code>ingest</code>, refuse/defer when <code>.harness</code> is held.</li>
+<li><strong>Idempotent</strong> — re-deciding or a rerun must not spawn duplicate tasks/specs.</li>
+<li>Must not manufacture <strong>orphan/spam artifacts</strong> (an auto-created spec/task nobody vetted is worse
+than the current gap — the intake <code>ask</code> is a cluster header, not a spec body).</li>
+<li>Reversible: a wrong <code>decide</code> must be recoverable without leaving a dangling downstream row.</li>
+<li>Cheap: this is low-volume triage; no heavy new subsystem for a handful of decisions.</li>
+</ul>
+<p>A good answer addresses BOTH gaps: (1) <code>decide</code> creates nothing durable downstream;
+(2) nothing enforces that a decision is honored. "Deliberately don't bridge" is a valid answer
+if it closes gap (2) another way (e.g. make the un-acted decision visible/nagged).</p>
+</section>
+<section class="section content"><h2 id="ed-declared-budget-width-phase-0">Declared budget &amp; width (Phase 0)</h2>
+<ul>
+<li><strong>Width: 4 ideators</strong> — owner-specified fleet: 2× Anthropic Sonnet 5 + 2× NVIDIA (z-ai/glm-5.2).
+In-between complexity: single theme but a real option space incl. "don't bridge". Vendor
+heterogeneity is deliberate (independent generation across two providers — Diversity Collapse
+arXiv:2604.18005; MAD-heterogeneity arXiv:2502.08788). One run = one executor, so the fleet is
+split into two divergence workflows (2+2), reduced together by the orchestrator.</li>
+<li><strong>Budget:</strong> <code>research-divergence</code> profile, <code>maxTotalPlannedTokens ≤ 32000</code> per workflow (× 2 waves).
+1 divergence pass per vendor; a critique wave only on strong signal + headroom (60% budget gate).</li>
+<li><strong>Perspectives (4 of the 5 canonical; dropped performance/escala — low-volume triage):</strong><ul>
+<li>sonnet · <code>ideator-simplicity</code> — fewest moving parts; maybe the answer is <em>don't</em> create rows.</li>
+<li>sonnet · <code>ideator-reliability</code> — partial-failure/gate-hold/idempotency/orphan-row operation.</li>
+<li>nvidia · <code>ideator-analogy</code> — transfer a proven triage→work-item mechanism (issue trackers,
+SARIF/code-scanning, linter autofix queues) from another field.</li>
+<li>nvidia · <code>ideator-trust-boundary</code> — the enforcement gap: force a decision to yield an artifact
+without auto-spamming canonical state; trust of materializing from a defect capsule.</li>
+</ul>
+</li>
+<li><strong>Experiment design (if this feeds an EXP):</strong> candidate card = default-promotion / evidence-grades
+(does auto-materialization reduce "decided-but-un-acted" rot without raising orphan-artifact rate?).
+Named now per L18; registered only if a card lands in the <code>experimentos</code> bucket.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-genealogy-results">Genealogy / results</h2>
+<p>Two divergence waves, blocking <code>workflow run</code> + manual collect; orchestrator-reduced (I folded
+the 4 results directly instead of 2× <code>reduce --agent</code> — saves 2 reducer spawns; the cross-worker
+synthesis is the orchestrator's job anyway). 12 concept cards, 4 lenses, 3 distinct models
+(sonnet ×2 lenses, glm-5.2 ×2 lenses). All <code>done</code>, 0 failed.</p>
+<h3 id="ed-the-12-cards-one-ladder-least-bridge-most-bridge">The 12 cards → one ladder (least-bridge → most-bridge)</h3>
+<p>The cards collapse onto a single spectrum from "don't materialize, just make intent visible" to
+"fully auto-create the downstream row":</p>
+<ul>
+<li><strong>Rung 0 — gate-hold correctness (prerequisite, not a bridge).</strong>
+<code>R1 gate-hold-guard-decide</code> [sonnet/reliability]: <code>decide()</code> today has NO gate-hold guard —
+unlike <code>ingest_review_defects</code>, it will mutate <code>.harness</code> under a live hold. Latent bug the
+round surfaced. Do regardless of any bridge decision.</li>
+<li><strong>Rung 1 — durable intent, zero new state.</strong>
+<code>S1 note-is-the-trace</code> [sonnet]: make <code>--note</code> mandatory on <code>decide spec|backlog|experiment</code>;
+the existing <code>note</code> field IS the trace (3-line guard). <code>S2 decided-list-surface</code> [sonnet]:
+<code>intake list --decided</code> read-only view of <code>decidedAt</code>+<code>note</code> (already durable, never surfaced).</li>
+<li><strong>Rung 2 — nag the un-acted decision (closes gap 2 without touching gap 1).</strong>
+Independent convergence: <code>R3 doctor-decided-unactioned</code> [sonnet] ≈ <code>S3 decided-noteless</code> [sonnet]
+≈ <code>T1 deferred-intent + doctor intent-staleness</code> [nvidia] — a <code>doctor</code> WARN mirroring the
+just-shipped <code>defect_ledger_health</code> shape. <code>A3</code>/<code>T2</code> [nvidia] are the Stop-hook variant
+(enforce decide→materialize at workflow-run end).</li>
+<li><strong>Rung 3 — orphan-safe partial bridge (nvidia's signature move).</strong>
+<code>A2 pending-spec row</code> / <code>T3 decide spec --materialize → DRAFT row</code> [nvidia]: create a DRAFT /
+<code>pending-spec</code> <code>tasks_store</code> row (title+evidenceRefs from the cluster), NEVER a spec file. The
+trust-graded boundary: "the capsule's evidence is trusted enough to seed a title, not to write
+a spec body." <code>A1</code>/<code>T4</code> [nvidia] add a receipt/reconciliation row that flips <code>intentFulfilled</code>
+when a real artifact later appears.</li>
+<li><strong>Rung 4 — full auto-materialize (most power, most risk).</strong>
+<code>R4 materialize-on-decide-idempotent</code> [sonnet]: <code>decide spec|backlog</code> → <code>tasks add</code>,
+<code>decide experiment</code> → <code>experiment add</code>, store <code>materializedRef</code> back on the entry for dedupe.
+<code>R2 decide-toctou-history</code> [sonnet]: append-only <code>history[]</code> + optional <code>expected_status</code>
+guard (mirrors <code>decision_inbox --expected-digest</code>) so a racing second decide fails loud.
+(<code>tasks add</code> / <code>experiment add</code> are confirmed real verbs — <code>experiment_registry.py:446</code> — so
+this is store REUSE, not a new subsystem.)</li>
+</ul>
+<h3 id="ed-cross-vendor-divergence-the-point-of-the-mixed-fleet">Cross-vendor divergence (the point of the mixed fleet)</h3>
+<p>The two providers did NOT return the same ideas reworded — they explored different axes:</p>
+<ul>
+<li><strong>What sonnet uniquely brought</strong> (glm-5.2 never reached these): the <em>correctness</em> lens — spotted
+the live gate-hold bug (<code>R1</code>) and the concurrency/TOCTOU race (<code>R2</code>), neither of which nvidia
+flagged (nvidia treated gate-hold-safety as a constraint to satisfy, not a current defect); and
+the <em>laziest</em> path — reuse the existing <code>note</code> field as the trace (<code>S1</code>) instead of any new row.</li>
+<li><strong>What nvidia uniquely brought</strong> (sonnet never reached these): the <em>cross-domain analogies</em> that
+justify a middle path — SARIF suppression-receipts, linter autofix-queues, issue-tracker
+auto-transition; and from them the <em>trust-graded DRAFT row</em> (<code>A2</code>/<code>T3</code>) — materialize a
+placeholder, not a spec — plus the <em>reconciliation</em> loop (<code>T4</code>, flip <code>intentFulfilled</code> later).
+Sonnet's materialize card (<code>R4</code>) jumped straight to a full row; nvidia found the orphan-safe
+half-step between "nothing" and "full row."</li>
+<li><strong>Where they independently CONVERGED</strong> (highest-confidence signal): the <code>doctor</code> WARN for
+decided-but-unactioned entries — reached by BOTH vendors, three cards, same "mirror
+<code>defect_ledger_health</code>" shape. When two independent providers land on the same cheap mechanism,
+that is the strongest evidence in this round.</li>
+</ul>
+<p>Net: sonnet = conservative/minimal + found the bug; nvidia = mechanism-borrowing + found the
+orphan-safe middle. Neither fleet alone yields the full ladder — the heterogeneity paid.</p>
+<h3 id="ed-portfolio-set-based-each-card-in-exactly-one-bucket">Portfolio (set-based; each card in exactly one bucket)</h3>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Cards</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>núcleo</strong> (do regardless)</td>
+<td><code>R1</code> gate-hold guard</td>
+<td>mantida — it's a bug fix, not a bridge</td>
+</tr>
+<tr>
+<td><strong>núcleo</strong> (cheapest gap-close)</td>
+<td><code>S1</code> mandatory <code>--note</code>, <code>S2</code> <code>--decided</code> view, <code>R3</code>≈<code>S3</code>≈<code>T1</code> doctor WARN</td>
+<td>combinada — one small PR: durable intent + surface + nag</td>
+</tr>
+<tr>
+<td><strong>contingência</strong> (if núcleo's nag proves too weak)</td>
+<td><code>A2</code>/<code>T3</code> DRAFT <code>pending-spec</code> row</td>
+<td>mantida — orphan-safe, escalate only on evidence</td>
+</tr>
+<tr>
+<td><strong>experimentos</strong></td>
+<td>"does visibility+nag (rungs 1-2) reduce decided-but-unacted rot, or is a DRAFT row (rung 3) needed?"</td>
+<td>experimento</td>
+</tr>
+<tr>
+<td><strong>aposta-de-fronteira</strong></td>
+<td><code>T4</code> receipt + reconciliation</td>
+<td>adiada — nice once rung-3 rows exist</td>
+</tr>
+<tr>
+<td><strong>estacionadas</strong></td>
+<td><code>A3</code>/<code>T2</code> Stop-hook enforcement</td>
+<td>adiada — doctor WARN covers gap 2 more cheaply first</td>
+</tr>
+<tr>
+<td><strong>rejeitada (for now)</strong></td>
+<td><code>R4</code> full auto-materialize, <code>R2</code> TOCTOU history</td>
+<td>rejeitada — over-engineered for low-volume triage until the experiment says otherwise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-second-diamond-crossed-critique-cross-vendor-non-frontier">Second diamond — crossed critique (cross-vendor, non-frontier)</h3>
+<p>Two mirrored critique waves, <code>research-critique --seed</code>, critics on a DIFFERENT vendor than the cards
+they judged (bipartite crossing; divergent→critic-of-other-vendor, never divergent→divergent):</p>
+<ul>
+<li><strong>C1 — NVIDIA critics ← sonnet's 7 cards</strong> (glm-5.2/step/nemotron): 2/4 valid (validity missing,
+security partial — the cheap nvidia models were less reliable on the capsule contract). Verdicts were
+coarse but aligned: kept the cheap cards (<code>S2</code> --decided, <code>R1</code> gate-hold, doctor WARN = <em>mantida</em>),
+pushed the expensive ones down (<code>R4</code> materialize → <em>dividida</em>, <code>R2</code> history → <em>simplificada</em>,
+<code>S1</code> --note → <em>experimento</em>).</li>
+<li><strong>C2' — sonnet critics ← nvidia's 7 cards</strong> (all sonnet, non-frontier): 4/4 valid, and SHARP — it
+found nvidia's cards rest on <strong>false repo premises</strong>:<ul>
+<li><code>cost_metrics._approvals</code> is NOT a store → the receipt cards (<code>A1</code>/<code>T4</code>/<code>CC-TB-04</code>) have nowhere to
+append; the fallback sink would be unredacted + uncapped (security finding).</li>
+<li><code>tasks_store.add_draft(originRef, DRAFT lane)</code> <strong>does not exist</strong> → the nvidia "orphan-safe DRAFT
+row" middle-path (<code>A2</code>/<code>T3</code>) assumes an API that isn't there — it is NOT the cheap half-step it looked.</li>
+<li>blocking Stop-hook (<code>A3</code>/<code>T2</code>/<code>CONCEPT-003</code>) <strong>fights the shipped Stop-hook's fail-open + gate-hold-skip
+contract</strong>.</li>
+<li><code>CC-TB-01</code>'s premise that decide already runs under a hold check is FALSE — corroborates <code>R1</code> and the
+recorded frontier-adjacent gate-hold gap.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Headline (the payoff of the mixed fleet): asymmetry.</strong> The cheap nvidia ideators generated
+plausible-but-ungrounded mechanisms (hallucinated repo facts); it took the stronger sonnet CRITICS to
+catch it. Novelty ≠ maturity (playbook principle 2); verifiable-feedback-only (principle 4) is what
+separated the grounded cards from the hallucinated ones. The crossing CORRECTED the first-pass synthesis:
+nvidia's "signature middle path" was over-credited because its API premise went unverified until C2'.</p>
+<h3 id="ed-portfolio-revised-after-crossed-critique-set-based-each-card-one-bucket">Portfolio (REVISED after crossed critique; set-based, each card one bucket)</h3>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Cards</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>núcleo</strong> (do regardless)</td>
+<td><code>R1</code> gate-hold guard on <code>decide()</code></td>
+<td>mantida — both waves confirm <code>decide()</code> LACKS the guard; it's a bug</td>
+</tr>
+<tr>
+<td><strong>núcleo</strong> (cheapest gap-close)</td>
+<td><code>S2</code> <code>--decided</code> view, <code>R3</code>≈<code>T1</code> doctor WARN decided-unactioned</td>
+<td>combinada — read-only + one advisory; both vendors' critics left these standing</td>
+</tr>
+<tr>
+<td><strong>contingência</strong></td>
+<td><code>S1</code> mandatory <code>--note</code></td>
+<td>experimento — sonnet-cheap, but nvidia critic flags it may break existing automation; gate on that check</td>
+</tr>
+<tr>
+<td><strong>rejeitada / heavy-rework</strong></td>
+<td><code>A2</code>/<code>T3</code> DRAFT row (nonexistent <code>add_draft</code> API), <code>A1</code>/<code>T4</code>/<code>CC-TB-04</code> receipt (<code>_approvals</code> not a store)</td>
+<td>rejeitada — false repo premise; would need new store API + schema, not the cheap half-step claimed</td>
+</tr>
+<tr>
+<td><strong>estacionadas</strong></td>
+<td><code>A3</code>/<code>T2</code> blocking Stop-hook</td>
+<td>rejeitada — fights the shipped fail-open Stop-hook; doctor WARN covers gap 2</td>
+</tr>
+<tr>
+<td><strong>rejeitada</strong></td>
+<td><code>R4</code> full auto-materialize, <code>R2</code> TOCTOU history</td>
+<td>rejeitada — over-engineered + unbounded state for low-volume triage</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-recommendation-ponytail-post-critique">Recommendation (ponytail, post-critique)</h3>
+<p>The crossed critique made the answer LAZIER, not bigger. <strong>núcleo = one small PR</strong>: fix the gate-hold guard
+(<code>R1</code>, a real bug both waves confirm), add <code>intake list --decided</code> (<code>S2</code>, read-only), and one <code>doctor</code> WARN
+for decided-but-unactioned (<code>R3</code>/<code>T1</code>). That is ~15 lines, no new state, no orphan risk, and it closes the
+exact thing that worried the owner — "decided but never acted on, with no trace." <code>S1</code> (--note) rides an
+experiment (does it break existing automation?). Everything nvidia proposed above that — DRAFT rows,
+receipts, blocking hooks — is rejected until its false repo premises are fixed; it is NOT the cheap
+half-step it first looked like.</p>
+<h3 id="ed-spinoff-experiment-exp-37-cheap-independent-auditor-for-a-carimbo-owner-idea-2026-08-01">Spinoff experiment — EXP-37: cheap independent auditor for a "carimbo" (owner idea, 2026-08-01)</h3>
+<p>Born from decision 4 (a cheap, on-the-fly independent auditor that reviews an intake decision / defect
+stamp). Design card: <strong>split-plot</strong> (model snapshot = whole-plot; effort + context-mode = sub-plots) +
+<strong>matched-budget controls</strong> (docs/EXPERIMENT_METHODS.md).</p>
+<ul>
+<li><strong>Question.</strong> At what model TIER + EFFORT do we pin a vendor auditor for the carimbo-audit task, and
+which API-inference (http) models can actually complete it?</li>
+<li><strong>The load-bearing constraint (owner).</strong> [repo] <code>.harness/routing/executors.json</code> — every http executor
+(<code>nvidia-compat</code>/GLM-5.2, <code>gemini-compat</code>, <code>local-llama</code>) is <code>repoAccess: none</code>: it cannot read files,
+call tools, or verify a claim against source. Only cli-agent executors (<code>claude</code>/<code>codex</code>/<code>kimi</code>) are
+<code>repoAccess: repo</code>. So an http auditor needs the evidence <strong>pre-sliced into its prompt</strong> — a preparation
+step that ~doubles the effort. This is the experiment's independent variable: <strong>self-serving cli-agent
+auditor vs. http-inference auditor + slicing step.</strong></li>
+<li><strong>Hypothesis.</strong> A cheap cli-agent auditor with repo access (haiku, low effort) beats http models
+(GLM-5.2/gemini/step-flash + sliced context) on grounding at lower TOTAL effort — because http models
+can't verify and hallucinate, and slicing doubles the work. <strong>Direct prior evidence (this session):</strong> the
+http nvidia critics invented <code>tasks_store.add_draft</code> and treated <code>cost_metrics._approvals</code> as a store;
+the cli-agent sonnet critics caught it. <code>[judgment]</code> H0 alt: some http model on free-tier clears the
+grounding bar cheaply enough ($0) to be worth the slicing.</li>
+<li><strong>Baseline.</strong> haiku (cli, repo-access) @ low effort — cheapest self-serving auditor.</li>
+<li><strong>Arms (whole-plot).</strong> cli: haiku, sonnet(ceiling ref). http+sliced: GLM-5.2 (nvidia free-tier),
+gemini-flash (free), nvidia step-flash. <strong>Sub-plots:</strong> effort ∈ {low,med,high}; context ∈ {self-serve, sliced}.</li>
+<li><strong>Gold set.</strong> a small fixed set of carimbos with KNOWN verdicts: ≥1 with a PLANTED false premise (a fake
+API, like the one C2' caught), ≥1 sound decision, ≥1 real-but-weak evidence.</li>
+<li><strong>Metrics.</strong> (1) grounding rate = % of auditor claims that hold against source; (2) catch rate on the
+planted false-premise carimbo + false-positive rate on the sound one; (3) TOTAL cost = model tokens×price
+<strong>plus the slicing-step cost</strong> for http arms (free-tier model ≠ free total); (4) effort floor per model;
+(5) latency.</li>
+<li><strong>Decision criteria.</strong> pick the cheapest (model tier + effort + path) with grounding ≥ threshold and catch
+≥ threshold at false-positive ≤ threshold on the gold set. <strong>If no http model clears grounding even with
+slicing → decision is "auditors must be cli-agent repo-access cheap models (haiku)", and the
+slicing-doubles-effort path is abandoned</strong> — a clean, decision-useful negative result.</li>
+</ul>
+<h3 id="ed-traceability">Traceability</h3>
+<p><code>Evidência(decide:97-111 flip-only + this-session http-hallucination) → Problema(gap1/gap2 + auditor-model-tier) → Ideia(ladder rungs 0-4 + cheap-auditor) → Experimento(EXP-37 auditor tiering) → Spec/Task(3 backlog rows: núcleo P1, frontier-pin P1, research-P0 P2) → Status(routed 2026-08-01)</code>.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/defect-decide-materialize-bridge.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/defect-decide-materialize-bridge.md</code></li><li>Source SHA-256: <code>d4807f7ed90498295d02812d62058cea6139de5ce85c191acfffa09696444bd1</code></li><li>Edition-input SHA-256: <code>d4807f7ed90498295d02812d62058cea6139de5ce85c191acfffa09696444bd1</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

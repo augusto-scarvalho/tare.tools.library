@@ -1,0 +1,256 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Round: Test/Gate Engine Performance + Fail-Fast (2026-07-16) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-question">Question</a></li><li class="h2"><a href="#ed-success-criteria">Success criteria</a></li><li class="h2"><a href="#ed-declared-budget-owner-rule-waves-only-on-cheap-models">Declared budget (owner rule: waves only on cheap models)</a></li><li class="h2"><a href="#ed-phase-0-1-evidence">Phase 0/1 — Evidence</a></li><li class="h3"><a href="#ed-measurements-repo-source-harness-state-cost-metrics-json-gate-records-runner-scripts-spec-test-gate-py">Measurements [repo] (source: .harness/state/cost-metrics.json , gate records; runner: scripts/spec_test_gate.py )</a></li><li class="h3"><a href="#ed-classical-techniques-web-verified-2026-07-16">Classical techniques [web] (verified 2026-07-16)</a></li><li class="h2"><a href="#ed-phase-2-briefs-human-gate-approve-before-any-wave">Phase 2 — Briefs (HUMAN GATE — approve before any wave)</a></li><li class="h2"><a href="#ed-phases-34-waves-executed-2026-07-16-100-nvidia-compat-glm-5-2">Phases 3–4 — Waves executed (2026-07-16, 100% nvidia-compat/glm-5.2 )</a></li><li class="h2"><a href="#ed-phase-5-operations-by-card-and-portfolio">Phase 5 — Operations by card and portfolio</a></li><li class="h2"><a href="#ed-traceability">Traceability</a></li><li class="h2"><a href="#ed-status">Status</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Round: Test/Gate Engine Performance + Fail-Fast (2026-07-16)</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>73eb8521ed9468af9baa…</span></div><div><b>Edition SHA-256</b><span>509bf78deb337aadf9fd…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Owner ask (intake via prompt hook 2026-07-16): review test code and the engine that runs it; friction/slowness; where C++/PyO3/Rust is worth it at fixed hot spots; automated suggestions escalated as decisions based on metrics; mocks that are sufficient vs insufficient; specs+BDD that are too generic; classical fail-fast techniques (fast tests first, failure-prone tests first). Also valid for harness target repositories, but CONTAINED/SEPARATE (metrics and decisions do not mix).</p>
+</section>
+<section class="section content"><h2 id="ed-question">Question</h2>
+<p>How can we reduce time-to-first-failure and total SPEC-137 gate time (currently 7–10 min) without losing hermeticity, anti-flake retry, or full-suite completeness — and how can we turn this performance vigilance into an automated routine (metric → suggestion → decision), replicated in isolation for target repositories?</p>
+</section>
+<section class="section content"><h2 id="ed-success-criteria">Success criteria</h2>
+<ul>
+<li>Completeness preserved: commit gate continues to run ALL scenarios (owner constraint: "do not stop running our tests in full" — predictive selection that SKIPS tests can only appear as an opt-in inner-loop layer, never in the commit gate).</li>
+<li>Hermeticity preserved: snapshot/restore per scenario and retry-once remain guaranteed (they were the flakiness fix — project memory).</li>
+<li>Time-to-first-failure (TTFF) falls from "alphabetical position" to early minutes.</li>
+<li>Any skipping/reordering is deterministic and auditable (no opaque ML in v1).</li>
+<li>Harness × target-repo metrics separated (gate already tags <code>subject: self</code> vs target — use that seam).</li>
+<li>Every proposal becomes a registered experiment (EXP-N, <code>docs/EXPERIMENT_METHODOLOGY.md</code>) with baseline, metric, and decision criterion BEFORE becoming default.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-declared-budget-owner-rule-waves-only-on-cheap-models">Declared budget (owner rule: waves only on cheap models)</h2>
+<ul>
+<li>Wave executors: <code>nvidia-compat</code> (<code>glm-5.2</code> primary, <code>step-3.7-flash</code> cheap) and <code>gemini-compat</code> (<code>gemini-2.5-flash-lite</code>). NO Claude/Codex waves.</li>
+<li>At most 1 divergence wave (5 ideators) + 1 critique wave (4 critics); <code>workflow token-audit</code> before each start; round ceiling ≈150k calibrated tokens (chars/3.1). Budget gate at 60%.</li>
+<li>Bulk-reading grunt work: <code>harness.py discover</code> (Gemini→NVIDIA chain), never raw reading by orchestrator.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-0-1-evidence">Phase 0/1 — Evidence</h2>
+<h3 id="ed-measurements-repo-source-harness-state-cost-metrics-json-gate-records-runner-scripts-spec-test-gate-py">Measurements [repo] (source: <code>.harness/state/cost-metrics.json</code>, gate records; runner: <code>scripts/spec_test_gate.py</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>type</th>
+<th>confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate scenarios = 440–595s wall; spec-pack = 9–12s (irrelevant for optimization)</td>
+<td>cost-metrics gate records 2026-07-16</td>
+<td>measurement</td>
+<td>strong</td>
+</tr>
+<tr>
+<td>Runner is SERIAL and ALPHABETICAL (<code>sorted(glob)</code>), 1 subprocess/scenario, volatile-state snapshot+restore PER scenario, retry-once on failure</td>
+<td><code>spec_test_gate.py:1546-1565</code>, <code>_run_isolated_scenario</code></td>
+<td>repo</td>
+<td>strong</td>
+</tr>
+<tr>
+<td>Top-5 scenarios ≈35% of wall: <code>m4_status_html</code> 59–73s, <code>worker_live_tail</code> 33–76s (high variance under load), <code>rs_research_skill</code> 26–63s, <code>cli_registry</code> 23–27s, <code>se_self_review</code> 21–27s</td>
+<td>gate records (last 4 rounds)</td>
+<td>measurement</td>
+<td>strong</td>
+</tr>
+<tr>
+<td>128 scenario files, ~550 checks; tail of ~123 scenarios ≈350s ⇒ ~2.8s/scenario average — relevant portion may be fixed overhead (interpreter spawn + snapshot/restore), not assertions</td>
+<td>gate records + count; exact split unmeasured</td>
+<td>measurement + judgment</td>
+<td>moderate</td>
+</tr>
+<tr>
+<td><code>durationMs</code> per scenario already emitted each round; <code>cost_metrics.record_gate</code> already stores top-5 slowest per round (150 records) — ordering and automatic-alert raw material ALREADY EXISTS</td>
+<td><code>spec_test_gate.py:94-95,1645-1651</code>; <code>cost_metrics.py:98</code></td>
+<td>repo</td>
+<td>strong</td>
+</tr>
+<tr>
+<td>Scenario that recovers in ≥2 of 5 rounds = reopened bug, not noise (owner rule); <code>worker_live_tail</code> and <code>rs_research_skill</code> are known flake-prone scenarios</td>
+<td>intake <code>583ff705e3ca</code>; <code>.harness/runs/scenario-forensics</code></td>
+<td>repo</td>
+<td>strong</td>
+</tr>
+<tr>
+<td>Harness×target separation already has structural seam: validation-ledger lines use <code>subject: "self"</code>; <code>runs --target</code> goes through <code>run_target_gate</code> with its own stamp</td>
+<td><code>spec_test_gate.py:1608-1614</code></td>
+<td>repo</td>
+<td>strong</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-classical-techniques-web-verified-2026-07-16">Classical techniques [web] (verified 2026-07-16)</h3>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>year</th>
+<th>confidence</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prioritizing test cases "most important first" maximizes early fault detection rate; APFD metric; family of total/additional-coverage techniques</td>
+<td>Rothermel/Elbaum, <em>Test Case Prioritization: A Family of Empirical Studies</em> (IEEE TSE ~2000–02), digitalcommons.unl.edu</td>
+<td>2002</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>Staged pipeline: fast stage 1 (&lt;10 min) with doubles/mocks for slow services; slow stages later — "every minute shaved from the build is a minute saved per developer per commit"</td>
+<td>martinfowler.com/bliki/DeploymentPipeline.html + articles/continuousIntegration.html</td>
+<td>2013/2024</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>Suite parallelization pitfalls = shared mutable state, fixed ports, order dependence; port 0, namespacing per worker, random order to hunt dependencies</td>
+<td>pytest-xdist docs + pythoneer.substack.com</td>
+<td>2024–25</td>
+<td>strong</td>
+<td>production</td>
+</tr>
+<tr>
+<td>Predictive selection: Meta catches 99.9% of regressions while running ~33% of tests; Google TAP Transition Prediction cut median detection ~65% (107→37 min) — BUT skips tests, violating our commit-gate completeness</td>
+<td>ICSE-SEIP 2019 (mpapad.github.io) + browserstack.com/guide/predictive-test-selection</td>
+<td>2019–25</td>
+<td>moderate</td>
+<td>production elsewhere / contingency here</td>
+</tr>
+<tr>
+<td>PyO3/maturin for fixed Python hot paths is established practice; real gain depends on profile (I/O-bound does not benefit)</td>
+<td>reference: judgment (not verified this round; local probe decides)</td>
+<td>—</td>
+<td>theoretical</td>
+<td>prototype</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-phase-2-briefs-human-gate-approve-before-any-wave">Phase 2 — Briefs (HUMAN GATE — approve before any wave)</h2>
+<ul>
+<li><strong>B1 — Time-to-first-failure.</strong> Actor: owner waiting for commit. Problem: alphabetical order ignores duration and failure propensity; failure in <code>w*</code> appears only around minute 8. Criterion: expected TTFF &lt;2 min using ONLY data ledger already has (<code>durationMs</code> + failure/recovered history). Constraint: full suite always.</li>
+<li><strong>B2 — Fixed cost per scenario.</strong> Actor: engine. Problem: ~123 "cheap" scenarios cost ~350s, much of it potentially overhead (spawn + snapshot/restore per scenario) rather than assertions. Criterion: cut ≥30% of tail wall without losing isolation; measure real overhead×assert split before optimizing (deterministic probe). Includes: where safe parallelization works (pytest-xdist pitfalls), where Rust/PyO3 pays (only fixed/stable point, no recompiling suite), where a mock is enough (e.g. does <code>m4_status_html</code> start a real HTTP server — sufficient or excessive?).</li>
+<li><strong>B3 — Assertion strength.</strong> Actor: spec reviewer. Problem: overly generic checks (that never fail) create false confidence; insufficient mocks hide real integration. Criterion: inventory never-failed checks × history; evidence-backed tightening proposal per spec/BDD, not vibes.</li>
+<li><strong>B4 — Automatic performance governance.</strong> Actor: owner (decisions) + harness. Problem: this review was manual ("I am the one initiating the request"). Criterion: deterministic metric→suggestion→decision rule (e.g. gate &gt;X s for N rounds, scenario &gt;Y s, flake ≥2/5 ⇒ item in decisions/intake), with target-repo metrics in separate space (subject tag), zero mixing.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phases-34-waves-executed-2026-07-16-100-nvidia-compat-glm-5-2">Phases 3–4 — Waves executed (2026-07-16, 100% <code>nvidia-compat/glm-5.2</code>)</h2>
+<ul>
+<li>B1: NO wave (owner approval) — direct experiment EXP-11, implemented.</li>
+<li>B2 divergence: <code>WF-20260716-162149-026669</code> (5 perspectives, 23 deduped findings; 1 invalid worker; run hit PermissionError WinError 5 on <code>workflow.json</code> — Windows lock — and resumed cleanly with a second <code>workflow run</code>).</li>
+<li>B3 divergence: <code>WF-20260716-162849-270831</code> (never-failed via left join, regex detector for weak assertions, mock-vs-real matrix by class, evidence-anchored BDD, information-per-check via lightweight mutation sampling).</li>
+<li>B4 divergence: <code>WF-20260716-162857-157371</code> (post-gate hook, flat rules with cooldown/dedup, ledgers separated by subject AT COLLECTION, advisory-first, never auto-apply; security: env redaction + thresholds as trust surface).</li>
+<li>Critique (seeded B2): <code>WF-20260716-164059-957736</code> (4 critics; 2 partial). Decisive findings: overhead premise UNMEASURED (measurement becomes hard prerequisite); in-process runner offers ASSERTED hermeticity vs structural hermeticity of subprocess; fork/CoW invalid on Win32; tier promotion needs data threshold + drift detector; PyO3 only if profile shows &gt;5% wall at chokepoint.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-5-operations-by-card-and-portfolio">Phase 5 — Operations by card and portfolio</h2>
+<table>
+<thead>
+<tr>
+<th>Card</th>
+<th>Operation</th>
+<th>Bucket</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1 fail-fast ordering</td>
+<td>experiment → shelved (v1) → <strong>reopened and shipped (v2)</strong></td>
+<td>core</td>
+<td><strong>EXP-11 v2 shipped</strong> — v1 (−87% replay TTFF) died because clustering heavy-flaky tests knew only 9 durations. Reopen trigger satisfied by EXP-12 (126/126 durations in sidecar): v2 promotes ONLY flaky&lt;10s (19 scenarios), heavy tests keep alphabetical position (spacing preserved). Replay TTFF 201s→24s (−88%); live 3/3 green rounds, identical counts, zero double-fail/recovered. Reversal remains one line</td>
+</tr>
+<tr>
+<td>B2 overhead×assert measurement</td>
+<td>kept (prerequisite for ALL B2 optimization)</td>
+<td>experiments</td>
+<td><strong>EXP-12 shipped</strong> — measured in 2 rounds (0.8 p.p. spread): real spawn+boot 0.08s (1.5–2s premise refuted ~20×), snapshot+restore 57s/round (12%), 10 heavy = 240s (51%). Tail 26–27% = gray zone. Consequence: spawn optimization DEPRIORITIZED (ceiling 9–46s), real levers = EXP-13 (m4) and snapshot/restore. NVIDIA critique: warm cache + 2 same-day rounds ≠ definitive death; reopen trigger registered</td>
+</tr>
+<tr>
+<td>B2 mock <code>m4_status_html</code></td>
+<td>premise refuted → <strong>root-cause fix shipped</strong></td>
+<td>core</td>
+<td><strong>EXP-13 shipped</strong> — m4 has NO HTTP server (second false B2 premise). Real cost: <code>protected_files._glob_matches</code> performed repo-wide <code>rglob</code> PER PATTERN (~44 walks/<code>compare_snapshot</code>) in <code>status --html</code> drift scan (4 generations × 13s). Fix: 1 pruned traversal, byte-identical parity (58×/call). m4 66–71s→7.3s (9×), <code>status --html</code> 13.1s→0.72s, gate ~406s (−60s+). Zero scenario behavior change — no mock, all real e2e. <code>rs:e2e-smoke</code> reopened separately (intake <code>d92c2144d5ab</code>)</td>
+</tr>
+<tr>
+<td>B2 in-process runner / pool / batch</td>
+<td>deferred</td>
+<td>contingency</td>
+<td>only if EXP-12 proves overhead ≥40% AND with state-purge audit protocol (critique)</td>
+</tr>
+<tr>
+<td>B2 fork/CoW batch</td>
+<td>rejected</td>
+<td>rejected</td>
+<td>Win32 has no fork; multiprocessing-spawn gives no CoW</td>
+</tr>
+<tr>
+<td>B2 <code>@parallel-safe</code> parallelization</td>
+<td>deferred</td>
+<td>parked</td>
+<td>depends on EXP-12 + hazard map; classical pitfalls documented</td>
+</tr>
+<tr>
+<td>B2 PyO3/Rust at chokepoints</td>
+<td>parked</td>
+<td>parked</td>
+<td>majority view: cost&gt;benefit; reopen only if cProfile shows &gt;5% wall at fixed point</td>
+</tr>
+<tr>
+<td>B3 assertion inventory</td>
+<td>combined → <strong>shipped</strong></td>
+<td>core</td>
+<td><strong>EXP-14 shipped</strong> — <code>tools/check_assert_audit.py</code> probe (AST call sites + forensics join): 833 checks, 79% strong, 54 weak-shaped ranked. Judgment in Opus 4.8 xhigh wave (4 workers, owner cost rule): 11 tightened assertions in 8 scenarios (notably <code>workflow:finalized</code>, rc-only E with historical failure) + ~18 evidence-backed ok-as-is. Phase 2 (spec-pack/BDD) open with reopen trigger</td>
+</tr>
+<tr>
+<td>B3 BDD/spec tightening</td>
+<td>deferred</td>
+<td>parked</td>
+<td>EXP-14 phase 2 (only worst cases, with evidence)</td>
+</tr>
+<tr>
+<td>B4 metric→decision governance</td>
+<td>kept</td>
+<td>core</td>
+<td>intake <code>020dfc7b4e7c</code> → SPEC-116 (advisory-first)</td>
+</tr>
+<tr>
+<td>B4 Meta/Google-style predictive selection</td>
+<td>rejected (for commit gate)</td>
+<td>rejected</td>
+<td>violates completeness (owner constraint); revisit only as opt-in inner loop</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section content"><h2 id="ed-traceability">Traceability</h2>
+<p>Evidence → Problem → Idea → Experiment/Decision:</p>
+<ul>
+<li>cost-metrics 440–595s + serial alphabetical → poor TTFF → fail-fast tiers → EXP-11 (shelved: replay −87% but heavy-test clustering doubled live flakes; methodology worked — abandonment criterion stopped it before default)</li>
+<li>EXP-11 live runs → NEW measurement finding: alphabetical order accidentally spaced resource-heavy scenarios — future reordering must preserve spacing (direct input to EXP-12)</li>
+<li>2.8s/tail average [unmeasured judgment] → fixed overhead? → critique: measure first → EXP-12</li>
+<li>top-5 slow (m4 59–73s) → unit cost → loopback mock hypothesis → EXP-13</li>
+<li>never-failed checks (suspicion) → assertiveness → deterministic probe → EXP-14</li>
+<li>manual owner request → governance → advisory post-gate hook → intake <code>020dfc7b4e7c</code></li>
+<li>harness×target separation → existing subject tag → separated ledgers at collection (B4 design)</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-status">Status</h2>
+<ul>
+<li class="task-list-item"><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/>Phase 0/1: evidence (local measurements + classical sources)</li>
+<li class="task-list-item"><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/>Human gate: owner approved direct B1 + B2/B3/B4 waves (2026-07-16)</li>
+<li class="task-list-item"><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/>Phase 3: 3 divergence waves + [x] Phase 4: 1 critique wave (all NVIDIA)</li>
+<li class="task-list-item"><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/>Phase 5: EXP-11 active; EXP-12/13/14 proposed; B4 intake; portfolio above</li>
+</ul>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/gate-perf-fail-fast-2026-07-16.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/gate-perf-fail-fast-2026-07-16.en.md</code></li><li>Source SHA-256: <code>73eb8521ed9468af9baaae83cec0846ca9d96e124bcfb0f06ea5d476c5f80be6</code></li><li>Edition-input SHA-256: <code>509bf78deb337aadf9fd799b9733c9d1168ae622d8e1dc5ad001b5ce44cbf9da</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

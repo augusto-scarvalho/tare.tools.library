@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/audit-quorum-dinamico.md",
+  "sourceSha256": "f03e6a7a5f2d33b3a6f67d2631485639203e09c032a551db2b345b70df4801b7",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/audit-quorum-dinamico.en.md",
+  "translationSha256": "986cab8e7d9dd2b3265ff55ed37e4115771a5b0475f83837d1214bf16e798fd0",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

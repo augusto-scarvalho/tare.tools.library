@@ -1,0 +1,345 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PLAN RESULT — nt job-tree lifetime CONTROL (Fable xhigh, plan-author + critic, 2026-07-27) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-1-verdict-on-the-brief-and-the-source-plan">1. Verdict on the brief and the source plan</a></li><li class="h2"><a href="#ed-2-target-design-the-contract">2. Target design — the contract</a></li><li class="h2"><a href="#ed-3-phased-plan">3. Phased plan</a></li><li class="h3"><a href="#ed-phase-1-breakaway-one-commit-lands-first">Phase 1 — breakaway (one commit, lands first)</a></li><li class="h3"><a href="#ed-phase-2-the-cage-sweep-the-declaration-flip-one-commit-the-ratified-control">Phase 2 — the cage sweep + the declaration flip (one commit; the ratified control)</a></li><li class="h3"><a href="#ed-phase-3-cancel-converges-on-the-cage-one-commit-owner-gated-after-decision-5-1">Phase 3 — cancel converges on the cage (one commit, OWNER-GATED, after decision 5.1)</a></li><li class="h2"><a href="#ed-4-what-i-would-not-build">4. What I would NOT build</a></li><li class="h2"><a href="#ed-5-open-owner-decisions-recommendation-first">5. Open owner decisions (recommendation first)</a></li><li class="h2"><a href="#ed-6-amendment-target-spec-116-door">6. Amendment target (SPEC-116 door)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>PLAN RESULT — nt job-tree lifetime CONTROL (Fable xhigh, plan-author + critic, 2026-07-27)</h1><p class="subtitle">Historical implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">en</span><span class="badge">NATIVE_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>289f42eefd7e33c80c83…</span></div><div><b>Edition SHA-256</b><span>289f42eefd7e33c80c83…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English source reformatted without semantic refresh.</div></section>
+<section class="section content">
+<p>Brief: <code>.harness/handoff/plan-job-tree-lifetime-control.md</code>. Read-only run; no
+files written by the author, no git commands. Overseer verification of the three
+load-bearing claims is appended at the end — read it before implementing.</p>
+</section>
+<section class="section content"><h2 id="ed-1-verdict-on-the-brief-and-the-source-plan">1. Verdict on the brief and the source plan</h2>
+<p><strong>Direction right; the centrepiece premise is TRUE but the conclusion drawn from
+it is wrong, and the drift-lock claim is overstated for this transition.</strong></p>
+<p><strong>1a. Q1 premise VERIFIED TRUE, then MOOT.</strong> <code>assign_job_to_pid</code> creates the job
+at <code>processes.py:449</code> as <code>k32.CreateJobObjectW(None, None)</code> — second argument is
+<code>lpName</code>, so the job is <strong>unnamed</strong>. No <code>OpenJobObject</code> path; the cancel CLI
+genuinely cannot reach it. <strong>But the draft assumes the CLI must be the killer.</strong>
+The handle owner — the supervisor coroutine <code>_run_async_task</code> — is parked in
+<code>await proc.wait()</code> (<code>async_runtime.py:482</code>) and regains control the instant the
+CLI's pid-kill fells the worker, with <code>async_job</code> still open (the <code>finally</code> at
+<code>:497-500</code> closes it only after). A cage sweep there reaches the job with zero
+cross-process machinery. The draft's <code>signal_process_tree</code> swap (its 5.3) is
+strictly worse:</p>
+<ul>
+<li><strong>It changes POSIX behavior.</strong> <code>signal_process_tree</code> adds the descendant walk on
+linux, newly killing setsid-escapees and <code>launch_detached</code> children on operator
+cancel — while the draft's own disparity row 7 admits this and its 5.3 claims
+"POSIX semantics preserved". Internal contradiction, and it violates the brief's
+POSIX-zero-change constraint.</li>
+<li><strong>It recreates the stranded-gate-hold incident class.</strong> Post-breakaway a detached
+gate runner is still in the VISIBLE tree (breakaway changes job membership, not
+parentage), so <code>taskkill /T</code> at cancel kills it mid-gate. The job sweep spares
+breakaway children by construction.</li>
+<li><strong>It presents an unratified policy as settled.</strong> SPEC-163 v2 says verbatim that
+the operator-cancel seam is NOT declared there and its policy is a separate open
+decision; the draft's section 2 hardcodes cancel-aggressive.</li>
+</ul>
+<p>Cost had the premise been wrong: none — the sweep never needed cross-process
+access. Named jobs stay the B4 precision path for the genuinely unreachable case
+(cancelling an ORPHANED task whose supervisor is dead).</p>
+<p><strong>1b. The brief's hsb-13 claim is overstated.</strong> It holds for the function↔dict
+pair (<code>tree_kill_reach</code> vs <code>DECLARED_KILL_GAPS</code>, both hand-maintained
+declarations). The function↔BEHAVIOR link is held by string premise pins, and the
+pinned <code>safe_signal_pid(proc.pid, signal.SIGTERM)</code> SURVIVES this change, because
+the pid ladder stays as the POSIX/fallback path. So the declaration side can move
+without the behavior side and stay green. Testing-playbook failure mode 2 on
+schedule. The plan therefore treats hsb-13 as the DECLARATION-CONSISTENCY lock
+only, and puts the behavior teeth in a new end-to-end check (exp21-8) plus one new
+premise pin on the sweep call, all in the same commit.</p>
+<p><strong>1c. Q2 — the coupling is real, but "same commit" is the wrong shape.</strong> Real: the
+async worker is already caged (<code>async_runtime.py:449</code>), job membership inherits,
+and today's pid-only kill is the only reason a caged worker's <code>launch_detached</code>
+child (gate runner, nested supervisor) survives the timeout. The moment any kill is
+job-scoped, those children die with the task — a D045 regression below POSIX and a
+live incident class. But bundling breakaway into the kill commit means a breakaway
+defect rolls back the ratified control. <strong>Breakaway lands FIRST, as its own
+commit</strong>: independently correct (the flag is a no-op outside a job, and nothing
+job-kills yet), independently checkable, independently revertable.</p>
+<p><strong>1d. Q3 — answered from the code, stronger than the draft.</strong> On nt the
+"job-assign-failed" corner at the timeout kill is UNREACHABLE:
+<code>assign_job_to_pid</code> with <code>DEFAULT_JOB_LIMITS</code> (always non-None) RAISES on failure,
+and the except arm at <code>:451-465</code> kills the suspended child and RETURNS — the task
+settles rejected before the timeout branch can exist. At the timeout branch on nt,
+<code>async_job</code> is always live. The fallback ladder exists for POSIX and for
+<code>TerminateJobObject</code> itself failing. No double-kill (<code>TerminateJobObject</code> on dead
+members is a no-op; <code>os.kill</code> on a dead pid is swallowed in <code>signal_pid_group</code>), no
+hang (every wait is <code>asyncio.wait_for</code>-bounded; the give-up branch is preserved,
+and the sweep improves it).</p>
+<p><strong>1e. Q4 — confirmed at the classification site.</strong> The verdict keys on flags, not
+rc: cancellation at <code>:557-561</code>, timeout at <code>:562-565</code> (<code>elif timed_out:</code>). The
+primary kill stays the unchanged ladder (<code>TerminateProcess(pid, 15)</code> via <code>os.kill</code>
+on nt — precisely why P1 measured <code>returnCode 15</code>), so rc forensics are
+byte-identical; <code>terminate_win_job</code> passes 15 anyway for the wedge case.</p>
+<p><strong>1f. Staleness in the source plan</strong> beyond the given line drift: its section 4 /
+Phase D already landed (20e098d); its B1 darwin <code>ps</code> walk already SHIPPED and
+<code>bounded:darwin</code> is struck; its B2 step-1 detector shipped; its "invariant 8"
+numbering collides with v2's 8-10. Its rejections (KILL_ON_JOB_CLOSE, per-profile
+field, SILENT_BREAKAWAY_OK, stub-as-decider) all stand and are carried forward.</p>
+</section>
+<section class="section content"><h2 id="ed-2-target-design-the-contract">2. Target design — the contract</h2>
+<blockquote>
+<p><strong>On nt, a task-kill decision kills the task's cage.</strong> The cage is the Job Object
+the async seam already assigns, held as <code>async_job</code>. The primary kill remains
+today's pid ladder (rc forensics unchanged); before the handle owner releases the
+handle it SWEEPS the cage with <code>TerminateJobObject</code> whenever a kill decision was
+taken. The one exit is the detached primitive — <code>CREATE_BREAKAWAY_FROM_JOB</code>, the
+nt twin of <code>setsid</code> — which is harness code, never a per-child judgment, and
+FAILS CLOSED: a denied breakaway retries without the flag, leaving the child
+caged-but-killable with one log line. POSIX ships zero behavior change. The
+declaration (<code>treeKillReach</code> async:nt <code>pid → job</code>, <code>DECLARED_KILL_GAPS</code> emptied)
+moves in the same commit as the sweep, locked by hsb-13 + a new premise pin + a
+behavioral check that is red today on nt.</p>
+</blockquote>
+<p>Testable clauses:</p>
+<ol>
+<li><code>processes.terminate_win_job(handle, exit_code=15) -&gt; bool</code> exists, mirrors
+<code>close_win_handle</code> (no-op False off nt / falsy handle).</li>
+<li>In <code>_run_async_task</code>'s <code>finally</code>, before <code>close_win_handle</code>:
+<code>if timed_out and async_job: processes.terminate_win_job(async_job)</code>. The ladder
+at <code>:488-496</code> is untouched. (Phase 3 widens the condition to cancellation.)</li>
+<li>All detached spawns route through one shared primitive
+(<code>processes.popen_detached</code>) carrying <code>process_group_kwargs()</code> + (nt)
+<code>CREATE_BREAKAWAY_FROM_JOB</code> (0x01000000) with a WinError-5 retry-without-flag and
+one stderr log line. <code>launch_detached</code> delegates; the supervisor <code>Popen</code> at
+<code>async_runtime.py:900</code> is replaced by it. <code>process_group_kwargs()</code> itself is
+UNTOUCHED — worker spawns must never break out of a foreign cage.</li>
+<li><code>DEFAULT_JOB_LIMITS</code> gains <code>"breakawayOk": True</code>; <code>_win_job_set_limits</code> maps it
+to <code>JOB_OBJECT_LIMIT_BREAKAWAY_OK</code> (0x800). <code>SILENT_BREAKAWAY_OK</code> never appears.</li>
+<li>After Phase 2, <code>tree_kill_reach("async")</code> returns <code>"job"</code> on nt
+(<code>== tree_kill_target</code>), <code>DECLARED_KILL_GAPS</code> is <code>{}</code>, and hsb-13's expectations
+and premise pins are updated in the same commit.</li>
+<li>The sweep fires only on a kill decision — NEVER on normal exit: a
+breakaway-denied caged gate runner must survive its parent's clean exit (the
+recover sweep owns that frontier, SPEC-163 invariant 7).</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-3-phased-plan">3. Phased plan</h2>
+<p>Every phase: nt-gated behavior, POSIX zero change, no new scenario file (both
+checks live in existing glob-discovered files — <strong>zero lines added to
+<code>scripts/spec_test_gate.py</code>; gs-7 stays 1659/1660</strong>). Verification, fresh shell:</p>
+<pre><code>export HARNESS_QUIET=1 HARNESS_AGENT_OUTPUT=compact
+python testing/scenarios/hsb_sandbox_spawn.py
+python testing/scenarios/exp21_crash_injection.py
+python scripts/harness.py gate-staged        # detached; poll harness.py verify-status
+</code></pre>
+<h3 id="ed-phase-1-breakaway-one-commit-lands-first">Phase 1 — breakaway (one commit, lands first)</h3>
+<p>Files: <code>processes.py</code>, <code>sandbox_spawn.py</code> (one dict line), <code>async_runtime.py</code>
+(supervisor call-site swap), <code>hsb_sandbox_spawn.py</code>.</p>
+<ul>
+<li><code>processes.popen_detached(cmd, *, stdin, stdout, stderr, cwd, env)</code> (~14 lines):
+group kwargs + breakaway flag on nt; <code>except OSError</code> with <code>winerror == 5</code> → one
+stderr line (<code>"breakaway denied; child stays in the parent job (caged-but-killable)"</code>) → retry without the flag. <code>launch_detached</code> delegates;
+the supervisor spawn calls it.</li>
+<li><code>_win_job_set_limits</code>: <code>breakawayOk</code> → <code>flags |= 0x800</code>. <code>DEFAULT_JOB_LIMITS</code>
+gains <code>"breakawayOk": True</code>.</li>
+</ul>
+<p><strong>The ONE falsifiable check — <code>hsb-14</code></strong> (new section in <code>hsb_sandbox_spawn.py</code>),
+two arms, nt-gated with an honest off-nt skip comment ("breakaway is a Job Object
+concept; falsifiable on nt only"):</p>
+<ul>
+<li>Arm A (escape): spawn a helper child, cage it via the REAL
+<code>processes.assign_job_to_pid(pid, sbx.DEFAULT_JOB_LIMITS)</code>; the helper calls the
+REAL <code>processes.launch_detached</code> for a sleeper grandchild; assert
+<code>IsProcessInJob(grandchild, job)</code> is FALSE (ctypes, hermetic; reap both in
+<code>finally</code>). <strong>RED today</strong> (no flag → grandchild inherits the job), GREEN after.</li>
+<li>Arm B (fail-closed): same shape but the cage gets limits WITHOUT <code>breakawayOk</code>;
+assert the grandchild IS in the job AND the helper's stderr carries the retry
+line. <strong>RED today</strong> (no retry line exists), GREEN after.</li>
+<li><strong>Call site exercised:</strong> <code>launch_detached → popen_detached</code>, the single shared
+wiring all three production callers route through. The supervisor call site is
+additionally exercised LIVE by the existing <code>exp21-5</code>, which spawns the real
+detached supervisor through <code>workflow start</code> — a broken swap at <code>:900</code> turns
+exp21-5 red. Deleting the call-site change, not just the callee, goes red.</li>
+</ul>
+<p>Acceptance: hsb-14 red→green on nt; hsb-1..13 and exp21-1..7 untouched and green;
+gate green. Rollback: revert the commit. Declaration: no hsb-13 movement —
+breakaway changes no kill reach.</p>
+<h3 id="ed-phase-2-the-cage-sweep-the-declaration-flip-one-commit-the-ratified-control">Phase 2 — the cage sweep + the declaration flip (one commit; the ratified control)</h3>
+<p>Files: <code>processes.py</code>, <code>async_runtime.py</code>, <code>sandbox_spawn.py</code>,
+<code>hsb_sandbox_spawn.py</code>, <code>exp21_crash_injection.py</code> (+ <code>_exp21_crash_stub.py</code>
+hang-mode extension, env-gated so exp21-1..7 see no change),
+<code>specs/40-features/sandbox-manifest-honesty.md</code> (v4).</p>
+<ul>
+<li><code>processes.terminate_win_job</code> per clause 1 (~9 lines, beside <code>close_win_handle</code>).</li>
+<li><code>async_runtime.py</code> <code>finally</code> (<code>:497-500</code>): the 2-line sweep per clause 2,
+commented with the P1 numbers and the reason it runs on the handle only this
+coroutine holds. It also fixes the give-up wedge at <code>:496</code>: a worker surviving the
+whole ladder is now swept with its tree.</li>
+<li><code>sandbox_spawn.py</code>: <code>tree_kill_reach("async")</code> → <code>"job" if _kill_platform() == "nt" else "session"</code>; strike <code>DECLARED_KILL_GAPS["async:nt"]</code> leaving the comment
+trail like the <code>bounded:darwin</code> strike; update the two stale docstrings.</li>
+<li><code>hsb_sandbox_spawn.py</code> hsb-13, same commit: async expectations flip to
+<code>reach == target == "job"</code> on nt; <strong>add the premise pin</strong>
+<code>"terminate_win_job(async_job" in async_src</code> — the pin that makes 1b's
+green-on-a-lie impossible, since deleting the sweep line reds hsb-13; keep the
+<code>safe_signal_pid</code> pin (the ladder legitimately remains).</li>
+</ul>
+<p><strong>The ONE falsifiable check — <code>exp21-8</code></strong> (new section, existing file): stub <code>hang</code>
+mode through the REAL async seam — <code>workflow start --timeout 8</code>, sentinel +
+<code>EXP21_GRANDCHILD_PID</code> awaited (env passes via the stub executor's
+<code>envKeepList: ["EXP21_*"]</code>), then <code>workflow await</code>. Assertions:</p>
+<ul>
+<li>Branch fingerprint first (P1's own discipline): task status <code>"timeout"</code>,
+<code>run.timeout is True</code> — proving the TIMEOUT branch fired, not cancellation.</li>
+<li>Arm 1: caged grandchild DEAD post-settle. <strong>RED today on nt</strong> (measured 5,5,5 /
+3,3,3 survivors), GREEN after, re-reds on revert of the sweep line. Comment:
+falsifiable on nt only; POSIX passes today via killpg and runs as regression.</li>
+<li>Arm 2: a second, <code>EXP21_DETACHED_GRANDCHILD</code>-gated grandchild spawned by the stub
+via the REAL <code>processes.launch_detached</code> is ALIVE post-settle (reaped in
+<code>finally</code>). Green on all OSes today and after; its teeth are the future — it reds
+if anyone ships <code>KILL_ON_JOB_CLOSE</code> or a blanket tree-kill.</li>
+<li><strong>Call site exercised:</strong> the real <code>_run_async_task</code> timeout branch + <code>finally</code>
+sweep, reached through the real supervisor — not a library call. Deleting the
+sweep CALL (not the function) is exactly what arm 1 detects.</li>
+</ul>
+<p>Mutation ritual before claiming done: temp-mutate the sweep line out, run exp21-8,
+confirm RED, restore, confirm GREEN.</p>
+<p><strong>Declaration/code movement:</strong> together, in this one commit, and safe because every
+partial combination is red — sweep without function flip → hsb-13 red (async
+manifest still expects <code>"pid"</code>); function flip without strike → hsb-13 red
+(live_gaps ≠ declared); flip+strike without sweep → hsb-13 red on the new premise
+pin AND exp21-8 red. No green window contains a lie.</p>
+<p>Acceptance: exp21-8 arm 1 red→green on nt, arm 2 green; hsb-13 green with
+<code>DECLARED_KILL_GAPS == {}</code>; exp21-1..7 byte-untouched; POSIX suite green (CI legs).
+Rollback: revert — code and declaration revert atomically.</p>
+<h3 id="ed-phase-3-cancel-converges-on-the-cage-one-commit-owner-gated-after-decision-5-1">Phase 3 — cancel converges on the cage (one commit, OWNER-GATED, after decision 5.1)</h3>
+<p>Files: <code>async_runtime.py</code>, <code>exp21_crash_injection.py</code>,
+<code>specs/40-features/sandbox-manifest-honesty.md</code> (v4 addendum or v5).</p>
+<ul>
+<li>Widen the sweep condition:
+<code>if (timed_out or workflow_async_cancellation(wfid).get("requested")) and async_job:</code>
+(~1 line; the cancellation file is written at <code>:981</code> BEFORE the pid-kills at
+<code>:1005</code>, so no race). <code>workflow_cancel</code> itself — <code>:987</code>/<code>:994</code> — is UNTOUCHED: no
+<code>signal_process_tree</code> swap, no POSIX delta, Q1's cross-process problem never
+arises.</li>
+<li><strong>The ONE falsifiable check — <code>exp21-9</code>:</strong> hang run, sentinel, real
+<code>workflow cancel &lt;wfid&gt;</code>, assert task <code>"cancelled"</code> (fingerprint — the exp21-6
+shadowing caution applies) and caged grandchild dead on nt. <strong>RED under Phase-2
+code</strong> (cancel → pid-kill → <code>timed_out</code> False → no sweep → grandchild survives),
+GREEN after. Comment: nt-only falsifiability. <strong>Call site exercised:</strong> the real
+cancel CLI → <code>terminate_pid</code> → supervisor <code>finally</code> sweep, the full cross-process
+wiring.</li>
+<li>Declared ceiling in the amendment: cancel of an ORPHANED task (supervisor dead,
+nobody holds the handle) stays pid-reach on nt; B4 (named jobs) is its
+trigger-gated upgrade path.</li>
+</ul>
+<p>Rollback: revert; Phase 2 remains whole.</p>
+</section>
+<section class="section content"><h2 id="ed-4-what-i-would-not-build">4. What I would NOT build</h2>
+<ul>
+<li><strong>The draft's 5.3 <code>signal_process_tree</code> cancel swap</strong> — superseded by the sweep.
+Change of mind: an incident requiring cancel to kill an ORPHANED task's tree
+cross-process → that is B4 (named jobs <code>Local\harness-&lt;wfid&gt;-&lt;task&gt;</code> +
+<code>OpenJobObject</code>), not taskkill /T.</li>
+<li><strong>The draft's 5.2 TerminateJobObject-as-the-kill</strong> — buys ~0-2s of earlier child
+death over ladder+sweep, costs touching the ladder and the rc-forensics reasoning.
+Change of mind: a measured wedge where <code>TerminateProcess</code> fails to fell the vendor
+CLI within the 5s ladder (which the sweep already covers).</li>
+<li><strong>A supervisor cancellation-poll loop</strong> — the CLI's pid-kill already wakes the
+handle owner.</li>
+<li><strong><code>KILL_ON_JOB_CLOSE</code></strong>, <strong><code>SILENT_BREAKAWAY_OK</code></strong>, <strong>a per-profile lifetime
+field</strong>, <strong>psutil/Toolhelp32</strong> — ratified rejections, carried forward. The first
+two invert recover-salvage and manifest honesty respectively.</li>
+<li><strong>Any POSIX-side change</strong> — B2 already has its shipped detector awaiting the CI
+leg; B3 stays trigger-gated on a measured setsid-escapee orphan.</li>
+<li><strong>Re-probing cancel-branch incidence before Phase 3</strong> — the mechanism is identical
+to the measured timeout branch (pid-kill of a caged parent); a second 26-arm
+campaign to re-measure the same mechanism is measurement theater. Change of mind:
+the owner declines decision 5.1's a-fortiori reasoning.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-5-open-owner-decisions-recommendation-first">5. Open owner decisions (recommendation first)</h2>
+<ol>
+<li><strong>Cancel converges on the cage (Phase 3) without a new probe — YES.</strong> The kill
+mechanism at cancel is byte-identical to the measured timeout branch; only the
+trigger differs, so P1's incidence carries a fortiori (referência: judgment on the
+carry-over; the mechanism identity is source-verified). The alternative — the
+draft's aggressive visible-tree cancel — changes POSIX, kills breakaway gate
+runners, and was never ratified. Deciding NO leaves Phase 2 complete and honest.</li>
+<li><strong>Breakaway-first commit ordering — YES.</strong> If the owner insists on one commit the
+content is identical; only rollback granularity is lost.</li>
+<li><strong>Cancel spares breakaway children — YES, declared.</strong> This INVERTS the draft's
+"operator kill outranks background children" for exactly one class:
+harness-detached children (gate runners, nested supervisors). An operator wanting
+scorched earth has <code>taskkill /PID &lt;pid&gt; /T</code> at the shell; the harness's own cancel
+should not strand gate-holds.</li>
+<li><strong>exp21-8 arm 2 rides Phase 2, not Phase 1 — YES</strong>: before Phase 2 nothing
+job-kills, so "detached survives" is vacuously green everywhere.</li>
+</ol>
+</section>
+<section class="section content"><h2 id="ed-6-amendment-target-spec-116-door">6. Amendment target (SPEC-116 door)</h2>
+<p><strong>Versioned amendment to a covered spec — <code>specs/40-features/sandbox-manifest-honesty.md</code>
+(SPEC-163), as v4.</strong> No new intake: third exercise of the shelf v2 built (v2 declared
+the gap, v3 closed <code>bounded:darwin</code>, v4 closes <code>async:nt</code>). Contents: two new
+invariants — <strong>11</strong> (nt timeout kill sweeps the cage via the held handle before
+release; POSIX killpg unchanged; give-up wedge covered) and <strong>12</strong> (detached spawns
+break away on nt: <code>breakawayOk</code> + <code>CREATE_BREAKAWAY_FROM_JOB</code>, fail-closed retry,
+<code>SILENT_BREAKAWAY_OK</code> rejected) — numbered 11/12 because v2 consumed 8-10 (the source
+plan's "invariant 8" is stale); matrix row async:nt <code>pid → job</code> citing EXP-21 P1;
+the <code>DECLARED_KILL_GAPS</code> strike; the cancel paragraph updated from "separate open
+decision" to either the Phase-3 convergence or a one-line pointer to it as still-open.
+<code>specs/40-features/harness-own-sandbox.md</code> (SPEC-151) expected untouched — verify at
+amendment time. EXP-21 <code>measurements[]</code> and verdict are owner-gated ledger writes, not
+spec content; DECISIONS.md needs nothing (this implements D045).</p>
+<hr/>
+<h1>OVERSEER VERIFICATION (2026-07-27, before acceptance)</h1>
+<p>Three load-bearing claims were checked against source rather than accepted.</p>
+<p><strong>Q1 premise — CONFIRMED.</strong> <code>processes.py:449</code> reads
+<code>job = k32.CreateJobObjectW(None, None)</code>. The second argument IS <code>lpName</code>, so the
+job is unnamed and has no <code>OpenJobObject</code> path. The author's conclusion — sweep
+from the handle owner instead of cross-process — is a materially better design
+than the source plan's taskkill swap, and it is the reason the POSIX-zero-change
+constraint survives.</p>
+<p><strong>Q3 — CONFIRMED.</strong> The job-assign failure arm ends with <code>return task</code>
+(<code>async_runtime.py:465</code>), so on nt the timeout branch cannot be reached with a
+None handle. The design's <code>and async_job</code> guard makes this moot either way, which
+is the right belt-and-braces.</p>
+<p><strong>1b (hsb-13 overstated) — SUBSTANCE CORRECT, EXAMPLE IMPRECISE. Read this before
+implementing.</strong> The author writes that flipping <code>tree_kill_reach("async")</code> to
+<code>"job"</code> and striking the gap "leaves hsb-13 fully green". That specific step does
+NOT stay green: <code>hsb_sandbox_spawn.py:271-272</code> hardcodes
+<code>async_man.get("treeKillReach") == ("pid" if os.name == "nt" else "session")</code>, so
+the flip alone turns hsb-13 RED.</p>
+<p>The underlying criticism nevertheless STANDS, and it is a criticism of the
+overseer's own morning commit (20e098d). Once the implementer updates that
+hardcoded expectation — which the same commit requires — nothing remaining pins
+the kill BEHAVIOR: the surviving premise pin is
+<code>"safe_signal_pid(proc.pid, signal.SIGTERM)" in async_src</code>, which is still true
+after the sweep lands, because the ladder legitimately stays. So hsb-13 locks
+declarations against declarations and against string premises, never against
+behavior. The comment above it calling it a "declaration/code drift lock"
+OVERCLAIMS, in exactly the way the testing playbook warns about.</p>
+<p>The author's remedy is accepted as-is: hsb-13 keeps the declaration-consistency
+job, gains the <code>terminate_win_job(async_job</code> premise pin, and the behavior teeth
+live in exp21-8, which reaches the real seam. Implementers must not treat hsb-13
+green as evidence that a kill behaves as declared.</p>
+<h1>OWNER DECISIONS (2026-07-27) — READ BEFORE IMPLEMENTING PHASE 3</h1>
+<p><strong>Phases 1 and 2 are ACCEPTED as written.</strong> Decisions 2 and 4 (breakaway-first
+ordering; exp21-8 arm 2 rides Phase 2) are taken as recommended.</p>
+<p><strong>Decision 1 is OVERRIDDEN. Phase 3 as designed is only its lower half.</strong> Asked
+in plain terms what "cancel" should mean for processes the harness deliberately
+detached — the live example being a gate started four minutes ago — the owner
+chose <strong>"spare it, but ASK me first"</strong>, over both silent-spare (the plan's
+recommendation) and kill-everything (the source draft's policy).</p>
+<p>So the cage sweep at cancel is still wanted; what the plan omits is the layer
+above it. That layer is the existing row <code>proc-cancel-graded-destruction</code>, whose
+feasibility blocker is now ANSWERED — see that row's note. Summary: two questions
+were fused in the blocker. REACHING the unnamed job cross-process is genuinely
+impossible (and unnecessary, per section 1a). ENUMERATING what would die is a
+different question, and <code>Get-CimInstance Win32_Process</code> answers it — demonstrated
+at scale by today's P1 probe rig, which built the full cross-process pid/ppid/cmd
+map every 3 seconds for an hour. The proposed shape is to evolve
+<code>process_children_map</code> UP on nt (D045, the same move that gave darwin its <code>ps</code>
+fallback) rather than special-case the cancel path.</p>
+<p>D050 binds how that layer is built: the class of each child, the decision to ask,
+the refusal without a tty, and the enumeration are DETERMINISTIC CODE. A
+generative agent may only TRANSLATE the list into human language, and the
+translation never alters the classification.</p>
+<p><strong>Phase 3 must therefore be re-planned before implementation.</strong> Phases 1 and 2
+are unaffected and may proceed.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-job-tree-lifetime-control.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/plan-job-tree-lifetime-control.md</code></li><li>Source SHA-256: <code>289f42eefd7e33c80c83b0694f896d9b5082ec834a4bfcef304de2875f9d6b31</code></li><li>Edition-input SHA-256: <code>289f42eefd7e33c80c83b0694f896d9b5082ec834a4bfcef304de2875f9d6b31</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

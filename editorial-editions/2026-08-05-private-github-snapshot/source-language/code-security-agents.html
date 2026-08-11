@@ -1,0 +1,344 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research round — security of agent-written code — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-phase-0-question-criteria-budget">Phase 0 — Question, criteria, budget</a></li><li class="h2"><a href="#ed-phase-1-evidence-matrix-verified-2026-07-12">Phase 1 — Evidence matrix (verified 2026-07-12)</a></li><li class="h2"><a href="#ed-phase-2-briefs-and-gate">Phase 2 — Briefs and gate</a></li><li class="h2"><a href="#ed-phase-3-wave-1-divergence">Phase 3 — Wave 1 (divergence)</a></li><li class="h2"><a href="#ed-phase-4-wave-2-critique-done">Phase 4 — Wave 2 (critique) — done</a></li><li class="h2"><a href="#ed-phase-5-portfolio-backlog">Phase 5 — Portfolio &amp; backlog</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Research round — security of agent-written code</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>d860d06f58b96e2629c9…</span></div><div><b>Edition SHA-256</b><span>d860d06f58b96e2629c9…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Round opened 2026-07-12 by the <code>research</code> skill (SPEC-119). Orchestrator: overseer session
+(running in parallel with the batch N+2 integration + the CQ critique wave; this round's
+divergence QUEUES behind the CQ critique on the 1-slot claude executor). Primary evidence: the
+owner's study (2026-07-12) — thesis: apparent functionality ≠ security; the goal is not a
+"more secure model" but a SYSTEM where an insecure output is detected/contained/rejected before
+harm — <strong>"the agent proposes; deterministic controls authorize, verify, and admit."</strong> Risk has
+moved from the textual OUTPUT to the whole CONTROL PLANE of the dev environment (the agent reads
+hostile content, picks tools, installs packages, touches secrets, edits the build).</p>
+</section>
+<section class="section content"><h2 id="ed-phase-0-question-criteria-budget">Phase 0 — Question, criteria, budget</h2>
+<p><strong>Question.</strong> Which SECURITY controls should THIS harness adopt across the study's 5 surfaces
+(code vulns / failed fixes / agent manipulation / privilege abuse / governance-supply-chain),
+GIVEN what already landed (security-baseline, DW.1 fan-out secret-scan + executor trustTier,
+workspace-state-exclusion, filter_spawn_env) and what the in-flight CQ round already covers
+(mutation-probe, per-patch risk-tier, provenance record, oracle-replay, QA-capsule) — so this
+round adds only the DISTINCT surfaces, deterministic-first, least-authority, complete-mediation?</p>
+<p><strong>Success criteria.</strong></p>
+<ul>
+<li>Backlog of buildable items, each mapped to a NAMED surface/gap + a concrete integration seam
+(file/module) + ONE metric (secure-functional-pass-rate / authority-surface / admission-
+coverage / injection-contained).</li>
+<li>Deterministic-first: prefer capability limits, admission control, data/instruction separation,
+and proof-carrying evidence — over prompting, model self-critique, or perfect input
+classification (the study: prompting is NOT a security boundary; limiting authority beats
+classifying every malicious input).</li>
+<li>Invariants: eviction ≠ deletion, no resident daemon, stdlib-only core, GUI writes no state,
+fail-safe defaults (no explicit authz ⇒ deny), complete mediation (every sensitive op, not
+just the first), separation of duties (author ≠ sole approver), zero-trust on consumed content.</li>
+<li>Critique must reject over-engineering: single-agent baseline; a control that makes tasks
+impractical WILL be disabled/bypassed → proportional to risk; nominal diversity ≠ real
+independence; explanation ≠ evidence; observation must pay for itself.</li>
+</ul>
+<p><strong>Declared budget.</strong> claude executor; 1 divergence wave (5 ideators) + 1 critique wave (4
+critics); research-profile budgets; no wave 3.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-1-evidence-matrix-verified-2026-07-12">Phase 1 — Evidence matrix (verified 2026-07-12)</h2>
+<table>
+<thead>
+<tr>
+<th>claim</th>
+<th>source</th>
+<th>prov</th>
+<th>conf</th>
+<th>maturity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apparent functionality ≠ security; agent-suggested code carries recurrent vulns even when functional tests pass</td>
+<td>[web] Pearce "Asleep at the Keyboard" (arXiv:2108.09293)</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Devs with an assistant wrote LESS secure code on some tasks AND were over-confident (mis-calibration)</td>
+<td>[web] Perry et al., ACM CCS 2023</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Prompting ("write secure code") / reflection is NOT a security boundary — small/insignificant gains, sometimes breaks functionality</td>
+<td>[web] study §2 conclusion 1; realistic secure-coding benchmarks</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>The right metric is secure-AND-functional (Secure Functional Pass Rate), not "no SAST alerts" or "compiles"</td>
+<td>[web] study §2 conclusion 2; adversarial SAST evals</td>
+<td>web</td>
+<td>forte</td>
+<td>judgment (norma)</td>
+</tr>
+<tr>
+<td>External oracle MESH (tests+SAST+SCA+secret-scan+fuzz+property+exploit+review+policy) beats model self-confidence; LLM+tools &gt; LLM-only</td>
+<td>[web] study §2 conclusion 3</td>
+<td>web</td>
+<td>moderada</td>
+<td>preliminar</td>
+</tr>
+<tr>
+<td>The agent's ENVIRONMENT is supply chain: skills, instruction files, tool descriptions, MCPs, packages, pages, command output can carry malicious instructions</td>
+<td>[web] study §2 conclusion 4; AgentDojo; MCPTox</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+<tr>
+<td>Limiting AUTHORITY is the strongest control (least-privilege, capability security, data/instruction separation, ephemeral exec, per-action authz) — CaMeL, Task Shield</td>
+<td>[web] study §2 conclusion 5; CaMeL; Task Shield</td>
+<td>web</td>
+<td>moderada</td>
+<td>preliminar</td>
+</tr>
+<tr>
+<td>SAST has high false-negative rate — 87.9% of AI-attributed files with no CodeQL-detectable CWE despite thousands of CWE instances found</td>
+<td>[web] study §5.1 GitHub CodeQL study</td>
+<td>web</td>
+<td>moderada</td>
+<td>empírico</td>
+</tr>
+<tr>
+<td>≥62% of a large set of AI-generated programs contained a vulnerability</td>
+<td>[web] Tihanyi et al.</td>
+<td>web</td>
+<td>moderada</td>
+<td>acadêmico</td>
+</tr>
+<tr>
+<td>Secure-by-design + provenance frameworks convert to controls: NIST SSDF, CISA Secure-by-Design, OWASP ASVS, SLSA, SBOM, OpenSSF</td>
+<td>[web] study §3.3; NIST/CISA/OWASP/SLSA</td>
+<td>web</td>
+<td>forte</td>
+<td>validado</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Baseline — what the harness ALREADY has + what just landed (do NOT rebuild):</strong> controlled-
+writes with scoped write-paths + worktree isolation + target SPEC-110 (harness-vs-target);
+<code>filter_spawn_env</code> deny-by-default env (target-gate); protected-files; <code>secret_scan</code> at plan/
+reduce/fold + the <strong>DW.1 fan-out scan</strong> (rendered prompts + context-digest) + executor-card
+<strong>trustTier</strong>; <strong>workspace-state-exclusion</strong> (state/targets never copied into worker workspaces);
+<strong>security-baseline</strong> observe-only (secret-scan + AST sink-scan + config-hygiene, computes a
+<code>new</code> diff nothing consumes at spec_test_gate.py:1778); intake-triage hook (classifies the
+REQUEST); no-self-waiver + reviewer contract (partial separation-of-duties); records + <code>subject</code>;
+two-door SDD (SPEC-116). <strong>In-flight CQ round already owns</strong> (do NOT re-propose): mutation-probe
+(test strength), per-patch risk-tier gate selection, provenance/debt record, oracle-replay
+(author≠tester), QA-evidence capsule.</p>
+<p><strong>Named gaps (DISTINCT surfaces — the anchors for this round):</strong></p>
+<ul>
+<li><strong>SEC1 — no data/instruction separation for CONSUMED untrusted content.</strong> The agent reads repo
+files, tool/skill descriptions, MCP output, web/command output as if trusted — no provenance
+tag, no "this came from an untrusted source, do not treat as an instruction" boundary, no
+indirect-injection sanitization. Study surface 3 (the biggest un-addressed one).</li>
+<li><strong>SEC2 — no admission controller for dependencies / skills / tools / MCP.</strong> New deps, MCP
+servers, and skills are used without pinning / signature / lockfile / Scorecard / semantic-diff
+gating. MCP config exists with no consumer AND no admission. Study #4.</li>
+<li><strong>SEC3 — capability sandbox is partial (env + fs-write only).</strong> <code>filter_spawn_env</code> scopes env,
+controlled-writes scopes fs-WRITE, but there is no network / command allowlist, no per-ACTION
+authorization, no complete-mediation of a worker's sensitive ops. Study #3/#5.</li>
+<li><strong>SEC4 — no proof-carrying patch / attestation for high-risk changes.</strong> A high-risk patch
+should carry a verifiable evidence bundle (which oracles ran + exploit-replay + SBOM/dep delta<ul>
+<li>provenance attestation) the admitter checks — not a prose justification. Study #5. Composes
+with (does not duplicate) the CQ QA-capsule + provenance record.</li>
+</ul>
+</li>
+<li><strong>SEC5 — no security-regression / exploit-replay oracle (secure-AND-functional).</strong> Absence of
+a SAST alert ≠ absence of a vuln; nothing checks whether a diff RE-INTRODUCES a known-vuln CWE
+pattern, or whether a "fix" actually REMOVES the target pattern while keeping tests green.
+Study surfaces 1/2 + the Secure-Functional-Pass-Rate metric. Security-specific; composes with
+(does not duplicate) the CQ mutation-probe.</li>
+<li><strong>SEC6 (likely PARK) — formal exploit generation / a full CaMeL-style capability interpreter.</strong>
+Bleeding-edge, heavy; the deterministic subset (allowlists, admission, provenance tags) first.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-2-briefs-and-gate">Phase 2 — Briefs and gate</h2>
+<p><strong>Brief 1 — contain manipulation of the agent (SEC1+SEC2; the study's highest-leverage, least-
+covered surface).</strong> How might the harness treat CONSUMED content (repo files, tool/skill/MCP
+descriptions, command/web output) as zero-trust data-not-instructions — provenance-tagging
+untrusted spans + a deterministic sanitization/quarantine boundary — AND admit new dependencies/
+skills/tools/MCP only through a deterministic admission controller (pinning/signature/lockfile/
+semantic-diff), reusing secret_scan + protected-files + the trustTier seam, without an LLM
+classifier as the boundary and without making normal tasks impractical?</p>
+<p><strong>Brief 2 — least-authority runtime + proof-carrying admission (SEC3+SEC4+SEC5).</strong> How might the
+harness extend beyond env+fs-write to a deterministic per-ACTION capability check (network/
+command/fs allowlist, complete mediation, fail-safe deny) reusing filter_spawn_env + controlled-
+writes, attach a proof-carrying evidence bundle to high-risk patches (oracles-run + security-
+regression/exploit-replay + dep/SBOM delta) that a deterministic admitter verifies before merge,
+and add a security-regression oracle that consumes the security-baseline <code>new</code> diff — all
+stdlib-only, proportional to risk, complete-mediation, no daemon?</p>
+<p><strong>Parked (future round / needs a signal):</strong> SEC6 formal exploit-gen / full capability
+interpreter (bleeding-edge); network-level sandboxing that needs OS primitives beyond stdlib
+(proportionality — start with a command/allowlist deny-list); a full SBOM/attestation pipeline
+(start with a dep-delta admission check).</p>
+<p><strong>Gate.</strong> Scope/waves/budget pre-approved by the owner (this invocation). Deterministic-first +
+least-authority + complete-mediation + zero-trust + net-cost-positive + de-duplicated-against-CQ
+are hard constraints on the critique wave.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-3-wave-1-divergence">Phase 3 — Wave 1 (divergence)</h2>
+<p><code>WF-20260712-214537-385258</code>, <code>research-divergence</code>, 5 ideators (simplicity, performance,
+reliability, trust-boundary, analogy), claude executor (ran after the CQ critique freed the
+slot). All 5 fulfilled. The de-dup held — every concept builds on landed work (security-baseline
+<code>new</code> diff, DW.1 fan-out scan, filter_spawn_env, controlled-writes, protected-files) and none
+re-proposed a CQ item. <strong>Two verified new holes surfaced:</strong> (a) <code>discovery.py</code> ships file BYTES
+to Gemini/NVIDIA with NO outbound secret_scan (a pre-egress leak); (b) the security-baseline
+<code>new</code> diff is still unconsumed — now BOTH CQ.1 (risk routing) and this round's regression ratchet
+consume it, composing. Reliability-lens meta-thesis: a control that fails PARTIALLY and SILENTLY
+(hook not installed, enabled=False, stale snapshot, ledger with no consumer) is itself the top
+operational vuln → every control ships with liveness + a granted-vs-used feedback loop that
+SHRINKS authority over time. Cross-domain transfers: Perl taint-mode → P1; K8s admission /
+driver-signing → P2; seccomp / Android permissions → P3; Proof-Carrying-Code + SLSA → P5;
+immune memory / airworthiness directives → P6.</p>
+<p>Orchestrator consolidated the 25 concepts into <strong>6 candidates</strong> (tag by SOURCE, not content
+classification; deterministic, observe-first):</p>
+<ul>
+<li><strong>P1 origin-tagged quarantine of consumed content</strong> (SEC1) — taint-mode: tag untrusted spans
+by SOURCE once at the <code>context_digest</code> build funnel, fence them, extend the DW.1 fan-out scan
+to flag imperatives INSIDE fences; ship an injection fixture corpus. Seam: <code>context_digest.py</code><ul>
+<li>the DW.1 scan.</li>
+</ul>
+</li>
+<li><strong>P2 hash-pinned admission ledger</strong> (SEC2) — deny-by-default hash-pin for deps/skills/MCP/
+executors/hooks (reuse protected-files + write-once-baseline), content-addressed O(1) cached
+verdicts, quarantine-on-drift. Ties the SPEC-113 capabilities manifest. Seam: a new admission
+ledger + protected-files pattern.</li>
+<li><strong>P3 command-capability mediation at the spawn choke point</strong> (SEC3) — a per-worker command
+allowlist at the single spawn choke <code>run_process_tree_bounded</code> (declare-only / observe-first
+from run-logs), reusing filter_spawn_env; + a control-plane liveness healthcheck (fail if a
+declared control is dead / fail-open). Seam: <code>processes.py</code> / async_runtime spawn + limits.</li>
+<li><strong>P4 pre-egress gate on the discover chain</strong> (SEC3, VERIFIED hole) — <code>discovery.py</code> ships file
+bytes to Gemini/NVIDIA with NO outbound secret_scan; add a deterministic pre-egress secret/
+path gate (reuse secret_scan). Seam: <code>discovery.py</code> egress point.</li>
+<li><strong>P5 proof-carrying admitter for high-risk</strong> (SEC4) — a finalize-time ~30-line deterministic
+admitter over evidence the harness ALREADY writes (reviewer.result.json + baseline new-diff),
+as a size-capped hash-manifest of evidence references; composes with CQ.2 QA-capsule; + an
+authority granted-vs-used ledger. Seam: workflow finalize + WORKER_RESULT.</li>
+<li><strong>P6 security-regression ratchet</strong> (SEC5) — diff-scoped: intersect the security-baseline <code>new</code>
+diff with the changed-files manifest (zero new scanners), enforce secure-AND-functional (a diff
+must not re-introduce a baseline pattern; a fix must remove the target). Second consumer of the
+unconsumed <code>new</code> diff; composes with CQ.1. Seam: <code>security_baseline</code> new-diff ∩ changed-files.</li>
+<li><strong>PARK</strong> — SEC6 CaMeL-style capability interpreter, OS-level network sandbox, network
+signature/Scorecard/SBOM parts (daemon/admin/invariant-break or cost&gt;savings).</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-phase-4-wave-2-critique-done">Phase 4 — Wave 2 (critique) — done</h2>
+<p><code>WF-20260712-220734-525283</code>, <code>research-critique</code>, 4 critics (validity/architecture/cost/
+security), <code>--seed</code> = the divergence reduce. All 4 fulfilled. No fabrication. Two load-bearing
+holes VERIFIED in source by multiple lenses: <strong>P4</strong> — <code>discovery.py:118-124</code> ships an absolute
+file path (and <code>gemini_extract_fallback.py:88</code> up to 60k chars/file) to the Gemini/NVIDIA
+provider scripts with ZERO secret_scan anywhere in the discover chain; <strong>P6</strong> — <code>security_baseline</code>
+computes <code>security['new']</code> then hardcodes <code>pass</code> at <code>spec_test_gate.py:1782</code> (an unconsumed
+control signal). Critical architecture correction: <strong>P3's single-choke premise is FALSE</strong> —
+worker spawns run via <code>async_runtime.py:410</code>/<code>:778</code> with the command built at
+<code>workflow_spawn_command_for_prompt</code> (not <code>run_process_tree_bounded</code>), and there are <strong>48 direct
+<code>subprocess.*</code> sites across 18 <code>scripts/</code> files</strong>, so cheap "complete mediation" is not
+achievable; the control-liveness healthcheck must split out.</p>
+<p><strong>Cross-lens verdicts:</strong></p>
+<table>
+<thead>
+<tr>
+<th>cand</th>
+<th>validity</th>
+<th>architecture</th>
+<th>cost</th>
+<th>security</th>
+<th>net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P4 pre-egress gate</td>
+<td>keep (hole verified)</td>
+<td>keep (one seam: discover_paths)</td>
+<td>keep (60k chars/file; gate at discovery.py)</td>
+<td><strong>keep, build FIRST</strong></td>
+<td><strong>KEEP, #1</strong> — verified egress leak; gate at <code>discovery.py</code> discover_paths</td>
+</tr>
+<tr>
+<td>P6 regression ratchet</td>
+<td>keep (unconsumed diff verified)</td>
+<td>keep (must pin git base ref)</td>
+<td>keep (pure set-intersection, ~0 obs cost)</td>
+<td>keep (unconsumed control signal)</td>
+<td><strong>KEEP, #2</strong> — <code>new</code> ∩ changed-files; pin base ref; composes with CQ.1</td>
+</tr>
+<tr>
+<td>P3 command mediation</td>
+<td>keep-w/-ch</td>
+<td><strong>keep-w/-ch (single-choke FALSE; 48 subprocess sites) — SPLIT liveness out</strong></td>
+<td>keep (observe-first to price denial-rate)</td>
+<td>keep-w/-ch (harness-spawned only, not agent's shell)</td>
+<td><strong>KEEP-CHANGES, SPLIT</strong> — (a) control-liveness healthcheck (own early item); (b) observe-first cmd audit, scoped</td>
+</tr>
+<tr>
+<td>P2 admission ledger</td>
+<td>keep</td>
+<td>keep-w/-ch (single-home in SPEC-113 manifest)</td>
+<td>keep-w/-ch (re-pin friction in a self-evolving repo)</td>
+<td>keep-w/-ch (TOCTOU: verify at load/use; pin-writer≠author)</td>
+<td><strong>KEEP-CHANGES</strong> — verify at use, pin-writer separation, mind churn</td>
+</tr>
+<tr>
+<td>P1 origin-tag quarantine</td>
+<td>keep-w/-ch</td>
+<td>keep-w/-ch (one fence helper across renderers)</td>
+<td>keep-w/-ch (fence tokens recur every prompt)</td>
+<td>keep-w/-ch (<strong>a fence is PROMPTING, not a boundary</strong>; value = imperative-scan + corpus)</td>
+<td><strong>KEEP-CHANGES</strong> — ship the deterministic imperative-scan + injection fixture corpus, not the fence-as-boundary; watch sentinel-collision</td>
+</tr>
+<tr>
+<td>P5 proof-carrying admitter</td>
+<td>keep-w/-ch</td>
+<td>keep-w/-ch (extend reviewPolicy, not a parallel path)</td>
+<td>keep-w/-ch (drop granted-vs-used unless consumed)</td>
+<td>keep-w/-ch, <strong>build LAST</strong> (reviewer.result.json is LLM testimony, not proof)</td>
+<td><strong>KEEP-CHANGES, LAST</strong> — admitter must deterministically RECOMPUTE + check ref-existence</td>
+</tr>
+<tr>
+<td>SEC6</td>
+<td>park</td>
+<td>park</td>
+<td>park</td>
+<td>park</td>
+<td><strong>PARK</strong> (unanimous)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Build order:</strong> <strong>P4 → P6 → P3-liveness → P2 → P1 → P5.</strong> The governing corrections: verified
+holes first (P4/P6 are the only two with confirmed load-bearing evidence in OUR source);
+honest scoping (P3 cannot be "complete" mediation — 48 subprocess sites; ship liveness + observe-
+first audit); <strong>a fence is not a boundary</strong> (P1's value is the deterministic scan + corpus, not
+the fence); <strong>LLM output is not proof</strong> (P5 must recompute deterministically).</p>
+</section>
+<section class="section content"><h2 id="ed-phase-5-portfolio-backlog">Phase 5 — Portfolio &amp; backlog</h2>
+<p>Deterministic-first held: P4/P6 are pure deterministic checks over existing signals (a secret_scan
+at one egress seam; a set-intersection of two already-computed diffs); P3-liveness/P2 are ledger/
+healthcheck extensions; P1's shippable core is a deterministic imperative-scan + fixture corpus;
+P5 is a deterministic recompute. Nothing is an LLM classifier, a daemon, or a network SBOM
+pipeline. The round's sharpest lesson reinforces the study's thesis (limit authority; explanation
+≠ evidence): the two items with real evidence are the two that CONTAIN or MEASURE (P4 egress, P6
+ratchet), while the authority-limiting ideal (P3 complete mediation) is honestly downgraded to
+observe-first because the harness has 48 un-mediated spawn sites. Portfolio → the <strong>Code security
+roadmap</strong> section in <code>docs/IMPLEMENTATION_BACKLOG.md</code> (SEC.1–SEC.7).</p>
+<p><strong>Ship spine:</strong> SEC.1 pre-egress secret/path gate on the discover chain (P4, build first, verified
+hole) · SEC.2 security-regression ratchet (P6, <code>new</code> ∩ changed-files, pin base ref) · SEC.3
+control-plane liveness healthcheck (P3-split, fail if a declared control is dead/fail-open) ·
+SEC.4 hash-pinned admission ledger (P2, verify-at-use). <strong>Deferred/scoped:</strong> SEC.5 observe-first
+command-mediation audit (P3, harness-spawned only) · SEC.6 imperative-scan + injection fixture
+corpus (P1, not the fence) · SEC.7 proof-carrying admitter (P5, deterministic recompute, last).
+<strong>PARK:</strong> CaMeL interpreter / OS network sandbox / network signature+SBOM.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/code-security-agents.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/code-security-agents.md</code></li><li>Source SHA-256: <code>d860d06f58b96e2629c9314838552e643942354ebb1450cdd574453f3a4052e1</code></li><li>Edition-input SHA-256: <code>d860d06f58b96e2629c9314838552e643942354ebb1450cdd574453f3a4052e1</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

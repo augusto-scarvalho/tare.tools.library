@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Round R2 — Harness-owned sandbox (design round) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-phase-0-question-criteria-budget-breadth">Phase 0 — Question, criteria, budget, breadth</a></li><li class="h2"><a href="#ed-execution">Execution</a></li><li class="h2"><a href="#ed-design-portfolio-locally-audited-windows-primitives-verified">Design portfolio (locally audited; Windows primitives verified)</a></li><li class="h3"><a href="#ed-core-the-design-that-closes-p0">Core (the design that closes P0)</a></li><li class="h3"><a href="#ed-contingency-egress-the-hard-admin-dependent-point">Contingency (egress — the hard, admin-dependent point)</a></li><li class="h3"><a href="#ed-boundary-detection">Boundary / detection</a></li><li class="h3"><a href="#ed-operations-by-card-set-based">Operations by card (set-based)</a></li><li class="h2"><a href="#ed-delivery-intake-prepared-without-implementation">Delivery — intake prepared (WITHOUT implementation)</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">SCIENTIFIC RESEARCH · 2026-08-05 snapshot</div><h1>Round R2 — Harness-owned sandbox (design round)</h1><p class="subtitle">Historical research edition migrated to the current tare.tools documentation standard.</p><div class="badges"><span class="badge research">RESEARCH</span><span class="badge">en</span><span class="badge">TRANSLATED_EN_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>63ae0538101a3fd01664…</span></div><div><b>Edition SHA-256</b><span>f7e8d1e2a09a63279387…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> English derivative generated from the exact historical source; translation does not reconcile or modernize historical claims.</div></section>
+<section class="section content">
+<p>Round 2 of 5 under directive <strong>D012</strong> (NVIDIA, sequential, backlog-first). P0 from the article queue. Phase-2 human gate pre-approved by D012.</p>
+</section>
+<section class="section content"><h2 id="ed-phase-0-question-criteria-budget-breadth">Phase 0 — Question, criteria, budget, breadth</h2>
+<ul>
+<li><strong>Question:</strong> what vendor-agnostic fs/proc/net containment design at SPAWN (the "runtime plane" §5.9; layer s5 of the defense stack §7.4; CaMeL separation of trusted-control/untrusted-data) makes open-model workers safe (HTTP, zero built-in containment) while STRENGTHENING Claude (deny honored) and Codex (native S3 sandbox), on single-tenant Windows 11, without breaking live flows (workflows, rooms, gate)?</li>
+<li><strong>Hard context (from the Codex investigation on 2026-07-18, adoption round document):</strong> containment matrix — Claude: deny hooks ✅; Codex: hooks are ADVISORY (deny ignored), native sandbox is the only trusted control; open models: NOTHING. Already-committed building block: <code>apply_patch_paths</code> parser (a feed of what the worker tries to write). Related deferred items: generic egress is declare-only (rule 27), Bash is not path-confined, raw HTTP workers.</li>
+<li><strong>Success criteria:</strong> (a) covers all 3 vendors with ONE declared semantics (native/emulated/degraded per capability — C3 vocabulary); (b) REAL enforcement for the open-model case (not advisory); (c) Windows-first (no chroot; available primitives: AppContainer/Job Objects/restricted tokens/firewall rules/worktree+ACL); (d) integrates at the 3 existing spawn points without rewriting executors; (e) deterministic test plan (red-team escape fixture).</li>
+<li><strong>Breadth (D010): EXPLORATORY — 5 ideators</strong> (full research-divergence). Rationale: open design space (OS-level vs process-level vs proxy-level vs fs-overlay), multiple possible sources, no closed implementation target — exactly D010 case (b); nominal diversity pays off (Diehl &amp; Stroebe).</li>
+<li><strong>Declared budget:</strong> divergence wave ≤ 40k tokens + seeded critique wave ≤ 30k (4 critics). Executor <code>nvidia-compat</code>. Prompt-cap override expected (embedded content, D012 — R1 precedent).</li>
+<li><strong>Declared design (L18):</strong> the round produces DESIGN + a NEW spec door (it is not a measurement experiment); the escape fixture cited in the criteria will use the red-team/fault-injection card when implemented.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-execution">Execution</h2>
+<ul>
+<li>Divergence: <code>WF-20260718-220802-675372</code> (5 ideators, GLM, 5/5 valid, 15 concepts). Natural convergence on 5 primitives: Job Object, WFP/netsh (egress), restricted token, NTFS ACL, <code>sys.audit</code> hook.</li>
+<li>Seeded critique: <code>WF-20260718-221100-955934</code> (4 critics). INVALID under the transport contract (they hallucinated paths in <code>sourceFilesVerified</code> — this is design for something that does not exist, so there is no real file to cite; lesson: DESIGN critique should not require <code>sourceFilesVerified</code>). Content extracted directly from results — consistent across the 4 critics, with no material contradiction. <code>securityBlockerBlocksWorkflow</code> did not trigger because the wave became invalid before reduce, but 3 critics raised a security <code>blocker</code> about the SAME issue (egress) — treated as a design blocker below.</li>
+</ul>
+</section>
+<section class="section content"><h2 id="ed-design-portfolio-locally-audited-windows-primitives-verified">Design portfolio (locally audited; Windows primitives verified)</h2>
+<p>Local verification of the primitives (marked <code>[repo]/[judgment]</code>):</p>
+<ul>
+<li>Job Object via ctypes <code>CreateJobObjectW</code>/<code>AssignProcessToJobObject</code> + <code>JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE</code> — <code>[judgment]</code> stable Win32 API, no admin required, kills the process tree on close. Reference: Microsoft Job Objects docs.</li>
+<li>NTFS ACL via <code>icacls</code> (subprocess) — <code>[judgment]</code> deny-write ACE on scoped paths, allow only in result/worktree; no admin if the user owns the directory.</li>
+<li>WFP (<code>FwpmEngineOpen</code>…) — <code>[judgment]</code> kernel-enforced but requires admin + driver; rejected by the security critic for the common case.</li>
+<li><code>netsh advfirewall</code> — <code>[judgment]</code> user-mode, but the rule is PER IMAGE PATH, not per PID → advisory-by-image, not per-process containment.</li>
+<li><code>sys.addaudithook</code> (stdlib) — <code>[repo]</code> available since Python 3.8+; intercepts <code>open</code>/<code>socket</code>/<code>subprocess</code> INSIDE the Python worker, but the worker is a child process (it does not trust itself) → observability, not enforcement.</li>
+</ul>
+<h3 id="ed-core-the-design-that-closes-p0">Core (the design that closes P0)</h3>
+<table>
+<thead>
+<tr>
+<th>card</th>
+<th>primitive</th>
+<th>covers</th>
+<th>strength</th>
+<th>where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SB-1 Job Object baseline</strong></td>
+<td>ctypes Job Object + KILL_ON_JOB_CLOSE, BREAKAWAY_OK=0</td>
+<td>all 3 vendors (wraps spawn)</td>
+<td>real-block (lifecycle/process tree), no admin</td>
+<td>all 3 spawn seams</td>
+</tr>
+<tr>
+<td><strong>SB-2 NTFS ACL fs confinement</strong></td>
+<td><code>icacls</code> deny-write in scope + allow in result; dual mode (read worker = scope read-only + writable result; write worker = dedicated worktree)</td>
+<td>all 3 vendors</td>
+<td>real-block (writes), no admin</td>
+<td>spawn wrapper, post-worktree</td>
+</tr>
+<tr>
+<td><strong>SB-3 confinement manifest + readable degradation</strong></td>
+<td><code>{fsEnforced, egressEnforced, reason}</code> field recorded per spawn; capability probe at workflow start</td>
+<td>all 3</td>
+<td>honest declaration</td>
+<td>async_state/records</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-contingency-egress-the-hard-admin-dependent-point">Contingency (egress — the hard, admin-dependent point)</h3>
+<table>
+<thead>
+<tr>
+<th>card</th>
+<th>primitive</th>
+<th>critique verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SB-4 WFP per-spawn egress</td>
+<td>FwpmEngine (admin+driver)</td>
+<td>real-block, but admin-only — use only when elevated; degrade to SB-5</td>
+</tr>
+<tr>
+<td>SB-5 netsh firewall by image path</td>
+<td><code>netsh advfirewall</code> (user-mode)</td>
+<td>advisory-by-image, crash-safe teardown mandatory (<code>SetConsoleCtrlHandler</code> + <code>atexit</code>, idempotent name)</td>
+</tr>
+<tr>
+<td>SB-6 CaMeL capability-token gate</td>
+<td>token in worker</td>
+<td><strong>RECLASSIFIED</strong>: defense-in-depth/observability, NEVER the primary egress boundary (3 critics agree)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ed-boundary-detection">Boundary / detection</h3>
+<ul>
+<li>SB-7 post-execution reconciliation (already-committed <code>apply_patch_paths</code> + worktree diff) = detection; complements but does NOT replace pre-spawn containment.</li>
+</ul>
+<h3 id="ed-operations-by-card-set-based">Operations by card (set-based)</h3>
+<p>SB-1 <strong>kept</strong> (foundation, unanimous) · SB-2 <strong>kept</strong> (dual mode solves the "do not break write worker" concern) · SB-3 <strong>kept</strong> (this is the readable-degradation requirement) · SB-4 <strong>experiment/deferred</strong> (admin-only; gated) · SB-5 <strong>simplified</strong> (accepted as a readable-degradation layer, not the boundary) · SB-6 <strong>rejected as enforcement</strong>, retained as observability · SB-7 <strong>kept</strong> as detection.</p>
+<p><strong>Honest design blocker (the same ceiling the article has):</strong> real per-process egress blocking on Windows WITHOUT admin is not available in stdlib — a trusted network boundary requires WFP (admin). For an HTTP open-model worker, the TRUSTED control available today is: <strong>deny spawn</strong> when egress cannot be confined AND the task requires network, OR run under SB-1+SB-2 with declared <code>egressEnforced:false</code> + SB-5 advisory + SB-7 detection. This is the honest way to close P0; kernel egress remains behind the admin trigger.</p>
+</section>
+<section class="section content"><h2 id="ed-delivery-intake-prepared-without-implementation">Delivery — intake prepared (WITHOUT implementation)</h2>
+<p>A NEW SPEC-116 door was drafted in <code>specs/40-features/harness-own-sandbox.intake.md</code> (SB-1/2/3 core; SB-4..7 contingency/detection with triggers). Implementation only after D012 (owner directive). Closes the ⬜ P0 "harness-own sandbox" item and the runtime-plane (§5.9) / defense-stack s5 (§7.4) gap in the coverage backlog.</p>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/harness-own-sandbox.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/harness-own-sandbox.en.md</code></li><li>Source SHA-256: <code>63ae0538101a3fd01664ee669bc34e5d71d672ad85009fc6ae36511fe9914d98</code></li><li>Edition-input SHA-256: <code>f7e8d1e2a09a63279387db8d4e483347a79476bd849d84cbee63c01a9dd06f15</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

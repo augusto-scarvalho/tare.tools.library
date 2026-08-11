@@ -1,0 +1,160 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Planos de implementação — Programmatic Tool Calling (N-PTC-*) — tare.tools historical edition</title><style>
+:root{--bg:#f4f6fb;--surface:#fff;--surface2:#eef2f8;--text:#18212f;--muted:#647084;--line:#d8deea;--brand:#3759d7;--brand2:#6e3dc8;--accent:#008f7a;--warn:#9a5a00;--danger:#b53030;--code:#111827;--codeText:#e5e7eb;--shadow:0 16px 40px rgba(31,45,70,.08);--radius:16px;--content:1120px}
+[data-theme=dark]{--bg:#0e1420;--surface:#151d2b;--surface2:#1c2637;--text:#edf2f8;--muted:#a5b2c5;--line:#2d3a4f;--brand:#8aa4ff;--brand2:#b591ff;--accent:#5dd4be;--warn:#ffc56d;--danger:#ff8a8a;--code:#090d14;--codeText:#dce6f2;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.66 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--brand);text-underline-offset:.18em}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--surface)}.brand{display:flex;gap:12px;align-items:center;margin:0 6px 18px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2))}.brand strong,.brand span{display:block}.brand span{font-size:12px;color:var(--muted)}.controls{display:flex;gap:8px;margin:0 6px 16px}.controls button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:7px 10px;border-radius:10px;cursor:pointer}.toc-title{margin:16px 8px 8px;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.toc{list-style:none;margin:0;padding:0}.toc li{margin:1px 0}.toc a{display:block;padding:7px 9px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;line-height:1.3}.toc a:hover{background:var(--surface2);color:var(--text)}.main{min-width:0}.container{width:min(var(--content),calc(100% - 48px));margin:0 auto;padding:34px 0 80px}.section{margin:0 0 28px;padding:34px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding-top:54px;background:linear-gradient(145deg,color-mix(in srgb,var(--brand) 9%,var(--surface)),var(--surface) 55%,color-mix(in srgb,var(--brand2) 7%,var(--surface)))}.eyebrow{color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.045em}h2{margin:0 0 22px;font-size:clamp(27px,3.2vw,41px);line-height:1.12;letter-spacing:-.03em}h3{margin:28px 0 10px;font-size:21px}.subtitle{max-width:900px;color:var(--muted);font-size:20px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.badge{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);font-size:11px;font-weight:900;letter-spacing:.03em}.badge.current{border-color:var(--accent)}.badge.target{border-color:var(--brand)}.badge.proposed{border-color:var(--warn)}.badge.research{border-color:var(--brand2)}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 6px}.meta>div{padding:13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 86%,transparent)}.meta b,.meta span{display:block}.meta b{font-size:11px;text-transform:uppercase;color:var(--muted)}.meta span{font-weight:700;word-break:break-word}.callout{margin:20px 0;padding:17px 20px;border-left:5px solid var(--brand);border-radius:0 12px 12px 0;background:var(--surface2)}.callout.warn{border-color:var(--warn)}.callout.insight{border-color:var(--accent)}p{margin:10px 0 16px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--brand);background:var(--surface2);border-radius:0 10px 10px 0}pre{overflow:auto;padding:20px;border-radius:13px;background:var(--code);color:var(--codeText);font-size:13px;line-height:1.58}code{font-family:"SFMono-Regular",Consolas,monospace}table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:14px}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface2);font-size:12px;text-transform:uppercase}img{max-width:100%}hr{border:0;border-top:1px solid var(--line);margin:30px 0}.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 50px}.content h2,.content h3,.content h4{scroll-margin-top:18px}.content ul,.content ol{padding-left:1.5rem}.content li{margin:5px 0}.provenance-list{font-size:14px;color:var(--muted)}
+@media(max-width:980px){.shell{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.toc{columns:2}.meta{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.container{width:calc(100% - 20px);padding-top:16px}.section{padding:24px 19px}.toc{columns:1}.meta{grid-template-columns:1fr}table{display:block;overflow:auto}}@media print{.sidebar{display:none}.shell{display:block}.container{width:100%;padding:0}.section{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">t</div><div><strong>tare.tools</strong><span>Research Library · historical edition</span></div></div><div class="controls"><button onclick="toggleTheme()">Theme</button><button onclick="window.print()">Print</button></div><div class="toc-title">Contents</div><ul class="toc"><li class="h2"><a href="#ed-n-ptc-probe-exp-24-probe-measure-only-buildavel-ja-tam-m">N-PTC-PROBE (EXP-24) — probe measure-only · BUILDÁVEL JÁ · tam M</a></li><li class="h2"><a href="#ed-n-ptc-engine-o-motor-ptc-loop-no-nosso-sandbox-owner-gated-tam-l">N-PTC-ENGINE — o motor PTC (loop no nosso sandbox) · OWNER-GATED · tam L</a></li><li class="h2"><a href="#ed-n-ptc-taint4-o-4o-sink-de-taint-owner-gated-security-tam-m">N-PTC-TAINT4 — o 4º sink de taint · OWNER-GATED (security) · tam M</a></li><li class="h2"><a href="#ed-n-ptc-conformance-capability-accounting-owner-gated-tam-m">N-PTC-CONFORMANCE — capability + accounting · OWNER-GATED · tam M</a></li><li class="h2"><a href="#ed-n-toolsearch-tool-search-rag-sobre-tools-fronteira-buildavel-mede-token-tam-m">N-TOOLSEARCH — tool-search / RAG-sobre-tools (fronteira) · BUILDÁVEL (mede token) · tam M</a></li><li class="h2"><a href="#ed-ordem-sugerida">Ordem sugerida</a></li></ul></aside><main class="main"><div class="container">
+<section class="section hero"><div class="eyebrow">IMPLEMENTATION RESEARCH · 2026-08-05 snapshot</div><h1>Planos de implementação — Programmatic Tool Calling (N-PTC-*)</h1><p class="subtitle">Edição histórica — implementation-research edition. Proposal content is not canonical authority.</p><div class="badges"><span class="badge proposed">PROPOSED</span><span class="badge">pt-BR</span><span class="badge">SOURCE_LANGUAGE_EDITORIAL_EDITION</span><span class="badge">HISTORICAL</span></div><div class="meta"><div><b>Source SHA-256</b><span>fd3b1e74e700d8c343fa…</span></div><div><b>Edition SHA-256</b><span>fd3b1e74e700d8c343fa…</span></div><div><b>Source snapshot</b><span>Private GitHub export · 2026-08-05</span></div><div><b>Authority</b><span>Research/evidence only</span></div></div><div class="callout warn"><strong>Historical authority boundary.</strong> This edition improves navigation, presentation and language accessibility. It does not silently promote historical claims into CURRENT or TARGET architecture. Current Git/ADRs/SPECs/tests/code take precedence.</div><div class="callout insight"><strong>Editorial treatment.</strong> Presentation normalized to the current editorial system; source wording and claims are preserved.</div></section>
+<section class="section content">
+<p>Planos parqueados no backlog (owner 2026-07-19: "refinar os resultados da pesquisa com planos bem
+detalhados"). Derivados de <code>ptc-round.md</code> (4 ondas) + D030. Cada plano é implementer-ready.</p>
+<p><strong>Máquinas existentes a reusar (NÃO reinventar):</strong></p>
+<ul>
+<li><code>scripts/harness_lib/sandbox_spawn.py</code> — SPEC-151 (fs-confine + Job Object + risk-tier). O
+SUBSTRATO de execução do código emitido. <code>evaluate_chokepoint</code> já faz <code>ast.walk</code> (o idiom do gate).</li>
+<li><code>scripts/harness_lib/discovery.py</code> — a cadeia discover (bulk reads) = o alvo do probe.</li>
+<li><code>scripts/harness_lib/cost_metrics.py</code> + <code>route_ledger.py</code> — o ledger (observed vs estimated;
+<code>_extract_harness_result</code> = o idiom de extração determinística de bloco).</li>
+<li><code>scripts/harness_lib/agent_parity.py</code> — <code>conformance_report</code>, <code>supportState</code>, <code>accountingSemantics</code>
+(T-ADAPTERCONF/C16b) — onde a capability PTC declara/verifica.</li>
+<li><code>.harness/capabilities.json</code> (<code>mcpServers</code> hoje <code>{}</code>) — as tools/MCP expostas.</li>
+<li>O envelope de taint (RD-TAINT / D023) — o modelo de secret-nunca-egressa que o 4º sink estende.</li>
+<li><code>tools/openai_worker.py</code> — o worker HTTP dos open-weights (onde o loop emulado se pluga).</li>
+</ul>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-ptc-probe-exp-24-probe-measure-only-buildavel-ja-tam-m">N-PTC-PROBE (EXP-24) — probe measure-only · BUILDÁVEL JÁ · tam M</h2>
+<p><strong>Goal:</strong> medir latência/token/CPU de PTC-emulado vs tradicional numa tarefa REAL, no NOSSO tráfego,
+sem mudar produção. É o que justifica (ou mata) o engine — PTC é aposta de workload-shape (τ²-bench:
++8% em sequencial; números de vendor não-replicados).</p>
+<p><strong>Reuso:</strong> a cadeia discover (<code>discovery.discover_paths</code>) como alvo (o caso-mãe); <code>cost_metrics. record_workflow</code> pra logar (com <code>costBasis: observed|estimated</code>); o sandbox pra o leg PTC-emulado.</p>
+<p><strong>Approach:</strong></p>
+<ol>
+<li><strong>Probe</strong> (<code>testing/probes/ptc_probe.py</code>, sibling do truth-divergence/CFP): pega UM conjunto de
+inputs discover reais e roda 2 legs na MESMA entrada — (a) TRADICIONAL: o loop per-file atual
+(N reads = N passos); (b) PTC-EMULADO: um script único que itera os reads no sandbox e retorna só
+o agregado filtrado. Loga por leg: round-trips, tokens billed (observed do endpoint; estimated
+marcado), latência wall-clock, <strong>CPU-time do sandbox</strong> (o eixo de custo novo do PTC), por fan-out N.</li>
+<li><strong>Matched-budget:</strong> mesma entrada, mesmo modelo, mesmo teto — senão o delta confunde "melhor" com
+"gastou mais" (a carta matched-budget-controls do EXP_METHODS).</li>
+<li><strong>Redução:</strong> por task-shape (fan-out N), agrega o delta; noise floor = stdev de reps; verdict só
+se o delta &gt; noise floor L13 por ≥2 buckets. Break-even N (hipótese N&gt;3-4 a falsificar).</li>
+<li><strong>Só trafego confiável:</strong> só compara legs cujo <code>accountingSemantics</code> é native/emulated (não
+unknown) — a regra C16b vale pro delta do probe também.</li>
+</ol>
+<p><strong>Footprint:</strong> <code>testing/probes/ptc_probe.py</code> (novo, self-check); talvez um campo <code>cpuMs</code> no record
+do ledger. NÃO toca o caminho de produção do discover (o leg PTC roda isolado no probe).</p>
+<p><strong>Aceite:</strong> o probe roda a cadeia discover 2x (trad vs PTC) em ≥2 fan-out shapes, produz a tabela
+<code>(shape N) → (Δround-trip, Δtoken, Δlatência, ΔCPU)</code> com noise-floor gating, ZERO mudança de produção.
+Registra o 1º data point no EXP-24. <strong>Abandon:</strong> se o ganho fica no noise floor (ou o CPU come o
+ganho de token) → PTC fica measure-only, não vale o engine.</p>
+<p><strong>Gate:</strong> measure-only, alçada measure-first (como o truth-divergence probe). Buildável.
+<strong>Dep:</strong> discover chain (existe). <strong>Tam:</strong> M.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-ptc-engine-o-motor-ptc-loop-no-nosso-sandbox-owner-gated-tam-l">N-PTC-ENGINE — o motor PTC (loop no nosso sandbox) · OWNER-GATED · tam L</h2>
+<p><strong>Goal:</strong> o motor que dá PTC a TODO executor roteando o loop de orquestração pelo NOSSO sandbox
+(nativo = opt-in). Controle + segurança → só depois do EXP-24 justificar + security review.</p>
+<p><strong>Reuso:</strong> <code>sandbox_spawn</code> (o substrato); o idiom <code>ast.walk</code> do <code>evaluate_chokepoint</code> (o gate);
+<code>_extract_harness_result</code> (a extração de bloco); <code>openai_worker.py</code> (o pluga dos open-weights).</p>
+<p><strong>Approach (o loop emulado, preciso):</strong></p>
+<ol>
+<li><strong><code>harness_tools</code> (o stub module):</strong> por sessão PTC, gerar UM módulo de funções <code>async def harness_&lt;verb&gt;(args: dict) -&gt; str</code> (assinatura Anthropic: dict-in, string-out, await-able) — UMA
+por tool JÁ declarada e narrowed do worker (c5: o stub-set ⊆ tools do worker). Injetado no
+namespace do sandbox.</li>
+<li><strong>Prompt-contract:</strong> o system prompt declara as assinaturas + instrui o modelo a emitir UM bloco
+```python com o script de orquestração, terminando num <code>print()</code> do resultado FILTRADO só.</li>
+<li><strong>Code-extraction determinística:</strong> parse do bloco (reusa o idiom <code>_extract_harness_result</code>). Sem
+bloco → sem PTC → fallback pro tool-call tradicional (fail-closed ao caminho barato já verificado).</li>
+<li><strong>Gate AST estático ANTES de executar:</strong> <code>ast.parse</code> + <code>ast.walk</code> — rejeita qualquer Call/Import
+que não seja (a) um stub injetado, ou (b) uma allowlist stdlib mínima (<code>json,re,itertools, statistics,asyncio</code>). Reusa a técnica de self-check do <code>evaluate_chokepoint</code>.</li>
+<li><strong>Execução:</strong> o código vetado roda via <code>sandbox_spawn(mode=bounded)</code> com o namespace injetado —
+mesmo Job Object / fs-confine / risk-tier de qualquer worker (R0 default; R1+ só se o stub-set tem
+tool write-capable). Builtins perigosos AUSENTES do namespace (backstop do gate).</li>
+<li><strong>Pause/resume relay (o corpo da tool roda no NOSSO lado):</strong> quando o código chama um stub, o
+sandbox pausa, o harness roda o verbo REAL, devolve o resultado string, o código resume. (Igual o
+protocolo Anthropic — o vendor nativo faz o mesmo; nós fazemos p/ todos.)</li>
+<li><strong>Return filtrado:</strong> só o <code>stdout</code>/return final cruza pro contexto do modelo (envelope vendor-
+agnóstico — mesma shape do <code>code_execution_result.stdout</code>).</li>
+<li><strong>Fail-safe (NVIDIA w-003):</strong> checkpoint/resume p/ partial-batch (falha do script não perde o batch
+todo); timeout de liveness (script travado); o CPU-time entra no ledger.</li>
+</ol>
+<p><strong>Footprint (quando aberto):</strong> <code>harness_lib/ptc.py</code> (o stub-gen + o loop + o gate + o relay); pluga no
+<code>openai_worker.py</code> (emulado) + no adapter claude (opt-in nativo); spec door NEW (SPEC-116) + cenário
+(gate AST rejeita código malicioso; stub-set ⊆ tools; return filtrado; fallback sem bloco).</p>
+<p><strong>Aceite:</strong> um open-weight emite código que orquestra N discover reads no sandbox, o gate AST rejeita
+<code>open()/socket/subprocess</code>, só o agregado volta, o CPU entra no ledger, e sem-bloco cai no tradicional.</p>
+<p><strong>Gate:</strong> OWNER-GATED (controle + segurança). Pré-req: EXP-24 + N-PTC-TAINT4 + security review.
+<strong>Dep:</strong> N-PTC-PROBE, N-PTC-TAINT4. <strong>Tam:</strong> L.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-ptc-taint4-o-4o-sink-de-taint-owner-gated-security-tam-m">N-PTC-TAINT4 — o 4º sink de taint · OWNER-GATED (security) · tam M</h2>
+<p><strong>Goal:</strong> fechar o buraco que PTC abre: o D023 lista 3 sinks (prompt/result-persistido/log); o
+stdout/stderr do sandbox é um QUARTO (volta pro modelo por design). Um secret <code>print()</code>-ado atravessa
+sem tocar os 3.</p>
+<p><strong>Reuso:</strong> o envelope de taint / o check de sink do RD-TAINT (D023) — mesmo mecanismo, novo call-site.</p>
+<p><strong>Approach:</strong></p>
+<ol>
+<li><strong>4º sink:</strong> o taint-sink check roda no <code>stdout</code>/<code>stderr</code> CAPTURADO do sandbox ANTES de devolver
+como resultado do código. Dado tainted (secret-read) no stdout → fail-closed (bloqueia/redige).</li>
+<li><strong>Lethal-trifecta invariant:</strong> um namespace de stub não combina stub-que-lê-secret + stub-com-
+egresso sem <code>declares_egress=True</code> E o 4º-sink ativo (PTC remove o checkpoint natural per-call).</li>
+<li><strong>Sem escape:</strong> stubs <code>dict → str</code> só (nunca <code>run_shell(str)</code> — fecha command-injection por
+construção); <code>HARNESS_SANDBOX_OVERRIDE</code> inalcançável de dentro do código (env do processo OUTER,
+strip pelo envKeepList).</li>
+</ol>
+<p><strong>Footprint (quando aberto):</strong> integra no N-PTC-ENGINE (o relay chama o taint-check no stdout) + no
+envelope do RD-TAINT; cenário de segurança (secret no stdout → bloqueado; namespace secret+egresso
+sem declares_egress → recusado). Security review isolado.</p>
+<p><strong>Aceite:</strong> um script que <code>print()</code> um secret marcado NUNCA entrega o secret ao modelo (fail-closed);
+namespace secret+egresso sem declares_egress é recusado. <strong>Gate:</strong> OWNER-GATED + security review.
+<strong>Dep:</strong> RD-TAINT/D023 + N-PTC-ENGINE. <strong>Tam:</strong> M.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-ptc-conformance-capability-accounting-owner-gated-tam-m">N-PTC-CONFORMANCE — capability + accounting · OWNER-GATED · tam M</h2>
+<p><strong>Goal:</strong> declarar/verificar PTC por executor com a disciplina do T-ADAPTERCONF (nativo vs emulado;
+accounting honesto).</p>
+<p><strong>Reuso:</strong> <code>agent_parity.py</code> (<code>supportState</code>, <code>conformance_report</code>, <code>accountingSemantics</code>).</p>
+<p><strong>Approach:</strong></p>
+<ol>
+<li><strong>Capability <code>programmatic-tool-calling</code></strong> com <code>supportState</code> (claude=native, openai/codex=native-
+se-o-CLI-adotar [verificar], resto=emulated). Declara CAPACIDADE, não a escolha de rota.</li>
+<li><strong>c9 <code>ptcTokenScope</code></strong> (novo sub-campo, report-only): <code>vendor-discounted|full-emulated|unknown</code>.
+A Anthropic DESCONTA os tokens de tool-result nativos → comparação naive native-vs-emulated
+favorece o claude por motivo que não é design nosso. Default unknown, nunca gateia.</li>
+<li><strong>c5 no-amplification:</strong> um cenário prova que o stub-set gerado é subconjunto das tools declaradas
+do worker (um worker que emite código não ganha alcance que não teria 1-call-por-vez).</li>
+</ol>
+<p><strong>Footprint (quando aberto):</strong> campo em <code>capabilities.json</code>/<code>agent_parity.py</code>; cenário de conformance
+(c5 subset + c9 scope). <strong>Aceite:</strong> o conformance report mostra supportState+ptcTokenScope por
+executor; c5 falha se o stub-set excede as tools declaradas. <strong>Gate:</strong> OWNER-GATED. <strong>Dep:</strong> N-PTC-ENGINE. <strong>Tam:</strong> M.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-n-toolsearch-tool-search-rag-sobre-tools-fronteira-buildavel-mede-token-tam-m">N-TOOLSEARCH — tool-search / RAG-sobre-tools (fronteira) · BUILDÁVEL (mede token) · tam M</h2>
+<p><strong>Goal:</strong> quando há muitas tools/MCP, carregar só os schemas relevantes por turno (não empilhar todos
+no contexto — custo grande de token). Stacka com PTC mas é testável SEM o engine.</p>
+<p><strong>Reuso:</strong> <code>capabilities_view.py</code> (mescla MCP de 5 surfaces — a superfície candidata); o cost ledger.</p>
+<p><strong>Approach:</strong> um retrieval (bm25/regex ou embedding) sobre o catálogo de tools; carrega só o subset
+relevante à demanda; <strong>APPEND-not-swap</strong> (adiciona, não troca — preserva o prefix-cache, como o
+Anthropic Tool Search Tool faz). Measure-only primeiro: quanto token economiza vs empilhar tudo.</p>
+<p><strong>Footprint:</strong> <code>harness_lib/tool_search.py</code> + um probe measure-only (token com-vs-sem search).
+<strong>Aceite:</strong> com N tools declaradas, o search carrega só os relevantes e mede a economia de token
+(noise-floor gated). <strong>Gate:</strong> buildável (measure-only). <strong>Dep:</strong> —. <strong>Tam:</strong> M. Ref: Gorilla
+(arXiv:2305.15334), Anthropic Tool Search Tool.</p>
+<hr/>
+</section>
+<section class="section content"><h2 id="ed-ordem-sugerida">Ordem sugerida</h2>
+<ol>
+<li><strong>N-PTC-PROBE (EXP-24)</strong> + <strong>N-TOOLSEARCH</strong> — buildáveis, medem o ganho antes de tudo.</li>
+<li><strong>N-PTC-TAINT4</strong> — o controle de segurança tem que existir ANTES do engine (o 4º sink não é opcional).</li>
+<li><strong>N-PTC-ENGINE</strong> — só quando o probe mostrar ganho acima do noise floor + o taint4 pronto + security review.</li>
+<li><strong>N-PTC-CONFORMANCE</strong> — junto/depois do engine.</li>
+</ol>
+<blockquote>
+<p>Nota: o mesmo tratamento (plano implementer-ready) já foi feito pra N-COMPACTION; pode se estender
+aos outros itens de pesquisa (N-TRUTHRECON-*, RD-U→U, RD-CRASH→injetor, RD-TAINT→taint) — é só pedir.</p>
+</blockquote>
+</section>
+<section class="section"><h2 id="edition-provenance">Edition provenance</h2><ul class="provenance-list"><li>Historical source: <code>corpus/canonical-snapshot/2026-08-05/docs/research/ptc-implementation-plans.md</code></li><li>Edition input: <code>corpus/canonical-snapshot/2026-08-05/docs/research/ptc-implementation-plans.md</code></li><li>Source SHA-256: <code>fd3b1e74e700d8c343faae3e56ea022907d94adfaccd39dd4fe7cda22030a2b9</code></li><li>Edition-input SHA-256: <code>fd3b1e74e700d8c343faae3e56ea022907d94adfaccd39dd4fe7cda22030a2b9</code></li><li>Snapshot date: 2026-08-05</li><li>Migration date: 2026-08-11</li><li>Semantic authority: RESEARCH / historical evidence, never automatic architecture ratification.</li></ul></section>
+<div class="footer">tare.tools · historical research library · preserve provenance, separate evidence from authority</div></div></main></div><script>function toggleTheme(){const e=document.documentElement;e.dataset.theme=e.dataset.theme==='dark'?'':'dark';}</script></body></html>

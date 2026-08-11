@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/gate-surface-definition-2026-07-26.md",
+  "sourceSha256": "51bd86cf16a19b663944a4b89b577f635e1b264383b75ddc7b876265ea2cb59c",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/gate-surface-definition-2026-07-26.en.md",
+  "translationSha256": "941056b501d02a9c8debc92e108e9f02e5deb68886a1ea0c7e16d28adc1cedf9",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}
