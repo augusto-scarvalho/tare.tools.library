@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-11",
+  "candidates": [
+    {
+      "candidate_id": "source-review.swe-mutation",
+      "label": "SWE-Mutation",
+      "members": [
+        {
+          "title": "SWE-Mutation",
+          "url": "https://aclanthology.org/2026.acl-long.590/",
+          "source_id": "source.3b993d5bbd322d14"
+        },
+        {
+          "title": "SWE-Mutation: Can LLMs Generate Reliable Test Suites in Software Engineering?",
+          "url": "https://aclanthology.org/2026.findings-acl.1976/",
+          "source_id": "source.370e110898b75c91"
+        }
+      ],
+      "status": "VERIFY_BEFORE_LINEAGE",
+      "reason": "Similar/identical labels occur at different publication URLs; corpus alone does not prove whether these are duplicate citations, separate versions, companion papers, or mislabeled references.",
+      "proposed_action": "Verify venue/title/authors/DOI or canonical paper identity before creating SAME_WORK / PREPRINT_OF / PUBLISHED_AS edges."
+    },
+    {
+      "candidate_id": "source-review.llmrouterbench",
+      "label": "LLMRouterBench",
+      "members": [
+        {
+          "title": "LLMRouterBench: A Massive Benchmark and Unified Framework for LLM Routing",
+          "url": "https://aclanthology.org/2026.findings-acl.1881/",
+          "source_id": "source.41823f043f819ba6"
+        },
+        {
+          "title": "LLMRouterBench",
+          "url": "https://aclanthology.org/2026.findings-acl.795/",
+          "source_id": "source.2d70e965c3e26842"
+        }
+      ],
+      "status": "VERIFY_BEFORE_LINEAGE",
+      "reason": "Similar/identical labels occur at different publication URLs; corpus alone does not prove whether these are duplicate citations, separate versions, companion papers, or mislabeled references.",
+      "proposed_action": "Verify venue/title/authors/DOI or canonical paper identity before creating SAME_WORK / PREPRINT_OF / PUBLISHED_AS edges."
+    }
+  ]
+}

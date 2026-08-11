@@ -1,0 +1,36 @@
+flowchart LR
+  agent_os_foundations["Agent OS Foundations"]
+  workflow_procedural["Workflow & Procedural Systems"]
+  context_memory_playbooks["Context, Memory & Playbooks"]
+  assurance_governance_quality["Assurance, Governance & Quality"]
+  runtime_reliability_sandbox["Runtime, Reliability & Sandbox"]
+  routing_economics_observability["Routing, Economics & Observability"]
+  interoperability_protocols["Interoperability & Protocols"]
+  experience_ux["Experience, TUI & UX"]
+  research_methodology_evidence["Research Methodology & Evidence"]
+  agent_os_foundations -->|RECENTERS| workflow_procedural
+  agent_os_foundations -->|RECENTERS| context_memory_playbooks
+  agent_os_foundations -->|CONSTRAINS| assurance_governance_quality
+  agent_os_foundations -->|RECENTERS| runtime_reliability_sandbox
+  agent_os_foundations -->|CONSTRAINS| routing_economics_observability
+  agent_os_foundations -->|RECENTERS| interoperability_protocols
+  agent_os_foundations -->|RECENTERS| experience_ux
+  agent_os_foundations -->|CONSTRAINS| research_methodology_evidence
+  workflow_procedural -->|EMITS_REQUIREMENTS_TO| routing_economics_observability
+  routing_economics_observability -->|SELECTS_BINDING_IN| runtime_reliability_sandbox
+  runtime_reliability_sandbox -->|CONSTRAINS| workflow_procedural
+  interoperability_protocols -->|CONSTRAINS_BOUNDARY_SEMANTICS_OF| runtime_reliability_sandbox
+  runtime_reliability_sandbox -->|SUPPLIES_EFFECT_SEMANTICS_TO| interoperability_protocols
+  context_memory_playbooks -->|INFORMS| workflow_procedural
+  context_memory_playbooks -->|INFORMS| routing_economics_observability
+  context_memory_playbooks -->|INFORMS_PRESENTATION_OF| experience_ux
+  assurance_governance_quality -->|QUALIFIES_LEARNING_FOR| routing_economics_observability
+  assurance_governance_quality -->|QUALIFIES_PROMOTION_OF| workflow_procedural
+  assurance_governance_quality -->|VALIDATES| runtime_reliability_sandbox
+  research_methodology_evidence -->|CALIBRATES| assurance_governance_quality
+  research_methodology_evidence -->|CALIBRATES| routing_economics_observability
+  research_methodology_evidence -->|CALIBRATES| workflow_procedural
+  workflow_procedural -->|PROJECTS_PROGRESS_TO| experience_ux
+  experience_ux -->|STEERS| workflow_procedural
+  routing_economics_observability -->|PROJECTS_DECISIONS_TO| experience_ux
+  assurance_governance_quality -->|PROJECTS_EVIDENCE_TO| experience_ux
