@@ -1,6 +1,6 @@
 # Promotion Policy
 
-Publication to `tare-tools-research` is an evidence-management action. Promotion into `tare-tools` is a governance/architecture action.
+Publication to `tare.tools.research` is an evidence-management action. Promotion into `tare-tools` is a governance/architecture action.
 
 ## Research promotion path
 

@@ -23,7 +23,7 @@ Navigation is also complete: general README, clickable PT/EN index, catalog, chr
 
 `documents=11 · translations=11 · library_refs=60 · topics=20 · links=valid`
 
-[**Library README**](sandbox:/mnt/data/tare-tools-research-README.md)  
+[**Library README**](sandbox:/mnt/data/tare.tools.research-README.md)  
 [**Browsable document index**](sandbox:/mnt/data/tare-tools-document-index.md)
 
 File Library archaeology is formalized as **60 references**, without reconstructing originals from snippets. The queue distinguishes what is only a reference, what still requires exact bytes, and what will require translation afterward.

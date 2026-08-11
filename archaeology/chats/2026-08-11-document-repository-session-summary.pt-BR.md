@@ -23,7 +23,7 @@ A navegação também está fechada: README geral, índice clicável PT/EN, cat�
 
 `documents=11 · translations=11 · library_refs=60 · topics=20 · links=valid`
 
-[**README da biblioteca**](sandbox:/mnt/data/tare-tools-research-README.md)  
+[**README da biblioteca**](sandbox:/mnt/data/tare.tools.research-README.md)  
 [**Índice navegável de documentos**](sandbox:/mnt/data/tare-tools-document-index.md)
 
 A arqueologia da File Library está formalizada em **60 referências**, sem reconstruir originals usando snippets. A fila distingue o que é referência, o que precisa de bytes exatos e o que depois precisa de tradução.

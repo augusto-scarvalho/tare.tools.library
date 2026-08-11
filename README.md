@@ -1,6 +1,8 @@
-# tare.tools Research Corpus
+# tare.tools.research — Research Corpus
 
 > **THIS REPOSITORY IS EVIDENCE, NOT ARCHITECTURAL AUTHORITY.**
+
+This is the private companion research repository intended to be pinned by `tare-tools` as an optional Git submodule at `research/`.
 
 Este repositório preserva pesquisa, fontes, experimentos, arqueologia, propostas e versões históricas do tare.tools.
 
@@ -71,7 +73,6 @@ No corpus principal, foram materializados **11 documentos** nesta árvore. Os or
 
 Research / experiment / archaeology / proposal **informam**, mas não ratificam arquitetura. Tradução não altera authority/status. Promoção para TARGET exige o fluxo canônico no repositório `tare-tools`.
 
-## Scientific Refresh — 2026-08-11
+## Repository-local publisher
 
-The historical 2026-08-05 `docs/research/` corpus has been curated into nine North-Star-directed scientific lineages. Historical sources remain immutable. Start at [refresh-editions/2026-08-11/README.md](refresh-editions/2026-08-11/README.md) and use the [crosswalk](refresh-editions/2026-08-11/REFRESH_CROSSWALK.md) to trace every source artifact.
-
+Document ingestion/publication tooling lives under [`tools/publisher/`](tools/publisher/) in this repository. The earlier standalone publisher repo is historical bootstrap scaffolding; the intended repository topology is now `tare-tools` + `tare.tools.research`.

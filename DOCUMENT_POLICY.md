@@ -19,10 +19,10 @@ Git / source / canonical architecture / ADR / SPEC / BDD / gates
 
 | Status | Meaning | Default repository |
 |---|---|---|
-| RESEARCH | evidence/hypothesis/investigation | tare-tools-research |
-| PROPOSED | proposal not ratified | tare-tools-research |
-| EXPERIMENTAL | experimental protocol/result | tare-tools-research |
-| HISTORICAL | immutable historical evidence | tare-tools-research |
+| RESEARCH | evidence/hypothesis/investigation | tare.tools.research |
+| PROPOSED | proposal not ratified | tare.tools.research |
+| EXPERIMENTAL | experimental protocol/result | tare.tools.research |
+| HISTORICAL | immutable historical evidence | tare.tools.research |
 | TARGET | ratified desired architecture | tare-tools only |
 | CURRENT | proven implementation/state | tare-tools/Git/evidence |
 
@@ -35,7 +35,7 @@ The research repository may **quote/reference** CURRENT/TARGET, but does not min
 - `document_type=experiment` → `experiments/<primary-context>/...`
 - `document_type=archaeology|handoff` → `archaeology/...`
 - `document_type=source` → `sources/...`
-- `status=TARGET|CURRENT` with destination `tare-tools-research` → DENY.
+- `status=TARGET|CURRENT` with destination `tare.tools.research` → DENY.
 - canonical types (`adr`, `spec`, `bdd`, `implementation_packet`) → require promotion flow and canonical repository.
 
 LLMs may propose metadata; the validator/router owns routing decisions.
