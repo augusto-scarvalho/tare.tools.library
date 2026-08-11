@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.0000000071d0",
+  "title": "harness_multiagent_research_program_v0.3_blocks1_2_3.md",
+  "file_library_id": "file_0000000071d0720ea93e0d459a284e4a",
+  "file_created_at": "2026-07-14T13:33:35Z",
+  "file_modified_at": "2026-07-14T13:33:35Z",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P2",
+  "suggested_kind": "research-program",
+  "suggested_status": "RESEARCH",
+  "suggested_contexts": [
+    "Harness / Agent OS Architecture",
+    "Project / Workspace",
+    "Workflow",
+    "Routing & Adaptation"
+  ],
+  "lineage_family": "formal-research-program",
+  "lineage_order_hint": 0.3,
+  "reported_sha256": null,
+  "reported_size_bytes": null,
+  "hash_status": "UNKNOWN",
+  "discovered_at": "2026-08-11T16:05:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": ""
+}

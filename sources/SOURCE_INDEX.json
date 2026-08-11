@@ -1,0 +1,6598 @@
+{
+  "schema_version": "1.1",
+  "source_scope": "materialized byte-preserved chat originals + exact historical private-GitHub docs/research copies",
+  "documents_scanned": 104,
+  "origin_counts": {
+    "chat-corpus-original": 11,
+    "private-github-snapshot-2026-08-05": 93
+  },
+  "unique_urls": 591,
+  "sources": [
+    {
+      "url": "http://192.0.2.10:8080/v1",
+      "domain": "192.0.2.10:8080",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/plan-local-model-config-DRAFT.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "http://www.scholarpedia.org/article/Theory_of_Constraints",
+      "domain": "www.scholarpedia.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://a2a-protocol.org/latest/specification/",
+      "domain": "a2a-protocol.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://academic.oup.com/jrsssb/article/13/1/1/7026652",
+      "domain": "academic.oup.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2024.acl-long.91/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2024.findings-acl.624/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2024.naacl-long.417/",
+      "domain": "aclanthology.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.acl-long.1208/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.acl-long.757/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.emnlp-demos.47/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.emnlp-main.458.pdf",
+      "domain": "aclanthology.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.findings-emnlp.150/",
+      "domain": "aclanthology.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.naacl-long.198/",
+      "domain": "aclanthology.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.naacl-long.199/",
+      "domain": "aclanthology.org",
+      "occurrences": 6,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2025.naacl-long.425/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.acl-long.1750/",
+      "domain": "aclanthology.org",
+      "occurrences": 6,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.acl-long.1764/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.acl-long.1771/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.acl-long.27/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.acl-long.581/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.findings-acl.220/",
+      "domain": "aclanthology.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.findings-acl.483/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aclanthology.org/2026.findings-acl.956/",
+      "domain": "aclanthology.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://agentskills.io/skill-creation/best-practices",
+      "domain": "agentskills.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://agentskills.io/specification",
+      "domain": "agentskills.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://agentsstandard.com/",
+      "domain": "agentsstandard.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://ai.meta.com/blog/practical-ai-agent-security/",
+      "domain": "ai.meta.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://ai.meta.com/research/publications/gaia-a-benchmark-for-general-ai-assistants/",
+      "domain": "ai.meta.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html",
+      "domain": "airflow.apache.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html",
+      "domain": "airflow.apache.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1402.2237",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1403.5607",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1603.06560",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1604.06030",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2001.05424",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2108.03353",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2203.03827",
+      "domain": "arxiv.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2206.15000",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2212.06094",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2303.11366",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2303.17651",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.05176",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.01407",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.09344",
+      "domain": "arxiv.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2307.03172",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/memory-context-management.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2307.13854",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2308.00352",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.09506",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.15817",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.01798",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/deep-research-pipelines.md",
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.05736",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.06839",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.08560",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/memory-context-management.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2312.03584",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2312.04511",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2312.13010",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2401.13649",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.07718",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md",
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.09029",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.11164",
+      "domain": "arxiv.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.12031",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.06369",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.06654",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/memory-context-management.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.07972",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md",
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.12500",
+      "domain": "arxiv.org",
+      "occurrences": 7,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.14573",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.15793",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.19598",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.01297",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.07791",
+      "domain": "arxiv.org",
+      "occurrences": 6,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md",
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.11638",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.13352",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.13631",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.16386",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.02506",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-communication-protocols.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.18362",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.19135",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2411.03292",
+      "domain": "arxiv.org",
+      "occurrences": 6,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.04237",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.05467",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.20071",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.04543",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.06322",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.09316",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.17799",
+      "domain": "arxiv.org",
+      "occurrences": 8,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.18588",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.18748",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.04180",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.08788",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/deep-research-pipelines.md",
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.09411",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.10884",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.12561",
+      "domain": "arxiv.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.14321",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.18658",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.08723",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.13657",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.18666",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.18813",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.04927",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.11281",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.18575",
+      "domain": "arxiv.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.21034",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.05026",
+      "domain": "arxiv.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.09904",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.11717",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.12601",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.16037",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.17399",
+      "domain": "arxiv.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.20411",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.23695",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.02456",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.06251",
+      "domain": "arxiv.org",
+      "occurrences": 6,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.13832",
+      "domain": "arxiv.org",
+      "occurrences": 7,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.15807",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.21046",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.22358",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.00500",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.06433",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.20410",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.21433",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/memory-context-management.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.06216",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.07334",
+      "domain": "arxiv.org",
+      "occurrences": 10,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.10652",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.16779",
+      "domain": "arxiv.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.16941",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.20293",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.23586",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.23864",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.26072",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.26354",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.04371",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.07799",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.08783",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.11967",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/memory-context-management.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.16079",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.22373",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.23272",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.24699",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.26141",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.08195",
+      "domain": "arxiv.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.08296",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.10398",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.18470",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.23738",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.04126",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.07206",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.16746",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.17087",
+      "domain": "arxiv.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.17551",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.17614",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.18759",
+      "domain": "arxiv.org",
+      "occurrences": 9,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.19290",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.22288",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.03786",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.05892",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.06039",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.07072",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.07962",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.09423",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.11988",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.12670",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.13255",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.18998",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.07670",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.07915",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.10664",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Endpoints e Agentes CLI.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.11245",
+      "domain": "arxiv.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.15401",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.15911",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.16586",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.20449",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.20953",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.21489",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.22386",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "Tare.tools - Task & Workflow Lifecycle.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.29919",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.01664",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.02460",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.04918",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.06742",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.06753",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.09876",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.10575",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.15625",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.18071",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.25850",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.25914",
+      "domain": "arxiv.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.08366",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.09539",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.11495",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.11603",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.15215",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.18747",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.18859",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.20204",
+      "domain": "arxiv.org",
+      "occurrences": 6,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.22175",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "tare.tools - testes, gates.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.23296",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.23950",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.26596",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.28116",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.30785",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.00774",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Task & Workflow Lifecycle.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.01508",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Endpoints e Agentes CLI.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.03854",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Endpoints e Agentes CLI.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.04990",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.05697",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.07682",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.08878",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.09421",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.14350",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Task & Workflow Lifecycle.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.15376",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.23130",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.26524",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.27288",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.29537",
+      "domain": "arxiv.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.31498",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.01120",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.01728",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.02606",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.03968",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.06306",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.06413",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.07522",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.07946",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.08147",
+      "domain": "arxiv.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.11346",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.13683",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.18213",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.23809",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.26300",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Endpoints e Agentes CLI.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.29405",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "tare.tools - testes, gates.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.02680",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Task & Workflow Lifecycle.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2406.18665v4",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2501.06322v1",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2502.14321v3",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2507.03616v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2512.08296v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-communication-protocols.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2602.06039v1",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2603.16586v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2603.20953v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2603.22386v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2604.22708v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Reliability Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2605.09539v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2606.09751v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Endpoints e Agentes CLI.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2606.26924v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/html/2607.15193v1",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Endpoints e Agentes CLI.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2410.10762",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2502.04180",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2604.18005",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/deep-research-pipelines.md",
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/pdf/2604.23626",
+      "domain": "arxiv.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://asadtinkers.com/guides/hermes-agentos-mission-control-dashboard/",
+      "domain": "asadtinkers.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://atlas.mitre.org/",
+      "domain": "atlas.mitre.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://aux.engineering.ucsc.edu/publications/Goree_Doosti_Crandall_Su-HomogenizationWebDesign-CHI21.pdf",
+      "domain": "aux.engineering.ucsc.edu",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://backstage.io/docs/features/software-catalog/",
+      "domain": "backstage.io",
+      "occurrences": 1,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://backstage.io/docs/features/software-catalog/creating-the-catalog-graph/",
+      "domain": "backstage.io",
+      "occurrences": 1,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://bazel.build/remote/caching",
+      "domain": "bazel.build",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/",
+      "domain": "blog.google",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/",
+      "domain": "blog.google",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://cdn.aaai.org/ICMAS/1995/ICMAS95-042.pdf",
+      "domain": "cdn.aaai.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://chensivan.github.io/papers/UIST2021_umitation.pdf",
+      "domain": "chensivan.github.io",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://cispa.de/en/research/publications/104620-terminal-bench-benchmarking-agents-on-hard-realistic-tasks-in-command-line-interfaces",
+      "domain": "cispa.de",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://clig.dev/",
+      "domain": "clig.dev",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://cline.bot/blog/clinerules-version-controlled-shareable-and-ai-editable-instructions",
+      "domain": "cline.bot",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://code.claude.com/docs/en/agent-teams",
+      "domain": "code.claude.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://code.claude.com/docs/en/hooks",
+      "domain": "code.claude.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://code.claude.com/docs/en/memory",
+      "domain": "code.claude.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://community.openai.com/t/get-the-remaining-credits-via-the-api/18827",
+      "domain": "community.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/vendor-credit-tracking-log.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://composable-models.github.io/llm_debate/",
+      "domain": "composable-models.github.io",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/deep-research-pipelines.md",
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://corporate.ford.com/articles/history/moving-assembly-line/",
+      "domain": "corporate.ford.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://csrc.nist.gov/projects/risk-management",
+      "domain": "csrc.nist.gov",
+      "occurrences": 2,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/154/ipd",
+      "domain": "csrc.nist.gov",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://datatracker.ietf.org/doc/html/rfc5280",
+      "domain": "datatracker.ietf.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://decodethefuture.org/en/nvidia-nim-api-explained/",
+      "domain": "decodethefuture.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/vendor-credit-tracking-log.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developer.harness.io/docs/platform/pipelines/looping-strategies/run-stages-in-parallel/",
+      "domain": "developer.harness.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity",
+      "domain": "developer.mozilla.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents/orchestration",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents/sandboxes",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/reasoning",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/blog/eval-skills",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex",
+      "domain": "developers.openai.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/blog/skills-shell-tips",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/codex/agent-configuration/agents-md",
+      "domain": "developers.openai.com",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/codex/build-skills",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/codex/cloud",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-sample",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/codex/learn/best-practices",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/codex/subagents",
+      "domain": "developers.openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop",
+      "domain": "developers.openai.com",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://digital.ahrq.gov/sites/default/files/docs/survey/systemusabilityscale%2528sus%2529_comp%255B1%255D.pdf",
+      "domain": "digital.ahrq.gov",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://djaa.com/revisiting-the-principles-and-general-practices-of-the-kanban-method/",
+      "domain": "djaa.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/1978942.1979359",
+      "domain": "dl.acm.org",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/2601248.2601268",
+      "domain": "dl.acm.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/2702123.2702149",
+      "domain": "dl.acm.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3582269.3615596",
+      "domain": "dl.acm.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3643834.3660720",
+      "domain": "dl.acm.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3696630.3728544",
+      "domain": "dl.acm.org",
+      "occurrences": 1,
+      "documents": [
+        "tare.tools - testes, gates.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3706599.3720079",
+      "domain": "dl.acm.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_reuse_roles.html",
+      "domain": "docs.ansible.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/computer-use",
+      "domain": "docs.anthropic.com",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows",
+      "domain": "docs.anthropic.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching",
+      "domain": "docs.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
+      "domain": "docs.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/skills",
+      "domain": "docs.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/sub-agents",
+      "domain": "docs.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.crewai.com/en/concepts/agents",
+      "domain": "docs.crewai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.dagster.io/api/dagster/assets",
+      "domain": "docs.dagster.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.dagster.io/api/dagster/execution",
+      "domain": "docs.dagster.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.develocity.ai/2026.2/using-develocity/predictive-test-selection/",
+      "domain": "docs.develocity.ai",
+      "occurrences": 1,
+      "documents": [
+        "tare.tools - testes, gates.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot",
+      "domain": "docs.github.com",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents",
+      "domain": "docs.github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.gitlab.com/ci/pipelines/",
+      "domain": "docs.gitlab.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.langchain.com/oss/python/concepts/memory",
+      "domain": "docs.langchain.com",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://docs.langchain.com/oss/python/langgraph/persistence",
+      "domain": "docs.langchain.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.langchain.com/oss/python/langgraph/thinking-in-langgraph",
+      "domain": "docs.langchain.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+      "domain": "docs.langchain.com",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.npmjs.com/cli/v10/using-npm/scope",
+      "domain": "docs.npmjs.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+      "domain": "docs.oasis-open.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.openclaw.ai/web/control-ui",
+      "domain": "docs.openclaw.ai",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.openclaw.ai/web/dashboard",
+      "domain": "docs.openclaw.ai",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.replit.com/learn/design/canvas",
+      "domain": "docs.replit.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.temporal.io/workflow-execution",
+      "domain": "docs.temporal.io",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Task & Workflow Lifecycle.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://docs.temporal.io/workflows",
+      "domain": "docs.temporal.io",
+      "occurrences": 2,
+      "documents": [
+        "Tare.tools - Reliability Semantics.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://docs.windsurf.com/windsurf/cascade/memories",
+      "domain": "docs.windsurf.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1002/qre.4680040207",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1007/978-3-030-62136-0_15",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1007/978-3-642-24550-3_29",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1007/s00165-010-0161-4",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1007/s00607-022-01052-x",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1007/s10844-022-00766-w",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1007/s10994-021-06019-1",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1007/s11219-020-09532-z",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1007/s12599-009-0044-5",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1016/0167-6423(87)90035-9",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1016/0304-3975(94)90010-8",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1016/S0378-4754(00)00270-6",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1016/j.cpc.2009.09.018",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1021/acs.chemrev.4c00055",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1023/A:1022883727209",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1038/s41586-020-2442-2",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1073/pnas.1708274114",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1073/pnas.2014602118",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1080/00224065.2011.11917841",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1080/00401706.1991.10484804",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1093/biomet/33.4.305",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1109/3468.844354",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1109/ACCESS.2021.3071809",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1109/ICCNS66249.2025.11428688",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1126/sciadv.aaz1708",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1126/science.aaa9375",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1136/bmj.n71",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/1508284.1508275",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/2628071.2628092",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/2699417",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/302979.303030",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/3035918.3064029",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/3524844.3528081",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/3586030",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/3631802.3631806",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/3706598.3713357",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/3744916.3764546",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/38714.38742",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1145/74850.74870",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1162/tacl_a_00638",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1214/20-AOS1991",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1287/opre.1050.0243",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1287/opre.2021.2135",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1518/001872095779064555",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.1609/aaai.v40i29.39672",
+      "domain": "doi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://dora.dev/capabilities/streamlining-change-approval/",
+      "domain": "dora.dev",
+      "occurrences": 1,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://dspy.ai/",
+      "domain": "dspy.ai",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://dspy.ai/diving-deeper/signatures-in-depth/",
+      "domain": "dspy.ai",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://dspy.ai/getting-started/gepa-optimization/",
+      "domain": "dspy.ai",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Little%27s_law",
+      "domain": "en.wikipedia.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Theory_of_constraints",
+      "domain": "en.wikipedia.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://example.com/reference",
+      "domain": "example.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://faculty.washington.edu/ajko/papers/Swearngin2018Rewire.pdf",
+      "domain": "faculty.washington.edu",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://flowiseai.com/",
+      "domain": "flowiseai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://forums.developer.nvidia.com/t/api-credit-balance/309857",
+      "domain": "forums.developer.nvidia.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/vendor-credit-tracking-log.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+      "domain": "genai.owasp.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+      "domain": "genai.owasp.org",
+      "occurrences": 7,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+      "domain": "genai.owasp.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/Comfy-Org/litegraph.js/",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/Shopify/toxiproxy",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Reliability Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://github.com/SqueezeAILab/LLMCompiler",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/Tinder/bazel-diff",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/47574",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/vendor-credit-tracking-log.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/assafelovic/gpt-researcher",
+      "domain": "github.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/deep-research-pipelines.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/cline/cline/issues/4642",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/cloudevents/spec/tree/v1.0.2",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/gliga/ekstazi",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/jagenjo/litegraph.js/",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/issues/35",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Reliability Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://github.com/openai/codex/issues/15003",
+      "domain": "github.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/openai/codex/issues/25860",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/openai/codex/issues/30712",
+      "domain": "github.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/openai/codex/issues/32477",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/openai/codex/issues/9661",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/pytest-dev/pytest-xdist",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/rust-lang/rfcs",
+      "domain": "github.com",
+      "occurrences": 2,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://github.com/stanford-oval/storm",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/deep-research-pipelines.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.com/tarpas/pytest-testmon",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.github.com/gh-aw/",
+      "domain": "github.github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://github.github.com/gh-aw/reference/compilation-process/",
+      "domain": "github.github.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://google.github.io/adk-docs/agents/llm-agents/",
+      "domain": "google.github.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://google.github.io/adk-docs/agents/multi-agents/",
+      "domain": "google.github.io",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://google.github.io/adk-docs/agents/workflow-agents/",
+      "domain": "google.github.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://google.github.io/adk-docs/evaluate/",
+      "domain": "google.github.io",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://google.github.io/adk-docs/safety/",
+      "domain": "google.github.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://google.github.io/adk-docs/skills/",
+      "domain": "google.github.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://groups.csail.mit.edu/tds/papers/Lynch/CWI89.pdf",
+      "domain": "groups.csail.mit.edu",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://guide.michelin.com/us/en/article/features/mise-en-place-cooking",
+      "domain": "guide.michelin.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://guides.loc.gov/this-month-in-business-history/October/Ford",
+      "domain": "guides.loc.gov",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://hci.stanford.edu/publications/2010/examples/lee-chi2010-examples.pdf",
+      "domain": "hci.stanford.edu",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://hci.stanford.edu/publications/2011/Bricolage/Bricolage-CHI2011.pdf",
+      "domain": "hci.stanford.edu",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://helm.sh/docs/chart_template_guide/subcharts_and_globals/",
+      "domain": "helm.sh",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://helm.sh/docs/chart_template_guide/values_files/",
+      "domain": "helm.sh",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://help.figma.com/hc/en-us/articles/23870272542231-Use-AI-tools-in-Figma-Design",
+      "domain": "help.figma.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect",
+      "domain": "help.figma.com",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://help.figma.com/hc/en-us/articles/37998629035799-Work-with-the-Figma-agent-in-design-files",
+      "domain": "help.figma.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://help.figma.com/hc/en-us/articles/38978644498199-AI-workflows-collection-Best-practices-to-help-Figma-AI-understand-your-design-system",
+      "domain": "help.figma.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://hermes-agent.ai/features/multi-agent",
+      "domain": "hermes-agent.ai",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://hidekazu-konishi.com/entry/claude_code_features_settings_reference_2026.html",
+      "domain": "hidekazu-konishi.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://homepages.se.edu/cvonbergen/files/2013/01/Productivity-Loss-In-Brainstorming_Toward-the-Solution-of-a-Riddle.pdf",
+      "domain": "homepages.se.edu",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/deep-research-pipelines.md",
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://ibm.github.io/prompt-declaration-language/",
+      "domain": "ibm.github.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/document/11394729/",
+      "domain": "ieeexplore.ieee.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/document/11447227/",
+      "domain": "ieeexplore.ieee.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/document/605761/",
+      "domain": "ieeexplore.ieee.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://in-toto.io/",
+      "domain": "in-toto.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://indico.cern.ch/event/1542774/contributions/6494311/attachments/3080345/5465431/Peffers_2007_A%20Design%20Science%20Research%20Methodology%20for%20Information%20Systems%20Research.pdf",
+      "domain": "indico.cern.ch",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://interactionmining.org/rico",
+      "domain": "interactionmining.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://itnext.io/kubernetes-strategic-merge-patch-4bdd19b48789",
+      "domain": "itnext.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://jair.org/index.php/jair/article/view/10628",
+      "domain": "jair.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://jakubkrajewski.substack.com/p/mastering-the-diamond-problem-how",
+      "domain": "jakubkrajewski.substack.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://kar.kent.ac.uk/33611/",
+      "domain": "kar.kent.ac.uk",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+      "domain": "kubernetes.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://kubernetes.io/docs/reference/using-api/deprecation-policy/",
+      "domain": "kubernetes.io",
+      "occurrences": 1,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://lamport.azurewebsites.net/pubs/lamport-actions.pdf",
+      "domain": "lamport.azurewebsites.net",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/commandline/design-guidance",
+      "domain": "learn.microsoft.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://legacyfileshare.elsevier.com/promis_misc/525444systematicreviewsguide.pdf",
+      "domain": "legacyfileshare.elsevier.com",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s43681-026-01147-7",
+      "domain": "link.springer.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://machinelearning.apple.com/research/designer-feedback",
+      "domain": "machinelearning.apple.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://machinelearningplus.com/python/how-python-handles-multiple-inheritance-mro-explained/",
+      "domain": "machinelearningplus.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html",
+      "domain": "martin.kleppmann.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25",
+      "domain": "modelcontextprotocol.io",
+      "occurrences": 4,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/agent-communication-protocols.md",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://ntrs.nasa.gov/api/citations/19900010450/downloads/19900010450.pdf",
+      "domain": "ntrs.nasa.gov",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://nx.dev/docs/concepts/how-caching-works",
+      "domain": "nx.dev",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40240",
+      "domain": "ojs.aaai.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://oneuptime.com/blog/post/2026-02-21-how-to-use-ansible-variable-precedence-rules/view",
+      "domain": "oneuptime.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2021/papers/Patil_LayoutGMN_Neural_Graph_Matching_for_Structural_Layout_Similarity_CVPR_2021_paper.pdf",
+      "domain": "openaccess.thecvf.com",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Shabani_Visual_Layout_Composer_Image-Vector_Dual_Diffusion_Model_for_Design_Layout_CVPR_2024_paper.pdf",
+      "domain": "openaccess.thecvf.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/WACV2025/papers/Manandhar_CLASS_Conditional_Latent_Architecture_for_Search_and_Synthesis_of_Design_WACV_2025_paper.pdf",
+      "domain": "openaccess.thecvf.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openai.com/index/clip/",
+      "domain": "openai.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-the-codex-app/",
+      "domain": "openai.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openai.com/index/operator-system-card/",
+      "domain": "openai.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openpolicyagent.org/docs",
+      "domain": "openpolicyagent.org",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://openreview.net/forum?id=8sSqNntaMr",
+      "domain": "openreview.net",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openreview.net/forum?id=DT7JyQC3MR",
+      "domain": "openreview.net",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openreview.net/forum?id=Sx038qxjek",
+      "domain": "openreview.net",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openreview.net/forum?id=VTF8yNQM66",
+      "domain": "openreview.net",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openreview.net/forum?id=ZdGB7MNQDT",
+      "domain": "openreview.net",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openreview.net/forum?id=a7Qa4CcHak",
+      "domain": "openreview.net",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openreview.net/forum?id=z5uVAKwmjf",
+      "domain": "openreview.net",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://openssf.org/projects/scorecard/",
+      "domain": "openssf.org",
+      "occurrences": 1,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://opentelemetry.io/blog/2026/genai-observability/",
+      "domain": "opentelemetry.io",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://opentelemetry.io/docs/specs/semconv/",
+      "domain": "opentelemetry.io",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+      "domain": "opentelemetry.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://papers.nips.cc/paper_files/paper/2025/file/0d744742f6fac4d1134c019b7cef3c8a-Paper-Datasets_and_Benchmarks_Track.pdf",
+      "domain": "papers.nips.cc",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://people.cs.umass.edu/~emery/classes/cmpsci691st/readings/OS/Littles-Law-50-Years-Later.pdf",
+      "domain": "people.cs.umass.edu",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://people.eecs.berkeley.edu/~bjoern/papers/duan-uicrit-uist2024.pdf",
+      "domain": "people.eecs.berkeley.edu",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/manage-claude/usage-cost-api",
+      "domain": "platform.claude.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/vendor-credit-tracking-log.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://playwright.dev/docs/accessibility-testing",
+      "domain": "playwright.dev",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://playwright.dev/docs/test-snapshots",
+      "domain": "playwright.dev",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/6507b115562bb0a305f1958ccc87355a-Paper-Conference.pdf",
+      "domain": "proceedings.iclr.cc",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/e9df36b21ff4ee211a8b71ee8b7e9f57-Paper-Conference.pdf",
+      "domain": "proceedings.iclr.cc",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/5434be94e82c54327bb9dcaf7fca52b6-Paper-Conference.pdf",
+      "domain": "proceedings.iclr.cc",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.mlr.press/v139/karampatziakis21a.html",
+      "domain": "proceedings.mlr.press",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.mlr.press/v267/zhang25ds.html",
+      "domain": "proceedings.mlr.press",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.mlr.press/v293/olson25a.html",
+      "domain": "proceedings.mlr.press",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.mlr.press/v37/sui15.html",
+      "domain": "proceedings.mlr.press",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.mlr.press/v48/thomasa16.html",
+      "domain": "proceedings.mlr.press",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://proceedings.mlr.press/v80/falkner18a.html",
+      "domain": "proceedings.mlr.press",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://pytest-xdist.readthedocs.io/en/stable/distribution.html",
+      "domain": "pytest-xdist.readthedocs.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://queue.acm.org/detail.cfm?id=3762990",
+      "domain": "queue.acm.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://replit.com/blog/introducing-agent-4-built-for-creativity",
+      "domain": "replit.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://research.google.com/pubs/archive/36299.pdf",
+      "domain": "research.google.com",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://research.google.com/pubs/archive/45861.pdf",
+      "domain": "research.google.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://research.google.com/pubs/archive/46180.pdf",
+      "domain": "research.google.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/",
+      "domain": "research.google",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://rivet.ironcladapp.com/",
+      "domain": "rivet.ironcladapp.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://rustc-dev-guide.rust-lang.org/tests/crater.html",
+      "domain": "rustc-dev-guide.rust-lang.org",
+      "occurrences": 1,
+      "documents": [
+        "tare.tools - testes, gates.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://sloanreview.mit.edu/article/toyotas-principles-of-setbased-concurrent-engineering/",
+      "domain": "sloanreview.mit.edu",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/deep-research-pipelines.md",
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://slsa.dev/",
+      "domain": "slsa.dev",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://slsa.dev/spec/v1.2/",
+      "domain": "slsa.dev",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/index.html",
+      "domain": "spec.c2pa.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://sre.google/workbook/error-budget-policy/",
+      "domain": "sre.google",
+      "occurrences": 1,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://storybook.js.org/docs/get-started/why-storybook",
+      "domain": "storybook.js.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://storybook.js.org/docs/writing-tests",
+      "domain": "storybook.js.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://storybook.js.org/docs/writing-tests/accessibility-testing",
+      "domain": "storybook.js.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://techsy.io/en/blog/cursor-rules-guide",
+      "domain": "techsy.io",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://turborepo.dev/docs/core-concepts/remote-caching",
+      "domain": "turborepo.dev",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://users.cs.fiu.edu/~sadjadi/Teaching/Autonomic%20Grid%20Computing/CIS-6612-Summer-2006/AC-Blueprint-WhitePaper-V7.pdf",
+      "domain": "users.cs.fiu.edu",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://users.cs.northwestern.edu/~robby/courses/395-495-2017-winter/Van%20Der%20Aalst%201998%20The%20Application%20of%20Petri%20Nets%20to%20Workflow%20Management.pdf",
+      "domain": "users.cs.northwestern.edu",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://users.ece.utexas.edu/~gligoric/papers/GligoricETAL15EkstaziTool.pdf",
+      "domain": "users.ece.utexas.edu",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://v0.app/",
+      "domain": "v0.app",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://v0.app/docs/design-systems-2",
+      "domain": "v0.app",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://v0.app/docs/figma",
+      "domain": "v0.app",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://vercel.com/blog/ai-sdk-3-generative-ui",
+      "domain": "vercel.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://vis.csail.mit.edu/pubs/vega-lite/",
+      "domain": "vis.csail.mit.edu",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://vis.csail.mit.edu/pubs/webzeitgeist/",
+      "domain": "vis.csail.mit.edu",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://web.dev/articles/vitals",
+      "domain": "web.dev",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://wise.vub.ac.be/sites/default/files/thesis_info/design_science.pdf",
+      "domain": "wise.vub.ac.be",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.aiagentshub.net/blog/dify-vs-flowise-vs-wordware-vs-lindy",
+      "domain": "www.aiagentshub.net",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "domain": "www.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
+      "domain": "www.anthropic.com",
+      "occurrences": 4,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+      "domain": "www.anthropic.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/agent-communication-protocols.md",
+        "docs/research/guia-playbooks-engineering-2026-07-29.html"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "domain": "www.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "domain": "www.anthropic.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "domain": "www.anthropic.com",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+      "domain": "www.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
+      "domain": "www.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
+      "domain": "www.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/managed-agents",
+      "domain": "www.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "domain": "www.anthropic.com",
+      "occurrences": 9,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/agent-communication-protocols.md",
+        "docs/research/deep-research-pipelines.md",
+        "docs/research/guia-playbooks-engineering-2026-07-29.html",
+        "docs/research/loop-workflow-efficiency-evidence.md",
+        "docs/research/playbook-inheritance-article-2026-07-23.md",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/research/measuring-agent-autonomy",
+      "domain": "www.anthropic.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/research/prompt-injection-defenses",
+      "domain": "www.anthropic.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-3-Generative-AI-Training-Report-Pre-Publication-Version.pdf",
+      "domain": "www.copyright.gov",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.cs.ox.ac.uk/people/michael.wooldridge/pubs/ker95.pdf",
+      "domain": "www.cs.ox.ac.uk",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.cs.umd.edu/users/ben/goldenrules.html",
+      "domain": "www.cs.umd.edu",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.cs.umd.edu/~basili/publications/technical/T89.pdf",
+      "domain": "www.cs.umd.edu",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.culinaryartsswitzerland.com/en/news/understanding-mise-en-place-what-mise-en-place/",
+      "domain": "www.culinaryartsswitzerland.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.designcouncil.org.uk/resources/framework-for-innovation/",
+      "domain": "www.designcouncil.org.uk",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.designtokens.org/TR/2025.10/format/",
+      "domain": "www.designtokens.org",
+      "occurrences": 6,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.engr.psu.edu/britelab/chi2009final.pdf",
+      "domain": "www.engr.psu.edu",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.escoffier.edu/blog/culinary-arts/what-is-mise-en-place-and-why-is-it-so-important-to-chefs/",
+      "domain": "www.escoffier.edu",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.faa.gov/aircraft/safety/programs_initiatives/maintenance_programs/ad",
+      "domain": "www.faa.gov",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.figma.com/dev-mode/",
+      "domain": "www.figma.com",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.gnu.org/software/make/manual/html_node/Parallel.html",
+      "domain": "www.gnu.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.gov.br/inpi/en/services/software/laws-and-regulations",
+      "domain": "www.gov.br",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.iso.org/obp/ui/en/",
+      "domain": "www.iso.org",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://www.iso.org/standard/42001",
+      "domain": "www.iso.org",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.iso.org/standard/56639.html",
+      "domain": "www.iso.org",
+      "occurrences": 1,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://www.iso.org/standard/77304.html",
+      "domain": "www.iso.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.iso.org/standard/77520.html",
+      "domain": "www.iso.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.iso.org/standard/78176.html",
+      "domain": "www.iso.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.iso.org/standard/81684.html",
+      "domain": "www.iso.org",
+      "occurrences": 2,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://www.jmp.com/content/dam/jmp/documents/en/white-papers/split-plot-designs-what-why-and-how.pdf",
+      "domain": "www.jmp.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.langchain.com/blog/runtime-behind-production-deep-agents",
+      "domain": "www.langchain.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.leanproduction.com/theory-of-constraints/",
+      "domain": "www.leanproduction.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.legislation.gov.uk/understanding-legislation",
+      "domain": "www.legislation.gov.uk",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/publication/a-contextual-bandit-approach-to-personalized-news-article-recommendation-3/",
+      "domain": "www.microsoft.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.morphllm.com/cursor-rules-best-practices",
+      "domain": "www.morphllm.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "domain": "www.nist.gov",
+      "occurrences": 3,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.nist.gov/privacy-framework",
+      "domain": "www.nist.gov",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+      "domain": "www.nist.gov",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "domain": "www.nngroup.com",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.openpolicyagent.org/docs",
+      "domain": "www.openpolicyagent.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.openpolicyagent.org/docs/management-bundles",
+      "domain": "www.openpolicyagent.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.pmi.org/learning/library/origins-cpm-personal-history-3762",
+      "domain": "www.pmi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.pmi.org/learning/library/raci-diagrams-organizational-clarity-9207",
+      "domain": "www.pmi.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.researchgate.net/publication/220277640_Hst_M_Guidelines_for_Conducting_and_Reporting_Case_Study_Research_in_Software_Engineering_Empirical_Software_Engineering_14_131-164",
+      "domain": "www.researchgate.net",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://www.rfc-editor.org/info/rfc9309/",
+      "domain": "www.rfc-editor.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S2214716015300270",
+      "domain": "www.sciencedirect.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.sei.cmu.edu/library/architecture-tradeoff-analysis-method-collection/",
+      "domain": "www.sei.cmu.edu",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.skillwright.app/blog/windsurf-rules-guide",
+      "domain": "www.skillwright.app",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/playbook-inheritance-article-2026-07-23.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.swebench.com/verified.html",
+      "domain": "www.swebench.com",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.testmon.org/",
+      "domain": "www.testmon.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.theiia.org/globalassets/site/content/articles/global-knowledge-brief/2020/july/the-iias-three-lines-model/glob-three-lines-model-paper_layout-rebuild.pdf",
+      "domain": "www.theiia.org",
+      "occurrences": 2,
+      "documents": [
+        "Auditoria no tare.tools.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://www.tocinstitute.org/theory-of-constraints.html",
+      "domain": "www.tocinstitute.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/loop-workflow-efficiency-evidence.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/alipourfard",
+      "domain": "www.usenix.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.usenix.org/conference/nsdi23/presentation/karthikeyan",
+      "domain": "www.usenix.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.usenix.org/conference/nsdi24/presentation/somashekar",
+      "domain": "www.usenix.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.usenix.org/conference/usenixsecurity09/technical-sessions/presentation/crying-wolf-empirical-study-ssl-warning",
+      "domain": "www.usenix.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.usenix.org/conference/usenixsecurity19/presentation/torres-arias",
+      "domain": "www.usenix.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.usenix.org/system/files/atc23-duplyakin.pdf",
+      "domain": "www.usenix.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.vdaalst.com/publications/p108.pdf",
+      "domain": "www.vdaalst.com",
+      "occurrences": 2,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://www.vellum.ai/blog/top-ai-agent-frameworks-for-developers",
+      "domain": "www.vellum.ai",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/agent-gui-cli-features.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "domain": "www.w3.org",
+      "occurrences": 5,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/prov-o/",
+      "domain": "www.w3.org",
+      "occurrences": 6,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt",
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md",
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "chat-corpus-original",
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/scxml/",
+      "domain": "www.w3.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/trace-context/",
+      "domain": "www.w3.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/wcag-em-2/",
+      "domain": "www.w3.org",
+      "occurrences": 1,
+      "documents": [
+        "tare.tools - testes, gates.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/WAI/ARIA/apg/",
+      "domain": "www.w3.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/",
+      "domain": "www.w3.org",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/WAI/tutorials/images/complex/",
+      "domain": "www.w3.org",
+      "occurrences": 3,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/community/design-tokens/2025/10/28/design-tokens-specification-reaches-first-stable-version/",
+      "domain": "www.w3.org",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.wi2.uni-trier.de/shared/publications/2023_MalburgEtAl_MAPEK_Loops.pdf",
+      "domain": "www.wi2.uni-trier.de",
+      "occurrences": 1,
+      "documents": [
+        "Arquitetura Multiagente e Roteamento.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/23318",
+      "domain": "www.wipo.int",
+      "occurrences": 2,
+      "documents": [
+        "docs/research/ux-agents-consolidated-2026-07-13.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://www.wohlin.eu/ease14.pdf",
+      "domain": "www.wohlin.eu",
+      "occurrences": 1,
+      "documents": [
+        "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
+      ],
+      "origins": [
+        "private-github-snapshot-2026-08-05"
+      ]
+    }
+  ]
+}

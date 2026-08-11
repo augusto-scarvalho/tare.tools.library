@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "translation_id": "research.vendor.google-implementation-history.en",
+  "translation_of": "research.vendor.google-implementation-history",
+  "source_path": "corpus/original/2026-08-11-chat-import/Plano de implementação Google.txt",
+  "source_sha256": "3b27357512568428925b00893c5ac4ae076b2dd0de25d4092bfbd8b183a5eef1",
+  "translation_path": "corpus/translations/en/2026-08-11-chat-import/Plano de implementação Google.en.md",
+  "translation_sha256": "70613ac47a440bdb89f943d44ef44ad8c732207ee9ff514fac8cfc399a2b90a0",
+  "translation_size_bytes": 4643,
+  "source_language": "pt-BR",
+  "target_language": "en",
+  "translation_status": "MACHINE_TRANSLATED_UNREVIEWED",
+  "translator": "OpenAI GPT-5.6 Sol",
+  "translated_at": "2026-08-11",
+  "policy": "TRANSLATION_POLICY.md",
+  "notes": "Faithful derivative translation. Historical claims were not reconciled or silently corrected."
+}

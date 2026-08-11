@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.w29-evidence-gated-assurance-round-md",
+  "sourcePath": "docs/research/w29-evidence-gated-assurance-round.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/w29-evidence-gated-assurance-round.md",
+  "sha256": "dbb18dc623c079f091c98d92206eb8b6e8c039000fd19a73976bd96f650645cd",
+  "sizeBytes": 18616,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

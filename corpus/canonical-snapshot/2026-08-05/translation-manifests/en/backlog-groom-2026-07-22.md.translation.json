@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "baseline.private-github-main.2026-08-05",
+  "sourcePath": "corpus/canonical-snapshot/2026-08-05/docs/research/backlog-groom-2026-07-22.md",
+  "sourceSha256": "001a20da768839a06303a2924a46bcf228dd251539acaa6e15722a439ac9ecd8",
+  "sourceLanguage": "pt-BR",
+  "translationLanguage": "en",
+  "translationPath": "corpus/canonical-snapshot/2026-08-05/translations/en/docs/research/backlog-groom-2026-07-22.en.md",
+  "translationSha256": "ee14b405ac917051d203e2dec743c7f1a551a4783d2f4e63cc523c8fde2ada52",
+  "translationStatus": "MACHINE_TRANSLATED_UNREVIEWED",
+  "authority": "DERIVATIVE_NON_AUTHORITATIVE"
+}

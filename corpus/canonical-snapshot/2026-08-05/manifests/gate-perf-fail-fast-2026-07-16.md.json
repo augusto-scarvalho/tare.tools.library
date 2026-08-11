@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.gate-perf-fail-fast-2026-07-16-md",
+  "sourcePath": "docs/research/gate-perf-fail-fast-2026-07-16.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/gate-perf-fail-fast-2026-07-16.md",
+  "sha256": "73eb8521ed9468af9baaae83cec0846ca9d96e124bcfb0f06ea5d476c5f80be6",
+  "sizeBytes": 13323,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

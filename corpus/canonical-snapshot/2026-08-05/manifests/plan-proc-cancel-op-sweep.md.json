@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.plan-proc-cancel-op-sweep-md",
+  "sourcePath": "docs/research/plan-proc-cancel-op-sweep.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/plan-proc-cancel-op-sweep.md",
+  "sha256": "9aada2e254767d5fc4d1685335e0297c4230a7befd05c3e274c5337fa8f91404",
+  "sizeBytes": 24091,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

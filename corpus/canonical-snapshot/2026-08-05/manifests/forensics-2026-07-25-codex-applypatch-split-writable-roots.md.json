@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.forensics-2026-07-25-codex-applypatch-split-writable-roots-md",
+  "sourcePath": "docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md",
+  "sha256": "00021b74af5bb077506340339d648f9cc559aeb0c886df34474a98383e3c8a5f",
+  "sizeBytes": 6843,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

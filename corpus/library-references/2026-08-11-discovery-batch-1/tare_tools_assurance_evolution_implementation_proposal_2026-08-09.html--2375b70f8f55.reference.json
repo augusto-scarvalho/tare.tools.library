@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.000000000f94",
+  "title": "tare_tools_assurance_evolution_implementation_proposal_2026-08-09.html",
+  "file_library_id": "file_000000000f94820e9c5e2375b70f8f55",
+  "file_created_at": "2026-08-09T21:48:35Z",
+  "file_modified_at": "2026-08-09T21:48:35Z",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P0",
+  "suggested_kind": "implementation-proposal",
+  "suggested_status": "PROPOSED",
+  "suggested_contexts": [
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control"
+  ],
+  "lineage_family": "assurance-evolution",
+  "lineage_order_hint": 2,
+  "reported_sha256": null,
+  "reported_size_bytes": null,
+  "hash_status": "UNKNOWN",
+  "discovered_at": "2026-08-11T15:55:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": ""
+}

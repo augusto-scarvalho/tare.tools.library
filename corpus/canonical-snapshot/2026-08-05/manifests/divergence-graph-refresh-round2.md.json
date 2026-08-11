@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.divergence-graph-refresh-round2-md",
+  "sourcePath": "docs/research/divergence-graph-refresh-round2.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/divergence-graph-refresh-round2.md",
+  "sha256": "920e6e8cf7d5a61fc5cf4d82ae9433406cecbde2b6a499fdbb209ebbad4d3745",
+  "sizeBytes": 40793,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

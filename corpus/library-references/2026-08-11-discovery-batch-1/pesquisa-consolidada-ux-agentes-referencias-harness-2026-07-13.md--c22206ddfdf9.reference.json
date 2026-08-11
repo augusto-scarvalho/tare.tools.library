@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.000000009d3c",
+  "title": "pesquisa-consolidada-ux-agentes-referencias-harness-2026-07-13.md",
+  "file_library_id": "file_000000009d3c71fda690c22206ddfdf9",
+  "file_created_at": "2026-07-13T19:17:58Z",
+  "file_modified_at": "2026-07-13T19:17:58Z",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P2",
+  "suggested_kind": "research",
+  "suggested_status": "RESEARCH",
+  "suggested_contexts": [
+    "Experience / Human Interface",
+    "Runtime",
+    "Protocols / Interoperability",
+    "Validation / Assurance"
+  ],
+  "lineage_family": "ux-agent-research",
+  "lineage_order_hint": 1,
+  "reported_sha256": null,
+  "reported_size_bytes": null,
+  "hash_status": "UNKNOWN",
+  "discovered_at": "2026-08-11T15:55:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": ""
+}

@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ptc-round-md",
+  "sourcePath": "docs/research/ptc-round.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/ptc-round.md",
+  "sha256": "a96a37742c2fd4574043371882f4b255605ab03f331b2ff58d8181fbb92ef874",
+  "sizeBytes": 12641,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

@@ -1,0 +1,51 @@
+Fechei a arqueologia em um **HTML grande, estruturado como os documentos mais recentes do tare.tools**, com sidebar, índice numerado, timeline, CURRENT × TARGET × PROPOSED × RESEARCH, Archaeological Ledger, commits/hashes, falsos verdes preservados, ADOPT/ADAPT/RETIRE/OPEN e uma comparação extensa com a North Star do Agent OS.
+
+**[Abrir — Arqueologia deste chat: Kimi, Antigravity e evolução para Agent OS](sandbox:/mnt/data/tare_tools_chat_archaeology_kimi_antigravity_2026-08-09.html)**  
+**[Baixar — Bundle com HTML + principais fontes locais](sandbox:/mnt/data/tare_tools_chat_archaeology_kimi_antigravity_2026-08-09_bundle.zip)**
+
+SHA-256 do HTML: `6fec876989f3940b81c65aab8e8c370ab842cdda00f2da44b99f528341bacaae`.
+
+A conclusão central do documento é que este chat acabou sendo muito mais importante do que uma simples portabilidade Kimi/AGY. Ele produziu evidência experimental para várias ideias que hoje estão no North Star: runtime ownership vendor-local, authority-before-intelligence, containment pertencendo ao harness, adapters nas bordas, evidence-first governance e migração incremental sobre o stable incumbent. Ao mesmo tempo, **não tratei esses precursores como se o TARGET Agent OS já estivesse implementado**. A arquitetura consolidada continua separando TaskEnvelope, routing contracts, ExecutionBinding, Authority/Permit, WorkspaceLease, Capability/ActionRequest/EffectReceipt e Evidence/Attribution/Reputation como o alvo canônico. fileciteturn16file2
+
+O achado mais forte desta conversa, na minha leitura, foi a falsificação empírica de:
+
+> **static capability parity ≠ runtime capability parity.**
+
+Vocês chegaram a ter AP, repo-health, audit e doctor verdes para o AGY enquanto o CLI real carregava **zero hooks**. Só a sessão real descobriu isso; depois os logs revelaram o schema incorreto, veio o RAW SMOKE, o named-hook schema, o receipt e a decomposição `configured → schema-valid → probed → loaded → enforced`. É um ótimo exemplo concreto da tese evidence-first do programa de pesquisa iniciado em 14 de julho de 2026. fileciteturn12file0
+
+### Referências-chave deste chat
+
+Não tenho uma superfície para gerar permalink individual de cada balão de mensagem do chat. Por isso, para arqueologia futura, associei cada mensagem-chave à **captura/transcript que a preserva**, com datas e metadados no próprio HTML. Os links mais importantes são:
+
+1. **Documento arqueológico consolidado:** [HTML](sandbox:/mnt/data/tare_tools_chat_archaeology_kimi_antigravity_2026-08-09.html).
+2. **North Star / protocolo de pesquisa iniciado em 14/07/2026:** [Arquitetura Multiagente e Roteamento](sandbox:/mnt/data/Arquitetura%20Multiagente%20e%20Roteamento.txt). Ele estabelece explicitamente multi-vendor, políticas determinísticas, workflows adaptativos, observabilidade e evolução governada. fileciteturn12file0
+3. **Mensagem/origem do ramo Kimi — 07/08/2026, ~15:40 BRT:** “consigo pilotar o harness daqui pelo Kimi?”. O transcript registra Kimi 0.29.2/K3-256k, hidratação do harness e verificação do fallback AGY. fileciteturn15file0
+4. **Hardening KIMI-V1-FU:** [Texto colado (4)](sandbox:/mnt/data/Texto%20colado%284%29.txt). Aqui aparecem evidence classes, staged-tree identity, proteção file+shell e o primeiro conjunto mais rigoroso de readiness. fileciteturn15file1
+5. **Recorte real do código que mudou nossa interpretação:** [pedacinho do harness.zip](sandbox:/mnt/data/pedacinho%20do%20harness.zip). Foi a peça que mostrou Claude-shaped assumptions nos hooks e confirmou que `sandbox_spawn`/worktree/ACL eram a boundary forte do harness.
+6. **Primeira implementação AGY e primeiro falso verde:** [Texto colado (5)](sandbox:/mnt/data/Texto%20colado%285%29.txt). Contém criação de `hook_normalization.py`, `.agents/*`, readiness e os resultados estáticos que depois seriam falsificados. fileciteturn15file2
+7. **Descoberta da causa raiz do loader AGY:** [Texto colado (7)](sandbox:/mnt/data/Texto%20colado%287%29.txt). É onde aparece `json: cannot unmarshal string into Go struct field .version` e `loaded 0 named hooks`; em seguida vem o RAW SMOKE `AGY_HOOK_SMOKE`.
+8. **Adapter AGY final / runtime acceptance / parity matrix:** [Texto colado (8)](sandbox:/mnt/data/Texto%20colado%288%29.txt). Contém os seis named gates, Stop/PreInvocation corretos, dangerous-mode testing, readiness decomposta e observability explicitamente `partial`. fileciteturn16file0
+9. **Dogfooding de commit e governança:** [Texto colado (9)](sandbox:/mnt/data/Texto%20colado%289%29.txt). Preserva commit `937b58b…`, reckon/audit/oracle waiver, tree `c7401b…`, equality de `HEAD^{tree}` e o surgimento da dívida `first-class-environment-blocked-waiver`. fileciteturn16file1
+10. **Master Research Corpus / metodologia de arqueologia:** [Plano de implementação Google](sandbox:/mnt/data/Plano%20de%20implementa%C3%A7%C3%A3o%20Google.txt). Registra o corpus de 126 arquivos, 102 artefatos e 21 linhagens e a cadeia desejada `Corpus → Findings → ADRs → Architecture → SPEC → BDD → Implementation Packets`. fileciteturn12file1
+11. **North Star científica do Agent OS:** a pesquisa consolidada de 09/08 formaliza o stable incumbent, Strangler/Branch by Abstraction e a tese “probabilistic in interpretation, dynamic in planning, durable in execution, deterministic in authority, evidence-driven in improvement, conservative in self-evolution”. fileciteturn14file12
+12. **North Star técnica / SDD + BDD:** define o TARGET com `TaskEnvelope`, `RouteContract`, `RouteIntent`, `CandidateKey`, `RouteDecision`, `ExecutionBinding`, `Authority`, `Permit`, `WorkspaceLease`, `ActionRequest`, `EffectReceipt`, `OutcomeEvidence`, `EvidenceFamily`, `Attribution` e `ReputationSnapshot`. fileciteturn14file16
+
+filenavlistFontes-chave recuperáveis no projeto13:17Sessão Kimi original: início da operação do harness sem Claude/Codex e verificação da lane AGY.13:16Passe KIMI-V1-FU com capability/evidence matrix e hardening de hooks.13:1Criação e primeira implementação da task de overseer Antigravity.13:14Adapter AGY já com named hooks, runtime acceptance e readiness decomposta.13:0Fechamento pós-commit, doctor/readiness e dívidas do adapter AGY.14:12Pesquisa North Star que consolida a passagem do harness para Agent Operating System.14:16SDD/BDD técnico com contracts canônicos e runtime ownership.14:3Project Admission & Adoption, importante para colocar o self-host deste chat dentro do modelo geral Project/Workspace.14:0Linhagem científica do harness engineering e do deterministic governed control plane.13:7Pesquisa de Project Admission posterior, útil para interpretar o próprio tare.tools como Project Subject privilegiado.
+
+O HTML também registra algo que eu recomendo reutilizar em respostas futuras como **resultado empírico desta conversa**, mas ainda não como primitive ratificada:
+
+```text id="rfx8f3"
+L0 — DECLARED
+L1 — RENDERED
+L2 — LOADABLE
+L3 — ENFORCED
+L4 — EFFECTIVE
+```
+
+Essa decomposição nasceu diretamente do que aconteceu aqui: primeiro uma capability estava declarada; depois renderizada; só mais tarde descobrimos que não era carregável; depois provamos enforcement; e por fim confirmamos que o efeito realmente não ocorreu. Ela conversa quase perfeitamente com o futuro Evidence/Qualification Plane, mas no documento está marcada corretamente como **PROPOSED / inferência arquitetural**, não CURRENT.
+
+Também deixei três candidatos de Implementation Packet derivados da arqueologia, sem ratificá-los: **EnvironmentBlockedReceipt/waiver**, **Runtime Capability Evidence Levels** e **Hook Event/Outcome IR**. O primeiro parece ter menor blast radius; o terceiro é o que mais diretamente reduz o acoplamento residual a Claude/Kimi/AGY.
+
+A leitura mais curta que eu usaria no futuro para reidratar este chat é:
+
+> **Este chat transformou Kimi e Antigravity de vendors disponíveis em overseer lanes governadas e, ao fazê-lo, falsificou a ideia de que parity/configuração estática prova capability de runtime. O resultado foi uma disciplina de adapters semânticos, readiness vetorial, receipts runtime, exact-tree evidence e authority layering que converge fortemente com o tare.tools Agent OS, mas ainda antecede a canonical IR e o Capability/Effect Plane TARGET.** memcite

@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.deep-research-pipelines-md",
+  "sourcePath": "docs/research/deep-research-pipelines.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/deep-research-pipelines.md",
+  "sha256": "4f167bcbd71d9694b826c4815483f4425b0caac1c04ea4c1b6ff3b1f2c7efc8b",
+  "sizeBytes": 21166,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

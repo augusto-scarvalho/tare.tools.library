@@ -1,0 +1,20 @@
+{
+  "packet_version": "1.0",
+  "document_id": "research.reliability.example-publication",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "repository": "tare-tools-research",
+  "destination": null,
+  "bounded_contexts": [
+    "Reliability",
+    "Capability / Effects",
+    "Runtime"
+  ],
+  "artifacts": [
+    "research.md"
+  ],
+  "historical_preservation": true,
+  "canonical_change": false,
+  "promotion_packet": null,
+  "notes": "Synthetic bootstrap example."
+}

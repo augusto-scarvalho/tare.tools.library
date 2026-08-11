@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.playbook-hierarchy-refinement-2026-07-23-md",
+  "sourcePath": "docs/research/playbook-hierarchy-refinement-2026-07-23.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/playbook-hierarchy-refinement-2026-07-23.md",
+  "sha256": "096d7f5e820eeb526b5e2516d5a23b741c02f9d60ce5893826e17f61e9af9d9a",
+  "sizeBytes": 7897,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

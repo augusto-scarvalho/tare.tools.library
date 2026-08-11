@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.00000000ba70",
+  "title": "tare_tools_reliability_effect_reconciliation_implementation_proposal_2026-08-10.html",
+  "file_library_id": "file_00000000ba70820e983c36ab5db17374",
+  "file_created_at": "2026-08-11T00:23:21Z",
+  "file_modified_at": "2026-08-11T00:23:21Z",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P0",
+  "suggested_kind": "implementation-proposal",
+  "suggested_status": "PROPOSED",
+  "suggested_contexts": [
+    "Reliability",
+    "Capability / Effects",
+    "Runtime"
+  ],
+  "lineage_family": "reliability-effect-reconciliation",
+  "lineage_order_hint": 2,
+  "reported_sha256": "0baad9fa4d517ba8826bcdd2b5af2609abe34c1a973978f9a146d117af3ce622",
+  "reported_size_bytes": 65552,
+  "hash_status": "REPORTED_NOT_LOCALLY_VERIFIED",
+  "discovered_at": "2026-08-11T15:55:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": "Identity asserted by File Library manifest tare_tools_reliability_effect_reconciliation_manifest_2026-08-10.json (file_00000000ca38820e9b3eb145c8173b9f); manifest bytes not locally materialized."
+}

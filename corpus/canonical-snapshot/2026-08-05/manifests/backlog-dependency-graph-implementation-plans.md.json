@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.backlog-dependency-graph-implementation-plans-md",
+  "sourcePath": "docs/research/backlog-dependency-graph-implementation-plans.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/backlog-dependency-graph-implementation-plans.md",
+  "sha256": "27f8949e4b7ff442c6009f08e2815fc2e3ea02f82b5dfb507deaadcb97cda38d",
+  "sizeBytes": 15147,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

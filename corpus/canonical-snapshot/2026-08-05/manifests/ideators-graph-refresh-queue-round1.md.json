@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.ideators-graph-refresh-queue-round1-md",
+  "sourcePath": "docs/research/ideators-graph-refresh-queue-round1.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/ideators-graph-refresh-queue-round1.md",
+  "sha256": "c1eec672b9ff6cbfd79dc0aabeff7db822bc5f1094f40b73601ac1215d37cb0f",
+  "sizeBytes": 29083,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

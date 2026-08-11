@@ -1,0 +1,28 @@
+{
+  "document_id": "historical.research-program.architecture-routing",
+  "title": "Programa formal / arquitetura multiagente e roteamento",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-11",
+  "architecture_epoch": null,
+  "canonical_commit": null,
+  "bounded_contexts": [
+    "Project / Workspace",
+    "Routing & Adaptation",
+    "Workflow"
+  ],
+  "lineage": {
+    "supersedes": [],
+    "superseded_by": [],
+    "derived_from": []
+  },
+  "provenance": {
+    "origin": "chatgpt-project-session-import",
+    "project": "tare.tools",
+    "source_path": "corpus/original/2026-08-11-chat-import/Arquitetura Multiagente e Roteamento.txt",
+    "source_sha256": "0c203d8ac37a6d8f43d569a8fbff6143daa57e54ebe2d41ca32731ecc932446c",
+    "size_bytes": 52994,
+    "original_filename": "Arquitetura Multiagente e Roteamento.txt",
+    "notes": "Imported byte-for-byte from files available in the 2026-08-11 project session; research/historical evidence, not canonical authority."
+  }
+}

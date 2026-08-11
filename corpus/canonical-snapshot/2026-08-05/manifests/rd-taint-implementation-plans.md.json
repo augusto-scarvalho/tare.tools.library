@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.rd-taint-implementation-plans-md",
+  "sourcePath": "docs/research/rd-taint-implementation-plans.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/rd-taint-implementation-plans.md",
+  "sha256": "80edbda1f357e9cc003bee39a07a3b6b9a65b792e9cc34e0bceb34fb948c707c",
+  "sizeBytes": 8124,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

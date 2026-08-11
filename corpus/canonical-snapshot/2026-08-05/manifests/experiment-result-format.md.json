@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.experiment-result-format-md",
+  "sourcePath": "docs/research/experiment-result-format.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/experiment-result-format.md",
+  "sha256": "9dc814c6574c5cb345631a570e0acf4785b700bea896b6b7b85b3fd0e1e1c54d",
+  "sizeBytes": 4535,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

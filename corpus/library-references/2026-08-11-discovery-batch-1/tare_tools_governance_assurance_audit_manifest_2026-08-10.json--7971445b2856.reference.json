@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.000000001678",
+  "title": "tare_tools_governance_assurance_audit_manifest_2026-08-10.json",
+  "file_library_id": "file_000000001678820e9d7e7971445b2856",
+  "file_created_at": "2026-08-10T09:22:30Z",
+  "file_modified_at": "2026-08-10T09:22:30Z",
+  "native_language": "en",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "priority": "P1",
+  "suggested_kind": "validation-manifest",
+  "suggested_status": "HISTORICAL",
+  "suggested_contexts": [
+    "Governance / Audit",
+    "Validation / Assurance",
+    "Evidence / Provenance"
+  ],
+  "lineage_family": "governance-assurance-audit",
+  "lineage_order_hint": 3,
+  "reported_sha256": null,
+  "reported_size_bytes": null,
+  "hash_status": "UNKNOWN",
+  "discovered_at": "2026-08-11T15:55:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": ""
+}

@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.acceptance-authority-proposals-md",
+  "sourcePath": "docs/research/acceptance-authority-proposals.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/acceptance-authority-proposals.md",
+  "sha256": "3017fe3c1237c810de3576d0a5110fe805c28f86f7a7fb378a9bc6f476669fed",
+  "sizeBytes": 5512,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

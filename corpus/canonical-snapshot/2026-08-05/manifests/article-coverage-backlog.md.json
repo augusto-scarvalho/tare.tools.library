@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.article-coverage-backlog-md",
+  "sourcePath": "docs/research/article-coverage-backlog.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/article-coverage-backlog.md",
+  "sha256": "12e135202245a7c5beeaca9666b95a750e799fa64bfec7cf4a83e8e20bdb7f9a",
+  "sizeBytes": 63168,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

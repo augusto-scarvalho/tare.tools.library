@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "libref.000000003d20",
+  "title": "specgraph-wiki-v0.8-single-file.html",
+  "file_library_id": "file_000000003d20720e946850cbd6004f41",
+  "file_created_at": "2026-07-10T22:16:57Z",
+  "file_modified_at": "2026-07-10T22:16:57Z",
+  "native_language": "en",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "priority": "P1",
+  "suggested_kind": "research-wiki",
+  "suggested_status": "RESEARCH",
+  "suggested_contexts": [
+    "Memory / Context",
+    "Project / Workspace",
+    "Evidence / Provenance",
+    "Protocols / Interoperability"
+  ],
+  "lineage_family": "specgraph-wiki",
+  "lineage_order_hint": 0.8,
+  "reported_sha256": null,
+  "reported_size_bytes": null,
+  "hash_status": "UNKNOWN",
+  "discovered_at": "2026-08-11T15:55:00Z",
+  "discovery_basis": "ChatGPT File Library discovery; exact raw bytes are not mounted in the active filesystem.",
+  "notes": ""
+}

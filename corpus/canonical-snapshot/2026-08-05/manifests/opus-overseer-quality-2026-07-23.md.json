@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.opus-overseer-quality-2026-07-23-md",
+  "sourcePath": "docs/research/opus-overseer-quality-2026-07-23.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/opus-overseer-quality-2026-07-23.md",
+  "sha256": "50f6c438b45b0dec69a2b409f2f372904859e0e400e17a6d50920ac1bcb6c474",
+  "sizeBytes": 17023,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

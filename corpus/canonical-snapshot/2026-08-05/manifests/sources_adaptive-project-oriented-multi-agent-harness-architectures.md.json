@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.sources-adaptive-project-oriented-multi-agent-harness-architectures-md",
+  "sourcePath": "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md",
+  "sha256": "5eeacc884342f526a3f19562a84c010de78606b757fcb919829b8d69465c7064",
+  "sizeBytes": 358361,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

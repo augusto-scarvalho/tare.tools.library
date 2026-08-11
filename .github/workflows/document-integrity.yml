@@ -1,0 +1,16 @@
+name: document-integrity
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/tare_docs.py validate-repo .
+      - run: python tools/tare_docs.py rebuild-catalog .
+      - run: git diff --exit-code -- catalog/MASTER_CATALOG.json

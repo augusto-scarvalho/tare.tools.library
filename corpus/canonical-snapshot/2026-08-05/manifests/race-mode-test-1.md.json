@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.race-mode-test-1-md",
+  "sourcePath": "docs/research/race-mode-test-1.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/race-mode-test-1.md",
+  "sha256": "655afc08e89e0b430838274e33c277e30b921f14931adbc5780a97985b05e0f2",
+  "sizeBytes": 2762,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

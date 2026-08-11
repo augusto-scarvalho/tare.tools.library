@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.reckon-efficiency-round-md",
+  "sourcePath": "docs/research/reckon-efficiency-round.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/reckon-efficiency-round.md",
+  "sha256": "dd53c2dcab128fbf57ccbb47d06f1ce137c6556486c7127cce8ea05af3b78630",
+  "sizeBytes": 10469,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

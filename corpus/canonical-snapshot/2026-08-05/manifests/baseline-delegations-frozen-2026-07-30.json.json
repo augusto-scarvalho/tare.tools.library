@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.baseline-delegations-frozen-2026-07-30-json",
+  "sourcePath": "docs/research/baseline-delegations-frozen-2026-07-30.json",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/baseline-delegations-frozen-2026-07-30.json",
+  "sha256": "e030f4f61a120644da14788b64c1b02d5d74f3c007105b8af4754ed84101c002",
+  "sizeBytes": 73567,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

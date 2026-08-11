@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.plan-job-lifetime-draft-md",
+  "sourcePath": "docs/research/plan-job-lifetime-DRAFT.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/plan-job-lifetime-DRAFT.md",
+  "sha256": "09e14d862ab0b8dd837fa2618401425e689333b8677316c365a16a1c1d0fc7ba",
+  "sizeBytes": 23163,
+  "nativeLanguage": "en",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "NOT_REQUIRED_NATIVE_ENGLISH",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}

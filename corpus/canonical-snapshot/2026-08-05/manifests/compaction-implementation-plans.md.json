@@ -1,0 +1,13 @@
+{
+  "snapshotDocumentId": "snapshot.2026-08-05.docs-research.compaction-implementation-plans-md",
+  "sourcePath": "docs/research/compaction-implementation-plans.md",
+  "preservedPath": "corpus/canonical-snapshot/2026-08-05/docs/research/compaction-implementation-plans.md",
+  "sha256": "cae66f1d9f141eb68406e1ca75e8d6c849a389457b4444cc219540eb37c81dd5",
+  "sizeBytes": 9465,
+  "nativeLanguage": "pt-BR",
+  "languageClassification": "heuristic-high",
+  "availability": "MATERIALIZED_EXACT_FROM_PRIVATE_GITHUB_SNAPSHOT",
+  "authorityStatus": "HISTORICAL_REPO_COPY_NOT_CURRENT",
+  "translationStatus": "READY_FOR_ENGLISH_TRANSLATION",
+  "baselineId": "baseline.private-github-main.2026-08-05"
+}
