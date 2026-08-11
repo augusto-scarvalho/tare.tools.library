@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PROPOSED ResearchObject",
+  "type": "object",
+  "required": [
+    "research_object_id",
+    "artifact_refs",
+    "status"
+  ],
+  "properties": {
+    "research_object_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "HISTORICAL",
+        "RESEARCH",
+        "PROPOSED",
+        "CURRENT_REFERENCE",
+        "TARGET_REFERENCE"
+      ]
+    },
+    "lineage_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "external_identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "relationship_capsule_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last_curated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

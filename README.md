@@ -71,12 +71,10 @@ No corpus principal, foram materializados **11 documentos** nesta árvore. Os or
 
 Research / experiment / archaeology / proposal **informam**, mas não ratificam arquitetura. Tradução não altera authority/status. Promoção para TARGET exige o fluxo canônico no repositório `tare-tools`.
 
-## Research lineage & influence
+## Research Knowledge Substrate — 2026-08-11 ideation
 
-- [Research Lineage, Influence & Source Graph](catalog/RESEARCH_LINEAGE_AND_INFLUENCE.md)
-- [Interactive/editorial HTML view](catalog/RESEARCH_LINEAGE_AND_INFLUENCE.html)
-- [Relationship metadata standard](catalog/RESEARCH_RELATIONSHIP_STANDARD.md)
-- [Proposal to add relationship capsules to documents](catalog/DOCUMENT_RELATIONSHIP_ADDITION_PROPOSAL.md)
-- [Machine-readable graph](catalog/RESEARCH_RELATION_GRAPH.json)
-- [External source families](catalog/SOURCE_FAMILIES.md)
+- [Scientific ideation](refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-scientific-ideation-2026-08-11.html)
+- [Technical refinement proposal](refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-technical-proposal-2026-08-11.html)
+- [Accepted relationship section vNext](catalog/RESEARCH_DOCUMENT_RELATIONSHIP_SECTION-vNext-PROPOSED.md)
+- [Proposed schemas](proposals/research-knowledge-substrate/schemas/)
 

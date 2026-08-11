@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PROPOSED EnrichmentReceipt",
+  "type": "object",
+  "required": [
+    "receipt_id",
+    "provider",
+    "observed_at",
+    "response_hash"
+  ],
+  "properties": {
+    "receipt_id": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "query": {},
+    "observed_at": {
+      "type": "string"
+    },
+    "response_hash": {
+      "type": "string"
+    },
+    "raw_artifact_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "normalized_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "decision": {
+      "enum": [
+        "AUTO_ACCEPT_IDENTITY",
+        "CURATION_REQUIRED",
+        "NO_CHANGE",
+        "ERROR"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

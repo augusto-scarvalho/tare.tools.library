@@ -1,5 +1,8 @@
 # Proposal — Add Research Lineage, Influence & Provenance to Every Research Document
 
+> **Decision — 2026-08-11:** Accepted by the project owner **for refinement**. The seven-part human-readable section is approved as the direction of travel; machine-readable fields, schemas and automation remain **PROPOSED** until piloted and reconciled.
+
+
 Status: **PROPOSED EDITORIAL / RESEARCH-METADATA DELTA — 2026-08-11**.
 
 ## 1. Proposed new mandatory section
