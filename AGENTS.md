@@ -1,4 +1,4 @@
-# Agent Instructions — tare-tools-research
+# Agent Instructions — tare.tools.research
 
 ## Authority boundary
 

@@ -3,7 +3,7 @@
   "document_id": "research.reliability.example-publication",
   "document_type": "research",
   "status": "RESEARCH",
-  "repository": "tare-tools-research",
+  "repository": "tare.tools.research",
   "destination": null,
   "bounded_contexts": [
     "Reliability",

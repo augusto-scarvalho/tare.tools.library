@@ -47,7 +47,7 @@
     },
     "repository": {
       "enum": [
-        "tare-tools-research",
+        "tare.tools.research",
         "tare-tools"
       ]
     },

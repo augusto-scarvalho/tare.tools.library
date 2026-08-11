@@ -43,11 +43,11 @@ def validate_manifest(m):
   if k not in m: errors.append(f"missing:{k}")
  if m.get("packet_version")!="1.0": errors.append("packet_version must be 1.0")
  if m.get("status") not in ALLOWED_STATUS: errors.append("invalid status")
- if m.get("repository") not in {"tare-tools-research","tare-tools"}: errors.append("invalid repository")
+ if m.get("repository") not in {"tare.tools.research","tare-tools"}: errors.append("invalid repository")
  if not isinstance(m.get("bounded_contexts"),list) or not m.get("bounded_contexts"): errors.append("bounded_contexts required")
  if not isinstance(m.get("artifacts"),list) or not m.get("artifacts"): errors.append("artifacts required")
  # Authority/promotion boundaries
- if m.get("repository")=="tare-tools-research" and m.get("status") in {"TARGET","CURRENT"}:
+ if m.get("repository")=="tare.tools.research" and m.get("status") in {"TARGET","CURRENT"}:
   errors.append("research repo cannot mint TARGET/CURRENT")
  if m.get("document_type") in CANONICAL_TYPES and m.get("repository")!="tare-tools":
   errors.append("canonical document types require tare-tools")
@@ -157,6 +157,6 @@ def main():
  p=sp.add_parser('route');p.add_argument('manifest');p.set_defaults(fn=cmd_route)
  p=sp.add_parser('validate-repo');p.add_argument('root',nargs='?',default='.');p.set_defaults(fn=cmd_validate_repo)
  p=sp.add_parser('rebuild-catalog');p.add_argument('root',nargs='?',default='.');p.set_defaults(fn=cmd_rebuild)
- p=sp.add_parser('prepare-packet');p.add_argument('document');p.add_argument('--root',default='.');p.add_argument('--document-id',required=True);p.add_argument('--document-type',required=True,choices=['research','proposal','experiment','archaeology','handoff','source','finding','adr','spec','bdd','implementation_packet']);p.add_argument('--status',required=True,choices=sorted(ALLOWED_STATUS));p.add_argument('--repository',default='tare-tools-research',choices=['tare-tools-research','tare-tools']);p.add_argument('--context',action='append',required=True);p.add_argument('--historical-preservation',action='store_true');p.add_argument('--canonical-change',action='store_true');p.add_argument('--promotion-packet');p.add_argument('--notes');p.set_defaults(fn=cmd_prepare)
+ p=sp.add_parser('prepare-packet');p.add_argument('document');p.add_argument('--root',default='.');p.add_argument('--document-id',required=True);p.add_argument('--document-type',required=True,choices=['research','proposal','experiment','archaeology','handoff','source','finding','adr','spec','bdd','implementation_packet']);p.add_argument('--status',required=True,choices=sorted(ALLOWED_STATUS));p.add_argument('--repository',default='tare.tools.research',choices=['tare.tools.research','tare-tools']);p.add_argument('--context',action='append',required=True);p.add_argument('--historical-preservation',action='store_true');p.add_argument('--canonical-change',action='store_true');p.add_argument('--promotion-packet');p.add_argument('--notes');p.set_defaults(fn=cmd_prepare)
  a=ap.parse_args(); raise SystemExit(a.fn(a))
 if __name__=='__main__': main()

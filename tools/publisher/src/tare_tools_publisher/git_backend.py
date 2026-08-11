@@ -1,0 +1,228 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, asdict
+from hashlib import sha256
+import json
+from pathlib import Path
+import shutil
+import subprocess
+import tempfile
+
+from .policy import route, validate
+
+
+class GitBackendError(RuntimeError):
+    pass
+
+
+@dataclass(frozen=True)
+class GitPublicationReceipt:
+    backend: str
+    applied: bool
+    changed: bool
+    outcome: str
+    document_id: str
+    destination: str
+    base_sha: str
+    branch: str
+    commit_sha: str | None
+    manifest_sha256: str
+    remote_effects: bool = False
+
+    def as_dict(self) -> dict:
+        return asdict(self)
+
+
+def _run(repo: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
+    proc = subprocess.run(
+        ["git", "-C", str(repo), *args],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if check and proc.returncode != 0:
+        raise GitBackendError(
+            f"git {' '.join(args)} failed ({proc.returncode}): {proc.stderr.strip()}"
+        )
+    return proc
+
+
+def _manifest_hash(packet: Path) -> str:
+    return sha256(packet.read_bytes()).hexdigest()
+
+
+def _safe_branch_component(value: str) -> str:
+    out = []
+    for c in value.lower():
+        out.append(c if c.isalnum() or c in {"-", "_"} else "-")
+    s = "".join(out).strip("-")
+    while "--" in s:
+        s = s.replace("--", "-")
+    return s or "document"
+
+
+def planned_branch(document_id: str, manifest_sha256: str) -> str:
+    return f"docs/publish/{_safe_branch_component(document_id)}-{manifest_sha256[:12]}"
+
+
+def _load_and_validate_packet(packet: Path) -> tuple[dict, str]:
+    manifest = json.loads(packet.read_text(encoding="utf-8"))
+    errors = validate(manifest)
+    if errors:
+        raise GitBackendError("policy denied: " + "; ".join(errors))
+    destination = route(manifest)
+    return manifest, destination
+
+
+def _validate_artifacts(packet: Path, manifest: dict) -> list[tuple[Path, str]]:
+    parent = packet.parent.resolve()
+    artifacts: list[tuple[Path, str]] = []
+    for rel in manifest["artifacts"]:
+        src = (parent / rel).resolve()
+        if parent != src.parent and parent not in src.parents:
+            raise GitBackendError(f"artifact escapes packet: {rel}")
+        if not src.is_file():
+            raise GitBackendError(f"missing artifact: {rel}")
+        artifacts.append((src, src.name))
+    return artifacts
+
+
+def _artifact_digests(artifacts: list[tuple[Path, str]]) -> dict[str, str]:
+    return {name: sha256(src.read_bytes()).hexdigest() for src, name in artifacts}
+
+
+def _publication_record(manifest: dict, destination: str, receipt: GitPublicationReceipt, artifacts: list[tuple[Path, str]]) -> dict:
+    return {
+        "record_version": "1.0",
+        "backend": "git-local",
+        "document_id": manifest["document_id"],
+        "destination": destination,
+        "base_sha": receipt.base_sha,
+        "branch": receipt.branch,
+        "manifest_sha256": receipt.manifest_sha256,
+        "artifact_sha256": _artifact_digests(artifacts),
+        "remote_effects": False,
+    }
+
+
+def _existing_publication(repo_root: Path, branch: str, destination: str, manifest_sha256: str) -> str | None:
+    ref = f"refs/heads/{branch}"
+    if _run(repo_root, "show-ref", "--verify", ref, check=False).returncode != 0:
+        return None
+    commit_sha = _run(repo_root, "rev-parse", branch).stdout.strip()
+    record_path = f"{destination}/PUBLICATION_RECORD.json"
+    shown = _run(repo_root, "show", f"{branch}:{record_path}", check=False)
+    if shown.returncode != 0:
+        raise GitBackendError(f"branch collision without publication record: {branch}")
+    try:
+        record = json.loads(shown.stdout)
+    except json.JSONDecodeError as exc:
+        raise GitBackendError(f"branch collision with invalid publication record: {branch}") from exc
+    if (
+        record.get("manifest_sha256") != manifest_sha256
+        or record.get("branch") != branch
+        or record.get("destination") != destination
+    ):
+        raise GitBackendError(f"branch collision with mismatched publication identity: {branch}")
+    return commit_sha
+
+
+def plan(packet: Path, repo_root: Path, *, base_ref: str = "HEAD") -> GitPublicationReceipt:
+    packet = packet.resolve()
+    repo_root = repo_root.resolve()
+    if not packet.is_file():
+        raise GitBackendError(f"packet not found: {packet}")
+    if _run(repo_root, "rev-parse", "--is-inside-work-tree", check=False).stdout.strip() != "true":
+        raise GitBackendError(f"not a git worktree: {repo_root}")
+    manifest, destination = _load_and_validate_packet(packet)
+    _validate_artifacts(packet, manifest)
+    base_sha = _run(repo_root, "rev-parse", "--verify", base_ref).stdout.strip()
+    mh = _manifest_hash(packet)
+    branch = planned_branch(manifest["document_id"], mh)
+    existing_commit = _existing_publication(repo_root, branch, destination, mh)
+    return GitPublicationReceipt(
+        backend="git-local",
+        applied=False,
+        changed=False,
+        outcome="ALREADY_PUBLISHED" if existing_commit else "PLANNED",
+        document_id=manifest["document_id"],
+        destination=destination,
+        base_sha=base_sha,
+        branch=branch,
+        commit_sha=existing_commit,
+        manifest_sha256=mh,
+    )
+
+
+def publish(
+    packet: Path,
+    repo_root: Path,
+    *,
+    apply: bool = False,
+    base_ref: str = "HEAD",
+) -> GitPublicationReceipt:
+    receipt = plan(packet, repo_root, base_ref=base_ref)
+    if not apply:
+        return receipt
+    if receipt.outcome == "ALREADY_PUBLISHED":
+        return GitPublicationReceipt(
+            backend=receipt.backend, applied=True, changed=False, outcome="ALREADY_PUBLISHED",
+            document_id=receipt.document_id, destination=receipt.destination, base_sha=receipt.base_sha,
+            branch=receipt.branch, commit_sha=receipt.commit_sha, manifest_sha256=receipt.manifest_sha256,
+        )
+
+    packet = packet.resolve()
+    repo_root = repo_root.resolve()
+    manifest, destination = _load_and_validate_packet(packet)
+    artifacts = _validate_artifacts(packet, manifest)
+
+    # Main worktree/index are never used for file writes or staging. The base SHA
+    # is pinned once by plan(); publication happens in a disposable detached worktree.
+    with tempfile.TemporaryDirectory(prefix="tare-tools-publisher-") as td:
+        wt = Path(td) / "worktree"
+        _run(repo_root, "worktree", "add", "--detach", str(wt), receipt.base_sha)
+        try:
+            _run(wt, "switch", "-c", receipt.branch)
+            target = (wt / destination).resolve()
+            if wt != target and wt not in target.parents:
+                raise GitBackendError("target escapes repository")
+            target.mkdir(parents=True, exist_ok=False)
+            for src, name in artifacts:
+                shutil.copy2(src, target / name)
+            shutil.copy2(packet, target / "PUBLISH_MANIFEST.json")
+            record = _publication_record(manifest, destination, receipt, artifacts)
+            (target / "PUBLICATION_RECORD.json").write_text(
+                json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            )
+
+            rel_target = target.relative_to(wt).as_posix()
+            _run(wt, "add", "--", rel_target)
+            staged = _run(wt, "diff", "--cached", "--name-only", "--", rel_target).stdout.splitlines()
+            if not staged:
+                raise GitBackendError("nothing staged for publication")
+            _run(
+                wt,
+                "-c", "user.name=tare-tools-publisher",
+                "-c", "user.email=publisher@tare.tools",
+                "commit", "-m", f"docs: publish {manifest['document_id']}",
+            )
+            commit_sha = _run(wt, "rev-parse", "HEAD").stdout.strip()
+        finally:
+            # Removal is attempted even after a failed commit; force only affects
+            # the disposable worktree, never the user's main worktree.
+            _run(repo_root, "worktree", "remove", "--force", str(wt), check=False)
+            _run(repo_root, "worktree", "prune", check=False)
+
+    return GitPublicationReceipt(
+        backend=receipt.backend,
+        applied=True,
+        changed=True,
+        outcome="PUBLISHED",
+        document_id=receipt.document_id,
+        destination=receipt.destination,
+        base_sha=receipt.base_sha,
+        branch=receipt.branch,
+        commit_sha=commit_sha,
+        manifest_sha256=receipt.manifest_sha256,
+    )
