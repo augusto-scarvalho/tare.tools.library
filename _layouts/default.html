@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}">
+  <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="topbar">
+    <button class="menu-button" type="button" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <a class="brand" href="{{ '/' | relative_url }}">tare.tools <span>research</span></a>
+    <div class="top-links">
+      <a href="{{ '/studies/' | relative_url }}">Study editions</a>
+      <a href="{{ '/research/' | relative_url }}">Research</a>
+      <a href="{{ '/findings/CURATED_FINDINGS.html' | relative_url }}">Findings</a>
+      <a href="{{ '/frontier/RESEARCH_FRONTIER.html' | relative_url }}">Frontier</a>
+    </div>
+    <div class="search-wrap">
+      <label class="sr-only" for="site-search">Search the research library</label>
+      <input id="site-search" type="search" placeholder="Search research…" autocomplete="off">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </header>
+
+  <div class="site-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-intro">
+        <strong>Living research library</strong>
+        <p>Research informs tare.tools; canonical architecture and code remain authoritative elsewhere.</p>
+      </div>
+      {% include sidebar.html %}
+    </aside>
+
+    <main class="content-shell">
+      <div class="content-meta">
+        <a href="{{ '/NAVIGATION.html' | relative_url }}">Repository navigation</a>
+        <span>·</span>
+        <a href="{{ '/studies/' | relative_url }}">Study editions</a>
+        {% if page.path %}
+        <span>·</span>
+        <a href="{{ site.repository_url }}/blob/main/{{ page.path }}">View source</a>
+        {% endif %}
+      </div>
+      <article class="prose">
+        {{ content }}
+      </article>
+      <footer class="page-footer">
+        <a href="{{ '/NAVIGATION.html' | relative_url }}">Navigation</a>
+        <span>·</span>
+        <a href="{{ '/sources/' | relative_url }}">Sources & provenance</a>
+        <span>·</span>
+        <a href="{{ site.repository_url }}">GitHub repository</a>
+      </footer>
+    </main>
+  </div>
+
+  <script src="{{ '/assets/site.js' | relative_url }}"></script>
+</body>
+</html>
