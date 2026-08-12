@@ -27,7 +27,9 @@ Este `HEAD` foi semanticamente recurado em 12 de agosto de 2026. O objetivo não
 
 - [Curated Findings](findings/CURATED_FINDINGS.md)
 - [Research Frontier](frontier/RESEARCH_FRONTIER.md)
+- [Selected Evidence Registry](sources/SELECTED_EVIDENCE.md) — bibliografia curada por claim, com classe de evidência e limitações.
 - [Semantic Curation Ledger](catalog/CURATION_LEDGER.md)
+- [Quality Review](catalog/QUALITY_REVIEW.md)
 
 ## O que aconteceu com o corpus antigo?
 
