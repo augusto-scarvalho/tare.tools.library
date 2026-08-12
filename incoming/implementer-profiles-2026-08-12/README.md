@@ -10,10 +10,10 @@ This packet converts the accumulated implementer comparison into the tare.tools.
 - EN derived integration review HTML
 - PT-BR technical integration delta HTML
 - EN derived technical integration delta HTML
-- frozen cumulative empirical report v1.1
-- frozen machine-readable observation ledger v1.1
 - document metadata
 - deterministic publication manifest
+
+The cumulative empirical report v1.1 and machine-readable observation ledger v1.1 remain source artifacts in the ChatGPT project draft bundle and are referenced by lineage/provenance. They are not yet materialized in this GitHub draft branch; final publication may materialize them as additional experiment artifacts after Q7 closes.
 
 ## Freeze point
 
