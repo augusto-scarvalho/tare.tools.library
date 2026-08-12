@@ -1,55 +1,30 @@
-# Document Policy
+# Document Policy — Semantic Curation Epoch 2026-08-12
 
-## 1. Purpose
+## 1. Goal
 
-Define deterministic rules for document identity, status, routing, provenance, lineage and promotion boundaries.
+Keep `tare.tools.research` useful as a living scientific/engineering library rather than a warehouse of every intermediate artifact.
 
-## 2. Precedence
+## 2. Admission classes
 
-```text
-Git / source / canonical architecture / ADR / SPEC / BDD / gates
-    > canonical summaries
-    > findings
-    > proposals
-    > research
-    > historical chat summaries
-```
+- **LIVE STUDY** — current best synthesis of a research problem.
+- **EXPERIMENT** — empirical record whose observations, protocol or negative evidence deserve direct access.
+- **FINDING** — compact cross-study conclusion with provenance and status.
+- **FRONTIER** — unresolved scientific question or experiment opportunity.
+- **PROPOSED** — implementation/architecture proposal only when it contains genuinely problem-specific contracts; boilerplate companions are not admitted.
+- **HISTORY ONLY** — superseded/intermediate material recoverable through Git.
 
-## 3. Status semantics
+## 3. What does not qualify by itself
 
-| Status | Meaning | Default repository |
-|---|---|---|
-| RESEARCH | evidence/hypothesis/investigation | tare.tools.research |
-| PROPOSED | proposal not ratified | tare.tools.research |
-| EXPERIMENTAL | experimental protocol/result | tare.tools.research |
-| HISTORICAL | immutable historical evidence | tare.tools.research |
-| TARGET | ratified desired architecture | tare-tools only |
-| CURRENT | proven implementation/state | tare-tools/Git/evidence |
+Recency, file size, bibliography count, HTML formatting, translation, passing a structural template, number of reviewers, or being produced by an LLM.
 
-The research repository may **quote/reference** CURRENT/TARGET, but does not mint them.
+## 4. Supersession
 
-## 4. Deterministic routing
+When a living study absorbs older material, record the absorbed lineage in `catalog/CURATION_LEDGER.md`. Do not keep both generations in HEAD unless the older artifact remains independently useful.
 
-- `document_type=research` → `research/<primary-context>/...`
-- `document_type=proposal` → `proposals/<primary-context>/...`
-- `document_type=experiment` → `experiments/<primary-context>/...`
-- `document_type=archaeology|handoff` → `archaeology/...`
-- `document_type=source` → `sources/...`
-- `status=TARGET|CURRENT` with destination `tare.tools.research` → DENY.
-- canonical types (`adr`, `spec`, `bdd`, `implementation_packet`) → require promotion flow and canonical repository.
+## 5. Evidence and provenance
 
-LLMs may propose metadata; the validator/router owns routing decisions.
+Provenance must survive. Raw bytes need not remain in the current tree when Git history/content hashes provide reliable recovery. Evidence required for an active experiment may remain directly accessible.
 
-## 5. Originals
+## 6. Promotion boundary
 
-Files under `corpus/original/` are immutable evidence. Corrections create a new file/version; they never silently replace the original.
-
-## 6. Lineage
-
-Every substantial derived document SHOULD record `supersedes`, `superseded_by`, and/or `derived_from` where known.
-
-## 7. Promotion
-
-Publication != ratification.
-
-Research promotion requires a separate Promotion Packet with canonical references, decision authority and required assurance. The publisher implemented here intentionally does not auto-promote.
+Research publication is not architecture ratification. `CURRENT` and `TARGET` remain governed by the canonical tare.tools repository and its authority/evidence chain.

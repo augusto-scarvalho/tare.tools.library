@@ -1,7 +1,0 @@
-{
-  "graph_version": "0.2",
-  "status": "COMPATIBILITY_POINTER",
-  "canonical_graph": "RESEARCH_RELATION_GRAPH.json",
-  "legacy_snapshot": "RESEARCH_GRAPH.v0.1-legacy.json",
-  "note": "The richer graph distinguishes lineage, influence, observed citations, curated interpretations and source-family candidates."
-}
