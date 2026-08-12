@@ -1,46 +1,49 @@
 # tare.tools Research Corpus
 
-> **THIS REPOSITORY IS EVIDENCE, NOT ARCHITECTURAL AUTHORITY.**
+> **THIS REPOSITORY IS RESEARCH/EVIDENCE MEMORY, NOT ARCHITECTURAL AUTHORITY.**
 
-This repository preserves tare.tools research, sources, experiments, archaeology, proposals, and historical versions.
-
-In case of conflict, the canonical `tare-tools` repository, Git, source code, ratified architecture, ADRs, SPECs, BDDs, and gates take precedence.
+When sources conflict, the canonical `tare-tools` repository, Git, code, ratified architecture, ADRs, SPECs, BDDs and gates prevail.
 
 ## Start here
 
-- **[Research Frontier Registry](frontier/FRONTIER_INDEX.md)** — normalized research pointers with provenance, lifecycle, clusters and an experimental non-authoritative radar.
-- **[Research Frontier — HTML](frontier/RESEARCH_FRONTIER.html)** — mobile-friendly navigable projection.
-- **[Unified index of all documents and studies](catalog/ALL_DOCUMENTS_INDEX.md)** — chat originals, the exact historical private-GitHub snapshot research set, and File Library references with explicit origin/authority.
-- **[Chat-corpus document index](catalog/DOCUMENT_INDEX.md)** — bilingual PT-BR | EN navigation for the 11 primary materialized chat artifacts.
-- **[Historical private-GitHub baseline](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — exact 2026-08-05 snapshot, explicitly not CURRENT.
-- **[Historical snapshot research index](catalog/CANONICAL_SNAPSHOT_RESEARCH_INDEX.md)** — 93 exact `docs/research/` copies.
-- **[Historical snapshot translation queue](catalog/CANONICAL_SNAPSHOT_TRANSLATION_QUEUE.md)** — non-English exact sources awaiting EN derivatives.
-- **[Master catalog](catalog/MASTER_CATALOG.md)** — complete table with IDs, status, contexts, links, hashes, and translation coverage.
-- **[Rehydration queue](catalog/REHYDRATION_QUEUE.md)** — exact-byte materialization backlog.
-- **[Lineage reconciliation](catalog/LINEAGE_RECONCILIATION.md)** — metadata-confirmed order/sibling structure without unproven supersession.
-- **[Expected identity assertions](catalog/IDENTITY_ASSERTIONS.md)** — SHA-256/size constraints reported by independent manifests.
-- **[Source index](sources/SOURCE_INDEX.md)** — normalized external URLs from materialized originals.
-- **[Translation status](catalog/TRANSLATION_STATUS.md)** — English translation coverage and review state.
-- **[Translation queue](catalog/TRANSLATION_QUEUE.md)** — materialized sources still waiting for an English derivative.
-- **[Translation QA](catalog/TRANSLATION_QA.md)** — structural fidelity/provenance checks for EN derivatives.
-- **[Review status](catalog/REVIEW_STATUS.md)** — separates archival review, translation QA, and canonical architectural reconciliation.
-- **[Translation policy](TRANSLATION_POLICY.md)** — source/derivative authority and fidelity rules.
-- **[Chat translation workflow](CHAT_TRANSLATION_WORKFLOW.md)** — how review-time translation is registered without becoming architectural reconciliation.
-- **[Chronology](catalog/CHRONOLOGY.md)** — temporal view.
-- **[Version families](catalog/VERSION_FAMILIES.md)** — known/pending lineages.
-- **[Research Graph](catalog/RESEARCH_GRAPH.json)** — structured relationships.
-- **[Coverage](catalog/COVERAGE.md)** — corpus coverage.
+1. **[Scientific Refresh 2026-08-11](refresh-editions/2026-08-11/README.md)** — compact reading surface for the historical corpus: 93 artifacts reconciled into 9 lineages with scientific refreshes and implementation-research deltas.
+2. **[Research Frontier](frontier/README.md)** — research continuity; it is neither a backlog nor implementation authority.
+3. **[Document index](catalog/DOCUMENT_INDEX.md)** and **[master catalog](catalog/MASTER_CATALOG.md)** — navigation and document identity.
+4. **[Canonical Snapshot Research Index](catalog/CANONICAL_SNAPSHOT_RESEARCH_INDEX.md)** — index of preserved historical bytes from the 2026-08-05 snapshot.
+5. **[Research lineage & influence](catalog/RESEARCH_LINEAGE_AND_INFLUENCE.md)** — relationships between studies and lineages.
+
+## Three classes that must not be conflated
+
+### 1. Evidence / originals — append-only
+
+Primary and historical bytes remain preserved, especially `corpus/original/`, `corpus/canonical-snapshot/`, `corpus/source-bundles/`, `corpus/manifests/`, and `canonical-references/`. They are not rewritten or deleted merely to make the corpus cleaner.
+
+### 2. Research synthesis / refresh — tracked
+
+Scientific syntheses and technical deltas stay versioned when they carry interpretation, reconciliation, `ADOPT / ADAPT / RETIRE / OPEN` decisions, provenance, or new findings. The primary consolidated historical surface is `refresh-editions/2026-08-11/`.
+
+### 3. Presentation projections — reconstructible
+
+Editorial HTML that only reformats or translates already-preserved bytes is a **reconstructible build artifact**. It may be generated locally by repository tooling without being committed to the live tree.
+
+The former `editorial-editions/2026-08-05-private-github-snapshot/` tree was removed on the compaction branch for this reason. Its bytes remain recoverable from Git history; the editorial standard and migration-gap report were preserved next to the Scientific Refresh.
+
+## Operational structure
+
+- `research/` — thematic indexes/projections.
+- `refresh-editions/` — consolidated research and scientific refreshes.
+- `findings/`, `proposals/`, `experiments/`, `archaeology/` — research lifecycle artifacts.
+- `sources/`, `corpus/`, `canonical-references/` — evidence, provenance and source identity.
+- `frontier/` — Research Pointers and scientific continuity.
+- `catalog/` — identity, lineage, indexes, provenance and maintenance records.
+- `schemas/`, `tools/`, `tests/` — deterministic contracts and automation.
 
 ## Authority rule
 
-Research / experiment / archaeology / proposal artifacts **inform** architecture but do not ratify it. English translations are derived representations of the Portuguese historical originals and never gain additional authority by translation.
+`RESEARCH`, `EXPERIMENTAL`, `HISTORICAL`, and `PROPOSED` inform; they do not ratify architecture. `TARGET` and `CURRENT` belong to the canonical `tare-tools` flow and supporting evidence.
 
-## Current materialized status
+## Compaction
 
-The initial 11-document chat seed is **11/11 translated to English** and **11/11 passing structural fidelity QA**. A separate historical private-GitHub snapshot contributes **93 exact `docs/research/` files**: **43 are native English and all 50 non-English/mixed documents have registered English derivatives; pending snapshot translations: 0**. Human translation review and canonical architecture reconciliation remain separate, explicit stages.
+The 2026-08-12 rule is **negative archive for derivatives, append-only for evidence**: do not create a duplicate `/archive`; use Git history to recover removed projections while keeping irreversible evidence, semantically valuable research, and reconstruction machinery live.
 
-## Rehydration queue
-
-File Library artifacts that have been discovered but whose exact bytes are not mounted locally are tracked in [catalog/REHYDRATION_QUEUE.md](catalog/REHYDRATION_QUEUE.md). Reference metadata is not treated as source content. Translation is blocked until exact source materialization unless the artifact is already natively English.
-
-Current discovery projection: **60 reference-only artifacts**; **41** translation-blocked pending exact bytes; **19** native-English; **17** multi-item lineage families. Lineage ordering is review-only until content comparison establishes supersession. See [Library lineages](catalog/LIBRARY_LINEAGES.md) and [Rehydration coverage](catalog/REHYDRATION_COVERAGE.md). Historical Master Corpus counts are preserved as a reported baseline, not locally verified source bytes.
+See [`catalog/CORPUS_COMPACTION_2026-08-12.md`](catalog/CORPUS_COMPACTION_2026-08-12.md).
