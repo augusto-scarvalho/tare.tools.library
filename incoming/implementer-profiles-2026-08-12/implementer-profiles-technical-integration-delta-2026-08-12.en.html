@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Technical delta — Implementer Qualification</title><style>
+:root{--bg:#050a12;--panel:#0b1624;--panel2:#10243a;--text:#eaf2fb;--muted:#9eb2c9;--line:#27425f;
+--a:#63e6d0;--b:#8bb7ff;--gold:#ffd166;--red:#ff8798;--green:#7ee2a8;--purple:#c6a6ff;--code:#030b12}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);
+font:15.5px/1.7 Inter,system-ui,Segoe UI,Arial,sans-serif}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);
+max-width:1700px;margin:auto}aside{height:100vh;position:sticky;top:0;overflow:auto;padding:24px;border-right:1px solid var(--line);
+background:#06111e}main{padding:48px 64px 90px}a{color:#a9d0ff;text-decoration:none}.brand{font-size:.72rem;text-transform:uppercase;
+letter-spacing:.15em;color:var(--a);font-weight:800}.toc{font-size:.82rem;padding-left:1.1rem}.toc li{margin:.3rem 0}
+.hero{padding:36px;border:1px solid #345a83;border-radius:22px;background:linear-gradient(135deg,#163e64,#071322)}
+h1{font-size:clamp(2.1rem,4vw,3.5rem);line-height:1.05;margin:.4rem 0}h2{margin-top:52px;border-bottom:1px solid var(--line);
+padding-bottom:.5rem}h3{color:#e1ecfa;margin-top:1.8rem}.badge{display:inline-block;padding:4px 9px;border:1px solid #527093;
+border-radius:99px;font-size:.72rem;margin:5px 5px 0 0}.research{color:#c9c7ff}.proposed{color:#ffe19a}.open{color:#ffadb8}
+.experimental{color:#7ee2a8}.callout{border-left:4px solid var(--a);background:#0a1a2b;padding:13px 17px;margin:17px 0}
+.warn{border-left-color:var(--gold)}.danger{border-left-color:var(--red)}.good{border-left-color:var(--green)}
+pre{white-space:pre-wrap;background:var(--code);border:1px solid #294660;border-radius:12px;padding:16px;overflow:auto}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:14px;
+padding:15px;background:#0b1828}table{border-collapse:collapse;width:100%;background:#081624}th,td{padding:9px 11px;
+border-bottom:1px solid #1d3852;vertical-align:top;text-align:left}th{background:#112b46}blockquote{border-left:3px solid var(--b);
+padding-left:15px;color:#c9d8e8}.small{font-size:.83rem;color:var(--muted)}code{color:#d7e8ff}
+footer{margin-top:55px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}
+@media(max-width:1000px){.layout{display:block}aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+main{padding:26px 17px 60px}.grid{grid-template-columns:1fr}}
+</style></head><body><div class="layout"><aside>
+<div class="brand">tare.tools · research</div><h3>Technical delta — Implementer Qualification</h3><ol class="toc"><li><a href="#purpose">1. Technical objective</a></li><li><a href="#delta">2. Proposed delta for Routing &amp; Qualification</a></li><li><a href="#record">3. Minimal experiment record</a></li><li><a href="#routing">4. Router rules</a></li><li><a href="#autonomy">5. Autonomy calibration</a></li><li><a href="#experiments">6. Next experiments</a></li><li><a href="#avoid">7. Anti-drift</a></li><li><a href="#decision">8. Classification</a></li></ol>
+<div class="small">Draft research edition. Publication does not grant canonical authority.</div></aside><main>
+<header class="hero"><div class="brand">Implementer qualification · 2026-08-12</div><h1>Technical delta — Implementer Qualification</h1>
+<p>Application of the longitudinal study to Routing, Evidence, Reputation, and Evolution Control in tare.tools.</p><span class="badge experimental">EXPERIMENTAL</span>
+<span class="badge research">LONGITUDINAL STUDY</span><span class="badge open">DRAFT · Q7 CORRECTIVE PENDING</span></header>
+<section id="purpose"><h2>1. Technical objective</h2><p>Distill the longitudinal study into architecture, metric, and qualification deltas that can be evaluated in tare.tools without turning an experiment into normative authority.</p></section><section id="delta"><h2>2. Proposed delta for Routing & Qualification</h2><pre>TaskEnvelope / durable Work
+        ↓
+Authority eligibility
+        ↓
+Candidate ImplementerProfiles
+        ↓
+task-class Qualification + runtime availability + economics
+        ↓
+RouteDecision / ExecutionBinding
+        ↓
+OutcomeEvidence
+        ↓
+Attribution
+        ↓
+ReputationSnapshot / requalification</pre>
+<p><b>PROPOSED:</b> attribute outcomes to the operational profile (model/runtime/effort/work format/tool surface) without creating a monolithic global score.</p></section><section id="record"><h2>3. Minimal experiment record</h2><pre>episodeId
+model / effort / runtime / verificationStatus
+taskClass
+autonomyProbeLevel
+ponytailMode / capability surface
+base/ref/head/tree
+authority/effect ceiling
+packet strategy
+test/falsifier summary
+humanInterruptions
+unexpectedEffects
+independentAuditVerdict
+findings[]
+evidenceLocator + manifest identity
+cost-to-trust observations</pre><p>These fields are experiment metadata/evidence. They do not grant Authority.</p></section><section id="routing"><h2>4. Router rules</h2><ul><li>Reputation/qualification may filter or rank otherwise eligible candidates.</li>
+<li>It cannot make a runtime eligible when Authority/policy/capability forbids it.</li>
+<li>Qualification should be task-class-specific and may decay after model/runtime/harness change.</li>
+<li>Semantic and evidence-completion failures should be scored separately from throughput.</li></ul></section><section id="autonomy"><h2>5. Autonomy calibration</h2><p>A0–A6 should remain <b>treatment metadata</b>, with promotion/demotion based on repeated episodes and independent audit. Silent YAGNI cuts, architecture substitution, and false-concreteness are demotion signals.</p></section><section id="experiments"><h2>6. Next experiments</h2><table><thead><tr><th>Experiment</th><th>Main variable</th><th>Desired control</th></tr></thead><tbody>
+<tr><td>Fable low × Sonnet xhigh matched task</td><td>model/effort</td><td>same base, task, capsule, authority, audit</td></tr>
+<tr><td>Fable low + Ponytail full vs. reduced/off</td><td>skill interaction</td><td>same model/effort/task</td></tr>
+<tr><td>A1 vs. A2 matched task</td><td>decomposition freedom</td><td>same model/effort/effect ceiling</td></tr>
+<tr><td>Evidence strictness</td><td>completion contract</td><td>same candidate/task, cloud evidence required</td></tr>
+</tbody></table></section><section id="avoid"><h2>7. Anti-drift</h2><ul><li>Do not introduce a kernel-wide <code>ImplementerScore</code> before demonstrated need.</li>
+<li>Do not merge Model, Provider, Runtime, Executor Lane, and Commercial Lane.</li>
+<li>Do not treat autonomy level as a Permit.</li>
+<li>Do not treat research publication as CURRENT/TARGET promotion.</li></ul></section><section id="decision"><h2>8. Classification</h2><div class="callout good"><b>ADAPT.</b> The study should inform a future Qualification/Reputation layer as evidence, but still requires matched experiments and reconciliation with canonical contracts before normative implementation.</div></section><footer>tare.tools.research · technical integration delta · PROPOSED/EXPERIMENTAL · canonical promotion = false.</footer></main></div></body></html>
