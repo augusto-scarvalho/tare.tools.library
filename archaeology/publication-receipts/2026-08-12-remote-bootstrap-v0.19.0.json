@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "kind": "ResearchRemoteBootstrapReceipt",
+  "repository": "augusto-scarvalho/tare.tools.research",
+  "recorded_at": "2026-08-12T12:32:00Z",
+  "authority_scope": "RESEARCH_ONLY",
+  "canonical_promotion": false,
+  "bootstrap": {
+    "method": "CODEX_EXACT_GIT_BUNDLE_PUSH",
+    "bundle_sha256": "81f5221cbe6ed15055561093dc0eabf03fd5c3d8caa737dd1a184878cfb56a73",
+    "qualified_commit": "467d6a47b1e8cf387c30c0de6c2c1aff6bcd820a",
+    "qualified_tag": "bootstrap-v0.19.0",
+    "remote_branch": "main",
+    "history_preserved_exactly": true,
+    "remote_effects": [
+      "created refs/heads/main at 467d6a47b1e8cf387c30c0de6c2c1aff6bcd820a",
+      "created refs/tags/bootstrap-v0.19.0 at 467d6a47b1e8cf387c30c0de6c2c1aff6bcd820a"
+    ]
+  },
+  "independent_remote_verification": {
+    "verifier": "ChatGPT GitHub connector",
+    "repository_visibility": "private",
+    "default_branch": "main",
+    "main_sha": "467d6a47b1e8cf387c30c0de6c2c1aff6bcd820a",
+    "tag_sha": "467d6a47b1e8cf387c30c0de6c2c1aff6bcd820a",
+    "anchor_files_verified": [
+      "README.md",
+      "AGENTS.md",
+      "frontier/FRONTIER_INDEX.md",
+      "REPOSITORY_IDENTITY.md"
+    ],
+    "frontier_pointer_count": 143,
+    "verdict": "PASS_EXACT_GIT_BOOTSTRAP"
+  },
+  "negative_evidence": [
+    "The first Codex push attempt targeted the bundle-local origin and failed; no GitHub remote effect occurred in that attempt.",
+    "The origin URL was corrected locally before the successful exact push.",
+    "Two connector schema-probe create_tree calls performed during incremental-publication qualification were rejected with HTTP 422 and produced no ref/commit/tree effect."
+  ],
+  "incremental_publication_qualification": {
+    "expected_parent": "467d6a47b1e8cf387c30c0de6c2c1aff6bcd820a",
+    "transport": "GitHub Git Data API through ChatGPT connector",
+    "required_ref_update": "force=false",
+    "status_before_commit": "IN_PROGRESS",
+    "note": "The commit introducing this receipt is the first connector-native incremental publication qualification run. Its resulting commit identity is verified post-write from refs/heads/main."
+  }
+}
