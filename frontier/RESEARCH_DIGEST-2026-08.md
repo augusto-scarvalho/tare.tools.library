@@ -4,18 +4,18 @@
 
 ## Snapshot
 
-- Total normalized pointers: **124**
-- Pointers with multiple explicit origins: **12**
-- Conservative possible-overlap pairs: **17**
+- Total normalized pointers: **143**
+- Pointers with multiple explicit origins: **15**
+- Conservative possible-overlap pairs: **20**
 - Clusters: **13**
 - Scientific lineages represented: **9/9
 
 ## Radar distribution
 
-- `EXPERIMENT`: 13
+- `EXPERIMENT`: 14
 - `EXPLORE`: 9
-- `INVESTIGATE`: 11
-- `WATCH`: 91
+- `INVESTIGATE`: 13
+- `WATCH`: 107
 
 ## Epistemic guardrails
 

@@ -20,6 +20,7 @@ trace mining, process mining, AFlow/SkillOpt-like optimization, deterministic co
 
 - `CURATED_POINTER_INDEX` — `catalog/FUTURE_RESEARCH_POINTERS.md:L12` — Workflow and procedural systems
 - `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12-pointers.md:L8` — Existing pointers — add new origin
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/information-survival-demand-lineage-2026-08-12-pointers.md:L10` — Reused / enriched existing pointers
 
 ## Conservative relationship candidates
 

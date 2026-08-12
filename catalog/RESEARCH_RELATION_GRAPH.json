@@ -1481,6 +1481,129 @@
       "title": "Harness Updating Is Not Harness Benefit",
       "status": "RESEARCH_SOURCE",
       "url": "https://arxiv.org/abs/2605.30621"
+    },
+    {
+      "id": "research_object.information-survival-demand-lineage-2026-08-12",
+      "kind": "cross_lineage_research_object",
+      "title": "Information Survival, Demand Lineage & Reconstructable Assurance Research Pack",
+      "status": "RESEARCH",
+      "path": "catalog/research-objects/information-survival-demand-lineage-2026-08-12.json"
+    },
+    {
+      "id": "doc.chat.information-survival-demand-lineage-2026-08-12",
+      "kind": "chat_exact_export",
+      "title": "Tare.tools - Durable State, Persistence & Consistency Semantics.txt",
+      "path": "corpus/original/2026-08-12-chat-import/Tare.tools - Durable State, Persistence & Consistency Semantics.txt",
+      "sha256": "39d7c678bb4b87a6f5455f4db4ae0c8a1552f4c3fb40896dc4a66af29758e4e7"
+    },
+    {
+      "id": "doc.filelib.4a548f11cbbabbfb",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_information_survival_research_index_2026-08-12.html",
+      "file_library_id": "file_00000000b860820e8aeed4ed3a8a066a",
+      "status": "RESEARCH",
+      "expected_sha256": "21ac3d2ed6eb9e29415bcd28ad27b20f9f355e060c20b663a31b3e18548a0ba3"
+    },
+    {
+      "id": "doc.filelib.c876c2a5149e1b16",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_information_survival_reconstructability_scientific_research_2026-08-12.html",
+      "file_library_id": "file_00000000a0dc820eb1ec12531be3783e",
+      "status": "RESEARCH",
+      "expected_sha256": "ef6e5d5cefe50ce304e2a8429ccfc6185d3c59f960200369e48a1a2fb40d1bb9"
+    },
+    {
+      "id": "doc.filelib.aa2007e5bbb3ad00",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_demand_lineage_context_learning_scientific_research_2026-08-12.html",
+      "file_library_id": "file_00000000fd8c820eac860dc01c7da358",
+      "status": "RESEARCH",
+      "expected_sha256": "381919a54c129091621d83cf2de378b0efd1aade584fed5b18836ff7a74ef14f"
+    },
+    {
+      "id": "doc.filelib.6842ae5659513fb1",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_reconstructability_verification_technology_landscape_2026-08-12.html",
+      "file_library_id": "file_000000000ee4820ebe343052f59813e9",
+      "status": "RESEARCH",
+      "expected_sha256": "6741de5052d13c214647c744334fd5214891c142ab2c81299fe453b9b9ccdfe3"
+    },
+    {
+      "id": "doc.filelib.ed3ebc4145572ea1",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_information_survival_implementation_architecture_2026-08-12.html",
+      "file_library_id": "file_00000000d4a0820ebb16a09a390229be",
+      "status": "PROPOSED",
+      "expected_sha256": "eb1293b484c26555bd29df4d5e537b824eed5c8c206913f9d033c9799973ed1b"
+    },
+    {
+      "id": "doc.filelib.70bf5daaaf7e69a6",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_information_survival_research_manifest_2026-08-12.json",
+      "file_library_id": "file_00000000bdf4820e94bce6200421449e",
+      "status": "RESEARCH",
+      "expected_sha256": null
+    },
+    {
+      "id": "doc.ingestion.information-survival.review",
+      "kind": "corpus_integration_review",
+      "title": "Information Survival & Demand Lineage — Corpus Integration Review",
+      "path": "refresh-editions/2026-08-12/information-survival-demand-lineage/information-survival-demand-lineage-corpus-integration-review-2026-08-12.html"
+    },
+    {
+      "id": "doc.ingestion.information-survival.technical-delta",
+      "kind": "implementation_research_delta",
+      "title": "Information Survival & Reconstructable Assurance — Technical Integration Delta",
+      "path": "refresh-editions/2026-08-12/information-survival-demand-lineage/information-survival-demand-lineage-technical-integration-delta-2026-08-12.html"
+    },
+    {
+      "id": "source.1ef70f6bb0881c48",
+      "kind": "external_source",
+      "title": "RETRACE — Independent Patch Verification",
+      "url": "https://arxiv.org/abs/2608.08950",
+      "source_class": "external_source"
+    },
+    {
+      "id": "source.48ce655c9222f292",
+      "kind": "external_source",
+      "title": "RepoProbe — Architecture-Aware Repository Comprehension",
+      "url": "https://arxiv.org/abs/2608.04783",
+      "source_class": "external_source"
+    },
+    {
+      "id": "source.45573a75d10bce20",
+      "kind": "external_source",
+      "title": "EA-Graph — Artifact-Anchored Verification Memory",
+      "url": "https://arxiv.org/abs/2608.04278",
+      "source_class": "external_source"
+    },
+    {
+      "id": "source.34afecfca5c83041",
+      "kind": "external_source",
+      "title": "SWE-RPG — Requirement Clarification & Planning",
+      "url": "https://arxiv.org/abs/2608.09072",
+      "source_class": "external_source"
+    },
+    {
+      "id": "source.358906a30ff457bf",
+      "kind": "external_source",
+      "title": "ClarifyCodeBench",
+      "url": "https://arxiv.org/abs/2607.00711",
+      "source_class": "external_source"
+    },
+    {
+      "id": "source.04250c038fea15af",
+      "kind": "external_source",
+      "title": "From Agent Traces to Trust",
+      "url": "https://arxiv.org/abs/2606.04990",
+      "source_class": "external_source"
+    },
+    {
+      "id": "source.edc5ce83e232572c",
+      "kind": "external_source",
+      "title": "OpenTelemetry GenAI Task semantics issue",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/issues/37",
+      "source_class": "external_source"
     }
   ],
   "edges": [
@@ -5004,14 +5127,249 @@
       "confidence": "medium",
       "polarity": "constraining",
       "weight": "moderate"
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "doc.chat.information-survival-demand-lineage-2026-08-12",
+      "relation": "HAS_SOURCE",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major",
+      "description": "Exact local recovered chat research summary export."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "doc.filelib.4a548f11cbbabbfb",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "doc.filelib.c876c2a5149e1b16",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "doc.filelib.aa2007e5bbb3ad00",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "doc.filelib.6842ae5659513fb1",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "doc.filelib.ed3ebc4145572ea1",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "doc.filelib.70bf5daaaf7e69a6",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "doc.ingestion.information-survival.review",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "REVIEWS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "doc.ingestion.information-survival.technical-delta",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "DERIVED_FROM",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "lineage.agent-os-foundations",
+      "relation": "RECENTERS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Adds information-survival and reconstructability properties without a new plane."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "lineage.workflow-procedural",
+      "relation": "REFINES",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Connects Demand/Task revision, durable Work, Outcome and Settlement."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "lineage.context-memory-playbooks",
+      "relation": "RECENTERS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Treats context/session state as reconstructable smallest-sufficient projections."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "lineage.runtime-reliability-sandbox",
+      "relation": "CONSTRAINS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "constraining",
+      "weight": "major",
+      "description": "Requires recovery/reconciliation semantics to survive crash, rebuild and backend migration."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "lineage.assurance-governance-quality",
+      "relation": "REFINES",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Adds Evidence Recall, freshness/invalidation and independent semantic verification."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "lineage.routing-economics-observability",
+      "relation": "CONSTRAINS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "constraining",
+      "weight": "major",
+      "description": "Learning/adaptation can use only surviving, attributable, applicable and qualified experience."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "lineage.interoperability-protocols",
+      "relation": "REFINES",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Adds semantic exit tests, projection qualification and cross-store/boundary reconstruction."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "lineage.research-methodology-evidence",
+      "relation": "DOGFOODS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Applies original/reference/translation/projection survival semantics to tare.tools.research itself."
+    },
+    {
+      "from": "research_object.information-survival-demand-lineage-2026-08-12",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "EXTENDS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Adds survival, reconstructability, demand conservation and evidence-recall semantics to the canonical-lineage research object."
+    },
+    {
+      "from": "source.1ef70f6bb0881c48",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.48ce655c9222f292",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.45573a75d10bce20",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "REFINES",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.34afecfca5c83041",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.358906a30ff457bf",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.04250c038fea15af",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.edc5ce83e232572c",
+      "to": "research_object.information-survival-demand-lineage-2026-08-12",
+      "relation": "CONSTRAINS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "constraining",
+      "weight": "moderate"
     }
   ],
   "statistics": {
-    "nodes": 195,
-    "edges": 342,
+    "nodes": 212,
+    "edges": 367,
     "historical_artifacts": 93,
     "refresh_documents": 20,
-    "external_sources": 58,
+    "external_sources": 71,
     "curated_cross_lineage_edges": 26,
     "co_citation_edges": 268,
     "source_family_candidates": 2

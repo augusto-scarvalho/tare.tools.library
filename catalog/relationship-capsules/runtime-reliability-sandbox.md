@@ -51,11 +51,21 @@
 - Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
 - Authority: no canonical promotion; integration is research-only.
 
+
+## 2026-08-12 cross-lineage update — Information Survival, Demand Lineage & Reconstructable Assurance
+
+- ResearchObject: `research_object.information-survival-demand-lineage-2026-08-12`
+- Status: `RESEARCH / CROSS-LINEAGE`
+- Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
+- Key contribution: survival/reconstructability + demand→settlement lineage + Evidence Recall; no new Agent OS plane.
+- Authority: no canonical promotion; integration is research-only.
+
 ## Open Research Frontier (shadow)
 
 > Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
 
 - [rp-1d31c7e414 — Authority freshness / fencing](../../frontier/pointers/rp-1d31c7e414-authority-freshness-fencing.md) · `TRIAGED` · radar `WATCH`
+- [rp-8d56cf0353 — Demand Accounting & Settlement Science](../../frontier/pointers/rp-8d56cf0353-demand-accounting-settlement-science.md) · `NORMALIZED` · radar `WATCH`
 - [rp-96101e4704 — durable backend qualification](../../frontier/pointers/rp-96101e4704-durable-backend-qualification.md) · `NORMALIZED` · radar `EXPERIMENT`
 - [rp-70c444876f — Durable runtime qualification](../../frontier/pointers/rp-70c444876f-durable-runtime-qualification.md) · `TRIAGED` · radar `EXPERIMENT`
 - [rp-955d74e6af — Effect Torture Lab](../../frontier/pointers/rp-955d74e6af-effect-torture-lab.md) · `TRIAGED` · radar `EXPERIMENT`

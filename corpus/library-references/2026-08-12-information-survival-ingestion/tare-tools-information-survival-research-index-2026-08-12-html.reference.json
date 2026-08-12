@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "flref.infosurv.4a548f11cbba",
+  "title": "tare_tools_information_survival_research_index_2026-08-12.html",
+  "file_library_id": "file_00000000b860820e8aeed4ed3a8a066a",
+  "file_created_at": "2026-08-12",
+  "file_modified_at": "2026-08-12",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P0",
+  "suggested_kind": "research-index",
+  "suggested_status": "RESEARCH",
+  "suggested_contexts": [
+    "Project / Workspace",
+    "Workflow",
+    "Context / Memory",
+    "Reliability / Effects",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Resources / Artifacts"
+  ],
+  "lineage_family": "information-survival-demand-lineage-2026-08-12",
+  "lineage_order_hint": null,
+  "reported_sha256": "21ac3d2ed6eb9e29415bcd28ad27b20f9f355e060c20b663a31b3e18548a0ba3",
+  "reported_size_bytes": 20791,
+  "hash_status": "REPORTED_NOT_LOCALLY_VERIFIED",
+  "discovered_at": "2026-08-12",
+  "discovery_basis": "Shared-chat ingestion via File Library; public share URL cache-missed in this runtime.",
+  "notes": "Expected hash/size are reported by the research-pack validation manifest. Raw bytes are not mounted locally; no exact local source path is asserted."
+}

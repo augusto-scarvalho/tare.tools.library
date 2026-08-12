@@ -110,3 +110,8 @@ The machine-readable files are:
 4. `SUPERSEDES` is intentionally absent unless explicit version/normative evidence exists.
 5. External paper-to-paper lineage is not inferred merely from title similarity; candidates remain `CANDIDATE_UNTIL_VERIFIED`.
 6. Negative evidence and falsifications should be represented as first-class `CHALLENGES`/`FALSIFIES` edges rather than removed from history.
+
+
+## 2026-08-12 live ResearchObject — Information Survival / Demand Lineage
+
+`research_object.information-survival-demand-lineage-2026-08-12` extends the live corpus without creating a new lineage. It **RECENTERS** Project/Agent OS around semantic homes and reconstructability, **REFINES** Workflow/Context/Assurance/Interoperability, **CONSTRAINS** reliability and learning with survival/freshness requirements, and **DOGFOODS** the research substrate's own original→reference→translation→projection policy. See the relationship graph for machine-readable edges.

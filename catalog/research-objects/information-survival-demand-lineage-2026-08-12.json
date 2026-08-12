@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1-proposed",
+  "id": "research_object.information-survival-demand-lineage-2026-08-12",
+  "title": "Information Survival, Demand Lineage & Reconstructable Assurance Research Pack",
+  "status": "RESEARCH",
+  "authority": "RESEARCH_ONLY_NO_CANONICAL_AUTHORITY",
+  "origin": {
+    "shared_chat_url": "https://chatgpt.com/share/6a7c5461-dbf8-83e9-8e1d-16d0f5a0ec24?ogimg=plain",
+    "exact_chat_export": "corpus/original/2026-08-12-chat-import/Tare.tools - Durable State, Persistence & Consistency Semantics.txt",
+    "exact_chat_sha256": "39d7c678bb4b87a6f5455f4db4ae0c8a1552f4c3fb40896dc4a66af29758e4e7",
+    "file_library_reference_dir": "corpus/library-references/2026-08-12-information-survival-ingestion"
+  },
+  "role": "cross-lineage-research-object",
+  "lineage_ids": [
+    "agent-os-foundations",
+    "workflow-procedural",
+    "context-memory-playbooks",
+    "assurance-governance-quality",
+    "runtime-reliability-sandbox",
+    "routing-economics-observability",
+    "interoperability-protocols",
+    "research-methodology-evidence"
+  ],
+  "core_thesis": "Preserve selectively the irreversible facts and relations required for continuity, auditability and learning; reconstruct projections aggressively; conserve demand through settlement; and keep physical stores, runtimes and telemetry from becoming the Agent OS ontology.",
+  "documents": [
+    {
+      "title": "tare_tools_information_survival_research_index_2026-08-12.html",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "21ac3d2ed6eb9e29415bcd28ad27b20f9f355e060c20b663a31b3e18548a0ba3"
+    },
+    {
+      "title": "tare_tools_information_survival_reconstructability_scientific_research_2026-08-12.html",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "ef6e5d5cefe50ce304e2a8429ccfc6185d3c59f960200369e48a1a2fb40d1bb9"
+    },
+    {
+      "title": "tare_tools_demand_lineage_context_learning_scientific_research_2026-08-12.html",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "381919a54c129091621d83cf2de378b0efd1aade584fed5b18836ff7a74ef14f"
+    },
+    {
+      "title": "tare_tools_reconstructability_verification_technology_landscape_2026-08-12.html",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "6741de5052d13c214647c744334fd5214891c142ab2c81299fe453b9b9ccdfe3"
+    },
+    {
+      "title": "tare_tools_information_survival_implementation_architecture_2026-08-12.html",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "eb1293b484c26555bd29df4d5e537b824eed5c8c206913f9d033c9799973ed1b"
+    }
+  ],
+  "accepted_interpretation": {
+    "ADOPT": [
+      "physical store does not own semantic meaning",
+      "derived projections should be reconstructable",
+      "durable Work outlives executor/session identity",
+      "producer must not control the judge",
+      "learning requires provenance/evidence/applicability"
+    ],
+    "ADAPT": [
+      "Reconstructive Closure as qualification concept",
+      "Demand Conservation as query-first cross-context relation",
+      "Evidence Recall as derived lineage query",
+      "semantic exit test for external dependencies",
+      "Repository Content Policy only in shadow before enforcement"
+    ],
+    "RETIRE": [
+      "Git hygiene as sufficient architectural framing",
+      "Project equals Git repository",
+      "Task equals prompt",
+      "PASS equals Outcome",
+      "event-source everything by default",
+      "all retained data implies better learning"
+    ],
+    "OPEN": [
+      "Task revision and scope-change semantics",
+      "settlement ownership/finality/reopening",
+      "bitemporal artifact/evidence semantics",
+      "semantic compaction with golden-query preservation",
+      "Evidence reuse equivalence/invalidation",
+      "Windows-native verification substrate",
+      "content-addressed artifact/evidence GC"
+    ]
+  }
+}

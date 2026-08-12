@@ -20,6 +20,7 @@ propensity logging, route regret, counterfactual evaluation and delayed outcomes
 
 - `CURATED_POINTER_INDEX` — `catalog/FUTURE_RESEARCH_POINTERS.md:L42` — Routing, reputation, and economics
 - `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12-pointers.md:L7` — Existing pointers — add new origin
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/information-survival-demand-lineage-2026-08-12-pointers.md:L9` — Reused / enriched existing pointers
 
 ## Conservative relationship candidates
 

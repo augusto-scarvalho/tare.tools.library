@@ -1,12 +1,12 @@
 {
   "schema_version": "1.1",
   "source_scope": "materialized byte-preserved chat originals + exact historical private-GitHub docs/research copies",
-  "documents_scanned": 105,
+  "documents_scanned": 106,
   "origin_counts": {
-    "chat-corpus-original": 12,
+    "chat-corpus-original": 13,
     "private-github-snapshot-2026-08-05": 93
   },
-  "unique_urls": 594,
+  "unique_urls": 603,
   "sources": [
     {
       "url": "http://192.0.2.10:8080/v1",
@@ -1820,6 +1820,17 @@
       ]
     },
     {
+      "url": "https://arxiv.org/abs/2603.01145",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
       "url": "https://arxiv.org/abs/2603.07670",
       "domain": "arxiv.org",
       "occurrences": 1,
@@ -2218,6 +2229,17 @@
       ]
     },
     {
+      "url": "https://arxiv.org/abs/2605.27366",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
       "url": "https://arxiv.org/abs/2605.28116",
       "domain": "arxiv.org",
       "occurrences": 2,
@@ -2286,8 +2308,9 @@
     {
       "url": "https://arxiv.org/abs/2606.04990",
       "domain": "arxiv.org",
-      "occurrences": 2,
+      "occurrences": 3,
       "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt",
         "Tare.tools - identidade.txt",
         "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
       ],
@@ -2418,6 +2441,17 @@
       ]
     },
     {
+      "url": "https://arxiv.org/abs/2606.29957",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
       "url": "https://arxiv.org/abs/2606.31498",
       "domain": "arxiv.org",
       "occurrences": 1,
@@ -2426,6 +2460,17 @@
       ],
       "origins": [
         "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.00711",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
       ]
     },
     {
@@ -2602,6 +2647,50 @@
       "documents": [
         "Tare.tools - Task & Workflow Lifecycle.txt",
         "Tare.tools - identidade.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.04278",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.04783",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.08950",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.09072",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
       ],
       "origins": [
         "chat-corpus-original"
@@ -4429,6 +4518,17 @@
       "occurrences": 1,
       "documents": [
         "Tare.tools - Reliability Semantics.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/issues/37",
+      "domain": "github.com",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - Durable State, Persistence & Consistency Semantics.txt"
       ],
       "origins": [
         "chat-corpus-original"

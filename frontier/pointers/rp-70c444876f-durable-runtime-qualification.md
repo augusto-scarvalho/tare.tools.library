@@ -10,8 +10,8 @@ compare Temporal, Restate, DBOS and other backends using the same tare-owned con
 ## Classification
 
 - **Kinds:** experiment_pointer
-- **Lineages:** runtime-reliability-sandbox
-- **Clusters:** reliability-effects-durable-runtime
+- **Lineages:** research-methodology-evidence, runtime-reliability-sandbox
+- **Clusters:** reliability-effects-durable-runtime, research-knowledge-substrate
 - **Radar projection:** `EXPERIMENT` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
 - **Priority:** `UNTRIAGED`
 - **Why not now:** `UNASSESSED`
@@ -19,10 +19,12 @@ compare Temporal, Restate, DBOS and other backends using the same tare-owned con
 ## Origins
 
 - `CURATED_POINTER_INDEX` — `catalog/FUTURE_RESEARCH_POINTERS.md:L17` — Reliability, effects, and durable runtime
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/information-survival-demand-lineage-2026-08-12-pointers.md:L11` — Reused / enriched existing pointers
 
 ## Conservative relationship candidates
 
 - `POSSIBLE_OVERLAP_CANDIDATE` → [rp-96101e4704 — durable backend qualification](../pointers/rp-96101e4704-durable-backend-qualification.md) · confidence `MEDIUM` · basis `lexical-similarity-only-never-auto-merge`
+- `POSSIBLE_OVERLAP_CANDIDATE` → [rp-75722e66e7 — CMRP compute-matched qualification](../pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md) · confidence `LOW` · basis `lexical-similarity-only-never-auto-merge`
 
 ## Rehydration / activation contract
 

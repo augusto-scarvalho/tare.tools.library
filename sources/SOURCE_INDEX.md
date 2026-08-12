@@ -2,10 +2,10 @@
 
 > Deterministic URL projection from materialized byte-preserved sources. It is a navigation/provenance index, not a claim that every URL is still current or authoritative.
 
-- Documents scanned: **105**
-- Chat corpus originals: **12**
+- Documents scanned: **106**
+- Chat corpus originals: **13**
 - Historical private-GitHub `docs/research/` copies: **93**
-- Unique URLs: **594**
+- Unique URLs: **603**
 
 | Domain | URL | Occurrences | Origins | Documents |
 |---|---|---:|---|---|
@@ -172,6 +172,7 @@
 | `arxiv.org` | <https://arxiv.org/abs/2602.12670> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/guia-playbooks-engineering-2026-07-29.html` |
 | `arxiv.org` | <https://arxiv.org/abs/2602.13255> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2602.18998> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
+| `arxiv.org` | <https://arxiv.org/abs/2603.01145> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2603.07670> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2603.07915> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2603.10664> | 1 | `chat-corpus-original` | `Endpoints e Agentes CLI.txt` |
@@ -208,13 +209,14 @@
 | `arxiv.org` | <https://arxiv.org/abs/2605.23296> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.23950> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.26596> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/guia-playbooks-engineering-2026-07-29.html` |
+| `arxiv.org` | <https://arxiv.org/abs/2605.27366> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.28116> | 2 | `private-github-snapshot-2026-08-05` | `docs/research/ux-agents-consolidated-2026-07-13.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.30621> | 1 | `chat-corpus-original` | `Tare.tools - identidade.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.30785> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.00774> | 1 | `chat-corpus-original` | `Tare.tools - Task & Workflow Lifecycle.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.01508> | 1 | `chat-corpus-original` | `Endpoints e Agentes CLI.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.03854> | 1 | `chat-corpus-original` | `Endpoints e Agentes CLI.txt` |
-| `arxiv.org` | <https://arxiv.org/abs/2606.04990> | 2 | `chat-corpus-original`, `private-github-snapshot-2026-08-05` | `Tare.tools - identidade.txt`, `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
+| `arxiv.org` | <https://arxiv.org/abs/2606.04990> | 3 | `chat-corpus-original`, `private-github-snapshot-2026-08-05` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt`, `Tare.tools - identidade.txt`, `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.05697> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/ux-agents-consolidated-2026-07-13.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.07682> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.08275> | 1 | `chat-corpus-original` | `Tare.tools - identidade.txt` |
@@ -226,7 +228,9 @@
 | `arxiv.org` | <https://arxiv.org/abs/2606.26524> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/guia-playbooks-engineering-2026-07-29.html` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.27288> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.29537> | 5 | `private-github-snapshot-2026-08-05` | `docs/research/ux-agents-consolidated-2026-07-13.md` |
+| `arxiv.org` | <https://arxiv.org/abs/2606.29957> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.31498> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
+| `arxiv.org` | <https://arxiv.org/abs/2607.00711> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2607.01120> | 3 | `chat-corpus-original`, `private-github-snapshot-2026-08-05` | `Arquitetura Multiagente e Roteamento.txt`, `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2607.01728> | 3 | `private-github-snapshot-2026-08-05` | `docs/research/ux-agents-consolidated-2026-07-13.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2607.02606> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
@@ -243,6 +247,10 @@
 | `arxiv.org` | <https://arxiv.org/abs/2607.26300> | 1 | `chat-corpus-original` | `Endpoints e Agentes CLI.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2607.29405> | 1 | `chat-corpus-original` | `tare.tools - testes, gates.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2608.02680> | 2 | `chat-corpus-original` | `Tare.tools - Task & Workflow Lifecycle.txt`, `Tare.tools - identidade.txt` |
+| `arxiv.org` | <https://arxiv.org/abs/2608.04278> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
+| `arxiv.org` | <https://arxiv.org/abs/2608.04783> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
+| `arxiv.org` | <https://arxiv.org/abs/2608.08950> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
+| `arxiv.org` | <https://arxiv.org/abs/2608.09072> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
 | `arxiv.org` | <https://arxiv.org/html/2406.18665v4> | 2 | `chat-corpus-original` | `Arquitetura Multiagente e Roteamento.txt` |
 | `arxiv.org` | <https://arxiv.org/html/2501.06322v1> | 2 | `chat-corpus-original` | `Arquitetura Multiagente e Roteamento.txt` |
 | `arxiv.org` | <https://arxiv.org/html/2502.14321v3> | 1 | `chat-corpus-original` | `Arquitetura Multiagente e Roteamento.txt` |
@@ -407,6 +415,7 @@
 | `github.com` | <https://github.com/gliga/ekstazi> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/loop-workflow-efficiency-evidence.md` |
 | `github.com` | <https://github.com/jagenjo/litegraph.js/> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/agent-gui-cli-features.md` |
 | `github.com` | <https://github.com/open-telemetry/semantic-conventions-genai/issues/35> | 1 | `chat-corpus-original` | `Tare.tools - Reliability Semantics.txt` |
+| `github.com` | <https://github.com/open-telemetry/semantic-conventions-genai/issues/37> | 1 | `chat-corpus-original` | `Tare.tools - Durable State, Persistence & Consistency Semantics.txt` |
 | `github.com` | <https://github.com/openai/codex/issues/15003> | 2 | `private-github-snapshot-2026-08-05` | `docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md` |
 | `github.com` | <https://github.com/openai/codex/issues/25860> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md` |
 | `github.com` | <https://github.com/openai/codex/issues/30712> | 2 | `private-github-snapshot-2026-08-05` | `docs/research/forensics-2026-07-25-codex-applypatch-split-writable-roots.md` |

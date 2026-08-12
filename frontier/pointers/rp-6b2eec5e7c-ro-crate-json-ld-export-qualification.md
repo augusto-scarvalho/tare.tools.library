@@ -20,6 +20,7 @@
 
 ## Conservative relationship candidates
 
+- `POSSIBLE_OVERLAP_CANDIDATE` → [rp-70c444876f — Durable runtime qualification](../pointers/rp-70c444876f-durable-runtime-qualification.md) · confidence `LOW` · basis `lexical-similarity-only-never-auto-merge`
 - `POSSIBLE_OVERLAP_CANDIDATE` → [rp-75722e66e7 — CMRP compute-matched qualification](../pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md) · confidence `LOW` · basis `lexical-similarity-only-never-auto-merge`
 
 ## Rehydration / activation contract

@@ -37,14 +37,17 @@
 ## Assurance, Governance & Quality
 
 - [rp-be4d0aa6ad — assurance case projection](pointers/rp-be4d0aa6ad-assurance-case-projection.md)
+- [rp-c288c9262b — Bitemporal Artifact/Evidence Semantics](pointers/rp-c288c9262b-bitemporal-artifact-evidence-semantics.md) — separate valid-time, record-time and historical verdict truth for artifacts, claims, evidence and requalification.
 - [rp-4f059076aa — Community Lab / distributed falsification](pointers/rp-4f059076aa-community-lab-distributed-falsification.md) — challenge-central / evidence-local models inspired by ecosystem regression testing and federated evaluation.
 - [rp-75654b67df — Constitutional governance](pointers/rp-75654b67df-constitutional-governance.md) — root authority, mandates, delegation, amendment, emergency authority, non-retroactivity and contestability.
 - [rp-f24a4b53da — constitutional/root change process](pointers/rp-f24a4b53da-constitutional-root-change-process.md)
+- [rp-2db76ab0f2 — Content-Addressed Storage and Garbage Collection for Evidence/Artifacts](pointers/rp-2db76ab0f2-content-addressed-storage-and-garbage-collection-for-evidence-artifacts.md) — evaluate CAS/OCI-style payload backends, reachability, retention and GC while canonical identities remain tare-owned.
 - [rp-96f8b87234 — Control effectiveness](pointers/rp-96f8b87234-control-effectiveness.md) — distinguish control design, implementation, operating coverage and actual reduction of material risk.
 - [rp-2d5b8a67cf — control retirement experiments](pointers/rp-2d5b8a67cf-control-retirement-experiments.md)
 - [rp-f0c0d9085f — Decision rights vs capability vs authority](pointers/rp-f0c0d9085f-decision-rights-vs-capability-vs-authority.md) — legitimate right to choose desired state, execution permission, accountability, responsibility and assurance.
 - [rp-4089f0d228 — decision-right representation](pointers/rp-4089f0d228-decision-right-representation.md)
 - [rp-d7383c6282 — Evaluator metrology](pointers/rp-d7383c6282-evaluator-metrology.md) — sensitivity, specificity, calibration, drift and fitness-for-purpose of judges, scanners, humans and agent reviewers.
+- [rp-3bba42bb65 — Evidence Recall and reverse dependency propagation](pointers/rp-3bba42bb65-evidence-recall-and-reverse-dependency-propagation.md) — query downstream decisions, promotions and qualifications affected when upstream evidence/artifacts become stale, revoked or unprovable.
 - [rp-4d0c0a14c0 — Evidence reuse and invalidation](pointers/rp-4d0c0a14c0-evidence-reuse-and-invalidation.md) — deterministic evidence reuse, freshness, applicability, provenance and EvidenceFamily independence.
 - [rp-0a4bd91301 — Governance debt](pointers/rp-0a4bd91301-governance-debt.md) — stale waivers, ownerless controls, policy conflicts, approval fatigue, cargo-cult compliance and ineffective controls.
 - [rp-e0994063b4 — governance debt metrology](pointers/rp-e0994063b4-governance-debt-metrology.md)
@@ -57,6 +60,7 @@
 ## Runtime, Reliability & Sandbox
 
 - [rp-1d31c7e414 — Authority freshness / fencing](pointers/rp-1d31c7e414-authority-freshness-fencing.md) — historical Permit validity vs present commit eligibility, lease epochs, CAS/project revision and stale-owner protection.
+- [rp-8d56cf0353 — Demand Accounting & Settlement Science](pointers/rp-8d56cf0353-demand-accounting-settlement-science.md) — model conservation of user/project need from intake through Work to outcome, residual obligation, closure and reopening.
 - [rp-96101e4704 — durable backend qualification](pointers/rp-96101e4704-durable-backend-qualification.md)
 - [rp-70c444876f — Durable runtime qualification](pointers/rp-70c444876f-durable-runtime-qualification.md) — compare Temporal, Restate, DBOS and other backends using the same tare-owned conformance pack.
 - [rp-955d74e6af — Effect Torture Lab](pointers/rp-955d74e6af-effect-torture-lab.md) — commit-then-drop-reply, duplicate delivery, stale observer, cancel/commit race, failed compensation, supersession and ambiguous completion.
@@ -116,8 +120,11 @@
 
 ## Research Methodology & Evidence
 
-- [rp-6a3a4ebbb2 — active curation / Value of Information](pointers/rp-6a3a4ebbb2-active-curation-value-of-information.md)
+- [rp-6a3a4ebbb2 — active curation / Value of Information](pointers/rp-6a3a4ebbb2-active-curation-value-of-information.md) — enrich with Adaptive Assurance and selective verification acquisition.
+- [rp-96f51efac1 — Adaptive Retention and Survival Value](pointers/rp-96f51efac1-adaptive-retention-and-survival-value.md) — decide what information survives based on future reconstruction/audit/learning value under cost, privacy and legal constraints.
 - [rp-e8b4847561 — Archival lineage survivability after scrub and compaction](pointers/rp-e8b4847561-archival-lineage-survivability-after-scrub-and-compaction.md) — minimum history needed to preserve governance/audit/learning queries after archival transformations.
+- [rp-4e3fb6ae13 — Archival Science & Long-Term Executability](pointers/rp-4e3fb6ae13-archival-science-long-term-executability.md) — study appraisal, retention, format migration, dependency preservation and executable recovery over long horizons.
+- [rp-6cdf3cef39 — Artifact-Anchored Verification Memory & Upstream Drift](pointers/rp-6cdf3cef39-artifact-anchored-verification-memory-upstream-drift.md) — cross EA-Graph, Canonical Lineage, Graphify/source identity, Evidence Reuse and requalification under repository drift.
 - [rp-8f4f8cc2ba — automated source freshness checks](pointers/rp-8f4f8cc2ba-automated-source-freshness-checks.md)
 - [rp-958f5fa0b3 — bitemporal epistemic graph and architecture-epoch queries](pointers/rp-958f5fa0b3-bitemporal-epistemic-graph-and-architecture-epoch-queries.md)
 - [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md) — new pack strengthens valid-time/knowledge-time/policy-epoch questions.
@@ -128,21 +135,31 @@
 - [rp-f3f8903e8d — claim-to-code/SWHID traceability](pointers/rp-f3f8903e8d-claim-to-code-swhid-traceability.md)
 - [rp-75722e66e7 — CMRP compute-matched qualification](pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md) — compare single-pass, generic iterative refinement, same-model cyclic roles, isolated same-model agents, heterogeneous agents and human/independent review on stratified Research Frontier tasks; measure contradiction recall, false-correction, unsupported claims and cost-to-trust.
 - [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md)
+- [rp-5cfeb33c92 — Context Reconstruction View](pointers/rp-5cfeb33c92-context-reconstruction-view.md) — reconstruct smallest-sufficient task context from canonical project state and explicit dependencies rather than immortal session memory.
 - [rp-27de64dc8e — Contradiction detection under defeasible evidence](pointers/rp-27de64dc8e-contradiction-detection-under-defeasible-evidence.md)
 - [rp-9c4e06812d — Cross-lineage dogfooding of Canonical Lineage](pointers/rp-9c4e06812d-cross-lineage-dogfooding-of-canonical-lineage.md) — apply lineage golden queries to tare.tools.research and implementation evidence as an experimental proving ground.
 - [rp-18b6cecb23 — cross-project evidence transfer](pointers/rp-18b6cecb23-cross-project-evidence-transfer.md)
 - [rp-c6798f9503 — Cryptographic/signed curation attestations](pointers/rp-c6798f9503-cryptographic-signed-curation-attestations.md)
 - [rp-ad88e49c07 — Cybernetics and control theory for observability/controllability/stability](pointers/rp-ad88e49c07-cybernetics-and-control-theory-for-observability-controllability-stability.md)
+- [rp-70c444876f — Durable runtime qualification](pointers/rp-70c444876f-durable-runtime-qualification.md) — compare Temporal, Restate, DBOS and other backends using the same tare-owned conformance pack.
 - [rp-04052a9417 — Evaluation of LLM-assisted curation as a calibrated instrument](pointers/rp-04052a9417-evaluation-of-llm-assisted-curation-as-a-calibrated-instrument.md)
+- [rp-eff5f8dd83 — Federated Experience Semantics](pointers/rp-eff5f8dd83-federated-experience-semantics.md) — determine how Project-local experience can be shared without leaking private state or overstating transportability.
+- [rp-09aff1b260 — Finality and Reopening Semantics](pointers/rp-09aff1b260-finality-and-reopening-semantics.md) — distinguish terminal execution from settled demand and define evidence/authority triggers that legitimately reopen work.
 - [rp-a9eaccec1a — High Reliability Organizations and resilience engineering for near misses, recovery and operating posture](pointers/rp-a9eaccec1a-high-reliability-organizations-and-resilience-engineering-for-near-misses-recove.md)
 - [rp-56a857d5d3 — human cognitive interoperability for research graphs](pointers/rp-56a857d5d3-human-cognitive-interoperability-for-research-graphs.md)
 - [rp-aa0caedea7 — Human cognitive interoperability for scientific graphs](pointers/rp-aa0caedea7-human-cognitive-interoperability-for-scientific-graphs.md)
+- [rp-9831fbfe3b — Independent Semantic Verification of Agent Work](pointers/rp-9831fbfe3b-independent-semantic-verification-of-agent-work.md) — combine RETRACE-style backward reconstruction, deterministic tests, independent runtime and EvidenceFamily diversity.
+- [rp-101da5dce0 — Learning Invalidation Graph](pointers/rp-101da5dce0-learning-invalidation-graph.md) — propagate upstream invalidation into learned procedures, priors, memories and experiments without erasing historical outcomes.
 - [rp-ab6d8ad91c — Mechanism design for incentive-compatible agent/vendor ecosystems](pointers/rp-ab6d8ad91c-mechanism-design-for-incentive-compatible-agent-vendor-ecosystems.md)
 - [rp-c83c6eea33 — Metrology and psychometrics for trustworthy measurement of agentic systems](pointers/rp-c83c6eea33-metrology-and-psychometrics-for-trustworthy-measurement-of-agentic-systems.md)
 - [rp-3c21ee61ad — metrology dashboard for evaluators](pointers/rp-3c21ee61ad-metrology-dashboard-for-evaluators.md)
 - [rp-8539251c79 — Minimum Canonical Lineage Contract](pointers/rp-8539251c79-minimum-canonical-lineage-contract.md) — smallest set of canonical refs/joins required to answer golden lineage queries without a mega-schema.
+- [rp-af02efd7bd — Observability Projection Qualification Pack](pointers/rp-af02efd7bd-observability-projection-qualification-pack.md) — measure semantic loss and fidelity when canonical Work/effect/evidence lineage is projected to OTel/OpenLineage and later reconstructed.
 - [rp-53a17202e5 — Organizational learning and double-loop learning for changing governing assumptions instead of only fixing runs](pointers/rp-53a17202e5-organizational-learning-and-double-loop-learning-for-changing-governing-assumpti.md)
 - [rp-62b8b48ce9 — Privacy-aware cross-project research federation](pointers/rp-62b8b48ce9-privacy-aware-cross-project-research-federation.md)
+- [rp-e47985b949 — Reconstructive Closure](pointers/rp-e47985b949-reconstructive-closure.md) — determine the minimum declared seed and inputs required to materialize an operationally equivalent Project state after loss of derived/private state.
+- [rp-4f1038f0b0 — Repository Boundary & Information Survival](pointers/rp-4f1038f0b0-repository-boundary-information-survival.md) — define orthogonal survival properties, semantic homes, retention/disposition and cross-store lineage without a Repository Plane.
+- [rp-8e70588c74 — Requirement Clarification as Governed Intake](pointers/rp-8e70588c74-requirement-clarification-as-governed-intake.md) — connect SWE-RPG/ClarifyCodeBench with Demand Conservation, explicit ambiguity, clarification provenance and Task revision.
 - [rp-ea10a8e979 — research claim graph](pointers/rp-ea10a8e979-research-claim-graph.md)
 - [rp-e72f1d330f — Research curation economics and Value of Information](pointers/rp-e72f1d330f-research-curation-economics-and-value-of-information.md)
 - [rp-b10025888f — Research-role context isolation and cross-disciplinary review science](pointers/rp-b10025888f-research-role-context-isolation-and-cross-disciplinary-review-science.md) — test shared-context vs fresh-context/artifact-only role passes and extend the evidence base with peer-review, Delphi, team cognition, red-team and scientific reproducibility literature before claiming broad methodological validity.
@@ -151,4 +168,7 @@
 - [rp-cc1a52b33e — retraction/correction watchers with downstream impact propagation](pointers/rp-cc1a52b33e-retraction-correction-watchers-with-downstream-impact-propagation.md)
 - [rp-6b2eec5e7c — RO-Crate/JSON-LD export qualification](pointers/rp-6b2eec5e7c-ro-crate-json-ld-export-qualification.md)
 - [rp-195c8fe3c7 — selective claim/evidence extraction and contradiction graphs](pointers/rp-195c8fe3c7-selective-claim-evidence-extraction-and-contradiction-graphs.md)
+- [rp-fed4dc2f44 — Semantic Compaction with Preserved Golden Queries](pointers/rp-fed4dc2f44-semantic-compaction-with-preserved-golden-queries.md) — compact state/history while proving that designated lineage, authority, evidence and recovery questions remain answerable.
 - [rp-a532ee0e38 — source identity resolution and version-family reconciliation](pointers/rp-a532ee0e38-source-identity-resolution-and-version-family-reconciliation.md)
+- [rp-7f92fc1553 — Task Revision & Scope Change Semantics](pointers/rp-7f92fc1553-task-revision-scope-change-semantics.md) — preserve why a Work item changed, which demand/constraints changed, and what evidence must be invalidated or reacquired.
+- [rp-0332a66e09 — Windows-native ephemeral verification](pointers/rp-0332a66e09-windows-native-ephemeral-verification.md) — qualify independent verification/reconstruction substrates on Windows without treating POSIX/container assumptions as universal.

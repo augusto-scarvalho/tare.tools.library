@@ -12,13 +12,14 @@ deterministic evidence reuse, freshness, applicability, provenance and EvidenceF
 - **Kinds:** research_branch
 - **Lineages:** assurance-governance-quality
 - **Clusters:** assurance-audit-metrology
-- **Radar projection:** `WATCH` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
+- **Radar projection:** `INVESTIGATE` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
 - **Priority:** `UNTRIAGED`
 - **Why not now:** `UNASSESSED`
 
 ## Origins
 
 - `CURATED_POINTER_INDEX` — `catalog/FUTURE_RESEARCH_POINTERS.md:L27` — Assurance, audit, and evaluator metrology
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/information-survival-demand-lineage-2026-08-12-pointers.md:L7` — Reused / enriched existing pointers
 
 ## Conservative relationship candidates
 

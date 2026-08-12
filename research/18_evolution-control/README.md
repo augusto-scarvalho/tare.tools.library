@@ -2,7 +2,7 @@
 
 > Índice temático. Os bytes históricos PT-BR permanecem imutáveis em `corpus/original/`; traduções EN são derivatives versionados. Referências File Library permanecem apenas metadata até os bytes exatos serem materializados.
 
-Documentos materializados relacionados: **1**. Referências pendentes de reidratação: **13**.
+Documentos materializados relacionados: **1**. Referências pendentes de reidratação: **19**.
 
 ## Materializados
 
@@ -27,6 +27,12 @@ Documentos materializados relacionados: **1**. Referências pendentes de reidrat
 | **[tare_tools_identity_lineage_learning_research_SHA256SUMS_2026-08-12.txt](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-learning-research-sha256sums-2026-08-12-txt.reference.json)**<br><sub>`file_0000000054bc820ea188888a7256c3c8`</sub> | `P0` | `checksums` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
 | **[tare_tools_identity_lineage_research_index_2026-08-12.html](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-research-index-2026-08-12-html.reference.json)**<br><sub>`file_000000001eb8820ea1d9bbcd24cbd389`</sub> | `P0` | `research-index` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
 | **[tare_tools_lineage_technology_landscape_reuse_2026-08-12.html](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-lineage-technology-landscape-reuse-2026-08-12-html.reference.json)**<br><sub>`file_00000000124c820e8a666894140ca106`</sub> | `P0` | `technology-landscape` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_demand_lineage_context_learning_scientific_research_2026-08-12.html](../../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-demand-lineage-context-learning-scientific-research-2026-08-12-html.reference.json)**<br><sub>`file_00000000fd8c820eac860dc01c7da358`</sub> | `P0` | `scientific-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_information_survival_implementation_architecture_2026-08-12.html](../../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-information-survival-implementation-architecture-2026-08-12-html.reference.json)**<br><sub>`file_00000000d4a0820ebb16a09a390229be`</sub> | `P0` | `implementation-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_information_survival_reconstructability_scientific_research_2026-08-12.html](../../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-information-survival-reconstructability-scientific-research-2026-08-12-html.reference.json)**<br><sub>`file_00000000a0dc820eb1ec12531be3783e`</sub> | `P0` | `scientific-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_information_survival_research_index_2026-08-12.html](../../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-information-survival-research-index-2026-08-12-html.reference.json)**<br><sub>`file_00000000b860820e8aeed4ed3a8a066a`</sub> | `P0` | `research-index` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_information_survival_research_manifest_2026-08-12.json](../../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-information-survival-research-manifest-2026-08-12-json.reference.json)**<br><sub>`file_00000000bdf4820e94bce6200421449e`</sub> | `P0` | `validation-manifest` | `information-survival-demand-lineage-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
+| **[tare_tools_reconstructability_verification_technology_landscape_2026-08-12.html](../../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-reconstructability-verification-technology-landscape-2026-08-12-html.reference.json)**<br><sub>`file_000000000ee4820ebe343052f59813e9`</sub> | `P0` | `technology-landscape` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
 
 ## Navegação
 
