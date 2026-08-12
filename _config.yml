@@ -4,6 +4,7 @@ url: https://augusto-scarvalho.github.io
 baseurl: /tare.tools.research
 repository: augusto-scarvalho/tare.tools.research
 repository_url: https://github.com/augusto-scarvalho/tare.tools.research
+source_ref: agent/semantic-preservation-curation-v2
 markdown: kramdown
 kramdown:
   input: GFM
