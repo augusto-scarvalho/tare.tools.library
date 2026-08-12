@@ -1,6 +1,32 @@
 name: Deploy research library to GitHub Pages
 
 on:
+  push:
+    branches:
+      - agent/semantic-preservation-curation-v2
+    paths:
+      - '.github/workflows/pages-deploy.yml'
+      - '_config.yml'
+      - '_data/**'
+      - '_includes/**'
+      - '_layouts/**'
+      - 'assets/**'
+      - 'studies/**'
+      - 'research/**'
+      - 'syntheses/**'
+      - 'proposals/**'
+      - 'experiments/**'
+      - 'case-studies/**'
+      - 'findings/**'
+      - 'frontier/**'
+      - 'sources/**'
+      - 'catalog/**'
+      - 'bridge-editions/**'
+      - 'README.md'
+      - 'NAVIGATION.md'
+      - 'DOCUMENT_POLICY.md'
+      - 'search.json'
+      - 'scripts/validate_internal_links.py'
   workflow_dispatch:
 
 permissions:
@@ -14,7 +40,7 @@ concurrency:
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/main' && vars.PAGES_PUBLISH_ACK == 'true'
+    if: github.ref == 'refs/heads/agent/semantic-preservation-curation-v2'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,7 +60,7 @@ jobs:
           path: ./_site
 
   deploy:
-    if: github.ref == 'refs/heads/main' && vars.PAGES_PUBLISH_ACK == 'true'
+    if: github.ref == 'refs/heads/agent/semantic-preservation-curation-v2'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
