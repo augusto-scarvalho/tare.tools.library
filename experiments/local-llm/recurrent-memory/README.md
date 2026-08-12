@@ -3,20 +3,20 @@
 **Document ID:** `experiment.local-llm.recurrent-memory.lineage-2026-08-12`  
 **Document type:** `experiment`  
 **Status:** `EXPERIMENTAL`  
-**Created:** `2026-08-12`  
+**Last updated:** `2026-08-12`  
 **Primary contexts:** Runtime / Model / Inference · Memory / Context · Validation / Assurance · Observability / Economics / Resources  
 **Authority:** research/experimental evidence only; does not mint tare.tools TARGET or canonical CURRENT.
 
 ## 1. Purpose
 
-This lineage preserves the scientific path from early recurrent/TPTT experiments through the current Mamba transportability work without converting negative experiments into disappearances or positive observations into architectural authority.
+This lineage preserves the scientific path from TPTT and synthetic Memory Caching through controlled recurrent forgetting, historical-state information, parameter-free recovery and official-Mamba transportability.
 
-The line has progressively narrowed its question:
+The program's question has progressively narrowed:
 
 ```text
 Can recurrence / Memory Caching improve a Transformer?
         ↓
-Does a historical-memory mechanism require co-adaptation?
+Does historical-memory utility require co-adaptation?
         ↓
 Can a frozen recurrent model exhibit controlled forgetting?
         ↓
@@ -26,15 +26,15 @@ Does an earlier recurrent state preserve information the final state lost?
         ↓
 Can target-agnostic historical-state selection recover that information?
         ↓
-Does the result transport across checkpoint/backend and remain useful end-to-end?
+Does the phenomenon transport to an official pretrained Mamba checkpoint?
+        ↓
+Does it occur on realistic long-context workloads and remain economically useful?
 ```
 
-The latest independent audit is authoritative for the interpretation of `RNN-06T` within this research publication.
-
-## 2. Evidence hierarchy used in this lineage
+## 2. Evidence rule
 
 ```text
-experiment preregistration + executed source + raw results
+preregistration + executed source + raw results
         >
 independent audit / reconciliation
         >
@@ -43,55 +43,36 @@ implementer handoff / narrative
 research synthesis
 ```
 
-When the handoff and independent audit disagree, both are preserved and the downstream classification follows the audit until a fresh prospective experiment resolves the disagreement.
+A later audit may downgrade an earlier mint without deleting the historical artifact. Downstream outcomes behind a failed hard gate remain observations, but lose confirmatory authority.
 
-## 3. Compact scientific ledger
+## 3. Compact ledger
 
-| Stage | Result | Experimental meaning |
+| Stage | Audited experimental result | Meaning |
 |---|---|---|
-| RNN-08/09 | tested TPTT configuration `PARKED` | after state-lifecycle correction, tested TPTT+LoRA regressed vs LoRA and cost more; not a universal TPTT falsification |
-| RNN-04 | exploratory MC positive under co-training | first signal, later narrowed because the substrate/conditioning did not prove post-hoc utility |
-| RNN-05A | frozen LA post-hoc MC `NEGATIVE / NO_EFFECT` | historical memory is not a free attach-on for this additive substrate |
-| RNN-05B | co-adaptation interaction `SUPPORTED` | train/inference memory-mode alignment matters strongly in DN/GDN |
-| RNN-05B-EXT | `BLOCKED_BY_UNSTABLE_BASE` | per-condition training conflated forgetting with training/basin instability |
-| RNN-05B-EXT2 | fixed-backbone graded region `BLOCKED` | synthetic recipe stayed flat-high; no MC run; no EXT3 |
-| RNN-06-P0 | Mamba graded band `PLAUSIBLE` exploratory | real recurrent LM showed a useful forgetting curve; P co-varied with length/gap |
-| RNN-06A | strict lifecycle `NOT_QUALIFIED` | full-vs-segmented numerical differences and prereg deviations preserved |
-| RNN-06A2 | continuation lifecycle `QUALIFIED` | exact pinned Transformers-native Mamba continuation/checkpoint contract passed |
-| RNN-06B | original causal contract `BLOCKED` | same-space competition not needed; length vs general binding load unresolved |
-| RNN-06B2 | fixed-length graded contract `BLOCKED` | strong state-load signal, but order churn/full-packing confounds found |
-| RNN-06B3 | controlled unique-binding-load forgetting `QUALIFIED` | length, gap, binding order and full-packing confounds controlled; robust loss |
-| RNN-06C | historical-state information `QUALIFIED (presence)` | same-aged repeated-sentinel branch retains access while high unique load loses it |
+| RNN-08/09 | tested TPTT configuration `PARKED` | corrected lifecycle, then tested TPTT+LoRA regressed vs LoRA; not a universal TPTT falsification |
+| RNN-04 | exploratory co-trained MC signal | first historical-memory signal, but not frozen/post-hoc proof |
+| RNN-05A | frozen LA post-hoc MC `NO_EFFECT / NEGATIVE` | historical memory was not a free attach-on in that substrate |
+| RNN-05B | co-adaptation interaction `SUPPORTED` | train/inference memory-mode alignment matters in DN/GDN |
+| RNN-05B-EXT | `BLOCKED_BY_UNSTABLE_BASE` | per-condition training conflated forgetting with optimization instability |
+| RNN-05B-EXT2 | fixed-backbone graded region `BLOCKED` | no qualified forgetting region; no MC; no EXT3 |
+| RNN-06-P0 | Mamba graded band `PLAUSIBLE` exploratory | motivated real recurrent-LM path |
+| RNN-06A | strict lifecycle `NOT_QUALIFIED` | numerical path divergence + prereg mismatch preserved |
+| RNN-06A2 | continuation lifecycle `QUALIFIED` | exact pinned Transformers-native continuation/checkpoint contract passed |
+| RNN-06B | original causal contract `BLOCKED` | same-space competition unsupported; length vs general load unresolved |
+| RNN-06B2 | fixed-length state-load contract `BLOCKED` | order/full-packing confounds found |
+| RNN-06B3 | controlled unique-binding-load forgetting `QUALIFIED` | fixed length/gap/order with robust load-dependent loss |
+| RNN-06C | historical-state information `QUALIFIED (PRESENCE)` | earlier state remains behaviorally informative after final-state loss |
 | RNN-06D0 | recovery ceiling `QUALIFIED` | scheduled historical pool contains large recoverable signal |
-| RNN-06D1 | prereg gate `QUALIFIED_PARAMETER_FREE` | parameter-free historical recovery strongly positive on exact synthetic Mamba substrate |
-| RNN-06D audit refinement | adaptive selector incremental value `OPEN` | a fixed slot already captures most of the gain in the narrow target band |
-| RNN-06T | handoff claimed official Mamba transport qualification | official fast path and real in-run capture observed |
-| **RNN-06T independent audit** | **`ACCEPTED_AS_EXPLORATORY_WITH_MAJOR_GATE_RECONCILIATION`** | strict T0 prereg was not satisfied; 3A/3B/economics/scout are exploratory non-load-bearing |
-| RNN-06T2 | **in progress / no result published yet** | fresh prospective fixed-batch lifecycle requalification + recovery confirmation |
+| RNN-06D1 | parameter-free recovery gate `QUALIFIED` | target-agnostic historical recovery strongly positive on exact synthetic substrate |
+| RNN-06D audit | adaptive increment in narrow band `OPEN` | a strong fixed state captured most of the gain |
+| RNN-06T | official fast path + real in-run capture observed | strict lifecycle prereg still failed; downstream downgraded exploratory |
+| **RNN-06T2** | **`ACCEPTED_WITH_ECONOMICS_RECONCILIATION`** | prospective fixed-batch lifecycle and wide adaptive recovery qualify; economics mint has a semantic false-green |
 
-## 4. Results that are currently load-bearing inside the experimental lineage
+## 4. Controlled forgetting and historical information
 
-### 4.1 State ownership is part of recurrent-model semantics
+### RNN-06B3 — controlled unique-binding load
 
-The original TPTT shared-state incident demonstrated that independent examples can contaminate one another when recurrent state is not explicitly sequence-owned. This later became request/branch isolation and temporal-identity testing.
-
-### 4.2 Historical-memory mechanisms exhibit co-adaptation
-
-RNN-05B's 2×2 train/inference comparison produced large interaction effects for non-additive recurrent substrates. The result supports the research hypothesis that a learned interface to historical state may be necessary when simple post-hoc aggregation fails.
-
-This supports studying trained historical retrieval (for example DART-like mechanisms) **only if** simpler recovery leaves a meaningful oracle gap. It does not authorize such a mechanism yet.
-
-### 4.3 Controlled unique-binding load causes retrieval loss on the exact frozen Mamba subject
-
-RNN-06B3 removed the major B2 confounds:
-
-- fixed total token length;
-- fixed target→query gap;
-- permanent ordinal→slot→binding mapping;
-- positive sentinel reserve at every dose;
-- same frozen checkpoint/backend.
-
-Observed DS constrained accuracy:
+On the exact frozen Mamba subject, with total length, target→query gap, binding order and packing confounds controlled, DS constrained accuracy declined:
 
 ```text
 U=1     0.990
@@ -104,87 +85,53 @@ U=152   0.568
 U=176   0.573
 ```
 
-Paired U1→U176 loss was approximately `0.417`, with reported 95% interval `[0.349, 0.490]` and robustness across all three preregistered example strata.
+Paired U1→U176 loss ≈ `0.417`, reported 95% interval `[0.349, 0.490]`.
 
 Correct scope:
 
 `GENERAL_UNIQUE_BINDING_STATE_LOAD_EFFECT = QUALIFIED`
 
-The stronger mechanism label “literal recurrent-state capacity saturation” remains a supported hypothesis rather than a separately identified causal mechanism.
+Literal recurrent-state capacity saturation remains a mechanistic hypothesis rather than a separately isolated cause.
 
-### 4.4 Historical state retains behaviorally accessible information
+### RNN-06C — information presence
 
-RNN-06C compared three branches:
-
-- `H`: historical-direct state near target write;
-- `N`: same-aged repeated-sentinel continuation;
-- `L`: same-aged high unique-binding-load continuation.
-
-Observed:
+Same-aged branches:
 
 | Condition | Accuracy |
 |---|---:|
-| H | 163/192 = 0.849 |
-| N | 192/192 = 1.000 |
-| L | 105/192 = 0.547 |
+| historical-direct | 0.849 |
+| repeated-sentinel aged control | 1.000 |
+| high unique-load | 0.547 |
 
-Primary paired `N-L = 0.453125`, reported interval `[0.385, 0.526]`, with `87` N-correct→L-wrong transitions and `0` in the reverse direction.
-
-Correct scope:
+Primary `N-L = 0.453125`, reported interval `[0.385, 0.526]`, with 87 N-correct→L-wrong transitions and 0 reverse.
 
 `HISTORICAL_STATE_INFORMATION = QUALIFIED (PRESENCE)`
 
-The repeated-sentinel arm is a matched same-aged control, **not** a universally neutral state transformation.
+The sentinel arm is a matched control, not a universally neutral transform.
 
-### 4.5 Historical-state recovery is strongly supported on the exact synthetic Mamba-06D substrate
+## 5. RNN-06D — recovery on the synthetic Transformers-native Mamba substrate
 
-RNN-06D raw readouts independently reproduced:
-
-```text
-FINAL                 25/192 = 0.1302
-fixed slot 38                    0.4896
-fixed slot 76                    0.7708
-fixed slot 115                   0.4583
-fixed slot 153                   0.2865
-ORACLE_BEST           174/192 = 0.9063
-MAX_CONFIDENCE        160/192 = 0.8333
-```
-
-For `MAX_CONFIDENCE`:
+Independent recomputation from raw arrays:
 
 ```text
-delta vs FINAL = +0.7031
-recovered      = 135
-harmed         = 0
+FINAL            0.1302
+fixed slot76     0.7708
+ORACLE_BEST      0.9063
+MAX_CONFIDENCE   0.8333
 ```
 
-Independent audit added the missing fixed-state control:
+MAX_CONFIDENCE recovered 135 examples and harmed 0 relative to FINAL.
+
+A missing fixed-state audit control showed that slot76 alone already supplied `+0.6406`, so the narrow-band result supports historical-state utility much more strongly than adaptive-selector incremental value.
 
 ```text
-ALWAYS_SLOT_76
-accuracy       = 0.7708
-delta vs FINAL = +0.6406
-recovered      = 123
-harmed         = 0
+PARAMETER_FREE_HISTORICAL_RECOVERY_EXISTS = SUPPORTED_STRONGLY
+ADAPTIVE_SELECTION_INCREMENTAL_VALUE_06D = OPEN
 ```
 
-Therefore:
+## 6. RNN-06T — transport attempt and audit downgrade
 
-```text
-PARAMETER_FREE_HISTORICAL_RECOVERY_EXISTS
-= SUPPORTED_STRONGLY
-
-ADAPTIVE_SELECTION_CAUSAL_ADVANTAGE_OVER_BEST_FIXED_CHECKPOINT
-= NOT_YET_QUALIFIED
-```
-
-The narrow-band experiment used a known target-position distribution, so general unknown-position recovery remains open.
-
-## 5. RNN-06T: official Mamba transportability — preserved result plus audit reconciliation
-
-### 5.1 Strong positive observations
-
-The train pinned the official subject:
+Official subject:
 
 ```text
 state-spaces/mamba2-1.3b
@@ -197,75 +144,123 @@ bf16
 RTX 3090
 ```
 
-The audit accepts:
+Accepted observations:
 
 ```text
-OFFICIAL_MAMBA_FASTPATH
-= RUNNABLE_SUPPORTED
-
-SINGLE_PASS_HISTORICAL_CAPTURE
-= SUPPORTED_STRONGLY
+OFFICIAL_MAMBA_FASTPATH = RUNNABLE_SUPPORTED
+SINGLE_PASS_HISTORICAL_CAPTURE = SUPPORTED_STRONGLY
 ```
 
-The single-pass path captured actual intermediate recurrent states from one canonical trajectory and replayed matching boundary hashes.
-
-### 5.2 Major gate reconciliation
-
-The frozen T0 preregistration required, among other properties:
-
-- D: run-alone comparison under `TOL_BATCH=0.03`;
-- G: row vs batch-1 equivalence.
-
-The first executed comparison observed:
-
-```text
-batch1 vs batch6 max_abs_diff = 0.5
-TOL_BATCH = 0.03
-```
-
-After this outcome, the runner changed D/G to a fixed-batch neighbor-isolation contract and later minted lifecycle `QUALIFIED`.
-
-The audit classifies this as a post-outcome change to a load-bearing gate. It additionally found incomplete execution of preregistered branch/fork, reset/reuse and serialization-continuation checks.
+But the frozen T0 prereg required run-alone/batch1 comparisons under `TOL_BATCH=0.03`; an observed batch-shape difference `0.5` was followed by a test rewrite. Additional branch/reset/serialization checks were incomplete.
 
 Therefore:
 
 ```text
-OFFICIAL_MAMBA_LIFECYCLE_STRICT_PREREG
-= NOT_QUALIFIED
-
-PROTOCOL_GATE_ORDERING
-= FAILED
+OFFICIAL_MAMBA_LIFECYCLE_STRICT_PREREG = NOT_QUALIFIED
+PROTOCOL_GATE_ORDERING = FAILED
+RNN-06T downstream = EXPLORATORY_NON_LOAD_BEARING
 ```
 
-The train protocol required lifecycle qualification before 3A/3B. Downstream observations are preserved, but their evidence class is downgraded:
+This failure is preserved permanently; RNN-06T2 is a new prospective contract, not a rewrite of RNN-06T.
+
+## 7. RNN-06T2 — prospective requalification and confirmation
+
+Independent audit: [`2026-08-12/RNN-06T2-AUDIT-RECONCILIATION.md`](2026-08-12/RNN-06T2-AUDIT-RECONCILIATION.md).
+
+### 7.1 Lifecycle
+
+The new protocol prospectively separates fixed-batch request isolation from batch-shape numerical portability.
 
 ```text
-HISTORICAL_RECOVERY_TRANSPORT_3A
-= EXPLORATORY_STRONG_POSITIVE
-
-ADAPTIVE_SELECTOR_ADVANTAGE_3A
-= EXPLORATORY_DIRECTIONAL
-
-WIDE_TARGET_RECOVERY_3B
-= EXPLORATORY_STRONG_POSITIVE
-
-ADAPTIVE_SELECTION_3B
-= EXPLORATORY_STRONG_POSITIVE
-
-END_TO_END_RECOVERY_UTILITY
-= NOT_QUALIFIED_AS_APPLES_TO_APPLES
-
-NL_NEEDLE_SCOUT
-= EXPLORATORY_NO_SIGNAL
+OFFICIAL_MAMBA_FIXED_BATCH_LIFECYCLE = QUALIFIED
+BATCH_SHAPE_NUMERICAL_PORTABILITY = OUT_OF_SCOPE_NOT_QUALIFIED
+SINGLE_PASS_HISTORICAL_CAPTURE_T0R = QUALIFIED
 ```
 
-### 5.3 Why the 3B observation remains scientifically interesting
+The fixed-batch runner repairs the old false greens with substantive branch/fork, reset→reuse, serialization→restore→continue and temporal-boundary replay checks. Five of five captured historical boundaries match independent same-path replay; zero boundary failures.
 
-The wide-target band `[8,144]` uses schedule `[38,76,115,153]`.
+Batch1-vs-batchB `max_abs_diff=0.5` remains negative evidence and is not called benign.
 
-A previous narrative said no fixed snapshot had observed every target. That is false: slot `153` is after every allowed target.
+### 7.2 Narrow recovery
 
-The better mechanistic interpretation is:
+Independent raw-readout reproduction:
+
+```text
+FINAL             0.161458
+fixed slot76      0.734375
+MAX_CONFIDENCE    0.838542
+```
+
+Fixed76 vs FINAL:
+
+```text
+delta = +0.572917
+95% CI = [0.505208, 0.645833]
+recovered = 112
+harmed = 2
+net = 110
+positive strata = 4/4
+```
+
+MAX_CONFIDENCE vs fixed76:
+
+```text
+delta = +0.104167
+95% CI = [0.046875, 0.161458]
+positive strata = 2/4
+```
+
+Therefore:
+
+```text
+HISTORICAL_RECOVERY_NARROW = QUALIFIED
+ADAPTIVE_SELECTION_NARROW = DIRECTIONAL
+```
+
+### 7.3 Wide-target adaptive recovery
+
+Fresh calibration prospectively carried only slot153 as strongest fixed control under the frozen tie policy.
+
+Independent qualification reproduction:
+
+```text
+FINAL             0.270833
+slot38            0.218750
+slot76            0.369792
+slot115           0.442708
+slot153           0.500000
+MAX_CONFIDENCE    0.812500
+```
+
+MAX_CONFIDENCE vs FINAL:
+
+```text
+delta = +0.541667
+95% CI = [0.473828, 0.609375]
+recovered = 106
+harmed = 2
+net = 104
+positive strata = 4/4
+```
+
+MAX_CONFIDENCE vs preregistered strongest fixed state slot153:
+
+```text
+delta = +0.312500
+95% CI = [0.239583, 0.375130]
+positive strata = 3/4
+```
+
+Therefore:
+
+```text
+WIDE_TARGET_RECOVERY_T1R = QUALIFIED
+ADAPTIVE_SELECTION_T1R = QUALIFIED
+```
+
+This is confirmatory evidence for the frozen target-agnostic confidence selector **only in the exact wide synthetic forgetting regime**.
+
+The supported temporal interpretation is:
 
 ```text
 NOT_YET_WRITTEN
@@ -275,107 +270,99 @@ SEEN_AND_RETAINED
 ALREADY_FORGOTTEN
 ```
 
-A confidence selector may be locating a temporal state inside the “seen and retained” window. The observation is strong enough to motivate fresh confirmation but not strong enough to bypass the failed upstream lifecycle gate.
+### 7.4 Provenance caveats
 
-## 6. Memory Caching status after the current evidence
+- T1R had a post-outcome instrumentation rerun on the same qualification set. The final source conforms to the frozen scientific computation and results remain far from thresholds, so the audit accepts it with a provenance caveat; future outcome-exposed source changes must package the exact diff.
+- T1R `runId` hashes too short a common prefix, causing a display-ID collision between distinct sets. State/result hashes are unaffected, but `RUN_ID_CANONICAL_UNIQUENESS = NOT_QUALIFIED`.
+- same-process lifecycle replay is bit-exact; cross-process bf16 output is not proven bit-exact.
 
-Keep two separate ledger entries:
+## 8. Economics false-green
 
-```text
-SYNTHETIC_DENSE_POST_HOC_MEMORY_CACHING_RECIPE
-= PARKED
-```
+The RNN-06T2 handoff minted:
 
-and:
+`END_TO_END_RECOVERY_UTILITY_T1R = QUALIFIED`
 
-```text
-HISTORICAL_RECURRENT_STATE_AS_MEMORY
-= REOPENED_AT_RECOVERY_LAYER
-```
+The independent audit rejects this mint.
 
-The former is a specific failed/blocked recipe. The latter is a research family now supported by controlled forgetting, information presence and strong historical-recovery observations.
+`FINAL_FUSED` and `FINAL_STEP` return scored token IDs, while `RECOVERY_ENABLED` returns the selected scored-vocabulary **column index** rather than mapping it back through the value-token set.
 
-Do **not** publish the phrase “Memory Caching works” as a scientific conclusion.
+The frozen protocol says mismatched answer domains make the comparison `NOT_COMPARABLE`.
 
-## 7. Research alternatives
-
-Current research-only branches:
-
-| Branch | Status | Trigger |
-|---|---|---|
-| DART-like trained state-memory attention | CONDITIONAL | oracle ceiling high, simple target-agnostic selector leaves material gap |
-| StateX-like current-state expansion | ALTERNATIVE | historical snapshot recovery has low ceiling or poor economics |
-| Gated DeltaNet-2 | WATCH / ALTERNATIVE | erase/write dynamics become the causal target |
-| Sparse Delta Memory | WATCH | explicit capacity expansion warrants higher implementation/training cost |
-| INT8 recurrent archive / ReplaySSM | DEFER | semantic utility first, systems economics second |
-| Qwen3.5-0.8B GDN/hybrid transfer | DEFER | requires accepted Mamba transportability and lifecycle semantics first |
-| Qwen3.6-35B-A3B deployment-family target | DEFER | later validation target only |
-
-## 8. Methodological rules retained from this program
-
-1. Recurrent state ownership is model semantics.
-2. A cache API is not checkpoint/restore qualification.
-3. Complete state includes every state family required by the declared continuation contract.
-4. Snapshot bytes must be bound to the exact temporal boundary they claim to represent.
-5. Backend/kernel/dtype/chunk semantics are part of execution identity.
-6. A feature configured but not exercised is not evidence about that feature.
-7. Structural lifecycle invariants are independent of quality accuracy.
-8. Calibration and qualification identities remain separate.
-9. Negative evidence is append-only.
-10. A failed preregistered gate cannot be made green by rewriting the test after observing the failure.
-11. Downstream outcomes behind a failed hard gate may remain useful observations, but their authority is downgraded.
-12. Target-aware/gold-aware selectors are diagnostic ceilings, not deployment evidence.
-13. Quality utility and end-to-end systems utility are separate gates.
-
-## 9. Current frontier
-
-The immediate in-flight packet is `RNN-06T2`:
+Correct ledger:
 
 ```text
-T0R
-fresh fixed-batch lifecycle requalification
-        ↓ hard gate
-T1R
-fresh recovery confirmation
-+ corrected apples-to-apples economics
+END_TO_END_RECOVERY_UTILITY_T1R_HISTORICAL_MINT = RECONCILED_FALSE_GREEN
+END_TO_END_RECOVERY_UTILITY_T1R = NOT_COMPARABLE
+MARGINAL_STEP_PATH_TIMING_SIGNAL = POSITIVE_NON_LOAD_BEARING
+GENERAL_END_TO_END_DEPLOYMENT_UTILITY = OPEN
 ```
 
-Until independent audit accepts T0R/T1R:
+The timing samples remain useful observations, but they do not currently mint economic qualification.
+
+A small economics-only closure is required; lifecycle and recovery must not be rerun for this defect.
+
+## 9. Memory Caching terminology
+
+Keep separate:
 
 ```text
-OFFICIAL_MAMBA_TRANSPORTABILITY
-= OPEN / NOT CONFIRMATORILY CLOSED
-
-REALISTIC_LONG_CONTEXT_OPERATING_POINT
-= NOT YET AUTHORIZED
-
-QWEN_TRANSFER
-= DEFER
+SYNTHETIC_DENSE_POST_HOC_MEMORY_CACHING_RECIPE = PARKED
 ```
 
-## 10. Source identities
+from:
 
-This publication was derived from locally materialized research/audit artifacts. Exact source hashes are preserved in `DOCUMENT_MANIFEST.json`.
+```text
+HISTORICAL_RECURRENT_STATE_AS_MEMORY = SUPPORTED_STRONGLY_IN_CONTROLLED_SYNTHETIC_REGIME
+TARGET_AGNOSTIC_ADAPTIVE_TEMPORAL_STATE_SELECTION = QUALIFIED_IN_WIDE_SYNTHETIC_REGIME
+```
 
-Key audit bundle identities:
+Do not publish the broad sentence “Memory Caching works.”
 
-- RNN-06D audit bundle SHA-256: `9bd4df8a1f4a63b532f923e50b28deb55b25894978912f603caa3745e26b8a75`
-- RNN-06T audit bundle SHA-256: `cf4ecc0b02452dbba6e184b067f61003553139e8e06d99148b82ae85a134d370`
-- RNN-06T implementer handoff SHA-256: `fed83cd4b07a6efdcc45c75a0fe8033527def614c08709429352cf3cea8c206b`
-- independent RNN-06T audit SHA-256: `4c0e8fdd362bd1250dcedd2b9df50519f1cd06d682a1e5d6a74bfb89c3f4623c`
+Natural-workload generalization, production economics, batch-shape portability and Qwen transfer are still unproven.
 
-Raw ZIP bundles are **not** copied into this public research publication by default; the digests and derived audit artifacts preserve identity while avoiding accidental publication of incidental workstation evidence.
+## 10. Current frontier
 
-## 11. Publication boundary
+The lifecycle/recovery dependency is now clean enough to leave the synthetic operating point.
 
-This document is an `EXPERIMENTAL` research record.
+Authorized next research train:
 
-It may influence later findings, research pointers, proposals and experimental design.
+```text
+RNN-06T2-E1
+small economics semantic closure
+        +
+RNN-07A
+realistic long-context operating-point discovery
+```
+
+RNN-07A is a discovery stage, not confirmation. If it finds a credible natural operating point, a fresh RNN-07B must prospectively confirm it.
+
+```text
+REALISTIC_WORKLOAD_DISCOVERY = AUTHORIZED
+REALISTIC_NATURAL_WORKLOAD_GENERALIZATION = NOT_TESTED
+QWEN_TRANSFER = DEFER
+```
+
+## 11. Experimental identities
+
+- RNN-06T2 T0R set: `ca92cfad0d0aac4ae20aa8612f259c559ad592415a71797561b3e5909103cafe`
+- narrow qualification: `34d276ced58eddd34332ad3a17ea658edc488b8f9896fb3e1635c200b73316cc`
+- wide calibration: `dc4010f15f0d56228693d3fefea92b8dadf8ddd24e245eef285fb31d37e18614`
+- wide qualification: `97f303a2573cd07716054752fb4529e2ceabf69582a971f214c250082ddeab3f`
+- RNN-06T2 audit bundle: `52fcf4d00430bb8b24da3c2cfd8b5a4c1c2473c701b2939acbd0f633e4a35426`
+- external handoff: `d6d409f7f1a7db00f01af9f6b005d467487969f4a2a94dc2ae9ba464b59cbc53`
+- independent audit: `72fab88e53391692e80803e0bddb8fecde85c309f7d02f33560e9d001aa69b48`
+
+Raw workstation audit ZIPs are not published into this public research tree by default; exact digests and derived audit evidence are retained.
+
+## 12. Publication boundary
+
+This is an `EXPERIMENTAL` research record.
 
 It does not:
 
-- promote historical-state recovery into tare.tools architecture;
+- mint tare.tools canonical CURRENT/TARGET;
 - establish a production memory subsystem;
 - authorize Qwen work;
 - override the local experiment repo/Git;
-- replace the original preregistrations, raw results or independent audit bundles.
+- replace original preregistrations or raw results;
+- turn discovery pointers into implementation backlog without a separate promotion path.
