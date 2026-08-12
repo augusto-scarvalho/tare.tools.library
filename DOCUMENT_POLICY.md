@@ -1,55 +1,27 @@
-# Document Policy
+# Document Policy — Semantic Preservation Epoch v2
 
-## 1. Purpose
+## Goal
 
-Define deterministic rules for document identity, status, routing, provenance, lineage and promotion boundaries.
+Keep HEAD as the best **study surface**, not the smallest possible tree and not an archaeological warehouse.
 
-## 2. Precedence
+## Admission test
 
-```text
-Git / source / canonical architecture / ADR / SPEC / BDD / gates
-    > canonical summaries
-    > findings
-    > proposals
-    > research
-    > historical chat summaries
-```
+A document remains live when at least one is true:
 
-## 3. Status semantics
+1. it answers a distinct research question at useful depth;
+2. it preserves experiment evidence or negative results that should remain directly inspectable;
+3. it contains a problem-specific technical proposal whose contracts/BDD/fault model remain useful;
+4. it is a synthesis that materially improves navigation without replacing deeper material;
+5. it is a provenance/curation record needed to understand what was absorbed or retired.
 
-| Status | Meaning | Default repository |
-|---|---|---|
-| RESEARCH | evidence/hypothesis/investigation | tare.tools.research |
-| PROPOSED | proposal not ratified | tare.tools.research |
-| EXPERIMENTAL | experimental protocol/result | tare.tools.research |
-| HISTORICAL | immutable historical evidence | tare.tools.research |
-| TARGET | ratified desired architecture | tare-tools only |
-| CURRENT | proven implementation/state | tare-tools/Git/evidence |
+## Default retirements
 
-The research repository may **quote/reference** CURRENT/TARGET, but does not mint them.
+Mechanical translations, format-only renderings, raw chat dumps, exact repository snapshots, source bundles, generated QA/index duplicates, stale backlog rounds and generic implementation-delta boilerplate are HISTORY ONLY unless an explicit exception is recorded.
 
-## 4. Deterministic routing
+## Supersession rule
 
-- `document_type=research` → `research/<primary-context>/...`
-- `document_type=proposal` → `proposals/<primary-context>/...`
-- `document_type=experiment` → `experiments/<primary-context>/...`
-- `document_type=archaeology|handoff` → `archaeology/...`
-- `document_type=source` → `sources/...`
-- `status=TARGET|CURRENT` with destination `tare.tools.research` → DENY.
-- canonical types (`adr`, `spec`, `bdd`, `implementation_packet`) → require promotion flow and canonical repository.
+`newer` does not imply `better`. A document can be retired only after its unique claims, evidence, contradictions, experiments and open questions are mapped to a successor or intentionally classified as obsolete.
 
-LLMs may propose metadata; the validator/router owns routing decisions.
+## Historical recovery
 
-## 5. Originals
-
-Files under `corpus/original/` are immutable evidence. Corrections create a new file/version; they never silently replace the original.
-
-## 6. Lineage
-
-Every substantial derived document SHOULD record `supersedes`, `superseded_by`, and/or `derived_from` where known.
-
-## 7. Promotion
-
-Publication != ratification.
-
-Research promotion requires a separate Promotion Packet with canonical references, decision authority and required assurance. The publisher implemented here intentionally does not auto-promote.
+The pre-curation main is anchored at `7ad1a71ebbad99e69bd6ba97b2ed29d78faf08de`; older bootstrap history remains reachable through Git/tag ancestry. Do not duplicate raw historical bytes into `/archive` merely for reassurance.
