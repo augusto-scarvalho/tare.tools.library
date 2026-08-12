@@ -2,7 +2,7 @@
 
 > Canonical human projection of `RESEARCH_POINTERS.jsonl`. Research pointers are research-only continuity objects, not CURRENT gaps, TARGET decisions, roadmap commitments, or implementation authorization.
 
-Total pointers: **115**
+Total pointers: **117**
 
 ## Lifecycle
 
@@ -13,21 +13,21 @@ Side exits: `DORMANT · DUPLICATE · SUBSUMED · REJECTED · INCONCLUSIVE · RES
 ## Status summary
 
 - `NORMALIZED`: 53
-- `TRIAGED`: 62
+- `TRIAGED`: 64
 
 ## Radar projection summary
 
 - `EXPERIMENT`: 12
 - `EXPLORE`: 10
 - `INVESTIGATE`: 3
-- `WATCH`: 90
+- `WATCH`: 92
 
 ## By cluster
 
 - [Agent OS Foundations](clusters/agent-os-foundations.md) — 4
 - [Assurance, Audit & Evaluator Metrology](clusters/assurance-audit-metrology.md) — 11
 - [Context, Memory & Project Understanding](clusters/context-memory-project.md) — 9
-- [Cross-disciplinary Research Bridges](clusters/cross-disciplinary-bridges.md) — 6
+- [Cross-disciplinary Research Bridges](clusters/cross-disciplinary-bridges.md) — 8
 - [UX / Experience Plane](clusters/experience-ux.md) — 14
 - [Governance & Constitutional Questions](clusters/governance-constitutional.md) — 6
 - [Local Models & Empirical Harness Evaluation](clusters/local-models-evaluation.md) — 3
@@ -74,6 +74,7 @@ Side exits: `DORMANT · DUPLICATE · SUBSUMED · REJECTED · INCONCLUSIVE · RES
 | `TRIAGED` | `WATCH` | [rp-12202811fa — CiTO/DataCite/PROV mapping](pointers/rp-12202811fa-cito-datacite-prov-mapping.md) | research-knowledge-substrate | 1 |
 | `NORMALIZED` | `EXPLORE` | [rp-d82c263ccd — Claim normalization and semantic equivalence without collapsing nuance](pointers/rp-d82c263ccd-claim-normalization-and-semantic-equivalence-without-collapsing-nuance.md) | research-knowledge-substrate | 1 |
 | `TRIAGED` | `WATCH` | [rp-f3f8903e8d — claim-to-code/SWHID traceability](pointers/rp-f3f8903e8d-claim-to-code-swhid-traceability.md) | research-knowledge-substrate | 1 |
+| `TRIAGED` | `WATCH` | [rp-75722e66e7 — CMRP compute-matched qualification](pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md) | cross-disciplinary-bridges | 1 |
 | `TRIAGED` | `EXPERIMENT` | [rp-4f059076aa — Community Lab / distributed falsification](pointers/rp-4f059076aa-community-lab-distributed-falsification.md) | assurance-audit-metrology | 1 |
 | `TRIAGED` | `WATCH` | [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md) | cross-disciplinary-bridges | 1 |
 | `TRIAGED` | `WATCH` | [rp-75654b67df — Constitutional governance](pointers/rp-75654b67df-constitutional-governance.md) | governance-constitutional | 1 |
@@ -144,6 +145,7 @@ Side exits: `DORMANT · DUPLICATE · SUBSUMED · REJECTED · INCONCLUSIVE · RES
 | `NORMALIZED` | `WATCH` | [rp-f7cf098056 — Project/system inventory + ownership semantics](pointers/rp-f7cf098056-project-system-inventory-ownership-semantics.md) | agent-os-foundations | 1 |
 | `NORMALIZED` | `WATCH` | [rp-ea10a8e979 — research claim graph](pointers/rp-ea10a8e979-research-claim-graph.md) | research-methodology-evidence | 1 |
 | `NORMALIZED` | `EXPLORE` | [rp-e72f1d330f — Research curation economics and Value of Information](pointers/rp-e72f1d330f-research-curation-economics-and-value-of-information.md) | research-knowledge-substrate | 1 |
+| `TRIAGED` | `WATCH` | [rp-b10025888f — Research-role context isolation and cross-disciplinary review science](pointers/rp-b10025888f-research-role-context-isolation-and-cross-disciplinary-review-science.md) | cross-disciplinary-bridges | 1 |
 | `NORMALIZED` | `EXPLORE` | [rp-c9b7e486e6 — Research-to-code traceability using Git/SWHIDs](pointers/rp-c9b7e486e6-research-to-code-traceability-using-git-swhids.md) | research-knowledge-substrate | 1 |
 | `TRIAGED` | `WATCH` | [rp-67ffda4f6d — Resource governance and scheduling](pointers/rp-67ffda4f6d-resource-governance-and-scheduling.md) | routing-reputation-economics | 1 |
 | `NORMALIZED` | `EXPLORE` | [rp-5881df7203 — Retraction/correction watchers and downstream impact propagation](pointers/rp-5881df7203-retraction-correction-watchers-and-downstream-impact-propagation.md) | research-knowledge-substrate | 1 |

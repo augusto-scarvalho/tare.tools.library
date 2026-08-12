@@ -54,7 +54,7 @@ Count: **10**
 
 ## WATCH
 
-Count: **90**
+Count: **92**
 
 - [rp-6a3a4ebbb2 — active curation / Value of Information](pointers/rp-6a3a4ebbb2-active-curation-value-of-information.md)
 - [rp-08d8e2af92 — architecture-epoch representation](pointers/rp-08d8e2af92-architecture-epoch-representation.md)
@@ -73,6 +73,7 @@ Count: **90**
 - [rp-053538833b — Causal workflow learning](pointers/rp-053538833b-causal-workflow-learning.md)
 - [rp-12202811fa — CiTO/DataCite/PROV mapping](pointers/rp-12202811fa-cito-datacite-prov-mapping.md)
 - [rp-f3f8903e8d — claim-to-code/SWHID traceability](pointers/rp-f3f8903e8d-claim-to-code-swhid-traceability.md)
+- [rp-75722e66e7 — CMRP compute-matched qualification](pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md)
 - [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md)
 - [rp-75654b67df — Constitutional governance](pointers/rp-75654b67df-constitutional-governance.md)
 - [rp-f24a4b53da — constitutional/root change process](pointers/rp-f24a4b53da-constitutional-root-change-process.md)
@@ -126,6 +127,7 @@ Count: **90**
 - [rp-8f7470b94a — Project Model / SpecGraph as planning substrate](pointers/rp-8f7470b94a-project-model-specgraph-as-planning-substrate.md)
 - [rp-f7cf098056 — Project/system inventory + ownership semantics](pointers/rp-f7cf098056-project-system-inventory-ownership-semantics.md)
 - [rp-ea10a8e979 — research claim graph](pointers/rp-ea10a8e979-research-claim-graph.md)
+- [rp-b10025888f — Research-role context isolation and cross-disciplinary review science](pointers/rp-b10025888f-research-role-context-isolation-and-cross-disciplinary-review-science.md)
 - [rp-67ffda4f6d — Resource governance and scheduling](pointers/rp-67ffda4f6d-resource-governance-and-scheduling.md)
 - [rp-cc1a52b33e — retraction/correction watchers with downstream impact propagation](pointers/rp-cc1a52b33e-retraction-correction-watchers-with-downstream-impact-propagation.md)
 - [rp-e5e51397a8 — Robust repeated-measures experimentation](pointers/rp-e5e51397a8-robust-repeated-measures-experimentation.md)

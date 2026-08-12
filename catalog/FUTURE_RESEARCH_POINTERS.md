@@ -102,3 +102,8 @@ When a pointer is reopened: (1) locate the historical source/lineage; (2) identi
 - retraction/correction watchers with downstream impact propagation;
 - human cognitive interoperability for research graphs;
 - calibrated LLM-assisted curation.
+
+## 11. Research workflow methodology
+
+- **CMRP compute-matched qualification** — compare single-pass, generic iterative refinement, same-model cyclic roles, isolated same-model agents, heterogeneous agents and human/independent review on stratified Research Frontier tasks; measure contradiction recall, false-correction, unsupported claims and cost-to-trust.
+- **Research-role context isolation and cross-disciplinary review science** — test shared-context vs fresh-context/artifact-only role passes and extend the evidence base with peer-review, Delphi, team cognition, red-team and scientific reproducibility literature before claiming broad methodological validity.

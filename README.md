@@ -10,7 +10,7 @@ English overview: **[README.en.md](README.en.md)**.
 
 ## Comece aqui
 
-- **[Research Frontier Registry](frontier/FRONTIER_INDEX.md)** — 115 ponteiros normalizados de pesquisa, com origem, lifecycle, clusters e radar experimental sem autoridade de roadmap.
+- **[Research Frontier Registry](frontier/FRONTIER_INDEX.md)** — 117 ponteiros normalizados de pesquisa, com origem, lifecycle, clusters e radar experimental sem autoridade de roadmap.
 - **[Research Frontier — HTML](frontier/RESEARCH_FRONTIER.html)** — visão móvel/navegável da fronteira de pesquisa.
 - **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 originals de chat, 93 cópias exatas do snapshot privado e 60 referências File Library, com origem/authority explícitas.
 - **[Índice dos originals de chat materializados](catalog/DOCUMENT_INDEX.md)** — navegação PT-BR | EN por documento e por tema.
@@ -40,6 +40,10 @@ English overview: **[README.en.md](README.en.md)**.
 Foram materializados **11 documentos** do corpus de chat nesta árvore. O baseline histórico privado acrescenta **93 cópias exatas de `docs/research/`**, mantidas em um namespace separado para não confundir origem. Veja [`ALL_DOCUMENTS_INDEX.md`](catalog/ALL_DOCUMENTS_INDEX.md).
 
 No corpus principal, foram materializados **11 documentos** nesta árvore. Os originals PT-BR ficam em `corpus/original/`; versões EN derivadas ficam em `corpus/translations/en/`. Tradução EN disponível: **11/11**. Há **60 referências File Library** registradas; **60** ainda aguardam materialização exata, sem reconstrução a partir de snippets.
+
+## Research methodology experiments
+
+- **[Cyclic Multi-Role Research Protocol](research/01_methodology-research-program/cyclic-multi-role-research-protocol/)** — first self-applied same-model cyclic research run; experimental/shadow use only, explicit `NOT_INDEPENDENT` assurance class.
 
 ## Status permitidos
 
