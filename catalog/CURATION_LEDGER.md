@@ -17,7 +17,7 @@ V1 successfully removed mechanical projections but over-compressed intellectual 
 
 ## Preserved deep lineages
 
-Agent OS Foundations; Project Admission; Workflow as Governed Work; Reliability/Effect Reconciliation; Information Survival; Demand/Settlement; Constitutional Governance; Governance/Audit/Metrology; Assurance/Evolution; Runtime Ownership; Protocols/Interoperability; Capability/Sandbox/Resources; Adaptive Routing/Reputation; Economics/Resources/Observability; Context/Memory/Playbooks; Canonical Lineage/Identity; Adaptive Learning/Cross-Project Evolution; TUI/REPL Experience; Legacy System Reconstruction; Formal Research Program; CMRP methodology.
+Agent OS Foundations; Project Admission; Workflow as Governed Work; Reliability/Effect Reconciliation; Information Survival; Demand/Settlement; Constitutional Governance; Governance/Audit/Metrology; Assurance/Evolution; Test Engineering/Scenario Gates; Runtime Ownership; Vendor CLI/Runtime Landscape; Protocols/Interoperability; Capability/Sandbox/Resources; Adaptive Routing/Reputation; Economics/Resources/Observability; Context/Memory/Playbooks; Canonical Lineage/Identity; Adaptive Learning/Cross-Project Evolution; TUI/REPL Experience; Legacy System Reconstruction; Local Inference/Model Lab; Fine-tune Evidence Grading; Formal Research Program; CMRP methodology.
 
 ## Preserved proposals
 
@@ -25,7 +25,7 @@ Agent OS SDD/BDD, Workflow, Reliability, Governance/Audit, Interoperability/Lear
 
 ## Preserved empirical lines
 
-Recurrent-memory Local AI Lab; Kimi/Antigravity capability-parity archaeology; FSV/MXC staged-candidate validation bug; Agent Relay Q0; CMRP Run 001; V1 over-compression dogfood.
+Recurrent-memory Local AI Lab; Local HumanEval scoring-harness failure; Kimi/Antigravity capability-parity archaeology; FSV/MXC staged-candidate validation bug; Agent Relay Q0; CMRP Run 001; V1 over-compression dogfood.
 
 ## Bridge editions
 

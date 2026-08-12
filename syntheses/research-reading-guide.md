@@ -2,7 +2,7 @@
 
 ## Trilha arquitetura
 
-`foundations/agent-os-foundations` → `project/project-admission-adoption` → `runtime/runtime-ownership` → `runtime/protocols-interoperability`.
+`foundations/agent-os-foundations` → `project/project-admission-adoption` → `runtime/runtime-ownership-vendor-integration` → `runtime/protocols-interoperability`.
 
 ## Trilha trabalho durável
 
@@ -10,7 +10,7 @@
 
 ## Trilha governança e confiança
 
-`governance/constitutional-governance` → `governance/governance-assurance-audit-metrology` → `governance/assurance-evolution-testing`.
+`governance/constitutional-governance-decision-rights` → `governance/governance-assurance-audit-metrology` → `governance/assurance-evolution-testing` → `assurance/test-engineering-scenario-gates`.
 
 ## Trilha adaptação
 
@@ -20,10 +20,18 @@
 
 `context/canonical-lineage-identity` cruza Work, Authority, Runtime, Effects, Evidence e Evolution. Leia junto de Information Survival.
 
+## Trilha runtime/vendors
+
+`runtime/vendor-cli-runtime-landscape` → `runtime/runtime-ownership-vendor-integration` → `runtime/capability-sandbox-resources` → case study Kimi/Antigravity.
+
+## Trilha local inference
+
+`local-inference/local-model-lab-methodology` → `local-inference/model-landscape-finetunes` → case study HumanEval → experimento Recurrent Memory.
+
 ## Trilha experiência
 
 `experience/tui-repl-experience` → `experience/legacy-system-reconstruction`.
 
 ## Trilha método científico
 
-`methodology/formal-research-program` → `methodology/cmrp-and-epistemic-independence` → experimentos/case studies.
+`methodology/formal-research-program` → `methodology/cmrp-and-epistemic-independence` → Test Engineering → experiments/case studies.
