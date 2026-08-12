@@ -7,53 +7,90 @@
 - Experimental lineage: [`experiments/local-llm/recurrent-memory/README.md`](../../experiments/local-llm/recurrent-memory/README.md)
 - Machine ledger: [`RESULTS_LEDGER.json`](../../experiments/local-llm/recurrent-memory/2026-08-12/RESULTS_LEDGER.json)
 - Independent RNN-06T audit: [`RNN-06T-AUDIT-RECONCILIATION.md`](../../experiments/local-llm/recurrent-memory/2026-08-12/RNN-06T-AUDIT-RECONCILIATION.md)
-- RNN-06T2 prospective protocol: [`RNN-06T2-PROTOCOL.md`](../../experiments/local-llm/recurrent-memory/2026-08-12/RNN-06T2-PROTOCOL.md)
+- Prospective RNN-06T2 protocol: [`RNN-06T2-PROTOCOL.md`](../../experiments/local-llm/recurrent-memory/2026-08-12/RNN-06T2-PROTOCOL.md)
+- Independent RNN-06T2 audit: [`RNN-06T2-AUDIT-RECONCILIATION.md`](../../experiments/local-llm/recurrent-memory/2026-08-12/RNN-06T2-AUDIT-RECONCILIATION.md)
+- Next-train design: `RNN-07A` realistic operating-point discovery + RNN-06T2 economics semantic closure
 - Research pointers: [`recurrent-memory-rnn-2026-08-12-pointers.md`](recurrent-memory-rnn-2026-08-12-pointers.md)
 
 ## Authority
 
 `EXPERIMENTAL / RESEARCH / PROPOSED` only.
 
-This ingestion does not:
+This ingestion does not mint tare.tools canonical CURRENT/TARGET, promote Memory Caching into architecture, authorize Qwen work, or rewrite failed historical gates.
 
-- mint canonical tare.tools CURRENT/TARGET;
-- promote Memory Caching into architecture;
-- authorize Qwen work;
-- rewrite failed historical gates.
+## Latest independent audit
 
-## Key reconciliation
+`RNN-06T2` is accepted with an economics reconciliation.
 
-The current experimental line supports:
+Load-bearing experimental state for the exact official Mamba-2 fixed-batch subject:
 
-- controlled unique-binding-load forgetting on an exact frozen Mamba substrate;
-- historical-state information presence;
-- strong parameter-free historical recovery on the RNN-06D synthetic regime;
-- official Mamba fast-path runnability and genuine in-run historical capture mechanics.
+```text
+OFFICIAL_MAMBA_FIXED_BATCH_LIFECYCLE = QUALIFIED
+BATCH_SHAPE_NUMERICAL_PORTABILITY = OUT_OF_SCOPE_NOT_QUALIFIED
+SINGLE_PASS_HISTORICAL_CAPTURE_T0R = QUALIFIED
 
-However, the independent RNN-06T audit found that the strict preregistered T0 lifecycle gate did not prospectively qualify. Consequently, RNN-06T downstream transport/selection/economics observations are published as `EXPLORATORY_NON_LOAD_BEARING` pending the fresh RNN-06T2 requalification.
+HISTORICAL_RECOVERY_NARROW = QUALIFIED
+ADAPTIVE_SELECTION_NARROW = DIRECTIONAL
 
-## Source identity
-
-Locally materialized source hashes:
-
-```json
-{
-  "research_index_html": "b2d81cfca07f56c9e231293398f1cc04dfbe142b68f5ccfd2c2c7939bcc14071",
-  "empirical_history_html": "199a577dfb6c798916b1695e52ca4d4289659b065b3a73cec55aa1ee0fa8a071",
-  "scientific_research_html": "1741aafabe9c8cdd4f37a5edf82d50ae6c6017414da9bd1d269f1e17db0d3d25",
-  "experimental_backlog_html": "6052662649894abb916f4eed429527620613130ff543f4127ef58f09fc033488",
-  "frontier_json": "fd08b2e01fd12d12fd5d54a9ff7dae3ed5974332a97aee393b42397adcdf05a0",
-  "audit_06d": "c84283642298f80f36273be079c56eafdecc515275ed2aa13a6a1db4baebcc6b",
-  "audit_06t": "4c0e8fdd362bd1250dcedd2b9df50519f1cd06d682a1e5d6a74bfb89c3f4623c",
-  "protocol_06t2": "3cd04d0ca56bdc3ff2c980fff1cb806534114fe1dade6b288f134c40ea1de5b4",
-  "bundle_06d": "9bd4df8a1f4a63b532f923e50b28deb55b25894978912f603caa3745e26b8a75",
-  "bundle_06t": "cf4ecc0b02452dbba6e184b067f61003553139e8e06d99148b82ae85a134d370",
-  "handoff_06t": "fed83cd4b07a6efdcc45c75a0fe8033527def614c08709429352cf3cea8c206b"
-}
+WIDE_TARGET_RECOVERY_T1R = QUALIFIED
+ADAPTIVE_SELECTION_T1R = QUALIFIED
 ```
 
-The RNN-06D and RNN-06T raw ZIP audit bundles are not copied into the public research tree by default. Their SHA-256 identities are preserved above.
+The wide synthetic qualification independently reproduces:
 
-## Current in-flight boundary
+```text
+FINAL               = 0.2708333
+FIXED_SLOT_153      = 0.5000000
+MAX_CONFIDENCE      = 0.8125000
 
-`RNN-06T2` is currently being implemented/tested externally. This publication records its prospective protocol only; no result is inferred or minted here.
+MAX_CONF - FINAL    = +0.5416667
+95% CI              = [0.4738281, 0.609375]
+
+MAX_CONF - SLOT153  = +0.3125000
+95% CI              = [0.2395833, 0.3751302]
+```
+
+The primary adaptive contrast is positive in 3/4 preregistered strata.
+
+## Economics reconciliation
+
+The historical implementer mint:
+
+`END_TO_END_RECOVERY_UTILITY_T1R = QUALIFIED`
+
+is preserved as historical evidence but reconciled as a false green.
+
+The economics source returned scored token IDs for FINAL arms but scored-vocabulary column indices for RECOVERY. The frozen protocol required the same answer domain for all arms and prescribed `NOT_COMPARABLE` otherwise.
+
+Current state:
+
+```text
+END_TO_END_RECOVERY_UTILITY_T1R_HISTORICAL_MINT = RECONCILED_FALSE_GREEN
+END_TO_END_RECOVERY_UTILITY_T1R = NOT_COMPARABLE
+MARGINAL_STEP_PATH_TIMING_SIGNAL = POSITIVE_NON_LOAD_BEARING
+```
+
+This does not invalidate lifecycle or recovery qualification and does not require their rerun.
+
+## Provenance caveats retained
+
+- batch1-vs-batchB state difference `0.5` remains negative evidence; batch-shape portability is not qualified.
+- a post-outcome T1R instrumentation rerun is accepted with provenance caveat; future outcome-exposed runner changes must package the exact diff.
+- the T1R display `runId` is not globally unique because it was derived from a common short prefix; state/result identities are unaffected.
+
+## Current frontier
+
+Scientific discovery may now move to a realistic long-context operating-point scout on the same exact official Mamba-2 subject, while carrying a small economics semantic-closure task.
+
+`RNN-07A` remains `PROPOSED` until a new implementer session executes it. No RNN-07A result is minted here.
+
+Qwen remains `DEFER`.
+
+## Exact source identities
+
+- RNN-06T2 bundle SHA-256: `52fcf4d00430bb8b24da3c2cfd8b5a4c1c2473c701b2939acbd0f633e4a35426`
+- external RNN-06T2 handoff SHA-256: `d6d409f7f1a7db00f01af9f6b005d467487969f4a2a94dc2ae9ba464b59cbc53`
+- independent RNN-06T2 audit SHA-256: `72fab88e53391692e80803e0bddb8fecde85c309f7d02f33560e9d001aa69b48`
+- RNN-07A proposed protocol SHA-256: `63941f9af9205635c1f10b8b27ce751fc17207e18d927f4bf6b3ba1cd1d09e65`
+
+Raw workstation ZIPs are not copied into the public research tree by default; exact digests are preserved instead.
