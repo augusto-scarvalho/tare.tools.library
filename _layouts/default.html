@@ -10,16 +10,20 @@
 <body>
   <header class="topbar">
     <button class="menu-button" type="button" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
-    <a class="brand" href="{{ '/' | relative_url }}">tare.tools <span>research</span></a>
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="signal-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-copy"><span>tare.tools</span><span class="research">research</span></span>
+    </a>
+    <span class="surface-tag">SIGNAL / research projection</span>
     <div class="top-links">
-      <a href="{{ '/studies/' | relative_url }}">Study editions</a>
+      <a href="{{ '/studies/' | relative_url }}">Studies</a>
       <a href="{{ '/research/' | relative_url }}">Research</a>
       <a href="{{ '/findings/CURATED_FINDINGS.html' | relative_url }}">Findings</a>
       <a href="{{ '/frontier/RESEARCH_FRONTIER.html' | relative_url }}">Frontier</a>
     </div>
     <div class="search-wrap">
       <label class="sr-only" for="site-search">Search the research library</label>
-      <input id="site-search" type="search" placeholder="Search research…" autocomplete="off">
+      <input id="site-search" type="search" placeholder="search research…" autocomplete="off">
       <div id="search-results" class="search-results" hidden></div>
     </div>
   </header>
@@ -28,19 +32,19 @@
     <aside id="sidebar" class="sidebar">
       <div class="sidebar-intro">
         <strong>Living research library</strong>
-        <p>Research informs tare.tools; canonical architecture and code remain authoritative elsewhere.</p>
+        <p>Research informs tare.tools. Canonical architecture, specs, code and Git remain authoritative elsewhere.</p>
       </div>
       {% include sidebar.html %}
     </aside>
 
     <main class="content-shell">
       <div class="content-meta">
-        <a href="{{ '/NAVIGATION.html' | relative_url }}">Repository navigation</a>
+        <a href="{{ '/NAVIGATION.html' | relative_url }}">Navigation</a>
         <span>·</span>
         <a href="{{ '/studies/' | relative_url }}">Study editions</a>
         {% if page.path %}
         <span>·</span>
-        <a href="{{ site.repository_url }}/blob/main/{{ page.path }}">View source</a>
+        <a href="{{ site.repository_url }}/blob/{{ site.source_ref | default: 'main' }}/{{ page.path }}">View source</a>
         {% endif %}
       </div>
       <article class="prose">
