@@ -1,73 +1,44 @@
-# tare.tools Research Corpus
+# tare.tools.research
 
-> **THIS REPOSITORY IS EVIDENCE, NOT ARCHITECTURAL AUTHORITY.**
+**Biblioteca viva de pesquisa, documentação científica e experimentos do tare.tools.**
 
-Este repositório preserva pesquisa, fontes, experimentos, arqueologia, propostas e versões históricas do tare.tools.
+Este `HEAD` foi semanticamente recurado em 12 de agosto de 2026. O objetivo não é preservar cada arquivo que já produzimos: é preservar **o melhor conhecimento que vale ler agora**, com provenance suficiente para recuperar a história quando necessário.
 
-Em conflito, prevalecem o repositório canônico `tare-tools`, Git, código, arquitetura ratificada, ADRs, SPECs, BDDs e gates.
+> Código, Git, state canônico, ADRs, SPECs, BDDs e gates do `tare-tools` prevalecem para `CURRENT` e `TARGET`. Este repositório é `RESEARCH / EXPERIMENTAL / PROPOSED` salvo indicação baseada em evidência canônica externa.
 
-English overview: **[README.en.md](README.en.md)**.
+## Estudos vivos
 
-## Comece aqui
+1. [Agent OS Foundations & Canonical Spine](research/01-agent-os-foundations.html)
+2. [Governed Work, Effects, Lineage & Reconstructability](research/02-governed-work-effects-lineage.html)
+3. [Governance, Assurance, Audit & Evidence](research/03-governance-assurance-evidence.html)
+4. [Runtime, Capabilities, Isolation & Interoperability](research/04-runtime-capabilities-interoperability.html)
+5. [Routing, Adaptation, Economics & Resources](research/05-routing-adaptation-economics.html)
+6. [Context, Memory, Learning & Evolution](research/06-context-memory-learning-evolution.html)
+7. [Experience, Human Interface & Legacy Reconstruction](research/07-experience-interface-reconstruction.html)
+8. [Research Methodology & Empirical Assurance](research/08-research-methodology.html)
 
-- **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 seed originals de chat, 1 live-ingestion exact source, 93 cópias exatas do snapshot privado e 72 referências File Library, com origem/authority explícitas.
-- **[Índice dos originals de chat materializados](catalog/DOCUMENT_INDEX.md)** — navegação PT-BR | EN por documento e por tema.
-- **[Primeira ingestão viva — Identity, Lineage, Learning & Evolution](catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12.md)** — ResearchObject transversal de 12/08, com review, technical delta, graph edges e Frontier curation.
-- **[Baseline histórico do GitHub privado](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — snapshot exato de 05/08, não CURRENT.
-- **[Índice das pesquisas presentes no snapshot privado](catalog/CANONICAL_SNAPSHOT_RESEARCH_INDEX.md)** — 93 arquivos byte-for-byte de `docs/research/`.
-- **[Fila de tradução EN do snapshot privado](catalog/CANONICAL_SNAPSHOT_TRANSLATION_QUEUE.md)** — sources não-EN materializados e elegíveis para tradução.
-- **[Fila de reidratação](catalog/REHYDRATION_QUEUE.md)** — File Library refs ainda sem bytes locais; tradução fica bloqueada até materialização exata.
-- **[Linhagens descobertas na File Library](catalog/LIBRARY_LINEAGES.md)** — projeção de descoberta.
-- **[Reconciliação de linhagens](catalog/LINEAGE_RECONCILIATION.md)** — separa ordem por versão, siblings e duplicatas ainda não provadas.
-- **[Expected identity assertions](catalog/IDENTITY_ASSERTIONS.md)** — hashes/tamanhos reportados por manifests independentes para future exact-byte verification.
-- **[Índice normalizado de fontes](sources/SOURCE_INDEX.md)** — URLs extraídas deterministicamente dos originals materializados.
-- **[Cobertura da reidratação](catalog/REHYDRATION_COVERAGE.md)** — baseline histórico vs. estado atual, sem somar identidades não reconciliadas.
-- **[Catálogo mestre](catalog/MASTER_CATALOG.md)** — tabela completa com IDs, status, contextos, links e hashes.
-- **[Status das traduções](catalog/TRANSLATION_STATUS.md)** — cobertura e estado de revisão das versões inglesas.
-- **[Fila de tradução EN](catalog/TRANSLATION_QUEUE.md)** — somente sources já materializados que ainda aguardam derivação inglesa.
-- **[QA das traduções](catalog/TRANSLATION_QA.md)** — checks estruturais de fidelidade e provenance.
-- **[Workflow de tradução no chat](CHAT_TRANSLATION_WORKFLOW.md)** — contrato operacional para traduzir durante a revisão sem reconciliar arquitetura.
-- **[Status da revisão](catalog/REVIEW_STATUS.md)** — separa revisão arquivística, tradução e reconciliation arquitetural.
-- **[Translation Policy](TRANSLATION_POLICY.md)** — autoridade do original e regras de fidelidade.
-- **[Cronologia](catalog/CHRONOLOGY.md)** — visão temporal.
-- **[Famílias de versões](catalog/VERSION_FAMILIES.md)** — lineage conhecido/pendente.
-- **[Research Graph](catalog/RESEARCH_GRAPH.json)** — relações estruturadas.
-- **[Coverage](catalog/COVERAGE.md)** — cobertura do corpus.
+[Índice visual dos estudos](research/index.html)
 
-### Seed atual
+## Evidência empírica
 
-Foram materializados **11 documentos** do corpus de chat nesta árvore. O baseline histórico privado acrescenta **93 cópias exatas de `docs/research/`**, mantidas em um namespace separado para não confundir origem. Veja [`ALL_DOCUMENTS_INDEX.md`](catalog/ALL_DOCUMENTS_INDEX.md).
+- [Local AI Lab — Recurrent Memory / Memory Caching research line](experiments/local-ai-lab-recurrent-memory.html)
 
-No corpus principal, foram materializados **11 documentos** nesta árvore. Os originals PT-BR ficam em `corpus/original/`; versões EN derivadas ficam em `corpus/translations/en/`. Tradução EN disponível: **11/11**. Há **72 referências File Library** registradas; **72** ainda aguardam materialização exata, sem reconstrução a partir de snippets.
+## Cross-study
 
-## Status permitidos
+- [Curated Findings](findings/CURATED_FINDINGS.md)
+- [Research Frontier](frontier/RESEARCH_FRONTIER.md)
+- [Semantic Curation Ledger](catalog/CURATION_LEDGER.md)
 
-- `RESEARCH` — evidência, hipótese, revisão, investigação.
-- `PROPOSED` — proposta ainda não ratificada.
-- `HISTORICAL` — preservação/arqueologia.
-- `EXPERIMENTAL` — resultado experimental ainda não promovido.
+## O que aconteceu com o corpus antigo?
 
-`TARGET` não deve nascer aqui como autoridade. Um documento pode **referenciar** TARGET canônico, mas promoção é realizada no repositório canônico.
+Nada foi reescrito no Git. A árvore anterior — incluindo os 93 arquivos históricos, traduções, 186 HTMLs editoriais, refreshes templated, chat dumps, bundles, sidecars e catálogos gerados — permanece recuperável no commit:
 
-## Estrutura
+`7ad1a71ebbad99e69bd6ba97b2ed29d78faf08de`
 
-- [`research/`](research/) — índices e pesquisas temáticas.
-- `findings/` — sínteses ADOPT/ADAPT/RETIRE/OPEN.
-- `proposals/` — propostas ainda não ratificadas.
-- `experiments/` — protocolos e resultados.
-- `archaeology/` — chats, sessões e evolução histórica.
-- `sources/` — bibliografia e source manifests.
-- [`corpus/original/`](corpus/original/) — bytes históricos PT-BR imutáveis.
-- [`corpus/translations/en/`](corpus/translations/en/) — traduções inglesas derivadas.
-- `corpus/normalized/` — versões processáveis derivadas.
-- [`corpus/manifests/`](corpus/manifests/) — provenance sidecars.
-- [`corpus/library-references/`](corpus/library-references/) — referências File Library de descoberta.
-- [`catalog/identity-crosswalk/`](catalog/identity-crosswalk/) — vínculo entre uma referência e bytes exatos materializados, sem reescrever o registro de descoberta.
-- [`catalog/`](catalog/) — índices, catálogos e grafo.
-- `incoming/` — staging documental antes do roteamento.
-- `schemas/` — contratos de metadata/publicação/tradução.
-- `tools/` — automação determinística.
+Também existe o anchor `bootstrap-v0.19.0`.
 
-## Regra de autoridade
+Eles não permanecem em `HEAD` apenas porque um dia existiram. O ledger de curadoria registra quais ideias foram absorvidas, quais foram aposentadas e quais experimentos continuam relevantes.
 
-Research / experiment / archaeology / proposal **informam**, mas não ratificam arquitetura. Tradução não altera authority/status. Promoção para TARGET exige o fluxo canônico no repositório `tare-tools`.
+## Regra simples
+
+> Se não recomendamos abrir um arquivo para aprender algo relevante sobre tare.tools hoje, ele precisa de uma justificativa forte para permanecer no HEAD.
