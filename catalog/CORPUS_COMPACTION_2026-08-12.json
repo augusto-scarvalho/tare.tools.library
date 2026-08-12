@@ -1,0 +1,36 @@
+{
+  "schema": "tare.tools.research.corpus-compaction.v1",
+  "date": "2026-08-12",
+  "status": "BRANCH_CANDIDATE",
+  "branch": "agent/research-corpus-compaction-1",
+  "base_commit": "7ad1a71ebbad99e69bd6ba97b2ed29d78faf08de",
+  "base_tree": "13d746c2ec6cfef73a5c0baa97b89818b0ade67b",
+  "principle": "negative archive for derivatives; append-only for evidence",
+  "removed_live_paths": [
+    "editorial-editions/",
+    "catalog/EDITORIAL_BILINGUAL_INDEX.md",
+    "catalog/EDITORIAL_QA.json",
+    "catalog/EDITORIAL_QA.md"
+  ],
+  "removed_projection_count": 186,
+  "preserved_semantic_metadata": [
+    "refresh-editions/2026-08-11/EDITORIAL_STANDARD.md",
+    "refresh-editions/2026-08-11/EDITORIAL_MIGRATION_GAP_REPORT.md"
+  ],
+  "preserved_evidence_roots": [
+    "corpus/original/",
+    "corpus/canonical-snapshot/",
+    "corpus/source-bundles/",
+    "corpus/manifests/",
+    "canonical-references/"
+  ],
+  "consolidated_reading_surface": {
+    "path": "refresh-editions/2026-08-11/",
+    "historical_artifacts_mapped": 93,
+    "scientific_lineages": 9,
+    "research_html_documents": 20
+  },
+  "history_rewritten": false,
+  "main_modified": false,
+  "architectural_promotion": false
+}

@@ -8,3 +8,6 @@ htmlcov/
 Thumbs.db
 *.tmp
 *.log
+
+# Reconstructible presentation output. Source evidence and refresh documents stay tracked.
+editorial-editions/

@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-Define deterministic rules for document identity, status, routing, provenance, lineage and promotion boundaries.
+Define deterministic rules for document identity, status, routing, provenance, lineage, retention and promotion boundaries.
 
 ## 2. Precedence
 
@@ -26,7 +26,7 @@ Git / source / canonical architecture / ADR / SPEC / BDD / gates
 | TARGET | ratified desired architecture | tare-tools only |
 | CURRENT | proven implementation/state | tare-tools/Git/evidence |
 
-The research repository may **quote/reference** CURRENT/TARGET, but does not mint them.
+The research repository may quote/reference CURRENT/TARGET, but does not mint them.
 
 ## 4. Deterministic routing
 
@@ -40,16 +40,31 @@ The research repository may **quote/reference** CURRENT/TARGET, but does not min
 
 LLMs may propose metadata; the validator/router owns routing decisions.
 
-## 5. Originals
+## 5. Originals and irreversible evidence
 
-Files under `corpus/original/` are immutable evidence. Corrections create a new file/version; they never silently replace the original.
+Files under `corpus/original/`, exact historical snapshots, source bundles and their provenance manifests are append-only evidence. Corrections create a new file/version; they never silently replace or delete the original merely to make the corpus cleaner.
 
-## 6. Lineage
+## 6. Derived projections and live-tree retention
 
-Every substantial derived document SHOULD record `supersedes`, `superseded_by`, and/or `derived_from` where known.
+A derived artifact is retained in Git HEAD only when it carries semantic value not reconstructible from its declared inputs, for example scientific synthesis, reconciliation, findings, implementation-research deltas, provenance decisions, human review or governed translation corrections.
 
-## 7. Promotion
+Pure presentation projections — format-only HTML renderings, generated navigation and equivalent build outputs — SHOULD be reproducible from tracked source identity + tooling and MAY be excluded from the live tree. Their prior committed versions remain recoverable through Git history.
+
+Removing a projection MUST NOT:
+
+- delete or rewrite its source/original;
+- erase provenance required to reconstruct it;
+- remove the only copy of a scientific finding or review decision;
+- convert historical absence into an assertion that the artifact never existed.
+
+Do not create a second `/archive` merely to duplicate bytes already retained by Git history. Evidence subject to the append-only rule remains live even when large.
+
+## 7. Lineage
+
+Every substantial derived document SHOULD record `supersedes`, `superseded_by`, and/or `derived_from` where known. A refresh may recenter or refine historical research without rewriting the historical source.
+
+## 8. Promotion
 
 Publication != ratification.
 
-Research promotion requires a separate Promotion Packet with canonical references, decision authority and required assurance. The publisher implemented here intentionally does not auto-promote.
+Research promotion requires a separate Promotion Packet with canonical references, decision authority and required assurance. The publisher intentionally does not auto-promote.
