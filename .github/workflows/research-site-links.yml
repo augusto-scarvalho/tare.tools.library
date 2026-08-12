@@ -45,6 +45,8 @@ jobs:
           source: ./
           destination: ./_site
           verbose: true
+      - name: Make generated projection writable
+        run: sudo chown -R "$USER":"$USER" _site
       - name: Apply SIGNAL projection to generated study editions
         run: python scripts/apply_signal_study_projection.py
       - name: Assert critical site outputs
