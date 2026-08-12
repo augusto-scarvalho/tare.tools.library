@@ -32,3 +32,12 @@ Historical documents are immutable evidence. Editorial migration may translate, 
 ## D. PROPOSED vNext — Research lineage, influence & provenance
 
 Every new scientific research document and technical companion SHOULD include a generated relationship section derived from `catalog/RESEARCH_RELATION_GRAPH.json`. The section must distinguish observed lineage/citations from curated or inferred influence. See `catalog/DOCUMENT_RELATIONSHIP_ADDITION_PROPOSAL.md` and `catalog/RESEARCH_RELATIONSHIP_STANDARD.md`.
+
+
+## Research Frontier extension — accepted for refinement
+
+For scientific/exploratory documents, add an eighth relationship section in shadow:
+
+**8. Open Research Frontier** — explicit unresolved questions, research pointers, contradictions, experiment opportunities, bridge topics and reopen triggers.
+
+The seven accepted relationship blocks describe what a work *is and relates to*; the eighth describes what it **does not yet resolve**. Pointer IDs should link to `frontier/` when available. This extension is accepted for refinement but remains a research-documentation convention, not an Agent OS primitive.

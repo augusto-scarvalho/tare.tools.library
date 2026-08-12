@@ -47,3 +47,39 @@
 
 - Scientific refresh: `research-methodology-evidence/research-methodology-evidence-scientific-refresh-2026-08-11.html`
 - Technical delta: `research-methodology-evidence/research-methodology-evidence-implementation-research-delta-2026-08-11.html`
+
+## Open Research Frontier (shadow)
+
+> Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
+
+- [rp-6a3a4ebbb2 — active curation / Value of Information](../../frontier/pointers/rp-6a3a4ebbb2-active-curation-value-of-information.md) · `TRIAGED` · radar `WATCH`
+- [rp-8f4f8cc2ba — automated source freshness checks](../../frontier/pointers/rp-8f4f8cc2ba-automated-source-freshness-checks.md) · `NORMALIZED` · radar `WATCH`
+- [rp-958f5fa0b3 — bitemporal epistemic graph and architecture-epoch queries](../../frontier/pointers/rp-958f5fa0b3-bitemporal-epistemic-graph-and-architecture-epoch-queries.md) · `TRIAGED` · radar `WATCH`
+- [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](../../frontier/pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-effac4d7cf — calibrated LLM-assisted curation](../../frontier/pointers/rp-effac4d7cf-calibrated-llm-assisted-curation.md) · `TRIAGED` · radar `WATCH`
+- [rp-f9b2aa07a8 — causal experiment design templates](../../frontier/pointers/rp-f9b2aa07a8-causal-experiment-design-templates.md) · `NORMALIZED` · radar `EXPERIMENT`
+- [rp-12202811fa — CiTO/DataCite/PROV mapping](../../frontier/pointers/rp-12202811fa-cito-datacite-prov-mapping.md) · `TRIAGED` · radar `WATCH`
+- [rp-d82c263ccd — Claim normalization and semantic equivalence without collapsing nuance](../../frontier/pointers/rp-d82c263ccd-claim-normalization-and-semantic-equivalence-without-collapsing-nuance.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-f3f8903e8d — claim-to-code/SWHID traceability](../../frontier/pointers/rp-f3f8903e8d-claim-to-code-swhid-traceability.md) · `TRIAGED` · radar `WATCH`
+- [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](../../frontier/pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md) · `TRIAGED` · radar `WATCH`
+- [rp-27de64dc8e — Contradiction detection under defeasible evidence](../../frontier/pointers/rp-27de64dc8e-contradiction-detection-under-defeasible-evidence.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-18b6cecb23 — cross-project evidence transfer](../../frontier/pointers/rp-18b6cecb23-cross-project-evidence-transfer.md) · `NORMALIZED` · radar `WATCH`
+- [rp-c6798f9503 — Cryptographic/signed curation attestations](../../frontier/pointers/rp-c6798f9503-cryptographic-signed-curation-attestations.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-ad88e49c07 — Cybernetics and control theory for observability/controllability/stability](../../frontier/pointers/rp-ad88e49c07-cybernetics-and-control-theory-for-observability-controllability-stability.md) · `TRIAGED` · radar `WATCH`
+- [rp-04052a9417 — Evaluation of LLM-assisted curation as a calibrated instrument](../../frontier/pointers/rp-04052a9417-evaluation-of-llm-assisted-curation-as-a-calibrated-instrument.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-a9eaccec1a — High Reliability Organizations and resilience engineering for near misses, recovery and operating posture](../../frontier/pointers/rp-a9eaccec1a-high-reliability-organizations-and-resilience-engineering-for-near-misses-recove.md) · `TRIAGED` · radar `WATCH`
+- [rp-56a857d5d3 — human cognitive interoperability for research graphs](../../frontier/pointers/rp-56a857d5d3-human-cognitive-interoperability-for-research-graphs.md) · `TRIAGED` · radar `WATCH`
+- [rp-aa0caedea7 — Human cognitive interoperability for scientific graphs](../../frontier/pointers/rp-aa0caedea7-human-cognitive-interoperability-for-scientific-graphs.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-ab6d8ad91c — Mechanism design for incentive-compatible agent/vendor ecosystems](../../frontier/pointers/rp-ab6d8ad91c-mechanism-design-for-incentive-compatible-agent-vendor-ecosystems.md) · `TRIAGED` · radar `WATCH`
+- [rp-c83c6eea33 — Metrology and psychometrics for trustworthy measurement of agentic systems](../../frontier/pointers/rp-c83c6eea33-metrology-and-psychometrics-for-trustworthy-measurement-of-agentic-systems.md) · `TRIAGED` · radar `WATCH`
+- [rp-3c21ee61ad — metrology dashboard for evaluators](../../frontier/pointers/rp-3c21ee61ad-metrology-dashboard-for-evaluators.md) · `NORMALIZED` · radar `EXPERIMENT`
+- [rp-53a17202e5 — Organizational learning and double-loop learning for changing governing assumptions instead of only fixing runs](../../frontier/pointers/rp-53a17202e5-organizational-learning-and-double-loop-learning-for-changing-governing-assumpti.md) · `TRIAGED` · radar `WATCH`
+- [rp-62b8b48ce9 — Privacy-aware cross-project research federation](../../frontier/pointers/rp-62b8b48ce9-privacy-aware-cross-project-research-federation.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-ea10a8e979 — research claim graph](../../frontier/pointers/rp-ea10a8e979-research-claim-graph.md) · `NORMALIZED` · radar `WATCH`
+- [rp-e72f1d330f — Research curation economics and Value of Information](../../frontier/pointers/rp-e72f1d330f-research-curation-economics-and-value-of-information.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-c9b7e486e6 — Research-to-code traceability using Git/SWHIDs](../../frontier/pointers/rp-c9b7e486e6-research-to-code-traceability-using-git-swhids.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-5881df7203 — Retraction/correction watchers and downstream impact propagation](../../frontier/pointers/rp-5881df7203-retraction-correction-watchers-and-downstream-impact-propagation.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-cc1a52b33e — retraction/correction watchers with downstream impact propagation](../../frontier/pointers/rp-cc1a52b33e-retraction-correction-watchers-with-downstream-impact-propagation.md) · `TRIAGED` · radar `WATCH`
+- [rp-6b2eec5e7c — RO-Crate/JSON-LD export qualification](../../frontier/pointers/rp-6b2eec5e7c-ro-crate-json-ld-export-qualification.md) · `TRIAGED` · radar `EXPERIMENT`
+- [rp-195c8fe3c7 — selective claim/evidence extraction and contradiction graphs](../../frontier/pointers/rp-195c8fe3c7-selective-claim-evidence-extraction-and-contradiction-graphs.md) · `TRIAGED` · radar `WATCH`
+- [rp-a532ee0e38 — source identity resolution and version-family reconciliation](../../frontier/pointers/rp-a532ee0e38-source-identity-resolution-and-version-family-reconciliation.md) · `TRIAGED` · radar `WATCH`

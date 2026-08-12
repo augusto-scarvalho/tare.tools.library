@@ -1,0 +1,209 @@
+[
+  {
+    "id": "agent-os-foundations",
+    "title": "Agent OS Foundations",
+    "pointer_ids": [
+      "rp-08d8e2af92",
+      "rp-ff36550605",
+      "rp-347c8d7e81",
+      "rp-f7cf098056"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "assurance-audit-metrology",
+    "title": "Assurance, Audit & Evaluator Metrology",
+    "pointer_ids": [
+      "rp-be4d0aa6ad",
+      "rp-4f059076aa",
+      "rp-f24a4b53da",
+      "rp-96f8b87234",
+      "rp-2d5b8a67cf",
+      "rp-4089f0d228",
+      "rp-d7383c6282",
+      "rp-4d0c0a14c0",
+      "rp-e0994063b4",
+      "rp-d13bc5b025",
+      "rp-3f41287ed1"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "context-memory-project",
+    "title": "Context, Memory & Project Understanding",
+    "pointer_ids": [
+      "rp-d34fd7f580",
+      "rp-49f0f7c524",
+      "rp-e274160076",
+      "rp-02a61d7575",
+      "rp-09a33f85e3",
+      "rp-32668f1a9b",
+      "rp-130e5f7ebf",
+      "rp-8f7470b94a",
+      "rp-0f4fbef69b"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "cross-disciplinary-bridges",
+    "title": "Cross-disciplinary Research Bridges",
+    "pointer_ids": [
+      "rp-f57ff296e9",
+      "rp-ad88e49c07",
+      "rp-a9eaccec1a",
+      "rp-ab6d8ad91c",
+      "rp-c83c6eea33",
+      "rp-53a17202e5"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "experience-ux",
+    "title": "UX / Experience Plane",
+    "pointer_ids": [
+      "rp-98fbd59c4d",
+      "rp-85c0c85bea",
+      "rp-f44e7f605e",
+      "rp-5b1f7413a5",
+      "rp-91c4647014",
+      "rp-5685518986",
+      "rp-2c58c6b648",
+      "rp-ae68109d12",
+      "rp-e6255e42ab",
+      "rp-69d51140d3",
+      "rp-f3714c4995",
+      "rp-660ba70aac",
+      "rp-2bc0eb5547",
+      "rp-56bd45ad27"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "governance-constitutional",
+    "title": "Governance & Constitutional Questions",
+    "pointer_ids": [
+      "rp-75654b67df",
+      "rp-f0c0d9085f",
+      "rp-0a4bd91301",
+      "rp-6acb008e09",
+      "rp-5ecdf2f016",
+      "rp-3f41287ed1"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "local-models-evaluation",
+    "title": "Local Models & Empirical Harness Evaluation",
+    "pointer_ids": [
+      "rp-a90d841a43",
+      "rp-02ba98a842",
+      "rp-e5e51397a8"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "reliability-effects-durable-runtime",
+    "title": "Reliability, Effects & Durable Runtime",
+    "pointer_ids": [
+      "rp-1d31c7e414",
+      "rp-96101e4704",
+      "rp-70c444876f",
+      "rp-955d74e6af",
+      "rp-b8dc8b40c8",
+      "rp-9784d1bff6",
+      "rp-d2d246077c",
+      "rp-b019955343",
+      "rp-96777fdc13",
+      "rp-1685086184"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "research-knowledge-substrate",
+    "title": "Research Knowledge Substrate",
+    "pointer_ids": [
+      "rp-6a3a4ebbb2",
+      "rp-958f5fa0b3",
+      "rp-d6b759be2e",
+      "rp-effac4d7cf",
+      "rp-12202811fa",
+      "rp-d82c263ccd",
+      "rp-f3f8903e8d",
+      "rp-27de64dc8e",
+      "rp-c6798f9503",
+      "rp-04052a9417",
+      "rp-56a857d5d3",
+      "rp-aa0caedea7",
+      "rp-62b8b48ce9",
+      "rp-e72f1d330f",
+      "rp-c9b7e486e6",
+      "rp-5881df7203",
+      "rp-cc1a52b33e",
+      "rp-6b2eec5e7c",
+      "rp-195c8fe3c7",
+      "rp-a532ee0e38"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "research-methodology-evidence",
+    "title": "Research Methodology & Evidence",
+    "pointer_ids": [
+      "rp-8f4f8cc2ba",
+      "rp-f9b2aa07a8",
+      "rp-18b6cecb23",
+      "rp-3c21ee61ad",
+      "rp-ea10a8e979"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "routing-reputation-economics",
+    "title": "Routing, Reputation & Economics",
+    "pointer_ids": [
+      "rp-4638fc32db",
+      "rp-f6aabb8182",
+      "rp-a24cdfc68a",
+      "rp-184849aacb",
+      "rp-b38154d396",
+      "rp-9a05c721e8",
+      "rp-67ffda4f6d",
+      "rp-86efe5f854",
+      "rp-1db5eb23ea"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "runtime-interop-identity",
+    "title": "Runtime, Interoperability & Identity",
+    "pointer_ids": [
+      "rp-59683f955d",
+      "rp-a3c88ec045",
+      "rp-df2f723e3d",
+      "rp-7b6d5e803a",
+      "rp-875d5abb85",
+      "rp-62cf6f7a8e",
+      "rp-ee9e40a114",
+      "rp-8b8e6fcf6f",
+      "rp-c33d80958d"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  },
+  {
+    "id": "workflow-procedural",
+    "title": "Workflow & Procedural Systems",
+    "pointer_ids": [
+      "rp-053538833b",
+      "rp-5ebf851583",
+      "rp-b49c7394a6",
+      "rp-684e476bc5",
+      "rp-ccad7bea11",
+      "rp-dcb422f447",
+      "rp-7185579909",
+      "rp-82ca449e16",
+      "rp-601a2ce77b",
+      "rp-2a0ddc92a7"
+    ],
+    "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
+  }
+]

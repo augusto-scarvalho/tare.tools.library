@@ -10,6 +10,8 @@ English overview: **[README.en.md](README.en.md)**.
 
 ## Comece aqui
 
+- **[Research Frontier Registry](frontier/FRONTIER_INDEX.md)** — 115 ponteiros normalizados de pesquisa, com origem, lifecycle, clusters e radar experimental sem autoridade de roadmap.
+- **[Research Frontier — HTML](frontier/RESEARCH_FRONTIER.html)** — visão móvel/navegável da fronteira de pesquisa.
 - **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 originals de chat, 93 cópias exatas do snapshot privado e 60 referências File Library, com origem/authority explícitas.
 - **[Índice dos originals de chat materializados](catalog/DOCUMENT_INDEX.md)** — navegação PT-BR | EN por documento e por tema.
 - **[Baseline histórico do GitHub privado](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — snapshot exato de 05/08, não CURRENT.
@@ -63,6 +65,7 @@ No corpus principal, foram materializados **11 documentos** nesta árvore. Os or
 - [`corpus/library-references/`](corpus/library-references/) — referências File Library de descoberta.
 - [`catalog/identity-crosswalk/`](catalog/identity-crosswalk/) — vínculo entre uma referência e bytes exatos materializados, sem reescrever o registro de descoberta.
 - [`catalog/`](catalog/) — índices, catálogos e grafo.
+- [`frontier/`](frontier/) — registro de ponteiros, questões abertas, clusters, radar e digest da fronteira de pesquisa.
 - `incoming/` — staging documental antes do roteamento.
 - `schemas/` — contratos de metadata/publicação/tradução.
 - `tools/` — automação determinística.
@@ -70,11 +73,3 @@ No corpus principal, foram materializados **11 documentos** nesta árvore. Os or
 ## Regra de autoridade
 
 Research / experiment / archaeology / proposal **informam**, mas não ratificam arquitetura. Tradução não altera authority/status. Promoção para TARGET exige o fluxo canônico no repositório `tare-tools`.
-
-## Research Knowledge Substrate — 2026-08-11 ideation
-
-- [Scientific ideation](refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-scientific-ideation-2026-08-11.html)
-- [Technical refinement proposal](refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-technical-proposal-2026-08-11.html)
-- [Accepted relationship section vNext](catalog/RESEARCH_DOCUMENT_RELATIONSHIP_SECTION-vNext-PROPOSED.md)
-- [Proposed schemas](proposals/research-knowledge-substrate/schemas/)
-

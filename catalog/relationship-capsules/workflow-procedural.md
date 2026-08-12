@@ -40,3 +40,18 @@
 
 - Scientific refresh: `workflow-procedural/workflow-procedural-scientific-refresh-2026-08-11.html`
 - Technical delta: `workflow-procedural/workflow-procedural-implementation-research-delta-2026-08-11.html`
+
+## Open Research Frontier (shadow)
+
+> Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
+
+- [rp-053538833b — Causal workflow learning](../../frontier/pointers/rp-053538833b-causal-workflow-learning.md) · `TRIAGED` · radar `WATCH`
+- [rp-5ebf851583 — counterfactual workflow evaluation](../../frontier/pointers/rp-5ebf851583-counterfactual-workflow-evaluation.md) · `NORMALIZED` · radar `EXPERIMENT`
+- [rp-b49c7394a6 — cross-backend conformance pack](../../frontier/pointers/rp-b49c7394a6-cross-backend-conformance-pack.md) · `NORMALIZED` · radar `WATCH`
+- [rp-684e476bc5 — formal lifecycle/terminality semantics](../../frontier/pointers/rp-684e476bc5-formal-lifecycle-terminality-semantics.md) · `NORMALIZED` · radar `WATCH`
+- [rp-ccad7bea11 — Formal workflow semantics federation](../../frontier/pointers/rp-ccad7bea11-formal-workflow-semantics-federation.md) · `TRIAGED` · radar `WATCH`
+- [rp-dcb422f447 — procedural applicability + negative memory](../../frontier/pointers/rp-dcb422f447-procedural-applicability-negative-memory.md) · `NORMALIZED` · radar `WATCH`
+- [rp-7185579909 — Procedural memory and workflow evolution](../../frontier/pointers/rp-7185579909-procedural-memory-and-workflow-evolution.md) · `TRIAGED` · radar `WATCH`
+- [rp-82ca449e16 — Workflow Compiler as query optimizer](../../frontier/pointers/rp-82ca449e16-workflow-compiler-as-query-optimizer.md) · `TRIAGED` · radar `WATCH`
+- [rp-601a2ce77b — workflow cost-to-trust optimizer](../../frontier/pointers/rp-601a2ce77b-workflow-cost-to-trust-optimizer.md) · `NORMALIZED` · radar `WATCH`
+- [rp-2a0ddc92a7 — Workflow lifecycle semantics](../../frontier/pointers/rp-2a0ddc92a7-workflow-lifecycle-semantics.md) · `TRIAGED` · radar `WATCH`
