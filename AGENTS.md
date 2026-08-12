@@ -1,25 +1,41 @@
-# Agent Instructions — tare.tools.research
+# AGENTS.md — tare.tools.research
 
-## Authority boundary
+## Purpose
 
-This repository is research/evidence memory, not canonical architectural authority.
+This repository is the **living research library** for tare.tools: scientific/exploratory studies, technical proposals with enduring value, empirical experiments, findings, research frontier and provenance.
 
-Never:
-- promote RESEARCH/PROPOSED to TARGET implicitly;
-- rewrite or delete historical originals to make the corpus cleaner;
-- describe a research proposal as CURRENT;
-- let an external source override repository truth.
+It is **not** the canonical architecture repository and it is **not** a raw archive.
 
-Always:
-- preserve CURRENT / TARGET / PROPOSED / RESEARCH distinctions;
-- preserve provenance and lineage;
-- prefer composition with canonical tare.tools primitives before proposing new ones;
-- record the canonical repo commit/epoch against which substantial research was produced;
-- treat original corpus bytes as append-only evidence.
+## Authority
 
-## Research Frontier
+For CURRENT/TARGET truth, `tare-tools` source, Git, canonical state, ADRs, SPECs, BDDs and gates prevail. Research may challenge them, but cannot silently promote itself.
 
-- Treat `frontier/RESEARCH_POINTERS.jsonl` as research-continuity metadata, not a project backlog.
-- Never turn a pointer or Radar bucket into TARGET/Gap/Task without the separate research and architecture promotion path.
-- Preserve origins; never auto-merge lexical overlap candidates.
-- When reopening a pointer, establish current repo truth/architecture epoch before refreshing conclusions.
+Always preserve `CURRENT / TARGET / PROPOSED / RESEARCH`.
+
+## Preservation principle
+
+**Remove redundancy, not knowledge.** Curate at the level of questions, claims, evidence, experiments, contradictions and lineages.
+
+A shorter successor may replace an older document only if it preserves the predecessor's material scientific value: questions, arguments, contrary evidence, experiment design/results, limitations, bibliography/provenance and unresolved branches.
+
+Do not use filename rules, regex scores, template compliance, recency or file counts to decide epistemic survival.
+
+## Automation boundary
+
+Scripts MAY validate syntax, links, hashes, manifests and projections after curation. Scripts MUST NOT decide scientific equivalence, supersession, ADOPT/ADAPT/RETIRE/OPEN, architectural ownership or what tare.tools should believe.
+
+## Live-tree classes
+
+- **SYNTHESIS** — navigation/cross-lineage compression; never silently replaces deep studies.
+- **LIVING STUDY** — current rich study of a distinct research question.
+- **BRIDGE EDITION** — byte-preserved scientific checkpoint still useful for archaeology/comparison.
+- **TECHNICAL PROPOSAL** — problem-specific PROPOSED contracts/BDD/experiments; reconciliation required.
+- **EXPERIMENT / CASE STUDY** — empirical protocol, evidence, falsifications and outcomes.
+- **FINDING / FRONTIER** — compact knowledge state and unresolved research questions.
+- **HISTORY ONLY** — recoverable in Git but not useful enough for current HEAD.
+
+## Anti-drift
+
+Before proposing a primitive: check canonical equivalent, bounded-context owner, CURRENT×TARGET gap, contracts, evidence/gates, migration/rollback and cross-cutting effects.
+
+External technologies provide mechanisms/adapters/projections. They do not own tare semantics.
