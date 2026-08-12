@@ -27,6 +27,7 @@ on:
       - 'DOCUMENT_POLICY.md'
       - 'search.json'
       - 'scripts/validate_internal_links.py'
+      - 'scripts/apply_signal_study_projection.py'
   workflow_dispatch:
 
 permissions:
@@ -54,6 +55,15 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Apply SIGNAL projection to generated study editions
+        run: python scripts/apply_signal_study_projection.py
+      - name: Assert SIGNAL outputs
+        shell: bash
+        run: |
+          test -f _site/assets/site.css
+          test -f _site/assets/signal-study.css
+          grep -q 'data-signal-projection="true"' _site/bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
+          grep -q 'signal-study.css' _site/bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
