@@ -25,7 +25,6 @@
   "provenance": {
     "origin": "ChatGPT project longitudinal audit + GitHub relay Issues #6-#11 + Git candidate/evidence verification",
     "project": "tare.tools",
-    "source_path": "incoming/implementer-profiles-2026-08-12/implementer-profiles-empirical-report-v1.1.md",
-    "notes": "Draft freeze at first RELAY-Q7 RESULT 65ca9eb7a8bd569f1260ac433194a89dd791a337. RELAY-Q7-CORRECTIVE-001 is still running; update before final publication."
+    "notes": "Draft freeze at first RELAY-Q7 RESULT 65ca9eb7a8bd569f1260ac433194a89dd791a337. Source report/ledger remain ChatGPT project draft artifacts and are not yet materialized on this branch. RELAY-Q7-CORRECTIVE-001 is still running; update before final publication."
   }
 }
