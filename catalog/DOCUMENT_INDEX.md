@@ -2,7 +2,7 @@
 
 > Índice humano gerado deterministicamente. PT-BR aponta para originals preservados byte-for-byte; EN aponta para derivatives com provenance próprio. File Library references são metadata de descoberta até materialização exata.
 
-Documentos materializados: **11**. Tradução EN disponível: **11/11**. Referências File Library: **66** total · **66** pendente(s) de materialização.
+Documentos materializados: **11**. Tradução EN disponível: **11/11**. Referências File Library: **72** total · **72** pendente(s) de materialização.
 
 ## Materializados
 
@@ -92,28 +92,34 @@ Veja a [fila completa de reidratação](REHYDRATION_QUEUE.md). Os links abaixo a
 | **[tare_tools_identity_lineage_learning_research_SHA256SUMS_2026-08-12.txt](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-learning-research-sha256sums-2026-08-12-txt.reference.json)**<br><sub>`file_0000000054bc820ea188888a7256c3c8`</sub> | `P0` | `checksums` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
 | **[tare_tools_identity_lineage_research_index_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-research-index-2026-08-12-html.reference.json)**<br><sub>`file_000000001eb8820ea1d9bbcd24cbd389`</sub> | `P0` | `research-index` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
 | **[tare_tools_lineage_technology_landscape_reuse_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-lineage-technology-landscape-reuse-2026-08-12-html.reference.json)**<br><sub>`file_00000000124c820e8a666894140ca106`</sub> | `P0` | `technology-landscape` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_demand_lineage_context_learning_scientific_research_2026-08-12.html](../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-demand-lineage-context-learning-scientific-research-2026-08-12-html.reference.json)**<br><sub>`file_00000000fd8c820eac860dc01c7da358`</sub> | `P0` | `scientific-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_information_survival_implementation_architecture_2026-08-12.html](../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-information-survival-implementation-architecture-2026-08-12-html.reference.json)**<br><sub>`file_00000000d4a0820ebb16a09a390229be`</sub> | `P0` | `implementation-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_information_survival_reconstructability_scientific_research_2026-08-12.html](../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-information-survival-reconstructability-scientific-research-2026-08-12-html.reference.json)**<br><sub>`file_00000000a0dc820eb1ec12531be3783e`</sub> | `P0` | `scientific-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_information_survival_research_index_2026-08-12.html](../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-information-survival-research-index-2026-08-12-html.reference.json)**<br><sub>`file_00000000b860820e8aeed4ed3a8a066a`</sub> | `P0` | `research-index` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_information_survival_research_manifest_2026-08-12.json](../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-information-survival-research-manifest-2026-08-12-json.reference.json)**<br><sub>`file_00000000bdf4820e94bce6200421449e`</sub> | `P0` | `validation-manifest` | `information-survival-demand-lineage-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
+| **[tare_tools_reconstructability_verification_technology_landscape_2026-08-12.html](../corpus/library-references/2026-08-12-information-survival-ingestion/tare-tools-reconstructability-verification-technology-landscape-2026-08-12-html.reference.json)**<br><sub>`file_000000000ee4820ebe343052f59813e9`</sub> | `P0` | `technology-landscape` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
 
 ## Por tema
 
-- [North Star histórica](../research/00_north-star-historical/README.md) — 2 materializado(s) · 36 pendente(s)
+- [North Star histórica](../research/00_north-star-historical/README.md) — 2 materializado(s) · 42 pendente(s)
 - [Metodologia e programa de pesquisa](../research/01_methodology-research-program/README.md) — 1 materializado(s) · 1 pendente(s)
-- [Harness / Agent OS Architecture](../research/02_harness-architecture/README.md) — 3 materializado(s) · 30 pendente(s)
-- [Workflow](../research/03_workflow/README.md) — 2 materializado(s) · 22 pendente(s)
+- [Harness / Agent OS Architecture](../research/02_harness-architecture/README.md) — 3 materializado(s) · 36 pendente(s)
+- [Workflow](../research/03_workflow/README.md) — 2 materializado(s) · 28 pendente(s)
 - [Routing & Reputation](../research/04_routing-reputation/README.md) — 1 materializado(s) · 16 pendente(s)
 - [Runtime / Model / Inference](../research/05_runtime-model-inference/README.md) — 8 materializado(s) · 22 pendente(s)
 - [Capability / Effects](../research/06_capabilities-effects/README.md) — 2 materializado(s) · 8 pendente(s)
 - [Reliability](../research/07_reliability/README.md) — 2 materializado(s) · 11 pendente(s)
-- [Validation / Assurance / Evidence](../research/08_validation-assurance/README.md) — 4 materializado(s) · 28 pendente(s)
+- [Validation / Assurance / Evidence](../research/08_validation-assurance/README.md) — 4 materializado(s) · 34 pendente(s)
 - [Governance / Audit / Authority](../research/09_governance-audit/README.md) — 3 materializado(s) · 29 pendente(s)
 - [Protocols / Interoperability](../research/10_interoperability-protocols/README.md) — 3 materializado(s) · 15 pendente(s)
-- [Project / Workspace](../research/11_project-workspace/README.md) — 1 materializado(s) · 28 pendente(s)
-- [Memory / Context](../research/12_memory-context/README.md) — 0 materializado(s) · 9 pendente(s)
+- [Project / Workspace](../research/11_project-workspace/README.md) — 1 materializado(s) · 34 pendente(s)
+- [Memory / Context](../research/12_memory-context/README.md) — 0 materializado(s) · 10 pendente(s)
 - [Resources / Scheduling / Economics](../research/13_resources-scheduling/README.md) — 1 materializado(s) · 2 pendente(s)
 - [Sandbox / Isolation](../research/14_sandbox-isolation/README.md) — 1 materializado(s) · 2 pendente(s)
 - [Experience / TUI / REPL](../research/15_experience-tui-repl/README.md) — 0 materializado(s) · 6 pendente(s)
 - [Vendors / Runtimes](../research/16_vendors-runtimes/README.md) — 8 materializado(s) · 22 pendente(s)
 - [Local Models / Benchmarks](../research/17_local-models-benchmarks/README.md) — 0 materializado(s) · 4 pendente(s)
-- [Evolution Control](../research/18_evolution-control/README.md) — 1 materializado(s) · 13 pendente(s)
+- [Evolution Control](../research/18_evolution-control/README.md) — 1 materializado(s) · 19 pendente(s)
 - [Legacy / Cognitive System Reconstruction](../research/19_legacy-system-reconstruction/README.md) — 0 materializado(s) · 0 pendente(s)
 
 ## Provenance

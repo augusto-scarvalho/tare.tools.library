@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "flref.infosurv.6842ae565951",
+  "title": "tare_tools_reconstructability_verification_technology_landscape_2026-08-12.html",
+  "file_library_id": "file_000000000ee4820ebe343052f59813e9",
+  "file_created_at": "2026-08-12",
+  "file_modified_at": "2026-08-12",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P0",
+  "suggested_kind": "technology-landscape",
+  "suggested_status": "RESEARCH",
+  "suggested_contexts": [
+    "Project / Workspace",
+    "Workflow",
+    "Context / Memory",
+    "Reliability / Effects",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Resources / Artifacts"
+  ],
+  "lineage_family": "information-survival-demand-lineage-2026-08-12",
+  "lineage_order_hint": null,
+  "reported_sha256": "6741de5052d13c214647c744334fd5214891c142ab2c81299fe453b9b9ccdfe3",
+  "reported_size_bytes": 40894,
+  "hash_status": "REPORTED_NOT_LOCALLY_VERIFIED",
+  "discovered_at": "2026-08-12",
+  "discovery_basis": "Shared-chat ingestion via File Library; public share URL cache-missed in this runtime.",
+  "notes": "Expected hash/size are reported by the research-pack validation manifest. Raw bytes are not mounted locally; no exact local source path is asserted."
+}

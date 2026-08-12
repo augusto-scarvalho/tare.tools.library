@@ -35,6 +35,15 @@
 - Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
 - Authority: no canonical promotion; integration is research-only.
 
+
+## 2026-08-12 cross-lineage update — Information Survival, Demand Lineage & Reconstructable Assurance
+
+- ResearchObject: `research_object.information-survival-demand-lineage-2026-08-12`
+- Status: `RESEARCH / CROSS-LINEAGE`
+- Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
+- Key contribution: survival/reconstructability + demand→settlement lineage + Evidence Recall; no new Agent OS plane.
+- Authority: no canonical promotion; integration is research-only.
+
 ## Open Research Frontier (shadow)
 
 > Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.

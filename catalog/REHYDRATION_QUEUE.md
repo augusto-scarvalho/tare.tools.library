@@ -2,7 +2,7 @@
 
 > File Library references are discovery records, not local source bytes. Never reconstruct an "original" from search snippets. Materialize exact source bytes first; then verify identity/hash, import, and only then translate if needed.
 
-References discovered: **66**. Exact-byte identity crosswalks: **0**. Expected SHA-256 constraints from independent manifests: **11**. Pending materialization: **66**. Translation blocked pending exact source: **44**. Ready for translation: **0**. Native English: **22**.
+References discovered: **72**. Exact-byte identity crosswalks: **0**. Expected SHA-256 constraints from independent manifests: **16**. Pending materialization: **72**. Translation blocked pending exact source: **49**. Ready for translation: **0**. Native English: **23**.
 
 ## Priority semantics
 
@@ -11,7 +11,7 @@ References discovered: **66**. Exact-byte identity crosswalks: **0**. Expected S
 - **P2** — historical versions/supporting artifacts.
 - **P3** — low-level evidence/patch history.
 
-## P0 — 23 item(s)
+## P0 — 29 item(s)
 
 | Artifact | Kind | Family | Language | Translation | File Library ID |
 |---|---|---|---|---|---|
@@ -31,6 +31,12 @@ References discovered: **66**. Exact-byte identity crosswalks: **0**. Expected S
 | **tare_tools_identity_lineage_learning_research_manifest_2026-08-12.json** | `validation-manifest` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_00000000a274820eaab028fdccb33cb2` |
 | **tare_tools_identity_lineage_research_index_2026-08-12.html** | `research-index` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_000000001eb8820ea1d9bbcd24cbd389` |
 | **tare_tools_lineage_technology_landscape_reuse_2026-08-12.html** | `technology-landscape` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000124c820e8a666894140ca106` |
+| **tare_tools_demand_lineage_context_learning_scientific_research_2026-08-12.html** | `scientific-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000fd8c820eac860dc01c7da358` |
+| **tare_tools_information_survival_implementation_architecture_2026-08-12.html** | `implementation-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000d4a0820ebb16a09a390229be` |
+| **tare_tools_information_survival_reconstructability_scientific_research_2026-08-12.html** | `scientific-research` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000a0dc820eb1ec12531be3783e` |
+| **tare_tools_information_survival_research_index_2026-08-12.html** | `research-index` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000b860820e8aeed4ed3a8a066a` |
+| **tare_tools_information_survival_research_manifest_2026-08-12.json** | `validation-manifest` | `information-survival-demand-lineage-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_00000000bdf4820e94bce6200421449e` |
+| **tare_tools_reconstructability_verification_technology_landscape_2026-08-12.html** | `technology-landscape` | `information-survival-demand-lineage-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000000ee4820ebe343052f59813e9` |
 | **tare_tools_interoperability_learning_evolution_scientific_research_2026-08-10.html** | `research` | `interoperability-learning-evolution` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_0000000085f8820ea17069240615c747` |
 | **tare_tools_interoperability_learning_evolution_implementation_proposal_2026-08-10.html** | `implementation-proposal` | `interoperability-learning-evolution` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000003e8c820e8484e4857d25e050` |
 | **tare_tools_project_admission_adoption_scientific_research_2026-08-09.html** | `research` | `project-admission-adoption` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000006ac4820eb272f0d0ab685749` |

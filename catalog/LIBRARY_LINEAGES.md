@@ -101,6 +101,19 @@
 
 **Review status:** `ORDER_HINT_ONLY — CONTENT_DIFF_REQUIRED`
 
+## `information-survival-demand-lineage-2026-08-12` — 6 artifact(s)
+
+| Order hint | Artifact | Created | File Library ID | Availability |
+|---|---|---|---|---|
+| `None` | tare_tools_reconstructability_verification_technology_landscape_2026-08-12.html | `2026-08-12` | `file_000000000ee4820ebe343052f59813e9` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_information_survival_reconstructability_scientific_research_2026-08-12.html | `2026-08-12` | `file_00000000a0dc820eb1ec12531be3783e` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_information_survival_research_index_2026-08-12.html | `2026-08-12` | `file_00000000b860820e8aeed4ed3a8a066a` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_information_survival_research_manifest_2026-08-12.json | `2026-08-12` | `file_00000000bdf4820e94bce6200421449e` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_information_survival_implementation_architecture_2026-08-12.html | `2026-08-12` | `file_00000000d4a0820ebb16a09a390229be` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_demand_lineage_context_learning_scientific_research_2026-08-12.html | `2026-08-12` | `file_00000000fd8c820eac860dc01c7da358` | `LIBRARY_REFERENCE_ONLY` |
+
+**Review status:** `ORDER_HINT_ONLY — CONTENT_DIFF_REQUIRED`
+
 ## `interoperability-learning-evolution` — 3 artifact(s)
 
 | Order hint | Artifact | Created | File Library ID | Availability |

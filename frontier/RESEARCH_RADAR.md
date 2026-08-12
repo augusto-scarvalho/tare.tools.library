@@ -14,7 +14,7 @@ Count: **0**
 
 ## EXPERIMENT
 
-Count: **13**
+Count: **14**
 
 - [rp-f9b2aa07a8 — causal experiment design templates](pointers/rp-f9b2aa07a8-causal-experiment-design-templates.md)
 - [rp-4f059076aa — Community Lab / distributed falsification](pointers/rp-4f059076aa-community-lab-distributed-falsification.md)
@@ -28,15 +28,18 @@ Count: **13**
 - [rp-ae68109d12 — Interaction-aware UI generation and testing](pointers/rp-ae68109d12-interaction-aware-ui-generation-and-testing.md)
 - [rp-02ba98a842 — Local inference qualification](pointers/rp-02ba98a842-local-inference-qualification.md)
 - [rp-3c21ee61ad — metrology dashboard for evaluators](pointers/rp-3c21ee61ad-metrology-dashboard-for-evaluators.md)
+- [rp-af02efd7bd — Observability Projection Qualification Pack](pointers/rp-af02efd7bd-observability-projection-qualification-pack.md)
 - [rp-6b2eec5e7c — RO-Crate/JSON-LD export qualification](pointers/rp-6b2eec5e7c-ro-crate-json-ld-export-qualification.md)
 
 ## INVESTIGATE
 
-Count: **11**
+Count: **13**
 
+- [rp-6a3a4ebbb2 — active curation / Value of Information](pointers/rp-6a3a4ebbb2-active-curation-value-of-information.md)
 - [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md)
 - [rp-a24cdfc68a — Causal routing attribution and OPE](pointers/rp-a24cdfc68a-causal-routing-attribution-and-ope.md)
 - [rp-d7383c6282 — Evaluator metrology](pointers/rp-d7383c6282-evaluator-metrology.md)
+- [rp-4d0c0a14c0 — Evidence reuse and invalidation](pointers/rp-4d0c0a14c0-evidence-reuse-and-invalidation.md)
 - [rp-a3c88ec045 — Identity, trust, and federation](pointers/rp-a3c88ec045-identity-trust-and-federation.md)
 - [rp-9784d1bff6 — logical effect identity details](pointers/rp-9784d1bff6-logical-effect-identity-details.md)
 - [rp-d2d246077c — Operational effect accounting](pointers/rp-d2d246077c-operational-effect-accounting.md)
@@ -62,16 +65,19 @@ Count: **9**
 
 ## WATCH
 
-Count: **91**
+Count: **107**
 
-- [rp-6a3a4ebbb2 — active curation / Value of Information](pointers/rp-6a3a4ebbb2-active-curation-value-of-information.md)
+- [rp-96f51efac1 — Adaptive Retention and Survival Value](pointers/rp-96f51efac1-adaptive-retention-and-survival-value.md)
 - [rp-08d8e2af92 — architecture-epoch representation](pointers/rp-08d8e2af92-architecture-epoch-representation.md)
 - [rp-e8b4847561 — Archival lineage survivability after scrub and compaction](pointers/rp-e8b4847561-archival-lineage-survivability-after-scrub-and-compaction.md)
+- [rp-4e3fb6ae13 — Archival Science & Long-Term Executability](pointers/rp-4e3fb6ae13-archival-science-long-term-executability.md)
+- [rp-6cdf3cef39 — Artifact-Anchored Verification Memory & Upstream Drift](pointers/rp-6cdf3cef39-artifact-anchored-verification-memory-upstream-drift.md)
 - [rp-59683f955d — artifact/data transfer semantics](pointers/rp-59683f955d-artifact-data-transfer-semantics.md)
 - [rp-be4d0aa6ad — assurance case projection](pointers/rp-be4d0aa6ad-assurance-case-projection.md)
 - [rp-1d31c7e414 — Authority freshness / fencing](pointers/rp-1d31c7e414-authority-freshness-fencing.md)
 - [rp-98fbd59c4d — authority UX failure modes](pointers/rp-98fbd59c4d-authority-ux-failure-modes.md)
 - [rp-8f4f8cc2ba — automated source freshness checks](pointers/rp-8f4f8cc2ba-automated-source-freshness-checks.md)
+- [rp-c288c9262b — Bitemporal Artifact/Evidence Semantics](pointers/rp-c288c9262b-bitemporal-artifact-evidence-semantics.md)
 - [rp-958f5fa0b3 — bitemporal epistemic graph and architecture-epoch queries](pointers/rp-958f5fa0b3-bitemporal-epistemic-graph-and-architecture-epoch-queries.md)
 - [rp-4638fc32db — bounded exploration policy](pointers/rp-4638fc32db-bounded-exploration-policy.md)
 - [rp-effac4d7cf — calibrated LLM-assisted curation](pointers/rp-effac4d7cf-calibrated-llm-assisted-curation.md)
@@ -85,7 +91,9 @@ Count: **91**
 - [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md)
 - [rp-75654b67df — Constitutional governance](pointers/rp-75654b67df-constitutional-governance.md)
 - [rp-f24a4b53da — constitutional/root change process](pointers/rp-f24a4b53da-constitutional-root-change-process.md)
+- [rp-2db76ab0f2 — Content-Addressed Storage and Garbage Collection for Evidence/Artifacts](pointers/rp-2db76ab0f2-content-addressed-storage-and-garbage-collection-for-evidence-artifacts.md)
 - [rp-d34fd7f580 — Context governance](pointers/rp-d34fd7f580-context-governance.md)
+- [rp-5cfeb33c92 — Context Reconstruction View](pointers/rp-5cfeb33c92-context-reconstruction-view.md)
 - [rp-e274160076 — context validity/freshness model](pointers/rp-e274160076-context-validity-freshness-model.md)
 - [rp-5b1f7413a5 — Contextual confinement for reference/browser agents](pointers/rp-5b1f7413a5-contextual-confinement-for-reference-browser-agents.md)
 - [rp-96f8b87234 — Control effectiveness](pointers/rp-96f8b87234-control-effectiveness.md)
@@ -100,13 +108,16 @@ Count: **91**
 - [rp-ad88e49c07 — Cybernetics and control theory for observability/controllability/stability](pointers/rp-ad88e49c07-cybernetics-and-control-theory-for-observability-controllability-stability.md)
 - [rp-f0c0d9085f — Decision rights vs capability vs authority](pointers/rp-f0c0d9085f-decision-rights-vs-capability-vs-authority.md)
 - [rp-4089f0d228 — decision-right representation](pointers/rp-4089f0d228-decision-right-representation.md)
+- [rp-8d56cf0353 — Demand Accounting & Settlement Science](pointers/rp-8d56cf0353-demand-accounting-settlement-science.md)
 - [rp-5685518986 — Dual-audience interfaces](pointers/rp-5685518986-dual-audience-interfaces.md)
-- [rp-4d0c0a14c0 — Evidence reuse and invalidation](pointers/rp-4d0c0a14c0-evidence-reuse-and-invalidation.md)
+- [rp-3bba42bb65 — Evidence Recall and reverse dependency propagation](pointers/rp-3bba42bb65-evidence-recall-and-reverse-dependency-propagation.md)
 - [rp-448bedc258 — Evolution Candidate provenance and identity surface](pointers/rp-448bedc258-evolution-candidate-provenance-and-identity-surface.md)
 - [rp-32668f1a9b — Executable system reconstruction](pointers/rp-32668f1a9b-executable-system-reconstruction.md)
 - [rp-c26a7d4f2f — ExecutionAttempt identity semantics](pointers/rp-c26a7d4f2f-executionattempt-identity-semantics.md)
 - [rp-b38154d396 — Exploration without incumbent lock-in](pointers/rp-b38154d396-exploration-without-incumbent-lock-in.md)
+- [rp-eff5f8dd83 — Federated Experience Semantics](pointers/rp-eff5f8dd83-federated-experience-semantics.md)
 - [rp-b8dc8b40c8 — filesystem confinement proof](pointers/rp-b8dc8b40c8-filesystem-confinement-proof.md)
+- [rp-09aff1b260 — Finality and Reopening Semantics](pointers/rp-09aff1b260-finality-and-reopening-semantics.md)
 - [rp-684e476bc5 — formal lifecycle/terminality semantics](pointers/rp-684e476bc5-formal-lifecycle-terminality-semantics.md)
 - [rp-ccad7bea11 — Formal workflow semantics federation](pointers/rp-ccad7bea11-formal-workflow-semantics-federation.md)
 - [rp-0a4bd91301 — Governance debt](pointers/rp-0a4bd91301-governance-debt.md)
@@ -114,6 +125,8 @@ Count: **91**
 - [rp-a9eaccec1a — High Reliability Organizations and resilience engineering for near misses, recovery and operating posture](pointers/rp-a9eaccec1a-high-reliability-organizations-and-resilience-engineering-for-near-misses-recove.md)
 - [rp-2c58c6b648 — human attention budgeting](pointers/rp-2c58c6b648-human-attention-budgeting.md)
 - [rp-56a857d5d3 — human cognitive interoperability for research graphs](pointers/rp-56a857d5d3-human-cognitive-interoperability-for-research-graphs.md)
+- [rp-9831fbfe3b — Independent Semantic Verification of Agent Work](pointers/rp-9831fbfe3b-independent-semantic-verification-of-agent-work.md)
+- [rp-101da5dce0 — Learning Invalidation Graph](pointers/rp-101da5dce0-learning-invalidation-graph.md)
 - [rp-9a05c721e8 — local-model quantization as CandidateKey dimension](pointers/rp-9a05c721e8-local-model-quantization-as-candidatekey-dimension.md)
 - [rp-ab6d8ad91c — Mechanism design for incentive-compatible agent/vendor ecosystems](pointers/rp-ab6d8ad91c-mechanism-design-for-incentive-compatible-agent-vendor-ecosystems.md)
 - [rp-d13bc5b025 — Meta-assurance / protected held-outs](pointers/rp-d13bc5b025-meta-assurance-protected-held-outs.md)
@@ -132,6 +145,9 @@ Count: **91**
 - [rp-dcb422f447 — procedural applicability + negative memory](pointers/rp-dcb422f447-procedural-applicability-negative-memory.md)
 - [rp-8f7470b94a — Project Model / SpecGraph as planning substrate](pointers/rp-8f7470b94a-project-model-specgraph-as-planning-substrate.md)
 - [rp-f7cf098056 — Project/system inventory + ownership semantics](pointers/rp-f7cf098056-project-system-inventory-ownership-semantics.md)
+- [rp-e47985b949 — Reconstructive Closure](pointers/rp-e47985b949-reconstructive-closure.md)
+- [rp-4f1038f0b0 — Repository Boundary & Information Survival](pointers/rp-4f1038f0b0-repository-boundary-information-survival.md)
+- [rp-8e70588c74 — Requirement Clarification as Governed Intake](pointers/rp-8e70588c74-requirement-clarification-as-governed-intake.md)
 - [rp-ea10a8e979 — research claim graph](pointers/rp-ea10a8e979-research-claim-graph.md)
 - [rp-b10025888f — Research-role context isolation and cross-disciplinary review science](pointers/rp-b10025888f-research-role-context-isolation-and-cross-disciplinary-review-science.md)
 - [rp-67ffda4f6d — Resource governance and scheduling](pointers/rp-67ffda4f6d-resource-governance-and-scheduling.md)
@@ -142,15 +158,18 @@ Count: **91**
 - [rp-1e27bdb89e — Safe adaptive control across evidence scopes](pointers/rp-1e27bdb89e-safe-adaptive-control-across-evidence-scopes.md)
 - [rp-0f4fbef69b — safe rehydration protocol](pointers/rp-0f4fbef69b-safe-rehydration-protocol.md)
 - [rp-195c8fe3c7 — selective claim/evidence extraction and contradiction graphs](pointers/rp-195c8fe3c7-selective-claim-evidence-extraction-and-contradiction-graphs.md)
+- [rp-fed4dc2f44 — Semantic Compaction with Preserved Golden Queries](pointers/rp-fed4dc2f44-semantic-compaction-with-preserved-golden-queries.md)
 - [rp-62cf6f7a8e — Semantic fidelity at boundaries](pointers/rp-62cf6f7a8e-semantic-fidelity-at-boundaries.md)
 - [rp-ee9e40a114 — semantic-fidelity measurement](pointers/rp-ee9e40a114-semantic-fidelity-measurement.md)
 - [rp-a532ee0e38 — source identity resolution and version-family reconciliation](pointers/rp-a532ee0e38-source-identity-resolution-and-version-family-reconciliation.md)
 - [rp-1db5eb23ea — systemic resource-risk aggregation](pointers/rp-1db5eb23ea-systemic-resource-risk-aggregation.md)
 - [rp-8b8e6fcf6f — tare↔tare compatibility profile](pointers/rp-8b8e6fcf6f-taretare-compatibility-profile.md)
+- [rp-7f92fc1553 — Task Revision & Scope Change Semantics](pointers/rp-7f92fc1553-task-revision-scope-change-semantics.md)
 - [rp-c33d80958d — Temporal interoperability](pointers/rp-c33d80958d-temporal-interoperability.md)
 - [rp-96777fdc13 — trusted invocation seam](pointers/rp-96777fdc13-trusted-invocation-seam.md)
 - [rp-be30bb9998 — Typed Canonical Lineage with typestate and effect systems](pointers/rp-be30bb9998-typed-canonical-lineage-with-typestate-and-effect-systems.md)
 - [rp-1685086184 — Windows deep-path hardening](pointers/rp-1685086184-windows-deep-path-hardening.md)
+- [rp-0332a66e09 — Windows-native ephemeral verification](pointers/rp-0332a66e09-windows-native-ephemeral-verification.md)
 - [rp-82ca449e16 — Workflow Compiler as query optimizer](pointers/rp-82ca449e16-workflow-compiler-as-query-optimizer.md)
 - [rp-601a2ce77b — workflow cost-to-trust optimizer](pointers/rp-601a2ce77b-workflow-cost-to-trust-optimizer.md)
 - [rp-2bc0eb5547 — workflow-first interaction grammar](pointers/rp-2bc0eb5547-workflow-first-interaction-grammar.md)

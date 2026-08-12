@@ -1,0 +1,134 @@
+Sim. Fechei esta rodada como um **novo pacote formal de pesquisa cross-lineage do tare.tools**, seguindo o padrão editorial que já usamos nas linhas de Workflow, Reliability e Identity: índice lateral numerado, referências no corpo, bibliografia, marcação `CURRENT × TARGET × PROPOSED × RESEARCH`, ADOPT/ADAPT/RETIRE/OPEN, hipóteses falsificáveis, ponteiros e um documento técnico separado que **não se apresenta como implementação ratificada**. fileciteturn16file0 fileciteturn16file1 fileciteturn16file2
+
+A pesquisa ficou dividida deliberadamente porque o tema revelou quatro problemas relacionados, mas epistemicamente diferentes:
+
+1. **[Índice mestre — Information Survival, Demand Lineage & Reconstructable Assurance](sandbox:/mnt/data/tare_tools_information_survival_research_pack_2026-08-12/tare_tools_information_survival_research_index_2026-08-12.html)** — ponto de entrada e mapa de recuperação futura. **[01 · Pesquisa científica — Information Survival, Repository Boundaries & Reconstructive Assurance](sandbox:/mnt/data/tare_tools_information_survival_research_pack_2026-08-12/tare_tools_information_survival_reconstructability_scientific_research_2026-08-12.html)** — Git × state × artifacts × research × projections, Reconstructive Closure, Records Management/arquivística, reproducible builds, provenance, retention, Evidence Recall, semantic compaction e distribuição. **[02 · Pesquisa científica — Demand Lineage, Context Reconstruction & Governed Learning](sandbox:/mnt/data/tare_tools_information_survival_research_pack_2026-08-12/tare_tools_demand_lineage_context_learning_scientific_research_2026-08-12.html)** — `Intake → Demand → Work → Context → Effect → Evidence → Outcome → Settlement → Learning`, requirements traceability, Task revision, interactive coding, skills autoevolutivas e aprendizado cross-Project. **[03 · Technology Landscape — Reconstructability, Verification & Evidence](sandbox:/mnt/data/tare_tools_information_survival_research_pack_2026-08-12/tare_tools_reconstructability_verification_technology_landscape_2026-08-12.html)** — OCI/ORAS, SLSA/in-toto/Sigstore, BuildKit/Bazel, OpenTelemetry, OpenLineage, GUAC, Temporal/Restate/DBOS, MLflow, OpenFeature, Jujutsu, lakeFS e projetos para inspiração. **[04 · Proposta técnica — Information Survival & Reconstructable Assurance](sandbox:/mnt/data/tare_tools_information_survival_research_pack_2026-08-12/tare_tools_information_survival_implementation_architecture_2026-08-12.html)** — contracts/views, golden queries, BDDs, fault matrix, qualification packs, Strangler slices, rollback e candidatos de Implementation Packets. **[Manifest de validação e SHA-256](sandbox:/mnt/data/tare_tools_information_survival_research_pack_2026-08-12/tare_tools_information_survival_research_manifest_2026-08-12.json)**. **[Bundle completo ZIP](sandbox:/mnt/data/tare_tools_information_survival_research_bundle_2026-08-12.zip)**.
+
+O bundle passou pela validação estrutural final: **5 HTMLs, zero IDs duplicados, zero anchors internos quebrados, zero sinais de corrupção UTF-8 e todos com bibliografia**. Os documentos científicos possuem respectivamente **37, 42 e 55 entradas bibliográficas**; a proposta técnica possui 22. SHA-256 do ZIP: `0c2968f472d5f88c7fa403799b5e2afa7846c3c34653489d60e3ddfc7b3a756e`.
+
+## O que a pesquisa mudou ou fortaleceu
+
+O primeiro resultado importante é que **“Git hygiene” foi definitivamente rebaixado de problema arquitetural para sintoma**. O problema maior é *information survival*: owner, autoridade, home, identidade, reconstructability, freshness, retention, privacy, distribution, proof role e disposition. Isso casa com a tradição de provenance do W3C PROV e com Records Management, mas sem importar a ontologia dessas disciplinas para o kernel. A direção resultante é: fatos e relações irreversíveis sobrevivem; representations derivadas são reconstruídas; retention é governada; e store físico não possui o significado do objeto.
+
+A segunda conclusão forte é **Reconstructive Closure**. Reproducible Builds mostra há anos como timezone, path, timestamps e ambiente escondido quebram reprodução; nosso refinamento é mais amplo: uma Project revision precisa conseguir materializar um sistema operacionalmente equivalente a partir de um seed e inputs declarados, sem depender de memória do agente, HOME privado ou projection antiga. Isso não exige bit-reproducibility universal. A pesquisa separa explicitamente *reconstructible*, *deterministically reproducible*, *bit reproducible* e *independently reproducible*.
+
+A terceira é que **Demand Conservation não é só uma analogia elegante**. A literatura de requirements traceability e, sobretudo, os benchmarks interativos recentes mostram uma lacuna real entre “issue text” e necessidade reconstruída. SWE-Together transforma sessões reais em tarefas reproduzíveis e preserva intenção/intervenções; SWE-INTERACT trabalha com requisitos revelados progressivamente. ([arxiv.org](https://arxiv.org/abs/2606.29957?utm_source=chatgpt.com)) Ainda mais recente, o SWE-RPG, publicado em agosto de 2026, introduz ground truths intermediários para **Requirement Clarification e Implementation Planning**, justamente porque o patch final não explica onde a trajetória se desviou; no estudo reportado pelos autores, recuperação de requisitos implícitos emerge como gargalo importante. ([arxiv.org](https://arxiv.org/abs/2608.09072?utm_source=chatgpt.com)) ClarifyCodeBench investiga especificamente o custo e a qualidade de esclarecer requisitos ambíguos. ([arxiv.org](https://arxiv.org/abs/2607.00711?utm_source=chatgpt.com))
+
+Isso fortaleceu uma cadeia que eu considero agora particularmente importante:
+
+```text id="rwhzyx"
+Raw Intake
+    ↓
+Grounded Demand
+    ↓
+Requirements / Constraints
+    ↓
+Disposition / Admission
+    ↓
+Durable Work
+    ↓
+Context Materialization
+    ↓
+Execution / Effects
+    ↓
+Evidence
+    ↓
+Outcome
+    ↓
+Settlement
+```
+
+A proposta técnica deliberadamente **não cria `Demand` como primitive**. Primeiro pede golden queries sobre os seams existentes. Só existe ADR gap se não conseguirmos representar a origem/disposition sem ambiguidade.
+
+## A fronteira de agosto trouxe evidências especialmente interessantes
+
+**RETRACE**, de 9 de agosto de 2026, é quase um experimento independente sobre uma hipótese que vínhamos desenvolvendo: ele verifica um patch por reconstrução bidirecional, inclusive inferindo independentemente, a partir do patch, qual problema ele parece resolver e reconciliando isso com a demanda original. Isso não substitui nossos testes nem Assurance, mas fornece uma nova EvidenceFamily potencial e apoia a tese de que **o gerador não deveria possuir toda a interpretação usada para julgá-lo**. ([arxiv.org](https://arxiv.org/abs/2608.08950?utm_source=chatgpt.com))
+
+**RepoProbe**, de 5 de agosto, mede compreensão arquitetural de repositórios e identifica *edit bias*: modelos tendem a editar antes de compreender suficientemente a arquitetura. Em vez de um score opaco de judge, usa checklists de fatos verificáveis. Isso conversa diretamente com Graphify/source verification, Proof of Understanding Before Write e nossa ideia de compilar claims atômicas antes da intervenção. ([arxiv.org](https://arxiv.org/abs/2608.04783?utm_source=chatgpt.com))
+
+**EA-Graph**, de 4 de agosto, talvez seja o achado mais diretamente relacionado ao nosso tema de *Evidence Reuse*. Ele ancora claims ao conteúdo usado para estabelecê-las e mantém **evidence strength separada de freshness**; quando o suporte upstream desaparece, a claim pode ficar `unprovable` em vez de o sistema inventar continuidade. ([arxiv.org](https://arxiv.org/abs/2608.04278?utm_source=chatgpt.com)) Isso é quase uma confirmação independente da necessidade de `subject identity + freshness/invalidation + historical verdict preservation` que vínhamos derivando.
+
+E o survey **From Agent Traces to Trust** recentra provenance de agentes em um grafo tipado que conecta evidence, tool outputs, memory, observations, claims e actions, deslocando avaliação de simples final-answer correctness para process-level accountability. ([arxiv.org](https://arxiv.org/abs/2606.04990?utm_source=chatgpt.com))
+
+## O aprendizado/evolução ganhou bastante corpo
+
+O segundo documento não trata “autoaprendizado” como salvar chats. A fronteira de skills em 2026 está convergindo em vários experimentos diferentes para **external procedural state com lifecycle explícito**. AutoSkill extrai e mantém skills a partir de experiência; SkillOpt separa optimizer do executor e aceita bounded edits mediante melhoria em held-out validation; SkillOS aprende políticas de curadoria com delayed feedback; SkillsVote acrescenta collection/recommendation/evolution com evidence-gated updates. ([arxiv.org](https://arxiv.org/abs/2603.01145?utm_source=chatgpt.com)) MUSE-Autoskill organiza creation, memory, management, evaluation e refinement; SkillWiki conecta skills a evidence de origem e evolução baseada em execução. ([arxiv.org](https://arxiv.org/abs/2605.27366?utm_source=chatgpt.com))
+
+Nossa síntese é mais conservadora que esses sistemas:
+
+```text id="tlc04n"
+Experience
+   ↓
+Finding / Hypothesis
+   ↓
+Attribution
+   ↓
+Learning Eligibility
+   ↓
+Procedure / Memory / Strategy Candidate
+   ↓
+Replay / holdout / shadow
+   ↓
+Independent Evidence
+   ↓
+Promotion
+```
+
+E preserva uma regra:
+
+> **Agents discover structure; proven structure may be compiled into deterministic machinery.**
+
+Ou seja, aprendizado maduro pode resultar em **menos agência**, não necessariamente mais.
+
+## O landscape tecnológico também ficou mais disciplinado
+
+O documento 03 não é uma lista de “dependências recomendadas”. Ele introduz um **semantic exit test**:
+
+> se retirarmos a tecnologia amanhã, perdemos apenas mechanics/conveniência ou perdemos a capacidade de interpretar nossos próprios conceitos?
+
+Assim, OCI/ORAS aparece como um excelente candidato de laboratório para payloads content-addressed; SLSA/in-toto/Sigstore como projection/attestation; OpenTelemetry como observability projection; OpenLineage como interchange; GUAC como inspiração para reverse blast-radius; BuildKit/Bazel como ciência de content-addressed execution/cache; Temporal/Restate/DBOS como durable-runtime candidates; MLflow como experiment lab. Nenhum deles recebe `Task`, `Authority`, `EffectReceipt` ou `OutcomeEvidence`.
+
+A linha OpenTelemetry é particularmente interessante porque o repositório GenAI está discutindo formalmente semantics para **Tasks** e lifecycle de agentes long-running, incluindo pause/resume/checkpoint. Essas ainda são propostas em evolução, exatamente por isso o documento as classifica como **RESEARCH/interchange**, não como sinal para remodelar nossos contracts. ([github.com](https://github.com/open-telemetry/semantic-conventions-genai/issues/37?utm_source=chatgpt.com))
+
+## A proposta técnica ficou deliberadamente pequena na autoridade
+
+Ela não começa com OCI, Temporal ou container.
+
+Começa com:
+
+```text id="3wmlet"
+S0  Repository Boundary Audit read-only
+S1  Canonical Lineage golden queries read-only
+S2  Clean Project Seed reconstruction lab
+S3  Context Reconstruction View
+S4  VerificationEnvironment façade sobre incumbent
+S5  ArtifactBackend SPI + laboratório OCI
+S6  OTel / OpenLineage / SLSA projections
+S7  Repository Content Policy em shadow
+S8  uma qualification independente de baixo risco
+S9  Evidence Recall read-only
+S10 Evidence Reuse shadow
+S11 promoção de uma única otimização comprovada
+```
+
+Isso preserva Strangler, stable incumbent e rollback.
+
+Também incluí explicitamente BDDs para **Demand Conservation, session loss/rehydration, reviewer information boundary, delayed reopening, Evidence Recall, private→distribution conflict, generated-product exception, target fidelity e candidate-not-controlling-judge**.
+
+## Ponteiros que vale recuperar em novos chats
+
+Alguns ramos ficaram grandes o bastante para eu preferir não misturá-los nesta pesquisa: **Archival Science & long-term executability**, **Semantic Compaction with Preserved Golden Queries**, **Bitemporal Artifact/Evidence Semantics**, **Evidence Reuse / invalidation calculus**, **Windows-native ephemeral verification**, **Demand Accounting & Settlement Science**, **Task Revision & Scope Change Semantics**, **Adaptive Assurance / Value of Information**, **Causal Attribution & Counterfactual Replay**, **Experience Transportability & Project Archetypes**, **Federated Experience**, **Adaptive Retention / Survival Value** e **Content-Addressed Storage / GC**.
+
+Um ponteiro novo que considero especialmente valioso depois da pesquisa é:
+
+> **Artifact-Anchored Verification Memory & Upstream Drift** — cruzar EA-Graph, Canonical Lineage, Graphify/source identity, Evidence Reuse e requalification.
+
+Outro:
+
+> **Independent Semantic Verification of Agent Work** — RETRACE + deterministic tests + independent runtime + EvidenceFamily diversity.
+
+E outro:
+
+> **Requirement Clarification as Governed Intake** — SWE-RPG + ClarifyCodeBench + Demand Conservation + Task revision.
+
+O pacote foi escrito justamente para que esses pointers sejam recuperáveis depois sem precisarmos reviver esta conversa inteira.

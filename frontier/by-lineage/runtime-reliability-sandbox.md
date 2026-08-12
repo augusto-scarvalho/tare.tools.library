@@ -2,13 +2,14 @@
 
 > Projection of open research pointers associated with this scientific lineage. It does not define implementation priority.
 
-Pointers: **12**
+Pointers: **13**
 
 | Status | Radar | Pointer | Cluster |
 |---|---|---|---|
 | `TRIAGED` | `WATCH` | [rp-1d31c7e414 — Authority freshness / fencing](../pointers/rp-1d31c7e414-authority-freshness-fencing.md) | reliability-effects-durable-runtime |
+| `NORMALIZED` | `WATCH` | [rp-8d56cf0353 — Demand Accounting & Settlement Science](../pointers/rp-8d56cf0353-demand-accounting-settlement-science.md) | reliability-effects-durable-runtime |
 | `NORMALIZED` | `EXPERIMENT` | [rp-96101e4704 — durable backend qualification](../pointers/rp-96101e4704-durable-backend-qualification.md) | reliability-effects-durable-runtime |
-| `TRIAGED` | `EXPERIMENT` | [rp-70c444876f — Durable runtime qualification](../pointers/rp-70c444876f-durable-runtime-qualification.md) | reliability-effects-durable-runtime |
+| `TRIAGED` | `EXPERIMENT` | [rp-70c444876f — Durable runtime qualification](../pointers/rp-70c444876f-durable-runtime-qualification.md) | reliability-effects-durable-runtime, research-knowledge-substrate |
 | `TRIAGED` | `EXPERIMENT` | [rp-955d74e6af — Effect Torture Lab](../pointers/rp-955d74e6af-effect-torture-lab.md) | reliability-effects-durable-runtime |
 | `NORMALIZED` | `WATCH` | [rp-c26a7d4f2f — ExecutionAttempt identity semantics](../pointers/rp-c26a7d4f2f-executionattempt-identity-semantics.md) | reliability-effects-durable-runtime |
 | `NORMALIZED` | `WATCH` | [rp-b8dc8b40c8 — filesystem confinement proof](../pointers/rp-b8dc8b40c8-filesystem-confinement-proof.md) | reliability-effects-durable-runtime |

@@ -53,20 +53,32 @@
 - Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
 - Authority: no canonical promotion; integration is research-only.
 
+
+## 2026-08-12 cross-lineage update — Information Survival, Demand Lineage & Reconstructable Assurance
+
+- ResearchObject: `research_object.information-survival-demand-lineage-2026-08-12`
+- Status: `RESEARCH / CROSS-LINEAGE`
+- Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
+- Key contribution: survival/reconstructability + demand→settlement lineage + Evidence Recall; no new Agent OS plane.
+- Authority: no canonical promotion; integration is research-only.
+
 ## Open Research Frontier (shadow)
 
 > Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
 
 - [rp-be4d0aa6ad — assurance case projection](../../frontier/pointers/rp-be4d0aa6ad-assurance-case-projection.md) · `NORMALIZED` · radar `WATCH`
+- [rp-c288c9262b — Bitemporal Artifact/Evidence Semantics](../../frontier/pointers/rp-c288c9262b-bitemporal-artifact-evidence-semantics.md) · `NORMALIZED` · radar `WATCH`
 - [rp-4f059076aa — Community Lab / distributed falsification](../../frontier/pointers/rp-4f059076aa-community-lab-distributed-falsification.md) · `TRIAGED` · radar `EXPERIMENT`
 - [rp-75654b67df — Constitutional governance](../../frontier/pointers/rp-75654b67df-constitutional-governance.md) · `TRIAGED` · radar `WATCH`
 - [rp-f24a4b53da — constitutional/root change process](../../frontier/pointers/rp-f24a4b53da-constitutional-root-change-process.md) · `NORMALIZED` · radar `WATCH`
+- [rp-2db76ab0f2 — Content-Addressed Storage and Garbage Collection for Evidence/Artifacts](../../frontier/pointers/rp-2db76ab0f2-content-addressed-storage-and-garbage-collection-for-evidence-artifacts.md) · `NORMALIZED` · radar `WATCH`
 - [rp-96f8b87234 — Control effectiveness](../../frontier/pointers/rp-96f8b87234-control-effectiveness.md) · `TRIAGED` · radar `WATCH`
 - [rp-2d5b8a67cf — control retirement experiments](../../frontier/pointers/rp-2d5b8a67cf-control-retirement-experiments.md) · `NORMALIZED` · radar `WATCH`
 - [rp-f0c0d9085f — Decision rights vs capability vs authority](../../frontier/pointers/rp-f0c0d9085f-decision-rights-vs-capability-vs-authority.md) · `TRIAGED` · radar `WATCH`
 - [rp-4089f0d228 — decision-right representation](../../frontier/pointers/rp-4089f0d228-decision-right-representation.md) · `NORMALIZED` · radar `WATCH`
 - [rp-d7383c6282 — Evaluator metrology](../../frontier/pointers/rp-d7383c6282-evaluator-metrology.md) · `TRIAGED` · radar `INVESTIGATE`
-- [rp-4d0c0a14c0 — Evidence reuse and invalidation](../../frontier/pointers/rp-4d0c0a14c0-evidence-reuse-and-invalidation.md) · `TRIAGED` · radar `WATCH`
+- [rp-3bba42bb65 — Evidence Recall and reverse dependency propagation](../../frontier/pointers/rp-3bba42bb65-evidence-recall-and-reverse-dependency-propagation.md) · `NORMALIZED` · radar `WATCH`
+- [rp-4d0c0a14c0 — Evidence reuse and invalidation](../../frontier/pointers/rp-4d0c0a14c0-evidence-reuse-and-invalidation.md) · `TRIAGED` · radar `INVESTIGATE`
 - [rp-0a4bd91301 — Governance debt](../../frontier/pointers/rp-0a4bd91301-governance-debt.md) · `TRIAGED` · radar `WATCH`
 - [rp-e0994063b4 — governance debt metrology](../../frontier/pointers/rp-e0994063b4-governance-debt-metrology.md) · `NORMALIZED` · radar `EXPERIMENT`
 - [rp-d13bc5b025 — Meta-assurance / protected held-outs](../../frontier/pointers/rp-d13bc5b025-meta-assurance-protected-held-outs.md) · `TRIAGED` · radar `WATCH`

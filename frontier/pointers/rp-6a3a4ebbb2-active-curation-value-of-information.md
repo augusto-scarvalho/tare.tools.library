@@ -5,18 +5,21 @@
 
 ## Context
 
+enrich with Adaptive Assurance and selective verification acquisition.
+
 ## Classification
 
 - **Kinds:** research_branch
 - **Lineages:** research-methodology-evidence
 - **Clusters:** research-knowledge-substrate
-- **Radar projection:** `WATCH` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
+- **Radar projection:** `INVESTIGATE` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
 - **Priority:** `UNTRIAGED`
 - **Why not now:** `UNASSESSED`
 
 ## Origins
 
 - `CURATED_POINTER_INDEX` — `catalog/FUTURE_RESEARCH_POINTERS.md:L98` — Research Knowledge Substrate / scholarly data enrichment
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/information-survival-demand-lineage-2026-08-12-pointers.md:L8` — Reused / enriched existing pointers
 
 ## Conservative relationship candidates
 

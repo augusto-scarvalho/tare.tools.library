@@ -10,7 +10,7 @@ English overview: **[README.en.md](README.en.md)**.
 
 ## Comece aqui
 
-- **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 seed originals de chat, 1 live-ingestion exact source, 93 cópias exatas do snapshot privado e 66 referências File Library, com origem/authority explícitas.
+- **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 seed originals de chat, 1 live-ingestion exact source, 93 cópias exatas do snapshot privado e 72 referências File Library, com origem/authority explícitas.
 - **[Índice dos originals de chat materializados](catalog/DOCUMENT_INDEX.md)** — navegação PT-BR | EN por documento e por tema.
 - **[Primeira ingestão viva — Identity, Lineage, Learning & Evolution](catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12.md)** — ResearchObject transversal de 12/08, com review, technical delta, graph edges e Frontier curation.
 - **[Baseline histórico do GitHub privado](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — snapshot exato de 05/08, não CURRENT.
@@ -38,7 +38,7 @@ English overview: **[README.en.md](README.en.md)**.
 
 Foram materializados **11 documentos** do corpus de chat nesta árvore. O baseline histórico privado acrescenta **93 cópias exatas de `docs/research/`**, mantidas em um namespace separado para não confundir origem. Veja [`ALL_DOCUMENTS_INDEX.md`](catalog/ALL_DOCUMENTS_INDEX.md).
 
-No corpus principal, foram materializados **11 documentos** nesta árvore. Os originals PT-BR ficam em `corpus/original/`; versões EN derivadas ficam em `corpus/translations/en/`. Tradução EN disponível: **11/11**. Há **66 referências File Library** registradas; **66** ainda aguardam materialização exata, sem reconstrução a partir de snippets.
+No corpus principal, foram materializados **11 documentos** nesta árvore. Os originals PT-BR ficam em `corpus/original/`; versões EN derivadas ficam em `corpus/translations/en/`. Tradução EN disponível: **11/11**. Há **72 referências File Library** registradas; **72** ainda aguardam materialização exata, sem reconstrução a partir de snippets.
 
 ## Status permitidos
 
