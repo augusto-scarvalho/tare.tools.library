@@ -1,5 +1,7 @@
 # Adaptive Routing & Reputation — technical proposal
 
+[← Information Survival proposal](information-survival.md) · [Research basis](../research/routing/adaptive-routing-reputation.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED; preserve policy-first order.
 
 ## Contracts retained from routing research
@@ -17,3 +19,7 @@ Static heuristic baselines → shadow evidence collection → project-local repu
 ## Qualification
 
 Evaluate completion, cost-to-trust, route regret, calibration, fallback causal correctness, delayed outcomes, project-local improvement and negative transfer. Never claim improvement from benchmark leaderboard alone.
+
+---
+
+**Previous:** [Information Survival proposal](information-survival.md) · **Next:** [Resource / Sandbox proposal →](resource-sandbox-assurance.md) · **Deep economics:** [Economics / Resources](../research/routing/economics-resources-observability.md)

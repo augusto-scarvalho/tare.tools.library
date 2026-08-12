@@ -1,5 +1,7 @@
 # Selected Evidence Registry — semantic curation 2026-08-12
 
+[← Sources & Provenance](README.md) · [Repository Navigation](../NAVIGATION.md) · [Curated Findings](../findings/CURATED_FINDINGS.md) · [Living Research](../research/README.md)
+
 **Status:** RESEARCH bibliography / provenance aid.  
 **Purpose:** preserve the smallest useful set of external sources that materially support, challenge or operationalize the living studies.  
 **Important:** this registry is curated from the source lineages already researched in tare.tools. This curation pass did **not** freshly re-verify every external URL/version on 2026-08-12; freshness must be checked before normative promotion or implementation where recency matters.
@@ -17,6 +19,8 @@ The registry deliberately avoids a score based on source count. One source may s
 ---
 
 ## Study 01 — Agent OS Foundations & Canonical Spine
+
+**Living research:** [Agent OS Foundations](../research/foundations/agent-os-foundations.md) · [Project Admission](../research/project/project-admission-adoption.md)
 
 ### S01-E01 — Exokernel: An Operating System Architecture for Application-Level Resource Management
 - Class: **E1 / seminal systems**
@@ -58,6 +62,8 @@ The registry deliberately avoids a score based on source count. One source may s
 
 ## Study 02 — Governed Work, Effects, Lineage & Reconstructability
 
+**Living research:** [Workflow](../research/work/workflow-governed-work.md) · [Reliability](../research/work/reliability-effect-reconciliation.md) · [Information Survival](../research/work/information-survival-reconstructability.md) · [Canonical Lineage](../research/context/canonical-lineage-identity.md)
+
 ### S02-E01 — Sagas
 - Class: **E1 / seminal distributed systems**
 - Garcia-Molina & Salem, SIGMOD 1987.
@@ -96,6 +102,8 @@ The registry deliberately avoids a score based on source count. One source may s
 ---
 
 ## Study 03 — Governance, Assurance, Audit & Evidence
+
+**Living research:** [Constitutional Governance](../research/governance/constitutional-governance-decision-rights.md) · [Audit / Metrology](../research/governance/governance-assurance-audit-metrology.md) · [Assurance / Evolution](../research/governance/assurance-evolution-testing.md) · [Test Engineering](../research/assurance/test-engineering-scenario-gates.md)
 
 ### S03-E01 — Auditable Agents
 - Class: **E3 / 2026 auditability research**
@@ -138,6 +146,8 @@ The registry deliberately avoids a score based on source count. One source may s
 ---
 
 ## Study 04 — Runtime, Capabilities, Isolation & Interoperability
+
+**Living research:** [Runtime Ownership](../research/runtime/runtime-ownership-vendor-integration.md) · [Capability / Sandbox](../research/runtime/capability-sandbox-resources.md) · [Protocols & Interoperability](../research/runtime/protocols-interoperability.md)
 
 ### S04-E01 — Model Context Protocol specification, 2026-07-28
 - Class: **E4 / official protocol specification**
@@ -201,6 +211,8 @@ The registry deliberately avoids a score based on source count. One source may s
 
 ## Study 05 — Routing, Adaptation, Economics & Resources
 
+**Living research:** [Adaptive Routing](../research/routing/adaptive-routing-reputation.md) · [Economics / Resources](../research/routing/economics-resources-observability.md)
+
 ### S05-E01 — LLMRouterBench
 - Class: **E1/E2 / peer-reviewed benchmark**
 - https://aclanthology.org/2026.findings-acl.1881/
@@ -237,6 +249,8 @@ The registry deliberately avoids a score based on source count. One source may s
 ---
 
 ## Study 06 — Context, Memory, Learning & Evolution
+
+**Living research:** [Context / Memory / Playbooks](../research/context/context-memory-playbooks.md) · [Canonical Lineage](../research/context/canonical-lineage-identity.md) · [Adaptive Learning](../research/context/adaptive-learning-cross-project-evolution.md)
 
 ### S06-E01 — Memory for Autonomous LLM Agents: Mechanisms, Evaluation, and Emerging Frontiers
 - Class: **E3 / 2026 survey**
@@ -299,6 +313,8 @@ The registry deliberately avoids a score based on source count. One source may s
 
 ## Study 07 — Experience, Human Interface & Legacy Reconstruction
 
+**Living research:** [TUI / REPL Experience](../research/experience/tui-repl-experience.md) · [Legacy Reconstruction](../research/experience/legacy-system-reconstruction.md)
+
 ### S07-E01 — Plover: Steering GUI Agents through Plan-Centric Interaction
 - Class: **E3 / 2026 HCI frontier**
 - https://arxiv.org/abs/2607.15193
@@ -326,6 +342,8 @@ The registry deliberately avoids a score based on source count. One source may s
 ---
 
 ## Study 08 — Research Methodology & Empirical Assurance
+
+**Living research:** [Formal Research Program](../research/methodology/formal-research-program.md) · [CMRP & Epistemic Independence](../research/methodology/cmrp-and-epistemic-independence.md) · [Test Engineering](../research/assurance/test-engineering-scenario-gates.md)
 
 ### S08-E01 — RepoReason
 - Class: **E2/E3 / repository-level benchmark**
@@ -361,6 +379,8 @@ The registry deliberately avoids a score based on source count. One source may s
 
 ## Experiment — Local AI Lab / recurrent memory
 
+**Experiment:** [Recurrent Memory research line](../experiments/local-ai-lab/recurrent-memory/README.md)
+
 This experiment intentionally uses **project-internal empirical evidence as primary evidence**. External recurrent-memory literature is discovery/interpretation context, not a substitute for the measured substrate. The live experiment therefore records exact model/runtime/config and qualified effect sizes; its historical bundles/handoffs remain recoverable outside HEAD.
 
 ---
@@ -368,3 +388,7 @@ This experiment intentionally uses **project-internal empirical evidence as prim
 ## What is intentionally absent
 
 The previous corpus contained many additional citations. They remain recoverable through Git/File Library and may be reintroduced when a living claim actually needs them. A source is not kept merely because it once appeared in a bibliography.
+
+---
+
+**Continue:** [Curated Findings →](../findings/CURATED_FINDINGS.md) · [Research Frontier](../frontier/RESEARCH_FRONTIER.md) · [Provenance Index](PROVENANCE_INDEX.md)

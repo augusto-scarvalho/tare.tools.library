@@ -1,6 +1,10 @@
 # CMRP, Multi-Role Research & Epistemic Independence
 
+[← Formal Research Program](formal-research-program.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** EXPERIMENTAL METHOD · ADAPT / shadow, not default proof.
+
+**HTML/source context:** [Research Methodology / Evidence scientific refresh](../../bridge-editions/2026-08-11/research-methodology-evidence-scientific-refresh.html) · [CMRP Run 001](../../experiments/research-methodology/cmrp-run-001.md)
 
 ## What the experiment found
 
@@ -27,3 +31,12 @@ Role labels may create false independence; performance may come simply from more
 Compare compute-matched conditions: single-pass, generic iterative baseline, same-model CMRP, same-model isolated-context roles, heterogeneous models, heterogeneous + independent/human review. Cross shared-context versus artifact-only handoff.
 
 Measure supported-claim precision, contradiction recall, negative-evidence preservation, source-identity correctness, false-correction rate, architectural drift, adversarial yield, residual unsupported claims, calibration and cost-to-trust.
+
+---
+
+## Continue this trail
+
+**Previous:** [Formal Research Program](formal-research-program.md)  
+**Experiment:** [CMRP Run 001](../../experiments/research-methodology/cmrp-run-001.md)  
+**Next knowledge state:** [Curated Findings →](../../findings/CURATED_FINDINGS.md)  
+**Then:** [Research Frontier](../../frontier/RESEARCH_FRONTIER.md) · [Repository Navigation](../../NAVIGATION.md)

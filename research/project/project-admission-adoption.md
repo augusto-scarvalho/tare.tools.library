@@ -1,6 +1,10 @@
 # Project / Workspace Admission & Adoption — preservation edition
 
+[← Agent OS Foundations](../foundations/agent-os-foundations.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / PROPOSED integration seam.
+
+**Closest source context:** [Agent OS Foundations HTML checkpoint](../../bridge-editions/2026-08-11/agent-os-foundations-scientific-refresh.html) · [Exact deep-artifact status](../../catalog/REHYDRATION_GAPS.md)
 
 ## Why this survives separately
 
@@ -35,3 +39,12 @@ Feeds Workflow planning, Candidate eligibility, Context compilation and cross-pr
 ## OPEN
 
 Admission contract, Project revision semantics, mono-repo/multi-repo subjects, legacy non-Git systems, artifact/source homes, external workspace federation.
+
+---
+
+## Continue this trail
+
+**Previous:** [Agent OS Foundations](../foundations/agent-os-foundations.md)  
+**Next:** [Demand Lineage / Settlement →](../work/demand-lineage-settlement.md)  
+**Related:** [Canonical Lineage](../context/canonical-lineage-identity.md) · [Legacy System Reconstruction](../experience/legacy-system-reconstruction.md)  
+**Implementation hypothesis:** [Agent OS proposal](../../proposals/agent-os-sdd-bdd.md)

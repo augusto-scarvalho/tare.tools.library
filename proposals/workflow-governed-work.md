@@ -1,5 +1,7 @@
 # Workflow as Durable Governed Work — technical proposal
 
+[← Agent OS proposal](agent-os-sdd-bdd.md) · [Research basis](../research/work/workflow-governed-work.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED; reconcile before code.
 
 ## Problem-specific roles
@@ -28,3 +30,7 @@ Heterogeneous workflow; revisioned replan; subworkflow cancellation/join; durabl
 ## Migration
 
 Adapt incumbent workflow APIs behind roles first; preserve behavior; add read-only revision/event evidence; shadow compiler alternatives; qualify one vertical slice; keep rollback to incumbent.
+
+---
+
+**Previous proposal:** [Agent OS](agent-os-sdd-bdd.md) · **Next:** [Reliability / Reconciliation →](reliability-effect-reconciliation.md) · **Deep study:** [Workflow](../research/work/workflow-governed-work.md)

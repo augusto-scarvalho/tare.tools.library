@@ -1,6 +1,10 @@
 # Governance Assurance & Audit — metrology preservation edition
 
+[← Constitutional Governance](constitutional-governance-decision-rights.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH. Preserves the 38-section Governance/Audit study and related assurance lineage at a studyable level.
+
+**HTML/source editions:** [Assurance / Governance / Quality scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/assurance-governance-quality-scientific-refresh.html) · [Exact deep Governance/Audit HTML status](../../catalog/REHYDRATION_GAPS.md)
 
 ## Central thesis
 
@@ -45,3 +49,12 @@ Vendor count is not epistemic independence. Correlated prompts, data, method, en
 ## Research program
 
 Process-mining audits; seeded auditor qualification; random re-audit to measure misses; method-correlation studies; control-effectiveness retirement experiments; meta-audit of judge drift and override patterns.
+
+---
+
+## Continue this trail
+
+**Previous:** [Constitutional Governance](constitutional-governance-decision-rights.md)  
+**Next:** [Assurance, Testing Science & Governed Evolution →](assurance-evolution-testing.md)  
+**Implementation hypothesis:** [Governance / Audit proposal](../../proposals/governance-assurance-audit.md)  
+**Cases:** [Kimi/Antigravity false green](../../case-studies/vendor-runtime/kimi-antigravity-capability-parity.md) · [HumanEval harness failure](../../case-studies/local-inference/humaneval-scoring-harness-failure.md)

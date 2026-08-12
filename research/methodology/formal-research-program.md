@@ -1,6 +1,10 @@
 # Formal Research Program — preservation edition
 
+[← Local Model Landscape](../local-inference/model-landscape-finetunes.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH methodology lineage originating 2026-07-14.
+
+**HTML/source edition:** [Research Methodology / Evidence scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/research-methodology-evidence-scientific-refresh.html)
 
 ## Goal
 
@@ -31,3 +35,12 @@ Data contamination, benchmark overfitting, same-model circularity, vendor drift,
 ## Output chain
 
 Research → Findings → ADRs → Canonical Architecture → SPEC → BDD → Implementation Packet → Code/Gates → Outcome Evidence → new Research.
+
+---
+
+## Continue this trail
+
+**Previous:** [Local Model Landscape](../local-inference/model-landscape-finetunes.md)  
+**Next:** [CMRP / Epistemic Independence →](cmrp-and-epistemic-independence.md)  
+**Executable evidence:** [Experiments](../../experiments/README.md) · [Case Studies](../../case-studies/README.md)  
+**Condensed output:** [Curated Findings](../../findings/CURATED_FINDINGS.md)

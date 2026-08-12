@@ -1,6 +1,10 @@
 # Constitutional Governance & Decision Rights
 
+[← Canonical Lineage](../context/canonical-lineage-identity.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH; major OPEN in the North Star.
+
+**Related HTML checkpoint:** [Assurance / Governance / Quality scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/assurance-governance-quality-scientific-refresh.html)
 
 ## Why Governance survives as its own study
 
@@ -42,3 +46,12 @@ First line operates/owns risk; second line designs/challenges policy/risk/assura
 ## OPEN
 
 Root amendment process; contest/appeal/reopen; risk appetite/aggregation; ecosystem governance; incident emergency powers; meta-governance and governance debt.
+
+---
+
+## Continue this trail
+
+**Previous:** [Canonical Lineage](../context/canonical-lineage-identity.md)  
+**Next:** [Governance Assurance & Audit →](governance-assurance-audit-metrology.md)  
+**Implementation hypothesis:** [Governance / Audit proposal](../../proposals/governance-assurance-audit.md)  
+**Related effect question:** [Authority freshness in Reliability](../work/reliability-effect-reconciliation.md)

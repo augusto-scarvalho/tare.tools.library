@@ -1,6 +1,10 @@
 # Reliability Semantics & Effect Reconciliation — preservation edition
 
+[← Workflow](workflow-governed-work.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / PROPOSED semantics. Derived from the 43-section, 70-source reliability study and its technical proposal.
+
+**HTML/source editions:** [Runtime / Reliability / Sandbox scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html) · [Exact deep Reliability HTML status](../../catalog/REHYDRATION_GAPS.md)
 
 ## Central problem
 
@@ -48,3 +52,12 @@ STPA/unsafe control actions, High Reliability Organizations/near misses, resilie
 ## OPEN
 
 LogicalEffect identity; reconciliation authority; effect groups/multi-effect transactions; stale Permit semantics; durable backend qualification; observer metrology; settlement/materiality.
+
+---
+
+## Continue this trail
+
+**Previous:** [Workflow](workflow-governed-work.md)  
+**Next:** [Information Survival / Reconstructability →](information-survival-reconstructability.md)  
+**Implementation hypothesis:** [Reliability technical proposal](../../proposals/reliability-effect-reconciliation.md)  
+**Empirical assurance:** [FSV/MXC validation case](../../case-studies/validation/fsv-mxc-staged-candidate-enumeration.md) · [Agent Relay Q0](../../case-studies/evidence-exchange/agent-relay-q0.md)

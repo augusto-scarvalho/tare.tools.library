@@ -1,6 +1,10 @@
 # Adaptive Learning, Cross-Project Experience & Governed Self-Evolution
 
+[← Context / Memory / Playbooks](context-memory-playbooks.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH; promotion authority remains external to learning.
+
+**Exact HTML/source status:** [Deep-Artifact Rehydration Gaps](../../catalog/REHYDRATION_GAPS.md) · [Closest methodology/source checkpoints](../../sources/README.md)
 
 ## Qualified experience
 
@@ -38,3 +42,12 @@ Candidate cannot own sole evaluator or promotion authority. Evaluator changes re
 ## OPEN
 
 Project archetypes; transportability tests; learning invalidation graph; causal attribution/OPE; private/federated experience; evolution candidate identity; poisoning resistance.
+
+---
+
+## Continue this trail
+
+**Previous:** [Context / Memory / Playbooks](context-memory-playbooks.md)  
+**Next:** [TUI / REPL / Human-Agent Experience →](../experience/tui-repl-experience.md)  
+**Assurance boundary:** [Assurance / Governed Evolution](../governance/assurance-evolution-testing.md)  
+**Implementation hypothesis:** [Interoperability / Learning / Evolution proposal](../../proposals/interoperability-learning-evolution.md)

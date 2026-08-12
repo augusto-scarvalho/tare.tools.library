@@ -1,5 +1,7 @@
 # Information Survival & Reconstructable Assurance — technical proposal
 
+[← Canonical Lineage proposal](canonical-lineage.md) · [Research basis](../research/work/information-survival-reconstructability.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED.
 
 ## Objective
@@ -25,3 +27,7 @@ Clean-seed reconstruction; missing artifact; stale projection; hidden environmen
 ## Migration
 
 Start by inventorying current homes and classifying irreversibility; build read-only reconstruction checks; shadow content policy; only enforce moves/deletion after recovery has been proven.
+
+---
+
+**Previous:** [Canonical Lineage proposal](canonical-lineage.md) · **Next:** [Adaptive Routing proposal →](adaptive-routing.md) · **Operational evidence:** [Agent Relay Q0](../case-studies/evidence-exchange/agent-relay-q0.md)

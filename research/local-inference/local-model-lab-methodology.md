@@ -1,6 +1,10 @@
 # Local Inference & Consumer-GPU Model Lab Methodology
 
+[← Legacy System Reconstruction](../experience/legacy-system-reconstruction.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** EXPERIMENTAL RESEARCH / infrastructure methodology.
+
+**Empirical companions:** [HumanEval scoring-harness failure](../../case-studies/local-inference/humaneval-scoring-harness-failure.md) · [Recurrent Memory research line](../../experiments/local-ai-lab/recurrent-memory/README.md)
 
 ## Scope
 
@@ -33,3 +37,12 @@ Official/model-card, independent benchmark and local repeated evaluation are sep
 ## Cross-links
 
 Routing uses these qualification snapshots; Resource scheduling uses hardware constraints; Runtime ownership determines the agent loop; Local recurrent-memory experiments live under `experiments/local-ai-lab/` because their questions are architectural to model memory rather than fleet benchmarking.
+
+---
+
+## Continue this trail
+
+**Previous:** [Legacy System Reconstruction](../experience/legacy-system-reconstruction.md)  
+**Next:** [Local Model Landscape / Fine-tunes →](model-landscape-finetunes.md)  
+**Experiment line:** [Recurrent Memory](../../experiments/local-ai-lab/recurrent-memory/README.md)  
+**Routing application:** [Adaptive Routing / Reputation](../routing/adaptive-routing-reputation.md)

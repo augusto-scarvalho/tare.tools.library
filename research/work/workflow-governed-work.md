@@ -1,6 +1,10 @@
 # Workflow as Governed Work — preservation edition
 
+[← Demand / Settlement](demand-lineage-settlement.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH; TARGET implications require canonical reconciliation.
+
+**HTML/source edition:** [Workflow / Procedural scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/workflow-procedural-scientific-refresh.html) · [Deep source status](../../catalog/REHYDRATION_GAPS.md)
 
 ## Why this remains a full study
 
@@ -36,3 +40,12 @@ Compare template/instance/trace conformance; test replanning under revision pinn
 ## OPEN
 
 WorkflowInstance/Revision canonical roles; finality; dynamic graph constraints; backend qualification; procedural applicability and invalidation.
+
+---
+
+## Continue this trail
+
+**Previous:** [Demand / Settlement](demand-lineage-settlement.md)  
+**Next:** [Reliability & Effect Reconciliation →](reliability-effect-reconciliation.md)  
+**Implementation hypothesis:** [Workflow technical proposal](../../proposals/workflow-governed-work.md)  
+**Related:** [Context / Memory / Playbooks](../context/context-memory-playbooks.md) · [Adaptive Learning](../context/adaptive-learning-cross-project-evolution.md)

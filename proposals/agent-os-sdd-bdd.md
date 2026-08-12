@@ -1,5 +1,7 @@
 # Agent OS Architecture — preserved SDD/BDD proposal
 
+[← Technical Proposals](README.md) · [Research basis](../research/foundations/agent-os-foundations.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED TARGET / historical implementation research.
 
 ## Purpose
@@ -28,3 +30,7 @@ The sequence is an implementation-research roadmap, not evidence that these wave
 ## BDD themes worth retaining
 
 Decision persisted before spawn; policy/authority cannot be bypassed by routing; capability execution requires authorized request; effect receipt has causal identity; runtime owners produce externally conformant evidence; replay/reducers are idempotent; reputation path is read-only in hot routing; candidate cannot self-promote evolution.
+
+---
+
+**Continue:** [Project Admission](../research/project/project-admission-adoption.md) · [Workflow proposal →](workflow-governed-work.md) · [Back to deep research](../research/README.md)

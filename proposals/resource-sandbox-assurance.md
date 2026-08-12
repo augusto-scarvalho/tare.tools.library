@@ -1,5 +1,7 @@
 # Resources, Sandbox & Assurance — technical proposal
 
+[← Adaptive Routing proposal](adaptive-routing.md) · [Research basis](../research/runtime/capability-sandbox-resources.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED.
 
 ## Problem-specific integration
@@ -21,3 +23,7 @@ Windows-native vs POSIX sandbox profiles; deep-path behavior; process-tree cance
 ## Gate
 
 “Sandbox enabled” or “containerized” is not a proof claim. Qualification must state which confinement properties were actually exercised and observed.
+
+---
+
+**Previous:** [Adaptive Routing proposal](adaptive-routing.md) · **Next evidence:** [Kimi/Antigravity capability case →](../case-studies/vendor-runtime/kimi-antigravity-capability-parity.md) · **Back to proposal index:** [Technical Proposals](README.md)

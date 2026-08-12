@@ -1,6 +1,10 @@
 # Adaptive Routing, Reputation & Qualification
 
+[← Protocols & Interoperability](../runtime/protocols-interoperability.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH; adaptive policy remains subordinate to Authority.
+
+**HTML/source edition:** [Routing / Economics / Observability scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/routing-economics-observability-scientific-refresh.html)
 
 ## Decision order
 
@@ -36,3 +40,12 @@ Always compare with simple baselines: random, cheapest, strongest and static heu
 ## OPEN
 
 CandidateKey dimensions for local quantized/runtime configs; delayed route regret; OPE instrumentation; exploration policy; multi-objective constrained routing; causal attribution of routing choices.
+
+---
+
+## Continue this trail
+
+**Previous:** [Protocols & Interoperability](../runtime/protocols-interoperability.md)  
+**Next:** [Economics, Resources & Observability →](economics-resources-observability.md)  
+**Implementation hypothesis:** [Adaptive Routing proposal](../../proposals/adaptive-routing.md)  
+**Learning boundary:** [Adaptive Learning / Cross-Project Evolution](../context/adaptive-learning-cross-project-evolution.md)

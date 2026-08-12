@@ -1,5 +1,7 @@
 # Semantic Preservation V2 — Quality Review
 
+[← Curation Ledger](CURATION_LEDGER.md) · [Curation Catalog](README.md) · [Repository Navigation](../NAVIGATION.md)
+
 ## What changed from V1
 
 V1 optimized too strongly for document-count reduction. V2 explicitly separates synthesis from deep research and restores questions that had independent literature, experiments, failure semantics or technical consequences.
@@ -13,11 +15,12 @@ V1 optimized too strongly for document-count reduction. V2 explicitly separates 
 - case studies preserve false greens and operational failures;
 - CURRENT/TARGET/PROPOSED/RESEARCH remain separated;
 - no external technology is promoted to semantic owner;
-- raw archive duplication is still removed from HEAD.
+- raw archive duplication is still removed from HEAD;
+- living Markdown documents provide explicit navigation and source/provenance links rather than terminating silently.
 
 ## Known limitations
 
-1. Several deepest 2026-08-10/12 HTML artifacts exist exactly in File Library but were not materializable as Git blobs from this connector. V2 therefore contains **authored preservation editions**, with exact artifact identities recorded in `sources/PROVENANCE_INDEX.md`; they are not claimed byte-identical.
+1. Several deepest 2026-08-10/12 HTML artifacts exist exactly in File Library but were not materializable as Git blobs from this connector. V2 therefore contains **authored preservation editions**, with exact artifact identities recorded in [Provenance Index](../sources/PROVENANCE_INDEX.md); they are not claimed byte-identical.
 2. External sources were not freshly reverified one-by-one during this curation. Reverify current vendor/spec claims before implementation/normative promotion.
 3. Some historical fine-grained experimental payloads remain HISTORY ONLY until an active research line needs direct raw evidence.
 
@@ -27,3 +30,7 @@ V1 optimized too strongly for document-count reduction. V2 explicitly separates 
 **RAW ARCHIVAL RECOVERY:** PASS through Git/File Library provenance; no history rewrite.  
 **ARCHITECTURE PROMOTION:** NONE.  
 **MERGE:** requires independent review of false-negative retirements before main promotion.
+
+---
+
+**Continue:** [Deep Rehydration Gaps →](REHYDRATION_GAPS.md) · [Living Research](../research/README.md) · [Home](../README.md)

@@ -1,6 +1,10 @@
 # Test Engineering, Scenario Gates & Regression Treasury
 
+[← Assurance / Governed Evolution](../governance/assurance-evolution-testing.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / empirical software-engineering lineage.
+
+**Related HTML checkpoint:** [Research Methodology / Evidence scientific refresh](../../bridge-editions/2026-08-11/research-methodology-evidence-scientific-refresh.html)
 
 ## Why this survives separately
 
@@ -33,3 +37,12 @@ The FSV/MXC case proved that staged candidate execution can be correct while sce
 ## Economics
 
 Optimize time-to-trust / information gained per scarce resource, not just maximum parallelism. Scheduling should account for CPU/GPU/memory, external services, serial constraints, expected duration and marginal assurance value.
+
+---
+
+## Continue this trail
+
+**Previous:** [Assurance / Governed Evolution](../governance/assurance-evolution-testing.md)  
+**Next:** [Runtime Ownership & Vendor Integration →](../runtime/runtime-ownership-vendor-integration.md)  
+**Primary case:** [FSV/MXC staged candidate enumeration](../../case-studies/validation/fsv-mxc-staged-candidate-enumeration.md)  
+**Methodology:** [Formal Research Program](../methodology/formal-research-program.md)
