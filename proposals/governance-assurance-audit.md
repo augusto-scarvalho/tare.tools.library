@@ -1,5 +1,7 @@
 # Governance Assurance & Audit — technical proposal
 
+[← Reliability proposal](reliability-effect-reconciliation.md) · [Research basis](../research/governance/governance-assurance-audit-metrology.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED. Audit-specific roles are not automatically new primitives.
 
 ## Candidate roles
@@ -25,3 +27,7 @@ AuditSubjectRef, AuditEngagement/Profile, FindingClaim, method/evaluator qualifi
 ## Adapters, not foundations
 
 PM4Py/process mining, OSCAL/trestle, OPA/Cedar/OpenFGA, OTel, W3C PROV, in-toto/SLSA/Sigstore, CodeQL/Semgrep/Trivy/OSV, OpenLineage and rollout/experiment systems should remain qualified mechanisms/projections.
+
+---
+
+**Previous:** [Reliability proposal](reliability-effect-reconciliation.md) · **Next:** [Interoperability / Learning / Evolution →](interoperability-learning-evolution.md) · **Test evidence:** [Scenario Gates](../research/assurance/test-engineering-scenario-gates.md)

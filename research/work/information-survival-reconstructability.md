@@ -1,6 +1,10 @@
 # Information Survival, Repository Boundaries & Reconstructive Assurance
 
+[← Reliability](reliability-effect-reconciliation.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH · preservation edition of the 2026-08-12 deep study.
+
+**Exact HTML/source status:** [Deep-Artifact Rehydration Gaps](../../catalog/REHYDRATION_GAPS.md) · [Provenance Index](../../sources/PROVENANCE_INDEX.md)
 
 ## Problem
 
@@ -41,3 +45,12 @@ For representative Project archetypes, restore from a clean environment using on
 ## Connection to this repository
 
 This V2 applies the same principle: Git preserves archaeology; HEAD preserves the best living study surface. Raw duplicates are removed only after semantic successors are mapped.
+
+---
+
+## Continue this trail
+
+**Previous:** [Reliability](reliability-effect-reconciliation.md)  
+**Next:** [Canonical Lineage & Identity →](../context/canonical-lineage-identity.md)  
+**Implementation hypothesis:** [Information Survival proposal](../../proposals/information-survival.md)  
+**Operational case:** [Agent Relay Q0](../../case-studies/evidence-exchange/agent-relay-q0.md) · [Curation V1 failure](../../case-studies/research-repository/semantic-curation-v1-failure.md)

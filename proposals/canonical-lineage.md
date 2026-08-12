@@ -1,5 +1,7 @@
 # Canonical Lineage — technical proposal
 
+[← Interoperability proposal](interoperability-learning-evolution.md) · [Research basis](../research/context/canonical-lineage-identity.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED / reconciliation-first.
 
 ## First seam: derived view, not new service
@@ -25,3 +27,7 @@ Preserve subject identity, revision, event/record time, relevant valid time/fres
 ## BDD
 
 Cross-boundary IDs round-trip; deletion/compaction of projections does not lose required lineage; delayed evidence attaches without rewriting history; observer/evaluator identity is reconstructible; trace order alone never becomes causal proof.
+
+---
+
+**Previous:** [Interoperability proposal](interoperability-learning-evolution.md) · **Next:** [Information Survival proposal →](information-survival.md) · **Validation case:** [FSV/MXC](../case-studies/validation/fsv-mxc-staged-candidate-enumeration.md)

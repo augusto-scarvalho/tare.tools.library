@@ -1,5 +1,7 @@
 # Recurrent Memory — scientific interpretation
 
+[← Empirical history](empirical-history.md) · [Research-line index](README.md) · [Navigation](../../../NAVIGATION.md)
+
 The post-06C result reopens **historical recurrent state as a memory substrate**, not the old synthetic Memory Caching recipe.
 
 ## Branch taxonomy
@@ -22,3 +24,7 @@ Recent work such as DART, StateX, Sparse Delta Memory, Gated DeltaNet-2 and othe
 - execution identity includes model/runtime/kernel/dtype/chunk semantics.
 
 Serving-runtime issues around recurrent state, prefix hits, replay/copy semantics are relevant engineering evidence but do not override the experiment.
+
+---
+
+**Next gate:** [RNN-06D →](backlog-rnn-06d.md) · **Related learning research:** [Adaptive Learning](../../../research/context/adaptive-learning-cross-project-evolution.md)

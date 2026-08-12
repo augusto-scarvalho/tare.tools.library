@@ -1,6 +1,10 @@
 # Capability, Sandbox, Resources & Isolation
 
+[← Vendor Runtime Landscape](vendor-cli-runtime-landscape.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / PROPOSED boundary refinement.
+
+**HTML/source edition:** [Runtime / Reliability / Sandbox scientific refresh](../../bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html)
 
 ## Capability/Effect principle
 
@@ -31,3 +35,12 @@ A backend needs semantic conformance, failure/degraded-mode tests, version drift
 ## OPEN
 
 Filesystem confinement proof; secret materialization; portable capability components/WASM; container backend matrix; GPU/resource scheduling; remote workspace lease/fencing.
+
+---
+
+## Continue this trail
+
+**Previous:** [Vendor Runtime Landscape](vendor-cli-runtime-landscape.md)  
+**Next:** [Protocols & Interoperability →](protocols-interoperability.md)  
+**Implementation hypothesis:** [Resource / Sandbox / Assurance proposal](../../proposals/resource-sandbox-assurance.md)  
+**Reliability coupling:** [Effect Reconciliation](../work/reliability-effect-reconciliation.md)

@@ -1,6 +1,10 @@
 # Agent OS Foundations — preservation edition
 
+[← Home](../../README.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md) · [Reading Guide](../../syntheses/research-reading-guide.md)
+
 **Status:** RESEARCH synthesis constrained by TARGET North Star; not canonical authority.
+
+**HTML/source edition:** [Agent OS Foundations scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/agent-os-foundations-scientific-refresh.html)
 
 ## Problem
 
@@ -34,3 +38,12 @@ This edition preserves the North-Star reasoning from the formal architecture/rou
 ## OPEN
 
 Constitutional/root authority; architecture epoch semantics; project inventory; trusted invocation boundary; temporal compatibility; which nouns deserve primitives versus derived roles.
+
+---
+
+## Continue this trail
+
+**Next:** [Project / Workspace Admission & Adoption →](../project/project-admission-adoption.md)  
+**Then:** [Runtime Ownership & Vendor Integration](../runtime/runtime-ownership-vendor-integration.md)  
+**Implementation hypothesis:** [Agent OS SDD/BDD proposal](../../proposals/agent-os-sdd-bdd.md)  
+**Cross-cutting:** [Canonical Lineage](../context/canonical-lineage-identity.md) · [Information Survival](../work/information-survival-reconstructability.md)

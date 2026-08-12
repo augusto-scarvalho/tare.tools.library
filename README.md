@@ -1,34 +1,150 @@
-# tare.tools.research — Semantic Preservation Library v2
+# tare.tools.research
 
-Este branch reorganiza o corpus como **biblioteca científica viva**, preservando profundidade sem voltar ao arquivo bruto.
+**A living research library for the tare.tools Agent Operating System.**
 
-> `tare-tools` canônico continua sendo a autoridade para CURRENT/TARGET. Este repo contém RESEARCH, PROPOSED, experimentos, findings e provenance.
+This repository preserves the scientific, empirical, and technical knowledge that informs tare.tools without turning research into architectural authority.
 
-## Como ler
+> **Canonical authority lives elsewhere.** `tare-tools` source code, Git state, ratified architecture, ADRs, SPECs, BDDs, and executable gates define CURRENT/TARGET. This repository contains **RESEARCH**, **PROPOSED** designs, experiments, findings, evidence, and research history.
 
-1. Comece em [`syntheses/agent-os-knowledge-map.md`](syntheses/agent-os-knowledge-map.md).
-2. Use [`syntheses/research-reading-guide.md`](syntheses/research-reading-guide.md) para escolher uma trilha.
-3. Vá para o estudo profundo do problema que interessa em `research/`.
-4. Consulte `proposals/` somente depois da pesquisa; são PROPOSED e exigem reconciliation.
-5. Use `experiments/` e `case-studies/` para evidência empírica/negative evidence.
-6. Use `findings/` para o estado condensado do conhecimento e `frontier/` para o que permanece aberto.
-7. `bridge-editions/2026-08-11/` preserva nove scientific refreshes byte-for-byte como checkpoints científicos; eles não substituem as preservation editions atuais.
+## Why this repository exists
 
-## Estrutura
+The tare.tools project began as a governed multi-vendor multi-agent harness and is evolving toward a **user-space Agent Operating System**: vendor-neutral, auditable, modular, evidence-driven, and conservative about self-evolution.
+
+That evolution created a large body of work: scientific studies, vendor/runtime archaeology, architecture proposals, test and reliability research, local-model experiments, routing research, governance work, interface studies, and implementation evidence.
+
+The repository went through several editorial phases:
+
+1. **Historical corpus phase** — research accumulated as many independent studies, snapshots, translations, refreshes, implementation deltas, and generated projections.
+2. **Compaction attempt** — redundant projections were removed, but the intellectual corpus was compressed too aggressively.
+3. **Semantic curation v1** — eight concise syntheses preserved many conclusions but removed too much argumentation, bibliography, experimental context, and dissent surface.
+4. **Semantic preservation v2** — the current candidate structure restores distinct research questions and deep lineages while keeping raw archival duplication out of HEAD.
+
+The governing lesson is now explicit:
+
+> **Remove redundancy, not knowledge.**
+
+## Start here
+
+If you are new to the repository, use this order:
+
+1. **[Repository Navigation](NAVIGATION.md)** — the complete knowledge graph and all major reading paths.
+2. **[Agent OS Knowledge Map](syntheses/agent-os-knowledge-map.md)** — the conceptual spine of tare.tools research.
+3. **[Research Reading Guide](syntheses/research-reading-guide.md)** — choose a research trail by question.
+4. **[Living Research Index](research/README.md)** — all deep studies grouped by bounded context.
+5. **[Curated Findings](findings/CURATED_FINDINGS.md)** — what the research currently supports.
+6. **[Research Frontier](frontier/RESEARCH_FRONTIER.md)** — what remains unresolved.
+
+If you are looking for the original HTML study editions, go directly to **[Study and Source Editions](sources/README.md)**. Living Markdown studies link back to the relevant HTML source/bridge edition whenever one is materialized in Git.
+
+## The research model
 
 ```text
-syntheses/        mapas e trilhas de leitura
-research/         estudos ricos por problema
-proposals/        propostas técnicas específicas e não ratificadas
-experiments/      protocolos/resultados/falsificações
-case-studies/     arqueologia empírica relevante
-findings/         conclusões curadas
-frontier/         perguntas abertas
-sources/          evidence/source/provenance registry
-catalog/          lineage, disposition e quality review
-bridge-editions/  checkpoints científicos úteis, não arquivo geral
+Historical sources / experiments / external literature
+                    │
+                    ▼
+                RESEARCH
+                    │
+             findings & tensions
+                    │
+                    ▼
+          PROPOSED technical designs
+                    │
+             independent review
+                    │
+                    ▼
+   canonical tare-tools ADR / SPEC / BDD / code
+                    │
+             gates & outcome evidence
+                    │
+                    └──────────────► new research
 ```
 
-Áreas vivas incluem foundations/Project, Workflow/Reliability/Information Survival/Demand, Governance/Audit/Assurance, Runtime/Interop/Capability, Routing/Economics, Context/Lineage/Learning, Experience/Reconstruction, Test Engineering, Local Inference e Research Methodology.
+Research may **challenge** architecture. It does not silently promote itself into architecture.
 
-A regra editorial desta epoch é simples: **menos duplicação, não menos conhecimento**.
+## How the library is organized
+
+| Area | Purpose | Where to continue |
+|---|---|---|
+| [`syntheses/`](syntheses/README.md) | Cross-lineage maps and reading guides | Deep research |
+| [`research/`](research/README.md) | Living studies that retain arguments, literature, open questions, and scientific framing | Proposals / experiments / findings |
+| [`proposals/`](proposals/README.md) | Problem-specific implementation research; always **PROPOSED** until reconciled | Canonical repo, not direct implementation |
+| [`experiments/`](experiments/README.md) | Protocols, results, falsifications, and next gates | Related research and findings |
+| [`case-studies/`](case-studies/README.md) | Concrete failures, false greens, runtime archaeology, and operational evidence | Research claims they support |
+| [`findings/`](findings/README.md) | Condensed supported conclusions | Source studies / frontier |
+| [`frontier/`](frontier/README.md) | Explicit unanswered questions | Next research/experiments |
+| [`sources/`](sources/README.md) | Evidence registry, provenance, and source-edition map | HTML source editions / rehydration gaps |
+| [`catalog/`](catalog/README.md) | Curation lineage, quality review, and known gaps | Historical recovery |
+| [`bridge-editions/`](bridge-editions/README.md) | Byte-preserved scientific refresh checkpoints | Living studies that supersede them as reading surface |
+
+## Core research spine
+
+```text
+Project / Demand
+      │
+      ▼
+Governed Work / Workflow
+      │
+      ▼
+Policy / Authority / Permit
+      │
+      ▼
+RouteIntent → RouteDecision → ExecutionBinding
+      │
+      ▼
+Runtime + Capability / ActionRequest
+      │
+      ▼
+Logical Effect → Reconciliation → EffectReceipt
+      │
+      ▼
+Validation / Assurance / OutcomeEvidence
+      │
+      ▼
+Attribution / Qualification / Reputation
+      │
+      ▼
+Context / Memory / Procedure / Learning
+      │
+      ▼
+Evolution candidate → independent evaluation → governed promotion
+```
+
+Two cross-cutting research lines run through the whole spine:
+
+- **Canonical Lineage** asks whether identity, provenance, causation, and historical reconstruction survive every boundary.
+- **Information Survival** asks what must persist, what may be reconstructed, and which physical store is appropriate without letting storage technology own semantics.
+
+## Status vocabulary
+
+Every document should make its epistemic role clear:
+
+- **CURRENT** — verified implemented state in the canonical tare-tools system.
+- **TARGET** — ratified desired architecture in the canonical repository.
+- **PROPOSED** — design or implementation research not yet ratified.
+- **RESEARCH** — evidence, hypothesis, synthesis, experiment, or scientific interpretation.
+- **BRIDGE EDITION** — preserved scientific checkpoint useful for comparison/history.
+- **HISTORY ONLY** — recoverable through Git/File Library but intentionally absent from the live reading surface.
+
+## Navigation convention
+
+A living research document should never be a dead end. Each maintained Markdown study is expected to expose:
+
+- a link back to **[Repository Navigation](NAVIGATION.md)** or its local index;
+- its relevant **HTML/source edition** when available;
+- related research;
+- the corresponding technical proposal, experiment, or case study when one exists;
+- a clear **previous / next / continue** path.
+
+Byte-preserved HTML checkpoints are intentionally immutable. Their surrounding directory indexes provide the return path to the living library.
+
+## Preservation and provenance
+
+Git remains the archaeological history. HEAD is the current study surface.
+
+Several deepest 2026-08-10/12 HTML studies still exist exactly in File Library rather than as Git blobs. Their identities and hashes are tracked in **[Deep-Artifact Rehydration Gaps](catalog/REHYDRATION_GAPS.md)**. The Markdown preservation editions are authored reconciliations and must never be misrepresented as byte-identical originals.
+
+For the curation rules, read **[Document Policy](DOCUMENT_POLICY.md)** and **[Agent Instructions](AGENTS.md)**.
+
+---
+
+**Next:** [Repository Navigation →](NAVIGATION.md)

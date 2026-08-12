@@ -1,6 +1,10 @@
 # Protocols & Interoperability — boundary semantics preservation edition
 
+[← Capability / Sandbox / Resources](capability-sandbox-resources.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / strong architectural direction.
+
+**HTML/source edition:** [Interoperability / Protocols scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/interoperability-protocols-scientific-refresh.html)
 
 ## Thesis
 
@@ -31,3 +35,12 @@ Bindings produce evidence about semantic loss, reliability, token overhead, capa
 ## OPEN
 
 Cross-version tare↔tare profile; semantic-fidelity metrics; federation trust; artifact transfer; downgrade semantics; protocol negotiation and temporal compatibility.
+
+---
+
+## Continue this trail
+
+**Previous:** [Capability / Sandbox / Resources](capability-sandbox-resources.md)  
+**Next:** [Adaptive Routing / Reputation →](../routing/adaptive-routing-reputation.md)  
+**Implementation hypothesis:** [Interoperability / Learning / Evolution proposal](../../proposals/interoperability-learning-evolution.md)  
+**Source/evidence index:** [Study Editions](../../sources/README.md)

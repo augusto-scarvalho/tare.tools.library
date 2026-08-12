@@ -1,5 +1,7 @@
 # Kimi / Antigravity Runtime Archaeology — capability parity case study
 
+[← Case Studies](../README.md) · [Runtime research](../../research/runtime/README.md) · [Navigation](../../NAVIGATION.md)
+
 **Status:** EMPIRICAL CASE STUDY; historical CURRENT evidence must remain epoch-scoped.
 
 ## Why it matters
@@ -26,3 +28,8 @@ This ladder is a research/qualification model, not automatically a canonical enu
 ## Negative evidence preserved
 
 False green itself is valuable. The case should be reused to design qualification packs and to reject claims like “feature supported” when only configuration exists.
+
+---
+
+**Research supported:** [Runtime Ownership](../../research/runtime/runtime-ownership-vendor-integration.md) · [Capability/Sandbox](../../research/runtime/capability-sandbox-resources.md) · [Audit/Metrology](../../research/governance/governance-assurance-audit-metrology.md)  
+**Next case:** [FSV/MXC staged candidate →](../validation/fsv-mxc-staged-candidate-enumeration.md)

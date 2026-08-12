@@ -1,5 +1,7 @@
 # Interoperability, Learning & Evolution — technical proposal
 
+[← Governance/Audit proposal](governance-assurance-audit.md) · [Research basis](../research/runtime/protocols-interoperability.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED.
 
 ## Boundary model
@@ -17,3 +19,7 @@ Semantic downgrade must be explicit; boundary cannot amplify delegated authority
 ## Migration
 
 Instrumentation/read-only normalization first; semantic fidelity/qualification in shadow; one adapter vertical slice; only later allow learned boundary preferences or adaptive capability materialization.
+
+---
+
+**Previous:** [Governance/Audit proposal](governance-assurance-audit.md) · **Next:** [Canonical Lineage proposal →](canonical-lineage.md) · **Case:** [Kimi/Antigravity runtime](../case-studies/vendor-runtime/kimi-antigravity-capability-parity.md)

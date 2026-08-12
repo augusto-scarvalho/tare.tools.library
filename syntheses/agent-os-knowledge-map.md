@@ -1,49 +1,105 @@
-# Agent OS Knowledge Map — synthesis, not replacement
+# Agent OS Knowledge Map
 
-**Status:** RESEARCH synthesis · 2026-08-12
+[← Home](../README.md) · [Repository Navigation](../NAVIGATION.md) · [Reading Guide](research-reading-guide.md) · [All Research](../research/README.md)
 
-Esta síntese é o mapa da biblioteca. Ela **não substitui** os estudos profundos.
+**Status:** RESEARCH synthesis. This page connects the library; it does not replace the deep studies.
 
 ## North Star
 
-O tare.tools é investigado como um Agent Operating System em user space: probabilístico na interpretação, dinâmico no planejamento, durável na execução, determinístico na autoridade, capability-mediated nos efeitos, evidence-driven no aprendizado e conservador na autoevolução.
+The tare.tools research program treats the project as a **user-space Agent Operating System** rather than a monolithic super-agent:
 
-## Espinha causal
+> probabilistic in interpretation, dynamic in planning, durable in execution, deterministic in authority, capability-mediated in effects, evidence-driven in learning, and conservative in self-evolution.
+
+## Conceptual spine
 
 ```text
-Project / Subject / Demand
-        ↓
-Governed Work / Workflow
-        ↓
-Policy / Authority / Permit
-        ↓
-RouteIntent → RouteDecision → ExecutionBinding
-        ↓
-Runtime + Capability / ActionRequest
-        ↓
-Logical Effect → Reconciliation → EffectReceipt
-        ↓
-Validation / Assurance / OutcomeEvidence
-        ↓
-Attribution / Qualification / Reputation
-        ↓
-Context / Memory / Procedure candidate
-        ↓
-Evolution candidate → independent evaluation → governed promotion
+[Project / Subject / Demand]
+          │
+          ▼
+[Governed Work / Workflow]
+          │
+          ▼
+[Policy / Authority / Permit]
+          │
+          ▼
+[RouteIntent → RouteDecision → ExecutionBinding]
+          │
+          ▼
+[Runtime + Capability / ActionRequest]
+          │
+          ▼
+[Logical Effect → Reconciliation → EffectReceipt]
+          │
+          ▼
+[Validation / Assurance / OutcomeEvidence]
+          │
+          ▼
+[Attribution / Qualification / Reputation]
+          │
+          ▼
+[Context / Memory / Procedure candidate]
+          │
+          ▼
+[Evolution candidate → independent evaluation → governed promotion]
 ```
 
-## Grandes perguntas
+## Follow the concepts into the studies
 
-- **Foundations/Project:** o que pertence ao Agent OS e qual é o stable incumbent?
-- **Work/Workflow:** como a necessidade progride de forma durável entre humanos, código, agents e waits?
-- **Reliability/Survival:** como preservar efeito, identidade, incerteza e reconstrução sob partial failure?
-- **Governance/Assurance:** quem pode decidir e que evidência torna uma claim defensável?
-- **Runtime/Interop:** como integrar vendors/protocolos sem semantic capture?
-- **Routing/Economics:** qual realização concreta escolher entre opções já autorizadas?
-- **Context/Learning:** o que lembrar, como aprender e até onde uma experiência pode generalizar?
-- **Experience/Reconstruction:** como humanos e sistemas legados enxergam/alteram o trabalho sem possuírem shadow truth?
-- **Research methodology:** como produzir conhecimento sem transformar papers, LLM judges ou volume documental em autoridade?
+- **Project / admission:** [Agent OS Foundations](../research/foundations/agent-os-foundations.md) → [Project Admission & Adoption](../research/project/project-admission-adoption.md)
+- **Demand / settlement:** [Demand Lineage, Context Reconstruction & Settlement](../research/work/demand-lineage-settlement.md)
+- **Workflow / durable work:** [Workflow as Governed Work](../research/work/workflow-governed-work.md)
+- **Effects / reliability:** [Reliability Semantics & Effect Reconciliation](../research/work/reliability-effect-reconciliation.md)
+- **Information survival:** [Information Survival & Reconstructive Assurance](../research/work/information-survival-reconstructability.md)
+- **Governance / decision rights:** [Constitutional Governance](../research/governance/constitutional-governance-decision-rights.md)
+- **Audit / assurance:** [Governance Assurance & Audit](../research/governance/governance-assurance-audit-metrology.md) → [Assurance & Governed Evolution](../research/governance/assurance-evolution-testing.md)
+- **Testing instruments:** [Test Engineering & Scenario Gates](../research/assurance/test-engineering-scenario-gates.md)
+- **Runtime ownership:** [Runtime Ownership & Vendor Integration](../research/runtime/runtime-ownership-vendor-integration.md)
+- **Capabilities / sandbox:** [Capability, Sandbox, Resources & Isolation](../research/runtime/capability-sandbox-resources.md)
+- **Protocols / federation:** [Protocols & Interoperability](../research/runtime/protocols-interoperability.md)
+- **Vendor runtime archaeology:** [Vendor CLI / Agent Runtime Landscape](../research/runtime/vendor-cli-runtime-landscape.md)
+- **Routing / reputation:** [Adaptive Routing, Reputation & Qualification](../research/routing/adaptive-routing-reputation.md)
+- **Economics / resources:** [Economics, Resources & Observability](../research/routing/economics-resources-observability.md)
+- **Context / playbooks:** [Context, Memory & Playbooks](../research/context/context-memory-playbooks.md)
+- **Identity / provenance:** [Canonical Lineage & Compositional Identity](../research/context/canonical-lineage-identity.md)
+- **Learning / evolution:** [Adaptive Learning, Cross-Project Experience & Self-Evolution](../research/context/adaptive-learning-cross-project-evolution.md)
+- **Human experience:** [TUI / REPL / Human-Agent Experience](../research/experience/tui-repl-experience.md)
+- **Legacy reconstruction:** [Executable / Cognitive System Reconstruction](../research/experience/legacy-system-reconstruction.md)
+- **Local inference:** [Local Model Lab Methodology](../research/local-inference/local-model-lab-methodology.md)
+- **Research method:** [Formal Research Program](../research/methodology/formal-research-program.md) → [CMRP & Epistemic Independence](../research/methodology/cmrp-and-epistemic-independence.md)
 
-## Relação entre documentos
+## Cross-cutting lines
 
-As sínteses fornecem navegação; `research/` preserva argumentos e literatura; `proposals/` preserva desenho técnico específico; `experiments/` e `case-studies/` preservam falsificações e realidade observada; `findings/` materializa crenças; `frontier/` materializa ignorância explícita.
+### Canonical Lineage
+
+[Canonical Lineage](../research/context/canonical-lineage-identity.md) asks whether identities and causality remain reconstructible across Project → Work → RouteDecision → ExecutionBinding → Effect → Evidence → Learning.
+
+### Information Survival
+
+[Information Survival](../research/work/information-survival-reconstructability.md) asks what must remain durable, what may be reconstructed, and which physical storage system should hold each class without owning semantics.
+
+### Authority before intelligence
+
+[Constitutional Governance](../research/governance/constitutional-governance-decision-rights.md), [Runtime Ownership](../research/runtime/runtime-ownership-vendor-integration.md), and [Adaptive Routing](../research/routing/adaptive-routing-reputation.md) together preserve the ordering:
+
+`Policy/Authority → eligibility → capability/runtime availability → routing/economics → execution → validation → evidence`.
+
+## From research to architecture
+
+```text
+Research
+  ↓
+Findings
+  ↓
+ADR / Canonical Architecture   ← outside this repository
+  ↓
+SPEC → BDD → Implementation Packet → Code/Gates
+  ↓
+Outcome Evidence
+  └────────────► Research
+```
+
+Use [Technical Proposals](../proposals/README.md) as hypotheses, not as shortcuts around canonical reconciliation.
+
+---
+
+**Continue:** [Research Reading Guide →](research-reading-guide.md) · [HTML/source editions](../sources/README.md)

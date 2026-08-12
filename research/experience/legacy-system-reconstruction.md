@@ -1,6 +1,10 @@
 # Executable / Cognitive System Reconstruction
 
+[← TUI / REPL Experience](tui-repl-experience.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH; derived from NLU/state-machine modernization work.
+
+**Related HTML checkpoint:** [Experience / UX scientific refresh](../../bridge-editions/2026-08-11/experience-ux-scientific-refresh.html)
 
 ## Thesis
 
@@ -34,3 +38,12 @@ Irreversible effects, prompt injection, stale conversational state and business 
 ## Generalization
 
 The method extends beyond chatbots to BPM, RPA, IVR, case-management and low-code/state-machine systems.
+
+---
+
+## Continue this trail
+
+**Previous:** [TUI / REPL Experience](tui-repl-experience.md)  
+**Next:** [Local Inference / Model Lab Methodology →](../local-inference/local-model-lab-methodology.md)  
+**Project integration:** [Project Admission](../project/project-admission-adoption.md)  
+**Workflow integration:** [Workflow as Governed Work](../work/workflow-governed-work.md)

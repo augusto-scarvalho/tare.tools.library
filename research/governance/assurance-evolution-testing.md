@@ -1,6 +1,10 @@
 # Assurance, Testing Science & Governed Evolution
 
+[← Governance Assurance & Audit](governance-assurance-audit-metrology.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / PROPOSED integration.
+
+**HTML/source context:** [Assurance / Governance / Quality scientific refresh](../../bridge-editions/2026-08-11/assurance-governance-quality-scientific-refresh.html)
 
 ## Problem
 
@@ -35,3 +39,12 @@ Optimize time/cost-to-trust, not raw test count. Dynamic scheduling, impact grap
 ## OPEN
 
 Assurance-case projection; claim graph; evaluator qualification; control retirement; community/federated evaluation; delayed OutcomeEvidence; causal attribution from outcomes back to candidate changes.
+
+---
+
+## Continue this trail
+
+**Previous:** [Governance Assurance & Audit](governance-assurance-audit-metrology.md)  
+**Next:** [Test Engineering / Scenario Gates →](../assurance/test-engineering-scenario-gates.md)  
+**Related learning boundary:** [Adaptive Learning / Evolution](../context/adaptive-learning-cross-project-evolution.md)  
+**Current findings:** [Curated Findings](../../findings/CURATED_FINDINGS.md)

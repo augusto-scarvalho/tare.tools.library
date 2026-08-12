@@ -1,5 +1,7 @@
 # Reliability & Effect Reconciliation — technical proposal
 
+[← Workflow proposal](workflow-governed-work.md) · [Research basis](../research/work/reliability-effect-reconciliation.md) · [Navigation](../NAVIGATION.md)
+
 **Status:** PROPOSED implementation research.
 
 ## Semantic roles to reconcile
@@ -29,3 +31,7 @@ Temporal/Restate/DBOS/Dapr/cloud durable mechanisms may be compared behind the s
 ## Gate
 
 No durable backend wins merely because its API is convenient. Qualification must prove failure semantics on the Effect Torture Lab.
+
+---
+
+**Previous:** [Workflow proposal](workflow-governed-work.md) · **Next:** [Governance/Audit proposal →](governance-assurance-audit.md) · **Evidence:** [Case Studies](../case-studies/README.md)

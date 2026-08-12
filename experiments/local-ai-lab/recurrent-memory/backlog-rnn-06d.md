@@ -1,5 +1,7 @@
 # RNN-06D — Recovery Ceiling & Utility Gate
 
+[← Scientific interpretation](scientific-interpretation.md) · [Research-line index](README.md) · [Research Frontier](../../../frontier/RESEARCH_FRONTIER.md)
+
 **Status:** NEXT EXPERIMENT, not executed here.
 
 ## D0 — Recovery Ceiling & Snapshot Schedule Qualification
@@ -21,3 +23,7 @@ Only if D0 opens the gate. Compare target-agnostic heuristics such as recency, m
 Primary utility should account for `recovered − harmed` (equivalent to accuracy delta versus FINAL), plus MiB and latency.
 
 If ceiling is high but heuristics are weak, one trained selector/DART-like experiment may be justified. If heuristics are strong, replicate on official Mamba lineage before Qwen/GDN transfer.
+
+---
+
+**Continue:** [Local Model Lab](../../../research/local-inference/local-model-lab-methodology.md) · [Research Frontier](../../../frontier/RESEARCH_FRONTIER.md) · [Curated Findings](../../../findings/CURATED_FINDINGS.md)

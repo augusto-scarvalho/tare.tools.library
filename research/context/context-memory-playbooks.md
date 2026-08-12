@@ -1,6 +1,10 @@
 # Context, Memory & Playbooks — preservation edition
 
+[← Routing Economics](../routing/economics-resources-observability.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH. Keeps the substantive context/memory/playbook lineage distinct from general learning.
+
+**HTML/source edition:** [Context / Memory / Playbooks scientific refresh — 2026-08-11](../../bridge-editions/2026-08-11/context-memory-playbooks-scientific-refresh.html)
 
 ## Project truth is not the context window
 
@@ -25,3 +29,12 @@ The system should preserve contraindications/known bad applicability where usefu
 ## Experiments
 
 Bake off full transcript vs durable refs vs structured eviction vs summaries by runtime/agent; golden dependency tests; poisoning/stale-context tests; procedure mining in shadow; measure quality, tokens, latency and reconstruction failures.
+
+---
+
+## Continue this trail
+
+**Previous:** [Routing Economics](../routing/economics-resources-observability.md)  
+**Next:** [Adaptive Learning / Cross-Project Evolution →](adaptive-learning-cross-project-evolution.md)  
+**Identity/provenance:** [Canonical Lineage](canonical-lineage-identity.md)  
+**Workflow proceduralization:** [Workflow as Governed Work](../work/workflow-governed-work.md)

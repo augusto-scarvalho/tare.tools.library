@@ -1,5 +1,7 @@
 # Agent Relay Q0 — evidence exchange case study
 
+[← FSV/MXC case](../validation/fsv-mxc-staged-candidate-enumeration.md) · [Case Studies](../README.md) · [Navigation](../../NAVIGATION.md)
+
 **Status:** OPERATIONAL EXPERIMENT / security finding.
 
 The auditor published backlog through a GitHub Issue; the implementer read it directly, stopped at OWNER_AUTH_REQUIRED when no authenticated Drive transport existed, and after owner bootstrap published a four-file evidence package to Google Drive with manifest and READY-last semantics. The auditor independently downloaded cloud bytes and verified hashes.
@@ -19,3 +21,8 @@ Local mount path was shown to be an observation, not evidence identity: bytes/ha
 ## Architectural lesson
 
 Git = subject/candidate; Issue = coordination envelope; Drive = bulky temporary evidence backend; Actions = CI evidence; chat = owner notification. Drive is a backend, never an Evidence Plane/Authority primitive.
+
+---
+
+**Research supported:** [Information Survival](../../research/work/information-survival-reconstructability.md) · [Governance/Audit](../../research/governance/governance-assurance-audit-metrology.md)  
+**Next case:** [HumanEval harness failure →](../local-inference/humaneval-scoring-harness-failure.md)

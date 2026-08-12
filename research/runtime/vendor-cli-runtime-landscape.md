@@ -1,6 +1,10 @@
 # Vendor CLI / Agent Runtime Landscape — comparative preservation edition
 
+[← Runtime Ownership](runtime-ownership-vendor-integration.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / market archaeology. Current product behavior must be rechecked before operational use.
+
+**Empirical companion:** [Kimi / Antigravity capability-parity case study](../../case-studies/vendor-runtime/kimi-antigravity-capability-parity.md)
 
 ## Research question
 
@@ -24,3 +28,12 @@ There is no need for a “winning runtime”. The useful output is a pattern→c
 ## Empirical anchor
 
 The Kimi/Antigravity false-green case is retained separately because it demonstrated that static configuration and real runtime capability diverge.
+
+---
+
+## Continue this trail
+
+**Previous:** [Runtime Ownership](runtime-ownership-vendor-integration.md)  
+**Next:** [Capability, Sandbox, Resources & Isolation →](capability-sandbox-resources.md)  
+**Protocol boundary:** [Protocols & Interoperability](protocols-interoperability.md)  
+**Human surface:** [TUI / REPL Experience](../experience/tui-repl-experience.md)

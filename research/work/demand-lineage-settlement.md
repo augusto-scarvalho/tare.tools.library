@@ -1,6 +1,10 @@
 # Demand Lineage, Context Reconstruction & Settlement
 
+[← Project Admission](../project/project-admission-adoption.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / OPEN primitive question.
+
+**Exact source status:** [Deep-Artifact Rehydration Gaps](../../catalog/REHYDRATION_GAPS.md)
 
 ## Why this is distinct from Workflow
 
@@ -39,3 +43,12 @@ Do **not** create `Demand` as a primitive merely because the research uses the n
 ## Cross-links
 
 Feeds context compilation, outcome evaluation, product/user research and learning eligibility. Closely coupled to Information Survival because losing demand/requirement history makes later evaluation impossible.
+
+---
+
+## Continue this trail
+
+**Previous:** [Project Admission](../project/project-admission-adoption.md)  
+**Next:** [Workflow as Governed Work →](workflow-governed-work.md)  
+**Cross-cutting:** [Information Survival](information-survival-reconstructability.md) · [Canonical Lineage](../context/canonical-lineage-identity.md)  
+**Where settlement becomes evidence:** [Assurance / Governed Evolution](../governance/assurance-evolution-testing.md)

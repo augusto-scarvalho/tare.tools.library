@@ -1,6 +1,10 @@
 # Local Model Landscape, Fine-tunes & Evidence Grading
 
+[← Local Model Lab Methodology](local-model-lab-methodology.md) · [Navigation](../../NAVIGATION.md) · [All Research](../README.md)
+
 **Status:** RESEARCH / watchlist methodology; specific model availability/pricing requires freshness recheck.
+
+**Empirical companion:** [HumanEval scoring-harness failure](../../case-studies/local-inference/humaneval-scoring-harness-failure.md)
 
 ## Why this survives
 
@@ -19,3 +23,12 @@ Fable-family derivatives showed stronger self-reported benchmark gains but more 
 ## Permanent lesson
 
 Model selection is an experimental routing/qualification problem. Track base lineage, derivative method, quantization, runtime/template and evidence provenance. A model can be best for one workload and poor for another; Pareto surfaces matter more than one leaderboard.
+
+---
+
+## Continue this trail
+
+**Previous:** [Local Model Lab Methodology](local-model-lab-methodology.md)  
+**Next:** [Formal Research Program →](../methodology/formal-research-program.md)  
+**Case:** [HumanEval scoring-harness failure](../../case-studies/local-inference/humaneval-scoring-harness-failure.md)  
+**Experiment:** [Recurrent Memory](../../experiments/local-ai-lab/recurrent-memory/README.md)

@@ -1,5 +1,7 @@
 # Recurrent Memory — empirical history and falsifications
 
+[← Research-line index](README.md) · [Experiments](../../README.md) · [Navigation](../../../NAVIGATION.md)
+
 ## Epistemic history
 
 The research began with synthetic dense post-hoc Memory Caching ideas. Several rounds failed to establish a usable causal mechanism; some apparently promising results were invalidated by methodology/harness issues. That branch is **PARKED**, not quietly rewritten as success.
@@ -30,3 +32,7 @@ Full recurrent cache state in the qualified substrate was roughly 49.59 MiB/sequ
 ## Interpretation discipline
 
 Presence ≠ deployable recovery. Oracle access ≠ target-agnostic selector. One substrate/config ≠ generic RNN result. Backend/kernel/dtype/chunk/state-boundary are part of execution identity.
+
+---
+
+**Next:** [Scientific interpretation →](scientific-interpretation.md) · **Methodology context:** [Local Model Lab](../../../research/local-inference/local-model-lab-methodology.md)
