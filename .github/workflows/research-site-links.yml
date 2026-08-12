@@ -11,6 +11,7 @@ on:
       - '_includes/**'
       - 'assets/**'
       - 'scripts/validate_internal_links.py'
+      - 'scripts/apply_signal_study_projection.py'
       - '.github/workflows/research-site-links.yml'
   push:
     branches:
@@ -25,6 +26,7 @@ on:
       - '_includes/**'
       - 'assets/**'
       - 'scripts/validate_internal_links.py'
+      - 'scripts/apply_signal_study_projection.py'
       - '.github/workflows/research-site-links.yml'
 
 permissions:
@@ -43,6 +45,8 @@ jobs:
           source: ./
           destination: ./_site
           verbose: true
+      - name: Apply SIGNAL projection to generated study editions
+        run: python scripts/apply_signal_study_projection.py
       - name: Assert critical site outputs
         shell: bash
         run: |
@@ -50,9 +54,13 @@ jobs:
           test -f _site/studies/index.html
           test -f _site/research/index.html
           test -f _site/NAVIGATION.html
+          test -f _site/assets/site.css
+          test -f _site/assets/signal-study.css
           test -f _site/bridge-editions/2026-08-11/agent-os-foundations-scientific-refresh.html
           test -f _site/bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
           test -f _site/search.json
+          grep -q 'data-signal-projection="true"' _site/bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
+          grep -q 'signal-study.css' _site/bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
       - name: Upload generated site preview
         uses: actions/upload-artifact@v4
         with:
