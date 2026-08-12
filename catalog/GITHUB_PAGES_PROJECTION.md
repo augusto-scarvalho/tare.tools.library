@@ -2,7 +2,7 @@
 
 [← Curation Catalog](README.md) · [Repository Navigation](../NAVIGATION.md) · [Study Editions](../studies/README.md)
 
-**Status:** PROPOSED/IMPLEMENTED-IN-CANDIDATE for the site projection; **DEPLOYMENT NOT ENABLED by this document.**
+**Status:** CURRENT for the public reading projection on `agent/semantic-preservation-curation-v2`; this does **not** promote the branch's research content to canonical `main`.
 
 ## Purpose
 
@@ -14,8 +14,11 @@ Git-tracked Markdown + byte-preserved HTML + navigation metadata
                          ▼
                   Jekyll / Pages build
                          │
+                         ├── SIGNAL shell for Markdown/navigation
+                         └── SIGNAL projection styling for generated HTML editions
+                         │
                          ▼
-             rendered research library site
+             public rendered research library site
 ```
 
 The site may be deleted and rebuilt without losing research knowledge. Source identity remains the Git path/blob/commit, not the generated Pages URL.
@@ -26,9 +29,30 @@ The site may be deleted and rebuilt without losing research knowledge. Source id
 - `jekyll-relative-links` translates repository-relative Markdown links for the site.
 - `jekyll-readme-index` turns directory `README.md` files into section index pages.
 - `jekyll-optional-front-matter` allows existing Markdown files to remain readable on GitHub without requiring site-only front matter everywhere.
-- Byte-preserved HTML under `bridge-editions/` is copied as static HTML and therefore renders as a real study in Pages without changing the source bytes.
+- Byte-preserved HTML under `bridge-editions/` remains unchanged in Git.
+- After Jekyll copies those HTML files to `_site/`, `scripts/apply_signal_study_projection.py` injects projection-only styling into the generated copies.
 - `_data/navigation.yml` is projection metadata only; it does not define architecture or research truth.
 - `studies/README.md` is the human index from HTML editions back into living research.
+
+## SIGNAL research profile
+
+The Pages projection reuses the canonical SIGNAL visual language from the tare.tools GUI without importing the React application or GUI runtime semantics.
+
+Reused visual semantics include:
+
+- warm-black / olive surfaces;
+- lime-phosphor `accent` and teal `stream` roles;
+- mono-forward instrument typography intent;
+- 52px topbar density;
+- restrained borders and radii;
+- live-edge / active emphasis rather than decorative glow;
+- scanline/vignette atmosphere;
+- explicit status semantics and measurement-oriented presentation;
+- reduced-motion support.
+
+The research site deliberately does **not** reuse operational GUI components such as AppShell, Inspector, runtime actions, capability controls, or React state. Those belong to the Experience Plane application, not to a static research reader.
+
+The canonical GUI source remains the tare.tools design system and token implementation. The research profile is a projection/adaptation, not a second design-system authority.
 
 ## URL / source semantics
 
@@ -36,23 +60,22 @@ The same research object has different representations:
 
 - Git blob/commit URL → source identity and audit/history.
 - Markdown page in Pages → living reading projection.
-- HTML bridge edition in Pages → rendered historical study checkpoint.
+- HTML bridge edition in Git → byte-preserved study checkpoint.
+- HTML bridge edition in Pages → SIGNAL-styled generated reading projection of that checkpoint.
 - File Library exact artifact → source edition not yet materialized in Git where recorded by `REHYDRATION_GAPS.md`.
 
 Pages must never erase these distinctions.
 
-## Deployment safety
+## Deployment state
 
-The repository is currently private and owned by a personal GitHub account. Private Pages access control is not assumed. Deployment therefore MUST NOT be automatic from a merge until site visibility has been deliberately reviewed.
+The repository is public and GitHub Pages is enabled through GitHub Actions with HTTPS enforcement.
 
-The deployment workflow is intentionally manual and requires all of:
+The current public preview is intentionally deployed from `agent/semantic-preservation-curation-v2` while `main` remains unchanged. This separates two decisions:
 
-1. execution from `main`;
-2. GitHub Pages configured to use GitHub Actions;
-3. repository Actions variable `PAGES_PUBLISH_ACK=true`;
-4. an explicit `workflow_dispatch` invocation.
+1. **publish the candidate reading experience for evaluation**;
+2. **promote the semantic-preservation curation to `main`**.
 
-If private authenticated publishing is required, re-evaluate hosting/access-control options before setting the acknowledgment variable.
+The second decision has not been implied by the first.
 
 ## Site UX responsibilities
 
@@ -62,11 +85,24 @@ The projection owns only reading ergonomics:
 - study-edition discovery;
 - responsive Markdown typography;
 - local search across Markdown pages and study metadata;
-- links back to Git source;
-- source/provenance visibility.
+- links back to the exact deployed Git source ref;
+- source/provenance visibility;
+- SIGNAL visual continuity with the tare.tools Experience Plane.
 
-It does **not** own findings, status, architecture, evidence, or publication authority.
+It does **not** own findings, status, architecture, evidence, design-system authority, or research promotion authority.
+
+## Validation
+
+CI validates:
+
+- repository-relative documentation links;
+- successful Jekyll build;
+- critical site outputs;
+- presence of SIGNAL shell assets;
+- SIGNAL projection markers on generated Study Editions.
+
+The source HTML blobs are not mutated by the projection step.
 
 ## Rollback
 
-Disable/unpublish GitHub Pages or remove the Pages deployment workflow. No research content migration is required because the site has no unique semantic state.
+Disable/unpublish GitHub Pages or revert the projection assets/workflow. No research content migration is required because the site has no unique semantic state.
