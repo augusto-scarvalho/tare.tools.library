@@ -11,6 +11,7 @@ on:
       - '_includes/**'
       - 'assets/**'
       - 'scripts/validate_internal_links.py'
+      - '.github/workflows/research-site-links.yml'
   push:
     branches:
       - main
@@ -24,6 +25,7 @@ on:
       - '_includes/**'
       - 'assets/**'
       - 'scripts/validate_internal_links.py'
+      - '.github/workflows/research-site-links.yml'
 
 permissions:
   contents: read
