@@ -1,6 +1,8 @@
 # Future Research Pointers — Historical Corpus Crosswalk
 
 > These are **RESEARCH pointers**, not automatically CURRENT gaps, TARGET architecture, or implementation authorization. They are preserved so later chats can rehydrate unfinished or adjacent lines of inquiry. Before implementation, reconcile against current Git, ADRs, SPECs, BDDs, gates, and code.
+>
+> **v0.16 note:** this curated historical list is now an input surface to the [Research Frontier Registry](../frontier/FRONTIER_INDEX.md). The registry preserves each pointer origin and lifecycle without replacing this historical crosswalk.
 
 ## 1. Workflow and procedural systems
 

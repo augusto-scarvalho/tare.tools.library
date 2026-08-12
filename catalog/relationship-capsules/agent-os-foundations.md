@@ -34,3 +34,12 @@
 
 - Scientific refresh: `agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html`
 - Technical delta: `agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html`
+
+## Open Research Frontier (shadow)
+
+> Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
+
+- [rp-08d8e2af92 — architecture-epoch representation](../../frontier/pointers/rp-08d8e2af92-architecture-epoch-representation.md) · `NORMALIZED` · radar `WATCH`
+- [rp-ff36550605 — cross-version compatibility treasury](../../frontier/pointers/rp-ff36550605-cross-version-compatibility-treasury.md) · `NORMALIZED` · radar `WATCH`
+- [rp-347c8d7e81 — minimal constitutional/root-authority substrate](../../frontier/pointers/rp-347c8d7e81-minimal-constitutional-root-authority-substrate.md) · `NORMALIZED` · radar `WATCH`
+- [rp-f7cf098056 — Project/system inventory + ownership semantics](../../frontier/pointers/rp-f7cf098056-project-system-inventory-ownership-semantics.md) · `NORMALIZED` · radar `WATCH`

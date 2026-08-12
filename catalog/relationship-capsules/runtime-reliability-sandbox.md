@@ -43,3 +43,18 @@
 
 - Scientific refresh: `runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html`
 - Technical delta: `runtime-reliability-sandbox/runtime-reliability-sandbox-implementation-research-delta-2026-08-11.html`
+
+## Open Research Frontier (shadow)
+
+> Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
+
+- [rp-1d31c7e414 — Authority freshness / fencing](../../frontier/pointers/rp-1d31c7e414-authority-freshness-fencing.md) · `TRIAGED` · radar `WATCH`
+- [rp-96101e4704 — durable backend qualification](../../frontier/pointers/rp-96101e4704-durable-backend-qualification.md) · `NORMALIZED` · radar `EXPERIMENT`
+- [rp-70c444876f — Durable runtime qualification](../../frontier/pointers/rp-70c444876f-durable-runtime-qualification.md) · `TRIAGED` · radar `EXPERIMENT`
+- [rp-955d74e6af — Effect Torture Lab](../../frontier/pointers/rp-955d74e6af-effect-torture-lab.md) · `TRIAGED` · radar `EXPERIMENT`
+- [rp-b8dc8b40c8 — filesystem confinement proof](../../frontier/pointers/rp-b8dc8b40c8-filesystem-confinement-proof.md) · `NORMALIZED` · radar `WATCH`
+- [rp-9784d1bff6 — logical effect identity details](../../frontier/pointers/rp-9784d1bff6-logical-effect-identity-details.md) · `NORMALIZED` · radar `WATCH`
+- [rp-d2d246077c — Operational effect accounting](../../frontier/pointers/rp-d2d246077c-operational-effect-accounting.md) · `TRIAGED` · radar `WATCH`
+- [rp-b019955343 — Partial observability and active sensing](../../frontier/pointers/rp-b019955343-partial-observability-and-active-sensing.md) · `TRIAGED` · radar `WATCH`
+- [rp-96777fdc13 — trusted invocation seam](../../frontier/pointers/rp-96777fdc13-trusted-invocation-seam.md) · `NORMALIZED` · radar `WATCH`
+- [rp-1685086184 — Windows deep-path hardening](../../frontier/pointers/rp-1685086184-windows-deep-path-hardening.md) · `NORMALIZED` · radar `WATCH`

@@ -38,3 +38,20 @@
 
 - Scientific refresh: `routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html`
 - Technical delta: `routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html`
+
+## Open Research Frontier (shadow)
+
+> Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
+
+- [rp-4638fc32db — bounded exploration policy](../../frontier/pointers/rp-4638fc32db-bounded-exploration-policy.md) · `NORMALIZED` · radar `WATCH`
+- [rp-f6aabb8182 — Capability/context economics](../../frontier/pointers/rp-f6aabb8182-capability-context-economics.md) · `TRIAGED` · radar `WATCH`
+- [rp-a24cdfc68a — Causal routing attribution and OPE](../../frontier/pointers/rp-a24cdfc68a-causal-routing-attribution-and-ope.md) · `TRIAGED` · radar `WATCH`
+- [rp-184849aacb — counterfactual/OPE instrumentation](../../frontier/pointers/rp-184849aacb-counterfactual-ope-instrumentation.md) · `NORMALIZED` · radar `WATCH`
+- [rp-b38154d396 — Exploration without incumbent lock-in](../../frontier/pointers/rp-b38154d396-exploration-without-incumbent-lock-in.md) · `TRIAGED` · radar `WATCH`
+- [rp-a90d841a43 — Harness-dependent agentic benchmarking](../../frontier/pointers/rp-a90d841a43-harness-dependent-agentic-benchmarking.md) · `TRIAGED` · radar `WATCH`
+- [rp-02ba98a842 — Local inference qualification](../../frontier/pointers/rp-02ba98a842-local-inference-qualification.md) · `TRIAGED` · radar `EXPERIMENT`
+- [rp-9a05c721e8 — local-model quantization as CandidateKey dimension](../../frontier/pointers/rp-9a05c721e8-local-model-quantization-as-candidatekey-dimension.md) · `NORMALIZED` · radar `WATCH`
+- [rp-67ffda4f6d — Resource governance and scheduling](../../frontier/pointers/rp-67ffda4f6d-resource-governance-and-scheduling.md) · `TRIAGED` · radar `WATCH`
+- [rp-e5e51397a8 — Robust repeated-measures experimentation](../../frontier/pointers/rp-e5e51397a8-robust-repeated-measures-experimentation.md) · `TRIAGED` · radar `WATCH`
+- [rp-86efe5f854 — route regret with delayed outcomes](../../frontier/pointers/rp-86efe5f854-route-regret-with-delayed-outcomes.md) · `NORMALIZED` · radar `WATCH`
+- [rp-1db5eb23ea — systemic resource-risk aggregation](../../frontier/pointers/rp-1db5eb23ea-systemic-resource-risk-aggregation.md) · `NORMALIZED` · radar `WATCH`

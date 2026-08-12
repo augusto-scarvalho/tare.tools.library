@@ -39,3 +39,17 @@
 
 - Scientific refresh: `context-memory-playbooks/context-memory-playbooks-scientific-refresh-2026-08-11.html`
 - Technical delta: `context-memory-playbooks/context-memory-playbooks-implementation-research-delta-2026-08-11.html`
+
+## Open Research Frontier (shadow)
+
+> Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
+
+- [rp-d34fd7f580 — Context governance](../../frontier/pointers/rp-d34fd7f580-context-governance.md) · `TRIAGED` · radar `WATCH`
+- [rp-49f0f7c524 — context measurement/metrology](../../frontier/pointers/rp-49f0f7c524-context-measurement-metrology.md) · `NORMALIZED` · radar `EXPERIMENT`
+- [rp-e274160076 — context validity/freshness model](../../frontier/pointers/rp-e274160076-context-validity-freshness-model.md) · `NORMALIZED` · radar `WATCH`
+- [rp-02a61d7575 — cross-agent context policy transfer](../../frontier/pointers/rp-02a61d7575-cross-agent-context-policy-transfer.md) · `NORMALIZED` · radar `WATCH`
+- [rp-09a33f85e3 — Cross-project learning / negative transfer](../../frontier/pointers/rp-09a33f85e3-cross-project-learning-negative-transfer.md) · `TRIAGED` · radar `WATCH`
+- [rp-32668f1a9b — Executable system reconstruction](../../frontier/pointers/rp-32668f1a9b-executable-system-reconstruction.md) · `TRIAGED` · radar `WATCH`
+- [rp-130e5f7ebf — poisoning-resistant memory curation](../../frontier/pointers/rp-130e5f7ebf-poisoning-resistant-memory-curation.md) · `NORMALIZED` · radar `WATCH`
+- [rp-8f7470b94a — Project Model / SpecGraph as planning substrate](../../frontier/pointers/rp-8f7470b94a-project-model-specgraph-as-planning-substrate.md) · `TRIAGED` · radar `WATCH`
+- [rp-0f4fbef69b — safe rehydration protocol](../../frontier/pointers/rp-0f4fbef69b-safe-rehydration-protocol.md) · `NORMALIZED` · radar `WATCH`

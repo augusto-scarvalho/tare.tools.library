@@ -8,6 +8,8 @@ In case of conflict, the canonical `tare-tools` repository, Git, source code, ra
 
 ## Start here
 
+- **[Research Frontier Registry](frontier/FRONTIER_INDEX.md)** — normalized research pointers with provenance, lifecycle, clusters and an experimental non-authoritative radar.
+- **[Research Frontier — HTML](frontier/RESEARCH_FRONTIER.html)** — mobile-friendly navigable projection.
 - **[Unified index of all documents and studies](catalog/ALL_DOCUMENTS_INDEX.md)** — chat originals, the exact historical private-GitHub snapshot research set, and File Library references with explicit origin/authority.
 - **[Chat-corpus document index](catalog/DOCUMENT_INDEX.md)** — bilingual PT-BR | EN navigation for the 11 primary materialized chat artifacts.
 - **[Historical private-GitHub baseline](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — exact 2026-08-05 snapshot, explicitly not CURRENT.
@@ -35,7 +37,7 @@ Research / experiment / archaeology / proposal artifacts **inform** architecture
 
 ## Current materialized status
 
-The initial 11-document chat seed is **11/11 translated to English** and **11/11 passing structural fidelity QA**. A separate historical private-GitHub snapshot contributes **93 exact `docs/research/` files**: **43 are native English, 6 additional EN derivatives have been registered, and 44 non-English documents remain in the translation queue**. Human translation review and canonical architecture reconciliation remain separate, explicit stages.
+The initial 11-document chat seed is **11/11 translated to English** and **11/11 passing structural fidelity QA**. A separate historical private-GitHub snapshot contributes **93 exact `docs/research/` files**: **43 are native English and all 50 non-English/mixed documents have registered English derivatives; pending snapshot translations: 0**. Human translation review and canonical architecture reconciliation remain separate, explicit stages.
 
 ## Rehydration queue
 
