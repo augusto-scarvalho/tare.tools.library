@@ -20,12 +20,12 @@
 
 ## Rehydration review
 
-- File Library references discovered: **60**.
+- File Library references discovered: **66**.
 - Exact-byte identity crosswalks: **0**.
-- Reference-only artifacts still pending materialization: **60**.
-- Translation blocked until exact source materialization: **41**.
-- Native-English reference artifacts: **19**.
-- References with expected SHA-256 constraints from independent manifests: **6** (reported, not locally verified source hashes).
+- Reference-only artifacts still pending materialization: **66**.
+- Translation blocked until exact source materialization: **44**.
+- Native-English reference artifacts: **22**.
+- References with expected SHA-256 constraints from independent manifests: **11** (reported, not locally verified source hashes).
 - No reference-only artifact is allowed to claim local source bytes or a locally verified SHA-256.
 - Lineage order/version metadata may establish ordering, but semantic supersession requires exact content comparison; see [LINEAGE_RECONCILIATION.md](LINEAGE_RECONCILIATION.md).
 - Normalized external-source navigation is generated from materialized originals only; see [SOURCE_INDEX.md](../sources/SOURCE_INDEX.md).

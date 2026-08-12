@@ -5,18 +5,21 @@
 
 ## Context
 
+canonical lineage requires Work/Attempt/LogicalEffect separation.
+
 ## Classification
 
 - **Kinds:** research_branch
 - **Lineages:** runtime-reliability-sandbox
 - **Clusters:** reliability-effects-durable-runtime
-- **Radar projection:** `WATCH` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
+- **Radar projection:** `INVESTIGATE` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
 - **Priority:** `UNTRIAGED`
 - **Why not now:** `UNASSESSED`
 
 ## Origins
 
 - `SCIENTIFIC_REFRESH_POINTER` — `refresh-editions/2026-08-11/runtime-reliability-sandbox/runtime-reliability-sandbox-scientific-refresh-2026-08-11.html` — Research pointers and unresolved bridges
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12-pointers.md:L9` — Existing pointers — add new origin
 
 ## Conservative relationship candidates
 

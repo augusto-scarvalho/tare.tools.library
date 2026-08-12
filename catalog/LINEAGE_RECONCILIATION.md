@@ -14,6 +14,7 @@
 | `assurance-evolution` | 2 | `SIBLING_ARTIFACT_SET_NOT_SUPERSESSION` |
 | `formal-research-program` | 11 | `METADATA_VERSION_SEQUENCE_CONFIRMED_CONTENT_SUPERSESSION_PENDING` |
 | `governance-assurance-audit` | 3 | `SIBLING_ARTIFACT_SET_NOT_SUPERSESSION` |
+| `identity-lineage-learning-2026-08-12` | 6 | `SIBLING_ARTIFACT_SET_NOT_SUPERSESSION` |
 | `interoperability-learning-evolution` | 3 | `SIBLING_ARTIFACT_SET_NOT_SUPERSESSION` |
 | `july-2026-burndown-patches` | 5 | `ORDER_HINT_ONLY_CONTENT_DIFF_REQUIRED` |
 | `kimi-antigravity-archaeology` | 1 | `ORDER_HINT_ONLY_CONTENT_DIFF_REQUIRED` |

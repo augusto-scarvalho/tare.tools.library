@@ -52,6 +52,7 @@
 - [rp-6acb008e09 — Operating posture / governance regime](pointers/rp-6acb008e09-operating-posture-governance-regime.md) — incident- or error-budget-driven freezing of evolution, vendors or capabilities without rewriting history.
 - [rp-5ecdf2f016 — Policy / waiver / deprecation lifecycle](pointers/rp-5ecdf2f016-policy-waiver-deprecation-lifecycle.md) — proposed→ratified→effective→challenged→amended→deprecated→retired with explicit evidence and expiry.
 - [rp-3f41287ed1 — Risk aggregation](pointers/rp-3f41287ed1-risk-aggregation.md) — portfolio/systemic risk across many individually low-risk actions, vendors, datasets and resources.
+- [rp-1e27bdb89e — Safe adaptive control across evidence scopes](pointers/rp-1e27bdb89e-safe-adaptive-control-across-evidence-scopes.md) — study how local posterior, Project-class prior and platform prior may change without authority or applicability leakage.
 
 ## Runtime, Reliability & Sandbox
 
@@ -59,11 +60,13 @@
 - [rp-96101e4704 — durable backend qualification](pointers/rp-96101e4704-durable-backend-qualification.md)
 - [rp-70c444876f — Durable runtime qualification](pointers/rp-70c444876f-durable-runtime-qualification.md) — compare Temporal, Restate, DBOS and other backends using the same tare-owned conformance pack.
 - [rp-955d74e6af — Effect Torture Lab](pointers/rp-955d74e6af-effect-torture-lab.md) — commit-then-drop-reply, duplicate delivery, stale observer, cancel/commit race, failed compensation, supersession and ambiguous completion.
+- [rp-c26a7d4f2f — ExecutionAttempt identity semantics](pointers/rp-c26a7d4f2f-executionattempt-identity-semantics.md) — determine whether physical execution attempt is a primitive or derived identity over ExecutionBinding/events.
 - [rp-b8dc8b40c8 — filesystem confinement proof](pointers/rp-b8dc8b40c8-filesystem-confinement-proof.md)
-- [rp-9784d1bff6 — logical effect identity details](pointers/rp-9784d1bff6-logical-effect-identity-details.md)
+- [rp-9784d1bff6 — logical effect identity details](pointers/rp-9784d1bff6-logical-effect-identity-details.md) — canonical lineage requires Work/Attempt/LogicalEffect separation.
 - [rp-d2d246077c — Operational effect accounting](pointers/rp-d2d246077c-operational-effect-accounting.md) — materiality, settlement, multi-effect transactions and independently observable postconditions.
 - [rp-b019955343 — Partial observability and active sensing](pointers/rp-b019955343-partial-observability-and-active-sensing.md) — POMDP/Value-of-Information approaches for deciding when reconciliation needs more evidence.
 - [rp-96777fdc13 — trusted invocation seam](pointers/rp-96777fdc13-trusted-invocation-seam.md)
+- [rp-be30bb9998 — Typed Canonical Lineage with typestate and effect systems](pointers/rp-be30bb9998-typed-canonical-lineage-with-typestate-and-effect-systems.md) — investigate whether type/effect systems can encode legal transitions and missing joins without runtime mega-ontology.
 - [rp-1685086184 — Windows deep-path hardening](pointers/rp-1685086184-windows-deep-path-hardening.md)
 
 ## Routing, Economics & Observability
@@ -84,6 +87,7 @@
 ## Interoperability & Protocols
 
 - [rp-59683f955d — artifact/data transfer semantics](pointers/rp-59683f955d-artifact-data-transfer-semantics.md)
+- [rp-448bedc258 — Evolution Candidate provenance and identity surface](pointers/rp-448bedc258-evolution-candidate-provenance-and-identity-surface.md) — candidate manifest, evaluator/promoter separation, attestation and revocation lineage.
 - [rp-a3c88ec045 — Identity, trust, and federation](pointers/rp-a3c88ec045-identity-trust-and-federation.md) — workload identity, tare↔tare trust, delegated credentials and attestations while keeping Authority tare-owned.
 - [rp-df2f723e3d — minimal federation identity substrate](pointers/rp-df2f723e3d-minimal-federation-identity-substrate.md)
 - [rp-7b6d5e803a — Portable capability components](pointers/rp-7b6d5e803a-portable-capability-components.md) — WASM Component Model/WIT, explicit imports/exports and plugin isolation.
@@ -113,9 +117,10 @@
 ## Research Methodology & Evidence
 
 - [rp-6a3a4ebbb2 — active curation / Value of Information](pointers/rp-6a3a4ebbb2-active-curation-value-of-information.md)
+- [rp-e8b4847561 — Archival lineage survivability after scrub and compaction](pointers/rp-e8b4847561-archival-lineage-survivability-after-scrub-and-compaction.md) — minimum history needed to preserve governance/audit/learning queries after archival transformations.
 - [rp-8f4f8cc2ba — automated source freshness checks](pointers/rp-8f4f8cc2ba-automated-source-freshness-checks.md)
 - [rp-958f5fa0b3 — bitemporal epistemic graph and architecture-epoch queries](pointers/rp-958f5fa0b3-bitemporal-epistemic-graph-and-architecture-epoch-queries.md)
-- [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md)
+- [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md) — new pack strengthens valid-time/knowledge-time/policy-epoch questions.
 - [rp-effac4d7cf — calibrated LLM-assisted curation](pointers/rp-effac4d7cf-calibrated-llm-assisted-curation.md)
 - [rp-f9b2aa07a8 — causal experiment design templates](pointers/rp-f9b2aa07a8-causal-experiment-design-templates.md)
 - [rp-12202811fa — CiTO/DataCite/PROV mapping](pointers/rp-12202811fa-cito-datacite-prov-mapping.md)
@@ -124,6 +129,7 @@
 - [rp-75722e66e7 — CMRP compute-matched qualification](pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md) — compare single-pass, generic iterative refinement, same-model cyclic roles, isolated same-model agents, heterogeneous agents and human/independent review on stratified Research Frontier tasks; measure contradiction recall, false-correction, unsupported claims and cost-to-trust.
 - [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md)
 - [rp-27de64dc8e — Contradiction detection under defeasible evidence](pointers/rp-27de64dc8e-contradiction-detection-under-defeasible-evidence.md)
+- [rp-9c4e06812d — Cross-lineage dogfooding of Canonical Lineage](pointers/rp-9c4e06812d-cross-lineage-dogfooding-of-canonical-lineage.md) — apply lineage golden queries to tare.tools.research and implementation evidence as an experimental proving ground.
 - [rp-18b6cecb23 — cross-project evidence transfer](pointers/rp-18b6cecb23-cross-project-evidence-transfer.md)
 - [rp-c6798f9503 — Cryptographic/signed curation attestations](pointers/rp-c6798f9503-cryptographic-signed-curation-attestations.md)
 - [rp-ad88e49c07 — Cybernetics and control theory for observability/controllability/stability](pointers/rp-ad88e49c07-cybernetics-and-control-theory-for-observability-controllability-stability.md)
@@ -134,6 +140,7 @@
 - [rp-ab6d8ad91c — Mechanism design for incentive-compatible agent/vendor ecosystems](pointers/rp-ab6d8ad91c-mechanism-design-for-incentive-compatible-agent-vendor-ecosystems.md)
 - [rp-c83c6eea33 — Metrology and psychometrics for trustworthy measurement of agentic systems](pointers/rp-c83c6eea33-metrology-and-psychometrics-for-trustworthy-measurement-of-agentic-systems.md)
 - [rp-3c21ee61ad — metrology dashboard for evaluators](pointers/rp-3c21ee61ad-metrology-dashboard-for-evaluators.md)
+- [rp-8539251c79 — Minimum Canonical Lineage Contract](pointers/rp-8539251c79-minimum-canonical-lineage-contract.md) — smallest set of canonical refs/joins required to answer golden lineage queries without a mega-schema.
 - [rp-53a17202e5 — Organizational learning and double-loop learning for changing governing assumptions instead of only fixing runs](pointers/rp-53a17202e5-organizational-learning-and-double-loop-learning-for-changing-governing-assumpti.md)
 - [rp-62b8b48ce9 — Privacy-aware cross-project research federation](pointers/rp-62b8b48ce9-privacy-aware-cross-project-research-federation.md)
 - [rp-ea10a8e979 — research claim graph](pointers/rp-ea10a8e979-research-claim-graph.md)

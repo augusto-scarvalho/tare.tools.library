@@ -46,6 +46,13 @@
 - Scientific refresh: `assurance-governance-quality/assurance-governance-quality-scientific-refresh-2026-08-11.html`
 - Technical delta: `assurance-governance-quality/assurance-governance-quality-implementation-research-delta-2026-08-11.html`
 
+## 2026-08-12 cross-lineage update — Identity, Lineage, Learning & Evolution
+
+- ResearchObject: `research_object.identity-lineage-learning-2026-08-12`
+- Status: `RESEARCH / CROSS-LINEAGE`
+- Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
+- Authority: no canonical promotion; integration is research-only.
+
 ## Open Research Frontier (shadow)
 
 > Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
@@ -58,7 +65,7 @@
 - [rp-2d5b8a67cf — control retirement experiments](../../frontier/pointers/rp-2d5b8a67cf-control-retirement-experiments.md) · `NORMALIZED` · radar `WATCH`
 - [rp-f0c0d9085f — Decision rights vs capability vs authority](../../frontier/pointers/rp-f0c0d9085f-decision-rights-vs-capability-vs-authority.md) · `TRIAGED` · radar `WATCH`
 - [rp-4089f0d228 — decision-right representation](../../frontier/pointers/rp-4089f0d228-decision-right-representation.md) · `NORMALIZED` · radar `WATCH`
-- [rp-d7383c6282 — Evaluator metrology](../../frontier/pointers/rp-d7383c6282-evaluator-metrology.md) · `TRIAGED` · radar `WATCH`
+- [rp-d7383c6282 — Evaluator metrology](../../frontier/pointers/rp-d7383c6282-evaluator-metrology.md) · `TRIAGED` · radar `INVESTIGATE`
 - [rp-4d0c0a14c0 — Evidence reuse and invalidation](../../frontier/pointers/rp-4d0c0a14c0-evidence-reuse-and-invalidation.md) · `TRIAGED` · radar `WATCH`
 - [rp-0a4bd91301 — Governance debt](../../frontier/pointers/rp-0a4bd91301-governance-debt.md) · `TRIAGED` · radar `WATCH`
 - [rp-e0994063b4 — governance debt metrology](../../frontier/pointers/rp-e0994063b4-governance-debt-metrology.md) · `NORMALIZED` · radar `EXPERIMENT`
@@ -66,3 +73,4 @@
 - [rp-6acb008e09 — Operating posture / governance regime](../../frontier/pointers/rp-6acb008e09-operating-posture-governance-regime.md) · `TRIAGED` · radar `WATCH`
 - [rp-5ecdf2f016 — Policy / waiver / deprecation lifecycle](../../frontier/pointers/rp-5ecdf2f016-policy-waiver-deprecation-lifecycle.md) · `TRIAGED` · radar `WATCH`
 - [rp-3f41287ed1 — Risk aggregation](../../frontier/pointers/rp-3f41287ed1-risk-aggregation.md) · `TRIAGED` · radar `INVESTIGATE`
+- [rp-1e27bdb89e — Safe adaptive control across evidence scopes](../../frontier/pointers/rp-1e27bdb89e-safe-adaptive-control-across-evidence-scopes.md) · `NORMALIZED` · radar `WATCH`

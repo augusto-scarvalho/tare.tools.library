@@ -2,7 +2,7 @@
 
 > File Library references are discovery records, not local source bytes. Never reconstruct an "original" from search snippets. Materialize exact source bytes first; then verify identity/hash, import, and only then translate if needed.
 
-References discovered: **60**. Exact-byte identity crosswalks: **0**. Expected SHA-256 constraints from independent manifests: **6**. Pending materialization: **60**. Translation blocked pending exact source: **41**. Ready for translation: **0**. Native English: **19**.
+References discovered: **66**. Exact-byte identity crosswalks: **0**. Expected SHA-256 constraints from independent manifests: **11**. Pending materialization: **66**. Translation blocked pending exact source: **44**. Ready for translation: **0**. Native English: **22**.
 
 ## Priority semantics
 
@@ -11,7 +11,7 @@ References discovered: **60**. Exact-byte identity crosswalks: **0**. Expected S
 - **P2** — historical versions/supporting artifacts.
 - **P3** — low-level evidence/patch history.
 
-## P0 — 17 item(s)
+## P0 — 23 item(s)
 
 | Artifact | Kind | Family | Language | Translation | File Library ID |
 |---|---|---|---|---|---|
@@ -25,6 +25,12 @@ References discovered: **60**. Exact-byte identity crosswalks: **0**. Expected S
 | **harness_multiagent_research_program_v2.1_blocks1_to_21.md** | `research-program` | `formal-research-program` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000afb071fba584b05d93e6e205` |
 | **tare_tools_governance_assurance_audit_scientific_research_2026-08-10.html** | `research` | `governance-assurance-audit` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000df4c820e80676f9df313a47f` |
 | **tare_tools_governance_assurance_audit_implementation_proposal_2026-08-10.html** | `implementation-proposal` | `governance-assurance-audit` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000ad88820e89bc308470f8e7d0` |
+| **tare_tools_canonical_lineage_identity_governance_scientific_research_2026-08-12.html** | `research` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000c4a8820eb800aa8529b7bcbc` |
+| **tare_tools_canonical_lineage_implementation_proposal_2026-08-12.html** | `implementation-proposal` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000003f80820ea242698e58c54859` |
+| **tare_tools_identity_lineage_learning_research_SHA256SUMS_2026-08-12.txt** | `checksums` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_0000000054bc820ea188888a7256c3c8` |
+| **tare_tools_identity_lineage_learning_research_manifest_2026-08-12.json** | `validation-manifest` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_00000000a274820eaab028fdccb33cb2` |
+| **tare_tools_identity_lineage_research_index_2026-08-12.html** | `research-index` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_000000001eb8820ea1d9bbcd24cbd389` |
+| **tare_tools_lineage_technology_landscape_reuse_2026-08-12.html** | `technology-landscape` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000124c820e8a666894140ca106` |
 | **tare_tools_interoperability_learning_evolution_scientific_research_2026-08-10.html** | `research` | `interoperability-learning-evolution` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_0000000085f8820ea17069240615c747` |
 | **tare_tools_interoperability_learning_evolution_implementation_proposal_2026-08-10.html** | `implementation-proposal` | `interoperability-learning-evolution` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000003e8c820e8484e4857d25e050` |
 | **tare_tools_project_admission_adoption_scientific_research_2026-08-09.html** | `research` | `project-admission-adoption` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000006ac4820eb272f0d0ab685749` |

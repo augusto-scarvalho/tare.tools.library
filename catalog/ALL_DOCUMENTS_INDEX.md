@@ -12,9 +12,13 @@
 - [Historical corpus → refresh crosswalk](../refresh-editions/2026-08-11/REFRESH_CROSSWALK.md)
 - [Corpus curation map](../refresh-editions/2026-08-11/CORPUS_CURATION_MAP.md)
 
+## Live Research Ingestions
+
+- [2026-08-12 — Identity, Lineage, Learning & Evolution](NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12.md) — first formal live-ingestion test; cross-lineage ResearchObject, not a tenth lineage.
+
 ## 1. Materialized chat/research corpus
 
-Exact originals: **11**. English derivatives: **11/11**.
+Exact originals: **11**. English derivatives: **12/11**.
 
 | Document | Status | Contexts | Languages |
 |---|---|---|---|
@@ -134,7 +138,7 @@ Documents: **93**.
 
 ## 3. File Library references awaiting exact-byte rehydration
 
-References: **60**. These records are discovery metadata only; they are not reconstructed originals.
+References: **66**. These records are discovery metadata only; they are not reconstructed originals.
 
 | Reference | Language | Priority | Translation state | File Library ID |
 |---|---|---|---|---|
@@ -148,6 +152,12 @@ References: **60**. These records are discovery metadata only; they are not reco
 | [harness_multiagent_research_program_v2.1_blocks1_to_21.md](../corpus/library-references/2026-08-11-discovery-batch-1/harness_multiagent_research_program_v2.1_blocks1_to_21.md--b05d93e6e205.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000afb071fba584b05d93e6e205` |
 | [tare_tools_governance_assurance_audit_scientific_research_2026-08-10.html](../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_governance_assurance_audit_scientific_research_2026-08-10.html--6f9df313a47f.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000df4c820e80676f9df313a47f` |
 | [tare_tools_governance_assurance_audit_implementation_proposal_2026-08-10.html](../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_governance_assurance_audit_implementation_proposal_2026-08-10.html--308470f8e7d0.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000ad88820e89bc308470f8e7d0` |
+| [tare_tools_canonical_lineage_identity_governance_scientific_research_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-canonical-lineage-identity-governance-scientific-research-2026-08-12-html.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000c4a8820eb800aa8529b7bcbc` |
+| [tare_tools_canonical_lineage_implementation_proposal_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-canonical-lineage-implementation-proposal-2026-08-12-html.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000003f80820ea242698e58c54859` |
+| [tare_tools_identity_lineage_learning_research_SHA256SUMS_2026-08-12.txt](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-learning-research-sha256sums-2026-08-12-txt.reference.json) | `en` | `P0` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_0000000054bc820ea188888a7256c3c8` |
+| [tare_tools_identity_lineage_learning_research_manifest_2026-08-12.json](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-learning-research-manifest-2026-08-12-json.reference.json) | `en` | `P0` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_00000000a274820eaab028fdccb33cb2` |
+| [tare_tools_identity_lineage_research_index_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-research-index-2026-08-12-html.reference.json) | `en` | `P0` | `NOT_REQUIRED_NATIVE_ENGLISH` | `file_000000001eb8820ea1d9bbcd24cbd389` |
+| [tare_tools_lineage_technology_landscape_reuse_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-lineage-technology-landscape-reuse-2026-08-12-html.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_00000000124c820e8a666894140ca106` |
 | [tare_tools_interoperability_learning_evolution_scientific_research_2026-08-10.html](../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_interoperability_learning_evolution_scientific_research_2026-08-10.html--69240615c747.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_0000000085f8820ea17069240615c747` |
 | [tare_tools_interoperability_learning_evolution_implementation_proposal_2026-08-10.html](../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_interoperability_learning_evolution_implementation_proposal_2026-08-10.html--e4857d25e050.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000003e8c820e8484e4857d25e050` |
 | [tare_tools_project_admission_adoption_scientific_research_2026-08-09.html](../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_project_admission_adoption_scientific_research_2026-08-09.html--f0d0ab685749.reference.json) | `pt-BR` | `P0` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` | `file_000000006ac4820eb272f0d0ab685749` |

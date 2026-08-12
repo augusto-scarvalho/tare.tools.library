@@ -30,6 +30,8 @@ def main():
       '- [Cross-lineage implementation-research delta](../refresh-editions/2026-08-11/tare-tools-cross-lineage-implementation-research-delta-2026-08-11.html)',
       '- [Historical corpus → refresh crosswalk](../refresh-editions/2026-08-11/REFRESH_CROSSWALK.md)',
       '- [Corpus curation map](../refresh-editions/2026-08-11/CORPUS_CURATION_MAP.md)','',
+      '## Live Research Ingestions','',
+      '- [2026-08-12 — Identity, Lineage, Learning & Evolution](NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12.md) — first formal live-ingestion test; cross-lineage ResearchObject, not a tenth lineage.','',
       '## 1. Materialized chat/research corpus','',
       f'Exact originals: **{len(cat)}**. English derivatives: **{len(translations)}/{len(cat)}**.','',
       '| Document | Status | Contexts | Languages |','|---|---|---|---|']

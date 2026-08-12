@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "translation_id": "research.chat.identity-lineage-learning-2026-08-12.en",
+  "translation_of": "research.chat.identity-lineage-learning-2026-08-12",
+  "source_path": "corpus/original/2026-08-12-chat-import/Tare.tools - identidade.txt",
+  "source_sha256": "b7de23b2ce7e41c1f804b6a8d8c4c5f4a8bb636b056657ec33e6bae3340cc1eb",
+  "translation_path": "corpus/translations/en/2026-08-12-chat-import/Tare.tools - identidade.en.md",
+  "translation_sha256": "8ee9f1ce665e6a4a46a4cc23acec6dfdddf74869240ac5d6940decf4c8f3fd73",
+  "translation_size_bytes": 8544,
+  "source_language": "pt-BR",
+  "target_language": "en",
+  "translation_status": "MACHINE_TRANSLATED_UNREVIEWED",
+  "translator": "OpenAI GPT-5.6 Sol",
+  "translated_at": "2026-08-12",
+  "policy": "TRANSLATION_POLICY.md",
+  "notes": "Faithful derivative translation of the exact locally mounted chat research summary. Historical/research claims were not silently promoted to CURRENT/TARGET."
+}

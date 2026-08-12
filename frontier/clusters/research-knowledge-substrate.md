@@ -2,16 +2,19 @@
 
 > Research Frontier cluster. Clustering is organizational metadata, not architectural authority.
 
-Pointers: **20**
+Pointers: **23**
 
 | Status | Radar | Pointer | Lineages |
 |---|---|---|---|
-| `NORMALIZED` | `EXPLORE` | [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](../pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md) | research-methodology-evidence |
+| `NORMALIZED` | `WATCH` | [rp-e8b4847561 — Archival lineage survivability after scrub and compaction](../pointers/rp-e8b4847561-archival-lineage-survivability-after-scrub-and-compaction.md) | research-methodology-evidence |
+| `NORMALIZED` | `INVESTIGATE` | [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](../pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-d82c263ccd — Claim normalization and semantic equivalence without collapsing nuance](../pointers/rp-d82c263ccd-claim-normalization-and-semantic-equivalence-without-collapsing-nuance.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-27de64dc8e — Contradiction detection under defeasible evidence](../pointers/rp-27de64dc8e-contradiction-detection-under-defeasible-evidence.md) | research-methodology-evidence |
+| `NORMALIZED` | `EXPERIMENT` | [rp-9c4e06812d — Cross-lineage dogfooding of Canonical Lineage](../pointers/rp-9c4e06812d-cross-lineage-dogfooding-of-canonical-lineage.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-c6798f9503 — Cryptographic/signed curation attestations](../pointers/rp-c6798f9503-cryptographic-signed-curation-attestations.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-04052a9417 — Evaluation of LLM-assisted curation as a calibrated instrument](../pointers/rp-04052a9417-evaluation-of-llm-assisted-curation-as-a-calibrated-instrument.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-aa0caedea7 — Human cognitive interoperability for scientific graphs](../pointers/rp-aa0caedea7-human-cognitive-interoperability-for-scientific-graphs.md) | research-methodology-evidence |
+| `NORMALIZED` | `WATCH` | [rp-8539251c79 — Minimum Canonical Lineage Contract](../pointers/rp-8539251c79-minimum-canonical-lineage-contract.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-62b8b48ce9 — Privacy-aware cross-project research federation](../pointers/rp-62b8b48ce9-privacy-aware-cross-project-research-federation.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-e72f1d330f — Research curation economics and Value of Information](../pointers/rp-e72f1d330f-research-curation-economics-and-value-of-information.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-c9b7e486e6 — Research-to-code traceability using Git/SWHIDs](../pointers/rp-c9b7e486e6-research-to-code-traceability-using-git-swhids.md) | research-methodology-evidence |

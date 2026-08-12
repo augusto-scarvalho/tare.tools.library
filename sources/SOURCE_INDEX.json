@@ -1,12 +1,12 @@
 {
   "schema_version": "1.1",
   "source_scope": "materialized byte-preserved chat originals + exact historical private-GitHub docs/research copies",
-  "documents_scanned": 104,
+  "documents_scanned": 105,
   "origin_counts": {
-    "chat-corpus-original": 11,
+    "chat-corpus-original": 12,
     "private-github-snapshot-2026-08-05": 93
   },
-  "unique_urls": 591,
+  "unique_urls": 594,
   "sources": [
     {
       "url": "http://192.0.2.10:8080/v1",
@@ -2053,6 +2053,17 @@
       ]
     },
     {
+      "url": "https://arxiv.org/abs/2604.22708",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - identidade.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
       "url": "https://arxiv.org/abs/2604.25850",
       "domain": "arxiv.org",
       "occurrences": 1,
@@ -2218,6 +2229,17 @@
       ]
     },
     {
+      "url": "https://arxiv.org/abs/2605.30621",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - identidade.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
+      ]
+    },
+    {
       "url": "https://arxiv.org/abs/2605.30785",
       "domain": "arxiv.org",
       "occurrences": 1,
@@ -2264,11 +2286,13 @@
     {
       "url": "https://arxiv.org/abs/2606.04990",
       "domain": "arxiv.org",
-      "occurrences": 1,
+      "occurrences": 2,
       "documents": [
+        "Tare.tools - identidade.txt",
         "docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md"
       ],
       "origins": [
+        "chat-corpus-original",
         "private-github-snapshot-2026-08-05"
       ]
     },
@@ -2292,6 +2316,17 @@
       ],
       "origins": [
         "private-github-snapshot-2026-08-05"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.08275",
+      "domain": "arxiv.org",
+      "occurrences": 1,
+      "documents": [
+        "Tare.tools - identidade.txt"
+      ],
+      "origins": [
+        "chat-corpus-original"
       ]
     },
     {
@@ -2563,9 +2598,10 @@
     {
       "url": "https://arxiv.org/abs/2608.02680",
       "domain": "arxiv.org",
-      "occurrences": 1,
+      "occurrences": 2,
       "documents": [
-        "Tare.tools - Task & Workflow Lifecycle.txt"
+        "Tare.tools - Task & Workflow Lifecycle.txt",
+        "Tare.tools - identidade.txt"
       ],
       "origins": [
         "chat-corpus-original"

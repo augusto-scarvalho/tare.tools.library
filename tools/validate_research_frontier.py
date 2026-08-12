@@ -78,6 +78,16 @@ if meta.exists():
     if m:
         for li in re.findall(r'<li>(.*?)</li>',m.group(1),re.S): observed.append(norm(strip_title(html.unescape(re.sub('<[^>]+>','',li)))))
 reg_titles={r.get('normalized_title') for r in records}
+
+# new research ingestion pointer packs
+ingdir=ROOT/'catalog/NEW_RESEARCH_INGESTIONS'
+if ingdir.exists():
+    for fp in sorted(ingdir.glob('*-pointers.md')):
+        for line in fp.read_text(encoding='utf-8').splitlines():
+            if not line.startswith('- '): continue
+            body=line[2:].strip(); mb=re.match(r'^\*\*(.+?)\*\*\s*[—-]\s*(.+)$',body)
+            title=mb.group(1) if mb else body
+            observed.append(norm(strip_title(title)))
 for t in observed:
     if t and t not in reg_titles: errs.append(f'harvest coverage missing: {t}')
 

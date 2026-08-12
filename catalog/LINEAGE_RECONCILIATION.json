@@ -133,6 +133,12 @@
       "version_sequence": []
     },
     {
+      "family": "identity-lineage-learning-2026-08-12",
+      "artifact_count": 6,
+      "status": "SIBLING_ARTIFACT_SET_NOT_SUPERSESSION",
+      "version_sequence": []
+    },
+    {
       "family": "interoperability-learning-evolution",
       "artifact_count": 3,
       "status": "SIBLING_ARTIFACT_SET_NOT_SUPERSESSION",
@@ -231,8 +237,8 @@
       "title": "harness_adaptive_routing_research_implementation_spec_2026-08-07.html",
       "count": 2,
       "file_library_ids": [
-        "file_00000000994c820e9171418b397847ab",
-        "file_00000000cc90820eb8a6ff5bb577c938"
+        "file_00000000cc90820eb8a6ff5bb577c938",
+        "file_00000000994c820e9171418b397847ab"
       ],
       "status": "IDENTITY_DUPLICATE_UNRESOLVED_EXACT_BYTES_REQUIRED"
     },

@@ -24,7 +24,8 @@
       "rp-4d0c0a14c0",
       "rp-e0994063b4",
       "rp-d13bc5b025",
-      "rp-3f41287ed1"
+      "rp-3f41287ed1",
+      "rp-1e27bdb89e"
     ],
     "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
   },
@@ -111,11 +112,13 @@
       "rp-96101e4704",
       "rp-70c444876f",
       "rp-955d74e6af",
+      "rp-c26a7d4f2f",
       "rp-b8dc8b40c8",
       "rp-9784d1bff6",
       "rp-d2d246077c",
       "rp-b019955343",
       "rp-96777fdc13",
+      "rp-be30bb9998",
       "rp-1685086184"
     ],
     "authority": "RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY"
@@ -125,6 +128,7 @@
     "title": "Research Knowledge Substrate",
     "pointer_ids": [
       "rp-6a3a4ebbb2",
+      "rp-e8b4847561",
       "rp-958f5fa0b3",
       "rp-d6b759be2e",
       "rp-effac4d7cf",
@@ -132,10 +136,12 @@
       "rp-d82c263ccd",
       "rp-f3f8903e8d",
       "rp-27de64dc8e",
+      "rp-9c4e06812d",
       "rp-c6798f9503",
       "rp-04052a9417",
       "rp-56a857d5d3",
       "rp-aa0caedea7",
+      "rp-8539251c79",
       "rp-62b8b48ce9",
       "rp-e72f1d330f",
       "rp-c9b7e486e6",
@@ -180,6 +186,7 @@
     "title": "Runtime, Interoperability & Identity",
     "pointer_ids": [
       "rp-59683f955d",
+      "rp-448bedc258",
       "rp-a3c88ec045",
       "rp-df2f723e3d",
       "rp-7b6d5e803a",

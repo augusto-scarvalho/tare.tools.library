@@ -2,7 +2,7 @@
 
 > English translations are derivatives. PT-BR originals remain the historical source artifacts.
 
-Coverage: **11/11** documents have an English derivative.
+Coverage: **12/11** documents have an English derivative.
 
 | Document | English | Review state | Source hash | Translation hash |
 |---|---|---|---|---|

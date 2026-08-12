@@ -35,6 +35,13 @@
 - Scientific refresh: `agent-os-foundations/agent-os-foundations-scientific-refresh-2026-08-11.html`
 - Technical delta: `agent-os-foundations/agent-os-foundations-implementation-research-delta-2026-08-11.html`
 
+## 2026-08-12 cross-lineage update — Identity, Lineage, Learning & Evolution
+
+- ResearchObject: `research_object.identity-lineage-learning-2026-08-12`
+- Status: `RESEARCH / CROSS-LINEAGE`
+- Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
+- Authority: no canonical promotion; integration is research-only.
+
 ## Open Research Frontier (shadow)
 
 > Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.

@@ -2,7 +2,7 @@
 
 > Índice temático. Os bytes históricos PT-BR permanecem imutáveis em `corpus/original/`; traduções EN são derivatives versionados. Referências File Library permanecem apenas metadata até os bytes exatos serem materializados.
 
-Documentos materializados relacionados: **2**. Referências pendentes de reidratação: **16**.
+Documentos materializados relacionados: **2**. Referências pendentes de reidratação: **22**.
 
 ## Materializados
 
@@ -31,6 +31,12 @@ Documentos materializados relacionados: **2**. Referências pendentes de reidrat
 | **[harness_to_agent_operating_system_implementation_sdd_bdd_2026-08-09.html](../../corpus/library-references/2026-08-11-discovery-batch-1/harness_to_agent_operating_system_implementation_sdd_bdd_2026-08-09.html--1dc1a0398001.reference.json)**<br><sub>`file_000000007b84820ebdbe1dc1a0398001`</sub> | `P0` | `implementation-proposal` | `agent-os-sdd-bdd` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
 | **[tare_tools_workflow_governed_work_implementation_proposal_2026-08-11.html](../../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_workflow_governed_work_implementation_proposal_2026-08-11.html--0fd1a715802d.reference.json)**<br><sub>`file_00000000a430820e87670fd1a715802d`</sub> | `P0` | `implementation-proposal` | `workflow-governed-work` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
 | **[tare_tools_workflow_governed_work_scientific_research_2026-08-11.html](../../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_workflow_governed_work_scientific_research_2026-08-11.html--6006ddc0c53c.reference.json)**<br><sub>`file_000000005d90820e8a116006ddc0c53c`</sub> | `P0` | `research` | `workflow-governed-work` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_canonical_lineage_identity_governance_scientific_research_2026-08-12.html](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-canonical-lineage-identity-governance-scientific-research-2026-08-12-html.reference.json)**<br><sub>`file_00000000c4a8820eb800aa8529b7bcbc`</sub> | `P0` | `research` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_canonical_lineage_implementation_proposal_2026-08-12.html](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-canonical-lineage-implementation-proposal-2026-08-12-html.reference.json)**<br><sub>`file_000000003f80820ea242698e58c54859`</sub> | `P0` | `implementation-proposal` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_identity_lineage_learning_research_manifest_2026-08-12.json](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-learning-research-manifest-2026-08-12-json.reference.json)**<br><sub>`file_00000000a274820eaab028fdccb33cb2`</sub> | `P0` | `validation-manifest` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
+| **[tare_tools_identity_lineage_learning_research_SHA256SUMS_2026-08-12.txt](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-learning-research-sha256sums-2026-08-12-txt.reference.json)**<br><sub>`file_0000000054bc820ea188888a7256c3c8`</sub> | `P0` | `checksums` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
+| **[tare_tools_identity_lineage_research_index_2026-08-12.html](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-research-index-2026-08-12-html.reference.json)**<br><sub>`file_000000001eb8820ea1d9bbcd24cbd389`</sub> | `P0` | `research-index` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
+| **[tare_tools_lineage_technology_landscape_reuse_2026-08-12.html](../../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-lineage-technology-landscape-reuse-2026-08-12-html.reference.json)**<br><sub>`file_00000000124c820e8a666894140ca106`</sub> | `P0` | `technology-landscape` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
 
 ## Navegação
 

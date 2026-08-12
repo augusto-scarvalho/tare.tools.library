@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "reference_id": "flref.identity.c5552689bee3",
+  "title": "tare_tools_lineage_technology_landscape_reuse_2026-08-12.html",
+  "file_library_id": "file_00000000124c820e8a666894140ca106",
+  "file_created_at": "2026-08-12",
+  "file_modified_at": "2026-08-12",
+  "native_language": "pt-BR",
+  "availability": "LIBRARY_REFERENCE_ONLY",
+  "materialized_bytes": false,
+  "translation_status": "BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED",
+  "priority": "P0",
+  "suggested_kind": "technology-landscape",
+  "suggested_status": "RESEARCH",
+  "suggested_contexts": [
+    "Workflow",
+    "Reliability",
+    "Governance / Audit",
+    "Evidence / Provenance",
+    "Memory / Context",
+    "Evolution Control",
+    "Protocols / Interoperability"
+  ],
+  "lineage_family": "identity-lineage-learning-2026-08-12",
+  "lineage_order_hint": null,
+  "reported_sha256": "ec6e1fa68c01020ba4011ffc7230942376d571993028ae69b52079a1fa614bf8",
+  "reported_size_bytes": 37032,
+  "hash_status": "REPORTED_NOT_LOCALLY_VERIFIED",
+  "discovered_at": "2026-08-12",
+  "discovery_basis": "Shared-chat ingestion via File Library; public share URL was not fetchable from this runtime.",
+  "notes": "Expected hash/size are reported by the research-pack validation manifest/checksum file. Raw bytes are not mounted locally, so no source_path or exact-byte materialization is asserted."
+}

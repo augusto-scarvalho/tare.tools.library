@@ -88,6 +88,19 @@
 
 **Review status:** `ORDER_HINT_ONLY — CONTENT_DIFF_REQUIRED`
 
+## `identity-lineage-learning-2026-08-12` — 6 artifact(s)
+
+| Order hint | Artifact | Created | File Library ID | Availability |
+|---|---|---|---|---|
+| `None` | tare_tools_lineage_technology_landscape_reuse_2026-08-12.html | `2026-08-12` | `file_00000000124c820e8a666894140ca106` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_identity_lineage_research_index_2026-08-12.html | `2026-08-12` | `file_000000001eb8820ea1d9bbcd24cbd389` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_canonical_lineage_implementation_proposal_2026-08-12.html | `2026-08-12` | `file_000000003f80820ea242698e58c54859` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_identity_lineage_learning_research_SHA256SUMS_2026-08-12.txt | `2026-08-12` | `file_0000000054bc820ea188888a7256c3c8` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_identity_lineage_learning_research_manifest_2026-08-12.json | `2026-08-12` | `file_00000000a274820eaab028fdccb33cb2` | `LIBRARY_REFERENCE_ONLY` |
+| `None` | tare_tools_canonical_lineage_identity_governance_scientific_research_2026-08-12.html | `2026-08-12` | `file_00000000c4a8820eb800aa8529b7bcbc` | `LIBRARY_REFERENCE_ONLY` |
+
+**Review status:** `ORDER_HINT_ONLY — CONTENT_DIFF_REQUIRED`
+
 ## `interoperability-learning-evolution` — 3 artifact(s)
 
 | Order hint | Artifact | Created | File Library ID | Availability |
