@@ -1,0 +1,31 @@
+{
+  "document_id": "implementer-profiles-longitudinal-2026-08-12",
+  "title": "Agentic Implementer Profiles — longitudinal study",
+  "document_type": "experiment",
+  "status": "EXPERIMENTAL",
+  "created_at": "2026-08-12",
+  "architecture_epoch": "governed multi-vendor harness -> evidence-connected adaptive platform",
+  "canonical_commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+  "bounded_contexts": [
+    "Routing & Adaptation",
+    "Model / Inference",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Reputation / Qualification",
+    "Evolution Control"
+  ],
+  "lineage": {
+    "supersedes": [],
+    "superseded_by": [],
+    "derived_from": [
+      "tare_tools_implementer_profiles_empirical_report_v1.1_post_f5l06_a2_audit_2026-08-12",
+      "tare_tools_implementer_observation_ledger_v1.1_post_f5l06_a2_audit_2026-08-12"
+    ]
+  },
+  "provenance": {
+    "origin": "ChatGPT project longitudinal audit + GitHub relay Issues #6-#11 + Git candidate/evidence verification",
+    "project": "tare.tools",
+    "source_path": "incoming/implementer-profiles-2026-08-12/implementer-profiles-empirical-report-v1.1.md",
+    "notes": "Draft freeze at first RELAY-Q7 RESULT 65ca9eb7a8bd569f1260ac433194a89dd791a337. RELAY-Q7-CORRECTIVE-001 is still running; update before final publication."
+  }
+}
