@@ -18,12 +18,10 @@
     "implementer-profiles-longitudinal-integration-review-2026-08-12.en.html",
     "implementer-profiles-technical-integration-delta-2026-08-12.html",
     "implementer-profiles-technical-integration-delta-2026-08-12.en.html",
-    "implementer-profiles-empirical-report-v1.1.md",
-    "implementer-profiles-observation-ledger-v1.1.json",
     "document-metadata.json"
   ],
   "historical_preservation": true,
   "canonical_change": false,
   "promotion_packet": null,
-  "notes": "DRAFT publication packet. Do not merge/publish final until RELAY-Q7-CORRECTIVE-001 is audited and this packet is refreshed."
+  "notes": "DRAFT publication packet. Source report/ledger remain external draft artifacts referenced by lineage; do not merge/publish final until RELAY-Q7-CORRECTIVE-001 is audited and this packet is refreshed."
 }
