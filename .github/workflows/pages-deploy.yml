@@ -59,13 +59,34 @@ jobs:
         run: sudo chown -R "$USER":"$USER" _site
       - name: Apply SIGNAL projection to generated study editions
         run: python scripts/apply_signal_study_projection.py
-      - name: Assert SIGNAL outputs
+      - name: Assert SIGNAL and internal-reference outputs
         shell: bash
         run: |
           test -f _site/assets/site.css
           test -f _site/assets/signal-study.css
           grep -q 'data-signal-projection="true"' _site/bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
           grep -q 'signal-study.css' _site/bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
+          grep -q 'data-internal-ref-resolution=' _site/bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
+      - name: Verify every generated Pxx reference is linked
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          files = sorted(Path('_site/bridge-editions').rglob('*.html'))
+          total = linked = 0
+          for path in files:
+              text = path.read_text(encoding='utf-8')
+              refs = len(re.findall(r'<div class="ref" id="P\d+">', text))
+              links = text.count('data-internal-ref-resolution=')
+              if refs != links:
+                  raise SystemExit(f'{path}: {links}/{refs} internal corpus references linked')
+              total += refs
+              linked += links
+          if total == 0:
+              raise SystemExit('no internal corpus references found in generated Study Editions')
+          print(f'Internal corpus reference gate: PASS ({linked}/{total})')
+          PY
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
