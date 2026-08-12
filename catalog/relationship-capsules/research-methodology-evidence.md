@@ -61,6 +61,7 @@
 - [rp-12202811fa — CiTO/DataCite/PROV mapping](../../frontier/pointers/rp-12202811fa-cito-datacite-prov-mapping.md) · `TRIAGED` · radar `WATCH`
 - [rp-d82c263ccd — Claim normalization and semantic equivalence without collapsing nuance](../../frontier/pointers/rp-d82c263ccd-claim-normalization-and-semantic-equivalence-without-collapsing-nuance.md) · `NORMALIZED` · radar `EXPLORE`
 - [rp-f3f8903e8d — claim-to-code/SWHID traceability](../../frontier/pointers/rp-f3f8903e8d-claim-to-code-swhid-traceability.md) · `TRIAGED` · radar `WATCH`
+- [rp-75722e66e7 — CMRP compute-matched qualification](../../frontier/pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md) · `TRIAGED` · radar `WATCH`
 - [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](../../frontier/pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md) · `TRIAGED` · radar `WATCH`
 - [rp-27de64dc8e — Contradiction detection under defeasible evidence](../../frontier/pointers/rp-27de64dc8e-contradiction-detection-under-defeasible-evidence.md) · `NORMALIZED` · radar `EXPLORE`
 - [rp-18b6cecb23 — cross-project evidence transfer](../../frontier/pointers/rp-18b6cecb23-cross-project-evidence-transfer.md) · `NORMALIZED` · radar `WATCH`
@@ -77,6 +78,7 @@
 - [rp-62b8b48ce9 — Privacy-aware cross-project research federation](../../frontier/pointers/rp-62b8b48ce9-privacy-aware-cross-project-research-federation.md) · `NORMALIZED` · radar `EXPLORE`
 - [rp-ea10a8e979 — research claim graph](../../frontier/pointers/rp-ea10a8e979-research-claim-graph.md) · `NORMALIZED` · radar `WATCH`
 - [rp-e72f1d330f — Research curation economics and Value of Information](../../frontier/pointers/rp-e72f1d330f-research-curation-economics-and-value-of-information.md) · `NORMALIZED` · radar `EXPLORE`
+- [rp-b10025888f — Research-role context isolation and cross-disciplinary review science](../../frontier/pointers/rp-b10025888f-research-role-context-isolation-and-cross-disciplinary-review-science.md) · `TRIAGED` · radar `WATCH`
 - [rp-c9b7e486e6 — Research-to-code traceability using Git/SWHIDs](../../frontier/pointers/rp-c9b7e486e6-research-to-code-traceability-using-git-swhids.md) · `NORMALIZED` · radar `EXPLORE`
 - [rp-5881df7203 — Retraction/correction watchers and downstream impact propagation](../../frontier/pointers/rp-5881df7203-retraction-correction-watchers-and-downstream-impact-propagation.md) · `NORMALIZED` · radar `EXPLORE`
 - [rp-cc1a52b33e — retraction/correction watchers with downstream impact propagation](../../frontier/pointers/rp-cc1a52b33e-retraction-correction-watchers-with-downstream-impact-propagation.md) · `TRIAGED` · radar `WATCH`

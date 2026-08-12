@@ -121,6 +121,7 @@
 - [rp-12202811fa — CiTO/DataCite/PROV mapping](pointers/rp-12202811fa-cito-datacite-prov-mapping.md)
 - [rp-d82c263ccd — Claim normalization and semantic equivalence without collapsing nuance](pointers/rp-d82c263ccd-claim-normalization-and-semantic-equivalence-without-collapsing-nuance.md)
 - [rp-f3f8903e8d — claim-to-code/SWHID traceability](pointers/rp-f3f8903e8d-claim-to-code-swhid-traceability.md)
+- [rp-75722e66e7 — CMRP compute-matched qualification](pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md) — compare single-pass, generic iterative refinement, same-model cyclic roles, isolated same-model agents, heterogeneous agents and human/independent review on stratified Research Frontier tasks; measure contradiction recall, false-correction, unsupported claims and cost-to-trust.
 - [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md)
 - [rp-27de64dc8e — Contradiction detection under defeasible evidence](pointers/rp-27de64dc8e-contradiction-detection-under-defeasible-evidence.md)
 - [rp-18b6cecb23 — cross-project evidence transfer](pointers/rp-18b6cecb23-cross-project-evidence-transfer.md)
@@ -137,6 +138,7 @@
 - [rp-62b8b48ce9 — Privacy-aware cross-project research federation](pointers/rp-62b8b48ce9-privacy-aware-cross-project-research-federation.md)
 - [rp-ea10a8e979 — research claim graph](pointers/rp-ea10a8e979-research-claim-graph.md)
 - [rp-e72f1d330f — Research curation economics and Value of Information](pointers/rp-e72f1d330f-research-curation-economics-and-value-of-information.md)
+- [rp-b10025888f — Research-role context isolation and cross-disciplinary review science](pointers/rp-b10025888f-research-role-context-isolation-and-cross-disciplinary-review-science.md) — test shared-context vs fresh-context/artifact-only role passes and extend the evidence base with peer-review, Delphi, team cognition, red-team and scientific reproducibility literature before claiming broad methodological validity.
 - [rp-c9b7e486e6 — Research-to-code traceability using Git/SWHIDs](pointers/rp-c9b7e486e6-research-to-code-traceability-using-git-swhids.md)
 - [rp-5881df7203 — Retraction/correction watchers and downstream impact propagation](pointers/rp-5881df7203-retraction-correction-watchers-and-downstream-impact-propagation.md)
 - [rp-cc1a52b33e — retraction/correction watchers with downstream impact propagation](pointers/rp-cc1a52b33e-retraction-correction-watchers-with-downstream-impact-propagation.md)

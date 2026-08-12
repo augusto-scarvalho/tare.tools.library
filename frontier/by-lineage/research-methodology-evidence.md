@@ -2,7 +2,7 @@
 
 > Projection of open research pointers associated with this scientific lineage. It does not define implementation priority.
 
-Pointers: **31**
+Pointers: **33**
 
 | Status | Radar | Pointer | Cluster |
 |---|---|---|---|
@@ -15,6 +15,7 @@ Pointers: **31**
 | `TRIAGED` | `WATCH` | [rp-12202811fa — CiTO/DataCite/PROV mapping](../pointers/rp-12202811fa-cito-datacite-prov-mapping.md) | research-knowledge-substrate |
 | `NORMALIZED` | `EXPLORE` | [rp-d82c263ccd — Claim normalization and semantic equivalence without collapsing nuance](../pointers/rp-d82c263ccd-claim-normalization-and-semantic-equivalence-without-collapsing-nuance.md) | research-knowledge-substrate |
 | `TRIAGED` | `WATCH` | [rp-f3f8903e8d — claim-to-code/SWHID traceability](../pointers/rp-f3f8903e8d-claim-to-code-swhid-traceability.md) | research-knowledge-substrate |
+| `TRIAGED` | `WATCH` | [rp-75722e66e7 — CMRP compute-matched qualification](../pointers/rp-75722e66e7-cmrp-compute-matched-qualification.md) | cross-disciplinary-bridges |
 | `TRIAGED` | `WATCH` | [rp-f57ff296e9 — Computational immunology/ecology for quarantine, diversity, tolerance and systemic risk](../pointers/rp-f57ff296e9-computational-immunology-ecology-for-quarantine-diversity-tolerance-and-systemic.md) | cross-disciplinary-bridges |
 | `NORMALIZED` | `EXPLORE` | [rp-27de64dc8e — Contradiction detection under defeasible evidence](../pointers/rp-27de64dc8e-contradiction-detection-under-defeasible-evidence.md) | research-knowledge-substrate |
 | `NORMALIZED` | `WATCH` | [rp-18b6cecb23 — cross-project evidence transfer](../pointers/rp-18b6cecb23-cross-project-evidence-transfer.md) | research-methodology-evidence |
@@ -31,6 +32,7 @@ Pointers: **31**
 | `NORMALIZED` | `EXPLORE` | [rp-62b8b48ce9 — Privacy-aware cross-project research federation](../pointers/rp-62b8b48ce9-privacy-aware-cross-project-research-federation.md) | research-knowledge-substrate |
 | `NORMALIZED` | `WATCH` | [rp-ea10a8e979 — research claim graph](../pointers/rp-ea10a8e979-research-claim-graph.md) | research-methodology-evidence |
 | `NORMALIZED` | `EXPLORE` | [rp-e72f1d330f — Research curation economics and Value of Information](../pointers/rp-e72f1d330f-research-curation-economics-and-value-of-information.md) | research-knowledge-substrate |
+| `TRIAGED` | `WATCH` | [rp-b10025888f — Research-role context isolation and cross-disciplinary review science](../pointers/rp-b10025888f-research-role-context-isolation-and-cross-disciplinary-review-science.md) | cross-disciplinary-bridges |
 | `NORMALIZED` | `EXPLORE` | [rp-c9b7e486e6 — Research-to-code traceability using Git/SWHIDs](../pointers/rp-c9b7e486e6-research-to-code-traceability-using-git-swhids.md) | research-knowledge-substrate |
 | `NORMALIZED` | `EXPLORE` | [rp-5881df7203 — Retraction/correction watchers and downstream impact propagation](../pointers/rp-5881df7203-retraction-correction-watchers-and-downstream-impact-propagation.md) | research-knowledge-substrate |
 | `TRIAGED` | `WATCH` | [rp-cc1a52b33e — retraction/correction watchers with downstream impact propagation](../pointers/rp-cc1a52b33e-retraction-correction-watchers-with-downstream-impact-propagation.md) | research-knowledge-substrate |
