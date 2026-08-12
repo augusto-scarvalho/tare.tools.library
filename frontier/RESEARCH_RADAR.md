@@ -14,12 +14,13 @@ Count: **0**
 
 ## EXPERIMENT
 
-Count: **12**
+Count: **13**
 
 - [rp-f9b2aa07a8 — causal experiment design templates](pointers/rp-f9b2aa07a8-causal-experiment-design-templates.md)
 - [rp-4f059076aa — Community Lab / distributed falsification](pointers/rp-4f059076aa-community-lab-distributed-falsification.md)
 - [rp-49f0f7c524 — context measurement/metrology](pointers/rp-49f0f7c524-context-measurement-metrology.md)
 - [rp-5ebf851583 — counterfactual workflow evaluation](pointers/rp-5ebf851583-counterfactual-workflow-evaluation.md)
+- [rp-9c4e06812d — Cross-lineage dogfooding of Canonical Lineage](pointers/rp-9c4e06812d-cross-lineage-dogfooding-of-canonical-lineage.md)
 - [rp-96101e4704 — durable backend qualification](pointers/rp-96101e4704-durable-backend-qualification.md)
 - [rp-70c444876f — Durable runtime qualification](pointers/rp-70c444876f-durable-runtime-qualification.md)
 - [rp-955d74e6af — Effect Torture Lab](pointers/rp-955d74e6af-effect-torture-lab.md)
@@ -31,17 +32,24 @@ Count: **12**
 
 ## INVESTIGATE
 
-Count: **3**
+Count: **11**
 
+- [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md)
+- [rp-a24cdfc68a — Causal routing attribution and OPE](pointers/rp-a24cdfc68a-causal-routing-attribution-and-ope.md)
+- [rp-d7383c6282 — Evaluator metrology](pointers/rp-d7383c6282-evaluator-metrology.md)
+- [rp-a3c88ec045 — Identity, trust, and federation](pointers/rp-a3c88ec045-identity-trust-and-federation.md)
+- [rp-9784d1bff6 — logical effect identity details](pointers/rp-9784d1bff6-logical-effect-identity-details.md)
+- [rp-d2d246077c — Operational effect accounting](pointers/rp-d2d246077c-operational-effect-accounting.md)
 - [rp-7b6d5e803a — Portable capability components](pointers/rp-7b6d5e803a-portable-capability-components.md)
+- [rp-7185579909 — Procedural memory and workflow evolution](pointers/rp-7185579909-procedural-memory-and-workflow-evolution.md)
 - [rp-3f41287ed1 — Risk aggregation](pointers/rp-3f41287ed1-risk-aggregation.md)
 - [rp-660ba70aac — Semantic visual regression](pointers/rp-660ba70aac-semantic-visual-regression.md)
+- [rp-2a0ddc92a7 — Workflow lifecycle semantics](pointers/rp-2a0ddc92a7-workflow-lifecycle-semantics.md)
 
 ## EXPLORE
 
-Count: **10**
+Count: **9**
 
-- [rp-d6b759be2e — Bitemporal epistemic graphs and architecture epochs](pointers/rp-d6b759be2e-bitemporal-epistemic-graphs-and-architecture-epochs.md)
 - [rp-d82c263ccd — Claim normalization and semantic equivalence without collapsing nuance](pointers/rp-d82c263ccd-claim-normalization-and-semantic-equivalence-without-collapsing-nuance.md)
 - [rp-27de64dc8e — Contradiction detection under defeasible evidence](pointers/rp-27de64dc8e-contradiction-detection-under-defeasible-evidence.md)
 - [rp-c6798f9503 — Cryptographic/signed curation attestations](pointers/rp-c6798f9503-cryptographic-signed-curation-attestations.md)
@@ -54,10 +62,11 @@ Count: **10**
 
 ## WATCH
 
-Count: **92**
+Count: **91**
 
 - [rp-6a3a4ebbb2 — active curation / Value of Information](pointers/rp-6a3a4ebbb2-active-curation-value-of-information.md)
 - [rp-08d8e2af92 — architecture-epoch representation](pointers/rp-08d8e2af92-architecture-epoch-representation.md)
+- [rp-e8b4847561 — Archival lineage survivability after scrub and compaction](pointers/rp-e8b4847561-archival-lineage-survivability-after-scrub-and-compaction.md)
 - [rp-59683f955d — artifact/data transfer semantics](pointers/rp-59683f955d-artifact-data-transfer-semantics.md)
 - [rp-be4d0aa6ad — assurance case projection](pointers/rp-be4d0aa6ad-assurance-case-projection.md)
 - [rp-1d31c7e414 — Authority freshness / fencing](pointers/rp-1d31c7e414-authority-freshness-fencing.md)
@@ -67,7 +76,6 @@ Count: **92**
 - [rp-4638fc32db — bounded exploration policy](pointers/rp-4638fc32db-bounded-exploration-policy.md)
 - [rp-effac4d7cf — calibrated LLM-assisted curation](pointers/rp-effac4d7cf-calibrated-llm-assisted-curation.md)
 - [rp-f6aabb8182 — Capability/context economics](pointers/rp-f6aabb8182-capability-context-economics.md)
-- [rp-a24cdfc68a — Causal routing attribution and OPE](pointers/rp-a24cdfc68a-causal-routing-attribution-and-ope.md)
 - [rp-85c0c85bea — causal summary quality metrics](pointers/rp-85c0c85bea-causal-summary-quality-metrics.md)
 - [rp-f44e7f605e — Causal UX outcomes](pointers/rp-f44e7f605e-causal-ux-outcomes.md)
 - [rp-053538833b — Causal workflow learning](pointers/rp-053538833b-causal-workflow-learning.md)
@@ -93,9 +101,10 @@ Count: **92**
 - [rp-f0c0d9085f — Decision rights vs capability vs authority](pointers/rp-f0c0d9085f-decision-rights-vs-capability-vs-authority.md)
 - [rp-4089f0d228 — decision-right representation](pointers/rp-4089f0d228-decision-right-representation.md)
 - [rp-5685518986 — Dual-audience interfaces](pointers/rp-5685518986-dual-audience-interfaces.md)
-- [rp-d7383c6282 — Evaluator metrology](pointers/rp-d7383c6282-evaluator-metrology.md)
 - [rp-4d0c0a14c0 — Evidence reuse and invalidation](pointers/rp-4d0c0a14c0-evidence-reuse-and-invalidation.md)
+- [rp-448bedc258 — Evolution Candidate provenance and identity surface](pointers/rp-448bedc258-evolution-candidate-provenance-and-identity-surface.md)
 - [rp-32668f1a9b — Executable system reconstruction](pointers/rp-32668f1a9b-executable-system-reconstruction.md)
+- [rp-c26a7d4f2f — ExecutionAttempt identity semantics](pointers/rp-c26a7d4f2f-executionattempt-identity-semantics.md)
 - [rp-b38154d396 — Exploration without incumbent lock-in](pointers/rp-b38154d396-exploration-without-incumbent-lock-in.md)
 - [rp-b8dc8b40c8 — filesystem confinement proof](pointers/rp-b8dc8b40c8-filesystem-confinement-proof.md)
 - [rp-684e476bc5 — formal lifecycle/terminality semantics](pointers/rp-684e476bc5-formal-lifecycle-terminality-semantics.md)
@@ -105,16 +114,14 @@ Count: **92**
 - [rp-a9eaccec1a — High Reliability Organizations and resilience engineering for near misses, recovery and operating posture](pointers/rp-a9eaccec1a-high-reliability-organizations-and-resilience-engineering-for-near-misses-recove.md)
 - [rp-2c58c6b648 — human attention budgeting](pointers/rp-2c58c6b648-human-attention-budgeting.md)
 - [rp-56a857d5d3 — human cognitive interoperability for research graphs](pointers/rp-56a857d5d3-human-cognitive-interoperability-for-research-graphs.md)
-- [rp-a3c88ec045 — Identity, trust, and federation](pointers/rp-a3c88ec045-identity-trust-and-federation.md)
 - [rp-9a05c721e8 — local-model quantization as CandidateKey dimension](pointers/rp-9a05c721e8-local-model-quantization-as-candidatekey-dimension.md)
-- [rp-9784d1bff6 — logical effect identity details](pointers/rp-9784d1bff6-logical-effect-identity-details.md)
 - [rp-ab6d8ad91c — Mechanism design for incentive-compatible agent/vendor ecosystems](pointers/rp-ab6d8ad91c-mechanism-design-for-incentive-compatible-agent-vendor-ecosystems.md)
 - [rp-d13bc5b025 — Meta-assurance / protected held-outs](pointers/rp-d13bc5b025-meta-assurance-protected-held-outs.md)
 - [rp-c83c6eea33 — Metrology and psychometrics for trustworthy measurement of agentic systems](pointers/rp-c83c6eea33-metrology-and-psychometrics-for-trustworthy-measurement-of-agentic-systems.md)
 - [rp-347c8d7e81 — minimal constitutional/root-authority substrate](pointers/rp-347c8d7e81-minimal-constitutional-root-authority-substrate.md)
 - [rp-df2f723e3d — minimal federation identity substrate](pointers/rp-df2f723e3d-minimal-federation-identity-substrate.md)
+- [rp-8539251c79 — Minimum Canonical Lineage Contract](pointers/rp-8539251c79-minimum-canonical-lineage-contract.md)
 - [rp-6acb008e09 — Operating posture / governance regime](pointers/rp-6acb008e09-operating-posture-governance-regime.md)
-- [rp-d2d246077c — Operational effect accounting](pointers/rp-d2d246077c-operational-effect-accounting.md)
 - [rp-e6255e42ab — Operational originality and provenance](pointers/rp-e6255e42ab-operational-originality-and-provenance.md)
 - [rp-53a17202e5 — Organizational learning and double-loop learning for changing governing assumptions instead of only fixing runs](pointers/rp-53a17202e5-organizational-learning-and-double-loop-learning-for-changing-governing-assumpti.md)
 - [rp-69d51140d3 — originality/provenance for reference-driven UI](pointers/rp-69d51140d3-originality-provenance-for-reference-driven-ui.md)
@@ -123,7 +130,6 @@ Count: **92**
 - [rp-5ecdf2f016 — Policy / waiver / deprecation lifecycle](pointers/rp-5ecdf2f016-policy-waiver-deprecation-lifecycle.md)
 - [rp-f3714c4995 — Preference learning with uncertainty](pointers/rp-f3714c4995-preference-learning-with-uncertainty.md)
 - [rp-dcb422f447 — procedural applicability + negative memory](pointers/rp-dcb422f447-procedural-applicability-negative-memory.md)
-- [rp-7185579909 — Procedural memory and workflow evolution](pointers/rp-7185579909-procedural-memory-and-workflow-evolution.md)
 - [rp-8f7470b94a — Project Model / SpecGraph as planning substrate](pointers/rp-8f7470b94a-project-model-specgraph-as-planning-substrate.md)
 - [rp-f7cf098056 — Project/system inventory + ownership semantics](pointers/rp-f7cf098056-project-system-inventory-ownership-semantics.md)
 - [rp-ea10a8e979 — research claim graph](pointers/rp-ea10a8e979-research-claim-graph.md)
@@ -133,6 +139,7 @@ Count: **92**
 - [rp-e5e51397a8 — Robust repeated-measures experimentation](pointers/rp-e5e51397a8-robust-repeated-measures-experimentation.md)
 - [rp-86efe5f854 — route regret with delayed outcomes](pointers/rp-86efe5f854-route-regret-with-delayed-outcomes.md)
 - [rp-875d5abb85 — Runtime capability evidence levels](pointers/rp-875d5abb85-runtime-capability-evidence-levels.md)
+- [rp-1e27bdb89e — Safe adaptive control across evidence scopes](pointers/rp-1e27bdb89e-safe-adaptive-control-across-evidence-scopes.md)
 - [rp-0f4fbef69b — safe rehydration protocol](pointers/rp-0f4fbef69b-safe-rehydration-protocol.md)
 - [rp-195c8fe3c7 — selective claim/evidence extraction and contradiction graphs](pointers/rp-195c8fe3c7-selective-claim-evidence-extraction-and-contradiction-graphs.md)
 - [rp-62cf6f7a8e — Semantic fidelity at boundaries](pointers/rp-62cf6f7a8e-semantic-fidelity-at-boundaries.md)
@@ -142,9 +149,9 @@ Count: **92**
 - [rp-8b8e6fcf6f — tare↔tare compatibility profile](pointers/rp-8b8e6fcf6f-taretare-compatibility-profile.md)
 - [rp-c33d80958d — Temporal interoperability](pointers/rp-c33d80958d-temporal-interoperability.md)
 - [rp-96777fdc13 — trusted invocation seam](pointers/rp-96777fdc13-trusted-invocation-seam.md)
+- [rp-be30bb9998 — Typed Canonical Lineage with typestate and effect systems](pointers/rp-be30bb9998-typed-canonical-lineage-with-typestate-and-effect-systems.md)
 - [rp-1685086184 — Windows deep-path hardening](pointers/rp-1685086184-windows-deep-path-hardening.md)
 - [rp-82ca449e16 — Workflow Compiler as query optimizer](pointers/rp-82ca449e16-workflow-compiler-as-query-optimizer.md)
 - [rp-601a2ce77b — workflow cost-to-trust optimizer](pointers/rp-601a2ce77b-workflow-cost-to-trust-optimizer.md)
-- [rp-2a0ddc92a7 — Workflow lifecycle semantics](pointers/rp-2a0ddc92a7-workflow-lifecycle-semantics.md)
 - [rp-2bc0eb5547 — workflow-first interaction grammar](pointers/rp-2bc0eb5547-workflow-first-interaction-grammar.md)
 - [rp-56bd45ad27 — Workflow-level UI safety](pointers/rp-56bd45ad27-workflow-level-ui-safety.md)

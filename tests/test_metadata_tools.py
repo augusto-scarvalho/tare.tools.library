@@ -6,8 +6,8 @@ class MetadataToolTests(unittest.TestCase):
     def test_source_index_is_nonempty_and_tracking_params_removed(self):
         subprocess.run([sys.executable,'tools/build_source_index.py'],cwd=ROOT,check=True,capture_output=True,text=True)
         d=json.loads((ROOT/'sources'/'SOURCE_INDEX.json').read_text(encoding='utf-8'))
-        self.assertEqual(d['documents_scanned'],104)
-        self.assertEqual(d['origin_counts']['chat-corpus-original'],11)
+        self.assertEqual(d['documents_scanned'],105)
+        self.assertEqual(d['origin_counts']['chat-corpus-original'],12)
         self.assertEqual(d['origin_counts']['private-github-snapshot-2026-08-05'],93)
         self.assertGreater(d['unique_urls'],0)
         self.assertTrue(all('utm_source=' not in x['url'] for x in d['sources']))

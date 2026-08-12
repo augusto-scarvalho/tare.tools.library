@@ -12,13 +12,14 @@ sensitivity, specificity, calibration, drift and fitness-for-purpose of judges, 
 - **Kinds:** research_branch
 - **Lineages:** assurance-governance-quality
 - **Clusters:** assurance-audit-metrology
-- **Radar projection:** `WATCH` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
+- **Radar projection:** `INVESTIGATE` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
 - **Priority:** `UNTRIAGED`
 - **Why not now:** `UNASSESSED`
 
 ## Origins
 
 - `CURATED_POINTER_INDEX` — `catalog/FUTURE_RESEARCH_POINTERS.md:L25` — Assurance, audit, and evaluator metrology
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12-pointers.md:L11` — Existing pointers — add new origin
 
 ## Conservative relationship candidates
 

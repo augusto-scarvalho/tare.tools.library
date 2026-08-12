@@ -16,14 +16,14 @@
 ## Current bootstrap state
 
 - **11** seed source artifacts are materialized byte-for-byte and have English derivatives.
-- **60** File Library artifacts are registered as discovery references.
+- **66** File Library artifacts are registered as discovery references.
 - **0** discovery references have exact-byte identity crosswalks.
-- **6** references already have expected SHA-256/size constraints reported by independent validation manifests (not locally verified source bytes yet).
-- **60** still require exact-byte materialization.
-- **41** translations remain blocked on missing exact source bytes.
+- **11** references already have expected SHA-256/size constraints reported by independent validation manifests (not locally verified source bytes yet).
+- **66** still require exact-byte materialization.
+- **44** translations remain blocked on missing exact source bytes.
 - **0** newly materialized sources are ready for English translation.
-- **19** discovery references are marked native English.
-- **17** multi-item lineage families are visible in the discovery projection.
+- **22** discovery references are marked native English.
+- **18** multi-item lineage families are visible in the discovery projection.
 
 ## Why there is no corpus recovery percentage yet
 

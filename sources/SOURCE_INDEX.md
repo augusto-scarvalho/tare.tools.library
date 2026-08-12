@@ -2,10 +2,10 @@
 
 > Deterministic URL projection from materialized byte-preserved sources. It is a navigation/provenance index, not a claim that every URL is still current or authoritative.
 
-- Documents scanned: **104**
-- Chat corpus originals: **11**
+- Documents scanned: **105**
+- Chat corpus originals: **12**
 - Historical private-GitHub `docs/research/` copies: **93**
-- Unique URLs: **591**
+- Unique URLs: **594**
 
 | Domain | URL | Occurrences | Origins | Documents |
 |---|---|---:|---|---|
@@ -193,6 +193,7 @@
 | `arxiv.org` | <https://arxiv.org/abs/2604.10575> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/ux-agents-consolidated-2026-07-13.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2604.15625> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2604.18071> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
+| `arxiv.org` | <https://arxiv.org/abs/2604.22708> | 1 | `chat-corpus-original` | `Tare.tools - identidade.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2604.25850> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2604.25914> | 4 | `private-github-snapshot-2026-08-05` | `docs/research/ux-agents-consolidated-2026-07-13.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.08366> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
@@ -208,13 +209,15 @@
 | `arxiv.org` | <https://arxiv.org/abs/2605.23950> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.26596> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/guia-playbooks-engineering-2026-07-29.html` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.28116> | 2 | `private-github-snapshot-2026-08-05` | `docs/research/ux-agents-consolidated-2026-07-13.md` |
+| `arxiv.org` | <https://arxiv.org/abs/2605.30621> | 1 | `chat-corpus-original` | `Tare.tools - identidade.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2605.30785> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.00774> | 1 | `chat-corpus-original` | `Tare.tools - Task & Workflow Lifecycle.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.01508> | 1 | `chat-corpus-original` | `Endpoints e Agentes CLI.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.03854> | 1 | `chat-corpus-original` | `Endpoints e Agentes CLI.txt` |
-| `arxiv.org` | <https://arxiv.org/abs/2606.04990> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
+| `arxiv.org` | <https://arxiv.org/abs/2606.04990> | 2 | `chat-corpus-original`, `private-github-snapshot-2026-08-05` | `Tare.tools - identidade.txt`, `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.05697> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/ux-agents-consolidated-2026-07-13.md` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.07682> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/sources/adaptive-project-oriented-multi-agent-harness-architectures.md` |
+| `arxiv.org` | <https://arxiv.org/abs/2606.08275> | 1 | `chat-corpus-original` | `Tare.tools - identidade.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.08878> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/guia-playbooks-engineering-2026-07-29.html` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.09421> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/guia-playbooks-engineering-2026-07-29.html` |
 | `arxiv.org` | <https://arxiv.org/abs/2606.14350> | 1 | `chat-corpus-original` | `Tare.tools - Task & Workflow Lifecycle.txt` |
@@ -239,7 +242,7 @@
 | `arxiv.org` | <https://arxiv.org/abs/2607.23809> | 1 | `private-github-snapshot-2026-08-05` | `docs/research/guia-playbooks-engineering-2026-07-29.html` |
 | `arxiv.org` | <https://arxiv.org/abs/2607.26300> | 1 | `chat-corpus-original` | `Endpoints e Agentes CLI.txt` |
 | `arxiv.org` | <https://arxiv.org/abs/2607.29405> | 1 | `chat-corpus-original` | `tare.tools - testes, gates.txt` |
-| `arxiv.org` | <https://arxiv.org/abs/2608.02680> | 1 | `chat-corpus-original` | `Tare.tools - Task & Workflow Lifecycle.txt` |
+| `arxiv.org` | <https://arxiv.org/abs/2608.02680> | 2 | `chat-corpus-original` | `Tare.tools - Task & Workflow Lifecycle.txt`, `Tare.tools - identidade.txt` |
 | `arxiv.org` | <https://arxiv.org/html/2406.18665v4> | 2 | `chat-corpus-original` | `Arquitetura Multiagente e Roteamento.txt` |
 | `arxiv.org` | <https://arxiv.org/html/2501.06322v1> | 2 | `chat-corpus-original` | `Arquitetura Multiagente e Roteamento.txt` |
 | `arxiv.org` | <https://arxiv.org/html/2502.14321v3> | 1 | `chat-corpus-original` | `Arquitetura Multiagente e Roteamento.txt` |

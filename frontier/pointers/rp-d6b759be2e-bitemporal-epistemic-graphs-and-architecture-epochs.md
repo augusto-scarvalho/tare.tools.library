@@ -5,18 +5,21 @@
 
 ## Context
 
+new pack strengthens valid-time/knowledge-time/policy-epoch questions.
+
 ## Classification
 
 - **Kinds:** research_branch
 - **Lineages:** research-methodology-evidence
 - **Clusters:** research-knowledge-substrate
-- **Radar projection:** `EXPLORE` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
+- **Radar projection:** `INVESTIGATE` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
 - **Priority:** `UNTRIAGED`
 - **Why not now:** `UNASSESSED`
 
 ## Origins
 
 - `META_RESEARCH_POINTER` — `refresh-editions/2026-08-11/research-knowledge-substrate/research-knowledge-substrate-scientific-ideation-2026-08-11.html` — Future research pointers
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12-pointers.md:L6` — Existing pointers — add new origin
 
 ## Conservative relationship candidates
 

@@ -39,13 +39,20 @@
 - Scientific refresh: `routing-economics-observability/routing-economics-observability-scientific-refresh-2026-08-11.html`
 - Technical delta: `routing-economics-observability/routing-economics-observability-implementation-research-delta-2026-08-11.html`
 
+## 2026-08-12 cross-lineage update — Identity, Lineage, Learning & Evolution
+
+- ResearchObject: `research_object.identity-lineage-learning-2026-08-12`
+- Status: `RESEARCH / CROSS-LINEAGE`
+- Relation: see `catalog/RESEARCH_RELATION_GRAPH.json` for curated RECENTERS/REFINES/CONSTRAINS/DOGFOODS edges.
+- Authority: no canonical promotion; integration is research-only.
+
 ## Open Research Frontier (shadow)
 
 > Accepted for experimental refinement. This section links to the Research Frontier Registry; it does not make any pointer a canonical gap or implementation task.
 
 - [rp-4638fc32db — bounded exploration policy](../../frontier/pointers/rp-4638fc32db-bounded-exploration-policy.md) · `NORMALIZED` · radar `WATCH`
 - [rp-f6aabb8182 — Capability/context economics](../../frontier/pointers/rp-f6aabb8182-capability-context-economics.md) · `TRIAGED` · radar `WATCH`
-- [rp-a24cdfc68a — Causal routing attribution and OPE](../../frontier/pointers/rp-a24cdfc68a-causal-routing-attribution-and-ope.md) · `TRIAGED` · radar `WATCH`
+- [rp-a24cdfc68a — Causal routing attribution and OPE](../../frontier/pointers/rp-a24cdfc68a-causal-routing-attribution-and-ope.md) · `TRIAGED` · radar `INVESTIGATE`
 - [rp-184849aacb — counterfactual/OPE instrumentation](../../frontier/pointers/rp-184849aacb-counterfactual-ope-instrumentation.md) · `NORMALIZED` · radar `WATCH`
 - [rp-b38154d396 — Exploration without incumbent lock-in](../../frontier/pointers/rp-b38154d396-exploration-without-incumbent-lock-in.md) · `TRIAGED` · radar `WATCH`
 - [rp-a90d841a43 — Harness-dependent agentic benchmarking](../../frontier/pointers/rp-a90d841a43-harness-dependent-agentic-benchmarking.md) · `TRIAGED` · radar `WATCH`

@@ -2,7 +2,7 @@
 
 > Índice humano gerado deterministicamente. PT-BR aponta para originals preservados byte-for-byte; EN aponta para derivatives com provenance próprio. File Library references são metadata de descoberta até materialização exata.
 
-Documentos materializados: **11**. Tradução EN disponível: **11/11**. Referências File Library: **60** total · **60** pendente(s) de materialização.
+Documentos materializados: **11**. Tradução EN disponível: **11/11**. Referências File Library: **66** total · **66** pendente(s) de materialização.
 
 ## Materializados
 
@@ -86,28 +86,34 @@ Veja a [fila completa de reidratação](REHYDRATION_QUEUE.md). Os links abaixo a
 | **[tare_tools_reliability_effect_reconciliation_scientific_research_2026-08-10.html](../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_reliability_effect_reconciliation_scientific_research_2026-08-10.html--32ec2a898510.reference.json)**<br><sub>`file_00000000f928820eaa8932ec2a898510`</sub> | `P0` | `research` | `reliability-effect-reconciliation` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
 | **[tare_tools_workflow_governed_work_implementation_proposal_2026-08-11.html](../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_workflow_governed_work_implementation_proposal_2026-08-11.html--0fd1a715802d.reference.json)**<br><sub>`file_00000000a430820e87670fd1a715802d`</sub> | `P0` | `implementation-proposal` | `workflow-governed-work` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
 | **[tare_tools_workflow_governed_work_scientific_research_2026-08-11.html](../corpus/library-references/2026-08-11-discovery-batch-1/tare_tools_workflow_governed_work_scientific_research_2026-08-11.html--6006ddc0c53c.reference.json)**<br><sub>`file_000000005d90820e8a116006ddc0c53c`</sub> | `P0` | `research` | `workflow-governed-work` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_canonical_lineage_identity_governance_scientific_research_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-canonical-lineage-identity-governance-scientific-research-2026-08-12-html.reference.json)**<br><sub>`file_00000000c4a8820eb800aa8529b7bcbc`</sub> | `P0` | `research` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_canonical_lineage_implementation_proposal_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-canonical-lineage-implementation-proposal-2026-08-12-html.reference.json)**<br><sub>`file_000000003f80820ea242698e58c54859`</sub> | `P0` | `implementation-proposal` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
+| **[tare_tools_identity_lineage_learning_research_manifest_2026-08-12.json](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-learning-research-manifest-2026-08-12-json.reference.json)**<br><sub>`file_00000000a274820eaab028fdccb33cb2`</sub> | `P0` | `validation-manifest` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
+| **[tare_tools_identity_lineage_learning_research_SHA256SUMS_2026-08-12.txt](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-learning-research-sha256sums-2026-08-12-txt.reference.json)**<br><sub>`file_0000000054bc820ea188888a7256c3c8`</sub> | `P0` | `checksums` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
+| **[tare_tools_identity_lineage_research_index_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-identity-lineage-research-index-2026-08-12-html.reference.json)**<br><sub>`file_000000001eb8820ea1d9bbcd24cbd389`</sub> | `P0` | `research-index` | `identity-lineage-learning-2026-08-12` | `en` | `NOT_REQUIRED_NATIVE_ENGLISH` |
+| **[tare_tools_lineage_technology_landscape_reuse_2026-08-12.html](../corpus/library-references/2026-08-12-identity-lineage-ingestion/tare-tools-lineage-technology-landscape-reuse-2026-08-12-html.reference.json)**<br><sub>`file_00000000124c820e8a666894140ca106`</sub> | `P0` | `technology-landscape` | `identity-lineage-learning-2026-08-12` | `pt-BR` | `BLOCKED_EXACT_SOURCE_NOT_MATERIALIZED` |
 
 ## Por tema
 
-- [North Star histórica](../research/00_north-star-historical/README.md) — 2 materializado(s) · 30 pendente(s)
+- [North Star histórica](../research/00_north-star-historical/README.md) — 2 materializado(s) · 36 pendente(s)
 - [Metodologia e programa de pesquisa](../research/01_methodology-research-program/README.md) — 1 materializado(s) · 1 pendente(s)
 - [Harness / Agent OS Architecture](../research/02_harness-architecture/README.md) — 3 materializado(s) · 30 pendente(s)
-- [Workflow](../research/03_workflow/README.md) — 2 materializado(s) · 16 pendente(s)
+- [Workflow](../research/03_workflow/README.md) — 2 materializado(s) · 22 pendente(s)
 - [Routing & Reputation](../research/04_routing-reputation/README.md) — 1 materializado(s) · 16 pendente(s)
 - [Runtime / Model / Inference](../research/05_runtime-model-inference/README.md) — 8 materializado(s) · 22 pendente(s)
 - [Capability / Effects](../research/06_capabilities-effects/README.md) — 2 materializado(s) · 8 pendente(s)
-- [Reliability](../research/07_reliability/README.md) — 2 materializado(s) · 5 pendente(s)
-- [Validation / Assurance / Evidence](../research/08_validation-assurance/README.md) — 4 materializado(s) · 22 pendente(s)
-- [Governance / Audit / Authority](../research/09_governance-audit/README.md) — 3 materializado(s) · 23 pendente(s)
-- [Protocols / Interoperability](../research/10_interoperability-protocols/README.md) — 3 materializado(s) · 9 pendente(s)
+- [Reliability](../research/07_reliability/README.md) — 2 materializado(s) · 11 pendente(s)
+- [Validation / Assurance / Evidence](../research/08_validation-assurance/README.md) — 4 materializado(s) · 28 pendente(s)
+- [Governance / Audit / Authority](../research/09_governance-audit/README.md) — 3 materializado(s) · 29 pendente(s)
+- [Protocols / Interoperability](../research/10_interoperability-protocols/README.md) — 3 materializado(s) · 15 pendente(s)
 - [Project / Workspace](../research/11_project-workspace/README.md) — 1 materializado(s) · 28 pendente(s)
-- [Memory / Context](../research/12_memory-context/README.md) — 0 materializado(s) · 3 pendente(s)
+- [Memory / Context](../research/12_memory-context/README.md) — 0 materializado(s) · 9 pendente(s)
 - [Resources / Scheduling / Economics](../research/13_resources-scheduling/README.md) — 1 materializado(s) · 2 pendente(s)
 - [Sandbox / Isolation](../research/14_sandbox-isolation/README.md) — 1 materializado(s) · 2 pendente(s)
 - [Experience / TUI / REPL](../research/15_experience-tui-repl/README.md) — 0 materializado(s) · 6 pendente(s)
 - [Vendors / Runtimes](../research/16_vendors-runtimes/README.md) — 8 materializado(s) · 22 pendente(s)
 - [Local Models / Benchmarks](../research/17_local-models-benchmarks/README.md) — 0 materializado(s) · 4 pendente(s)
-- [Evolution Control](../research/18_evolution-control/README.md) — 1 materializado(s) · 7 pendente(s)
+- [Evolution Control](../research/18_evolution-control/README.md) — 1 materializado(s) · 13 pendente(s)
 - [Legacy / Cognitive System Reconstruction](../research/19_legacy-system-reconstruction/README.md) — 0 materializado(s) · 0 pendente(s)
 
 ## Provenance

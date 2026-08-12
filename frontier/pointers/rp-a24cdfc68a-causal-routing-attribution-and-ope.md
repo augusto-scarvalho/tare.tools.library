@@ -12,13 +12,14 @@ propensity logging, route regret, counterfactual evaluation and delayed outcomes
 - **Kinds:** research_branch
 - **Lineages:** routing-economics-observability
 - **Clusters:** routing-reputation-economics
-- **Radar projection:** `WATCH` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
+- **Radar projection:** `INVESTIGATE` — derived heuristic from source type, duplicate mentions, and explicit experiment vocabulary; NOT roadmap priority
 - **Priority:** `UNTRIAGED`
 - **Why not now:** `UNASSESSED`
 
 ## Origins
 
 - `CURATED_POINTER_INDEX` — `catalog/FUTURE_RESEARCH_POINTERS.md:L42` — Routing, reputation, and economics
+- `NEW_RESEARCH_INGESTION_POINTER` — `catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12-pointers.md:L7` — Existing pointers — add new origin
 
 ## Conservative relationship candidates
 

@@ -135,6 +135,28 @@ if fp.exists():
             kind='bridge' if any(w in norm(title) for w in ['cognitive interoperability','cross project','traceability']) else 'research_branch'
             add_candidate(cands,title,'','research-methodology-evidence','research-knowledge-substrate',{'path':fp.relative_to(ROOT).as_posix(),'section':'Future research pointers'},'META_RESEARCH_POINTER','NORMALIZED',kind)
 
+
+# 4) New research ingestion pointer packs
+for fp in sorted((ROOT/'catalog/NEW_RESEARCH_INGESTIONS').glob('*-pointers.md')) if (ROOT/'catalog/NEW_RESEARCH_INGESTIONS').exists() else []:
+    section=None
+    for line_no,line in enumerate(fp.read_text(encoding='utf-8').splitlines(),1):
+        m=re.match(r'^##\s+(.+)$',line)
+        if m: section=m.group(1).strip(); continue
+        if not line.startswith('- '): continue
+        body=line[2:].strip()
+        mb=re.match(r'^\*\*(.+?)\*\*\s*[—-]\s*(.+)$',body)
+        if mb: title,desc=mb.group(1),mb.group(2)
+        else: title,desc=body,''
+        n=norm(title)
+        if any(x in n for x in ['workflow','procedural','taskenvelope']): lin,cl='workflow-procedural','workflow-procedural'
+        elif any(x in n for x in ['effect','executionattempt','settlement']): lin,cl='runtime-reliability-sandbox','reliability-effects-durable-runtime'
+        elif any(x in n for x in ['evaluator','evidence','metrology']): lin,cl='assurance-governance-quality','assurance-audit-metrology'
+        elif any(x in n for x in ['identity','federation','principal','workload']): lin,cl='interoperability-protocols','runtime-interop-identity'
+        elif any(x in n for x in ['causal','adaptive control']): lin,cl='routing-economics-observability','routing-reputation-economics'
+        else: lin,cl='research-methodology-evidence','research-knowledge-substrate'
+        kind='experiment_pointer' if any(x in n for x in ['dogfooding','qualification','experiment']) else 'research_branch'
+        add_candidate(cands,title,desc,lin,cl,{'path':fp.relative_to(ROOT).as_posix(),'line':line_no,'section':section or 'New research ingestion'},'NEW_RESEARCH_INGESTION_POINTER','TRIAGED',kind)
+
 # Merge exact normalized titles only. Preserve every origin.
 bykey=defaultdict(list)
 for c in cands: bykey[c['normalized_title']].append(c)

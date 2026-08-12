@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-11",
+  "generated_at": "2026-08-12T01:24:00-03:00",
   "graph_semantics": {
     "lineage": "derivation/version/refresh/evidence ancestry",
     "influence": "supportive, constraining, challenging or recentering relationship; not necessarily causal",
@@ -1370,6 +1370,117 @@
       "title": "Security Risks in Tool-Enabled AI Agents: A Systematic Analysis of Privileged Execution Environments",
       "url": "https://www.microsoft.com/en-us/research/publication/security-risks-in-tool-enabled-ai-agents-a-systematic-analysis-of-privileged-execution-environments/",
       "source_class": "vendor_or_mainline_documentation"
+    },
+    {
+      "id": "research_object.identity-lineage-learning-2026-08-12",
+      "kind": "cross_lineage_research_object",
+      "title": "Identity, Lineage, Learning & Evolution Research Pack",
+      "status": "RESEARCH",
+      "path": "catalog/research-objects/identity-lineage-learning-2026-08-12.json"
+    },
+    {
+      "id": "doc.chat.identity-lineage-learning-2026-08-12",
+      "kind": "chat_exact_export",
+      "title": "Tare.tools - identidade",
+      "status": "RESEARCH",
+      "path": "corpus/original/2026-08-12-chat-import/Tare.tools - identidade.txt",
+      "sha256": "b7de23b2ce7e41c1f804b6a8d8c4c5f4a8bb636b056657ec33e6bae3340cc1eb"
+    },
+    {
+      "id": "doc.filelib.a3154ff49b95b2ec",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_identity_lineage_research_index_2026-08-12.html",
+      "status": "RESEARCH",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "67e5436917757d249884ddca9b90d2a520bf9afe810abeaf731735471a95c6fd"
+    },
+    {
+      "id": "doc.filelib.1e4b3ac224ecb2c2",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_canonical_lineage_identity_governance_scientific_research_2026-08-12.html",
+      "status": "RESEARCH",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "6763f042d36b71a9b803891d141df161c6d1b70f8e97c9e4cca5f40d5c6dc05f"
+    },
+    {
+      "id": "doc.filelib.ed6c928b1a37862d",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_adaptive_learning_cross_project_evolution_scientific_research_2026-08-12.html",
+      "status": "RESEARCH",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "4b165123cf0f32084df30bf11f1fef6d5456e504b913f9adaef69e8318055264"
+    },
+    {
+      "id": "doc.filelib.c5552689bee35936",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_lineage_technology_landscape_reuse_2026-08-12.html",
+      "status": "RESEARCH",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "ec6e1fa68c01020ba4011ffc7230942376d571993028ae69b52079a1fa614bf8"
+    },
+    {
+      "id": "doc.filelib.071875f8c8b20e6e",
+      "kind": "file_library_research_document",
+      "title": "tare_tools_canonical_lineage_implementation_proposal_2026-08-12.html",
+      "status": "PROPOSED",
+      "availability": "LIBRARY_REFERENCE_ONLY",
+      "expected_sha256": "67567568f6022a9d5befc589d1db4cd4da199323704a78092d9438a7641684a1"
+    },
+    {
+      "id": "doc.ingestion.identity-lineage-learning.review",
+      "kind": "corpus_integration_review",
+      "title": "Identity, Lineage, Learning & Evolution — Corpus Integration Review",
+      "status": "RESEARCH",
+      "path": "refresh-editions/2026-08-12/identity-lineage-learning/identity-lineage-learning-corpus-integration-review-2026-08-12.html"
+    },
+    {
+      "id": "doc.ingestion.identity-lineage-learning.technical-delta",
+      "kind": "implementation_research_delta",
+      "title": "Canonical Lineage & Adaptive Experience — Technical Integration Delta",
+      "status": "PROPOSED",
+      "path": "refresh-editions/2026-08-12/identity-lineage-learning/identity-lineage-learning-technical-integration-delta-2026-08-12.html"
+    },
+    {
+      "id": "source.a6ec13062516096d",
+      "kind": "external_source",
+      "title": "From Agent Traces to Trust: Execution Provenance",
+      "status": "RESEARCH_SOURCE",
+      "url": "https://arxiv.org/abs/2606.04990"
+    },
+    {
+      "id": "source.83d24e55563b6f23",
+      "kind": "external_source",
+      "title": "TraceElephant / Seeing the Whole Elephant",
+      "status": "RESEARCH_SOURCE",
+      "url": "https://arxiv.org/abs/2604.22708"
+    },
+    {
+      "id": "source.acab1f915d58b1f6",
+      "kind": "external_source",
+      "title": "Causal Agent Replay",
+      "status": "RESEARCH_SOURCE",
+      "url": "https://arxiv.org/abs/2606.08275"
+    },
+    {
+      "id": "source.1d5ccc9ed36f2500",
+      "kind": "external_source",
+      "title": "W3C PROV-O",
+      "status": "RESEARCH_SOURCE",
+      "url": "https://www.w3.org/TR/prov-o/"
+    },
+    {
+      "id": "source.98e1624536737ea8",
+      "kind": "external_source",
+      "title": "OpenLineage Specification",
+      "status": "RESEARCH_SOURCE",
+      "url": "https://openlineage.io/docs/spec/"
+    },
+    {
+      "id": "source.8e2831c6539bed64",
+      "kind": "external_source",
+      "title": "Harness Updating Is Not Harness Benefit",
+      "status": "RESEARCH_SOURCE",
+      "url": "https://arxiv.org/abs/2605.30621"
     }
   ],
   "edges": [
@@ -4687,11 +4798,217 @@
         "refresh-editions/2026-08-11/tare-tools-scientific-refresh-synthesis-2026-08-11.html",
         "refresh-editions/2026-08-11/CORPUS_CURATION_MAP.md"
       ]
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "doc.chat.identity-lineage-learning-2026-08-12",
+      "relation": "HAS_SOURCE",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major",
+      "description": "Exact local chat research summary export."
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "doc.filelib.a3154ff49b95b2ec",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "doc.filelib.1e4b3ac224ecb2c2",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "doc.filelib.ed6c928b1a37862d",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "doc.filelib.c5552689bee35936",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "doc.filelib.071875f8c8b20e6e",
+      "relation": "HAS_DOCUMENT",
+      "basis": "observed_crosswalk",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "doc.ingestion.identity-lineage-learning.review",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "REVIEWS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "doc.ingestion.identity-lineage-learning.technical-delta",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "DERIVED_FROM",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "neutral",
+      "weight": "major"
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "lineage.agent-os-foundations",
+      "relation": "RECENTERS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Reframes identity as compositional lineage across canonical bounded contexts."
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "lineage.workflow-procedural",
+      "relation": "REFINES",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Durable Work becomes temporal backbone without making Workflow sole owner of lineage."
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "lineage.runtime-reliability-sandbox",
+      "relation": "CONSTRAINS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "constraining",
+      "weight": "major",
+      "description": "Requires Work/Attempt/LogicalEffect/effect settlement distinctions."
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "lineage.assurance-governance-quality",
+      "relation": "REFINES",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Separates provenance, evidence, audit and evaluator lineage."
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "lineage.interoperability-protocols",
+      "relation": "REFINES",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Requires identity/reference/semantic preservation across boundaries."
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "lineage.routing-economics-observability",
+      "relation": "CONSTRAINS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "constraining",
+      "weight": "major",
+      "description": "Evidence scope/applicability bounds learning and reputation propagation."
+    },
+    {
+      "from": "research_object.identity-lineage-learning-2026-08-12",
+      "to": "lineage.research-methodology-evidence",
+      "relation": "DOGFOODS",
+      "basis": "curated",
+      "confidence": "high",
+      "polarity": "supportive",
+      "weight": "major",
+      "description": "Uses ResearchObject/lineage/provenance model on the research repository itself."
+    },
+    {
+      "from": "source.a6ec13062516096d",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.83d24e55563b6f23",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.acab1f915d58b1f6",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "REFINES",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "neutral",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.4db68a774a2144f2",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.1d5ccc9ed36f2500",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.98e1624536737ea8",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "SUPPORTS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "supportive",
+      "weight": "moderate"
+    },
+    {
+      "from": "source.8e2831c6539bed64",
+      "to": "research_object.identity-lineage-learning-2026-08-12",
+      "relation": "CONSTRAINS",
+      "basis": "observed_citation",
+      "confidence": "medium",
+      "polarity": "constraining",
+      "weight": "moderate"
     }
   ],
   "statistics": {
-    "nodes": 180,
-    "edges": 320,
+    "nodes": 195,
+    "edges": 342,
     "historical_artifacts": 93,
     "refresh_documents": 20,
     "external_sources": 58,

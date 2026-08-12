@@ -178,8 +178,9 @@ English overview: **[README.en.md](README.en.md)**.
 
 ## Comece aqui
 
-- **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 originals de chat, 93 cópias exatas do snapshot privado e 60 referências File Library, com origem/authority explícitas.
+- **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 seed originals de chat, 1 live-ingestion exact source, 93 cópias exatas do snapshot privado e {len(refs)} referências File Library, com origem/authority explícitas.
 - **[Índice dos originals de chat materializados](catalog/DOCUMENT_INDEX.md)** — navegação PT-BR | EN por documento e por tema.
+- **[Primeira ingestão viva — Identity, Lineage, Learning & Evolution](catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12.md)** — ResearchObject transversal de 12/08, com review, technical delta, graph edges e Frontier curation.
 - **[Baseline histórico do GitHub privado](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — snapshot exato de 05/08, não CURRENT.
 - **[Índice das pesquisas presentes no snapshot privado](catalog/CANONICAL_SNAPSHOT_RESEARCH_INDEX.md)** — 93 arquivos byte-for-byte de `docs/research/`.
 - **[Fila de tradução EN do snapshot privado](catalog/CANONICAL_SNAPSHOT_TRANSLATION_QUEUE.md)** — sources não-EN materializados e elegíveis para tradução.
