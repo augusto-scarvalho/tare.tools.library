@@ -1,0 +1,26 @@
+---
+layout: null
+---
+{
+  "pages": [
+  {% assign searchable = site.pages | where_exp: "p", "p.path contains '.md'" %}
+  {% for p in searchable %}
+    {
+      "title": {{ p.title | default: p.path | jsonify }},
+      "url": {{ p.url | relative_url | jsonify }},
+      "path": {{ p.path | jsonify }},
+      "text": {{ p.content | strip_html | strip_newlines | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ],
+  "studies": [
+  {% for s in site.data.studies %}
+    {
+      "title": {{ s.title | jsonify }},
+      "url": {{ s.html | relative_url | jsonify }},
+      "kind": "study",
+      "text": {{ s.description | append: ' ' | append: s.lineage | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ]
+}

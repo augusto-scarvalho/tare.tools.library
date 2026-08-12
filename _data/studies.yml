@@ -1,0 +1,54 @@
+- title: Agent OS Foundations
+  lineage: Foundations
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/agent-os-foundations-scientific-refresh.html
+  living: /research/foundations/agent-os-foundations.html
+  description: User-space Agent OS framing, stable incumbent, canonical spine, runtime ownership, authority, capability and migration.
+- title: Workflow / Procedural
+  lineage: Work / Workflow
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/workflow-procedural-scientific-refresh.html
+  living: /research/work/workflow-governed-work.html
+  description: Governed work, workflow semantics, procedural compilation and durable execution research.
+- title: Governance / Assurance / Quality
+  lineage: Governance / Assurance
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/assurance-governance-quality-scientific-refresh.html
+  living: /research/governance/governance-assurance-audit-metrology.html
+  description: Governance, assurance, audit, evidence families, evaluator metrology and quality controls.
+- title: Context / Memory / Playbooks
+  lineage: Context / Learning
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/context-memory-playbooks-scientific-refresh.html
+  living: /research/context/context-memory-playbooks.html
+  description: Context projection, memory, compaction, playbooks, procedures and learning constraints.
+- title: Runtime / Reliability / Sandbox
+  lineage: Runtime / Reliability
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
+  living: /research/runtime/runtime-ownership-vendor-integration.html
+  description: Runtime ownership, reliability semantics, sandboxing, effect boundaries and local-first qualification.
+- title: Interoperability / Protocols
+  lineage: Runtime / Interoperability
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/interoperability-protocols-scientific-refresh.html
+  living: /research/runtime/protocols-interoperability.html
+  description: MCP, A2A, CLI/HTTP boundaries, semantic projection and protocol-neutral integration.
+- title: Experience / UX
+  lineage: Experience
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/experience-ux-scientific-refresh.html
+  living: /research/experience/tui-repl-experience.html
+  description: TUI/REPL, human steering, progressive disclosure and agentic-system experience design.
+- title: Routing / Economics / Observability
+  lineage: Routing / Economics
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/routing-economics-observability-scientific-refresh.html
+  living: /research/routing/adaptive-routing-reputation.html
+  description: Adaptive routing, reputation, resource economics, observability and cost-to-trust.
+- title: Research Methodology / Evidence
+  lineage: Methodology
+  date: 2026-08-11
+  html: /bridge-editions/2026-08-11/research-methodology-evidence-scientific-refresh.html
+  living: /research/methodology/formal-research-program.html
+  description: Research program, evidence hierarchy, experiment design and methodological assurance.

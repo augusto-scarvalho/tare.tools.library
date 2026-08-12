@@ -1,0 +1,98 @@
+- title: Start
+  open: true
+  items:
+    - title: Home
+      url: /
+    - title: Repository navigation
+      url: /NAVIGATION.html
+    - title: Knowledge map
+      url: /syntheses/agent-os-knowledge-map.html
+    - title: Reading guide
+      url: /syntheses/research-reading-guide.html
+    - title: Study editions
+      url: /studies/
+
+- title: Living research
+  open: true
+  items:
+    - title: All research
+      url: /research/
+    - title: Foundations
+      url: /research/foundations/
+    - title: Project / Workspace
+      url: /research/project/
+    - title: Work / Workflow / Reliability
+      url: /research/work/
+    - title: Governance
+      url: /research/governance/
+    - title: Assurance / Testing
+      url: /research/assurance/
+    - title: Runtime / Interoperability
+      url: /research/runtime/
+    - title: Routing / Economics
+      url: /research/routing/
+    - title: Context / Lineage / Learning
+      url: /research/context/
+    - title: Experience / Reconstruction
+      url: /research/experience/
+    - title: Local inference
+      url: /research/local-inference/
+    - title: Methodology
+      url: /research/methodology/
+
+- title: Evidence and evolution
+  open: true
+  items:
+    - title: Technical proposals
+      url: /proposals/
+    - title: Experiments
+      url: /experiments/
+    - title: Case studies
+      url: /case-studies/
+    - title: Curated findings
+      url: /findings/CURATED_FINDINGS.html
+    - title: Research frontier
+      url: /frontier/RESEARCH_FRONTIER.html
+    - title: Sources and provenance
+      url: /sources/
+
+- title: HTML study editions
+  open: false
+  items:
+    - title: Agent OS Foundations
+      url: /bridge-editions/2026-08-11/agent-os-foundations-scientific-refresh.html
+      kind: html
+    - title: Workflow / Procedural
+      url: /bridge-editions/2026-08-11/workflow-procedural-scientific-refresh.html
+      kind: html
+    - title: Governance / Assurance
+      url: /bridge-editions/2026-08-11/assurance-governance-quality-scientific-refresh.html
+      kind: html
+    - title: Context / Memory / Playbooks
+      url: /bridge-editions/2026-08-11/context-memory-playbooks-scientific-refresh.html
+      kind: html
+    - title: Runtime / Reliability / Sandbox
+      url: /bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html
+      kind: html
+    - title: Interoperability / Protocols
+      url: /bridge-editions/2026-08-11/interoperability-protocols-scientific-refresh.html
+      kind: html
+    - title: Experience / UX
+      url: /bridge-editions/2026-08-11/experience-ux-scientific-refresh.html
+      kind: html
+    - title: Routing / Economics / Observability
+      url: /bridge-editions/2026-08-11/routing-economics-observability-scientific-refresh.html
+      kind: html
+    - title: Research Methodology / Evidence
+      url: /bridge-editions/2026-08-11/research-methodology-evidence-scientific-refresh.html
+      kind: html
+
+- title: Library governance
+  open: false
+  items:
+    - title: Document policy
+      url: /DOCUMENT_POLICY.html
+    - title: Curation catalog
+      url: /catalog/
+    - title: Pages projection architecture
+      url: /catalog/GITHUB_PAGES_PROJECTION.html

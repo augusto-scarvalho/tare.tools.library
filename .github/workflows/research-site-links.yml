@@ -1,0 +1,37 @@
+name: Research site source links
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '**/*.html'
+      - '_config.yml'
+      - '_data/**'
+      - '_layouts/**'
+      - '_includes/**'
+      - 'assets/**'
+      - 'scripts/validate_internal_links.py'
+  push:
+    branches:
+      - main
+      - agent/semantic-preservation-curation-v2
+    paths:
+      - '**/*.md'
+      - '**/*.html'
+      - '_config.yml'
+      - '_data/**'
+      - '_layouts/**'
+      - '_includes/**'
+      - 'assets/**'
+      - 'scripts/validate_internal_links.py'
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate repository-relative documentation links
+        run: python scripts/validate_internal_links.py

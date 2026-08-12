@@ -28,13 +28,26 @@ The governing lesson is now explicit:
 If you are new to the repository, use this order:
 
 1. **[Repository Navigation](NAVIGATION.md)** — the complete knowledge graph and all major reading paths.
-2. **[Agent OS Knowledge Map](syntheses/agent-os-knowledge-map.md)** — the conceptual spine of tare.tools research.
-3. **[Research Reading Guide](syntheses/research-reading-guide.md)** — choose a research trail by question.
-4. **[Living Research Index](research/README.md)** — all deep studies grouped by bounded context.
-5. **[Curated Findings](findings/CURATED_FINDINGS.md)** — what the research currently supports.
-6. **[Research Frontier](frontier/RESEARCH_FRONTIER.md)** — what remains unresolved.
+2. **[Study Editions](studies/README.md)** — the shortest route to full HTML research editions and their living successors.
+3. **[Agent OS Knowledge Map](syntheses/agent-os-knowledge-map.md)** — the conceptual spine of tare.tools research.
+4. **[Research Reading Guide](syntheses/research-reading-guide.md)** — choose a research trail by question.
+5. **[Living Research Index](research/README.md)** — all deep studies grouped by bounded context.
+6. **[Curated Findings](findings/CURATED_FINDINGS.md)** — what the research currently supports.
+7. **[Research Frontier](frontier/RESEARCH_FRONTIER.md)** — what remains unresolved.
 
-If you are looking for the original HTML study editions, go directly to **[Study and Source Editions](sources/README.md)**. Living Markdown studies link back to the relevant HTML source/bridge edition whenever one is materialized in Git.
+## Web reading experience
+
+The GitHub repository is the **source/audit view**. The same content can also be rendered as a GitHub Pages reading projection with persistent navigation, local search, responsive Markdown typography, direct access to rendered HTML study editions, and links back to the Git source.
+
+The web projection does **not** duplicate the research corpus:
+
+- Markdown is rendered from the files already tracked here;
+- repository-relative links are reused by the Pages/Jekyll build;
+- byte-preserved HTML studies remain unchanged and are served as real HTML pages instead of GitHub blob/source views;
+- site navigation is projection metadata and has no architectural authority;
+- deleting the generated site loses no research knowledge.
+
+See **[GitHub Pages Reading Projection](catalog/GITHUB_PAGES_PROJECTION.md)** for the design and deployment safety rules. Deployment is deliberately gated because this repository is private.
 
 ## The research model
 
@@ -65,6 +78,7 @@ Research may **challenge** architecture. It does not silently promote itself int
 
 | Area | Purpose | Where to continue |
 |---|---|---|
+| [`studies/`](studies/README.md) | Direct entry point to full HTML study editions | Living studies / sources |
 | [`syntheses/`](syntheses/README.md) | Cross-lineage maps and reading guides | Deep research |
 | [`research/`](research/README.md) | Living studies that retain arguments, literature, open questions, and scientific framing | Proposals / experiments / findings |
 | [`proposals/`](proposals/README.md) | Problem-specific implementation research; always **PROPOSED** until reconciled | Canonical repo, not direct implementation |
@@ -73,7 +87,7 @@ Research may **challenge** architecture. It does not silently promote itself int
 | [`findings/`](findings/README.md) | Condensed supported conclusions | Source studies / frontier |
 | [`frontier/`](frontier/README.md) | Explicit unanswered questions | Next research/experiments |
 | [`sources/`](sources/README.md) | Evidence registry, provenance, and source-edition map | HTML source editions / rehydration gaps |
-| [`catalog/`](catalog/README.md) | Curation lineage, quality review, and known gaps | Historical recovery |
+| [`catalog/`](catalog/README.md) | Curation lineage, quality review, projection design, and known gaps | Historical recovery |
 | [`bridge-editions/`](bridge-editions/README.md) | Byte-preserved scientific refresh checkpoints | Living studies that supersede them as reading surface |
 
 ## Core research spine
@@ -135,7 +149,7 @@ A living research document should never be a dead end. Each maintained Markdown 
 - the corresponding technical proposal, experiment, or case study when one exists;
 - a clear **previous / next / continue** path.
 
-Byte-preserved HTML checkpoints are intentionally immutable. Their surrounding directory indexes provide the return path to the living library.
+Byte-preserved HTML checkpoints are intentionally immutable. Their surrounding directory indexes and the **[Study Editions](studies/README.md)** page provide the return path to the living library.
 
 ## Preservation and provenance
 
@@ -147,4 +161,4 @@ For the curation rules, read **[Document Policy](DOCUMENT_POLICY.md)** and **[Ag
 
 ---
 
-**Next:** [Repository Navigation →](NAVIGATION.md)
+**Next:** [Study Editions →](studies/README.md) · [Repository Navigation →](NAVIGATION.md)
