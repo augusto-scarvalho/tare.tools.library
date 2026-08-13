@@ -28,5 +28,12 @@
       "authority_validator_sha256": "5391ed5fc8e4e768a5d8d75a587c68d689ee7c182ea7c1dff47ba2b106fcaf7b"
     }
   },
-  "activation_rule": "Repository-owner authority was explicitly granted on 2026-08-13. The active authority record is site/PAGES_CUTOVER_AUTHORITY.json and remains fail-closed against the exact qualified bindings above."
+  "activation_rule": "Repository-owner authority was explicitly granted on 2026-08-13. The active authority record is site/PAGES_CUTOVER_AUTHORITY.json and remains fail-closed against the exact qualified bindings above.",
+  "qualification_evidence": {
+    "authorized_head": "225ab1b0dd4672f52dfd535fd976ffff24f1d778",
+    "document_integrity_run": 31751103487,
+    "pages_qualification_run": 31751103470,
+    "document_integrity_conclusion": "success",
+    "pages_qualification_conclusion": "success"
+  }
 }
