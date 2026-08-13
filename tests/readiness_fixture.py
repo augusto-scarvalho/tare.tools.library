@@ -8,9 +8,11 @@ import shutil
 def make_readiness_fixture(root: Path) -> tuple[Path,Path]:
     (root/'site').mkdir(parents=True)
     profile={
-        'profile_version':'1.0','source_ref':'incumbent-sha',
+        'profile_version':'1.1','source_ref':'incumbent-sha',
         'deploy_owner':'legacy/pages-deploy.yml@incumbent',
         'base_path':'/tare.tools.research/','critical_paths':['index.html'],
+        'expected_materialized_file_count':1,
+        'expected_materialized_inventory_digest':'2c31487ebc31417d1d29fa7131209e9e96ef696192def1d75539efedabe82a45',
     }
     (root/'site'/'INCUMBENT_PROFILE.json').write_text(json.dumps(profile),encoding='utf-8')
     workflows=root/'.github'/'workflows'; workflows.mkdir(parents=True)
