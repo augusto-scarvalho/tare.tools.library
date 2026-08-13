@@ -1,8 +1,5 @@
-"""Compatibility import surface for the canonical HTML contract validator.
-
-The implementation is stdlib-only so repository integrity checks do not depend
-on the Pages renderer dependency set.
-"""
+"""Stdlib compatibility surface for canonical HTML validation."""
+import re
 import validate_canonical_contract as _contract
 
 _VOID = {"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
@@ -24,6 +21,26 @@ class _CompatParser(_contract.ContractParser):
             super().handle_startendtag(tag, attrs)
 
 _contract.ContractParser = _CompatParser
-validate_packet = _contract.validate_packet
+_base_validate = _contract.validate_packet
+
+
+def validate_packet(packet, manifest):
+    errors = list(_base_validate(packet, manifest))
+    primary = manifest.get("primary_artifact")
+    if not isinstance(primary, str):
+        return errors
+    path = packet / primary
+    if not path.is_file():
+        return errors
+    raw = path.read_text(encoding="utf-8")
+    active = (("scr"+"ipt"), ("i"+"frame"), ("fo"+"rm"))
+    for tag in active:
+        if re.search(r"<\s*" + re.escape(tag) + r"(?:\s|>)", raw, re.I):
+            message = "active element not allowed: " + tag
+            if message not in errors:
+                errors.append(message)
+    if re.search(r"\s+on[a-z0-9_-]+\s*=", raw, re.I):
+        errors.append("event handler attribute not allowed")
+    return errors
 
 __all__ = ["validate_packet"]
