@@ -1,37 +1,83 @@
-name: pages
+name: pages-shadow
+
 on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy the parity-qualified combined projection from main
+        required: true
+        type: boolean
+        default: false
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
-  group: pages
+  group: pages-publisher-${{ github.ref }}
   cancel-in-progress: true
+
 jobs:
-  build:
+  qualify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: {python-version: '3.12'}
-      - run: python -m pip install -r requirements-editorial.txt
-      - run: python tools/build_pages.py
-      - run: python tools/validate_pages.py site/_site
-      - uses: actions/upload-artifact@v4
-        with: {name: signal-pages-preview, path: site/_site, retention-days: 7}
-      - if: github.event_name == 'push'
-        uses: actions/upload-pages-artifact@v3
-        with: {path: site/_site}
+      - name: Checkout candidate
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install editorial dependencies
+        run: python -m pip install -r requirements-editorial.txt
+      - name: Run repository unit tests
+        run: python -m unittest discover -s tests
+      - name: Run publisher unit tests
+        run: python -m unittest discover -s tools/publisher/tests
+      - name: Validate repository contracts
+        run: python tools/tare_docs.py validate-repo .
+      - name: Checkout pinned stable Pages incumbent
+        uses: actions/checkout@v4
+        with:
+          ref: f5b34297b26339e25267401e4fdefed381a827a3
+          path: .incumbent-source
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Build pinned incumbent projection
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./.incumbent-source
+          destination: ./site/_incumbent
+      - name: Make generated incumbent readable
+        run: sudo chown -R "$USER":"$USER" site/_incumbent
+      - name: Build additive SIGNAL publication shadow
+        run: python tools/build_pages.py --incumbent site/_incumbent --output site/_site --base-path /tare.tools.research/
+      - name: Validate base path, links, semantic parity and incumbent parity
+        run: python tools/validate_pages_contract.py site/_site --root . --incumbent site/_incumbent --base-path /tare.tools.research/
+      - name: Upload shadow preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: signal-pages-shadow-preview
+          path: site/_site
+          retention-days: 7
+          if-no-files-found: error
+      - name: Upload deployable Pages artifact only on explicit cutover run
+        if: github.event_name == 'workflow_dispatch' && inputs.deploy == true && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site/_site
+
   deploy:
-    if: github.event_name == 'push'
-    needs: build
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy == true && github.ref == 'refs/heads/main'
+    needs: qualify
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - id: deployment
+      - name: Deploy parity-qualified combined projection
+        id: deployment
         uses: actions/deploy-pages@v4
