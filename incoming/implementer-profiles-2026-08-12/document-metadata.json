@@ -18,13 +18,13 @@
     "supersedes": [],
     "superseded_by": [],
     "derived_from": [
-      "tare_tools_implementer_profiles_empirical_report_v1.1_post_f5l06_a2_audit_2026-08-12",
-      "tare_tools_implementer_observation_ledger_v1.1_post_f5l06_a2_audit_2026-08-12"
+      "tare_tools_implementer_profiles_empirical_report_v1.2_post_q7_final_audit_2026-08-12",
+      "tare_tools_implementer_observation_ledger_v1.2_post_q7_final_audit_2026-08-12"
     ]
   },
   "provenance": {
     "origin": "ChatGPT project longitudinal audit + GitHub relay Issues #6-#11 + Git candidate/evidence verification",
     "project": "tare.tools",
-    "notes": "Draft freeze at first RELAY-Q7 RESULT 65ca9eb7a8bd569f1260ac433194a89dd791a337. Source report/ledger remain ChatGPT project draft artifacts and are not yet materialized on this branch. RELAY-Q7-CORRECTIVE-001 is still running; update before final publication."
+    "notes": "Draft incorporates final RELAY-Q7 corrective audit. Final DEV subject b0dea202e29e418fc0de04db826c5917cd851ed9 / tree 710fd333c49b8b0cb61326484e10c3cfc43b895d. Q7 accepted as A2 DEV shadow candidate; activation remains ineligible; publication does not promote CURRENT/TARGET."
   }
 }
