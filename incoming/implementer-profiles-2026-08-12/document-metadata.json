@@ -7,19 +7,17 @@
   "architecture_epoch": "governed multi-vendor harness -> evidence-connected adaptive platform -> tare.tools Agent Operating System transition",
   "canonical_commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
   "bounded_contexts": [
-    "Methodology / Research Program",
-    "Runtime",
-    "Model / Inference",
-    "Validation / Assurance",
-    "Evidence / Provenance",
     "Reputation / Qualification",
+    "Validation / Assurance",
+    "Model / Inference",
+    "Runtime",
+    "Evidence / Provenance",
     "Identity / Authority / Policy",
-    "Observability / Economics / Resources"
+    "Observability / Economics / Resources",
+    "Methodology / Research Program"
   ],
   "lineage": {
-    "supersedes": [
-      "implementer-profiles-longitudinal-2026-08-12"
-    ],
+    "supersedes": ["implementer-profiles-longitudinal-2026-08-12"],
     "superseded_by": [],
     "derived_from": [
       "research/01_methodology-research-program/2026-08-13-bounded-implementer-profile-longitudinal-study.md",
@@ -31,6 +29,6 @@
   "provenance": {
     "origin": "Longitudinal tare.tools implementation episodes and independent audits, primarily GitHub Issues #6-#17 and active #23 in augusto-scarvalho/universal-agent-harness-prototype, reconciled with the 2026-08-13 theoretical/peer-review draft already materialized in tare.tools.research.",
     "project": "tare.tools",
-    "notes": "canonical_commit identifies the stable incumbent architecture baseline used during the formal Q7/Q8 qualification epoch; later DEV candidates are evidence subjects bound separately by exact Git SHAs and Issues and are not claimed as canonical CURRENT. Freeze point includes CI-REGRESSION-01 independent settlement; CI-REGRESSION-02 is ACK/PLAN-only at this edition. Publication does not mint CURRENT/TARGET or Authority."
+    "notes": "canonical_commit identifies the stable incumbent architecture baseline used during the formal Q7/Q8 qualification epoch; later DEV candidates are evidence subjects bound separately by exact Git SHAs and Issues and are not claimed as canonical CURRENT. Freeze point includes CI-REGRESSION-01 independent settlement; CI-REGRESSION-02 is ACK/PLAN-only at this edition."
   }
 }
