@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -14,6 +15,7 @@ DEPLOY_MARKERS = (
     "id-token: write",
 )
 VISUAL_EVIDENCE_PATH = Path("site/PAGES_VISUAL_EVIDENCE.json")
+_VISUAL_BUILD_RE = re.compile(r"build [0-9a-f]{40}(?= · SIGNAL profile)")
 
 
 def canonical_digest(rows: list[dict[str, str]]) -> str:
@@ -89,6 +91,12 @@ def workflow_ownership(root: Path, current_owner: str | None) -> dict[str, Any]:
     }
 
 
+def visual_page_digest(path: Path) -> str:
+    text = path.read_text(encoding="utf-8")
+    normalized = _VISUAL_BUILD_RE.sub("build <COMMIT>", text)
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
 def visual_evidence(root: Path, output: Path, canary_id: str) -> dict[str, Any]:
     evidence_path = root / VISUAL_EVIDENCE_PATH
     if not evidence_path.is_file():
@@ -110,24 +118,34 @@ def visual_evidence(root: Path, output: Path, canary_id: str) -> dict[str, Any]:
         }
 
     errors: list[str] = []
-    if evidence.get("record_version") != "1.0":
-        errors.append("visual evidence record_version must be 1.0")
-    if evidence.get("record_kind") != "pages-visual-validation-evidence":
-        errors.append("visual evidence record_kind mismatch")
-    if evidence.get("document_id") != canary_id:
-        errors.append("visual evidence document_id mismatch")
+    if evidence.get("record_version") != "1.0": errors.append("visual evidence record_version must be 1.0")
+    if evidence.get("record_kind") != "pages-visual-validation-evidence": errors.append("visual evidence record_kind mismatch")
+    if evidence.get("document_id") != canary_id: errors.append("visual evidence document_id mismatch")
 
     validated = evidence.get("validated_projection")
     if not isinstance(validated, dict):
         errors.append("validated_projection required")
         validated = {}
-    checks = (
-        ("page_path", "page_sha256"),
+
+    observed: dict[str, Any] = {}
+    page_rel = validated.get("page_path")
+    page_expected = validated.get("page_visual_sha256")
+    if not isinstance(page_rel, str) or not page_rel:
+        errors.append("page_path required")
+    else:
+        page_path = output / page_rel
+        if not page_path.is_file():
+            errors.append(f"visual evidence target missing: {page_rel}")
+        else:
+            page_actual = visual_page_digest(page_path)
+            observed["page_visual_sha256"] = page_actual
+            if page_actual != page_expected:
+                errors.append(f"visual evidence stale for {page_rel}")
+
+    for path_key, digest_key in (
         ("signal_css_path", "signal_css_sha256"),
         ("signal_js_path", "signal_js_sha256"),
-    )
-    observed: dict[str, Any] = {}
-    for path_key, digest_key in checks:
+    ):
         rel = validated.get(path_key)
         expected = validated.get(digest_key)
         if not isinstance(rel, str) or not rel:
@@ -182,19 +200,13 @@ def _find_metadata(root: Path, canary_id: str) -> Path | None:
     matches: list[Path] = []
     for path in sorted(root.rglob("document-metadata.json")):
         relative = path.relative_to(root)
-        if any(part.startswith(".") for part in relative.parts):
-            continue
+        if any(part.startswith(".") for part in relative.parts): continue
         try:
             metadata = json.loads(path.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        if metadata.get("document_id") == canary_id:
-            matches.append(path)
-    if not matches:
-        return None
-    # The accepted incoming packet is intentionally retained. Once a routed
-    # publication exists, prefer the materialization carrying PUBLICATION_RECORD
-    # so provenance staging cannot shadow the actual published source.
+        if metadata.get("document_id") == canary_id: matches.append(path)
+    if not matches: return None
     matches.sort(key=lambda path: (not (path.parent / "PUBLICATION_RECORD.json").is_file(), path.as_posix()))
     return matches[0]
 
@@ -204,12 +216,7 @@ def canary_evidence(root: Path, output: Path, canary_id: str) -> dict[str, Any]:
     slug = canary_id.replace(".", "-")
     projection_path = output / "p" / slug / "PROJECTION_RECORD.json"
     if metadata_path is None:
-        return {
-            "document_id": canary_id,
-            "status": "MISSING",
-            "projected": False,
-            "blocker": "real canonical canary submission is not present on this ref",
-        }
+        return {"document_id": canary_id,"status": "MISSING","projected": False,"blocker": "real canonical canary submission is not present on this ref"}
     packet = metadata_path.parent
     decision_path = packet / "EDITORIAL_DECISION.json"
     record_path = packet / "PUBLICATION_RECORD.json"
@@ -221,28 +228,18 @@ def canary_evidence(root: Path, output: Path, canary_id: str) -> dict[str, Any]:
         "projected": projection_path.is_file(),
     }
     if not decision_path.is_file():
-        result.update(status="PENDING_OWNER_DECISION", blocker="editorial authority has not been materialized")
-        return result
+        result.update(status="PENDING_OWNER_DECISION", blocker="editorial authority has not been materialized"); return result
     decision = json.loads(decision_path.read_text(encoding="utf-8"))
-    result["editorial_decision"] = {
-        "decision_id": decision.get("decision_id"),
-        "decision": decision.get("decision"),
-        "pages_approved": decision.get("pages_approved"),
-        "sha256": sha256_file(decision_path),
-    }
+    result["editorial_decision"] = {"decision_id": decision.get("decision_id"),"decision": decision.get("decision"),"pages_approved": decision.get("pages_approved"),"sha256": sha256_file(decision_path)}
     if decision.get("decision") != "accept" or decision.get("pages_approved") is not True:
-        result.update(status="NOT_AUTHORIZED", blocker="editorial decision does not authorize Pages publication")
-        return result
+        result.update(status="NOT_AUTHORIZED", blocker="editorial decision does not authorize Pages publication"); return result
     if not record_path.is_file():
-        result.update(status="PENDING_PUBLICATION", blocker="approved canary has no publication record")
-        return result
+        result.update(status="PENDING_PUBLICATION", blocker="approved canary has no publication record"); return result
     if not projection_path.is_file():
-        result.update(status="PENDING_PROJECTION", blocker="approved publication is absent from the shadow projection")
-        return result
+        result.update(status="PENDING_PROJECTION", blocker="approved publication is absent from the shadow projection"); return result
     projection = json.loads(projection_path.read_text(encoding="utf-8"))
     result.update(
-        status="PROJECTED_APPROVED",
-        blocker=None,
+        status="PROJECTED_APPROVED", blocker=None,
         projection_record=projection_path.relative_to(output).as_posix(),
         source_sha256=projection.get("source_sha256"),
         source_semantic_fingerprint=projection.get("source_semantic_fingerprint"),
