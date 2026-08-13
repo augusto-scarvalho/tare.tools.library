@@ -1,0 +1,19 @@
+{
+  "profile_version": "1.0",
+  "name": "semantic-preservation-v2-pages-incumbent",
+  "source_ref": "f5b34297b26339e25267401e4fdefed381a827a3",
+  "source_branch": "agent/semantic-preservation-curation-v2",
+  "base_path": "/tare.tools.research/",
+  "critical_paths": [
+    "index.html",
+    "NAVIGATION.html",
+    "studies/index.html",
+    "research/index.html",
+    "research/work/reliability-effect-reconciliation.html",
+    "bridge-editions/2026-08-11/runtime-reliability-sandbox-scientific-refresh.html",
+    "assets/site.css",
+    "assets/site.js",
+    "search.json"
+  ],
+  "migration_rule": "stable incumbent remains byte-preserved in combined output until an explicit parity-qualified cutover removes this adapter"
+}
