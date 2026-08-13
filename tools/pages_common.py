@@ -6,6 +6,9 @@ from pathlib import Path, PurePosixPath
 from urllib.parse import urlparse
 
 
+SEMANTIC_SURFACE_VERSION = "1.1"
+
+
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -36,13 +39,15 @@ def _asset_name(value: str | None) -> str | None:
 
 
 def semantic_payload(node) -> dict:
-    """Content semantics intentionally exclude navigational href destinations.
+    """Return the normalized semantic surface protected by Pages parity.
 
-    Link and asset target rewrites are separately evidenced in the projection
-    record. The fingerprint protects article text/structure/anchors/labels and
-    meaning-bearing media metadata from accidental projection loss.
+    This is intentionally narrower than full DOM equivalence. Navigational href
+    destinations are excluded because rewrites are independently evidenced and
+    validated. The surface does preserve meaning-bearing text plus common HTML
+    structure so same-text structural regressions do not silently false-green.
     """
     return {
+        "semantic_surface_version": SEMANTIC_SURFACE_VERSION,
         "text": node.get_text(" ",strip=True),
         "ids": [x["id"] for x in node.find_all(id=True)],
         "headings": [
@@ -54,6 +59,21 @@ def semantic_payload(node) -> dict:
             for x in node.find_all(True)
             if x.get("data-tare-role") or x.get("data-tare-section")
         ],
+        "paragraphs": [
+            (x.get("id"),x.get_text(" ",strip=True)) for x in node.find_all("p")
+        ],
+        "lists": [
+            (x.name,x.get("id"),x.get_text(" ",strip=True)) for x in node.find_all(["ul","ol"])
+        ],
+        "list_items": [x.get_text(" ",strip=True) for x in node.find_all("li")],
+        "blockquotes": [x.get_text(" ",strip=True) for x in node.find_all("blockquote")],
+        "emphasis": [
+            (x.name,x.get_text(" ",strip=True)) for x in node.find_all(["em","strong"])
+        ],
+        "details": [
+            (x.get("id"),x.get_text(" ",strip=True)) for x in node.find_all("details")
+        ],
+        "summaries": [x.get_text(" ",strip=True) for x in node.find_all("summary")],
         "figures": [x.get_text(" ",strip=True) for x in node.find_all("figure")],
         "tables": [x.get_text(" ",strip=True) for x in node.find_all("table")],
         "links": [x.get_text(" ",strip=True) for x in node.find_all("a",href=True)],
