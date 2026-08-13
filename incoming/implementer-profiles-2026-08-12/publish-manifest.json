@@ -18,10 +18,11 @@
     "implementer-profiles-longitudinal-integration-review-2026-08-12.en.html",
     "implementer-profiles-technical-integration-delta-2026-08-12.html",
     "implementer-profiles-technical-integration-delta-2026-08-12.en.html",
+    "F5L-06-Q7-FINAL-AUDIT-SUPPLEMENT.md",
     "document-metadata.json"
   ],
   "historical_preservation": true,
   "canonical_change": false,
   "promotion_packet": null,
-  "notes": "DRAFT publication packet. Source report/ledger remain external draft artifacts referenced by lineage; do not merge/publish final until RELAY-Q7-CORRECTIVE-001 is audited and this packet is refreshed."
+  "notes": "DRAFT publication packet refreshed after final RELAY-Q7 audit. Q7 is closed/completed and accepted as an A2 DEV shadow candidate. The final audit supplement supersedes only the pre-corrective freeze-point statements in the initial HTML renders. Ready for normal publication validation/index/navigation checks; publication does not promote CURRENT/TARGET."
 }
