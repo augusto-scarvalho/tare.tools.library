@@ -5,5 +5,7 @@
   "status": "RESEARCH",
   "repository": "tare.tools.research",
   "destination": null,
-  "artifacts": ["document-metadata.json", "study.md", "evidence-annex.md", "peer-review-protocol.md", "provenance.md"]
+  "bounded_contexts": ["Methodology / Research Program", "Runtime", "Model / Inference", "Validation / Assurance", "Evidence / Provenance", "Reputation / Qualification", "Identity / Authority / Policy", "Observability / Economics / Resources"],
+  "artifacts": ["document-metadata.json", "study.md", "evidence-annex.md", "peer-review-protocol.md", "provenance.md"],
+  "canonical\u005fchange": false
 }
