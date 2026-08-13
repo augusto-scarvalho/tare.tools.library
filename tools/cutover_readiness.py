@@ -51,6 +51,24 @@ def generate(
         parity = json.loads(parity_path.read_text(encoding="utf-8"))
 
     rollback = rollback_evidence(incumbent, profile, parity)
+    expected_count = profile.get("expected_materialized_file_count")
+    expected_digest = profile.get("expected_materialized_inventory_digest")
+    actual_inventory = rollback.get("materialized_incumbent", {})
+    baseline_match = bool(
+        isinstance(expected_count, int)
+        and isinstance(expected_digest, str)
+        and actual_inventory.get("file_count") == expected_count
+        and actual_inventory.get("digest") == expected_digest
+    )
+    rollback["audited_baseline"] = {
+        "expected_file_count": expected_count,
+        "expected_inventory_digest": expected_digest,
+        "match": baseline_match,
+    }
+    if not baseline_match:
+        rollback["rollback_ready"] = False
+        rollback["status"] = "FAIL"
+        errors.append("materialized incumbent does not match audited baseline digest")
     if not rollback["rollback_ready"]:
         errors.append("incumbent rollback drill is not ready")
 
@@ -64,9 +82,7 @@ def generate(
     open_conditions: list[str] = []
     if canary.get("status") != "PROJECTED_APPROVED":
         open_conditions.append(f"CANARY_{canary.get('status', 'UNKNOWN')}")
-    # Do not relabel DOM/static checks as browser evidence.
     open_conditions.append("VISUAL_VALIDATION_NOT_RUN")
-    # Authority is deliberately never derived from green evidence.
     open_conditions.append("OWNER_CUTOVER_AUTHORITY_NOT_GRANTED")
 
     safeguards_pass = not errors
