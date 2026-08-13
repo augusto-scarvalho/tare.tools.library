@@ -10,6 +10,14 @@ Documentos materializados relacionados: **1**. Referências pendentes de reidrat
 |---|---|---|---|---|
 | **Programa formal / arquitetura multiagente e roteamento**<br><sub>`historical.research-program.architecture-routing`</sub> | `RESEARCH` | `research` | Project / Workspace, Routing & Adaptation, Workflow | [PT-BR](../../corpus/original/2026-08-11-chat-import/Arquitetura%20Multiagente%20e%20Roteamento.txt) · [EN](../../corpus/translations/en/2026-08-11-chat-import/Arquitetura%20Multiagente%20e%20Roteamento.en.md)<br><sub>`MACHINE_TRANSLATED_UNREVIEWED`</sub> |
 
+## Estudos derivados ativos
+
+| Estudo | Status | Escopo | Última atualização |
+|---|---|---|---|
+| [**Perfis de implementador bounded — estudo longitudinal**](2026-08-13-bounded-implementer-profile-longitudinal-study.md) | `RESEARCH / ACTIVE` | ImplementerProfile, autonomia A0–A4, cost-to-trust, Fable/Sonnet/Opus, auditoria independente | 2026-08-13 |
+
+> Este estudo é derivado de evidência operacional e auditorias recentes. Ele não modifica os source-artifacts históricos nem generaliza observações internas para vendors/modelos como um todo.
+
 ## Pendentes de reidratação
 
 | Referência pendente | Prioridade | Tipo | Família | Idioma | Estado |
