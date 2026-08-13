@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "claim": "Repository owner selected Recovery Bridge → Trusted Control Plane → Incumbent-to-Incumbent Evolution as the directed implementation trajectory after the governance-deadlock investigation.",
+  "classification_in_research": "PROPOSED_DIRECTION_OWNER_SELECTED_CANONICAL_PROMOTION_PENDING",
+  "owner_identity": "augusto-scarvalho",
+  "decision_date": "2026-08-13",
+  "persistent_locator": "https://github.com/augusto-scarvalho/universal-agent-harness-prototype/issues/26",
+  "locator_kind": "GitHub owner-directed roadmap issue",
+  "canonical_subject_at_decision": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+  "authority_boundary": "This receipt evidences the owner direction. It does not itself mint TARGET/CURRENT, ADR/SPEC, trust, Permit or promotion authority."
+}
