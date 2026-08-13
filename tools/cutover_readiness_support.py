@@ -13,6 +13,7 @@ DEPLOY_MARKERS = (
     "pages: write",
     "id-token: write",
 )
+VISUAL_EVIDENCE_PATH = Path("site/PAGES_VISUAL_EVIDENCE.json")
 
 
 def canonical_digest(rows: list[dict[str, str]]) -> str:
@@ -61,14 +62,119 @@ def workflow_ownership(root: Path, current_owner: str | None) -> dict[str, Any]:
         markers = [marker for marker in DEPLOY_MARKERS if marker in text]
         if markers:
             findings.append({"path": path.relative_to(root).as_posix(), "markers": markers})
+
     candidate_capable = bool(findings)
-    dual_owner = bool(current_owner and candidate_capable)
+    incumbent_recorded = bool(current_owner)
+    active_owner_count = int(incumbent_recorded) + int(candidate_capable)
+    dual_owner = active_owner_count > 1
+    if dual_owner:
+        state = "DUAL_OWNER"
+    elif incumbent_recorded:
+        state = "INCUMBENT_ONLY"
+    elif candidate_capable:
+        state = "CANDIDATE_ONLY"
+    else:
+        state = "NO_OWNER"
+
     return {
         "current_deploy_owner": current_owner,
+        "incumbent_owner_recorded": incumbent_recorded,
         "candidate_deploy_capable": candidate_capable,
         "candidate_deploy_markers": findings,
+        "active_owner_count": active_owner_count,
+        "single_owner_invariant": not dual_owner,
         "dual_owner": dual_owner,
-        "status": "PASS" if not candidate_capable and not dual_owner else "FAIL",
+        "state": state,
+        "status": "FAIL" if dual_owner else "PASS",
+    }
+
+
+def visual_evidence(root: Path, output: Path, canary_id: str) -> dict[str, Any]:
+    evidence_path = root / VISUAL_EVIDENCE_PATH
+    if not evidence_path.is_file():
+        return {
+            "status": "NOT_RUN",
+            "document_id": canary_id,
+            "evidence_path": VISUAL_EVIDENCE_PATH.as_posix(),
+            "errors": ["visual evidence record is absent"],
+        }
+
+    try:
+        evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        return {
+            "status": "FAIL",
+            "document_id": canary_id,
+            "evidence_path": VISUAL_EVIDENCE_PATH.as_posix(),
+            "errors": [f"invalid visual evidence: {exc}"],
+        }
+
+    errors: list[str] = []
+    if evidence.get("record_version") != "1.0":
+        errors.append("visual evidence record_version must be 1.0")
+    if evidence.get("record_kind") != "pages-visual-validation-evidence":
+        errors.append("visual evidence record_kind mismatch")
+    if evidence.get("document_id") != canary_id:
+        errors.append("visual evidence document_id mismatch")
+
+    validated = evidence.get("validated_projection")
+    if not isinstance(validated, dict):
+        errors.append("validated_projection required")
+        validated = {}
+    checks = (
+        ("page_path", "page_sha256"),
+        ("signal_css_path", "signal_css_sha256"),
+        ("signal_js_path", "signal_js_sha256"),
+    )
+    observed: dict[str, Any] = {}
+    for path_key, digest_key in checks:
+        rel = validated.get(path_key)
+        expected = validated.get(digest_key)
+        if not isinstance(rel, str) or not rel:
+            errors.append(f"{path_key} required")
+            continue
+        path = output / rel
+        if not path.is_file():
+            errors.append(f"visual evidence target missing: {rel}")
+            continue
+        actual = sha256_file(path)
+        observed[digest_key] = actual
+        if actual != expected:
+            errors.append(f"visual evidence stale for {rel}")
+
+    viewports = evidence.get("viewports")
+    if not isinstance(viewports, list):
+        errors.append("viewports required")
+        viewports = []
+    by_name = {row.get("name"): row for row in viewports if isinstance(row, dict)}
+    for name in ("desktop", "mobile"):
+        row = by_name.get(name)
+        if not isinstance(row, dict):
+            errors.append(f"missing {name} visual evidence")
+            continue
+        for key in (
+            "no_horizontal_overflow",
+            "image_loaded",
+            "table_visible",
+            "code_visible",
+            "figure_visible",
+            "details_visible",
+        ):
+            if row.get(key) is not True:
+                errors.append(f"{name} visual assertion failed: {key}")
+        screenshot_digest = row.get("screenshot_sha256")
+        if not isinstance(screenshot_digest, str) or len(screenshot_digest) != 64:
+            errors.append(f"{name} screenshot_sha256 required")
+
+    return {
+        "status": "PASS" if not errors else "FAIL",
+        "document_id": canary_id,
+        "evidence_path": VISUAL_EVIDENCE_PATH.as_posix(),
+        "renderer": evidence.get("renderer"),
+        "validated_projection": validated,
+        "observed_sha256": observed,
+        "viewports": viewports,
+        "errors": errors,
     }
 
 
