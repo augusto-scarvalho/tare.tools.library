@@ -1,30 +1,36 @@
 {
-  "document_id": "implementer-profiles-longitudinal-2026-08-12",
-  "title": "Agentic Implementer Profiles — longitudinal study",
-  "document_type": "experiment",
-  "status": "EXPERIMENTAL",
-  "created_at": "2026-08-12",
-  "architecture_epoch": "governed multi-vendor harness -> evidence-connected adaptive platform",
+  "document_id": "implementer-profiles-longitudinal-2026-08-13",
+  "title": "Bounded Agentic Implementer Profiles — longitudinal study and qualification evidence",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-13",
+  "architecture_epoch": "governed multi-vendor harness -> evidence-connected adaptive platform -> tare.tools Agent Operating System transition",
   "canonical_commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
   "bounded_contexts": [
-    "Routing & Adaptation",
+    "Methodology / Research Program",
+    "Runtime",
     "Model / Inference",
     "Validation / Assurance",
     "Evidence / Provenance",
     "Reputation / Qualification",
-    "Evolution Control"
+    "Identity / Authority / Policy",
+    "Observability / Economics / Resources"
   ],
   "lineage": {
-    "supersedes": [],
+    "supersedes": [
+      "implementer-profiles-longitudinal-2026-08-12"
+    ],
     "superseded_by": [],
     "derived_from": [
+      "research/01_methodology-research-program/2026-08-13-bounded-implementer-profile-longitudinal-study.md",
+      "research/01_methodology-research-program/2026-08-13-implementer-observed-evidence-ledger.md",
       "tare_tools_implementer_profiles_empirical_report_v1.2_post_q7_final_audit_2026-08-12",
       "tare_tools_implementer_observation_ledger_v1.2_post_q7_final_audit_2026-08-12"
     ]
   },
   "provenance": {
-    "origin": "ChatGPT project longitudinal audit + GitHub relay Issues #6-#11 + Git candidate/evidence verification",
+    "origin": "Longitudinal tare.tools implementation episodes and independent audits, primarily GitHub Issues #6-#17 and active #23 in augusto-scarvalho/universal-agent-harness-prototype, reconciled with the 2026-08-13 theoretical/peer-review draft already materialized in tare.tools.research.",
     "project": "tare.tools",
-    "notes": "Draft incorporates final RELAY-Q7 corrective audit. Final DEV subject b0dea202e29e418fc0de04db826c5917cd851ed9 / tree 710fd333c49b8b0cb61326484e10c3cfc43b895d. Q7 accepted as A2 DEV shadow candidate; activation remains ineligible; publication does not promote CURRENT/TARGET."
+    "notes": "canonical_commit identifies the stable incumbent architecture baseline used during the formal Q7/Q8 qualification epoch; later DEV candidates are evidence subjects bound separately by exact Git SHAs and Issues and are not claimed as canonical CURRENT. Freeze point includes CI-REGRESSION-01 independent settlement; CI-REGRESSION-02 is ACK/PLAN-only at this edition. Publication does not mint CURRENT/TARGET or Authority."
   }
 }
