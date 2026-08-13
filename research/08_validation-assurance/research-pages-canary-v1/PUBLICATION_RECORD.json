@@ -1,0 +1,32 @@
+{
+  "record_version": "1.1",
+  "backend": "git-local",
+  "document_id": "research.pages.canary.v1",
+  "destination": "research/08_validation-assurance/research-pages-canary-v1",
+  "base_sha": "24d30aa5913b3e6c8eed0837f0f700908a036873",
+  "branch": "docs/publish/research-pages-canary-v1-fe767632bb1f",
+  "manifest_sha256": "a3326e2756b90cafe7720d2acba16c5b14391ba8f38f0223a8795648054754ff",
+  "artifact_sha256": {
+    "article.html": "9133a53151592bb200e6b3b361a85f05499115504e5afe5942fdda1c2dd1d446",
+    "document-metadata.json": "6ecf9faef19ddcd17e3e10ba22739a57ed30ae4a9ef5ea6ab97a86641994c018",
+    "canary.svg": "d2354eb9a4303a8c641975e1b7d48e6f74b3489c7bafbc49264340d6fded3bfb"
+  },
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "pages_approved": true,
+  "editorial_decision": {
+    "decision_id": "editorial.pages-canary-v1.20260813.001",
+    "decision": "accept",
+    "pages_approved": true,
+    "reviewer": {
+      "name": "augusto-scarvalho",
+      "role": "editorial-reviewer",
+      "identity_ref": "github:augusto-scarvalho"
+    },
+    "reviewed_at": "2026-08-13T21:18:00Z",
+    "sha256": "9065331558899f8029d29b6a7ea6dbf04fd8c6ad830fce576b8336511db3b6b7"
+  },
+  "remote_effects": false
+}
