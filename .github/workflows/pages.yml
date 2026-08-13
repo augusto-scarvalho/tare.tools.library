@@ -1,10 +1,19 @@
-name: pages-shadow
+name: pages
 
 on:
   pull_request:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Pages owner operation
+        required: true
+        default: candidate
+        type: choice
+        options:
+          - candidate
+          - rollback
 
 permissions:
   contents: read
@@ -51,10 +60,115 @@ jobs:
         env:
           CANDIDATE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: python tools/cutover_readiness.py --root . --site site/_site --incumbent site/_incumbent --base-path /tare.tools.research/ --candidate-sha "$CANDIDATE_SHA" --canary-id research.pages.canary.v1
-      - name: Upload shadow preview
+      - name: Upload qualified shadow artifact
         uses: actions/upload-artifact@v4
         with:
           name: signal-pages-shadow-preview
           path: site/_site
           retention-days: 7
           if-no-files-found: error
+
+  authorize:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: qualify
+    runs-on: ubuntu-latest
+    outputs:
+      authorized: ${{ steps.authority.outputs.authorized }}
+      mode: ${{ steps.authority.outputs.mode }}
+      reason: ${{ steps.authority.outputs.reason }}
+    steps:
+      - name: Checkout owner source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Resolve operation mode
+        id: mode
+        shell: bash
+        run: |
+          MODE="${{ github.event.inputs.mode }}"
+          if [ -z "$MODE" ]; then MODE="candidate"; fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+      - name: Evaluate durable owner authority
+        id: authority
+        run: python tools/pages_cutover_authority.py --root . --mode "${{ steps.mode.outputs.mode }}" --github-output "$GITHUB_OUTPUT"
+
+  package-pages:
+    if: needs.authorize.outputs.authorized == 'true'
+    needs: [qualify, authorize]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout owner source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download qualified candidate artifact
+        if: needs.authorize.outputs.mode == 'candidate'
+        uses: actions/download-artifact@v4
+        with:
+          name: signal-pages-shadow-preview
+          path: site/_deploy
+      - name: Checkout pinned incumbent for rollback
+        if: needs.authorize.outputs.mode == 'rollback'
+        uses: actions/checkout@v4
+        with:
+          ref: f5b34297b26339e25267401e4fdefed381a827a3
+          path: .incumbent-source
+      - name: Build pinned incumbent rollback artifact
+        if: needs.authorize.outputs.mode == 'rollback'
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./.incumbent-source
+          destination: ./site/_rollback
+      - name: Make rollback artifact readable
+        if: needs.authorize.outputs.mode == 'rollback'
+        run: sudo chown -R "$USER":"$USER" site/_rollback
+      - name: Verify rollback artifact against audited inventory
+        if: needs.authorize.outputs.mode == 'rollback'
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          root=Path('site/_rollback')
+          rows=[
+              {'path':p.relative_to(root).as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+              for p in sorted(root.rglob('*'),key=lambda p:p.relative_to(root).as_posix()) if p.is_file()
+          ]
+          digest=hashlib.sha256(json.dumps(rows,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          profile=json.loads(Path('site/INCUMBENT_PROFILE.json').read_text(encoding='utf-8'))
+          if len(rows)!=profile['expected_materialized_file_count'] or digest!=profile['expected_materialized_inventory_digest']:
+              raise SystemExit(f'rollback inventory mismatch count={len(rows)} digest={digest}')
+          print(f'rollback inventory PASS count={len(rows)} digest={digest}')
+          PY
+      - name: Select deployment artifact
+        shell: bash
+        run: |
+          if [ "${{ needs.authorize.outputs.mode }}" = "rollback" ]; then
+            echo "DEPLOY_PATH=site/_rollback" >> "$GITHUB_ENV"
+          else
+            echo "DEPLOY_PATH=site/_deploy" >> "$GITHUB_ENV"
+          fi
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ env.DEPLOY_PATH }}
+
+  deploy:
+    if: needs.authorize.outputs.authorized == 'true'
+    needs: [authorize, package-pages]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy qualified Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
