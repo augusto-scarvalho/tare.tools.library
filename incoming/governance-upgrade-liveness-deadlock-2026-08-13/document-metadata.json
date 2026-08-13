@@ -15,18 +15,19 @@
   "bounded_contexts": ["Identity / Authority / Policy","Validation / Assurance","Evidence / Provenance","Evolution Control","Workflow","Capability / Effects","Protocols / Interoperability"],
   "lineage": {
     "derived_from": [
-      "lineage/00-index.html@sha256:6676378e0fc30b8df0f814af99ec0feb519f7238ab0ad43be43cd80f57788205",
-      "lineage/01-cronologia.html@sha256:6b73834a75867a0a2ab7d7aaa0ded706f6b3341992a6c99d4bbb8b6ad28aec70",
-      "lineage/02-root-cause-modelo-formal.html@sha256:eeb2375ba03076e458c554dff6d550334a49d1bd29986b6ef3e0619556b16a57",
-      "lineage/03-pesquisa-comparativa.html@sha256:265cde5aff614806dc5b15dbcd1eae8b1662166aa422a110c642d5d8c10a1f3c",
-      "lineage/04-adr-arquitetura-escolhida.html@sha256:87a22d27a5bce7eba255bc588192ee990313646fe3aa679730b26af2bca1d4f7",
-      "lineage/05-apendice-evidencias.html@sha256:071e42209f5a5797f69e4063c873be161ebe3d98f2942c15f3542f227f9839b2"
+      "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip#member=00-index.html@sha256:6676378e0fc30b8df0f814af99ec0feb519f7238ab0ad43be43cd80f57788205",
+      "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip#member=01-cronologia.html@sha256:6b73834a75867a0a2ab7d7aaa0ded706f6b3341992a6c99d4bbb8b6ad28aec70",
+      "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip#member=02-root-cause-modelo-formal.html@sha256:eeb2375ba03076e458c554dff6d550334a49d1bd29986b6ef3e0619556b16a57",
+      "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip#member=03-pesquisa-comparativa.html@sha256:265cde5aff614806dc5b15dbcd1eae8b1662166aa422a110c642d5d8c10a1f3c",
+      "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip#member=04-adr-arquitetura-escolhida.html@sha256:87a22d27a5bce7eba255bc588192ee990313646fe3aa679730b26af2bca1d4f7",
+      "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip#member=05-apendice-evidencias.html@sha256:071e42209f5a5797f69e4063c873be161ebe3d98f2942c15f3542f227f9839b2"
     ]
   },
   "provenance": {
     "origin": "Consolidação editorial da arqueologia de governança produzida em 2026-08-13 após a investigação do ciclo de CI/landing e Trust Genesis.",
     "project": "tare.tools",
-    "source_path": "lineage/",
-    "notes": "Os seis HTMLs históricos estão materializados byte-for-byte no packet e identificados por SHA-256. A direção arquitetural selecionada pelo owner possui receipt/locator separado. O research não ratifica TARGET/CURRENT."
+    "source_path": "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip",
+    "source_sha256": "340820c3c665a7d53c8e326d5b2b15fa58f2d2814b19397e63b656d789034589",
+    "notes": "O archive histórico completo está preservado em commit Git imutável e contém os seis HTMLs originais, identificados individualmente por SHA-256. A direção arquitetural selecionada pelo owner possui receipt/locator separado. O research não ratifica TARGET/CURRENT."
   }
 }
