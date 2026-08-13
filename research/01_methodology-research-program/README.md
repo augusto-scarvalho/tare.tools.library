@@ -15,9 +15,10 @@ Documentos materializados relacionados: **1**. Referências pendentes de reidrat
 | Estudo | Status | Escopo | Última atualização |
 |---|---|---|---|
 | [**Perfis de implementador bounded — estudo longitudinal**](2026-08-13-bounded-implementer-profile-longitudinal-study.md) | `RESEARCH / ACTIVE / PEER-REVIEW DRAFT` | ImplementerProfile, autonomia A0–A6, Role × Authority × Qualification, cost-to-trust, Fable/Sonnet/Opus, validade e auditoria independente | 2026-08-13 |
-| [**Evidence Annex — ledger de observações de implementadores**](2026-08-13-implementer-observed-evidence-ledger.md) | `RESEARCH / ACTIVE / PEER-REVIEW EVIDENCE ANNEX` | task → treatment → comportamento → candidate/result → independent audit → classificação; F5L-01…07, S5XH-01…15, Opus historical boundary | 2026-08-13 |
+| [**Evidence Annex — ledger de observações de implementadores**](2026-08-13-implementer-observed-evidence-ledger.md) | `RESEARCH / ACTIVE / PEER-REVIEW EVIDENCE ANNEX` | task, treatment, comportamento, candidate/result, independent audit e classificação | 2026-08-13 |
+| [**CURRENT to North Star — portfolio orientado a time-to-trust**](2026-08-13-current-to-north-star-portfolio/README.md) | `RESEARCH / ACTIVE / DESIGN-SCIENCE ROADMAP DRAFT` | sequencing, critical path, WIP, Definition of Ready/Done, publication roadmap | 2026-08-13 |
 
-> Estes estudos são derivados de evidência operacional e auditorias recentes. Eles não modificam source-artifacts históricos nem generalizam observações internas para vendors/modelos como um todo. O Evidence Annex torna explícita a cadeia de inferência usada pelo estudo principal e deve ser lido junto dele.
+> Estes estudos são derivados de evidência operacional e auditorias recentes. Eles não modificam source-artifacts históricos nem constituem arquitetura canônica.
 
 ## Pendentes de reidratação
 
