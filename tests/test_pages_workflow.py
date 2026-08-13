@@ -1,4 +1,7 @@
 from pathlib import Path
+import json
+import subprocess
+import sys
 import unittest
 
 
@@ -10,8 +13,8 @@ class PagesWorkflowTests(unittest.TestCase):
         workflow=(ROOT/'.github/workflows/pages.yml').read_text(encoding='utf-8')
         gate=(ROOT/'.github/workflows/document-integrity.yml').read_text(encoding='utf-8')
 
-        # The owner capability now exists, but production effects must remain
-        # unreachable until the separately validated durable authority record exists.
+        # The owner capability exists, but production effects remain reachable only
+        # through the separately validated durable authority record on main.
         self.assertIn('actions/deploy-pages@v4',workflow)
         self.assertIn('actions/upload-pages-artifact@v4',workflow)
         self.assertIn('pages: write',workflow)
@@ -24,9 +27,21 @@ class PagesWorkflowTests(unittest.TestCase):
         self.assertIn('expected_materialized_inventory_digest',workflow)
         self.assertIn('group: github-pages',workflow)
 
-        # This implementation packet installs capability only; it must not carry
-        # the owner decision that activates it.
-        self.assertFalse((ROOT/'site/PAGES_CUTOVER_AUTHORITY.json').exists())
+        # Post-authorization invariant: an active authority record must exist and
+        # independently pass the same fail-closed validator used by the workflow.
+        authority=ROOT/'site/PAGES_CUTOVER_AUTHORITY.json'
+        self.assertTrue(authority.is_file())
+        for mode in ('candidate','rollback'):
+            proc=subprocess.run(
+                [sys.executable,str(ROOT/'tools/pages_cutover_authority.py'),'--root',str(ROOT),'--mode',mode],
+                text=True,capture_output=True,check=False,
+            )
+            self.assertEqual(proc.returncode,0,proc.stdout+proc.stderr)
+            result=json.loads(proc.stdout)
+            self.assertTrue(result['authorized'])
+            self.assertEqual(result['reason'],'authorized')
+            self.assertEqual(result['mode'],mode)
+        self.assertTrue(json.loads(authority.read_text(encoding='utf-8'))['rollback_allowed'])
 
         # Main branch protection continues to depend on a gate that executes both suites.
         self.assertIn('python -m unittest discover -s tests',gate)
