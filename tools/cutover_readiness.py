@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Derive Pages migration readiness without granting production authority.
 
-The receipt composes existing projection/parity/editorial evidence.  It is a
-local migration artifact, not a new tare.tools kernel primitive.  Open rollout
-conditions are recorded without weakening integrity gates.
+The receipt composes existing projection/parity/editorial/visual evidence. It is
+a local migration artifact, not a new tare.tools kernel primitive. Open rollout
+conditions are recorded without weakening integrity or authority gates.
 """
 from __future__ import annotations
 
@@ -12,11 +12,16 @@ import json
 from pathlib import Path
 from typing import Any
 
-from cutover_readiness_support import canary_evidence, rollback_evidence, workflow_ownership
+from cutover_readiness_support import (
+    canary_evidence,
+    rollback_evidence,
+    visual_evidence,
+    workflow_ownership,
+)
 from pages_common import normalize_base_path
 from validate_pages_contract import validate as validate_pages_contract
 
-RECORD_VERSION = "1.0"
+RECORD_VERSION = "1.1"
 DEFAULT_CANARY_ID = "research.pages.canary.v1"
 
 
@@ -73,21 +78,27 @@ def generate(
         errors.append("incumbent rollback drill is not ready")
 
     ownership = workflow_ownership(root, profile.get("deploy_owner"))
-    if ownership["candidate_deploy_capable"]:
-        errors.append("shadow candidate unexpectedly has Pages deploy capability")
     if ownership["dual_owner"]:
         errors.append("dual Pages deploy owners detected")
 
     canary = canary_evidence(root, output, canary_id)
+    visual = visual_evidence(root, output, canary_id)
+
     open_conditions: list[str] = []
     if canary.get("status") != "PROJECTED_APPROVED":
         open_conditions.append(f"CANARY_{canary.get('status', 'UNKNOWN')}")
-    open_conditions.append("VISUAL_VALIDATION_NOT_RUN")
+    if visual.get("status") != "PASS":
+        open_conditions.append("VISUAL_VALIDATION_NOT_CURRENT")
+    if ownership.get("state") == "NO_OWNER":
+        open_conditions.append("NO_ACTIVE_DEPLOY_OWNER")
     open_conditions.append("OWNER_CUTOVER_AUTHORITY_NOT_GRANTED")
 
     safeguards_pass = not errors
-    technical_ready = safeguards_pass and canary.get("status") == "PROJECTED_APPROVED" and not any(
-        item == "VISUAL_VALIDATION_NOT_RUN" for item in open_conditions
+    technical_ready = (
+        safeguards_pass
+        and canary.get("status") == "PROJECTED_APPROVED"
+        and visual.get("status") == "PASS"
+        and ownership.get("state") in {"INCUMBENT_ONLY", "CANDIDATE_ONLY"}
     )
     receipt = {
         "record_version": RECORD_VERSION,
@@ -105,10 +116,7 @@ def generate(
         "rollback_drill": rollback,
         "deploy_ownership": ownership,
         "canary": canary,
-        "visual_validation": {
-            "status": "NOT_RUN",
-            "note": "browser/render evidence remains an explicit pre-cutover gate",
-        },
+        "visual_validation": visual,
         "safeguards_status": "PASS" if safeguards_pass else "FAIL",
         "technical_readiness": "READY" if technical_ready else "BLOCKED",
         "production_effect_performed": False,
@@ -143,7 +151,8 @@ def main() -> int:
     target.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"{'PASS' if not errors else 'FAIL'} cutover-readiness safeguards; "
-        f"technical={receipt['technical_readiness']}; authority=false"
+        f"technical={receipt['technical_readiness']}; authority=false; "
+        f"ownership={receipt['deploy_ownership'].get('state')}"
     )
     for blocker in receipt["open_conditions"]:
         print(f"OPEN {blocker}")
