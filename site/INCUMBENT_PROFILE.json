@@ -1,9 +1,16 @@
 {
-  "profile_version": "1.1",
+  "profile_version": "1.2",
   "name": "semantic-preservation-v2-pages-incumbent",
   "source_ref": "f5b34297b26339e25267401e4fdefed381a827a3",
   "source_branch": "agent/semantic-preservation-curation-v2",
-  "deploy_owner": ".github/workflows/pages-deploy.yml@agent/semantic-preservation-curation-v2",
+  "deploy_owner": null,
+  "retired_deploy_owner": {
+    "workflow": ".github/workflows/pages-deploy.yml@agent/semantic-preservation-curation-v2",
+    "retired_branch_commit": "0597d045590975105f28f466f321e36171952ead",
+    "retired_workflow_blob": "2e2183586942f3d5ef31f8031516183e85ac4d5f"
+  },
+  "candidate_deploy_owner": null,
+  "ownership_state": "NO_OWNER",
   "base_path": "/tare.tools.research/",
   "expected_materialized_file_count": 176,
   "expected_materialized_inventory_digest": "48f47c55c246663fcb6821486cfadf1324b4e115ccd8b4fbeda165f47820625b",
@@ -18,5 +25,5 @@
     "assets/site.js",
     "search.json"
   ],
-  "migration_rule": "stable incumbent remains byte-preserved in combined output until an explicit parity-qualified cutover removes this adapter"
+  "migration_rule": "stable incumbent remains byte-preserved in combined output while deploy ownership transitions through an explicit no-owner window; no dual-owner state is permitted"
 }
