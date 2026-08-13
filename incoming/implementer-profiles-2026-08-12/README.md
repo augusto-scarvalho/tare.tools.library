@@ -46,6 +46,12 @@ This packet does **not** support:
 - a global model leaderboard;
 - autonomous protected effects.
 
+## Publisher baseline validation
+
+During this revision the repository-wide `MASTER_CATALOG.json` was found to contain the same 13 manifest-derived records in a non-generator order. No source/manifest semantics were changed: `main` commit `0404546cded3eb4ba105a31c540daa3c3268c76b` only reconciled the deterministic `sorted(manifests.glob('*.json'))` projection. GitHub Actions run `31719699825` then completed `document-integrity` successfully.
+
+The submission PR must still pass its own merge-subject checks; the clean `main` run removes the inherited catalog false blocker but does not substitute for PR validation or editorial review.
+
 ## Publication boundary
 
 Publication in `tare.tools.research` does not mint `CURRENT` or `TARGET`. Any canonical adoption still requires the normal Findings → ADR → SPEC → BDD → Implementation Packet → code/gates/evidence path in the canonical tare.tools repository.
