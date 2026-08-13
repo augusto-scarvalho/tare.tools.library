@@ -48,8 +48,12 @@ def _run(repo: Path, *args: str, check: bool = True) -> subprocess.CompletedProc
     return proc
 
 
+def _file_hash(path: Path) -> str:
+    return sha256(path.read_bytes()).hexdigest()
+
+
 def _manifest_hash(packet: Path) -> str:
-    return sha256(packet.read_bytes()).hexdigest()
+    return _file_hash(packet)
 
 
 def _safe_branch_component(value: str) -> str:
@@ -62,8 +66,11 @@ def _safe_branch_component(value: str) -> str:
     return s or "document"
 
 
-def planned_branch(document_id: str, manifest_sha256: str) -> str:
-    return f"docs/publish/{_safe_branch_component(document_id)}-{manifest_sha256[:12]}"
+def planned_branch(document_id: str, manifest_sha256: str, editorial_decision_sha256: str | None = None) -> str:
+    identity = manifest_sha256
+    if editorial_decision_sha256:
+        identity = sha256(f"{manifest_sha256}:{editorial_decision_sha256}".encode()).hexdigest()
+    return f"docs/publish/{_safe_branch_component(document_id)}-{identity[:12]}"
 
 
 def _load_and_validate_packet(packet: Path) -> tuple[dict, str]:
@@ -73,6 +80,35 @@ def _load_and_validate_packet(packet: Path) -> tuple[dict, str]:
         raise GitBackendError("policy denied: " + "; ".join(errors))
     destination = route(manifest)
     return manifest, destination
+
+
+def _validate_editorial_decision(packet: Path, manifest: dict, manifest_sha256: str) -> tuple[dict | None, str | None]:
+    path = packet.parent / "EDITORIAL_DECISION.json"
+    pages_requested = "pages" in manifest.get("requested_channels", [])
+    if not path.is_file():
+        if pages_requested:
+            raise GitBackendError("EDITORIAL_DECISION.json required before publishing a packet that requests Pages")
+        return None, None
+    try:
+        decision = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise GitBackendError(f"invalid editorial decision JSON: {exc}") from exc
+    errors=[]
+    if decision.get("decision_version") != "1.0": errors.append("decision_version must be 1.0")
+    if not isinstance(decision.get("decision_id"), str) or not decision["decision_id"].strip(): errors.append("decision_id required")
+    if decision.get("document_id") != manifest.get("document_id"): errors.append("editorial decision document_id mismatch")
+    if decision.get("manifest_sha256") != manifest_sha256: errors.append("editorial decision manifest_sha256 mismatch")
+    if decision.get("decision") not in {"accept","revise","reject","park"}: errors.append("invalid editorial decision")
+    if not isinstance(decision.get("pages_approved"), bool): errors.append("editorial pages_approved must be boolean")
+    reviewer=decision.get("reviewer")
+    if not isinstance(reviewer, dict) or not reviewer.get("name") or reviewer.get("role") != "editorial-reviewer":
+        errors.append("editorial reviewer identity/role required")
+    if not isinstance(decision.get("reviewed_at"), str) or not decision["reviewed_at"].strip(): errors.append("reviewed_at required")
+    if decision.get("pages_approved") and decision.get("decision") != "accept": errors.append("Pages approval requires decision=accept")
+    if decision.get("pages_approved") and not pages_requested: errors.append("Pages approval cannot be granted when Pages was not requested")
+    if errors:
+        raise GitBackendError("editorial decision denied: " + "; ".join(errors))
+    return decision, _file_hash(path)
 
 
 def _validate_artifacts(packet: Path, manifest: dict) -> list[tuple[Path, str]]:
@@ -89,12 +125,29 @@ def _validate_artifacts(packet: Path, manifest: dict) -> list[tuple[Path, str]]:
 
 
 def _artifact_digests(artifacts: list[tuple[Path, str]]) -> dict[str, str]:
-    return {name: sha256(src.read_bytes()).hexdigest() for src, name in artifacts}
+    return {name: _file_hash(src) for src, name in artifacts}
 
 
-def _publication_record(manifest: dict, destination: str, receipt: GitPublicationReceipt, artifacts: list[tuple[Path, str]]) -> dict:
+def _publication_record(
+    manifest: dict,
+    destination: str,
+    receipt: GitPublicationReceipt,
+    artifacts: list[tuple[Path, str]],
+    decision: dict | None,
+    decision_sha256: str | None,
+) -> dict:
+    editorial = None
+    if decision is not None:
+        editorial = {
+            "decision_id": decision["decision_id"],
+            "decision": decision["decision"],
+            "pages_approved": decision["pages_approved"],
+            "reviewer": decision["reviewer"],
+            "reviewed_at": decision["reviewed_at"],
+            "sha256": decision_sha256,
+        }
     return {
-        "record_version": "1.0",
+        "record_version": "1.1",
         "backend": "git-local",
         "document_id": manifest["document_id"],
         "destination": destination,
@@ -102,11 +155,21 @@ def _publication_record(manifest: dict, destination: str, receipt: GitPublicatio
         "branch": receipt.branch,
         "manifest_sha256": receipt.manifest_sha256,
         "artifact_sha256": _artifact_digests(artifacts),
+        "primary_artifact": manifest.get("primary_artifact"),
+        "requested_channels": manifest.get("requested_channels", []),
+        "pages_approved": bool(decision and decision.get("pages_approved") is True),
+        "editorial_decision": editorial,
         "remote_effects": False,
     }
 
 
-def _existing_publication(repo_root: Path, branch: str, destination: str, manifest_sha256: str) -> str | None:
+def _existing_publication(
+    repo_root: Path,
+    branch: str,
+    destination: str,
+    manifest_sha256: str,
+    editorial_decision_sha256: str | None,
+) -> str | None:
     ref = f"refs/heads/{branch}"
     if _run(repo_root, "show-ref", "--verify", ref, check=False).returncode != 0:
         return None
@@ -119,8 +182,10 @@ def _existing_publication(repo_root: Path, branch: str, destination: str, manife
         record = json.loads(shown.stdout)
     except json.JSONDecodeError as exc:
         raise GitBackendError(f"branch collision with invalid publication record: {branch}") from exc
+    observed_decision_sha = (record.get("editorial_decision") or {}).get("sha256")
     if (
         record.get("manifest_sha256") != manifest_sha256
+        or observed_decision_sha != editorial_decision_sha256
         or record.get("branch") != branch
         or record.get("destination") != destination
     ):
@@ -139,8 +204,9 @@ def plan(packet: Path, repo_root: Path, *, base_ref: str = "HEAD") -> GitPublica
     _validate_artifacts(packet, manifest)
     base_sha = _run(repo_root, "rev-parse", "--verify", base_ref).stdout.strip()
     mh = _manifest_hash(packet)
-    branch = planned_branch(manifest["document_id"], mh)
-    existing_commit = _existing_publication(repo_root, branch, destination, mh)
+    _, decision_sha = _validate_editorial_decision(packet, manifest, mh)
+    branch = planned_branch(manifest["document_id"], mh, decision_sha)
+    existing_commit = _existing_publication(repo_root, branch, destination, mh, decision_sha)
     return GitPublicationReceipt(
         backend="git-local",
         applied=False,
@@ -176,6 +242,7 @@ def publish(
     repo_root = repo_root.resolve()
     manifest, destination = _load_and_validate_packet(packet)
     artifacts = _validate_artifacts(packet, manifest)
+    decision, decision_sha = _validate_editorial_decision(packet, manifest, receipt.manifest_sha256)
 
     # Main worktree/index are never used for file writes or staging. The base SHA
     # is pinned once by plan(); publication happens in a disposable detached worktree.
@@ -191,7 +258,9 @@ def publish(
             for src, name in artifacts:
                 shutil.copy2(src, target / name)
             shutil.copy2(packet, target / "PUBLISH_MANIFEST.json")
-            record = _publication_record(manifest, destination, receipt, artifacts)
+            if decision is not None:
+                shutil.copy2(packet.parent / "EDITORIAL_DECISION.json", target / "EDITORIAL_DECISION.json")
+            record = _publication_record(manifest, destination, receipt, artifacts, decision, decision_sha)
             (target / "PUBLICATION_RECORD.json").write_text(
                 json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
             )
@@ -209,8 +278,6 @@ def publish(
             )
             commit_sha = _run(wt, "rev-parse", "HEAD").stdout.strip()
         finally:
-            # Removal is attempted even after a failed commit; force only affects
-            # the disposable worktree, never the user's main worktree.
             _run(repo_root, "worktree", "remove", "--force", str(wt), check=False)
             _run(repo_root, "worktree", "prune", check=False)
 
