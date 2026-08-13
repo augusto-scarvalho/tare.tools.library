@@ -22,14 +22,14 @@ def validate(m):
  if m.get('repository')=='tare-tools' and not m.get('promotion_packet'):e.append('promotion_packet required')
  if not isinstance(m.get('bounded_contexts'),list) or not m.get('bounded_contexts'):e.append('bounded_contexts required')
  if not isinstance(m.get('artifacts'),list) or not m.get('artifacts'):e.append('artifacts required')
+ if 'pages_approved' in m:e.append('pages_approved is editorial authority and must not be submitter-controlled')
  if m.get('packet_version')=='1.1':
   primary=m.get('primary_artifact')
   if not isinstance(primary,str) or primary not in m.get('artifacts',[]):e.append('primary_artifact must be a declared artifact')
-  elif not primary.endswith('.html'):e.append('primary_artifact must be canonical HTML')
+  elif not primary.lower().endswith('.html'):e.append('primary_artifact must be canonical HTML')
   if 'document-metadata.json' not in m.get('artifacts',[]):e.append('document-metadata.json must be a declared artifact')
   channels=m.get('requested_channels',[])
   if not isinstance(channels,list) or any(x!='pages' for x in channels):e.append('requested_channels may contain only pages')
-  if 'pages_approved' not in m or not isinstance(m['pages_approved'],bool):e.append('pages_approved must be boolean')
  return e
 
 def route(m):
