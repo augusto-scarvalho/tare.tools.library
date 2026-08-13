@@ -2,63 +2,49 @@
   "schema_version": "1.1",
   "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
   "cutoff": "2026-08-13T19:37:00-03:00",
-  "evidentiary_precedence": [
-    "live Git / source / canonical specs / tests",
-    "current GitHub Issues / PRs / CI receipts",
-    "sanitized source snapshot + exact hashes",
-    "historical handoffs / scratch material",
-    "chat chronology",
-    "external research as RESEARCH evidence"
-  ],
+  "evidentiary_precedence": ["Git/source/spec/tests","current GitHub Issues/PRs/CI","sanitized snapshots and hashes","historical handoffs","chat chronology","external research"],
   "materialized_sources": [
-    {
-      "name": "six-document-working-corpus",
-      "exact_bytes_materialized": true,
-      "included_in_submission": true,
-      "availability": "AVAILABLE_IN_PACKET",
-      "persistent_locator": "lineage/",
-      "files": [
-        {"path":"lineage/00-index.html","sha256":"6676378e0fc30b8df0f814af99ec0feb519f7238ab0ad43be43cd80f57788205","bytes":11012},
-        {"path":"lineage/01-cronologia.html","sha256":"6b73834a75867a0a2ab7d7aaa0ded706f6b3341992a6c99d4bbb8b6ad28aec70","bytes":19206},
-        {"path":"lineage/02-root-cause-modelo-formal.html","sha256":"eeb2375ba03076e458c554dff6d550334a49d1bd29986b6ef3e0619556b16a57","bytes":17733},
-        {"path":"lineage/03-pesquisa-comparativa.html","sha256":"265cde5aff614806dc5b15dbcd1eae8b1662166aa422a110c642d5d8c10a1f3c","bytes":17974},
-        {"path":"lineage/04-adr-arquitetura-escolhida.html","sha256":"87a22d27a5bce7eba255bc588192ee990313646fe3aa679730b26af2bca1d4f7","bytes":18255},
-        {"path":"lineage/05-apendice-evidencias.html","sha256":"071e42209f5a5797f69e4063c873be161ebe3d98f2942c15f3542f227f9839b2","bytes":15686}
-      ]
-    },
     {
       "name": "working-corpus-zip",
       "sha256": "340820c3c665a7d53c8e326d5b2b15fa58f2d2814b19397e63b656d789034589",
-      "exact_bytes_materialized_during_investigation": true,
       "included_in_submission": false,
-      "availability": "NOT_PERSISTED_AS_ZIP",
-      "persistent_locator": null,
-      "note": "The six constituent HTML bytes are persisted individually under lineage/; the transient ZIP is not claimed as retrievable."
+      "availability": "PERSISTED_AT_IMMUTABLE_GIT_COMMIT",
+      "persistent_locator": "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip",
+      "reachable_via_ref": "evidence/governance-deadlock-archaeology-2026-08-13",
+      "members": {
+        "00-index.html": "6676378e0fc30b8df0f814af99ec0feb519f7238ab0ad43be43cd80f57788205",
+        "01-cronologia.html": "6b73834a75867a0a2ab7d7aaa0ded706f6b3341992a6c99d4bbb8b6ad28aec70",
+        "02-root-cause-modelo-formal.html": "eeb2375ba03076e458c554dff6d550334a49d1bd29986b6ef3e0619556b16a57",
+        "03-pesquisa-comparativa.html": "265cde5aff614806dc5b15dbcd1eae8b1662166aa422a110c642d5d8c10a1f3c",
+        "04-adr-arquitetura-escolhida.html": "87a22d27a5bce7eba255bc588192ee990313646fe3aa679730b26af2bca1d4f7",
+        "05-apendice-evidencias.html": "071e42209f5a5797f69e4063c873be161ebe3d98f2942c15f3542f227f9839b2"
+      }
+    },
+    {
+      "name": "supporting-historical-copies",
+      "included_in_submission": true,
+      "availability": "AVAILABLE_IN_PACKET",
+      "persistent_locator": "lineage/",
+      "notes": "Redundant supporting copies only; the complete archive above is the lineage source."
     },
     {
       "name": "canonical-source-snapshot",
       "sha256": "dc1a5cef33902b3eefb4fac9a7a0fad7d4b03394c00e4effbb7ee237f90522fd",
       "manifest_sha256": "fc00c3f957f530311db4a56b2a8f3d6c2313545a764e4ca0318c6a6d54aedcc5",
-      "exact_bytes_materialized_during_investigation": true,
       "included_in_submission": false,
       "availability": "PERSISTED_IN_EXISTING_DRIVE_RELAY",
       "persistent_locator": "trust-genesis-01-readonly/477bea0d915dfde5e9e92fce68be0a42154a31f9/TRUST-GENESIS-01-local-source-snapshot.zip"
     },
     {
       "name": "owner-direction-receipt",
-      "exact_bytes_materialized": true,
       "included_in_submission": true,
       "availability": "AVAILABLE_IN_PACKET_AND_GITHUB",
       "persistent_locator": "owner-direction-receipt.json; https://github.com/augusto-scarvalho/universal-agent-harness-prototype/issues/26"
     }
   ],
-  "availability_limits": [
-    "Historical handoffs are evidence, not canonical authority; conclusions were reconciled against Git/source when possible.",
-    "GitHub Issue/PR and external-source locators remain independently retrievable, but their bytes are not vendored into this packet unless explicitly listed."
-  ],
   "research_boundary": {
-    "current_facts": "Only facts pinned to canonical Git/source/CI/evidence are described as CURRENT.",
-    "proposal": "Recovery Bridge → Trusted Control Plane → Incumbent-to-Incumbent Evolution is PROPOSED in this repository.",
-    "authority": "Publication does not grant canonical promotion, merge, trust-root, staging/main, or runtime authority."
+    "current_facts": "CURRENT claims require canonical evidence.",
+    "proposal": "Recovery Bridge → Trusted Control Plane → Incumbent-to-Incumbent Evolution remains PROPOSED here.",
+    "authority": "Publication does not grant canonical project authority."
   }
 }
