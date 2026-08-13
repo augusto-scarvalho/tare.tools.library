@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
+  "cutoff": "2026-08-13T19:37:00-03:00",
+  "evidentiary_precedence": [
+    "live Git / source / canonical specs / tests",
+    "current GitHub Issues / PRs / CI receipts",
+    "sanitized source snapshot + exact hashes",
+    "historical handoffs / scratch material",
+    "chat chronology",
+    "external research as RESEARCH evidence"
+  ],
+  "materialized_sources": [
+    {
+      "name": "working-corpus-zip",
+      "path": "/mnt/data/tare-tools-governance-deadlock-archaeology-2026-08-13.zip",
+      "sha256": "340820c3c665a7d53c8e326d5b2b15fa58f2d2814b19397e63b656d789034589",
+      "exact_bytes_materialized": true
+    },
+    {
+      "name": "canonical-source-snapshot",
+      "sha256": "dc1a5cef33902b3eefb4fac9a7a0fad7d4b03394c00e4effbb7ee237f90522fd",
+      "manifest_sha256": "fc00c3f957f530311db4a56b2a8f3d6c2313545a764e4ca0318c6a6d54aedcc5",
+      "exact_bytes_materialized_during_investigation": true,
+      "included_in_submission": false
+    }
+  ],
+  "availability_limits": [
+    "Historical handoffs are evidence, not canonical authority; conclusions were reconciled against Git/source when possible.",
+    "The current submission materializes the consolidated research and registers hashes/locators; it does not duplicate every historical Drive payload.",
+    "GitHub Issue/PR and external-source locators remain independently retrievable, but their bytes are not vendored into this packet."
+  ],
+  "research_boundary": {
+    "current_facts": "Only facts pinned to canonical Git/source/CI/evidence are described as CURRENT.",
+    "proposal": "Recovery Bridge → Trusted Control Plane → Incumbent-to-Incumbent Evolution is PROPOSED in this repository.",
+    "authority": "Publication does not grant canonical promotion, merge, trust-root, staging/main, or runtime authority."
+  }
+}

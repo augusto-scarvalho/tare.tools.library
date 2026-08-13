@@ -1,0 +1,32 @@
+{
+  "packet_version": "1.1",
+  "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "repository": "tare.tools.research",
+  "destination": null,
+  "bounded_contexts": [
+    "Identity / Authority / Policy",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Workflow",
+    "Capability / Effects",
+    "Protocols / Interoperability"
+  ],
+  "artifacts": [
+    "article.html",
+    "document-metadata.json",
+    "provenance.json",
+    "evidence-register.json",
+    "research-pointers.json"
+  ],
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "historical_preservation": true,
+  "canonical_change": false,
+  "promotion_packet": null,
+  "notes": "Submission requests editorial acceptance and Pages eligibility only. It does not self-approve publication, mint TARGET/CURRENT, or authorize any tare.tools repository effect."
+}
