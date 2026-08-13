@@ -1,0 +1,27 @@
+{
+  "document_id": "research.pages.canary.v1",
+  "title": "Canário de publicação SIGNAL para GitHub Pages",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-13",
+  "language": "pt-BR",
+  "abstract": "Documento canário de baixa autoridade destinado a exercitar o fluxo editorial, a projeção SIGNAL e as provas de preservação do GitHub Pages sem conceder autoridade de cutover.",
+  "authors": [
+    {
+      "name": "ChatGPT (GPT-5.6 Sol)",
+      "role": "agent"
+    }
+  ],
+  "architecture_epoch": null,
+  "canonical_commit": "137c3e8297008c3093e7f007aaa7e255a8259f52",
+  "bounded_contexts": [
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Experience / Human Interface"
+  ],
+  "provenance": {
+    "origin": "Pages canary submission prepared after the audited shadow publisher merge",
+    "project": "tare.tools",
+    "notes": "RESEARCH-only canary. This metadata does not grant Pages approval, TARGET/CURRENT status, or cutover authority."
+  }
+}
