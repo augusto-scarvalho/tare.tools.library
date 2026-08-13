@@ -132,7 +132,7 @@ def cmd_validate_repo(args):
 def cmd_rebuild(args):
  root=Path(args.root); manifests=root/'corpus'/'manifests'; entries=[]
  if manifests.exists():
-  for p in sorted(manifests.glob('*.json')):
+  for p in sorted(manifests.glob('*.json'),key=lambda p:p.name):
    m=load_json(p); prov=m.get('provenance',{})
    entries.append({
     'document_id':m['document_id'],'title':m['title'],'path':prov.get('source_path',''),'sha256':prov.get('source_sha256',''),'size_bytes':prov.get('size_bytes',0),
