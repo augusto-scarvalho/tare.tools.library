@@ -1,5 +1,5 @@
 {
-  "packet_version": "1.0",
+  "packet_version": "1.1",
   "document_id": "research.reliability.example-publication",
   "document_type": "research",
   "status": "RESEARCH",
@@ -11,8 +11,12 @@
     "Runtime"
   ],
   "artifacts": [
-    "research.md"
+    "article.html",
+    "document-metadata.json"
   ],
+  "primary_artifact": "article.html",
+  "requested_channels": ["pages"],
+  "pages_approved": false,
   "historical_preservation": true,
   "canonical_change": false,
   "promotion_packet": null,

@@ -50,6 +50,27 @@
       "type": "string",
       "format": "date"
     },
+    "language": {
+      "type": "string",
+      "minLength": 1
+    },
+    "abstract": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "role"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "role": {"enum": ["author", "editor", "contributor", "agent"]}
+        },
+        "additionalProperties": false
+      }
+    },
     "architecture_epoch": {
       "type": [
         "string",
