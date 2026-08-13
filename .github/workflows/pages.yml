@@ -5,21 +5,13 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      deploy:
-        description: Deploy the parity-qualified combined projection from main
-        required: true
-        type: boolean
-        default: false
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages-publisher-${{ github.ref }}
-  cancel-in-progress: true
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
   qualify:
@@ -44,8 +36,6 @@ jobs:
         with:
           ref: f5b34297b26339e25267401e4fdefed381a827a3
           path: .incumbent-source
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
       - name: Build pinned incumbent projection
         uses: actions/jekyll-build-pages@v1
         with:
@@ -64,20 +54,3 @@ jobs:
           path: site/_site
           retention-days: 7
           if-no-files-found: error
-      - name: Upload deployable Pages artifact only on explicit cutover run
-        if: github.event_name == 'workflow_dispatch' && inputs.deploy == true && github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: site/_site
-
-  deploy:
-    if: github.event_name == 'workflow_dispatch' && inputs.deploy == true && github.ref == 'refs/heads/main'
-    needs: qualify
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy parity-qualified combined projection
-        id: deployment
-        uses: actions/deploy-pages@v4

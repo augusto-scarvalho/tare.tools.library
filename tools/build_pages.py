@@ -69,8 +69,8 @@ def _load_studies(root: Path, commit: str) -> list[dict]:
         if record.get('pages_approved') is not True:
             continue
         editorial=record.get('editorial_decision')
-        if not isinstance(editorial,dict) or not editorial.get('sha256') or editorial.get('decision')!='accept' or editorial.get('pages_approved') is not True:
-            raise ValueError(f'{rp}: approved Pages record lacks accepted editorial decision evidence')
+        if not isinstance(editorial,dict) or not editorial.get('sha256'):
+            raise ValueError(f'{rp}: approved Pages record lacks editorial decision evidence')
         packet=rp.parent
         manifest_path=packet/'PUBLISH_MANIFEST.json'
         decision_path=packet/'EDITORIAL_DECISION.json'
@@ -91,6 +91,11 @@ def _load_studies(root: Path, commit: str) -> list[dict]:
         decision=json.loads(decision_path.read_text(encoding='utf-8'))
         if decision.get('manifest_sha256')!=record.get('manifest_sha256'): raise ValueError(f'{rp}: editorial decision not bound to published manifest')
         if decision.get('document_id')!=record.get('document_id'): raise ValueError(f'{rp}: editorial decision document mismatch')
+        if decision.get('decision')!='accept' or decision.get('pages_approved') is not True:
+            raise ValueError(f'{rp}: editorial decision does not authorize Pages publication')
+        for key in ('decision_id','decision','pages_approved','reviewer','reviewed_at'):
+            if editorial.get(key)!=decision.get(key):
+                raise ValueError(f'{rp}: publication record disagrees with editorial decision: {key}')
         meta=json.loads(metadata_path.read_text(encoding='utf-8'))
         did=meta['document_id']
         if did in ids: raise ValueError(f'duplicate document ID: {did}')
@@ -99,6 +104,7 @@ def _load_studies(root: Path, commit: str) -> list[dict]:
         studies.append({
             'record_path':rp,'record':record,'packet':packet,'manifest':manifest,'source':source,
             'metadata':meta,'document_id':did,'slug':slug,'commit':commit,
+            'decision':decision,'decision_sha256':editorial['sha256'],
         })
     return studies
 
@@ -121,11 +127,23 @@ def _repo_source_url(commit: str, relative: str, fragment: str='') -> str:
     return url+(f'#{fragment}' if fragment else '')
 
 
+def _require_html_fragment(candidate: Path, fragment: str, source: Path, original: str) -> None:
+    if not fragment or candidate.suffix.lower() not in {'.html','.htm'}:
+        return
+    soup=BeautifulSoup(candidate.read_text(encoding='utf-8'),'html.parser')
+    if soup.find(id=fragment) is None:
+        raise ValueError(f'{source}: unresolved internal fragment: {original}')
+
+
 def _rewrite_links(article, study: dict, root: Path, source_map: dict[Path,dict], base_path: str, target: Path) -> list[dict]:
     rewrites=[]; source=study['source'].resolve(); media=_declared_media(study)
     for tag in article.find_all('a',href=True):
         original=tag['href']
         if original.startswith('#'):
+            fragment=original[1:]
+            if not fragment or article.find(id=fragment) is None:
+                raise ValueError(f'{source}: unresolved internal fragment: {original}')
+            rewrites.append({'source_href':original,'projected_href':original,'kind':'local-anchor'})
             continue
         parsed=urlsplit(original)
         if parsed.scheme in {'http','https','mailto','tel'} or original.startswith('//'):
@@ -138,6 +156,7 @@ def _rewrite_links(article, study: dict, root: Path, source_map: dict[Path,dict]
             candidate=(source.parent/parsed.path).resolve()
         if not _inside(root,candidate):
             raise ValueError(f'{source}: internal href escapes repository: {original}')
+        _require_html_fragment(candidate,parsed.fragment,source,original)
         projected=None; kind=None
         if candidate in source_map:
             other=source_map[candidate]
@@ -211,7 +230,7 @@ def _build_study(study: dict, root: Path, output: Path, source_map: dict[Path,di
         f'<a href="#{x["id"]}">{html.escape(x.get_text(" ",strip=True))}</a>'
         for x in article.find_all(['h2','h3']) if x.get('id')
     )
-    decision=record['editorial_decision']
+    decision={**study['decision'],'sha256':study['decision_sha256']}
     instrument=(
         f'<section class="instrument"><span class="status">{html.escape(meta["status"])}</span>'
         f'<br>Canonical SHA-256: <code>{html.escape(record["artifact_sha256"][Path(study["manifest"]["primary_artifact"]).name])}</code>'

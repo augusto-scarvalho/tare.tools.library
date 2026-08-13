@@ -73,8 +73,10 @@ and copied byte-for-byte into the shadow output. New publisher paths are
 additive (`/publications/`, `/p/<document-id>/`, publisher assets and projection
 records).
 
-The shadow build fails if any incumbent file changes or disappears. Routine
-pull-request and `main` push builds do not deploy. Cutover is a separate,
-explicit Pages workflow dispatch after parity evidence is accepted, with the
-pinned incumbent retained as the rollback source until a later retirement
-change.
+The shadow build fails if any incumbent file changes or disappears. The shadow
+workflow has no deploy permission or deploy job; the pinned incumbent workflow
+is the sole deploy owner during migration. Cutover requires a separate change
+that proves a real canary, disables the incumbent deploy trigger, transfers
+ownership under the shared `github-pages` concurrency group, and records a
+successful rebuild of the pinned incumbent as the rollback drill. The pinned
+source remains rollback evidence until a later retirement change.

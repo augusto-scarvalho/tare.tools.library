@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import importlib
 from pathlib import Path
 import tempfile
 import unittest
@@ -33,6 +34,10 @@ def valid_html(lang: str="en") -> str:
 
 
 class CanonicalHtmlTests(unittest.TestCase):
+    def test_import_uses_the_canonical_validator_module(self):
+        module=importlib.import_module('tools.validate_canonical_html')
+        self.assertEqual(Path(module.__file__).resolve(),ROOT/'tools'/'validate_canonical_html.py')
+
     def test_example_packet_passes(self):
         packet=ROOT/'incoming'/'example-reliability-publication'
         manifest=json.loads((packet/'PUBLISH_MANIFEST.json').read_text(encoding='utf-8'))
@@ -65,6 +70,16 @@ class CanonicalHtmlTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             root=Path(td); errors=validate_packet(root,write_packet(root,valid_html('pt-BR'),language='pt-BR'))
             self.assertEqual(errors,[])
+
+    def test_remote_asset_is_rejected(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); html=valid_html().replace('</article>','<img src="https://example.test/x.png" alt="x"></article>')
+            self.assertIn('remote asset not allowed: https://example.test/x.png',validate_packet(root,write_packet(root,html)))
+
+    def test_image_requires_alt_text(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); html=valid_html().replace('</article>','<img src="diagram.svg"></article>')
+            self.assertIn('image missing alt text',validate_packet(root,write_packet(root,html)))
 
 
 if __name__=='__main__':unittest.main()
