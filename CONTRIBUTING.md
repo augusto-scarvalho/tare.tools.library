@@ -130,10 +130,13 @@ Pages is a derived reader, never a second editorial source. The publisher:
 - preserves the current stable Pages incumbent byte-for-byte during the
   Strangler migration and adds new publications under separate URLs.
 
-The `pages-shadow` workflow builds and validates on PRs and pushes but does not
-deploy on push. Deployment requires an explicit `workflow_dispatch` from
-`main` with `deploy=true` after parity evidence is reviewed. A green build is
-not cutover authority.
+The `pages-shadow` workflow builds and validates on PRs, pushes and manual runs,
+but has no deploy permission or deploy job. The pinned incumbent workflow is
+the sole Pages deploy owner during migration. Cutover requires a separate PR
+that disables the incumbent owner, adds a canary publication, transfers deploy
+ownership under the shared `github-pages` concurrency group, and records a
+successful incumbent rebuild as the rollback drill. A green build is not
+cutover authority.
 
 ## 5. Maintenance PRs
 

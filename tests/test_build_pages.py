@@ -109,6 +109,9 @@ class BuildPagesTests(unittest.TestCase):
             self.assertEqual(parity['modified_incumbent_paths'],[])
             urls=[x['url'] for x in json.loads((output/'publications'/'search.json').read_text(encoding='utf-8'))]
             self.assertTrue(all(x.startswith('/tare.tools.research/p/') for x in urls))
+            soup.find('a',string='Related B')['href']='/tare.tools.research/p/research-test-study-b/#missing'
+            page.write_text(str(soup),encoding='utf-8')
+            self.assertTrue(any('broken fragment' in error for error in validate_contract(output,root,incumbent,'/tare.tools.research/')))
 
     def test_unresolved_internal_link_fails_closed(self):
         with tempfile.TemporaryDirectory() as td:
@@ -117,6 +120,56 @@ class BuildPagesTests(unittest.TestCase):
             subprocess.run(['git','-C',str(root),'add','.'],check=True)
             subprocess.run(['git','-C',str(root),'-c','user.name=t','-c','user.email=t@x.invalid','commit','-qm','publication'],check=True)
             with self.assertRaisesRegex(ValueError,'unresolved internal href'):
+                build(root,root/'site-output',base_path='/tare.tools.research/')
+
+    def test_rejected_decision_cannot_be_overridden_by_publication_record(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); self._git_init(root)
+            packet=self._write_publication(root,'study-a')
+            decision_path=packet/'EDITORIAL_DECISION.json'
+            decision=json.loads(decision_path.read_text(encoding='utf-8'))
+            decision.update(decision='reject',pages_approved=False)
+            decision_path.write_text(json.dumps(decision,indent=2),encoding='utf-8')
+            record_path=packet/'PUBLICATION_RECORD.json'
+            record=json.loads(record_path.read_text(encoding='utf-8'))
+            record['editorial_decision']['sha256']=sha(decision_path)
+            record_path.write_text(json.dumps(record,indent=2),encoding='utf-8')
+            subprocess.run(['git','-C',str(root),'add','.'],check=True)
+            subprocess.run(['git','-C',str(root),'-c','user.name=t','-c','user.email=t@x.invalid','commit','-qm','publication'],check=True)
+            with self.assertRaisesRegex(ValueError,'does not authorize Pages publication'):
+                build(root,root/'site-output',base_path='/tare.tools.research/')
+
+    def test_pages_contract_rechecks_editorial_decision_source(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); self._git_init(root)
+            packet=self._write_publication(root,'study-a')
+            subprocess.run(['git','-C',str(root),'add','.'],check=True)
+            subprocess.run(['git','-C',str(root),'-c','user.name=t','-c','user.email=t@x.invalid','commit','-qm','publication'],check=True)
+            incumbent=self._write_incumbent(root); output=root/'site-output'
+            build(root,output,base_path='/tare.tools.research/',incumbent=incumbent)
+            decision=json.loads((packet/'EDITORIAL_DECISION.json').read_text(encoding='utf-8'))
+            decision.update(decision='reject',pages_approved=False)
+            (packet/'EDITORIAL_DECISION.json').write_text(json.dumps(decision,indent=2),encoding='utf-8')
+            errors=validate_contract(output,root,incumbent,'/tare.tools.research/')
+            self.assertTrue(any('does not authorize Pages publication' in error for error in errors),errors)
+
+    def test_missing_same_page_fragment_fails_closed(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); self._git_init(root)
+            self._write_publication(root,'study-a',extra='<a href="#missing">Missing</a>')
+            subprocess.run(['git','-C',str(root),'add','.'],check=True)
+            subprocess.run(['git','-C',str(root),'-c','user.name=t','-c','user.email=t@x.invalid','commit','-qm','publication'],check=True)
+            with self.assertRaisesRegex(ValueError,'unresolved internal fragment'):
+                build(root,root/'site-output',base_path='/tare.tools.research/')
+
+    def test_missing_cross_publication_fragment_fails_closed(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); self._git_init(root)
+            self._write_publication(root,'study-b')
+            self._write_publication(root,'study-a',extra='<a href="../study-b/article.html#missing">Missing</a>')
+            subprocess.run(['git','-C',str(root),'add','.'],check=True)
+            subprocess.run(['git','-C',str(root),'-c','user.name=t','-c','user.email=t@x.invalid','commit','-qm','publication'],check=True)
+            with self.assertRaisesRegex(ValueError,'unresolved internal fragment'):
                 build(root,root/'site-output',base_path='/tare.tools.research/')
 
 

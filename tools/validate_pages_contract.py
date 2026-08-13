@@ -12,14 +12,14 @@ from pages_common import normalize_base_path, semantic_fingerprint, sha256_file
 
 
 def _resolve_site_target(output: Path, page: Path, value: str, base_path: str) -> Path | None:
-    if not value or value.startswith('#'):
+    if not value:
         return None
     parsed=urlsplit(value)
     if parsed.scheme in {'http','https','mailto','tel'} or value.startswith('//'):
         return None
     path=parsed.path
     if not path:
-        return None
+        return page if parsed.fragment else None
     if path.startswith('/'):
         if not path.startswith(base_path):
             raise ValueError(f'URL outside Pages base path: {value}')
@@ -30,6 +30,13 @@ def _resolve_site_target(output: Path, page: Path, value: str, base_path: str) -
     if path.endswith('/') or target.is_dir():
         target=target/'index.html'
     return target
+
+
+def _fragment_exists(target: Path, fragment: str) -> bool:
+    if not fragment or target.suffix.lower() not in {'.html','.htm'}:
+        return True
+    soup=BeautifulSoup(target.read_text(encoding='utf-8'),'html.parser')
+    return soup.find(id=fragment) is not None
 
 
 def validate(output: Path, root: Path, incumbent: Path, base_path: str) -> list[str]:
@@ -53,6 +60,7 @@ def validate(output: Path, root: Path, incumbent: Path, base_path: str) -> list[
             try: target=_resolve_site_target(output,page,node['href'],base_path)
             except ValueError as exc: errors.append(f'{page}: {exc}'); continue
             if target is not None and not target.is_file(): errors.append(f'{page}: broken href {node["href"]}')
+            elif target is not None and not _fragment_exists(target,urlsplit(node['href']).fragment): errors.append(f'{page}: broken fragment {node["href"]}')
         for node in soup.find_all(src=True):
             try: target=_resolve_site_target(output,page,node['src'],base_path)
             except ValueError as exc: errors.append(f'{page}: {exc}'); continue
@@ -74,6 +82,15 @@ def validate(output: Path, root: Path, incumbent: Path, base_path: str) -> list[
         if source_article is None or semantic_fingerprint(source_article)!=record.get('source_semantic_fingerprint'): errors.append(f'{record_path}: source fingerprint mismatch')
         editorial=record.get('editorial_decision')
         if not isinstance(editorial,dict) or editorial.get('decision')!='accept' or editorial.get('pages_approved') is not True or not editorial.get('sha256'): errors.append(f'{record_path}: editorial approval evidence missing')
+        else:
+            decision_path=source.parent/'EDITORIAL_DECISION.json'
+            if not decision_path.is_file(): errors.append(f'{record_path}: editorial decision source missing')
+            else:
+                decision=json.loads(decision_path.read_text(encoding='utf-8'))
+                if sha256_file(decision_path)!=editorial['sha256']: errors.append(f'{record_path}: editorial decision SHA mismatch')
+                if decision.get('decision')!='accept' or decision.get('pages_approved') is not True: errors.append(f'{record_path}: editorial decision does not authorize Pages publication')
+                for key in ('decision_id','document_id','manifest_sha256','decision','pages_approved','reviewer','reviewed_at'):
+                    if editorial.get(key)!=decision.get(key): errors.append(f'{record_path}: projected editorial decision mismatch: {key}')
         metadata=json.loads((source.parent/'document-metadata.json').read_text(encoding='utf-8'))
         soup=BeautifulSoup(page.read_text(encoding='utf-8'),'html.parser')
         if soup.html is None or soup.html.get('lang')!=metadata.get('language'): errors.append(f'{page}: projection language mismatch')

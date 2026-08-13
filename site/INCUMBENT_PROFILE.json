@@ -3,6 +3,7 @@
   "name": "semantic-preservation-v2-pages-incumbent",
   "source_ref": "f5b34297b26339e25267401e4fdefed381a827a3",
   "source_branch": "agent/semantic-preservation-curation-v2",
+  "deploy_owner": ".github/workflows/pages-deploy.yml@agent/semantic-preservation-curation-v2",
   "base_path": "/tare.tools.research/",
   "critical_paths": [
     "index.html",
