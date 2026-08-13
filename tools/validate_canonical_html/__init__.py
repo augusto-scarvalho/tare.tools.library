@@ -5,13 +5,25 @@ on the Pages renderer dependency set.
 """
 import validate_canonical_contract as _contract
 
-_original_init = _contract.ContractParser.__init__
+_VOID = {"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
-def _compat_init(self):
-    _original_init(self)
-    self.capture_abstract = False
+class _CompatParser(_contract.ContractParser):
+    def __init__(self):
+        super().__init__()
+        self.capture_abstract = False
 
-_contract.ContractParser.__init__ = _compat_init
+    def handle_starttag(self, tag, attrs):
+        super().handle_starttag(tag, attrs)
+        if tag in _VOID and self.stack and self.stack[-1] == tag:
+            self.stack.pop()
+
+    def handle_startendtag(self, tag, attrs):
+        if tag in _VOID:
+            self.handle_starttag(tag, attrs)
+        else:
+            super().handle_startendtag(tag, attrs)
+
+_contract.ContractParser = _CompatParser
 validate_packet = _contract.validate_packet
 
 __all__ = ["validate_packet"]
