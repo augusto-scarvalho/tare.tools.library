@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Canário de publicação SIGNAL para GitHub Pages</title>
+</head>
+<body>
+  <main>
+    <article data-tare-document>
+      <header data-tare-role="document-header">
+        <h1>Canário de publicação SIGNAL para GitHub Pages</h1>
+        <p data-tare-role="abstract">Documento canário de baixa autoridade destinado a exercitar o fluxo editorial, a projeção SIGNAL e as provas de preservação do GitHub Pages sem conceder autoridade de cutover.</p>
+      </header>
+
+      <aside data-tare-role="authority-boundary">
+        RESEARCH. Este documento é evidência operacional de um caminho de publicação. Ele não cria TARGET, CURRENT, aprovação editorial nem autoridade para alterar o GitHub Pages público.
+      </aside>
+
+      <section id="scope" data-tare-section="scope">
+        <h2>Escopo</h2>
+        <p>O canário existe para provar um caminho mínimo, real e auditável entre um artefato HTML canônico e sua futura projeção de leitura. O efeito de produção permanece fora do escopo.</p>
+        <ul>
+          <li>preservar o HTML canônico como source artifact;</li>
+          <li>exercitar idioma <strong>pt-BR</strong>, estrutura semântica e asset local;</li>
+          <li>fornecer alvos verificáveis para links e fragmentos;</li>
+          <li>produzir evidência que possa ser recalculada independentemente.</li>
+        </ul>
+        <p><a href="#findings">Ir para os achados do canário</a>.</p>
+      </section>
+
+      <section id="evidence" data-tare-section="evidence">
+        <h2>Método e evidência</h2>
+        <p>O documento foi deliberadamente construído com uma superfície HTML pequena, mas heterogênea. O objetivo é detectar perdas que um fingerprint baseado apenas em texto corrido poderia não distinguir.</p>
+
+        <figure id="evidence-flow">
+          <img src="canary.svg" alt="Fluxo do source canônico para autoridade editorial, projeção e evidência">
+          <figcaption>Fluxo conceitual do canário. A autoridade editorial precede a elegibilidade de projeção e não é inferida do resultado dos testes.</figcaption>
+        </figure>
+
+        <table aria-label="Gates observáveis do canário">
+          <caption>Gates que devem permanecer separáveis</caption>
+          <thead>
+            <tr><th>Gate</th><th>Evidência esperada</th><th>Concede cutover?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Editorial</td><td>decisão ligada ao manifest</td><td>Não</td></tr>
+            <tr><td>Projection</td><td>source/projection record</td><td>Não</td></tr>
+            <tr><td>Validation</td><td>links, fragments e semantic surface</td><td>Não</td></tr>
+          </tbody>
+        </table>
+
+        <blockquote>
+          Green CI é evidência de qualificação; não é autoridade para produzir um efeito de publicação.
+        </blockquote>
+
+        <details id="expected-receipts">
+          <summary>Receipts esperados após publicação legítima</summary>
+          <ol>
+            <li>PUBLICATION_RECORD ligado ao manifest e à decisão editorial;</li>
+            <li>PROJECTION_RECORD com hashes e rewrite ledgers;</li>
+            <li>PARITY_REPORT preservando o incumbent;</li>
+            <li>CUTOVER_READINESS registrando blockers sem autoautorizar o cutover.</li>
+          </ol>
+        </details>
+      </section>
+
+      <section id="findings" data-tare-section="findings">
+        <h2>Achados esperados</h2>
+        <p>Um canário aprovado deverá aparecer em um endereço aditivo sob <code>/tare.tools.research/p/research-pages-canary-v1/</code>, com o idioma preservado, o asset local resolvido e o link para <code>#findings</code> válido.</p>
+        <p>A seguinte invariável deve continuar verdadeira:</p>
+        <pre><code>authority != green_ci
+projection != canonical_source
+merge_shadow != pages_cutover</code></pre>
+        <p><em>Qualquer divergência</em> entre essas relações é resultado de teste, não motivo para suavizar o gate.</p>
+      </section>
+
+      <section id="limitations" data-tare-section="limitations">
+        <h2>Limitações</h2>
+        <p>Este documento não prova sozinho equivalência visual completa, não testa referências cross-publication porque ainda não existe um segundo alvo canônico aprovado sob o mesmo contrato e não representa a diversidade do corpus histórico.</p>
+        <p>Browser/render evidence, aprovação editorial e autoridade de cutover continuam sendo gates externos e explícitos.</p>
+      </section>
+
+      <section id="references" data-tare-section="references">
+        <h2>Referências</h2>
+        <p>Referências normativas imediatas: <code>HTML_PUBLICATION_STANDARD.md</code>, <code>CONTRIBUTING.md</code>, <code>site/INCUMBENT_PROFILE.json</code> e os validators do próprio repositório no commit canônico declarado nos metadados.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
