@@ -80,6 +80,27 @@
     "origin": "chatgpt-project-session-import"
   },
   {
+    "document_id": "research.chat.information-survival-demand-lineage-2026-08-12",
+    "title": "Tare.tools - Durable State, Persistence & Consistency Semantics",
+    "path": "corpus/original/2026-08-12-chat-import/Tare.tools - Durable State, Persistence & Consistency Semantics.txt",
+    "sha256": "39d7c678bb4b87a6f5455f4db4ae0c8a1552f4c3fb40896dc4a66af29758e4e7",
+    "size_bytes": 13406,
+    "status": "RESEARCH",
+    "document_type": "chat-research-summary",
+    "bounded_contexts": [
+      "Project / Workspace",
+      "Workflow",
+      "Runtime",
+      "Validation / Assurance",
+      "Evidence / Provenance",
+      "Memory / Context",
+      "Evolution Control",
+      "Observability / Economics / Resources"
+    ],
+    "created_at": "2026-08-12",
+    "origin": "CHAT_EXACT_EXPORT"
+  },
+  {
     "document_id": "research.reliability.semantics",
     "title": "Reliability Semantics",
     "path": "corpus/original/2026-08-11-chat-import/Tare.tools - Reliability Semantics.txt",
@@ -110,6 +131,28 @@
     ],
     "created_at": "2026-08-11",
     "origin": "chatgpt-project-session-import"
+  },
+  {
+    "document_id": "research.chat.identity-lineage-learning-2026-08-12",
+    "title": "Tare.tools - identidade",
+    "path": "corpus/original/2026-08-12-chat-import/Tare.tools - identidade.txt",
+    "sha256": "b7de23b2ce7e41c1f804b6a8d8c4c5f4a8bb636b056657ec33e6bae3340cc1eb",
+    "size_bytes": 15595,
+    "status": "RESEARCH",
+    "document_type": "chat-research-summary",
+    "bounded_contexts": [
+      "Identity / Authority / Policy",
+      "Workflow",
+      "Runtime",
+      "Capability / Effects",
+      "Validation / Assurance",
+      "Evidence / Provenance",
+      "Memory / Context",
+      "Evolution Control",
+      "Protocols / Interoperability"
+    ],
+    "created_at": "2026-08-12",
+    "origin": "CHAT_EXACT_EXPORT"
   },
   {
     "document_id": "research.interoperability.protocols",
