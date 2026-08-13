@@ -19,14 +19,15 @@
     "document-metadata.json",
     "provenance.json",
     "evidence-register.json",
-    "research-pointers.json"
+    "research-pointers.json",
+    "owner-direction-receipt.json",
+    "lineage/02-root-cause-modelo-formal.html",
+    "lineage/03-pesquisa-comparativa.html"
   ],
   "primary_artifact": "article.html",
-  "requested_channels": [
-    "pages"
-  ],
+  "requested_channels": ["pages"],
   "historical_preservation": true,
   "canonical_change": false,
   "promotion_packet": null,
-  "notes": "Submission requests editorial acceptance and Pages eligibility only. It does not self-approve publication, mint TARGET/CURRENT, or authorize any tare.tools repository effect."
+  "notes": "Corrective editorial: canonical HTML em PT-BR; archive completo de lineage persistido em commit Git imutável e registrado em provenance; owner-direction receipt com locator persistente. Os dois HTMLs em lineage/ são supporting historical evidence redundante. Submission não autoaprova publicação nem minta TARGET/CURRENT."
 }
