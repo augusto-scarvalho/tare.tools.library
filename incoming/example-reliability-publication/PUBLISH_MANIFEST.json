@@ -16,9 +16,8 @@
   ],
   "primary_artifact": "article.html",
   "requested_channels": ["pages"],
-  "pages_approved": false,
   "historical_preservation": true,
   "canonical_change": false,
   "promotion_packet": null,
-  "notes": "Synthetic bootstrap example."
+  "notes": "Synthetic bootstrap example. Pages publication requires a separate editorial decision."
 }
