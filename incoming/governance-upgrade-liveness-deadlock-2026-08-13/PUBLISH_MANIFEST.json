@@ -19,7 +19,9 @@
     "document-metadata.json",
     "provenance.json",
     "evidence-register.json",
-    "research-pointers.json"
+    "research-pointers.json",
+    "owner-direction-receipt.json",
+    "lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip"
   ],
   "primary_artifact": "article.html",
   "requested_channels": [
@@ -28,5 +30,5 @@
   "historical_preservation": true,
   "canonical_change": false,
   "promotion_packet": null,
-  "notes": "Submission requests editorial acceptance and Pages eligibility only. It does not self-approve publication, mint TARGET/CURRENT, or authorize any tare.tools repository effect."
+  "notes": "Corrective editorial: HTML em PT-BR; lineage original materializada byte-for-byte; owner-direction receipt com locator persistente. Submission não autoaprova publicação nem minta TARGET/CURRENT."
 }
