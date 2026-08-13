@@ -4,7 +4,7 @@
   "document_id": "research.pages.canary.v1",
   "validated_projection": {
     "page_path": "p/research-pages-canary-v1/index.html",
-    "page_sha256": "ecc27ad3db45c256e61b58e140893a7a8325b7d24d7e9f69899809fa830b284c",
+    "page_visual_sha256": "220798547207f029370acc97cb17645f95f0c1165d2d65934a364ce8ae6712ce",
     "signal_css_path": "assets/publisher/signal.css",
     "signal_css_sha256": "f39aab86459bdd59bf325b82331443c845fd7045d85b143b97a22fb6ac9af789",
     "signal_js_path": "assets/publisher/site.js",
@@ -21,7 +21,7 @@
     "engine": "Chromium",
     "harness": "Playwright",
     "network_mode": "offline-inline-assets",
-    "method": "official shadow HTML rendered in Chromium with exact emitted SIGNAL CSS and JS bytes inlined and the emitted local SVG loaded as a data URI"
+    "method": "official shadow HTML rendered in Chromium with exact emitted SIGNAL CSS and JS bytes inlined and the emitted local SVG loaded as a data URI; the visual page digest normalizes only the volatile CI build SHA in the footer"
   },
   "viewports": [
     {
