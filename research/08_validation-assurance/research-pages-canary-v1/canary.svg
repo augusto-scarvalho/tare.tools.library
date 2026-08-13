@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" role="img" aria-labelledby="title desc">
+  <title id="title">Pages canary evidence flow</title>
+  <desc id="desc">Canonical source flows through editorial authority, projection, validation and evidence before any cutover.</desc>
+  <rect x="8" y="24" width="140" height="64" rx="8" fill="none" stroke="currentColor"/>
+  <rect x="176" y="24" width="140" height="64" rx="8" fill="none" stroke="currentColor"/>
+  <rect x="344" y="24" width="140" height="64" rx="8" fill="none" stroke="currentColor"/>
+  <rect x="512" y="24" width="120" height="64" rx="8" fill="none" stroke="currentColor"/>
+  <text x="78" y="60" text-anchor="middle">Source</text>
+  <text x="246" y="60" text-anchor="middle">Authority</text>
+  <text x="414" y="60" text-anchor="middle">Projection</text>
+  <text x="572" y="60" text-anchor="middle">Evidence</text>
+  <path d="M148 56h28M316 56h28M484 56h28" fill="none" stroke="currentColor"/>
+</svg>
