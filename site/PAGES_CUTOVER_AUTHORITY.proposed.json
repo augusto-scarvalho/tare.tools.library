@@ -1,18 +1,18 @@
 {
   "proposal_version": "1.0",
   "proposal_kind": "pages-cutover-owner-authority-proposal",
-  "proposal_status": "NOT_AUTHORIZED",
+  "proposal_status": "AUTHORIZED_BY_REPOSITORY_OWNER",
   "repository": "augusto-scarvalho/tare.tools.research",
   "candidate_record": {
     "record_version": "1.0",
     "record_kind": "pages-cutover-owner-authority",
     "repository": "augusto-scarvalho/tare.tools.research",
-    "decision_id": "pages.cutover.pending-owner-authority",
+    "decision_id": "pages.cutover.owner-authority.2026-08-13T19-41-03",
     "decision": "authorize-cutover",
     "canary_id": "research.pages.canary.v1",
     "candidate_deploy_owner": ".github/workflows/pages.yml@main",
     "qualified_owner_commit": "0d27bcddc9176ac8e4181ba0c808a6046c8791f2",
-    "authorized_at": null,
+    "authorized_at": "2026-08-13T19:41:00-03:00",
     "owner": {
       "identity_ref": "github:augusto-scarvalho",
       "role": "repository-owner"
@@ -28,5 +28,5 @@
       "authority_validator_sha256": "5391ed5fc8e4e768a5d8d75a587c68d689ee7c182ea7c1dff47ba2b106fcaf7b"
     }
   },
-  "activation_rule": "This proposal is inert. It must not be copied to site/PAGES_CUTOVER_AUTHORITY.json until the repository owner explicitly authorizes the public Pages cutover."
+  "activation_rule": "Repository-owner authority was explicitly granted on 2026-08-13. The active authority record is site/PAGES_CUTOVER_AUTHORITY.json and remains fail-closed against the exact qualified bindings above."
 }
