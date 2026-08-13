@@ -45,8 +45,12 @@ jobs:
         run: sudo chown -R "$USER":"$USER" site/_incumbent
       - name: Build additive SIGNAL publication shadow
         run: python tools/build_pages.py --incumbent site/_incumbent --output site/_site --base-path /tare.tools.research/
-      - name: Validate base path, links, semantic parity and incumbent parity
+      - name: Validate base path, links, semantic surface and incumbent parity
         run: python tools/validate_pages_contract.py site/_site --root . --incumbent site/_incumbent --base-path /tare.tools.research/
+      - name: Generate rollback and cutover-readiness receipt
+        env:
+          CANDIDATE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python tools/cutover_readiness.py --root . --site site/_site --incumbent site/_incumbent --base-path /tare.tools.research/ --candidate-sha "$CANDIDATE_SHA" --canary-id research.pages.canary.v1
       - name: Upload shadow preview
         uses: actions/upload-artifact@v4
         with:
