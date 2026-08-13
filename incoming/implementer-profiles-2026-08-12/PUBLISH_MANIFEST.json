@@ -1,1 +1,9 @@
-{}
+{
+  "packet_version": "1.0",
+  "document_id": "implementer-profiles-longitudinal-2026-08-13",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "repository": "tare.tools.research",
+  "destination": null,
+  "artifacts": ["document-metadata.json", "study.md", "evidence-annex.md", "peer-review-protocol.md", "provenance.md"]
+}
