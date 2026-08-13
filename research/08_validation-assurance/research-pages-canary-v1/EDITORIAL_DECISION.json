@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.pages-canary-v1.20260813.001",
+  "document_id": "research.pages.canary.v1",
+  "manifest_sha256": "a3326e2756b90cafe7720d2acba16c5b14391ba8f38f0223a8795648054754ff",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-13T21:18:00Z",
+  "notes": "Owner explicitly approved the visual canary for Pages publication. This approval authorizes the canary publication lifecycle only and does not authorize GitHub Pages cutover."
+}

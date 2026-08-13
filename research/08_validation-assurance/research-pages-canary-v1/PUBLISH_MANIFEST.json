@@ -1,0 +1,14 @@
+{
+  "packet_version": "1.1",
+  "document_id": "research.pages.canary.v1",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "repository": "tare.tools.research",
+  "bounded_contexts": ["Validation / Assurance", "Evidence / Provenance", "Experience / Human Interface"],
+  "artifacts": ["article.html", "document-metadata.json", "canary.svg"],
+  "primary_artifact": "article.html",
+  "requested_channels": ["pages"],
+  "historical_preservation": true,
+  "canonical_change": false,
+  "promotion_packet": null
+}
