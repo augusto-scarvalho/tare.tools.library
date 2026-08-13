@@ -65,6 +65,7 @@ No corpus principal, foram materializados **11 documentos** nesta árvore. Os or
 - [`catalog/identity-crosswalk/`](catalog/identity-crosswalk/) — vínculo entre uma referência e bytes exatos materializados, sem reescrever o registro de descoberta.
 - [`catalog/`](catalog/) — índices, catálogos e grafo.
 - `incoming/` — staging documental antes do roteamento.
+- [`HTML_PUBLICATION_STANDARD.md`](HTML_PUBLICATION_STANDARD.md) — contrato do HTML canônico; Pages Signal é uma projeção derivada.
 - `schemas/` — contratos de metadata/publicação/tradução.
 - `tools/` — automação determinística.
 

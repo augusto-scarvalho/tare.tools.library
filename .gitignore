@@ -8,3 +8,4 @@ htmlcov/
 Thumbs.db
 *.tmp
 *.log
+site/_site/

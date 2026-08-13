@@ -1,0 +1,14 @@
+{
+  "document_id": "research.reliability.example-publication",
+  "title": "Reliability Semantics — publication example",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-13",
+  "language": "en",
+  "abstract": "Synthetic packet demonstrating the canonical HTML publication profile.",
+  "authors": [{"name": "tare.tools editorial example", "role": "editor"}],
+  "architecture_epoch": null,
+  "canonical_commit": null,
+  "bounded_contexts": ["Reliability", "Capability / Effects", "Runtime"],
+  "provenance": {"origin": "SYNTHETIC_EXAMPLE", "notes": "No claim of canonical or historical authority."}
+}
