@@ -2,7 +2,7 @@ from pathlib import Path
 import hashlib,json,sys,tempfile,unittest
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
-from cutover_readiness_support import visual_evidence
+from cutover_readiness_support import visual_evidence,visual_page_digest
 
 
 def digest(data: bytes) -> str:
@@ -13,7 +13,7 @@ class VisualEvidenceTests(unittest.TestCase):
     def _fixture(self, root: Path):
         output=root/'out'; (output/'p/canary').mkdir(parents=True); (output/'assets/publisher').mkdir(parents=True)
         files={
-            'p/canary/index.html':b'<html><body>ok</body></html>',
+            'p/canary/index.html':b'<html><body>ok</body><footer>build 1111111111111111111111111111111111111111 \xc2\xb7 SIGNAL profile 1.0</footer></html>',
             'assets/publisher/signal.css':b'body{}',
             'assets/publisher/site.js':b'void 0',
         }
@@ -24,7 +24,7 @@ class VisualEvidenceTests(unittest.TestCase):
             'document_id':'research.pages.canary.v1',
             'renderer':{'engine':'Chromium','harness':'Playwright'},
             'validated_projection':{
-                'page_path':'p/canary/index.html','page_sha256':digest(files['p/canary/index.html']),
+                'page_path':'p/canary/index.html','page_visual_sha256':visual_page_digest(output/'p/canary/index.html'),
                 'signal_css_path':'assets/publisher/signal.css','signal_css_sha256':digest(files['assets/publisher/signal.css']),
                 'signal_js_path':'assets/publisher/site.js','signal_js_sha256':digest(files['assets/publisher/site.js']),
             },
@@ -58,5 +58,15 @@ class VisualEvidenceTests(unittest.TestCase):
             result=visual_evidence(root,output,'research.pages.canary.v1')
             self.assertEqual(result['status'],'FAIL')
             self.assertIn('mobile visual assertion failed: no_horizontal_overflow',result['errors'])
+
+    def test_only_ci_build_sha_is_normalized(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); output,_=self._fixture(root)
+            page=output/'p/canary/index.html'
+            before=visual_page_digest(page)
+            page.write_text(page.read_text(encoding='utf-8').replace('1'*40,'2'*40),encoding='utf-8')
+            self.assertEqual(before,visual_page_digest(page))
+            page.write_text(page.read_text(encoding='utf-8').replace('ok','changed'),encoding='utf-8')
+            self.assertNotEqual(before,visual_page_digest(page))
 
 if __name__=='__main__': unittest.main()
