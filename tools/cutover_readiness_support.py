@@ -73,6 +73,7 @@ def workflow_ownership(root: Path, current_owner: str | None) -> dict[str, Any]:
 
 
 def _find_metadata(root: Path, canary_id: str) -> Path | None:
+    matches: list[Path] = []
     for path in sorted(root.rglob("document-metadata.json")):
         relative = path.relative_to(root)
         if any(part.startswith(".") for part in relative.parts):
@@ -82,8 +83,14 @@ def _find_metadata(root: Path, canary_id: str) -> Path | None:
         except (json.JSONDecodeError, OSError):
             continue
         if metadata.get("document_id") == canary_id:
-            return path
-    return None
+            matches.append(path)
+    if not matches:
+        return None
+    # The accepted incoming packet is intentionally retained. Once a routed
+    # publication exists, prefer the materialization carrying PUBLICATION_RECORD
+    # so provenance staging cannot shadow the actual published source.
+    matches.sort(key=lambda path: (not (path.parent / "PUBLICATION_RECORD.json").is_file(), path.as_posix()))
+    return matches[0]
 
 
 def canary_evidence(root: Path, output: Path, canary_id: str) -> dict[str, Any]:
