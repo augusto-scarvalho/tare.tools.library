@@ -14,7 +14,7 @@ def validate(m):
  e=[]
  for k in ["packet_version","document_id","document_type","status","repository","bounded_contexts","artifacts","canonical_change"]:
   if k not in m:e.append(f"missing:{k}")
- if m.get('packet_version')!='1.0':e.append('packet_version must be 1.0')
+ if m.get('packet_version') not in {'1.0','1.1'}:e.append('packet_version must be 1.0 or 1.1')
  if m.get('status') not in ALLOWED_STATUS:e.append('invalid status')
  if m.get('repository')=='tare.tools.research' and m.get('status') in {'TARGET','CURRENT'}:e.append('research repo cannot mint TARGET/CURRENT')
  if m.get('document_type') in CANONICAL_TYPES and m.get('repository')!='tare-tools':e.append('canonical type requires tare-tools')
@@ -22,6 +22,14 @@ def validate(m):
  if m.get('repository')=='tare-tools' and not m.get('promotion_packet'):e.append('promotion_packet required')
  if not isinstance(m.get('bounded_contexts'),list) or not m.get('bounded_contexts'):e.append('bounded_contexts required')
  if not isinstance(m.get('artifacts'),list) or not m.get('artifacts'):e.append('artifacts required')
+ if m.get('packet_version')=='1.1':
+  primary=m.get('primary_artifact')
+  if not isinstance(primary,str) or primary not in m.get('artifacts',[]):e.append('primary_artifact must be a declared artifact')
+  elif not primary.endswith('.html'):e.append('primary_artifact must be canonical HTML')
+  if 'document-metadata.json' not in m.get('artifacts',[]):e.append('document-metadata.json must be a declared artifact')
+  channels=m.get('requested_channels',[])
+  if not isinstance(channels,list) or any(x!='pages' for x in channels):e.append('requested_channels may contain only pages')
+  if 'pages_approved' not in m or not isinstance(m['pages_approved'],bool):e.append('pages_approved must be boolean')
  return e
 
 def route(m):

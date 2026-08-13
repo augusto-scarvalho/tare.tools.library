@@ -15,7 +15,7 @@
   ],
   "properties": {
     "packet_version": {
-      "const": "1.0"
+      "enum": ["1.0", "1.1"]
     },
     "document_id": {
       "type": "string"
@@ -70,6 +70,17 @@
       "items": {
         "type": "string"
       }
+    },
+    "primary_artifact": {
+      "type": "string"
+    },
+    "requested_channels": {
+      "type": "array",
+      "items": {"enum": ["pages"]},
+      "uniqueItems": true
+    },
+    "pages_approved": {
+      "type": "boolean"
     },
     "historical_preservation": {
       "type": "boolean"

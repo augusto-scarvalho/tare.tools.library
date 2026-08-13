@@ -34,7 +34,8 @@ Open a **draft** PR containing one packet at
 - `document-metadata.json`, conforming to
   [`schemas/document.schema.json`](schemas/document.schema.json), and listed
   as an artifact;
-- the proposed editorial material and, when applicable, its protocol,
+- a canonical HTML primary artifact following
+  [HTML_PUBLICATION_STANDARD.md](HTML_PUBLICATION_STANDARD.md), and, when applicable, its protocol,
   result ledger, audit, or source material;
 - a provenance statement for every evidence item: original location, digest
   when known, availability, and whether its exact bytes were materialized;
@@ -42,6 +43,11 @@ Open a **draft** PR containing one packet at
   contexts;
 - for substantial research, the canonical `tare-tools` commit and architecture
   epoch against which conclusions were produced.
+
+For new packets use `packet_version: "1.1"`, declare `primary_artifact`, and
+include `document-metadata.json`. `requested_channels: ["pages"]` requests a
+Signal Pages projection; it is not approval. Only editorial review may set
+`pages_approved: true` in the publication record.
 
 Never overwrite an original in `corpus/original/`. Preserve historical
 receipts, audits, and negative results; publish a new correction, delta, or

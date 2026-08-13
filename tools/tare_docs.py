@@ -41,11 +41,19 @@ def validate_manifest(m):
  errors=[]
  for k in ["packet_version","document_id","document_type","status","repository","bounded_contexts","artifacts","canonical_change"]:
   if k not in m: errors.append(f"missing:{k}")
- if m.get("packet_version")!="1.0": errors.append("packet_version must be 1.0")
+ if m.get("packet_version") not in {"1.0","1.1"}: errors.append("packet_version must be 1.0 or 1.1")
  if m.get("status") not in ALLOWED_STATUS: errors.append("invalid status")
  if m.get("repository") not in {"tare.tools.research","tare-tools"}: errors.append("invalid repository")
  if not isinstance(m.get("bounded_contexts"),list) or not m.get("bounded_contexts"): errors.append("bounded_contexts required")
  if not isinstance(m.get("artifacts"),list) or not m.get("artifacts"): errors.append("artifacts required")
+ if m.get("packet_version")=="1.1":
+  primary=m.get("primary_artifact")
+  if not isinstance(primary,str) or primary not in m.get("artifacts",[]): errors.append("primary_artifact must be a declared artifact")
+  elif not primary.endswith(".html"): errors.append("primary_artifact must be canonical HTML")
+  if "document-metadata.json" not in m.get("artifacts",[]): errors.append("document-metadata.json must be a declared artifact")
+  channels=m.get("requested_channels",[])
+  if not isinstance(channels,list) or any(x!="pages" for x in channels): errors.append("requested_channels may contain only pages")
+  if "pages_approved" not in m or not isinstance(m["pages_approved"],bool): errors.append("pages_approved must be boolean")
  # Authority/promotion boundaries
  if m.get("repository")=="tare.tools.research" and m.get("status") in {"TARGET","CURRENT"}:
   errors.append("research repo cannot mint TARGET/CURRENT")
@@ -112,7 +120,11 @@ def cmd_validate_repo(args):
  incoming=root/'incoming'
  if incoming.exists():
   for p in incoming.rglob('PUBLISH_MANIFEST.json'):
-   errs += [f'{p.relative_to(root)}: {x}' for x in validate_manifest(load_json(p))]
+   manifest=load_json(p)
+   errs += [f'{p.relative_to(root)}: {x}' for x in validate_manifest(manifest)]
+   if manifest.get('packet_version')=='1.1':
+    from validate_canonical_html import validate_packet
+    errs += [f'{p.relative_to(root)}: {x}' for x in validate_packet(p.parent,manifest)]
  if errs:
   print('\n'.join('ERROR '+e for e in errs)); return 2
  print('PASS repository validation'); return 0

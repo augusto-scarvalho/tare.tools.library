@@ -102,6 +102,9 @@ def _publication_record(manifest: dict, destination: str, receipt: GitPublicatio
         "branch": receipt.branch,
         "manifest_sha256": receipt.manifest_sha256,
         "artifact_sha256": _artifact_digests(artifacts),
+        "primary_artifact": manifest.get("primary_artifact"),
+        "requested_channels": manifest.get("requested_channels", []),
+        "pages_approved": manifest.get("pages_approved", False),
         "remote_effects": False,
     }
 
