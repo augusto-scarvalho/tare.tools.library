@@ -13,6 +13,14 @@ Documentos materializados relacionados: **4**. Referências pendentes de reidrat
 | **Sessão de implementer 2**<br><sub>`archaeology.implementer-session-2`</sub> | `HISTORICAL` | `handoff` | Validation / Assurance, Runtime, Identity / Authority / Policy | [PT-BR](../../corpus/original/2026-08-11-chat-import/tare.tools%20-%20sess%C3%A3o%20de%20implementer%202.txt) · [EN](../../corpus/translations/en/2026-08-11-chat-import/tare.tools%20-%20sess%C3%A3o%20de%20implementer%202.en.md)<br><sub>`MACHINE_TRANSLATED_UNREVIEWED`</sub> |
 | **Testes e gates**<br><sub>`research.assurance.tests-gates`</sub> | `RESEARCH` | `research` | Validation / Assurance, Evidence / Provenance, Evolution Control | [PT-BR](../../corpus/original/2026-08-11-chat-import/tare.tools%20-%20testes%2C%20gates.txt) · [EN](../../corpus/translations/en/2026-08-11-chat-import/tare.tools%20-%20testes%2C%20gates.en.md)<br><sub>`MACHINE_TRANSLATED_UNREVIEWED`</sub> |
 
+## Estudos derivados ativos
+
+| Estudo | Status | Escopo | Última atualização |
+|---|---|---|---|
+| [**Assurance Topology — Regression Treasury to Evidence Acquisition**](2026-08-13-assurance-topology/README.md) | `RESEARCH / ACTIVE / PEER-REVIEW DRAFT` | evidence classes, GatePlan shadow, test lanes, fixture debt, cross-platform assurance, time-to-trust e protocolo prospectivo | 2026-08-13 |
+
+> O dossiê é derivado de evidência operacional recente e não altera a autoridade dos gates CURRENT. Qualquer adoção requer Findings → ADR → SPEC → BDD → Implementation Packet no repositório canônico.
+
 ## Pendentes de reidratação
 
 | Referência pendente | Prioridade | Tipo | Família | Idioma | Estado |
