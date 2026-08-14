@@ -1,0 +1,40 @@
+{
+  "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
+  "title": "Deadlock de governança e liveness de evolução no tare.tools: arqueologia, causa-raiz e arquitetura de recuperação",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-13",
+  "language": "pt-BR",
+  "abstract": "Estudo arqueológico e comparativo do ciclo de governança que tornou mudanças tecnicamente qualificadas difíceis de publicar, validar em GitHub CI e landar no tare.tools. A investigação reconstrói a evolução de Validation, Reckon, Mutation, Audit, CommitAuthority, proof authority e TrustedVerifier; modela a circularidade como um bootstrap authority dependency cycle; cruza o caso com deadlocks, secure bootstrap, supply-chain provenance e failure modes de sistemas agênticos; e propõe, sem ratificação arquitetural, Recovery Bridge → Trusted Control Plane → Incumbent-to-Incumbent Evolution como caminho de recuperação compatível com os princípios de authority-before-intelligence, evidence-first e migração incremental do tare.tools.",
+  "authors": [
+    {"name": "Augusto Carvalho", "role": "author"},
+    {"name": "ChatGPT (GPT-5.6 Sol)", "role": "agent"}
+  ],
+  "architecture_epoch": "governed multi-vendor harness → evidence-connected adaptive platform → tare.tools Agent Operating System; governance-hardening / Trust Genesis transition",
+  "canonical_commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+  "bounded_contexts": ["Identity / Authority / Policy","Validation / Assurance","Evidence / Provenance","Evolution Control","Workflow","Capability / Effects","Protocols / Interoperability"],
+  "lineage": {
+    "derived_from": [
+      "supporting-normalized-copy:https://github.com/augusto-scarvalho/tare.tools.research/blob/b36485cef39fc4011a9a51672bfc8d17986d0494/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/00-index.html@sha256:b7623f96a95f0749f3d5b3f499a08abe19313ffcbaf5a37d21c1f3ccff5a5c6d",
+      "supporting-normalized-copy:https://github.com/augusto-scarvalho/tare.tools.research/blob/55eed811e006ee60f7e363cecb34a4147ea0bca4/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/01-cronologia.html@sha256:e01cd8710c930ec8cd73b5487a66a2cd433be993f4a054cc158923faabb65aca",
+      "supporting-normalized-copy:lineage/02-root-cause-modelo-formal.html@sha256:796eca23d5755ecf2ad29354b2e95eaf00162e4cbdf48b0946d63af4189ab79c",
+      "supporting-normalized-copy:lineage/03-pesquisa-comparativa.html@sha256:215b9424201405d6486837da9fd58b0773dcae91d87f962d850bf96ed9d6eb1e"
+    ],
+    "recorded_source_digest_claims": {
+      "00-index.html": "6676378e0fc30b8df0f814af99ec0feb519f7238ab0ad43be43cd80f57788205",
+      "01-cronologia.html": "6b73834a75867a0a2ab7d7aaa0ded706f6b3341992a6c99d4bbb8b6ad28aec70",
+      "02-root-cause-modelo-formal.html": "eeb2375ba03076e458c554dff6d550334a49d1bd29986b6ef3e0619556b16a57",
+      "03-pesquisa-comparativa.html": "265cde5aff614806dc5b15dbcd1eae8b1662166aa422a110c642d5d8c10a1f3c",
+      "04-adr-arquitetura-escolhida.html": "87a22d27a5bce7eba255bc588192ee990313646fe3aa679730b26af2bca1d4f7",
+      "05-apendice-evidencias.html": "071e42209f5a5797f69e4063c873be161ebe3d98f2942c15f3542f227f9839b2"
+    },
+    "availability": "Exact source bytes are unavailable; four normalized supporting copies are retrievable. Recorded source digests are preserved as unverified historical claims."
+  },
+  "provenance": {
+    "origin": "Consolidação editorial da arqueologia de governança produzida em 2026-08-13 após a investigação do ciclo de CI/landing e Trust Genesis.",
+    "project": "tare.tools",
+    "source_path": "/mnt/data/tare-tools-governance-deadlock-archaeology-2026-08-13.zip",
+    "source_sha256": "340820c3c665a7d53c8e326d5b2b15fa58f2d2814b19397e63b656d789034589",
+    "notes": "O archive histórico completo foi materializado durante a investigação, mas não está atualmente recuperável. Quatro cópias históricas normalizadas permanecem recuperáveis por Git; os seis digests de origem são preservados como claims históricos não verificáveis contra os bytes hoje disponíveis. A direção arquitetural selecionada pelo owner possui receipt/locator separado. O research não ratifica TARGET/CURRENT."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "packet_version": "1.1",
+  "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "repository": "tare.tools.research",
+  "destination": null,
+  "bounded_contexts": [
+    "Identity / Authority / Policy",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Workflow",
+    "Capability / Effects",
+    "Protocols / Interoperability"
+  ],
+  "artifacts": [
+    "article.html",
+    "document-metadata.json",
+    "provenance.json",
+    "evidence-register.json",
+    "research-pointers.json",
+    "owner-direction-receipt.json",
+    "lineage/02-root-cause-modelo-formal.html",
+    "lineage/03-pesquisa-comparativa.html"
+  ],
+  "primary_artifact": "article.html",
+  "requested_channels": ["pages"],
+  "historical_preservation": true,
+  "canonical_change": false,
+  "promotion_packet": null,
+  "notes": "Corrective editorial: canonical HTML em PT-BR; o archive-fonte e seus seis originais exatos estão indisponíveis, quatro cópias históricas normalizadas permanecem recuperáveis e os digests originalmente registrados são preservados como claims não verificados; owner-direction receipt com locator persistente. Submission não autoaprova publicação nem minta TARGET/CURRENT."
+}
