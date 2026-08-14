@@ -1,0 +1,33 @@
+name: create-publication-pr
+
+on:
+  push:
+    branches: [main]
+    paths: ['incoming/**/EDITORIAL_DECISION.json']
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Create deterministic Publication PR
+        env:
+          GH_TOKEN: ${{ secrets.TARE_PUBLISHER_APP_TOKEN }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          test -n "$GH_TOKEN" || { echo 'TARE_PUBLISHER_APP_TOKEN must be configured'; exit 1; }
+          mapfile -t decisions < <(git diff --name-only "$BEFORE" HEAD -- incoming | grep '/EDITORIAL_DECISION.json$' || true)
+          test "${#decisions[@]}" -eq 1 || { echo 'No single accepted editorial decision to publish'; exit 0; }
+          packet="${decisions[0]%/EDITORIAL_DECISION.json}"
+          test "$(python -c "import json; d=json.load(open('$packet/EDITORIAL_DECISION.json')); print(d['decision']=='accept')")" = True || { echo 'Decision is not an acceptance'; exit 0; }
+          PYTHONPATH=tools/publisher/src python -m tare_tools_publisher.cli "$packet/PUBLISH_MANIFEST.json" --backend github-cli --repo-root . --base-ref HEAD --github-repo "$GITHUB_REPOSITORY" --apply --allow-remote-effects
