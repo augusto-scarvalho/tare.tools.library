@@ -2,7 +2,7 @@
   "decision_version": "1.0",
   "decision_id": "editorial-pr21-2026-08-13",
   "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
-  "manifest_sha256": "2eb3bccfd8404936434f479a04cb40c22d192e1159dd95fc005cba5d738e54ae",
+  "manifest_sha256": "e91bf5f0d53aa688c662ce973a840bf27e6b21a1a6e5a278fe141d008ee600d6",
   "decision": "accept",
   "pages_approved": true,
   "reviewer": {
