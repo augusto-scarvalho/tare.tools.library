@@ -14,10 +14,22 @@
     "reviewed_at"
   ],
   "properties": {
-    "decision_version": {"const": "1.0"},
+    "decision_version": {"enum": ["1.0", "1.1"]},
     "decision_id": {"type": "string", "minLength": 1},
     "document_id": {"type": "string", "minLength": 1},
     "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "packet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "pr_number", "head_sha", "author_login"],
+      "properties": {
+        "repository": {"type": "string", "minLength": 1},
+        "pr_number": {"type": "integer", "minimum": 1},
+        "head_sha": {"type": "string", "minLength": 1},
+        "author_login": {"type": "string", "minLength": 1}
+      }
+    },
     "decision": {"enum": ["accept", "revise", "reject", "park"]},
     "pages_approved": {"type": "boolean"},
     "reviewer": {

@@ -50,6 +50,12 @@ include `document-metadata.json`. `requested_channels: ["pages"]` is only a
 request. **`pages_approved` is forbidden in the submitter-controlled manifest.**
 A packet cannot grant itself publication authority.
 
+For a new `pt-BR` Pages request, also declare `article.en.html`,
+`document-metadata.en.json`, and `TRANSLATION_MANIFEST.en.json` as artifacts.
+The translation manifest binds the source and derivative bytes; Pages publishes
+the English derivative while retaining the Portuguese packet as evidence. See
+[TRANSLATION_POLICY.md](TRANSLATION_POLICY.md).
+
 Never overwrite an original in `corpus/original/`. Preserve historical
 receipts, audits, and negative results; publish a new correction, delta, or
 superseding record instead.
@@ -79,6 +85,10 @@ The decision binds the exact manifest SHA-256 and records a decision id,
 reviewer identity evidence, review time, editorial outcome and
 `pages_approved`. `pages_approved: true` is valid only with `decision: accept`
 and only when the packet requested the Pages channel.
+
+New decisions use `decision_version: "1.1"`: they also bind a canonical packet
+digest plus the source PR, head SHA, and submitter identity. The submitter may
+not be the reviewer.
 
 The editorial decision is authority/evidence produced by the review process;
 it is **not** a submitter artifact and is not listed in the packet's

@@ -3,6 +3,9 @@
 from pathlib import Path
 import argparse, hashlib, json, os, re, shutil, sys
 
+sys.path.insert(0, str(Path(__file__).resolve().parent/'publisher'/'src'))
+from tare_tools_publisher.translation import validate_pages_translation
+
 ALLOWED_STATUS={"RESEARCH","PROPOSED","EXPERIMENTAL","HISTORICAL","TARGET","CURRENT"}
 RESEARCH_TYPES={"research","proposal","experiment","archaeology","handoff","source","finding"}
 CANONICAL_TYPES={"adr","spec","bdd","implementation_packet"}
@@ -125,6 +128,16 @@ def cmd_validate_repo(args):
    if manifest.get('packet_version')=='1.1':
     from validate_canonical_html import validate_packet
     errs += [f'{p.relative_to(root)}: {x}' for x in validate_packet(p.parent,manifest)]
+    decision_path=p.parent/'EDITORIAL_DECISION.json'
+    legacy=False
+    if decision_path.is_file():
+     try: legacy=load_json(decision_path).get('decision_version')=='1.0'
+     except (OSError,json.JSONDecodeError): errs.append(f'{decision_path.relative_to(root)}: invalid editorial decision JSON')
+    translation_errors,projection=validate_pages_translation(p.parent,manifest,legacy_decision=legacy)
+    errs += [f'{p.relative_to(root)}: {x}' for x in translation_errors]
+    if projection:
+     from validate_canonical_html import validate_artifacts
+     errs += [f'{p.relative_to(root)}: English derivative: {x}' for x in validate_artifacts(p.parent,manifest,projection['primary_artifact'],projection['metadata_artifact'])]
  if errs:
   print('\n'.join('ERROR '+e for e in errs)); return 2
  print('PASS repository validation'); return 0

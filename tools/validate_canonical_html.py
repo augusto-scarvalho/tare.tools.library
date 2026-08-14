@@ -119,11 +119,10 @@ def _validate_dom(raw: str, metadata: dict) -> list[str]:
     return errors
 
 
-def validate_packet(packet: Path, manifest: dict) -> list[str]:
+def validate_artifacts(packet: Path, manifest: dict, primary_name: str, metadata_name: str) -> list[str]:
     errors=[]
-    primary_name=manifest.get("primary_artifact")
     if not isinstance(primary_name,str): return ["primary_artifact required"]
-    primary=packet/primary_name; metadata_path=packet/"document-metadata.json"
+    primary=packet/primary_name; metadata_path=packet/metadata_name
     if not primary.is_file(): return [f"primary artifact missing: {primary_name}"]
     if not metadata_path.is_file(): return ["document-metadata.json missing"]
     try: metadata=json.loads(metadata_path.read_text(encoding="utf-8"))
@@ -133,6 +132,10 @@ def validate_packet(packet: Path, manifest: dict) -> list[str]:
     except UnicodeDecodeError as exc: return errors+[f"primary artifact must be UTF-8: {exc}"]
     errors.extend(_validate_dom(raw,metadata))
     return errors
+
+
+def validate_packet(packet: Path, manifest: dict) -> list[str]:
+    return validate_artifacts(packet, manifest, manifest.get("primary_artifact"), "document-metadata.json")
 
 
 if __name__=="__main__":
