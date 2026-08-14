@@ -1,0 +1,33 @@
+{
+  "record_version": "1.1",
+  "backend": "git-local",
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "destination": "research/11_project-workspace/hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "base_sha": "0c1ac54c1701b8f9238c3d5a1b840cd4361607f4",
+  "branch": "docs/publish/hierarchical-work-planning-cross-task-optimization-2026-08-13-0cb41f7e19c0",
+  "manifest_sha256": "ce0ba1a4460ad1c3de70287aa9f9896bcacdcdb07b8f7dcba92b6062820f5e29",
+  "artifact_sha256": {
+    "article.html": "20a0bd281ce5cbbd68d870bc7806109c089d692d0d5582ef9da0c1d715413e03",
+    "document-metadata.json": "100c3128b0b7f1149d2616146eaeaea38750c2d11e6a77e5b92a87df534b840c",
+    "provenance.json": "db97178f7bb91207b4e2a13932f95fad627743d6acaf35cd157d1e588d32142d",
+    "baseline-reconciliation.json": "95bb9fb5c17475f243911669a3a72d1e98e4f81704581992a472bac1d757aa34"
+  },
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "pages_approved": true,
+  "editorial_decision": {
+    "decision_id": "editorial.pr22.20260814.001",
+    "decision": "accept",
+    "pages_approved": true,
+    "reviewer": {
+      "name": "Codex editorial audit",
+      "role": "editorial-reviewer",
+      "identity_ref": "https://github.com/augusto-scarvalho/tare.tools.research/pull/22#issuecomment-5292051006"
+    },
+    "reviewed_at": "2026-08-14T07:13:33-03:00",
+    "sha256": "12a8c333628369f0752fb35e5c29224055bee778e33cb13022890747681298da"
+  },
+  "remote_effects": false
+}
