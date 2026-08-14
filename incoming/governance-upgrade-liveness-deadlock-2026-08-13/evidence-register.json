@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
+  "canonical_subject": {
+    "repository": "augusto-scarvalho/universal-agent-harness-prototype",
+    "main": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+    "tree": "a8d2cb7f87cff15aabc9cf51768d2263254b6c74",
+    "staging_at_cutoff": "477bea0d915dfde5e9e92fce68be0a42154a31f9"
+  },
+  "commit_genealogy": [
+    ["2026-07-13", "087a74f3e4a5289a1e46ea4bf970ac9a0badc26d", "SPEC-137 pre-commit validation gate; ships disabled / migration window"],
+    ["2026-07-13", "cb46a8031428a1a7079fa4f09df3c501af0f6337", "owner opt-in enable; premature enable later corrected"],
+    ["2026-07-14", "0f8ece3c71f245374046487b912701acb264c7cb", "worktree-equivalence validation"],
+    ["2026-07-14", "a41f20c1ca0bf41ae93a6352b4d880190bf30ff3", "gate re-enabled after liveness work"],
+    ["2026-07-14", "de3d0942f3f1f8328ba5e4ce2612d13735c6a9a2", "self-write CAS wedge corrected"],
+    ["2026-07-20", "d4b2e141b97bb5fa18d4a7438c8048e81acde7f8", "Reckon added to commit gate"],
+    ["2026-07-26", "65bfc85b293eb49c57c9fffac23cbb19245f74a4", "gate control-plane enters own validation surface"],
+    ["2026-07-30", "1838ac07fde9603d47326709f7352b974a84f5e6", "Mutation joins commit gate"],
+    ["2026-08-03", "cf18173ac8fc991d817a4368f1e6e3c3b9811b95", "Audit becomes fourth leg"],
+    ["2026-08-08", "f0d763c0dd6e6339587f581ee0c900608fe22bb1", "Governance Kernel / CommitAuthority"],
+    ["2026-08-08", "e5b8d922a8ce25d1d15946ccaa727d37f93cf9bb", "governed commit dogfood"],
+    ["2026-08-08", "3efffb0bd00a2c5facb83057c241f12887435e67", "proof authority / transaction correctness"],
+    ["2026-08-08", "0b2edd5e1ff949aa2f9dc0036ce94a174f437676", "seat provenance / proof minting closure attempt"],
+    ["2026-08-08", "7a9e2c8909ef501b7b91949f8d823ca644bcf6a8", "process-boundary execution receipts"],
+    ["2026-08-08", "2f2606cb322a08707a2fc8fab33068abaf195dcf", "strict no-waiver governance"],
+    ["2026-08-10", "3d9eb50e961a6674af5eb196b886cefeffcc2d8f", "scenario gate bound to frozen candidate tree"],
+    ["2026-08-11", "d6e198c486ad90ab64945ccb1241c4b639a5daf0", "P1 Core FSV controlled landing"],
+    ["2026-08-11", "947caa65d6c0f9cb0cdf3edd863f89010dc3e467", "IP-2 controlled local landing"],
+    ["2026-08-12", "477bea0d915dfde5e9e92fce68be0a42154a31f9", "P5 partial controlled local landing; canonical main at cutoff"]
+  ],
+  "operational_subjects": {
+    "pr_13": {"number": 13, "head": "eb08cd6228596b3b3c97f841442b7a362a9e2aef", "state_at_cutoff": "draft/open"},
+    "pr_16": {"number": 16, "head": "46d97a17aa2c25acaa6a2fda1b6847ef6eec64ff", "state_at_cutoff": "draft/open"},
+    "issue_23": {
+      "base": "8d040aac19ab7661b4c032d417b0b9fb76310372",
+      "evidence_head": "7357289c8c128396b4c8e5e796212ac5e62c0e09",
+      "patch_sha256": "ef89bb906a18e185b0a98bc5dd6ac437706afc423fe1818b28cddcf8995604cb",
+      "staged_fingerprint": "c375fcb853c52d847adad613ab2a3de40ba7734f255fffbd60c3da9fa268ecc6"
+    },
+    "issue_25": {"name": "TRUST-GENESIS-01", "state_at_cutoff": "TG-01A corrective produced; independent closure audit pending"}
+  },
+  "historical_handoffs": [
+    {"name": "HANDOFF-mxq1-index-trustroot-reconciliation.md", "sha256": "8a380b574d8abe453c2f36c8ee474eedc1979b14307580b154c4e843cb034c0e"},
+    {"name": "HANDOFF-fsv-bootstrap-judge-provenance.md", "sha256": "a094a19a53366b56904c84e5b395674ea7e70b585ec592555a69874fd0b9cae5"},
+    {"name": "HANDOFF-fsv-d2-acceptance-bootstrap-architecture.md", "sha256": "599adfaa51051186b914d8239cb51f4a0c6a3d89afc5caf677fb9cedb1a0ec90"},
+    {"name": "HANDOFF-fsv-trusted-invocation-q1-qualification.md", "sha256": "cab969a08e865e24bbd691ee5f0552522b8cd9cd84f3071306df024ef46295d7"},
+    {"name": "HANDOFF-p1-core-fsv-controlled-landing.md", "sha256": "9ff3fa1e605cbc794a460127ea490000a3ee9adb0efc874c5821f8b0d0d7f8cc"},
+    {"name": "HANDOFF-ip2-controlled-local-landing.md", "sha256": "79bdf4ac115c7f37b31c3c53858781734c37be2f46cff8fbe950a2f66e89e2a4"}
+  ],
+  "trust_genesis": {
+    "source_snapshot_sha256": "dc1a5cef33902b3eefb4fac9a7a0fad7d4b03394c00e4effbb7ee237f90522fd",
+    "source_manifest_sha256": "fc00c3f957f530311db4a56b2a8f3d6c2313545a764e4ca0318c6a6d54aedcc5",
+    "tg01a_v1_patch_sha256": "3dca77b80e309d3901648eb810ebf1fd3fa3b4aa2fd0f26808ecb90a89d69e50",
+    "audit_falsifier_a": "AUDIT-TG01A-forged-resealed-chain.py",
+    "audit_falsifier_b": "AUDIT-TG01A-valid-anchor-forged-execution.py"
+  },
+  "external_research": [
+    {"key": "coffman1971", "title": "System Deadlocks", "locator": "DOI:10.1145/356586.356588"},
+    {"key": "tarjan1972", "title": "Depth-First Search and Linear Graph Algorithms", "locator": "DOI:10.1137/0201010"},
+    {"key": "gnoyke2024", "title": "Evolution patterns of software-architecture smells", "locator": "DOI:10.1016/j.jss.2024.112170"},
+    {"key": "uefi211", "title": "UEFI Specification 2.11 §32 Secure Boot", "locator": "https://uefi.org/specs/UEFI/2.11/32_Secure_Boot_and_Driver_Signing.html"},
+    {"key": "rfc6024", "title": "Trust Anchor Management Requirements", "locator": "https://www.rfc-editor.org/rfc/rfc6024"},
+    {"key": "rfc9718", "title": "DNSSEC Trust Anchor Publication for the Root Zone", "locator": "https://www.rfc-editor.org/rfc/rfc9718.html"},
+    {"key": "tuf", "title": "The Update Framework Specification v1.0.26", "locator": "https://theupdateframework.github.io/specification/v1.0.26/"},
+    {"key": "slsa", "title": "SLSA Specification / Threats", "locator": "https://slsa.dev/spec/v1.2/terminology"},
+    {"key": "k8s", "title": "Kubernetes TLS bootstrapping", "locator": "https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/"},
+    {"key": "mes", "title": "GNU Mes Bootstrappable Builds", "locator": "https://www.gnu.org/software/mes/manual/html_node/Bootstrappable-Builds.html"},
+    {"key": "hou2026", "title": "When Agents Do Not Stop: Uncovering Infinite Agentic Loops in LLM Agents", "locator": "arXiv:2607.01641"},
+    {"key": "cemri2025", "title": "Why Do Multi-Agent LLM Systems Fail?", "locator": "arXiv:2503.13657"},
+    {"key": "wang2026", "title": "Why Reasoning Fails to Plan", "locator": "arXiv:2601.22311"},
+    {"key": "huang2023", "title": "Large Language Models Cannot Self-Correct Reasoning Yet", "locator": "arXiv:2310.01798"}
+  ]
+}

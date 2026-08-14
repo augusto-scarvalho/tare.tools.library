@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial-pr21-2026-08-13",
+  "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
+  "manifest_sha256": "e91bf5f0d53aa688c662ce973a840bf27e6b21a1a6e5a278fe141d008ee600d6",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "Codex editorial audit",
+    "role": "editorial-reviewer",
+    "identity_ref": "https://github.com/augusto-scarvalho/tare.tools.research/pull/21#issuecomment-5287879527"
+  },
+  "reviewed_at": "2026-08-13T21:47:50-03:00",
+  "notes": "Accepted as RESEARCH evidence staging after correcting the lineage record: the unavailable source archive and unverified recorded source digests are explicit; four normalized supporting copies are separately hash-bound. This decision grants no CURRENT, TARGET, ADR, SPEC, trust, promotion, or canonical tare.tools authority."
+}

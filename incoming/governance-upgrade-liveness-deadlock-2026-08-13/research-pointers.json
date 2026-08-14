@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "document_id": "governance-upgrade-liveness-deadlock-2026-08-13",
+  "authority": "RESEARCH_CONTINUITY_ONLY",
+  "not_a_backlog": true,
+  "pointers": [
+    {"id": "gul-formal-model", "topic": "Formalizar Governance Upgrade Liveness em TLA+/Alloy", "why": "Provar ausência de SCC fatal e existência de caminho finito N→N+1 sob falhas/replay."},
+    {"id": "authority-dependency-graph", "topic": "Authority Dependency Graph + detector de SCC", "why": "Tornar cycles de Authority/Proof/Promotion observáveis antes de virarem wedge operacional."},
+    {"id": "progress-governor", "topic": "Progress Governor para corrective loops agênticos", "why": "Medir redução de blockers do objetivo global e impor meta-level termination/escalation."},
+    {"id": "candidate-integration-evidence-families", "topic": "CandidateCI vs IntegrationCI como Evidence Families canônicas", "why": "Separar prova dos bytes candidatos de prova do merge/integration subject."},
+    {"id": "trusted-control-plane-slsa", "topic": "Mapear Trusted Control Plane a SLSA/in-toto e provenance producer identity", "why": "Evitar confundir hash/self-seal com provenance emitida por processo independente."},
+    {"id": "tuf-style-policy-epochs", "topic": "TUF-style verifier/policy epochs", "why": "Explorar continuidade N→N+1, threshold, rollback/freeze/replay e root rotation."},
+    {"id": "recovery-ceremony-model", "topic": "Modelar Recovery Bridge como ceremony transitória e revogável", "why": "Validar single-use Permit, effect ceiling, expiry, causation e retirement sem criar RecoveryAuthority permanente."},
+    {"id": "reproducible-bootstrap", "topic": "Reproducible bootstrap / diverse double compilation para control plane", "why": "Reduzir trusted seed e detectar bootstrap contamination no longo prazo."}
+  ]
+}
