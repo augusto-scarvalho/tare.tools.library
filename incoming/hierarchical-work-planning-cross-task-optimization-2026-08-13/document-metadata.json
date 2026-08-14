@@ -1,1 +1,37 @@
-noop
+{
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "title": "Hierarchical Work Planning & Cross-Task Optimization — Research Pack",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-13",
+  "language": "pt-BR",
+  "abstract": "Pesquisa cross-lineage sobre Work hierárquico, backlog-as-projection, planejamento lógico→físico, otimização cross-task, packetização/delegação, liveness, invalidation, adaptive learning e evolução governada no tare.tools.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "OpenAI GPT-5.6 Sol",
+      "role": "agent"
+    }
+  ],
+  "architecture_epoch": "governed multi-vendor harness → evidence-connected adaptive platform → tare.tools Agent Operating System; governance-hardening / Trust Genesis transition",
+  "canonical_commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+  "bounded_contexts": [
+    "Project / Workspace",
+    "Workflow",
+    "Routing & Adaptation",
+    "Runtime",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Observability / Economics / Resources"
+  ],
+  "provenance": {
+    "origin": "ChatGPT project research session on 2026-08-13; original generation preserved, then explicitly reconciled against a pinned tare-tools canonical baseline before editorial acceptance.",
+    "project": "tare.tools",
+    "source_path": "/mnt/data/tare_tools_hierarchical_work_planning_research_pack_2026-08-13",
+    "notes": "Original generation did not pin a canonical baseline. Reconciled at 2026-08-13T22:43:00-03:00 against augusto-scarvalho/universal-agent-harness-prototype@477bea0d915dfde5e9e92fce68be0a42154a31f9; see baseline-reconciliation.json. Five source HTMLs are exact byte-preserved in the Google Drive relay with verified SHA-256 round trips, but are not yet materialized in this Git branch."
+  }
+}
