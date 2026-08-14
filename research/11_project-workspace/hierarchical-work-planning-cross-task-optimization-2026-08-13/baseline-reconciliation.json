@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "reconciled_at": "2026-08-13T22:43:00-03:00",
+  "original_generation": {
+    "generated_at": "2026-08-13T21:46:00-03:00",
+    "baseline_pinned": false,
+    "preserved_as_historical_origin": true,
+    "note": "The original generation did not claim a canonical baseline; this receipt records a later explicit reconciliation rather than backdating provenance."
+  },
+  "canonical_baseline": {
+    "repository": "augusto-scarvalho/universal-agent-harness-prototype",
+    "commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+    "architecture_epoch": "governed multi-vendor harness → evidence-connected adaptive platform → tare.tools Agent Operating System; governance-hardening / Trust Genesis transition",
+    "epoch_basis": "Same commit/transition label used by the contemporaneous governance-upgrade-liveness research metadata; treated as the research/editorial epoch label for this pinned reconciliation, not as a new canonical primitive.",
+    "commit_subject": "P5 partial release-artifact rendering/verification candidate; open orchestration half remains explicitly NOT CURRENT."
+  },
+  "sources_checked": [
+    {
+      "path": "AGENTS.md",
+      "blob_sha": "89dc009103c2418ea862550e594013593667d397",
+      "purpose": "CURRENT operating contract, canonical source hierarchy, Graphify/source verification, workflow/delegation boundaries",
+      "result": "CONFIRMED"
+    },
+    {
+      "path": "docs/AGENTIC_WORKFLOWS.md",
+      "blob_sha": "243d0ccfd06f9fcf7c94b79f77ff25b7e63f42de",
+      "purpose": "CURRENT bounded workflow runtime, conservative concurrency, durable async orchestration, controlled-write track",
+      "result": "CONFIRMED"
+    },
+    {
+      "path": ".harness/workflows/WORKFLOWS.md",
+      "blob_sha": "76ed8856706d9eb62212005f9deb9ee86d2af432",
+      "purpose": "CURRENT packet lifecycle, read-only defaults, worker/result semantics, async state and controlled writes",
+      "result": "CONFIRMED"
+    },
+    {
+      "path": ".harness/prompts/overseer-playbook.md",
+      "blob_sha": "3383dda626ecbe773cff32ab86dbf924505349f5",
+      "purpose": "CURRENT plan-brief ownership, HARD footprint discipline, delegation and integration rules",
+      "result": "CONFIRMED"
+    }
+  ],
+  "live_noncanonical_evidence": [
+    {
+      "locator": "https://github.com/augusto-scarvalho/universal-agent-harness-prototype/issues/26",
+      "status": "OWNER_DIRECTED_ROADMAP / CANONICAL_PROMOTION_PENDING",
+      "canonical_repo_at_planning": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+      "use": "LIVE_DOGFOOD / motivating liveness evidence only; not canonical TARGET"
+    }
+  ],
+  "reconciliation_findings": {
+    "current_claims_confirmed": [
+      "Canonical durable project state/context/handoff/routing remain owned by .harness canonical surfaces; agent-specific adapters do not own durable project rules/state.",
+      "Graphify is a required structural-discovery/index layer for non-trivial broad search and must be source-verified rather than treated as authority.",
+      "Workflow CURRENT is bounded map-reduce/fork-join with read-only workers by default, conservative concurrency, explicit result contracts, durable async orchestration and a separate controlled-write track.",
+      "Current overseer discipline owns plan briefs, requires disjoint HARD footprints for parallel lanes and integrates parallel work one lane at a time."
+    ],
+    "material_contradictions_found": [],
+    "claims_remaining_research_or_proposed": [
+      "Backlog-as-projection over a hierarchical logical Work view",
+      "Cross-task Execution Frontier and cost-based Physical Work Plan",
+      "Graph-derived packetization/delegation boundaries and effective-width scheduling",
+      "Generalized Plan Safety + Plan Liveness proof obligations",
+      "Planning invalidation/recompilation and query-optimizer-style memoization",
+      "Evidence-driven adaptive scheduling, packetization, process mining and procedural learning"
+    ],
+    "verdict": "RECONCILED_WITHOUT_MATERIAL_CURRENT_CONTRADICTION",
+    "scope_limit": "This is a reconciliation of the CURRENT claims actually relied upon by this research pack, not a claim that every repository subsystem was exhaustively audited."
+  }
+}

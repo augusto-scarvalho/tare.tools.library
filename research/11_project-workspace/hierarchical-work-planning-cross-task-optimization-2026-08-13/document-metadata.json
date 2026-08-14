@@ -1,0 +1,36 @@
+{
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "title": "Hierarchical Work Planning & Cross-Task Optimization",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-13",
+  "language": "pt-BR",
+  "abstract": "Pesquisa científica e exploratória sobre backlog-as-projection, Work hierárquico, logical→physical planning, packetização, scheduling multi-task, liveness, loops, invalidation e rolling-horizon planning para o tare.tools Agent Operating System.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "OpenAI GPT-5.6 Sol",
+      "role": "agent"
+    }
+  ],
+  "architecture_epoch": "governed multi-vendor harness → evidence-connected adaptive platform → tare.tools Agent Operating System; governance-hardening / Trust Genesis transition",
+  "canonical_commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+  "bounded_contexts": [
+    "Project / Workspace",
+    "Workflow",
+    "Routing & Adaptation",
+    "Runtime",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Observability / Economics / Resources"
+  ],
+  "provenance": {
+    "origin": "Canonical editorial edition derived from the 2026-08-13 Hierarchical Work Planning & Cross-Task Optimization scientific research generation.",
+    "project": "tare.tools",
+    "notes": "The original generation was unpinned. A post-generation reconciliation against the pinned canonical baseline is recorded in baseline-reconciliation.json. The exact original scientific HTML remains byte-preserved in the tare.tools Google Drive relay with verified SHA-256 round trip; companion documents from the same generation are intentionally outside this submission and are not publication dependencies."
+  }
+}
