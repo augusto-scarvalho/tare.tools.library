@@ -1,36 +1,25 @@
 {
   "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
-  "source_materialization": "partial",
+  "source_materialization": "exact-in-relay / partial-in-git-submission",
   "generated_at": "2026-08-13T21:46:00-03:00",
   "submission_prepared_at": "2026-08-13T22:06:00-03:00",
+  "reconciled_at": "2026-08-13T22:43:00-03:00",
   "canonical_baseline": {
     "generation_pinned": false,
-    "submission_time_repository": "augusto-scarvalho/universal-agent-harness-prototype",
-    "submission_time_main": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
-    "claim": "observation-only; not retroactive generation baseline"
+    "reconciliation_pinned": true,
+    "repository": "augusto-scarvalho/universal-agent-harness-prototype",
+    "commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+    "architecture_epoch": "governed multi-vendor harness → evidence-connected adaptive platform → tare.tools Agent Operating System; governance-hardening / Trust Genesis transition",
+    "receipt": "baseline-reconciliation.json",
+    "claim": "post-generation explicit reconciliation; no retroactive baseline claim"
   },
-  "materialized_artifacts": [
-    {
-      "path": "article.html",
-      "sha256": "41736bd5c5a2dfa7679b842436c9697424eab379a3fbc5c4171d1d18300c527c",
-      "bytes": 6394
-    },
-    {
-      "path": "document-metadata.json",
-      "sha256": "ac977b0ce42e8820fcead04d4a31951f0ecb7a58a7887f3c39ebc0eac84b1d9c",
-      "bytes": 1620
-    },
-    {
-      "path": "source-pack/MANIFEST.json",
-      "sha256": "4db2cd5b708bee435e4ed164566bd680a599e78edce01579e4cbd256903b362c",
-      "bytes": 2351
-    },
-    {
-      "path": "source-pack/SHA256SUMS.txt",
-      "sha256": "be685ac198d8dbf81083d704c4b8c5cf3ee00ab3646863a86a0af25990d7a19f",
-      "bytes": 774
-    }
-  ],
+  "relay": {
+    "folder_url": "https://drive.google.com/drive/folders/1vVE28wLA6Ak8nxg2CqyVsvdF8uxi0pGZ",
+    "roundtrip_verification": "5/5 original source HTMLs exact byte matches after cloud download",
+    "pages_candidate_url": "https://drive.google.com/file/d/1bfP0P5AQGoOqWjI4dCLjyiErlcpq_gza/view",
+    "pages_candidate_sha256_before_baseline_reconciliation": "3d81769e50c4d4c29b961e54582bebed81b01e12d653b158102a1a02d6da0129",
+    "note": "The Pages candidate is superseded in this submission by the reconciled article.html; original source HTMLs remain unchanged."
+  },
   "source_htmls": [
     {
       "name": "tare_tools_adaptive_work_learning_scientific_research_2026-08-13.html",
@@ -38,8 +27,11 @@
       "bytes": 31506,
       "sections": 18,
       "references": 13,
-      "materialized_in_submission": false,
-      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+      "drive_url": "https://drive.google.com/file/d/1zqMbJNTC9YFuNI8eSGFPV0oDZR__ylBj/view",
+      "materialized_in_submission_branch": false,
+      "materialized_in_relay": true,
+      "relay_roundtrip_verified": true,
+      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
     },
     {
       "name": "tare_tools_hierarchical_work_planning_implementation_architecture_2026-08-13.html",
@@ -47,8 +39,11 @@
       "bytes": 33936,
       "sections": 20,
       "references": 12,
-      "materialized_in_submission": false,
-      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+      "drive_url": "https://drive.google.com/file/d/1b5-iVpEAwCRM-qNFhMS8jHxaFQSmMlR3/view",
+      "materialized_in_submission_branch": false,
+      "materialized_in_relay": true,
+      "relay_roundtrip_verified": true,
+      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
     },
     {
       "name": "tare_tools_hierarchical_work_planning_research_index_2026-08-13.html",
@@ -56,8 +51,11 @@
       "bytes": 21541,
       "sections": 9,
       "references": 6,
-      "materialized_in_submission": false,
-      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+      "drive_url": "https://drive.google.com/file/d/1Ck-M9jv6xZs0xGfxgAakE_IdU5C_dTp9/view",
+      "materialized_in_submission_branch": false,
+      "materialized_in_relay": true,
+      "relay_roundtrip_verified": true,
+      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
     },
     {
       "name": "tare_tools_hierarchical_work_planning_scientific_research_2026-08-13.html",
@@ -65,8 +63,11 @@
       "bytes": 41871,
       "sections": 18,
       "references": 19,
-      "materialized_in_submission": false,
-      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+      "drive_url": "https://drive.google.com/file/d/1VLAv1igzAPz1aREE8p1KwDAuIu9tyBeA/view",
+      "materialized_in_submission_branch": false,
+      "materialized_in_relay": true,
+      "relay_roundtrip_verified": true,
+      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
     },
     {
       "name": "tare_tools_planning_technology_landscape_experiments_2026-08-13.html",
@@ -74,12 +75,16 @@
       "bytes": 27826,
       "sections": 16,
       "references": 18,
-      "materialized_in_submission": false,
-      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+      "drive_url": "https://drive.google.com/file/d/1N7fuR1qXL8j2RMAKSWXzOFpzzG3JCK8K/view",
+      "materialized_in_submission_branch": false,
+      "materialized_in_relay": true,
+      "relay_roundtrip_verified": true,
+      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
     }
   ],
   "limitations": [
-    "Hashes identify unavailable source bytes but do not make them independently reproducible from this PR.",
+    "The five original research HTMLs are exact and retrievable from the relay but are not materialized in this Git submission branch.",
+    "The original 2026-08-13 generation was unpinned; canonical_commit/architecture_epoch apply to the explicit post-generation reconciliation recorded by baseline-reconciliation.json.",
     "No editorial decision is included in this submission."
   ]
 }
