@@ -1,0 +1,37 @@
+{
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "title": "Hierarchical Work Planning & Cross-Task Optimization — Research Pack",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "created_at": "2026-08-13",
+  "language": "pt-BR",
+  "abstract": "Pesquisa cross-lineage sobre Work hierárquico, backlog-as-projection, planejamento lógico→físico, otimização cross-task, packetização/delegação, liveness, invalidation, adaptive learning e evolução governada no tare.tools.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "OpenAI GPT-5.6 Sol",
+      "role": "agent"
+    }
+  ],
+  "architecture_epoch": null,
+  "canonical_commit": null,
+  "bounded_contexts": [
+    "Project / Workspace",
+    "Workflow",
+    "Routing & Adaptation",
+    "Runtime",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Observability / Economics / Resources"
+  ],
+  "provenance": {
+    "origin": "ChatGPT project research session; research-pack registries materialized, source HTMLs identified by SHA-256",
+    "project": "tare.tools",
+    "source_path": "/mnt/data/tare_tools_hierarchical_work_planning_research_pack_2026-08-13",
+    "notes": "Generation did not pin a single canonical tare-tools commit. Submission-time live main observation: augusto-scarvalho/universal-agent-harness-prototype@477bea0d915dfde5e9e92fce68be0a42154a31f9; not asserted as the generation baseline. Five source HTMLs are not materialized in this PR due connector payload constraints; see provenance.json."
+  }
+}

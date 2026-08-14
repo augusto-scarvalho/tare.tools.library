@@ -1,0 +1,85 @@
+{
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "source_materialization": "partial",
+  "generated_at": "2026-08-13T21:46:00-03:00",
+  "submission_prepared_at": "2026-08-13T22:06:00-03:00",
+  "canonical_baseline": {
+    "generation_pinned": false,
+    "submission_time_repository": "augusto-scarvalho/universal-agent-harness-prototype",
+    "submission_time_main": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+    "claim": "observation-only; not retroactive generation baseline"
+  },
+  "materialized_artifacts": [
+    {
+      "path": "article.html",
+      "sha256": "41736bd5c5a2dfa7679b842436c9697424eab379a3fbc5c4171d1d18300c527c",
+      "bytes": 6394
+    },
+    {
+      "path": "document-metadata.json",
+      "sha256": "ac977b0ce42e8820fcead04d4a31951f0ecb7a58a7887f3c39ebc0eac84b1d9c",
+      "bytes": 1620
+    },
+    {
+      "path": "source-pack/MANIFEST.json",
+      "sha256": "4db2cd5b708bee435e4ed164566bd680a599e78edce01579e4cbd256903b362c",
+      "bytes": 2351
+    },
+    {
+      "path": "source-pack/SHA256SUMS.txt",
+      "sha256": "be685ac198d8dbf81083d704c4b8c5cf3ee00ab3646863a86a0af25990d7a19f",
+      "bytes": 774
+    }
+  ],
+  "source_htmls": [
+    {
+      "name": "tare_tools_adaptive_work_learning_scientific_research_2026-08-13.html",
+      "sha256": "f6e256cb0ccdd83abcd5699feb2da3f1b4b20d6a97009b4dddd141e736bb76c9",
+      "bytes": 31506,
+      "sections": 18,
+      "references": 13,
+      "materialized_in_submission": false,
+      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+    },
+    {
+      "name": "tare_tools_hierarchical_work_planning_implementation_architecture_2026-08-13.html",
+      "sha256": "c32a96040c7c7d4209fe171460397e16229feabe3c2ff24cf56427b86c57d541",
+      "bytes": 33936,
+      "sections": 20,
+      "references": 12,
+      "materialized_in_submission": false,
+      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+    },
+    {
+      "name": "tare_tools_hierarchical_work_planning_research_index_2026-08-13.html",
+      "sha256": "b12186cb223f009987bd0260b748f7a35d07e8b75985f1bf793a3c0703a9dbfa",
+      "bytes": 21541,
+      "sections": 9,
+      "references": 6,
+      "materialized_in_submission": false,
+      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+    },
+    {
+      "name": "tare_tools_hierarchical_work_planning_scientific_research_2026-08-13.html",
+      "sha256": "6e819b5eb39d0be61146553e5467fcd772f9e3515f031c5716e3ef0426488b1c",
+      "bytes": 41871,
+      "sections": 18,
+      "references": 19,
+      "materialized_in_submission": false,
+      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+    },
+    {
+      "name": "tare_tools_planning_technology_landscape_experiments_2026-08-13.html",
+      "sha256": "9e62f1de51d4254c9da588b04b4a31e14a65f6e7b5a127aba28d4f52ed53d2ed",
+      "bytes": 27826,
+      "sections": 16,
+      "references": 18,
+      "materialized_in_submission": false,
+      "availability": "exact bytes existed in generation runtime; not copied into GitHub Submission PR due connector payload constraint"
+    }
+  ],
+  "limitations": [
+    "Hashes identify unavailable source bytes but do not make them independently reproducible from this PR.",
+    "No editorial decision is included in this submission."
+  ]
+}
