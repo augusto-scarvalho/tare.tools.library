@@ -17,12 +17,15 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 from urllib.parse import urlsplit, urlunsplit
 
 from bs4 import BeautifulSoup
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / 'publisher' / 'src'))
 from pages_common import normalize_base_path, semantic_fingerprint, sha256_file, site_url
-from validate_canonical_html import validate_packet
+from validate_canonical_html import validate_artifacts
+from tare_tools_publisher.translation import validate_pages_translation
 
 ROOT=Path(__file__).resolve().parents[1]
 PROFILE=ROOT/'site'/'SIGNAL_PROFILE.json'
@@ -74,14 +77,29 @@ def _load_studies(root: Path, commit: str) -> list[dict]:
         packet=rp.parent
         manifest_path=packet/'PUBLISH_MANIFEST.json'
         decision_path=packet/'EDITORIAL_DECISION.json'
-        metadata_path=packet/'document-metadata.json'
         if not manifest_path.is_file(): raise ValueError(f'{rp}: missing PUBLISH_MANIFEST.json')
+        manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+        projection=record.get('pages_projection')
+        if record.get('record_version') == '1.2':
+            if not isinstance(projection,dict) or projection.get('language') != 'en':
+                raise ValueError(f'{rp}: current Pages record requires an English pages_projection')
+            primary=projection.get('primary_artifact'); metadata_name=projection.get('metadata_artifact')
+            if not isinstance(primary,str) or not isinstance(metadata_name,str):
+                raise ValueError(f'{rp}: invalid pages_projection artifacts')
+            translation_errors, expected_projection=validate_pages_translation(packet,manifest)
+            if expected_projection is not None and projection != expected_projection:
+                raise ValueError(f'{rp}: pages_projection disagrees with translation contract')
+            if expected_projection is None and (primary != manifest.get('primary_artifact') or metadata_name != 'document-metadata.json'):
+                raise ValueError(f'{rp}: native English pages_projection must use primary artifacts')
+            if translation_errors:
+                raise ValueError(f'{rp}: '+'; '.join(translation_errors))
+        else:
+            primary=manifest.get('primary_artifact'); metadata_name='document-metadata.json'
+        metadata_path=packet/metadata_name
         if not decision_path.is_file(): raise ValueError(f'{rp}: missing EDITORIAL_DECISION.json')
         if not metadata_path.is_file(): raise ValueError(f'{rp}: missing document-metadata.json')
-        manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
-        primary=manifest.get('primary_artifact')
         if not primary: raise ValueError(f'{rp}: Pages record lacks primary artifact')
-        errors=validate_packet(packet,manifest)
+        errors=validate_artifacts(packet,manifest,primary,metadata_name)
         if errors: raise ValueError(f'{rp}: '+'; '.join(errors))
         source=packet/primary
         expected=record.get('artifact_sha256',{}).get(Path(primary).name)
@@ -102,7 +120,7 @@ def _load_studies(root: Path, commit: str) -> list[dict]:
         ids.add(did)
         slug=did.replace('.','-')
         studies.append({
-            'record_path':rp,'record':record,'packet':packet,'manifest':manifest,'source':source,
+            'record_path':rp,'record':record,'packet':packet,'manifest':manifest,'source':source,'primary_artifact':primary,
             'metadata':meta,'document_id':did,'slug':slug,'commit':commit,
             'decision':decision,'decision_sha256':editorial['sha256'],
         })
@@ -233,7 +251,7 @@ def _build_study(study: dict, root: Path, output: Path, source_map: dict[Path,di
     decision={**study['decision'],'sha256':study['decision_sha256']}
     instrument=(
         f'<section class="instrument"><span class="status">{html.escape(meta["status"])}</span>'
-        f'<br>Canonical SHA-256: <code>{html.escape(record["artifact_sha256"][Path(study["manifest"]["primary_artifact"]).name])}</code>'
+        f'<br>Canonical SHA-256: <code>{html.escape(record["artifact_sha256"][Path(study["primary_artifact"]).name])}</code>'
         f'<br>Editorial decision: <code>{html.escape(decision["decision_id"])}</code>'
         f'<br>Source: <code>{html.escape(source.relative_to(root).as_posix())}</code>'
         f'<br>Signal source: <code>{profile["source_commit"][:12]}</code></section>'
@@ -245,7 +263,7 @@ def _build_study(study: dict, root: Path, output: Path, source_map: dict[Path,di
     (target/'index.html').write_text(page,encoding='utf-8')
     projection={
         'record_version':'1.1','document_id':study['document_id'],'source_path':source.relative_to(root).as_posix(),
-        'source_sha256':record['artifact_sha256'][Path(study['manifest']['primary_artifact']).name],
+        'source_sha256':record['artifact_sha256'][Path(study['primary_artifact']).name],
         'build_commit':study['commit'],'base_path':base_path,'signal_profile_sha256':sha256_file(PROFILE),
         'output_path':site_url(base_path,f'p/{slug}/'),'source_semantic_fingerprint':source_fingerprint,
         'projected_semantic_fingerprint':projected_fingerprint,'semantic_parity':source_fingerprint==projected_fingerprint,
