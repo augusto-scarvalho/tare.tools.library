@@ -1,0 +1,57 @@
+{
+  "pack": "tare.tools hierarchical Work planning research pack",
+  "version": "research-2026-08-13",
+  "generatedAt": "2026-08-13T21:46:00-03:00",
+  "epistemicStatus": "RESEARCH + PROPOSED; CURRENT only where live repo sources are explicitly cited",
+  "northStar": "probabilistic interpretation; dynamic planning; durable execution; deterministic authority; capability-mediated effects; evidence-driven learning; conservative self-evolution",
+  "documents": [
+    {
+      "name": "tare_tools_adaptive_work_learning_scientific_research_2026-08-13.html",
+      "sha256": "f6e256cb0ccdd83abcd5699feb2da3f1b4b20d6a97009b4dddd141e736bb76c9",
+      "bytes": 31506,
+      "sections": 18,
+      "references": 13
+    },
+    {
+      "name": "tare_tools_hierarchical_work_planning_implementation_architecture_2026-08-13.html",
+      "sha256": "c32a96040c7c7d4209fe171460397e16229feabe3c2ff24cf56427b86c57d541",
+      "bytes": 33936,
+      "sections": 20,
+      "references": 12
+    },
+    {
+      "name": "tare_tools_hierarchical_work_planning_research_index_2026-08-13.html",
+      "sha256": "b12186cb223f009987bd0260b748f7a35d07e8b75985f1bf793a3c0703a9dbfa",
+      "bytes": 21541,
+      "sections": 9,
+      "references": 6
+    },
+    {
+      "name": "tare_tools_hierarchical_work_planning_scientific_research_2026-08-13.html",
+      "sha256": "6e819b5eb39d0be61146553e5467fcd772f9e3515f031c5716e3ef0426488b1c",
+      "bytes": 41871,
+      "sections": 18,
+      "references": 19
+    },
+    {
+      "name": "tare_tools_planning_technology_landscape_experiments_2026-08-13.html",
+      "sha256": "9e62f1de51d4254c9da588b04b4a31e14a65f6e7b5a127aba28d4f52ed53d2ed",
+      "bytes": 27826,
+      "sections": 16,
+      "references": 18
+    }
+  ],
+  "validation": {
+    "utf8": true,
+    "replacement_chars": [],
+    "duplicate_ids": {},
+    "broken_internal_anchors": {},
+    "index_links_missing": []
+  },
+  "publicationNotes": [
+    "Resolve exact tare.tools.research directory and related-document relative paths against the live DOCUMENT_INDEX before publication.",
+    "Do not treat Issue #26 owner-directed roadmap as canonical TARGET until promoted through architecture process.",
+    "Technical proposal requires live repo reconciliation before implementation.",
+    "All external bleeding-edge sources are research evidence, not normative authority."
+  ]
+}

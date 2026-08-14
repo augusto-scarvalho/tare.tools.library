@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Hierarchical Work Planning & Cross-Task Optimization — Research Pack</title></head>
+<body>
+<main>
+<article data-tare-document>
+<header data-tare-role="document-header">
+<h1>Hierarchical Work Planning & Cross-Task Optimization — Research Pack</h1>
+<p data-tare-role="abstract">Pesquisa cross-lineage sobre Work hierárquico, backlog-as-projection, planejamento lógico→físico, otimização cross-task, packetização/delegação, liveness, invalidation, adaptive learning e evolução governada no tare.tools.</p>
+</header>
+<aside data-tare-role="authority-boundary"><strong>RESEARCH.</strong> Esta submissão não cria CURRENT, TARGET, ADR, SPEC, BDD, Implementation Packet, decisão editorial ou autoridade de publicação.</aside>
+<section id="scope" data-tare-section="scope"><h2>Escopo</h2>
+<p>Esta edição canônica de submissão registra uma linha de pesquisa produzida em 13 de agosto de 2026 sobre planejamento hierárquico de Work no tare.tools. O pacote-fonte completo contém cinco HTMLs: índice editorial, pesquisa científica principal, pesquisa sobre adaptive learning, landscape tecnológico/experimental e proposta técnica de integração.</p>
+<p>A tese investigada é que backlog e roadmap devem ser projeções de Work e relações duráveis, enquanto planning funciona como physicalization progressiva: projeção lógica → candidate plans → feasibility/optimization → physical work plan → Workflow → Authority/Capability/Routing → Execution → Evidence/Outcome/Attribution → recalibração.</p>
+</section>
+<section id="evidence" data-tare-section="evidence"><h2>Método e evidência</h2>
+<p>A pesquisa cruza HTN/HDDL, Workflow Nets e soundness/liveness, operations research e constraint scheduling, query optimization, build systems e invalidation incremental, process mining, off-policy evaluation, causal replay e evidência de vendors/frameworks. O material separa literatura consolidada, bleeding edge, vendor evidence, fontes do projeto e propostas arquiteturais.</p>
+<p>O pack de geração registrou cinco HTMLs, seus tamanhos e SHA-256, além de validação UTF-8, ausência de IDs duplicados, anchors internos quebrados e links ausentes entre os documentos. Nesta Submission PR, os registries <code>source-pack/MANIFEST.json</code> e <code>source-pack/SHA256SUMS.txt</code> são materializados exatamente; os cinco HTMLs-fonte maiores permanecem identificados por digest, mas não são materializados no PR por limitação desta superfície de transporte. Portanto seus hashes preservam identidade alegada, mas não tornam a fonte independentemente reproduzível a partir deste PR.</p>
+</section>
+<section id="findings" data-tare-section="findings"><h2>Achados e proposta</h2>
+<ul>
+<li><strong>Backlog é view, não substrato:</strong> Work, lineage e relações tipadas devem sobreviver às projeções de backlog/roadmap.</li>
+<li><strong>Planejamento lógico e físico devem ser separados:</strong> o mesmo Work pode admitir realizações, packetizações, ordens e níveis de concorrência diferentes sem transformar heurísticas de execução em relações semânticas duráveis.</li>
+<li><strong>Cross-task optimization é um problema próprio:</strong> dependências comuns, arquivos/artefatos compartilhados, recursos, Authority, evidence e critical/trust paths podem alterar qual Task deve entrar primeiro na Execution Frontier.</li>
+<li><strong>Plan safety não implica plan liveness:</strong> SCCs, deadlocks, governance cycles, impossible joins e stagnation exigem análise explícita de reachability/progress.</li>
+<li><strong>Packetização é particionamento de grafo governado:</strong> bons pacotes maximizam coesão e verification closure e minimizam boundary/context/artifact/effect/authority coupling; Routing deve escolher executor somente depois da delimitação lógica.</li>
+<li><strong>Aprendizado deve ser evidence-governed:</strong> prediction×observed, process mining, calibration, packet-boundary learning e causal/OPE podem adaptar planning, sem conceder Authority ou auto-promover mudanças.</li>
+<li><strong>Não construir três planners independentes:</strong> a proposta é uma capacidade multi-resolução de progressive physicalization de Work governado, reutilizada do nível estratégico ao Workflow/subwork.</li>
+</ul>
+</section>
+<section id="limitations" data-tare-section="limitations"><h2>Limitações</h2>
+<ul>
+<li>Os cinco HTMLs-fonte do research pack não estão materializados nesta Submission PR; seus SHA-256 e tamanhos são preservados nos registries anexos. Isso é uma limitação real de disponibilidade/reprodutibilidade e deve ser resolvida em revisão antes de qualquer publicação que dependa dos originais.</li>
+<li>A geração não pinou um único commit canônico do tare.tools como baseline. No momento da submissão, o <code>main</code> observado do repositório operacional foi <code>477bea0d915dfde5e9e92fce68be0a42154a31f9</code>; isso é observação de submissão, não baseline retroativo.</li>
+<li>A Issue #26 e outros estados vivos do projeto são tratados como dogfood/evidência quando explicitamente marcados; não são promovidos automaticamente a TARGET.</li>
+<li>A arquitetura técnica do pack é PROPOSED e exige reconciliation read-only com CURRENT, ADRs, SPECs, BDDs, gates, source e Git antes de implementação.</li>
+<li>Fontes bleeding edge e vendor evidence informam hipóteses e experimentos; não são autoridade normativa.</li>
+<li>Este PR é somente Submission: não contém <code>EDITORIAL_DECISION.json</code>, merge, Publication PR ou Pages approval.</li>
+</ul>
+</section>
+<section id="references" data-tare-section="references"><h2>Referências e provenance</h2>
+<ul>
+<li><a href="source-pack/MANIFEST.json">Manifest de geração do research pack</a> — identidade, status, contagens, hashes e notas de publicação.</li>
+<li><a href="source-pack/SHA256SUMS.txt">SHA-256 checksums do pack original</a>.</li>
+<li><a href="provenance.json">Provenance e disponibilidade desta Submission PR</a>.</li>
+<li>As bibliografias científicas completas permanecem nos cinco HTMLs-fonte identificados pelos digests anexos e deverão ser materializadas antes de publicação final caso o editor exija a fonte integral no repositório.</li>
+</ul>
+</section>
+</article>
+</main>
+</body>
+</html>

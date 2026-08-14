@@ -1,0 +1,33 @@
+{
+  "packet_version": "1.1",
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "repository": "tare.tools.research",
+  "destination": null,
+  "bounded_contexts": [
+    "Project / Workspace",
+    "Workflow",
+    "Routing & Adaptation",
+    "Runtime",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Observability / Economics / Resources"
+  ],
+  "artifacts": [
+    "article.html",
+    "document-metadata.json",
+    "provenance.json",
+    "source-pack/MANIFEST.json",
+    "source-pack/SHA256SUMS.txt"
+  ],
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "historical_preservation": true,
+  "canonical_change": false,
+  "promotion_packet": null,
+  "notes": "Submission-only packet. Canonical article + metadata/provenance + original source registries are materialized. Five larger source HTMLs remain identified by SHA-256 but unavailable in this PR because this connector surface could not transport them byte-for-byte. No EDITORIAL_DECISION, merge, Publication PR, pages approval, CURRENT or TARGET authority is included."
+}
