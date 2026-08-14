@@ -24,3 +24,17 @@ In any conflict between a translation and its source, the source wins. In confli
 - Translation provenance: `corpus/manifests/translations/en/`
 
 Translations are linked from the catalog and thematic READMEs instead of replacing or duplicating source identity.
+
+## Pages requirement
+
+New `pt-BR` packets requesting Pages must include a current English derivative
+in the same packet: `article.en.html`, `document-metadata.en.json`, and
+`TRANSLATION_MANIFEST.en.json`. All three are declared artifacts. The manifest
+uses `schemas/translation-manifest.schema.json`, binds the exact Portuguese
+primary artifact and English derivative hashes, and may be machine translated
+or human reviewed, but not superseded. Pages projects the English derivative;
+the Portuguese evidence remains preserved and authoritative.
+
+Packets already accepted with an editorial decision `decision_version: "1.0"`
+remain historical evidence. They are not rewritten; publish a linked English
+derivative to remediate them.

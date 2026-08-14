@@ -93,6 +93,18 @@ class GitLocalBackendTests(unittest.TestCase):
         self.assertEqual(second.commit_sha, first.commit_sha)
         self.assertEqual(git(self.repo, "rev-parse", second.branch), first.commit_sha)
 
+    def test_repository_packet_uses_pinned_git_bytes_not_checkout_bytes(self):
+        packet_dir=self.repo/'incoming'/'local-git-test'; packet_dir.mkdir(parents=True)
+        manifest=json.loads(self.packet.read_text(encoding='utf-8'))
+        (packet_dir/'study.md').write_bytes(b'# Pinned\n')
+        packet=packet_dir/'PUBLISH_MANIFEST.json'; packet.write_text(json.dumps(manifest),encoding='utf-8')
+        subprocess.run(['git','-C',str(self.repo),'add','incoming'],check=True)
+        subprocess.run(['git','-C',str(self.repo),'-c','user.name=test','-c','user.email=test@example.invalid','commit','-qm','packet'],check=True)
+        (packet_dir/'study.md').write_bytes(b'# Checkout mutation\r\n')
+        receipt=publish(packet,self.repo,apply=True)
+        published=subprocess.run(['git','-C',str(self.repo),'show',f'{receipt.commit_sha}:research/03_workflow/research-workflow-local-git-test/study.md'],capture_output=True,check=True).stdout
+        self.assertEqual(published,b'# Pinned\n')
+
 
 if __name__ == "__main__":
     unittest.main()
