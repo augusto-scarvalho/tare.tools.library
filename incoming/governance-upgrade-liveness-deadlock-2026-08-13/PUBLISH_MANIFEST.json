@@ -29,5 +29,5 @@
   "historical_preservation": true,
   "canonical_change": false,
   "promotion_packet": null,
-  "notes": "Corrective editorial: canonical HTML em PT-BR; archive completo de lineage persistido em commit Git imutável e registrado em provenance; owner-direction receipt com locator persistente. Os dois HTMLs em lineage/ são supporting historical evidence redundante. Submission não autoaprova publicação nem minta TARGET/CURRENT."
+  "notes": "Corrective editorial: canonical HTML em PT-BR; o archive-fonte e seus seis originais exatos estão indisponíveis, quatro cópias históricas normalizadas permanecem recuperáveis e os digests originalmente registrados são preservados como claims não verificados; owner-direction receipt com locator persistente. Submission não autoaprova publicação nem minta TARGET/CURRENT."
 }

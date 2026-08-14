@@ -8,10 +8,10 @@
       "name": "working-corpus-zip",
       "sha256": "340820c3c665a7d53c8e326d5b2b15fa58f2d2814b19397e63b656d789034589",
       "included_in_submission": false,
-      "availability": "PERSISTED_AT_IMMUTABLE_GIT_COMMIT",
-      "persistent_locator": "https://github.com/augusto-scarvalho/tare.tools.research/blob/503c07e4e044bd941f48a83a4ea8678f4ef11a3b/incoming/governance-upgrade-liveness-deadlock-2026-08-13/lineage/tare-tools-governance-deadlock-archaeology-2026-08-13.zip",
-      "reachable_via_ref": "evidence/governance-deadlock-archaeology-2026-08-13",
-      "members": {
+      "availability": "UNAVAILABLE_AFTER_INVESTIGATION",
+      "original_locator": "/mnt/data/tare-tools-governance-deadlock-archaeology-2026-08-13.zip",
+      "notes": "The complete archive was materialized during the investigation but was not retained as valid retrievable bytes. Commit 503c07e4e044bd941f48a83a4ea8678f4ef11a3b contains a corrupt, hash-mismatching attempted copy and is not a source locator.",
+      "recorded_member_sha256_claims": {
         "00-index.html": "6676378e0fc30b8df0f814af99ec0feb519f7238ab0ad43be43cd80f57788205",
         "01-cronologia.html": "6b73834a75867a0a2ab7d7aaa0ded706f6b3341992a6c99d4bbb8b6ad28aec70",
         "02-root-cause-modelo-formal.html": "eeb2375ba03076e458c554dff6d550334a49d1bd29986b6ef3e0619556b16a57",
@@ -21,11 +21,32 @@
       }
     },
     {
-      "name": "supporting-historical-copies",
+      "name": "historical-members-in-packet",
       "included_in_submission": true,
-      "availability": "AVAILABLE_IN_PACKET",
+      "availability": "AVAILABLE_NORMALIZED_COPY_IN_PACKET",
       "persistent_locator": "lineage/",
-      "notes": "Redundant supporting copies only; the complete archive above is the lineage source."
+      "blob_sha256": {
+        "02-root-cause-modelo-formal.html": "796eca23d5755ecf2ad29354b2e95eaf00162e4cbdf48b0946d63af4189ab79c",
+        "03-pesquisa-comparativa.html": "215b9424201405d6486837da9fd58b0773dcae91d87f962d850bf96ed9d6eb1e"
+      },
+      "notes": "These normalized supporting copies are included and hash-verifiable. Their bytes do not match the recorded source-digest claims."
+    },
+    {
+      "name": "historical-members-in-git-history",
+      "included_in_submission": false,
+      "availability": "AVAILABLE_NORMALIZED_COPY_AT_IMMUTABLE_GIT_COMMITS",
+      "persistent_locator": "Git commits b36485cef39fc4011a9a51672bfc8d17986d0494 and 55eed811e006ee60f7e363cecb34a4147ea0bca4",
+      "blob_sha256": {
+        "00-index.html": "b7623f96a95f0749f3d5b3f499a08abe19313ffcbaf5a37d21c1f3ccff5a5c6d",
+        "01-cronologia.html": "e01cd8710c930ec8cd73b5487a66a2cd433be993f4a054cc158923faabb65aca"
+      },
+      "notes": "These normalized supporting copies remain independently retrievable and hash-verifiable. Their bytes do not match the recorded source-digest claims."
+    },
+    {
+      "name": "unavailable-exact-source-members",
+      "included_in_submission": false,
+      "availability": "UNAVAILABLE_EXACT_BYTES",
+      "notes": "No exact source bytes for any of the six members were found. Members 00-03 have normalized supporting copies recorded separately; members 04-05 are digest-only. The submission preserves all recorded claims and does not reconstruct or silently replace historical originals."
     },
     {
       "name": "canonical-source-snapshot",
