@@ -19,9 +19,7 @@
     "article.html",
     "document-metadata.json",
     "provenance.json",
-    "baseline-reconciliation.json",
-    "source-pack/MANIFEST.json",
-    "source-pack/SHA256SUMS.txt"
+    "baseline-reconciliation.json"
   ],
   "primary_artifact": "article.html",
   "requested_channels": [
@@ -30,5 +28,5 @@
   "historical_preservation": true,
   "canonical_change": false,
   "promotion_packet": null,
-  "notes": "Submission-only packet. article.html is the faithful Pages candidate derived from the original research index and reconciled against canonical tare-tools commit 477bea0d915dfde5e9e92fce68be0a42154a31f9; baseline-reconciliation.json records the check. The five original source HTMLs are byte-exact in the Google Drive relay with verified round trips but are not yet copied into this Git branch. No EDITORIAL_DECISION, merge, Publication PR, pages approval, CURRENT or TARGET authority is included."
+  "notes": "Submission-only packet for the main scientific study. article.html is the faithful canonical editorial edition of Hierarchical Work Planning & Cross-Task Optimization and has no local dependency on the deferred companion HTMLs. Exact original source bytes remain preserved and SHA-verified in the tare.tools Google Drive relay as provenance. No EDITORIAL_DECISION, merge, Publication PR, Pages approval, CURRENT or TARGET authority is included."
 }
