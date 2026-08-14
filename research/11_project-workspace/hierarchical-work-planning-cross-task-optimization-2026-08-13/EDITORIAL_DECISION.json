@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.pr22.20260814.001",
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "manifest_sha256": "ce0ba1a4460ad1c3de70287aa9f9896bcacdcdb07b8f7dcba92b6062820f5e29",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "Codex editorial audit",
+    "role": "editorial-reviewer",
+    "identity_ref": "https://github.com/augusto-scarvalho/tare.tools.research/pull/22#issuecomment-5292051006"
+  },
+  "reviewed_at": "2026-08-14T07:13:33-03:00",
+  "notes": "Accepted after baseline reconciliation and removal of unresolved local companion links. Approval is limited to research publication and its requested Pages projection; it does not create CURRENT, TARGET, or canonical architecture authority."
+}

@@ -1,0 +1,46 @@
+{
+  "record_version": "1.1",
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "generation": {
+    "generated_at": "2026-08-13T21:46:00-03:00",
+    "generation_baseline": "UNPINNED",
+    "note": "The research generation predates a canonical baseline pin; no baseline is retroactively attributed."
+  },
+  "canonical_reconciliation": {
+    "type": "post-generation",
+    "receipt": "baseline-reconciliation.json",
+    "canonical_repository": "augusto-scarvalho/universal-agent-harness-prototype",
+    "canonical_commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+    "architecture_epoch": "governed multi-vendor harness → evidence-connected adaptive platform → tare.tools Agent Operating System; governance-hardening / Trust Genesis transition",
+    "result": "NO_MATERIAL_CONTRADICTION_FOUND_IN_RELIED_ON_CURRENT_CLAIMS"
+  },
+  "original_scientific_source": {
+    "original_name": "tare_tools_hierarchical_work_planning_scientific_research_2026-08-13.html",
+    "sha256": "6e819b5eb39d0be61146553e5467fcd772f9e3515f031c5716e3ef0426488b1c",
+    "bytes": 41871,
+    "mime_type": "text/html",
+    "availability": "EXACT_BYTES_IN_TARE_TOOLS_GOOGLE_DRIVE_RELAY",
+    "relay_url": "https://drive.google.com/file/d/1VLAv1igzAPz1aREE8p1KwDAuIu9tyBeA/view",
+    "roundtrip_sha256_verified": true,
+    "materialized_in_submission_branch": false,
+    "publication_dependency": false,
+    "note": "This exact source is provenance for the editorial derivation. Pages/publication consumes the canonical article.html in this packet, not the relay source."
+  },
+  "canonical_editorial_edition": {
+    "file": "article.html",
+    "sha256": "20a0bd281ce5cbbd68d870bc7806109c089d692d0d5582ef9da0c1d715413e03",
+    "git_blob": "47910dfa339693e58d7ba9b529610b6b30f47fc6",
+    "relationship": "derived_from original_scientific_source",
+    "transformation": "Faithful tare-research-html/1.0 structural canonicalization of the scientific study: original substantive scientific sections, citations, bibliography and publication notes preserved; canonical document/header/authority and scope/evidence/findings/limitations/references grouping added; table captions added; research-pack index navigation removed so the publication has no dependency on unpublished companion HTMLs."
+  },
+  "research_generation_context": {
+    "companion_artifacts_deferred": [
+      "tare_tools_hierarchical_work_planning_research_index_2026-08-13.html",
+      "tare_tools_adaptive_work_learning_scientific_research_2026-08-13.html",
+      "tare_tools_planning_technology_landscape_experiments_2026-08-13.html",
+      "tare_tools_hierarchical_work_planning_implementation_architecture_2026-08-13.html"
+    ],
+    "publication_scope": "Only the main Hierarchical Work Planning & Cross-Task Optimization scientific study is submitted in PR #22. Companion artifacts remain preserved in the relay and may be editorialized separately after this submission is resolved."
+  },
+  "authority_boundary": "Submission is RESEARCH only. No EDITORIAL_DECISION, merge, Publication PR, Pages approval, CURRENT, TARGET, Authority or promotion is granted."
+}
