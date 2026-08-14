@@ -1,90 +1,46 @@
 {
+  "record_version": "1.1",
   "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
-  "source_materialization": "exact-in-relay / partial-in-git-submission",
-  "generated_at": "2026-08-13T21:46:00-03:00",
-  "submission_prepared_at": "2026-08-13T22:06:00-03:00",
-  "reconciled_at": "2026-08-13T22:43:00-03:00",
-  "canonical_baseline": {
-    "generation_pinned": false,
-    "reconciliation_pinned": true,
-    "repository": "augusto-scarvalho/universal-agent-harness-prototype",
-    "commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
-    "architecture_epoch": "governed multi-vendor harness → evidence-connected adaptive platform → tare.tools Agent Operating System; governance-hardening / Trust Genesis transition",
+  "generation": {
+    "generated_at": "2026-08-13T21:46:00-03:00",
+    "generation_baseline": "UNPINNED",
+    "note": "The research generation predates a canonical baseline pin; no baseline is retroactively attributed."
+  },
+  "canonical_reconciliation": {
+    "type": "post-generation",
     "receipt": "baseline-reconciliation.json",
-    "claim": "post-generation explicit reconciliation; no retroactive baseline claim"
+    "canonical_repository": "augusto-scarvalho/universal-agent-harness-prototype",
+    "canonical_commit": "477bea0d915dfde5e9e92fce68be0a42154a31f9",
+    "architecture_epoch": "governed multi-vendor harness → evidence-connected adaptive platform → tare.tools Agent Operating System; governance-hardening / Trust Genesis transition",
+    "result": "NO_MATERIAL_CONTRADICTION_FOUND_IN_RELIED_ON_CURRENT_CLAIMS"
   },
-  "relay": {
-    "folder_url": "https://drive.google.com/drive/folders/1vVE28wLA6Ak8nxg2CqyVsvdF8uxi0pGZ",
-    "roundtrip_verification": "5/5 original source HTMLs exact byte matches after cloud download",
-    "pages_candidate_url": "https://drive.google.com/file/d/1bfP0P5AQGoOqWjI4dCLjyiErlcpq_gza/view",
-    "pages_candidate_sha256_before_baseline_reconciliation": "3d81769e50c4d4c29b961e54582bebed81b01e12d653b158102a1a02d6da0129",
-    "note": "The Pages candidate is superseded in this submission by the reconciled article.html; original source HTMLs remain unchanged."
+  "original_scientific_source": {
+    "original_name": "tare_tools_hierarchical_work_planning_scientific_research_2026-08-13.html",
+    "sha256": "6e819b5eb39d0be61146553e5467fcd772f9e3515f031c5716e3ef0426488b1c",
+    "bytes": 41871,
+    "mime_type": "text/html",
+    "availability": "EXACT_BYTES_IN_TARE_TOOLS_GOOGLE_DRIVE_RELAY",
+    "relay_url": "https://drive.google.com/file/d/1VLAv1igzAPz1aREE8p1KwDAuIu9tyBeA/view",
+    "roundtrip_sha256_verified": true,
+    "materialized_in_submission_branch": false,
+    "publication_dependency": false,
+    "note": "This exact source is provenance for the editorial derivation. Pages/publication consumes the canonical article.html in this packet, not the relay source."
   },
-  "source_htmls": [
-    {
-      "name": "tare_tools_adaptive_work_learning_scientific_research_2026-08-13.html",
-      "sha256": "f6e256cb0ccdd83abcd5699feb2da3f1b4b20d6a97009b4dddd141e736bb76c9",
-      "bytes": 31506,
-      "sections": 18,
-      "references": 13,
-      "drive_url": "https://drive.google.com/file/d/1zqMbJNTC9YFuNI8eSGFPV0oDZR__ylBj/view",
-      "materialized_in_submission_branch": false,
-      "materialized_in_relay": true,
-      "relay_roundtrip_verified": true,
-      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
-    },
-    {
-      "name": "tare_tools_hierarchical_work_planning_implementation_architecture_2026-08-13.html",
-      "sha256": "c32a96040c7c7d4209fe171460397e16229feabe3c2ff24cf56427b86c57d541",
-      "bytes": 33936,
-      "sections": 20,
-      "references": 12,
-      "drive_url": "https://drive.google.com/file/d/1b5-iVpEAwCRM-qNFhMS8jHxaFQSmMlR3/view",
-      "materialized_in_submission_branch": false,
-      "materialized_in_relay": true,
-      "relay_roundtrip_verified": true,
-      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
-    },
-    {
-      "name": "tare_tools_hierarchical_work_planning_research_index_2026-08-13.html",
-      "sha256": "b12186cb223f009987bd0260b748f7a35d07e8b75985f1bf793a3c0703a9dbfa",
-      "bytes": 21541,
-      "sections": 9,
-      "references": 6,
-      "drive_url": "https://drive.google.com/file/d/1Ck-M9jv6xZs0xGfxgAakE_IdU5C_dTp9/view",
-      "materialized_in_submission_branch": false,
-      "materialized_in_relay": true,
-      "relay_roundtrip_verified": true,
-      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
-    },
-    {
-      "name": "tare_tools_hierarchical_work_planning_scientific_research_2026-08-13.html",
-      "sha256": "6e819b5eb39d0be61146553e5467fcd772f9e3515f031c5716e3ef0426488b1c",
-      "bytes": 41871,
-      "sections": 18,
-      "references": 19,
-      "drive_url": "https://drive.google.com/file/d/1VLAv1igzAPz1aREE8p1KwDAuIu9tyBeA/view",
-      "materialized_in_submission_branch": false,
-      "materialized_in_relay": true,
-      "relay_roundtrip_verified": true,
-      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
-    },
-    {
-      "name": "tare_tools_planning_technology_landscape_experiments_2026-08-13.html",
-      "sha256": "9e62f1de51d4254c9da588b04b4a31e14a65f6e7b5a127aba28d4f52ed53d2ed",
-      "bytes": 27826,
-      "sections": 16,
-      "references": 18,
-      "drive_url": "https://drive.google.com/file/d/1N7fuR1qXL8j2RMAKSWXzOFpzzG3JCK8K/view",
-      "materialized_in_submission_branch": false,
-      "materialized_in_relay": true,
-      "relay_roundtrip_verified": true,
-      "availability": "Exact raw text/html bytes are materialized in the tare.tools Google Drive relay and were downloaded back and SHA-256 verified; not yet copied into the Git submission branch."
-    }
-  ],
-  "limitations": [
-    "The five original research HTMLs are exact and retrievable from the relay but are not materialized in this Git submission branch.",
-    "The original 2026-08-13 generation was unpinned; canonical_commit/architecture_epoch apply to the explicit post-generation reconciliation recorded by baseline-reconciliation.json.",
-    "No editorial decision is included in this submission."
-  ]
+  "canonical_editorial_edition": {
+    "file": "article.html",
+    "sha256": "20a0bd281ce5cbbd68d870bc7806109c089d692d0d5582ef9da0c1d715413e03",
+    "git_blob": "47910dfa339693e58d7ba9b529610b6b30f47fc6",
+    "relationship": "derived_from original_scientific_source",
+    "transformation": "Faithful tare-research-html/1.0 structural canonicalization of the scientific study: original substantive scientific sections, citations, bibliography and publication notes preserved; canonical document/header/authority and scope/evidence/findings/limitations/references grouping added; table captions added; research-pack index navigation removed so the publication has no dependency on unpublished companion HTMLs."
+  },
+  "research_generation_context": {
+    "companion_artifacts_deferred": [
+      "tare_tools_hierarchical_work_planning_research_index_2026-08-13.html",
+      "tare_tools_adaptive_work_learning_scientific_research_2026-08-13.html",
+      "tare_tools_planning_technology_landscape_experiments_2026-08-13.html",
+      "tare_tools_hierarchical_work_planning_implementation_architecture_2026-08-13.html"
+    ],
+    "publication_scope": "Only the main Hierarchical Work Planning & Cross-Task Optimization scientific study is submitted in PR #22. Companion artifacts remain preserved in the relay and may be editorialized separately after this submission is resolved."
+  },
+  "authority_boundary": "Submission is RESEARCH only. No EDITORIAL_DECISION, merge, Publication PR, Pages approval, CURRENT, TARGET, Authority or promotion is granted."
 }
