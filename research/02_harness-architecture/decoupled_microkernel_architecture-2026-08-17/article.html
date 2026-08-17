@@ -9,7 +9,7 @@
     <article data-tare-document>
       <header data-tare-role="document-header">
         <h1>ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS</h1>
-        <p data-tare-role="abstract">Estudo e deliberação arquitetural formal para o tare.tools Agent OS.</p>
+        <p data-tare-role="abstract">Estudo formal de arquitetura para o tare.tools Agent OS.</p>
       </header>
 
       <aside data-tare-role="authority-boundary">
@@ -18,23 +18,18 @@
 
       <section id="scope" data-tare-section="scope">
         <h2>1. Escopo &amp; Formulação do Problema</h2>
-        <h2>1. Contexto & Problema</h2>
-<p>Durante a fase inicial de experimentação e integração do <code>tare.tools</code>, dois protótipos principais foram desenvolvidos:</p>
-<li>**Universal Agent Harness Prototype (`harness`):** Focado em execução de ferramentas, extração de AST, sandboxing e adaptadores de modelos.</li>
-<li>**Multi-Agent Relay Mesh (`relay`):** Focado em coordenação multiagente, máquinas de estado de leases (FSM), filas de auditoria e sincronização distribuída entre múltiplos hosts.</li>
+        <p>Durante a fase inicial de experimentação e integração do <code>tare.tools</code>, dois protótipos principais foram desenvolvidos:</p>
+<ol>
+<li><strong>Universal Agent Harness Prototype (<code>harness</code>):</strong> Focado em execução de ferramentas, extração de AST, sandboxing e adaptadores de modelos.</li>
+<li><strong>Multi-Agent Relay Mesh (<code>relay</code>):</strong> Focado em coordenação multiagente, máquinas de estado de leases (FSM), filas de auditoria e sincronização distribuída entre múltiplos hosts.</li>
+</ol>
 <p>À medida que esses dois protótipos convergiram, surgiu a hipótese de unificá-los em um <strong>"núcleo único monolítico"</strong>. A deliberação adversarial tripartite da Mesa Redonda concluiu que um monolito criaria severos riscos de concorrência, split-brain e blast radius descontrolado. A solução formal é o desacoplamento em 5 planos com governança determinística e propriedades CP rigorosas.</p>
-<p>---</p>
+<hr/>
       </section>
 
       <section id="evidence" data-tare-section="evidence">
         <h2>2. Método &amp; Trilha de Evidências</h2>
-        <p>Evidência empírica obtida através de deliberação dialética e testes automatizados.</p>
-      </section>
-
-      <section id="findings" data-tare-section="findings">
-        <h2>3. Proposta &amp; Resultados Arquiteturais</h2>
-        <h2>2. Decisão Arquitetural: Microkernel Desacoplado em 5 Planos</h2>
-<p>Fica formalmente decidido que a arquitetura do <code>tare.tools</code> é um <strong>Microkernel Desacoplado baseado em 5 Planos Independentes</strong>, comunicando-se exclusivamente através de contratos estritos, fencing tokens, recibos criptográficos e Landing Journals atômicos.</p>
+        <p>Fica formalmente decidido que a arquitetura do <code>tare.tools</code> é um <strong>Microkernel Desacoplado baseado em 5 Planos Independentes</strong>, comunicando-se exclusivamente através de contratos estritos, fencing tokens, recibos criptográficos e Landing Journals atômicos.</p>
 <pre><code>┌──────────────────────────────────────────────────────────────────────────┐
 │ 1. EXPERIENCE PLANE (Interface Humana &amp; Observabilidade)                 │
 │    • Web Cockpit (:8765), CLI (`relay_mesh.py`), TUI, Modo Executivo     │
@@ -60,36 +55,59 @@
 │    • Workers nos nós (Desktop / Notebook / Cloud via Tailscale)          │
 │    • Vendor Chairs (Cadeiras Frontier com Circuit Breakers)              │
 │    • Zero Mutação Canônica: Saídas tratadas como dados não confiáveis   │
-└──────────────────────────────────────────────────────────────────────────┘</code></pre>
-<p>---</p>
-<h2>3. Especificação Normativa dos 5 Planos</h2>
+└──────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr/>
+      </section>
+
+      <section id="findings" data-tare-section="findings">
+        <h2>3. Proposta &amp; Resultados Arquiteturais</h2>
+        <p><strong>Status:</strong> RATIFICADO PELA MESA REDONDA TRIPARTITE (v003 / Conclusão Formal)<br/>
+<strong>Data:</strong> 17 de Agosto de 2026<br/>
+<strong>Autores:</strong> Augusto &amp; Antigravity (Mediador Independente)<br/>
+<strong>Revisores Titulares:</strong> Google Chair (<code>gemini 3.7 flash high</code>), Anthropic Chair (<code>fable 5 high</code>), OpenAI Chair (<code>gpt sol 5.6 high</code>)<br/>
+<strong>Contexto:</strong> Evolução do Multi-Agent Relay Mesh (MARM) e Universal Agent Harness Prototype.</p>
+<hr/>
+<h3>3. Especificação Normativa dos 5 Planos</h3>
 <h3>3.1. Control Plane (O Microkernel — Sistema CP)</h3>
-<li>**Modelo de Consistência (Resolução Google / OpenAI):** O Control Plane é classificado como um sistema **CP (Consistency & Partition Tolerance)**. Em caso de partição de rede, a disponibilidade de escrita é imediatamente revogada em nós que perderem o quorum ou lease do líder.</li>
-<li>**Invariante de Fencing Monotônico:** Todo lease emitido carrega um `lease_epoch` estritamente monotônico. Qualquer transição de estado ou requisição de serviço com epoch obsoleto é rejeitada atomicamente.</li>
-<li>**Landing Queue & Merge Train Anti-Starvation (Resolução Google ISS-02):**</li>
-<p>  Para evitar livelock no gate humano sob alta concorrência de múltiplos workers, as aterrissagens entram em uma <strong>Fila de Aterrissagem Sequencial</strong>. Se a base canônica avançar durante a aprovação, o Control Plane executa um rebase delta automático no Assurance Plane: caso o rebase seja limpo e os testes passem, o nonce de aprovação é re-vinculado deterministicamente sem exigir novo clique manual do operador.</p>
-<h3>3.2. Data Plane (Grafo de Trabalho & Persistência Transacional)</h3>
-<li>**Invariante Strict Single-Writer:** **Nenhum worker do Compute Plane escreve diretamente no `work-graph.json`**. Mutações são despachadas exclusivamente pelo processo líder do Control Plane através de escrita atômica (`write-tmp + fsync + rename`).</li>
-<li>**Transactional Landing Journal / WAL (Resolução Google ISS-01):** Para eliminar inconsistências de Dual-Write entre o Git e o `work-graph.json`, o Control Plane grava um registro de intenção de aterrissagem em um journal antes do merge de Git. Em caso de crash do processo, o recovery de inicialização reconcilia deterministicamente o estado do grafo com a árvore Git.</li>
-<li>**Prevenção Atômica de Ciclos:** Verificação de aciclicidade e persistência de novas arestas são encapsuladas em uma única operação atômica *check-and-write* sob mutex.</li>
-<h3>3.3. Compute Plane (Workers & Adaptadores de Modelos)</h3>
-<li>**Responsabilidade:** Execução física de raciocínio, escrita de código e geração de propostas.</li>
-<li>**Sem Privilégios Canônicos:** Totalmente descartável e sem credenciais de longa duração. Trata saídas de IA como *dados não confiáveis* até a validação mecânica.</li>
-<li>**Autenticação & Revogação Dinâmica:** Adesão de workers à malha exige autenticação mútua via Tailscale com tokens de escopo limitado e revogação instantânea em desconexões.</li>
+<ul>
+<li><strong>Modelo de Consistência (Resolução Google / OpenAI):</strong> O Control Plane é classificado como um sistema <strong>CP (Consistency &amp; Partition Tolerance)</strong>. Em caso de partição de rede, a disponibilidade de escrita é imediatamente revogada em nós que perderem o quorum ou lease do líder.</li>
+<li><strong>Invariante de Fencing Monotônico:</strong> Todo lease emitido carrega um <code>lease_epoch</code> estritamente monotônico. Qualquer transição de estado ou requisição de serviço com epoch obsoleto é rejeitada atomicamente.</li>
+<li><strong>Landing Queue &amp; Merge Train Anti-Starvation (Resolução Google ISS-02):</strong>
+Para evitar livelock no gate humano sob alta concorrência de múltiplos workers, as aterrissagens entram em uma <strong>Fila de Aterrissagem Sequencial</strong>. Se a base canônica avançar durante a aprovação, o Control Plane executa um rebase delta automático no Assurance Plane: caso o rebase seja limpo e os testes passem, o nonce de aprovação é re-vinculado deterministicamente sem exigir novo clique manual do operador.</li>
+</ul>
+<h3>3.2. Data Plane (Grafo de Trabalho &amp; Persistência Transacional)</h3>
+<ul>
+<li><strong>Invariante Strict Single-Writer:</strong> <strong>Nenhum worker do Compute Plane escreve diretamente no <code>work-graph.json</code></strong>. Mutações são despachadas exclusivamente pelo processo líder do Control Plane através de escrita atômica (<code>write-tmp + fsync + rename</code>).</li>
+<li><strong>Transactional Landing Journal / WAL (Resolução Google ISS-01):</strong> Para eliminar inconsistências de Dual-Write entre o Git e o <code>work-graph.json</code>, o Control Plane grava um registro de intenção de aterrissagem em um journal antes do merge de Git. Em caso de crash do processo, o recovery de inicialização reconcilia deterministicamente o estado do grafo com a árvore Git.</li>
+<li><strong>Prevenção Atômica de Ciclos:</strong> Verificação de aciclicidade e persistência de novas arestas são encapsuladas em uma única operação atômica <em>check-and-write</em> sob mutex.</li>
+</ul>
+<h3>3.3. Compute Plane (Workers &amp; Adaptadores de Modelos)</h3>
+<ul>
+<li><strong>Responsabilidade:</strong> Execução física de raciocínio, escrita de código e geração de propostas.</li>
+<li><strong>Sem Privilégios Canônicos:</strong> Totalmente descartável e sem credenciais de longa duração. Trata saídas de IA como <em>dados não confiáveis</em> até a validação mecânica.</li>
+<li><strong>Autenticação &amp; Revogação Dinâmica:</strong> Adesão de workers à malha exige autenticação mútua via Tailscale com tokens de escopo limitado e revogação instantânea em desconexões.</li>
+</ul>
 <h3>3.4. Assurance Plane (Oráculos Mecânicos de Validação)</h3>
-<li>**Inversão de Limite de Autoridade:** O Assurance Plane é invocado e inspecionado **diretamente pelo Control Plane**, nunca comandado pelo worker do Compute Plane.</li>
-<li>**Isolamento em Sandbox Estéril:** Toda execução dinâmica de testes ocorre em sandbox desprivilegiado (rootless container/microVM) com rede desabilitada e quotas estritas de CPU, memória e tempo.</li>
-<li>**Recibo Criptográfico Expandido (Resolução OpenAI ISS-03):** O recibo assinado pelo Assurance Plane vincula:</li>
-<p>  $$\text{Receipt} = \text{Sign}\Big(\text{hash}(\text{patch}) + \text{hash}(\text{base\_commit}) + \text{tree\_hash}_{\text{result}} + \text{digest}(\text{sandbox}) + \text{task\_id} + \text{lease\_epoch}\Big) = \text{PASS}$$</p>
+<ul>
+<li><strong>Inversão de Limite de Autoridade:</strong> O Assurance Plane é invocado e inspecionado <strong>diretamente pelo Control Plane</strong>, nunca comandado pelo worker do Compute Plane.</li>
+<li><strong>Isolamento em Sandbox Estéril:</strong> Toda execução dinâmica de testes ocorre em sandbox desprivilegiado (rootless container/microVM) com rede desabilitada e quotas estritas de CPU, memória e tempo.</li>
+<li><strong>Recibo Criptográfico Expandido (Resolução OpenAI ISS-03):</strong> O recibo assinado pelo Assurance Plane vincula:
+$$\text{Receipt} = \text{Sign}\Big(\text{hash}(\text{patch}) + \text{hash}(\text{base_commit}) + \text{tree_hash}_{\text{result}} + \text{digest}(\text{sandbox}) + \text{task_id} + \text{lease_epoch}\Big) = \text{PASS}$$</li>
+</ul>
 <h3>3.5. Experience Plane (Interface do Operador)</h3>
-<li>**Responsabilidade:** Cockpit Web em tempo real (`:8765`), CLI unificado (`relay_mesh.py`), aprovação em 1 clique (`aprovar`), alternância de visualização Executiva vs. Técnica.</li>
-<li>**Scoped 1-Time Nonce Consumido Atomicamente (Resolução OpenAI ISS-04):** A aprovação humana gera um nonce de uso único vinculado ao hash da atestação do release, consumido atomicamente na mesma transação de commit de aterrissagem.</li>
-<p>---</p>
-<h2>4. Benefícios Arquiteturais & Limites de Contenção</h2>
-<li>**Blast Radius Rigorosamente Contido:** Falhas em APIs externas, timeouts de LLMs ou erros de sintaxe nos workers nunca corrompem o grafo nem desestabilizam o agendador.</li>
-<li>**Linearizabilidade & Zero Split-Brain:** Fencing tokens, Single-Writer, Landing Journal e Base Hash Fencing garantem consistência sequencial mesmo durante partições de rede.</li>
-<li>**Imunidade a Livelock sob Concorrência:** O Merge Train sequencial e rebase delta automático garantem progresso garantido do cluster com múltiplos workers paralelos.</li>
-<li>**Alinhamento Estrito com a North Star:** Princípio de controle determinístico sobre inteligência probabilística (`tare.tools.research`).</li>
+<ul>
+<li><strong>Responsabilidade:</strong> Cockpit Web em tempo real (<code>:8765</code>), CLI unificado (<code>relay_mesh.py</code>), aprovação em 1 clique (<code>aprovar</code>), alternância de visualização Executiva vs. Técnica.</li>
+<li><strong>Scoped 1-Time Nonce Consumido Atomicamente (Resolução OpenAI ISS-04):</strong> A aprovação humana gera um nonce de uso único vinculado ao hash da atestação do release, consumido atomicamente na mesma transação de commit de aterrissagem.</li>
+</ul>
+<hr/>
+<h3>4. Benefícios Arquiteturais &amp; Limites de Contenção</h3>
+<ol>
+<li><strong>Blast Radius Rigorosamente Contido:</strong> Falhas em APIs externas, timeouts de LLMs ou erros de sintaxe nos workers nunca corrompem o grafo nem desestabilizam o agendador.</li>
+<li><strong>Linearizabilidade &amp; Zero Split-Brain:</strong> Fencing tokens, Single-Writer, Landing Journal e Base Hash Fencing garantem consistência sequencial mesmo durante partições de rede.</li>
+<li><strong>Imunidade a Livelock sob Concorrência:</strong> O Merge Train sequencial e rebase delta automático garantem progresso garantido do cluster com múltiplos workers paralelos.</li>
+<li><strong>Alinhamento Estrito com a North Star:</strong> Princípio de controle determinístico sobre inteligência probabilística (<code>tare.tools.research</code>).</li>
+</ol>
       </section>
 
       <section id="limitations" data-tare-section="limitations">

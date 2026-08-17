@@ -5,11 +5,11 @@
   "destination": "research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17",
   "manifest_sha256": "6b3cc04d6f4d41ac8c1f24c22f3b3fb855b1d6a4ae720b0527524a7c135fbb3b",
   "artifact_sha256": {
-    "article.html": "ab85b039794c74ea609953d4a2ee6843d0bc6ec41657e9af583923e8b351df65",
-    "document-metadata.json": "373bd06dee9d69f4ae98cbf3513989f26088f2909035a8b39af2c4e9a9d0ad18",
-    "article.en.html": "29238aa743e73facc434fd11081bfd9bfbfd07e03705afb09029d1c71b6ebc9e",
-    "document-metadata.en.json": "05d523637e0ac4c5dd9c3ddfdf0462af69f29a3e3dd3256141a1e5a4386d46de",
-    "TRANSLATION_MANIFEST.en.json": "00e3ebe0cd4f66a4eda6fe3188ea1bf182a0004b0c3149a5db76c8475fd44dc6"
+    "article.html": "0d0929f76595d673412ac0609d5ff6fdc61667aa581534a971ac1a3bf9f91d93",
+    "document-metadata.json": "884edf869a1958c401ba349b42d3e8b451fd8a6ba78240bb8aee071bcecdc943",
+    "article.en.html": "17ecd5a2b5e977643c90ed5705c40b2d71c885cfbd889089f460caedb941ee85",
+    "document-metadata.en.json": "7aed519450d3f60e36b07ccfd112126d918ba8b14492a525c20c268e721c78af",
+    "TRANSLATION_MANIFEST.en.json": "522bf451ecb893054898a2e834ce2448cd92b2625df9dbbad84a0f958f24e44c"
   },
   "primary_artifact": "article.html",
   "requested_channels": [
@@ -21,7 +21,7 @@
     "primary_artifact": "article.en.html",
     "metadata_artifact": "document-metadata.en.json",
     "translation_manifest": "TRANSLATION_MANIFEST.en.json",
-    "translation_manifest_sha256": "00e3ebe0cd4f66a4eda6fe3188ea1bf182a0004b0c3149a5db76c8475fd44dc6"
+    "translation_manifest_sha256": "522bf451ecb893054898a2e834ce2448cd92b2625df9dbbad84a0f958f24e44c"
   },
   "editorial_decision": {
     "decision_id": "editorial.decoupled_microkernel_architecture.20260817.001",
@@ -32,8 +32,8 @@
       "role": "editorial-reviewer",
       "identity_ref": "github:augusto-scarvalho"
     },
-    "reviewed_at": "2026-08-17T16:24:36.221163+00:00",
-    "sha256": "43d05103c83393c65d4d5d8eee1e361b10e51340b801d1b84d78e614ae399530"
+    "reviewed_at": "2026-08-17T18:34:36.641050+00:00",
+    "sha256": "9e5b32bdf3390bd48a4d060f72c46263a2edc8f6a2a4ffe76b0780145e93c7bd"
   },
   "remote_effects": false
 }
