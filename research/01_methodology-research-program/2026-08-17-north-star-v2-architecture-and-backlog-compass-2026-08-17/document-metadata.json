@@ -1,0 +1,30 @@
+{
+  "document_id": "research.architecture.2026-08-17-north-star-v2-architecture-and-backlog-compass.2026-08-17",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "title": "North Star 2.0: Arquitetura de Microkernel Desacoplado em 5 Planos e Bússola Estrutural de Backlog para o tare.tools Agent OS",
+  "created_at": "2026-08-17T18:15:27.939514+00:00",
+  "language": "pt-BR",
+  "abstract": "Estudo e deliberação arquitetural formal para o tare.tools Agent OS.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "Antigravity Mediator",
+      "role": "agent"
+    }
+  ],
+  "bounded_contexts": [
+    "Harness Architecture",
+    "Control Plane",
+    "Governance / Audit",
+    "Validation / Assurance"
+  ],
+  "provenance": {
+    "origin": "ratified_tripartite_round_table",
+    "source_file": "2026-08-17-north-star-v2-architecture-and-backlog-compass.md",
+    "canonical_repo": "tare-research/tare.tools"
+  }
+}

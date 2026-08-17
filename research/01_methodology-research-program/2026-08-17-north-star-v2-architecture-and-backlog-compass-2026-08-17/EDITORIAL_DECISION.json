@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.2026-08-17-north-star-v2-architecture-and-backlog-compass.20260817.001",
+  "document_id": "research.architecture.2026-08-17-north-star-v2-architecture-and-backlog-compass.2026-08-17",
+  "manifest_sha256": "1e91a164e4067c2f406d403a2891bfea8812542daaf339e7e42eada0958a26fb",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-17T18:15:27.939514+00:00",
+  "notes": "Ratificado por consenso formal tripartite e publicado automaticamente via Relay Publisher Engine com derivativo EN."
+}
