@@ -6,10 +6,10 @@
   "manifest_sha256": "1e91a164e4067c2f406d403a2891bfea8812542daaf339e7e42eada0958a26fb",
   "artifact_sha256": {
     "article.html": "7ca1bc6c56dadcd42597d9887fba9f3aac9d750ac08f1b74780cd83b6a93b928",
-    "document-metadata.json": "8ff7e613a8184cee0da1bf8d77cc207b530c44e1d5977d8ae4f8e90c53afbbb2",
+    "document-metadata.json": "3d887622f5bf398ea26c6e5255f81b0a3f664a98ab6eda8ac6936acdac24409d",
     "article.en.html": "deeb01dd24989708525c20bf1ff22feab857dfee5ae5a2d584a9c40e8156ddb7",
-    "document-metadata.en.json": "fe3103cda73f1aaabc6a87d97e4182a895b9fafcefb906d63808c4c7c138fcf9",
-    "TRANSLATION_MANIFEST.en.json": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd"
+    "document-metadata.en.json": "46a72fee49ed09607d748357466d6cba6bb28620baee5260e7b4d63fb9805e89",
+    "TRANSLATION_MANIFEST.en.json": "216ad3ec70efabe34d28586c9282a8322e0a3c13139bdb20021a66ea63e52deb"
   },
   "primary_artifact": "article.html",
   "requested_channels": [
@@ -21,7 +21,7 @@
     "primary_artifact": "article.en.html",
     "metadata_artifact": "document-metadata.en.json",
     "translation_manifest": "TRANSLATION_MANIFEST.en.json",
-    "translation_manifest_sha256": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd"
+    "translation_manifest_sha256": "216ad3ec70efabe34d28586c9282a8322e0a3c13139bdb20021a66ea63e52deb"
   },
   "editorial_decision": {
     "decision_id": "editorial.2026-08-17-north-star-v2-architecture-and-backlog-compass.20260817.001",
@@ -32,8 +32,8 @@
       "role": "editorial-reviewer",
       "identity_ref": "github:augusto-scarvalho"
     },
-    "reviewed_at": "2026-08-17T18:28:27.704325+00:00",
-    "sha256": "c9c39b952a097c626dcb3df8d9e68f597e24ce65d43f1ea492dbe5c205b0c521"
+    "reviewed_at": "2026-08-17T18:35:13.573359+00:00",
+    "sha256": "0c4191c0c82cad3acfd831696b7cf387af6bcbea2792c6f59e907cde0de52f0f"
   },
   "remote_effects": false
 }
