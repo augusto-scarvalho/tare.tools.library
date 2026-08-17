@@ -94,17 +94,29 @@ A evolução do `tare.tools.research` também pode virar systems/research-method
 
 Publicar somente após demonstrar reconstruction/review workflows e evitar confundir corpus graph com architectural authority.
 
-## 10. Prioridade editorial
+## 10. Linha I — Decoupled Microkernel Architecture (5 Planes) & Tripartite Dialectic Deliberation (ADR-042)
 
-1. continuar ImplementerProfile longitudinal porque já possui protocol/evidence;
-2. Assurance Topology porque existe um natural experiment/incident ativo;
-3. Negative Evidence note como spin-off curto após CI settlement;
-4. Trusted Judge quando houver novo implementation evidence;
-5. Relay e Task/Run/Work após promotion/activation evidence;
-6. Portfolio method após dados de before/after time-to-trust;
-7. Evolution/memory somente depois de evidence backbone mais maduro.
+**Publicação Canônica Ratificada:** [`research/02_harness-architecture/2026-08-17-decoupled-microkernel-5-plane-architecture-study.md`](../../02_harness-architecture/2026-08-17-decoupled-microkernel-5-plane-architecture-study.md).
 
-## 11. Release criteria para qualquer paper/draft externo
+Formalização da superação do "núcleo único monolítico" em prol do Microkernel Desacoplado em 5 Planos (`Experience`, `Control`, `Data`, `Compute`, `Assurance`), incorporando:
+- Invariantes de Fencing Monotônico (`lease_epoch`) e Single-Writer estrito no Data Plane;
+- Classificação CP estrita com Transactional Landing Journal (WAL) reconciliando Git & Grafo;
+- Landing Queue (Merge Train) com rebase semântico delta anti-starvation;
+- Recibo Criptográfico Expandido vinculando `candidate_tree_hash` e digest do sandbox;
+- Motor de Mesa Redonda com protocolo dialético FSM como oráculo tripartite de consenso.
+
+## 11. Prioridade editorial
+
+1. **Decoupled Microkernel 5-Plane Architecture (Linha I)** — ratificado por consenso tripartite da Mesa Redonda e publicado como estudo canônico;
+2. continuar ImplementerProfile longitudinal porque já possui protocol/evidence;
+3. Assurance Topology porque existe um natural experiment/incident ativo;
+4. Negative Evidence note como spin-off curto após CI settlement;
+5. Trusted Judge quando houver novo implementation evidence;
+6. Relay e Task/Run/Work após promotion/activation evidence;
+7. Portfolio method após dados de before/after time-to-trust;
+8. Evolution/memory somente depois de evidence backbone mais maduro.
+
+## 12. Release criteria para qualquer paper/draft externo
 
 - provenance de internal evidence;
 - reproducible/sanitized artifacts ou disclosure claro de access limitation;
