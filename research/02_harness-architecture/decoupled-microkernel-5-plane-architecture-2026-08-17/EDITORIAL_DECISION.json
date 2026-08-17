@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.decoupled-microkernel-5-plane.20260817.001",
+  "document_id": "research.architecture.decoupled-microkernel-5-plane-2026-08-17",
+  "manifest_sha256": "3f2d6bf87487f70d5bb5f6c02b2c81cbd20f2e69ffab15eb71477707c84ef13e",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-17T14:46:00Z",
+  "notes": "Ratificado por consenso unânime da Mesa Redonda Tripartite (Google, Anthropic, OpenAI) sob o caso RT-ADR-042-PROD."
+}
