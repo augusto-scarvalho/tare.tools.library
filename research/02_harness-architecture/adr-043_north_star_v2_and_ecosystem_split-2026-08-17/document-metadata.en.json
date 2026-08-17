@@ -1,0 +1,30 @@
+{
+  "document_id": "research.architecture.adr-043_north_star_v2_and_ecosystem_split.2026-08-17",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "title": "ADR-043: North Star 2.0 Architectural Transition, Ecosystem Modular Split, and Adversarial Deliberation Synthesis",
+  "created_at": "2026-08-17T20:26:54.637470+00:00",
+  "language": "en",
+  "abstract": "Estudo formal de arquitetura para o tare.tools Agent OS.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "Antigravity Mediator",
+      "role": "agent"
+    }
+  ],
+  "bounded_contexts": [
+    "Harness Architecture",
+    "Control Plane",
+    "Governance / Audit",
+    "Validation / Assurance"
+  ],
+  "provenance": {
+    "origin": "ratified_tripartite_round_table",
+    "translation_of": "research.architecture.adr-043_north_star_v2_and_ecosystem_split.2026-08-17",
+    "source_file": "ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md"
+  }
+}

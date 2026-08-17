@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>ADR-043: North Star 2.0 Architectural Transition, Ecosystem Modular Split, and Adversarial Deliberation Synthesis</title>
+</head>
+<body>
+  <main>
+    <article data-tare-document>
+      <header data-tare-role="document-header">
+        <h1>ADR-043: North Star 2.0 Architectural Transition, Ecosystem Modular Split, and Adversarial Deliberation Synthesis</h1>
+        <p data-tare-role="abstract">Estudo formal de arquitetura para o tare.tools Agent OS.</p>
+      </header>
+
+      <aside data-tare-role="authority-boundary">
+        RESEARCH / PEER-REVIEW RATIFIED DRAFT. Publicação em tare.tools.research sob governança de Design Science. Não concede isoladamente autorização de mutação em repositórios de produção sem o protocolo canônico do Relay Mesh.
+      </aside>
+
+      <section id="scope" data-tare-section="scope">
+        <h2>1. Escopo &amp; Formulação do Problema</h2>
+        <p>Este Architectural Decision Record (ADR-043) formaliza o encerramento do ciclo de pesquisa v1 do <code>tare.tools</code>, o congelamento do protótipo monolítico de 187 módulos (<code>universal-agent-harness-prototype</code>), o arquivamento do grafo de 174 nós (<code>work-graph.json</code>) e a divisão física do ecossistema em repositórios independentes no GitHub centrados no <strong><code>tare-kernel</code> (North Star 2.0)</strong>.</p>
+<h3>Decisões Fundamentais Estabelecidas:</h3>
+<ol>
+<li><strong>Encerramento e Congelamento Formal do v1:</strong> O protótipo legado é classificado permanentemente como <code>SUPERSEDED_RESEARCH_PROTOTYPE (FROZEN)</code>. O grafo de 174 nós foi congelado com digest SHA-256 verificado em <code>continuity/work-graph-v1-archive.json</code> e mapeado através de <code>continuity/v1_to_v2_crosswalk.json</code>.</li>
+<li><strong>Topologia Modular em Repositórios Standalone:</strong> O código é desacoplado em pacotes independentes no GitHub para permitir reuso direto em outros projetos de software:<ul>
+<li><code>tare-graph-backlog</code>: Motor de gestão de backlogs em grafo acíclico dirigido (DAG) em Python puro.</li>
+<li><code>watson-dialog-tools</code>: Suíte de diagnósticos, testes e análise topológica para IBM Watson Assistant (127 testes passando).</li>
+<li><code>tare.tools.research</code>: Hub de documentação, estudos e ADRs integrado ao GitHub Pages.</li>
+<li><code>tare-kernel</code>: O microkernel desacoplado em 5 Planos (Data, Control, Assurance, Compute, Experience).</li>
+</ul>
+</li>
+<li><strong>Função Objetivo de Governança:</strong> O desenvolvimento de todo o novo núcleo é estritamente orientado à minimização do tempo até a confiança verificável: $\min(\text{Time-to-Trust})$.</li>
+</ol>
+<hr/>
+      </section>
+
+      <section id="evidence" data-tare-section="evidence">
+        <h2>2. Método &amp; Trilha de Evidências</h2>
+        <blockquote>
+<p><strong>Status:</strong> APPROVED / RATIFIED BY TRIPARTITE CONSENSUS<br/>
+<strong>Date:</strong> 2026-08-17<br/>
+<strong>Authors:</strong> Antigravity Mediator, Google Chair (<code>gemini-3.7-flash-high</code>), Anthropic Chair (<code>claude-fable-5-high</code>), OpenAI Chair (<code>gpt-5.6-sol-high</code>)<br/>
+<strong>Context Directory:</strong> <code>02_harness-architecture</code><br/>
+<strong>Canonical Target:</strong> <code>tare-kernel</code> (Microkernel Agent OS em 5 Planos)</p>
+</blockquote>
+<hr/>
+<h3>A. Diagnóstico Empírico do Deadlock de Governança no v1</h3>
+<p>O protótipo v1 operava com acoplamento circular no mesmo processo/filesystem:
+$$\text{Agente modifica código} \longrightarrow \text{Hook exige attestation} \longrightarrow \text{Attestation exige CI verde} \longrightarrow \text{CI falha em checagens estáticas circulares do harness}$$
+A tentativa de resolver o problema adicionando mais regras estáticas e verificações SLSA agravou o livelock, comprovando que governança e execução de agentes não podem residir no mesmo domínio de privilégio.</p>
+<h3>B. Evidência de Interferência de Sincronizadores em Nuvem</h3>
+<p>A inspeção forense da pasta compartilhada (<code>My Drive</code>) revelou 21 instâncias de arquivos duplicados por colisão de sincronização (<code>coordinator (1).db-shm</code> a <code>coordinator (19).db-shm</code>), demonstrando que armazenar bancos de dados mutáveis e Write-Ahead Logs (WAL) em diretórios sincronizados por nuvem quebra a semântica de <code>fsync</code> e introduz corrupção de estado por escritores concorrentes invisíveis.</p>
+<h3>C. Síntese das 6 Rodadas da Mesa Redonda Tripartite (Consenso Dialético)</h3>
+<p>A proposta arquitetural foi submetida a 6 rodadas consecutivas de auditoria adversarial independente entre três assentos de fronteira:</p>
+<table aria-label="Tabela de Especificação / Specification Table">
+<thead>
+<tr>
+<th>Rodada</th>
+<th style="text-align:center">Versão</th>
+<th style="text-align:center">Votos dos Assentos (Google / Anthropic / OpenAI)</th>
+<th>Descobertas Adversariais &amp; Emendas Críticas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td style="text-align:center"><code>v001</code></td>
+<td style="text-align:center"><code>REVISE</code> / <code>REVISE</code> / <code>REVISE</code></td>
+<td>Identificada circularidade no bootstrap do Notário e inconsistência de Quorum Raft em malha de 2 máquinas físicas.</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td style="text-align:center"><code>v002</code></td>
+<td style="text-align:center"><code>APPROVE</code> / <code>REVISE</code> / <code>REVISE</code></td>
+<td>Identificado risco crítico do Google Drive como escritor fantasma; exigida migração de estado mutável para <code>%LOCALAPPDATA%</code>.</td>
+</tr>
+<tr>
+<td><strong>R3</strong></td>
+<td style="text-align:center"><code>v003</code></td>
+<td style="text-align:center"><code>APPROVE</code> / <code>REVISE</code> / <code>REVISE</code></td>
+<td>Falsificada a premissa de que <em>Job Objects</em> comuns no Windows impedem <code>OpenProcess</code>/<code>ReadProcessMemory</code> entre processos do mesmo usuário.</td>
+</tr>
+<tr>
+<td><strong>R4</strong></td>
+<td style="text-align:center"><code>v004</code></td>
+<td style="text-align:center"><code>APPROVE</code> / <code>REVISE</code> / <code>REVISE</code></td>
+<td>Identificada vulnerabilidade no token HMAC (risco de Coordenador forjar aprovações); imposta Assinatura Assimétrica Ed25519.</td>
+</tr>
+<tr>
+<td><strong>R5</strong></td>
+<td style="text-align:center"><code>v005</code></td>
+<td style="text-align:center"><code>APPROVE</code> / <code>REVISE</code> / <code>REVISE</code></td>
+<td>Formalização de CAS atômico via transação SQLite <code>BEGIN IMMEDIATE</code> e Capability Envelopes amarrando repositório e branch.</td>
+</tr>
+<tr>
+<td><strong>R6</strong></td>
+<td style="text-align:center"><code>v006</code></td>
+<td style="text-align:center"><code>APPROVE</code> / <code>REVISE</code> / <code>REVISE</code></td>
+<td>Definição de modelo de ameaça honesto no Windows 11 com chaves Ed25519 assinadas offline e isolamento de SID/AppContainer.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+      </section>
+
+      <section id="findings" data-tare-section="findings">
+        <h2>3. Proposta &amp; Resultados Arquiteturais</h2>
+        <h3>3. Findings / Especificação da Arquitetura &amp; Invariantes T-01 a T-06</h3>
+<pre><code>+-----------------------------------------------------------------------------------+
+| EXPERIENCE PLANE: Web Cockpit (:8765) SSE | 1-Click Nonce Ed25519 | CLI `tare`     |
++-----------------------------------------------------------------------------------+
+                                          | Ingress RPC (mTLS / Tailscale)
++-----------------------------------------------------------------------------------+
+| CONTROL PLANE: Ingress Gatekeeper | Merge Train (Budget=3) | Landing Saga WAL     |
++-----------------------------------------------------------------------------------+
+               |                                            |
++------------------------------+             +--------------------------------------+
+| DATA PLANE (Single-Writer):  |             | ASSURANCE PLANE:                     |
+| Local SQLite (%LOCALAPPDATA%)|             | Notary Signer Enclave (SID dedicado) |
+| CAS BEGIN IMMEDIATE atômico  |             | Hermetic Oracle Runner (AppContainer)|
++------------------------------+             +--------------------------------------+
+                                          |
++-----------------------------------------------------------------------------------+
+| COMPUTE PLANE: Task Workspaces Efêmeros (Zero escrita no host / Git canônico)     |
++-----------------------------------------------------------------------------------+
+</code></pre>
+<h3>Invariantes Normativos Ratificados:</h3>
+<ul>
+<li><strong>T-01 (Bootstrap Genesis &amp; Criptografia Assimétrica Ed25519):</strong><br/>
+Toda autoridade raiz do cluster é baseada em assinaturas assimétricas Ed25519. O cluster inicializa a partir de um manifesto <code>genesis.json</code> assinado <strong>offline pelo Operador Humano</strong>, eliminando qualquer dependência circular de bootstrap do Notário.</li>
+<li><strong>T-02 (Confinamento Estrito do Compute Plane):</strong><br/>
+O Compute Plane roda em sandboxes efêmeros (AppContainer / Restricted Token) sem acesso de escrita no disco do host e com rede de saída deny-by-default. Toda alteração trafega como proposta de patch imutável endereçada por hash.</li>
+<li><strong>T-03 (Substrato Local &amp; CAS Atômico no Data Plane):</strong><br/>
+Todo o estado mutável (<code>data.db</code>, WAL, chaves) reside em <code>%LOCALAPPDATA%\tare-kernel\</code>. O Coordenador impõe Fencing Monotônico CAS via transação SQLite <code>BEGIN IMMEDIATE</code> atômica:
+$$\text{assert}(expected_epoch == current_epoch \land expected_version == current_version \land \text{UNIQUE}(op_id))$$</li>
+<li><strong>T-04 (Landing Saga WAL de 6 Estados &amp; Egress Exclusivo):</strong><br/>
+A sincronização com o Git remoto opera sob uma saga compensatória:
+$$\text{PREPARED_LANDING} \longrightarrow \text{PUSHING} \longrightarrow \text{COMMITTED} \mid \text{RECONCILING} \longrightarrow \text{ABORTED} \mid \text{HUMAN_PARKED}$$
+Pushes remotos exigem Capability Envelopes assinados por Ed25519 amarrando <code>(repo_url, target_ref, expected_old_oid, candidate_new_oid, op_id)</code>. Se o budget de 3 rebases esgotar, a proposta transiciona deterministicamente para <code>HUMAN_PARKED</code>.</li>
+<li><strong>T-05 (Segregação de Privilégios por SID/AppContainer no Windows):</strong><br/>
+O <em>Notary Signer Enclave</em> executa sob uma conta Windows dedicada com DPAPI e ACLs exclusivas. O <em>Hermetic Oracle Runner</em> executa em AppContainer estéril com protocolo IPC tipado e <code>challenge_nonce</code> supervisionado.</li>
+<li><strong>T-06 (Aprovação Humana 1-Click Assinada por Chave Privada):</strong><br/>
+O token de aprovação é emitido por assinatura Ed25519 da chave privada do Operador Humano:
+$$\text{ApprovalToken} = \text{Sign}_{\text{PrivKey_Human}}(\text{proposal_sha256} \parallel \text{candidate_commit} \parallel \text{target_epoch} \parallel \text{op_id} \parallel \text{expiry_utc})$$</li>
+</ul>
+<hr/>
+<h3>4. Limitations / Limitações e Análise de Ameaças</h3>
+<ol>
+<li><strong>Modelo de Ameaça do Administrador Local no Windows:</strong> Em estações de desenvolvimento Windows 11 Home onde o usuário interativo detém privilégios administrativos locais (<code>SeDebugPrivilege</code>), o isolamento por software é <em>tamper-evident</em>, mas não <em>tamper-proof</em>. A proteção contra ataques de administrador local é garantida pela exigência de que a chave raiz de assinatura do <code>genesis.json</code> resida em custódia offline do operador.</li>
+<li><strong>Topologia de 2 Máquinas Físicas:</strong> A malha opera intencionalmente em regime de <strong>Single-Writer com Fail-Closed</strong>. Se o Nó Coordenador Primário falhar, o segundo nó <strong>não se auto-promove</strong> a escritor, prevenindo dual-writers e split-brain. A promoção de um novo líder requer intervenção humana explícita com revogação da chave anterior.</li>
+<li><strong>Consistência Dual Git Remoto vs Data Plane:</strong> O Git remoto não implementa 2PC. Falhas de rede durante o push dependem de reconciliação idempotente por <code>op_id</code> no Egress Service.</li>
+</ol>
+<hr/>
+      </section>
+
+      <section id="limitations" data-tare-section="limitations">
+        <h2>4. Limitações &amp; Ameaças à Validade</h2>
+        <ol>
+<li><strong>ADR-042:</strong> <em>Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS</em> (Publicado em 2026-08-17).</li>
+<li><strong>RFC 8785:</strong> <em>JSON Canonicalization Scheme (JCS)</em> — Serialização determinística de envelopes de atestação.</li>
+<li><strong>RFC 8032:</strong> <em>Edwards-Curve Digital Signature Algorithm (Ed25519)</em>.</li>
+<li><strong>SQLite WAL Architecture:</strong> <em>Write-Ahead Logging and Concurrency Isolation semantics in SQLite3</em>.</li>
+<li><strong>Jepsen Distributed Systems Safety Analysis:</strong> <em>Fencing tokens, monotonic epochs, and split-brain prevention under network partitions</em>.</li>
+</ol>
+      </section>
+
+      <section id="references" data-tare-section="references">
+        <h2>5. Referências &amp; Genealogia Canônica</h2>
+        <p>Repositório canônico tare-research/tare.tools.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
