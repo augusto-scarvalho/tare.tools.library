@@ -1,0 +1,39 @@
+{
+  "record_version": "1.2",
+  "backend": "git-local",
+  "document_id": "research.architecture.adr-043_north_star_v2_and_ecosystem_split.2026-08-17",
+  "destination": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17",
+  "manifest_sha256": "087917d10f9f49dcb9661c113b8258e85979f5d1bf8b8854b0773fd1857be8d6",
+  "artifact_sha256": {
+    "article.html": "024a46b8aa922e5b96e759a1e6fc57841c19dd3a200544e0d4633ef87545b7f5",
+    "document-metadata.json": "f1c3126f93c440477b775f584b0758e8f7a2b3a4dc2fb743b581b8bfb9f7b346",
+    "article.en.html": "bc5c0b9dca96239abc3d77ccc88be30b485ac9ea3600a1a264e3d79ede4245ea",
+    "document-metadata.en.json": "0c7f17a0cabeaf4ebe2769ab6493902efccd8f594a25d88b9f2457c71f41b117",
+    "TRANSLATION_MANIFEST.en.json": "111c8206ca5b0d7ec89cbe96b9b1b032dd66b72586736b1cec26ed9d1e860022"
+  },
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "pages_approved": true,
+  "pages_projection": {
+    "language": "en",
+    "primary_artifact": "article.en.html",
+    "metadata_artifact": "document-metadata.en.json",
+    "translation_manifest": "TRANSLATION_MANIFEST.en.json",
+    "translation_manifest_sha256": "111c8206ca5b0d7ec89cbe96b9b1b032dd66b72586736b1cec26ed9d1e860022"
+  },
+  "editorial_decision": {
+    "decision_id": "editorial.adr-043_north_star_v2_and_ecosystem_split.20260817.001",
+    "decision": "accept",
+    "pages_approved": true,
+    "reviewer": {
+      "name": "augusto-scarvalho",
+      "role": "editorial-reviewer",
+      "identity_ref": "github:augusto-scarvalho"
+    },
+    "reviewed_at": "2026-08-17T20:26:54.637470+00:00",
+    "sha256": "1cec90bfb04fa9fed41aef5e43e25b4e2c766ae19cfcb068daedf2312f1e9db7"
+  },
+  "remote_effects": false
+}

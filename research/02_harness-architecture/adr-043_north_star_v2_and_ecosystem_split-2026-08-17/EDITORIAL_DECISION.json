@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.adr-043_north_star_v2_and_ecosystem_split.20260817.001",
+  "document_id": "research.architecture.adr-043_north_star_v2_and_ecosystem_split.2026-08-17",
+  "manifest_sha256": "087917d10f9f49dcb9661c113b8258e85979f5d1bf8b8854b0773fd1857be8d6",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-17T20:26:54.637470+00:00",
+  "notes": "Ratificado por consenso formal tripartite e publicado automaticamente via Relay Publisher Engine com derivativo EN."
+}
