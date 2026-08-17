@@ -5,11 +5,11 @@
   "destination": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17",
   "manifest_sha256": "1e91a164e4067c2f406d403a2891bfea8812542daaf339e7e42eada0958a26fb",
   "artifact_sha256": {
-    "article.html": "ea7c8efd0f3c49a93aeb1724b385f3d6a6a27480a81d460daf05e8da33bf27af",
-    "document-metadata.json": "76082d6c51b03b1bc7b78e2e1e8dd40c7349c15c457d57604b5f2efa099a1d56",
-    "article.en.html": "88f67e83c1dc45f5bc115835fbcdaaa3f6c73fff7355c77e7427a82c45b664cd",
-    "document-metadata.en.json": "2d30106b937030d47b21bf3ace3478dc4c3b0e6f25a8a68d21109400ad3180f8",
-    "TRANSLATION_MANIFEST.en.json": "3fd0200acc6f7e2ad9bb894e568ebcf696aea1a526e6afdc0ccc48bd65fe8fe6"
+    "article.html": "7ca1bc6c56dadcd42597d9887fba9f3aac9d750ac08f1b74780cd83b6a93b928",
+    "document-metadata.json": "8ff7e613a8184cee0da1bf8d77cc207b530c44e1d5977d8ae4f8e90c53afbbb2",
+    "article.en.html": "deeb01dd24989708525c20bf1ff22feab857dfee5ae5a2d584a9c40e8156ddb7",
+    "document-metadata.en.json": "fe3103cda73f1aaabc6a87d97e4182a895b9fafcefb906d63808c4c7c138fcf9",
+    "TRANSLATION_MANIFEST.en.json": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd"
   },
   "primary_artifact": "article.html",
   "requested_channels": [
@@ -21,7 +21,7 @@
     "primary_artifact": "article.en.html",
     "metadata_artifact": "document-metadata.en.json",
     "translation_manifest": "TRANSLATION_MANIFEST.en.json",
-    "translation_manifest_sha256": "3fd0200acc6f7e2ad9bb894e568ebcf696aea1a526e6afdc0ccc48bd65fe8fe6"
+    "translation_manifest_sha256": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd"
   },
   "editorial_decision": {
     "decision_id": "editorial.2026-08-17-north-star-v2-architecture-and-backlog-compass.20260817.001",
@@ -32,8 +32,8 @@
       "role": "editorial-reviewer",
       "identity_ref": "github:augusto-scarvalho"
     },
-    "reviewed_at": "2026-08-17T18:15:27.939514+00:00",
-    "sha256": "c22ba1ec807d1ae3a687a87f9cc5bb36a9e4919d20412789069f3fff832396fd"
+    "reviewed_at": "2026-08-17T18:28:27.704325+00:00",
+    "sha256": "c9c39b952a097c626dcb3df8d9e68f597e24ce65d43f1ea492dbe5c205b0c521"
   },
   "remote_effects": false
 }
