@@ -91,7 +91,7 @@ def validate(output: Path, root: Path, incumbent: Path, base_path: str) -> list[
                 if decision.get('decision')!='accept' or decision.get('pages_approved') is not True: errors.append(f'{record_path}: editorial decision does not authorize Pages publication')
                 for key in ('decision_id','document_id','manifest_sha256','decision','pages_approved','reviewer','reviewed_at'):
                     if editorial.get(key)!=decision.get(key): errors.append(f'{record_path}: projected editorial decision mismatch: {key}')
-        meta_artifact_name = record.get('pages_projection', {}).get('metadata_artifact', 'document-metadata.json') if isinstance(record.get('pages_projection'), dict) else 'document-metadata.json'
+        meta_artifact_name = 'document-metadata.en.json' if source.name == 'article.en.html' else 'document-metadata.json'
         metadata=json.loads((source.parent / meta_artifact_name).read_text(encoding='utf-8'))
         soup=BeautifulSoup(page.read_text(encoding='utf-8'),'html.parser')
         if soup.html is None or soup.html.get('lang')!=metadata.get('language'): errors.append(f'{page}: projection language mismatch')
