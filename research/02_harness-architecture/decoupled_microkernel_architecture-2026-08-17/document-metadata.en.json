@@ -3,9 +3,9 @@
   "document_type": "research",
   "status": "RESEARCH",
   "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
-  "created_at": "2026-08-17T16:24:36.221163+00:00",
+  "created_at": "2026-08-17T18:36:02.887793+00:00",
   "language": "en",
-  "abstract": "Estudo e deliberação arquitetural formal para o tare.tools Agent OS.",
+  "abstract": "Este Registro de Decisão Arquitetural (ADR-042) formaliza a transição estrutural do `tare.tools Agent OS` de um núcleo monolítico para uma **Arquitetura de Microkernel Desacoplado em 5 Planos Independentes** (Experience, Control, Data, Compute e Assurance). Baseando-se em evidências empíricas de 9 linhas de pesquisa e na deliberação adversarial tripartite da Mesa Redonda (Gemini 3.7 High, GPT-5.6 Sol / Codex, Claude Fable 5 High), o estudo estabelece as fronteiras físicas de autoridade: isolamento total do *Compute Plane* com zero permissão de mutação direta, governança CP estrita com *fencing tokens* monotônicos emitidos por consenso Raft de 3 nós, *Landing Saga* de 5 estados com reconciliador contínuo e push atômico fast-forward verificado via Egress Service dedicado, processo Notário isolado para emissão de *Attestation Receipts* imunes a adulteração de testes, e *Landing Reservation Lease* com TTL e heartbeat pós-aprovação humana para eliminar starvation no merge train.",
   "authors": [
     {
       "name": "Augusto Carvalho",
