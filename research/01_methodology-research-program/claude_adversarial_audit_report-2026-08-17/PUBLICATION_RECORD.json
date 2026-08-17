@@ -1,0 +1,39 @@
+{
+  "record_version": "1.2",
+  "backend": "git-local",
+  "document_id": "research.architecture.claude_adversarial_audit_report.2026-08-17",
+  "destination": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17",
+  "manifest_sha256": "da493de255defff3af8cab65c4656579ea223a40aadb583104279da80d542909",
+  "artifact_sha256": {
+    "article.html": "7a23c1793cf7fcfef3b4efc5a633111831edafe5cff858558183c10253dc9c50",
+    "document-metadata.json": "2bdfd18feb4af833c455bb8c73b7059bf6172213da90f5f738b2506229e86990",
+    "article.en.html": "f06435af019db1926379971dd2b059fababa1f5b4a89ecac68530b9badc2a0cb",
+    "document-metadata.en.json": "b45b762ec5c3fc7a740af882b9662d4b6274d1dfe418540cdb6b6b63ee98eecf",
+    "TRANSLATION_MANIFEST.en.json": "1a9eb408c70a82486fbd632a6cd1ac8abf6eabcc07ca5823a137b4866513225a"
+  },
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "pages_approved": true,
+  "pages_projection": {
+    "language": "en",
+    "primary_artifact": "article.en.html",
+    "metadata_artifact": "document-metadata.en.json",
+    "translation_manifest": "TRANSLATION_MANIFEST.en.json",
+    "translation_manifest_sha256": "1a9eb408c70a82486fbd632a6cd1ac8abf6eabcc07ca5823a137b4866513225a"
+  },
+  "editorial_decision": {
+    "decision_id": "editorial.claude_adversarial_audit_report.20260817.001",
+    "decision": "accept",
+    "pages_approved": true,
+    "reviewer": {
+      "name": "augusto-scarvalho",
+      "role": "editorial-reviewer",
+      "identity_ref": "github:augusto-scarvalho"
+    },
+    "reviewed_at": "2026-08-17T18:35:20.367634+00:00",
+    "sha256": "26c8adb0a1fbd2f7c744a9de2089a5804ec155603f3e2695e7190d73414ec1f0"
+  },
+  "remote_effects": false
+}

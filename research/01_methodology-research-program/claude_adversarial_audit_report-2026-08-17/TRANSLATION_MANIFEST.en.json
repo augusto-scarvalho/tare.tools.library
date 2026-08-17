@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "translation_id": "translation.en.research.architecture.claude_adversarial_audit_report.2026-08-17",
+  "translation_of": "research.architecture.claude_adversarial_audit_report.2026-08-17",
+  "source_path": "article.html",
+  "source_sha256": "7a23c1793cf7fcfef3b4efc5a633111831edafe5cff858558183c10253dc9c50",
+  "translation_path": "article.en.html",
+  "translation_sha256": "f06435af019db1926379971dd2b059fababa1f5b4a89ecac68530b9badc2a0cb",
+  "translation_size_bytes": 17059,
+  "source_language": "pt-BR",
+  "target_language": "en",
+  "translation_status": "MACHINE_TRANSLATED_UNREVIEWED",
+  "translator": "tare-relay-publisher-ai",
+  "translated_at": "2026-08-17T18:35:20.367634+00:00",
+  "policy": "TRANSLATION_POLICY.md",
+  "notes": "Automated high-fidelity structural translation preserving canonical nouns and AST invariants."
+}

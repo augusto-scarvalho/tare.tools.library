@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.claude_adversarial_audit_report.20260817.001",
+  "document_id": "research.architecture.claude_adversarial_audit_report.2026-08-17",
+  "manifest_sha256": "da493de255defff3af8cab65c4656579ea223a40aadb583104279da80d542909",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-17T18:35:20.367634+00:00",
+  "notes": "Ratificado por consenso formal tripartite e publicado automaticamente via Relay Publisher Engine com derivativo EN."
+}

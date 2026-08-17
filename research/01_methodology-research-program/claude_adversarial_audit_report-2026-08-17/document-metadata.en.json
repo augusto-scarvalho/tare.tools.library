@@ -1,0 +1,30 @@
+{
+  "document_id": "research.architecture.claude_adversarial_audit_report.2026-08-17",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "title": "🔴 RELATÓRIO DE AUDITORIA ADVERSARIAL INDEPENDENTE — Anthropic Chair",
+  "created_at": "2026-08-17T18:35:20.367634+00:00",
+  "language": "en",
+  "abstract": "Estudo formal de arquitetura para o tare.tools Agent OS.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "Antigravity Mediator",
+      "role": "agent"
+    }
+  ],
+  "bounded_contexts": [
+    "Harness Architecture",
+    "Control Plane",
+    "Governance / Audit",
+    "Validation / Assurance"
+  ],
+  "provenance": {
+    "origin": "ratified_tripartite_round_table",
+    "translation_of": "research.architecture.claude_adversarial_audit_report.2026-08-17",
+    "source_file": "CLAUDE_ADVERSARIAL_AUDIT_REPORT.md"
+  }
+}
