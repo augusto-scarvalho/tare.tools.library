@@ -1,0 +1,39 @@
+{
+  "record_version": "1.2",
+  "backend": "git-local",
+  "document_id": "research.architecture.2026-08-17-north-star-v2-architecture-and-backlog-compass.2026-08-17",
+  "destination": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17",
+  "manifest_sha256": "1e91a164e4067c2f406d403a2891bfea8812542daaf339e7e42eada0958a26fb",
+  "artifact_sha256": {
+    "article.html": "ea7c8efd0f3c49a93aeb1724b385f3d6a6a27480a81d460daf05e8da33bf27af",
+    "document-metadata.json": "76082d6c51b03b1bc7b78e2e1e8dd40c7349c15c457d57604b5f2efa099a1d56",
+    "article.en.html": "88f67e83c1dc45f5bc115835fbcdaaa3f6c73fff7355c77e7427a82c45b664cd",
+    "document-metadata.en.json": "2d30106b937030d47b21bf3ace3478dc4c3b0e6f25a8a68d21109400ad3180f8",
+    "TRANSLATION_MANIFEST.en.json": "3fd0200acc6f7e2ad9bb894e568ebcf696aea1a526e6afdc0ccc48bd65fe8fe6"
+  },
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "pages_approved": true,
+  "pages_projection": {
+    "language": "en",
+    "primary_artifact": "article.en.html",
+    "metadata_artifact": "document-metadata.en.json",
+    "translation_manifest": "TRANSLATION_MANIFEST.en.json",
+    "translation_manifest_sha256": "3fd0200acc6f7e2ad9bb894e568ebcf696aea1a526e6afdc0ccc48bd65fe8fe6"
+  },
+  "editorial_decision": {
+    "decision_id": "editorial.2026-08-17-north-star-v2-architecture-and-backlog-compass.20260817.001",
+    "decision": "accept",
+    "pages_approved": true,
+    "reviewer": {
+      "name": "augusto-scarvalho",
+      "role": "editorial-reviewer",
+      "identity_ref": "github:augusto-scarvalho"
+    },
+    "reviewed_at": "2026-08-17T18:15:27.939514+00:00",
+    "sha256": "c22ba1ec807d1ae3a687a87f9cc5bb36a9e4919d20412789069f3fff832396fd"
+  },
+  "remote_effects": false
+}
