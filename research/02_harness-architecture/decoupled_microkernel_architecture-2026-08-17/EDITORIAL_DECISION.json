@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.decoupled_microkernel_architecture.20260817.001",
+  "document_id": "research.architecture.decoupled_microkernel_architecture.2026-08-17",
+  "manifest_sha256": "6b3cc04d6f4d41ac8c1f24c22f3b3fb855b1d6a4ae720b0527524a7c135fbb3b",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-17T16:24:36.221163+00:00",
+  "notes": "Ratificado por consenso formal tripartite e publicado automaticamente via Relay Publisher Engine com derivativo EN."
+}

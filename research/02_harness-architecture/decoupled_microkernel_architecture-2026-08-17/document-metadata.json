@@ -1,0 +1,30 @@
+{
+  "document_id": "research.architecture.decoupled_microkernel_architecture.2026-08-17",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
+  "created_at": "2026-08-17T16:24:36.221163+00:00",
+  "language": "pt-BR",
+  "abstract": "Estudo e deliberação arquitetural formal para o tare.tools Agent OS.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "Antigravity Mediator",
+      "role": "agent"
+    }
+  ],
+  "bounded_contexts": [
+    "Harness Architecture",
+    "Control Plane",
+    "Governance / Audit",
+    "Validation / Assurance"
+  ],
+  "provenance": {
+    "origin": "ratified_tripartite_round_table",
+    "source_file": "DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
+    "canonical_repo": "tare-research/tare.tools"
+  }
+}
