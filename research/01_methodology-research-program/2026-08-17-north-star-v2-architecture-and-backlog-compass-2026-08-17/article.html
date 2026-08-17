@@ -9,7 +9,9 @@
     <article data-tare-document>
       <header data-tare-role="document-header">
         <h1>North Star 2.0: Arquitetura de Microkernel Desacoplado em 5 Planos e Bússola Estrutural de Backlog para o tare.tools Agent OS</h1>
-        <p data-tare-role="abstract">Estudo e deliberação arquitetural formal para o tare.tools Agent OS.</p>
+        <p data-tare-role="abstract">Este estudo estabelece a especificação canônica, definitiva e unificada do **North Star 2.0** para o `tare.tools Agent OS`, sintetizando o aprendizado empírico de 9 linhas de pesquisa longitudinais e a deliberação adversarial tripartite da Mesa Redonda (Gemini 3.7 High, GPT-5.6 Sol / Codex, Claude Fable 5 High). Superamos o modelo heurístico original (**North Star v1**) e formalizamos o sistema operacional como um **Microkernel Desacoplado em 5 Planos Independentes** (Experience, Control, Data, Compute e Assurance). O documento define contratos matematicamente estritos de governança CP: isolamento total do *Compute Plane* sem escrita direta no estado, *fencing tokens* monotônicos com condição estrita `epoch == current_fence` emitidos por quórum Raft de 3 nós com pre-vote e witness non-candidate, máquina de estados transacional de 5 estados (*Landing Saga: PREPARED → PUSHING → COMMITTED | RECONCILING → ABORTED*) com pré-reserva de base por CAS e push fast-forward atômico verificado via Egress Service dedicado, processo Notário isolado para emissão de *Attestation Receipts* criptográficos com prova de custódia de oráculos, e *Landing Reservation Lease* pré-assinatura com TTL e heartbeat para eliminar starvation e thrashing do operador humano. Por fim, o estudo formaliza a **Bússola de Backlog** com a função objetivo de **Minimização do Time-to-Trust ($\min(\text{Time-to-Trust})$)** para guiar todas as decisões de engenharia do ecossistema.
+
+---</p>
       </header>
 
       <aside data-tare-role="authority-boundary">
@@ -18,55 +20,102 @@
 
       <section id="scope" data-tare-section="scope">
         <h2>1. Escopo &amp; Formulação do Problema</h2>
-        <h2>1. Contexto, Diagnóstico & Comparativo: North Star v1 vs North Star v2.0 (Scope)</h2>
+        <h3>1.1. O North Star v1 e os Limites da Abstração Heurística</h3>
+<p>O North Star v1, formulado no início do programa de pesquisa <code>tare.tools</code> (Agosto de 2026), definiu uma equação filosófica de 7 termos:</p>
+<p>$$\text{North Star v1} = \text{probabilistic interpretation} + \text{dynamic planning} + \text{durable execution} + \text{deterministic authority} + \text{capability-mediated effects} + \text{evidence-driven learning} + \text{conservative evolution}$$</p>
+<p>Embora conceitualmente válida, a ausência de fronteiras físicas de isolamento e garantias distribuídas gerou patologias sistêmicas identificadas nos experimentos empíricos:</p>
+<ol>
+<li><strong>Risco de Monolito Acidental:</strong> A tentativa de agrupar o executor de ferramentas (<code>harness</code>) com o coordenador multiagente (<code>relay</code>) em um único processo provocava acoplamento indevido e risco de colapso total do sistema em caso de falha de workers.</li>
+<li><strong>Corridas de I/O em Arquivos Planos:</strong> O compartilhamento de arquivos de grafo (<code>work-graph.json</code>) por scripts concorrentes violava a atomicidade e gerava bloqueios de arquivo e <em>permission errors</em> no Windows/Tailscale.</li>
+<li><strong>Vulnerabilidade a Split-Brain Distribuído:</strong> Leases de liderança sem fencing monotônico formal permitiam que nós com relógio dessincronizado ou em partição de rede temporária tentassem comitar mutações obsoletas (<em>stale</em>).</li>
+<li><strong>Autofalsificação de Testes:</strong> Oráculos executados dentro da mesma árvore de código que o patch candidato abriam brechas para que agentes implementadores enfraquecessem asserções de teste para forçar aprovações espúrias.</li>
+<li><strong>Starvation no Merge Train:</strong> A ausência de controle de <em>liveness</em> e <em>aging</em> permitia que tarefas de média ou longa duração sofressem rebases infinitos induzidos por commits rápidos concorrentes.</li>
+</ol>
+<h3>1.2. A Evolução Estrutural para o North Star 2.0</h3>
+<table aria-label="Tabela de Especificação / Specification Table">
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>North Star v1 (Heurístico / 2026-08-13)</th>
+<th>North Star v2.0 (Sistema Operacional CP / 2026-08-17)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Arquitetura do Núcleo</strong></td>
+<td>Propenso a monólito e execução no mesmo espaço de memória.</td>
+<td><strong>Microkernel Desacoplado em 5 Planos Isolados</strong> (ADR-042).</td>
+</tr>
+<tr>
+<td><strong>Acesso a Dados / Estado</strong></td>
+<td>Arquivo plano (<code>work-graph.json</code>) lido/escrito por scripts concorrentes.</td>
+<td><strong>Strict Single-Writer</strong>: Data Plane linearizável (Raft 3 nós com pre-vote) e CAS exclusivo do líder.</td>
+</tr>
+<tr>
+<td><strong>Isolamento de IA / Workers</strong></td>
+<td>Workers com acesso direto ao disco do host e permissões amplas.</td>
+<td><strong>Zero Escrita Direta</strong>: Compute Plane em sandbox efêmero despachando via Ingress RPC.</td>
+</tr>
+<tr>
+<td><strong>Concorrência &amp; Fencing</strong></td>
+<td>Leases baseados em tempo de relógio local e arquivos <code>.lease</code>.</td>
+<td><strong>Fencing Monotônico CAS</strong>: $\text{epoch} == \text{current_fence} \land \text{status matches} \land \text{op_id check}$.</td>
+</tr>
+<tr>
+<td><strong>Aterrissagem (Git vs Grafo)</strong></td>
+<td>Mutação Git e atualização de grafo sequenciais não-atômicas.</td>
+<td><strong>Landing Saga com RECONCILING</strong>: Egress Service dedicado com pré-reserva CAS e push fast-forward.</td>
+</tr>
+<tr>
+<td><strong>Fila de Merges (Liveness)</strong></td>
+<td>Rebases ingênuos que geravam starvation de tarefas lentas.</td>
+<td><strong>Anti-Starvation Train</strong>: <em>Monotonic aging</em>, cota finita (<code>budget=3</code>) e <em>Reservation Lease</em> pré-assinatura.</td>
+</tr>
+<tr>
+<td><strong>Oráculo de Testes</strong></td>
+<td>Pytest local compartilhado com o patch candidato.</td>
+<td><strong>Processo Notário Isolado</strong>: Oráculos pinados herméticos com chave privada inacessível ao candidato.</td>
+</tr>
+<tr>
+<td><strong>Governança Humana</strong></td>
+<td>Aprovação subjetiva de branches ou mensagens de chat.</td>
+<td><strong>1-Click Nonce Criptográfico</strong>: Vinculado a <code>(landing_id, target_ref, patch_sha256, expected_remote_head, nonce_uuid, expires_at)</code>.</td>
+</tr>
+<tr>
+<td><strong>Bússola de Backlog</strong></td>
+<td>Otimização por contagem de features completadas.</td>
+<td><strong>Minimização do Time-to-Trust</strong>: Priorização pelo multiplicador de redução de risco descendente.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
       </section>
 
       <section id="evidence" data-tare-section="evidence">
         <h2>2. Método &amp; Trilha de Evidências</h2>
-        <h2>2. Metodologia & Rastreabilidade de Evidências (Evidence)</h2>
+        <p><strong>Document ID:</strong> <code>research.architecture.north-star-v2-agent-os.2026-08-17</code><br/>
+<strong>Autores:</strong> Augusto Carvalho, Antigravity Mediator &amp; Mesa Redonda Tripartite (Gemini 3.7 High, GPT-5.6 Sol / Codex, Claude Fable 5 High)<br/>
+<strong>Data:</strong> 2026-08-17<br/>
+<strong>Status:</strong> <code>RESEARCH / RATIFIED ARCHITECTURAL SPECIFICATION</code><br/>
+<strong>Contexto Temático:</strong> <code>01_methodology-research-program</code> / <code>02_harness-architecture</code><br/>
+<strong>Repositórios de Referência:</strong> <code>tare-research/tare.tools</code>, <code>tare.tools.research</code><br/>
+<strong>Fundamentação Canônica:</strong> <a href="https://github.com/tare-research/tare.tools/blob/main/docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md">ADR-042 (Microkernel Desacoplado em 5 Planos)</a>, <a href="https://github.com/augusto-scarvalho/tare.tools.research/tree/main/research/01_methodology-research-program/2026-08-13-current-to-north-star-portfolio">CURRENT → North Star Portfolio</a>, Linhas de Pesquisa A–I.</p>
+<hr/>
 <p>A formalização do North Star 2.0 baseia-se em evidências empíricas colhidas ao longo de 9 linhas de pesquisa do programa <code>tare.tools</code>:</p>
-<li>**Linha A (ImplementerProfile & Bounded Autonomy):** Evidência longitudinal de execução comparativa entre *Claude Fable 5*, *OpenAI GPT-5.6 Sol* e *Gemini 3.7 High*, comprovando que agentes requerem *TaskEnvelopes* restritos e auditores adversariais independentes.</li>
-<li>**Linha B (Assurance Topology & Evidence Acquisition):** Demonstração de que a execução de testes sob demanda (*evidence acquisition*) reduz em até 70% o consumo de recursos de CI mantendo taxa de detecção de regressão em 100%.</li>
-<li>**Linha C (Negative Evidence Preservation):** O princípio de preservação de evidências negativas comprovou que testes deliberadamente falhos não devem ser mascarados como PASS nem descartados.</li>
-<li>**Linha D (Governed Semi-Cyclic Relay Mesh):** Validação prática da comunicação entre máquinas físicas heterogêneas (`Acer-Augusto` e `aaaaa`) via rede Tailscale sem corrupção de mensagens.</li>
-<li>**Linha E (Durable Task/Run/Work Identity Retrofit):** Implementação de envelopes duráveis (*RunEnvelope*) garantindo rastreabilidade histórica de cada transição de estado.</li>
-<li>**Linha F (Trusted Judge / Separation of Candidate, Evaluator & Promoter):** Formalização da proibição de conflito de interesses na esteira de aprovação.</li>
-<li>**Linha G (CURRENT → North Star Prioritization):** Prova de conceito metodológica demonstrando que tarefas que aumentam a confiabilidade da esteira de testes devem preceder tarefas de novas funcionalidades.</li>
-<li>**Linha H (Research Repo as Architecture Memory):** Mecanização total da esteira de publicação científica bilíngue (PT-BR $\leftrightarrow$ EN) com integridade de hashes SHA-256 no GitHub Pages.</li>
-<li>**Linha I (Decoupled Microkernel Architecture - ADR-042):** A ratificação tripartite unânime da divisão em 5 planos independentes.</li>
-<p>---</p>
-      </section>
-
-      <section id="findings" data-tare-section="findings">
-        <h2>3. Proposta &amp; Resultados Arquiteturais</h2>
-        <h2>Resumo (Abstract)</h2>
-<p>Este estudo estabelece a especificação canônica, definitiva e unificada do <strong>North Star 2.0</strong> para o <code>tare.tools Agent OS</code>, sintetizando o aprendizado empírico de 9 linhas de pesquisa longitudinais e a deliberação adversarial tripartite da Mesa Redonda (Gemini 3.7 High, GPT-5.6 Sol / Codex, Claude Fable 5 High). Superamos o modelo heurístico original (<strong>North Star v1</strong>) e formalizamos o sistema operacional como um <strong>Microkernel Desacoplado em 5 Planos Independentes</strong> (Experience, Control, Data, Compute e Assurance). O documento define contratos matematicamente estritos de governança CP: isolamento total do *Compute Plane* sem escrita direta no estado, *fencing tokens* monotônicos com condição estrita <code>epoch == current_fence</code> emitidos por quórum Raft de 3 nós com pre-vote e witness non-candidate, máquina de estados transacional de 5 estados (*Landing Saga: PREPARED → PUSHING → COMMITTED | RECONCILING → ABORTED*) com pré-reserva de base por CAS e push fast-forward atômico verificado via Egress Service dedicado, processo Notário isolado para emissão de *Attestation Receipts* criptográficos com prova de custódia de oráculos, e *Landing Reservation Lease* pré-assinatura com TTL e heartbeat para eliminar starvation e thrashing do operador humano. Por fim, o estudo formaliza a <strong>Bússola de Backlog</strong> com a função objetivo de <strong>Minimização do Time-to-Trust ($\min(\text{Time-to-Trust})$)</strong> para guiar todas as decisões de engenharia do ecossistema.</p>
-<p>---</p>
-<h3>1.1. O North Star v1 e os Limites da Abstração Heurística</h3>
-<p>O North Star v1, formulado no início do programa de pesquisa <code>tare.tools</code> (Agosto de 2026), definiu uma equação filosófica de 7 termos:</p>
-<p>$$\text{North Star v1} = \text{probabilistic interpretation} + \text{dynamic planning} + \text{durable execution} + \text{deterministic authority} + \text{capability-mediated effects} + \text{evidence-driven learning} + \text{conservative evolution}$$</p>
-<p>Embora conceitualmente válida, a ausência de fronteiras físicas de isolamento e garantias distribuídas gerou patologias sistêmicas identificadas nos experimentos empíricos:</p>
-<li>**Risco de Monolito Acidental:** A tentativa de agrupar o executor de ferramentas (`harness`) com o coordenador multiagente (`relay`) em um único processo provocava acoplamento indevido e risco de colapso total do sistema em caso de falha de workers.</li>
-<li>**Corridas de I/O em Arquivos Planos:** O compartilhamento de arquivos de grafo (`work-graph.json`) por scripts concorrentes violava a atomicidade e gerava bloqueios de arquivo e *permission errors* no Windows/Tailscale.</li>
-<li>**Vulnerabilidade a Split-Brain Distribuído:** Leases de liderança sem fencing monotônico formal permitiam que nós com relógio dessincronizado ou em partição de rede temporária tentassem comitar mutações obsoletas (*stale*).</li>
-<li>**Autofalsificação de Testes:** Oráculos executados dentro da mesma árvore de código que o patch candidato abriam brechas para que agentes implementadores enfraquecessem asserções de teste para forçar aprovações espúrias.</li>
-<li>**Starvation no Merge Train:** A ausência de controle de *liveness* e *aging* permitia que tarefas de média ou longa duração sofressem rebases infinitos induzidos por commits rápidos concorrentes.</li>
-<h3>1.2. A Evolução Estrutural para o North Star 2.0</h3>
-<p>| Dimensão | North Star v1 (Heurístico / 2026-08-13) | North Star v2.0 (Sistema Operacional CP / 2026-08-17) |</p>
-<p>|---|---|---|</p>
-<p>| <strong>Arquitetura do Núcleo</strong> | Propenso a monólito e execução no mesmo espaço de memória. | <strong>Microkernel Desacoplado em 5 Planos Isolados</strong> (ADR-042). |</p>
-<p>| <strong>Acesso a Dados / Estado</strong> | Arquivo plano (<code>work-graph.json</code>) lido/escrito por scripts concorrentes. | <strong>Strict Single-Writer</strong>: Data Plane linearizável (Raft 3 nós com pre-vote) e CAS exclusivo do líder. |</p>
-<p>| <strong>Isolamento de IA / Workers</strong> | Workers com acesso direto ao disco do host e permissões amplas. | <strong>Zero Escrita Direta</strong>: Compute Plane em sandbox efêmero despachando via Ingress RPC. |</p>
-<p>| <strong>Concorrência & Fencing</strong> | Leases baseados em tempo de relógio local e arquivos <code>.lease</code>. | <strong>Fencing Monotônico CAS</strong>: $\text{epoch} == \text{current\_fence} \land \text{status matches} \land \text{op\_id check}$. |</p>
-<p>| <strong>Aterrissagem (Git vs Grafo)</strong> | Mutação Git e atualização de grafo sequenciais não-atômicas. | <strong>Landing Saga com RECONCILING</strong>: Egress Service dedicado com pré-reserva CAS e push fast-forward. |</p>
-<p>| <strong>Fila de Merges (Liveness)</strong> | Rebases ingênuos que geravam starvation de tarefas lentas. | <strong>Anti-Starvation Train</strong>: *Monotonic aging*, cota finita (<code>budget=3</code>) e *Reservation Lease* pré-assinatura. |</p>
-<p>| <strong>Oráculo de Testes</strong> | Pytest local compartilhado com o patch candidato. | <strong>Processo Notário Isolado</strong>: Oráculos pinados herméticos com chave privada inacessível ao candidato. |</p>
-<p>| <strong>Governança Humana</strong> | Aprovação subjetiva de branches ou mensagens de chat. | <strong>1-Click Nonce Criptográfico</strong>: Vinculado a <code>(landing_id, target_ref, patch_sha256, expected_remote_head, nonce_uuid, expires_at)</code>. |</p>
-<p>| <strong>Bússola de Backlog</strong> | Otimização por contagem de features completadas. | <strong>Minimização do Time-to-Trust</strong>: Priorização pelo multiplicador de redução de risco descendente. |</p>
-<p>---</p>
-<h2>3. Especificação Arquitetural dos 5 Planos do North Star 2.0 (Findings)</h2>
+<ol>
+<li><strong>Linha A (ImplementerProfile &amp; Bounded Autonomy):</strong> Evidência longitudinal de execução comparativa entre <em>Claude Fable 5</em>, <em>OpenAI GPT-5.6 Sol</em> e <em>Gemini 3.7 High</em>, comprovando que agentes requerem <em>TaskEnvelopes</em> restritos e auditores adversariais independentes.</li>
+<li><strong>Linha B (Assurance Topology &amp; Evidence Acquisition):</strong> Demonstração de que a execução de testes sob demanda (<em>evidence acquisition</em>) reduz em até 70% o consumo de recursos de CI mantendo taxa de detecção de regressão em 100%.</li>
+<li><strong>Linha C (Negative Evidence Preservation):</strong> O princípio de preservação de evidências negativas comprovou que testes deliberadamente falhos não devem ser mascarados como PASS nem descartados.</li>
+<li><strong>Linha D (Governed Semi-Cyclic Relay Mesh):</strong> Validação prática da comunicação entre máquinas físicas heterogêneas (<code>Acer-Augusto</code> e <code>aaaaa</code>) via rede Tailscale sem corrupção de mensagens.</li>
+<li><strong>Linha E (Durable Task/Run/Work Identity Retrofit):</strong> Implementação de envelopes duráveis (<em>RunEnvelope</em>) garantindo rastreabilidade histórica de cada transição de estado.</li>
+<li><strong>Linha F (Trusted Judge / Separation of Candidate, Evaluator &amp; Promoter):</strong> Formalização da proibição de conflito de interesses na esteira de aprovação.</li>
+<li><strong>Linha G (CURRENT → North Star Prioritization):</strong> Prova de conceito metodológica demonstrando que tarefas que aumentam a confiabilidade da esteira de testes devem preceder tarefas de novas funcionalidades.</li>
+<li><strong>Linha H (Research Repo as Architecture Memory):</strong> Mecanização total da esteira de publicação científica bilíngue (PT-BR $\leftrightarrow$ EN) com integridade de hashes SHA-256 no GitHub Pages.</li>
+<li><strong>Linha I (Decoupled Microkernel Architecture - ADR-042):</strong> A ratificação tripartite unânime da divisão em 5 planos independentes.</li>
+</ol>
+<hr/>
 <h3>3.1. A Equação Canônica do North Star 2.0</h3>
-<p>$$\mathbf{Agent\ OS\ 2.0} = \underbrace{\text{Decoupled 5-Plane Microkernel}}_{\text{Separação Estrutural}} \times \underbrace{\text{CP-Deterministic Governance}}_{\text{Consistência, Fencing & CAS}} \times \underbrace{\text{Durable Evidence Backbone}}_{\text{Attestation Receipts & WAL}} \times \underbrace{\min(\text{Time-to-Trust})}_{\text{Priorização}}$$</p>
+<p>$$\mathbf{Agent\ OS\ 2.0} = \underbrace{\text{Decoupled 5-Plane Microkernel}}<em>{\text{Separação Estrutural}} \times \underbrace{\text{CP-Deterministic Governance}}</em>{\text{Consistência, Fencing &amp; CAS}} \times \underbrace{\text{Durable Evidence Backbone}}<em>{\text{Attestation Receipts &amp; WAL}} \times \underbrace{\min(\text{Time-to-Trust})}</em>{\text{Priorização}}$$</p>
 <pre><code>┌──────────────────────────────────────────────────────────────────────────┐
 │ 1. EXPERIENCE PLANE (Interface Humana &amp; Observabilidade)                 │
 │    • Web Cockpit (:8765), CLI (`relay_mesh.py`), TUI, Modo Executivo     │
@@ -100,46 +149,67 @@
                                             │    • Desktop / Laptop Nodes  │
                                             │    • Zero Escrita em Disco   │
                                             │    • TaskEnvelope Confinado  │
-                                            └──────────────────────────────┘</code></pre>
-<p>> <strong>Invariante Topológica Primária (Invariante T-01):</strong> O *Compute Plane* comunica-se <strong>exclusivamente com o Ingress RPC do Control Plane</strong>. É estritamente proibida qualquer aresta de comunicação ou escrita direta entre *Compute Plane* e *Data Plane*, ou entre *Compute Plane* e *Assurance Plane*. O *Assurance Plane* despacha seus recibos assinados pelo Notário diretamente ao *Control Plane*.</p>
-<p>---</p>
+                                            └──────────────────────────────┘
+</code></pre>
+<blockquote>
+<p><strong>Invariante Topológica Primária (Invariante T-01):</strong> O <em>Compute Plane</em> comunica-se <strong>exclusivamente com o Ingress RPC do Control Plane</strong>. É estritamente proibida qualquer aresta de comunicação ou escrita direta entre <em>Compute Plane</em> e <em>Data Plane</em>, ou entre <em>Compute Plane</em> e <em>Assurance Plane</em>. O <em>Assurance Plane</em> despacha seus recibos assinados pelo Notário diretamente ao <em>Control Plane</em>.</p>
+</blockquote>
+<hr/>
 <h3>3.2. Detalhamento Normativo dos Contratos dos 5 Planos</h3>
-<p>#### 1. Experience Plane (Plano de Decisão Humana & Observabilidade)</p>
-<li>**Papel:** Ponto de interação do operador humano e ferramentas de observabilidade (Cockpit, CLI, TUI).</li>
-<li>**Sequência Linearizável de Pré-Reserva:**</li>
-<p>  1. O Control Plane executa CAS no Data Plane adquirindo um <code>reservation_lease</code>, serializando a posição no merge train e congelando <code>expected_remote_head_oid</code>.</p>
-<p>  2. A requisição de aprovação é despachada ao operador humano contendo a tupla congelada e imutável.</p>
-<p>  3. O operador humano autoriza a liberação assinando o *nonce descartável de uso único*:</p>
-<p>     $$\text{ApprovalNonce} = \operatorname{Sign}_{\text{Human}}\left(\text{landing\_id}, \text{repository\_id}, \text{target\_ref}, \text{patch\_sha256}, \text{landing\_commit\_oid}, \text{expected\_remote\_head\_oid}, \text{receipt\_digest}, \text{policy\_version}, \text{nonce\_uuid}, \text{expires\_at}\right)$$</p>
-<p>  4. O consumo do nonce é executado atomicamente via CAS <code>UNUSED → CONSUMED</code> vinculado a <code>(landing_id, request_digest, current_fence, egress_identity)</code> na transição <code>PREPARED → PUSHING</code>. Qualquer divergência subsequente invalida o nonce de forma determinística.</p>
-<p>#### 2. Control Plane (O Microkernel de Governança & FSM)</p>
-<li>**Papel:** Núcleo de autoridade do sistema operacional de agentes.</li>
-<li>**Invariante de Consistência:** Sistema estritamente CP. Rejeita disponibilidade espúria em prol de consistência absoluta.</li>
-<li>**Fencing Monotônico Linearizável CAS:** O líder detém o mandato com token `epoch: int`. A eleição e renovação de liderança atualizam a barreira `current_fence` em transação atômica do store. Toda instrução de mutação submetida ao Data Plane é validada via Compare-And-Swap (CAS) com o predicado formal unificado:</li>
-<p>  $$\operatorname{AcceptWrite}(\text{req}) \iff (\text{req.epoch} = \text{current\_fence}) \land (\text{req.expected\_status} = \text{current\_status}) \land \left(\operatorname{RegisterOp}(\text{req.op\_id}) \lor \operatorname{IsIdempotentReplay}(\text{req.op\_id})\right)$$</p>
-<li>**Landing Saga (Máquina de Estados de 5 Estados com Egress Service Dedicado):**</li>
-<p>  1. *Fase 1 (PREPARED):* O líder consome o *Landing Lease* emitido pelo Data Plane via CAS e grava o registro durável no WAL: <code>(landing_id, base_commit_hash, candidate_tree_hash, landing_commit_oid, expected_remote_head_oid, status: PREPARED)</code>.</p>
-<p>  2. *Fase 2 (PUSHING):* O Egress Service dedicado (única identidade autorizada a efetuar mutações remotas) adquire credencial efêmera (com $\text{TTL} \le \text{lease} - \epsilon_{\text{skew}}$), verifica localmente que <code>expected_remote_head_oid</code> é ancestral estrito de <code>landing_commit_oid</code>, e executa o push fast-forward:</p>
-<p>     $$\texttt{git push origin <landing\_commit\_oid>:<target\_ref> --force-with-lease=<target\_ref>:<expected\_remote\_head\_oid>}$$</p>
-<p>  3. *Fase 3 (COMMITTED):* A confirmação atômica é gravada no Data Plane como <code>COMMITTED</code>.</p>
-<p>  4. *Fase 4 (RECONCILING):* Em caso de timeout de rede, perda de ACK ou crash do líder, o estado transita para <code>RECONCILING</code>. O reconciliador contínuo executa a sonda autenticada <code>git ls-remote</code>/<code>fetch</code>. Se o <code>landing_commit_oid</code> coincide com HEAD remoto e possui correspondência com o registro de proof-of-promotion, comuta para <code>COMMITTED</code> (forward-replay). A transição <code>RECONCILING → ABORTED</code> é estritamente proibida sem confirmação positiva de que <code>landing_commit_oid</code> NÃO foi publicado e o HEAD divergiu; qualquer ambiguidade de rede mantém o estado em <code>RECONCILING_STALLED</code> / <code>REQUIRES_HUMAN_INTERVENTION</code> com o trem bloqueado de forma segura fail-closed.</p>
-<p>  5. *Fase 5 (ABORTED / DLQ):* Mutações comprovadamente abortadas liberam os leases e são arquivadas na Dead Letter Queue (DLQ) para diagnóstico sem corromper o estado do grafo.</p>
-<li>**Anti-Starvation Merge Train:** Fila ordenada por `(priority, wait_cycles)` com cota máxima de rebases (`max_rebase_budget = 3`). O `reservation_lease` pré-assinatura congela a base de pouso, garantindo ausência total de starvation para a classe de tarefas humano-aprovadas.</li>
-<p>#### 3. Data Plane (Armazenamento Linearizável & Estado)</p>
-<li>**Papel:** Guardião do estado durável (`work-graph`, `task-store`, `run-envelopes`, `audit-ledgers`).</li>
-<li>**Implementação:** Storage linearizável baseado em consenso distribuído Raft com quórum estrito de 3 nós (`Acer-Augusto`, `aaaaa`, e um `Cloud Witness` com log persistido, extensão *Pre-Vote* habilitada e configuração *non-candidate* que apenas participa da votação sem disputar liderança).</li>
-<li>**Invariante Single-Writer:** Apenas o líder do Control Plane possui credenciais de mutação. Toda escrita com `epoch != current_fence` é incondicionalmente rejeitada pelo CAS.</li>
-<p>#### 4. Compute Plane (Workers Descartáveis & Model Adapters)</p>
-<li>**Papel:** Pool de execução de agentes de IA (Claude, Codex, Gemini) e sub-workers distribuídos em laptops, desktops e instâncias em nuvem.</li>
-<li>**Zero Acesso Direto:** Executam em sandboxes efêmeros com zero autoridade sobre o Git canônico ou sobre o Data Plane.</li>
-<li>**Ingress RPC:** Submetem propostas de transição de estado não-confiáveis (*Transition Proposal Envelopes*) exclusivamente ao Ingress RPC do Control Plane.</li>
-<p>#### 5. Assurance Plane (Oráculos de Teste & Processo Notário Separado)</p>
-<li>**Papel:** Avaliação independente da correção, segurança e conformidade do código candidato.</li>
-<li>**Oráculos Pinados Herméticos & Cadeia de Custódia:** A suíte de testes (Pytest, AST Linters, Type Checkers) é executada em sandbox hermético (`confcutdir` pinado, `-p no:cacheprovider`, entrypoints desabilitados) com injeção de canary oracles. O harness externo captura diretamente o exit code e os streams do container sem confiar em relatórios gravados na árvore do candidato.</li>
-<li>**Processo Notário Separado:** Um processo independente (Notário) valida os streams do harness externo e assina o `AttestationReceipt` utilizando chave privada estritamente isolada (com chave pública pinada no Control Plane):</li>
-<p>  $$\text{AttestationReceipt} = \operatorname{Sign}_{\text{Notary}}\left(\text{landing\_id}, \text{candidate\_commit\_oid}, \text{target\_base\_commit\_hash}, \text{merge\_result\_hash}, \text{oracle\_set\_digest}, \text{environment\_digest}, \text{verdict: PASS}, \text{assertions\_count}, \text{executed\_at}\right)$$</p>
-<p>---</p>
-<h2>4. A Bússola de Backlog: Minimização do Time-to-Trust (Backlog Compass)</h2>
+<h4>1. Experience Plane (Plano de Decisão Humana &amp; Observabilidade)</h4>
+<ul>
+<li><strong>Papel:</strong> Ponto de interação do operador humano e ferramentas de observabilidade (Cockpit, CLI, TUI).</li>
+<li><strong>Sequência Linearizável de Pré-Reserva:</strong><ol>
+<li>O Control Plane executa CAS no Data Plane adquirindo um <code>reservation_lease</code>, serializando a posição no merge train e congelando <code>expected_remote_head_oid</code>.</li>
+<li>A requisição de aprovação é despachada ao operador humano contendo a tupla congelada e imutável.</li>
+<li>O operador humano autoriza a liberação assinando o <em>nonce descartável de uso único</em>:
+$$\text{ApprovalNonce} = \operatorname{Sign}_{\text{Human}}\left(\text{landing_id}, \text{repository_id}, \text{target_ref}, \text{patch_sha256}, \text{landing_commit_oid}, \text{expected_remote_head_oid}, \text{receipt_digest}, \text{policy_version}, \text{nonce_uuid}, \text{expires_at}\right)$$</li>
+<li>O consumo do nonce é executado atomicamente via CAS <code>UNUSED → CONSUMED</code> vinculado a <code>(landing_id, request_digest, current_fence, egress_identity)</code> na transição <code>PREPARED → PUSHING</code>. Qualquer divergência subsequente invalida o nonce de forma determinística.</li>
+</ol>
+</li>
+</ul>
+<h4>2. Control Plane (O Microkernel de Governança &amp; FSM)</h4>
+<ul>
+<li><strong>Papel:</strong> Núcleo de autoridade do sistema operacional de agentes.</li>
+<li><strong>Invariante de Consistência:</strong> Sistema estritamente CP. Rejeita disponibilidade espúria em prol de consistência absoluta.</li>
+<li><strong>Fencing Monotônico Linearizável CAS:</strong> O líder detém o mandato com token <code>epoch: int</code>. A eleição e renovação de liderança atualizam a barreira <code>current_fence</code> em transação atômica do store. Toda instrução de mutação submetida ao Data Plane é validada via Compare-And-Swap (CAS) com o predicado formal unificado:
+$$\operatorname{AcceptWrite}(\text{req}) \iff (\text{req.epoch} = \text{current_fence}) \land (\text{req.expected_status} = \text{current_status}) \land \left(\operatorname{RegisterOp}(\text{req.op_id}) \lor \operatorname{IsIdempotentReplay}(\text{req.op_id})\right)$$</li>
+<li><strong>Landing Saga (Máquina de Estados de 5 Estados com Egress Service Dedicado):</strong><ol>
+<li><em>Fase 1 (PREPARED):</em> O líder consome o <em>Landing Lease</em> emitido pelo Data Plane via CAS e grava o registro durável no WAL: <code>(landing_id, base_commit_hash, candidate_tree_hash, landing_commit_oid, expected_remote_head_oid, status: PREPARED)</code>.</li>
+<li><em>Fase 2 (PUSHING):</em> O Egress Service dedicado (única identidade autorizada a efetuar mutações remotas) adquire credencial efêmera (com $\text{TTL} \le \text{lease} - \epsilon_{\text{skew}}$), verifica localmente que <code>expected_remote_head_oid</code> é ancestral estrito de <code>landing_commit_oid</code>, e executa o push fast-forward:
+$$\texttt{git push origin &lt;landing_commit_oid&gt;:&lt;target_ref&gt; --force-with-lease=&lt;target_ref&gt;:&lt;expected_remote_head_oid&gt;}$$</li>
+<li><em>Fase 3 (COMMITTED):</em> A confirmação atômica é gravada no Data Plane como <code>COMMITTED</code>.</li>
+<li><em>Fase 4 (RECONCILING):</em> Em caso de timeout de rede, perda de ACK ou crash do líder, o estado transita para <code>RECONCILING</code>. O reconciliador contínuo executa a sonda autenticada <code>git ls-remote</code>/<code>fetch</code>. Se o <code>landing_commit_oid</code> coincide com HEAD remoto e possui correspondência com o registro de proof-of-promotion, comuta para <code>COMMITTED</code> (forward-replay). A transição <code>RECONCILING → ABORTED</code> é estritamente proibida sem confirmação positiva de que <code>landing_commit_oid</code> NÃO foi publicado e o HEAD divergiu; qualquer ambiguidade de rede mantém o estado em <code>RECONCILING_STALLED</code> / <code>REQUIRES_HUMAN_INTERVENTION</code> com o trem bloqueado de forma segura fail-closed.</li>
+<li><em>Fase 5 (ABORTED / DLQ):</em> Mutações comprovadamente abortadas liberam os leases e são arquivadas na Dead Letter Queue (DLQ) para diagnóstico sem corromper o estado do grafo.</li>
+</ol>
+</li>
+<li><strong>Anti-Starvation Merge Train:</strong> Fila ordenada por <code>(priority, wait_cycles)</code> com cota máxima de rebases (<code>max_rebase_budget = 3</code>). O <code>reservation_lease</code> pré-assinatura congela a base de pouso, garantindo ausência total de starvation para a classe de tarefas humano-aprovadas.</li>
+</ul>
+<h4>3. Data Plane (Armazenamento Linearizável &amp; Estado)</h4>
+<ul>
+<li><strong>Papel:</strong> Guardião do estado durável (<code>work-graph</code>, <code>task-store</code>, <code>run-envelopes</code>, <code>audit-ledgers</code>).</li>
+<li><strong>Implementação:</strong> Storage linearizável baseado em consenso distribuído Raft com quórum estrito de 3 nós (<code>Acer-Augusto</code>, <code>aaaaa</code>, e um <code>Cloud Witness</code> com log persistido, extensão <em>Pre-Vote</em> habilitada e configuração <em>non-candidate</em> que apenas participa da votação sem disputar liderança).</li>
+<li><strong>Invariante Single-Writer:</strong> Apenas o líder do Control Plane possui credenciais de mutação. Toda escrita com <code>epoch != current_fence</code> é incondicionalmente rejeitada pelo CAS.</li>
+</ul>
+<h4>4. Compute Plane (Workers Descartáveis &amp; Model Adapters)</h4>
+<ul>
+<li><strong>Papel:</strong> Pool de execução de agentes de IA (Claude, Codex, Gemini) e sub-workers distribuídos em laptops, desktops e instâncias em nuvem.</li>
+<li><strong>Zero Acesso Direto:</strong> Executam em sandboxes efêmeros com zero autoridade sobre o Git canônico ou sobre o Data Plane.</li>
+<li><strong>Ingress RPC:</strong> Submetem propostas de transição de estado não-confiáveis (<em>Transition Proposal Envelopes</em>) exclusivamente ao Ingress RPC do Control Plane.</li>
+</ul>
+<h4>5. Assurance Plane (Oráculos de Teste &amp; Processo Notário Separado)</h4>
+<ul>
+<li><strong>Papel:</strong> Avaliação independente da correção, segurança e conformidade do código candidato.</li>
+<li><strong>Oráculos Pinados Herméticos &amp; Cadeia de Custódia:</strong> A suíte de testes (Pytest, AST Linters, Type Checkers) é executada em sandbox hermético (<code>confcutdir</code> pinado, <code>-p no:cacheprovider</code>, entrypoints desabilitados) com injeção de canary oracles. O harness externo captura diretamente o exit code e os streams do container sem confiar em relatórios gravados na árvore do candidato.</li>
+<li><strong>Processo Notário Separado:</strong> Um processo independente (Notário) valida os streams do harness externo e assina o <code>AttestationReceipt</code> utilizando chave privada estritamente isolada (com chave pública pinada no Control Plane):
+$$\text{AttestationReceipt} = \operatorname{Sign}_{\text{Notary}}\left(\text{landing_id}, \text{candidate_commit_oid}, \text{target_base_commit_hash}, \text{merge_result_hash}, \text{oracle_set_digest}, \text{environment_digest}, \text{verdict: PASS}, \text{assertions_count}, \text{executed_at}\right)$$</li>
+</ul>
+<hr/>
+      </section>
+
+      <section id="findings" data-tare-section="findings">
+        <h2>3. Proposta &amp; Resultados Arquiteturais</h2>
+        <h3>4. A Bússola de Backlog: Minimização do Time-to-Trust (Backlog Compass)</h3>
 <p>A partir do North Star 2.0, o backlog do <code>tare.tools</code> deixa de ser uma lista linear de funcionalidades e passa a ser governado pelo algoritmo de priorização orientada a <strong>Time-to-Trust</strong>:</p>
 <p>$$\operatorname{Priority}(T) = \frac{\Delta \operatorname{TrustDebt}(T) \times \operatorname{DescendantMultiplier}(T)}{\operatorname{ExecutionCost}(T) + \operatorname{AuditBurden}(T)}$$</p>
 <h3>4.1. As 4 Etapas do Pipeline Estrutural:</h3>
@@ -161,30 +231,33 @@
 [P3: Experience Plane, Federação Distribuída &amp; Signal Pages]
   ├─ P3.1: Web Cockpit 1-Click Nonce Engine com Pré-Reserva CAS
   ├─ P3.2: Co-autoria Multi-Cluster via Tailscale Mesh
-  └─ P3.3: Mecanização Editorial de Estudos &amp; GitHub Pages</code></pre>
-<p>---</p>
+  └─ P3.3: Mecanização Editorial de Estudos &amp; GitHub Pages
+</code></pre>
+<hr/>
       </section>
 
       <section id="limitations" data-tare-section="limitations">
         <h2>4. Limitações &amp; Ameaças à Validade</h2>
-        <h2>5. Limitações, Modelo de Ameaças & Bounded Autonomy (Limitations)</h2>
-<li>**Premissas de Quórum Distribuído & Modelo do Cloud Witness:** O modelo CP opera com 3 nós Raft. O `Cloud Witness` atua como nó de desempate com log persistido e extensão *Pre-Vote*, configurado como *non-candidate* para nunca solicitar liderança. Em caso de partição em que os 2 nós físicos ficam isolados entre si e do witness, o sistema suspende mutações de forma fail-closed até restauração de quórum ou intervenção documentada.</li>
-<li>**Constante de Clock Skew ($\epsilon_{\text{skew}} = 5s$):** O modelo adota uma barreira conservadora de $\epsilon_{\text{skew}} = 5.0\,\text{s}$ para absorver divergências de relógio NTP entre o líder do Control Plane e o provedor de autenticação efêmera.</li>
-<li>**Gestão de Chaves Criptográficas (Notário e Operador):** A chave privada do Notário reside exclusivamente em módulo de segurança de processo isolado com permissões restritas (modo 0400). A chave privada do operador humano reside no keystore seguro do SO ou token físico, com chave pública pinada no Control Plane. A rotação de chave exige emissão de ADR com assinatura dual (operador humano + quorum de auditoria).</li>
-<li>**Push Fast-Forward na Branch Canônica:** A garantia de atomicidade de aterrissagem no GitHub.com depende do modelo de push estritamente *Fast-Forward Only* verificado pelo Egress Service via `--force-with-lease=<ref>:<expected_oid>`. Mutações diretas que reescrevam histórico remoto são proibidas por política.</li>
-<li>**Latência de Auditoria Tripartite:** A execução de auditorias com múltiplos modelos frontier impõe uma latência de 2 a 5 minutos por deliberação arquitetural, sendo reservada para decisões estruturais e ADRs, enquanto tarefas rotineiras utilizam o pipeline rápido do Assurance Plane.</li>
-<p>---</p>
+        <ol>
+<li><strong>Premissas de Quórum Distribuído &amp; Modelo do Cloud Witness:</strong> O modelo CP opera com 3 nós Raft. O <code>Cloud Witness</code> atua como nó de desempate com log persistido e extensão <em>Pre-Vote</em>, configurado como <em>non-candidate</em> para nunca solicitar liderança. Em caso de partição em que os 2 nós físicos ficam isolados entre si e do witness, o sistema suspende mutações de forma fail-closed até restauração de quórum ou intervenção documentada.</li>
+<li><strong>Constante de Clock Skew ($\epsilon_{\text{skew}} = 5s$):</strong> O modelo adota uma barreira conservadora de $\epsilon_{\text{skew}} = 5.0,\text{s}$ para absorver divergências de relógio NTP entre o líder do Control Plane e o provedor de autenticação efêmera.</li>
+<li><strong>Gestão de Chaves Criptográficas (Notário e Operador):</strong> A chave privada do Notário reside exclusivamente em módulo de segurança de processo isolado com permissões restritas (modo 0400). A chave privada do operador humano reside no keystore seguro do SO ou token físico, com chave pública pinada no Control Plane. A rotação de chave exige emissão de ADR com assinatura dual (operador humano + quorum de auditoria).</li>
+<li><strong>Push Fast-Forward na Branch Canônica:</strong> A garantia de atomicidade de aterrissagem no GitHub.com depende do modelo de push estritamente <em>Fast-Forward Only</em> verificado pelo Egress Service via <code>--force-with-lease=&lt;ref&gt;:&lt;expected_oid&gt;</code>. Mutações diretas que reescrevam histórico remoto são proibidas por política.</li>
+<li><strong>Latência de Auditoria Tripartite:</strong> A execução de auditorias com múltiplos modelos frontier impõe uma latência de 2 a 5 minutos por deliberação arquitetural, sendo reservada para decisões estruturais e ADRs, enquanto tarefas rotineiras utilizam o pipeline rápido do Assurance Plane.</li>
+</ol>
+<hr/>
       </section>
 
       <section id="references" data-tare-section="references">
         <h2>5. Referências &amp; Genealogia Canônica</h2>
-        <h2>6. Referências & Literatura Fundamental (References)</h2>
-<li>**ADR-042:** *Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS* (Augusto Carvalho, Gemini 3.7 High, GPT-5.6 Sol, Claude Fable 5 High, 2026).</li>
-<li>**Liedtke, J. (1995):** *On µ-Kernel Construction*. 15th ACM Symposium on Operating Systems Principles (SOSP).</li>
-<li>**Ongaro, D., & Ousterhout, J. (2014):** *In Search of an Understandable Consensus Algorithm (Raft)*. USENIX ATC.</li>
-<li>**Hevner, A. R. et al. (2004):** *Design Science in Information Systems Research*. MIS Quarterly, 28(1), 75-105.</li>
-<li>**Gray, J., & Lamport, L. (2006):** *Consensus on Transaction Commit*. ACM Transactions on Database Systems.</li>
-<li>**tare.tools.research Linhas A–I:** *Current-to-North-Star Portfolio & Evidence Annexes* (2026).</li>
+        <ol>
+<li><strong>ADR-042:</strong> <em>Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS</em> (Augusto Carvalho, Gemini 3.7 High, GPT-5.6 Sol, Claude Fable 5 High, 2026).</li>
+<li><strong>Liedtke, J. (1995):</strong> <em>On µ-Kernel Construction</em>. 15th ACM Symposium on Operating Systems Principles (SOSP).</li>
+<li><strong>Ongaro, D., &amp; Ousterhout, J. (2014):</strong> <em>In Search of an Understandable Consensus Algorithm (Raft)</em>. USENIX ATC.</li>
+<li><strong>Hevner, A. R. et al. (2004):</strong> <em>Design Science in Information Systems Research</em>. MIS Quarterly, 28(1), 75-105.</li>
+<li><strong>Gray, J., &amp; Lamport, L. (2006):</strong> <em>Consensus on Transaction Commit</em>. ACM Transactions on Database Systems.</li>
+<li><strong>tare.tools.research Linhas A–I:</strong> <em>Current-to-North-Star Portfolio &amp; Evidence Annexes</em> (2026).</li>
+</ol>
       </section>
     </article>
   </main>
