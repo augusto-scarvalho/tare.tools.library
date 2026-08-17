@@ -3,9 +3,9 @@
   "document_type": "research",
   "status": "RESEARCH",
   "title": "North Star 2.0: Arquitetura de Microkernel Desacoplado em 5 Planos e Bússola Estrutural de Backlog para o tare.tools Agent OS",
-  "created_at": "2026-08-17T18:15:27.939514+00:00",
+  "created_at": "2026-08-17T18:27:37.763298+00:00",
   "language": "pt-BR",
-  "abstract": "Estudo e deliberação arquitetural formal para o tare.tools Agent OS.",
+  "abstract": "Este estudo estabelece a especificação canônica, definitiva e unificada do **North Star 2.0** para o `tare.tools Agent OS`, sintetizando o aprendizado empírico de 9 linhas de pesquisa longitudinais e a deliberação adversarial tripartite da Mesa Redonda (Gemini 3.7 High, GPT-5.6 Sol / Codex, Claude Fable 5 High). Superamos o modelo heurístico original (**North Star v1**) e formalizamos o sistema operacional como um **Microkernel Desacoplado em 5 Planos Independentes** (Experience, Control, Data, Compute e Assurance). O documento define contratos matematicamente estritos de governança CP: isolamento total do *Compute Plane* sem escrita direta no estado, *fencing tokens* monotônicos com condição estrita `epoch == current_fence` emitidos por quórum Raft de 3 nós com pre-vote e witness non-candidate, máquina de estados transacional de 5 estados (*Landing Saga: PREPARED → PUSHING → COMMITTED | RECONCILING → ABORTED*) com pré-reserva de base por CAS e push fast-forward atômico verificado via Egress Service dedicado, processo Notário isolado para emissão de *Attestation Receipts* criptográficos com prova de custódia de oráculos, e *Landing Reservation Lease* pré-assinatura com TTL e heartbeat para eliminar starvation e thrashing do operador humano. Por fim, o estudo formaliza a **Bússola de Backlog** com a função objetivo de **Minimização do Time-to-Trust ($\\min(\\text{Time-to-Trust})$)** para guiar todas as decisões de engenharia do ecossistema.\n\n---",
   "authors": [
     {
       "name": "Augusto Carvalho",
