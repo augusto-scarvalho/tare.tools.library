@@ -17,7 +17,7 @@
     "owner_workflow_sha256": "96de2163aa0f5861ff2719a567cfbf49b7d3317b42a0507c41ad5c8ffeffbad5",
     "visual_evidence_sha256": "72d359a5bf6793af4fccca61f0635940b056487811dee2cb5ec1ebb0fdd11291",
     "build_pages_sha256": "f7b24340448092012b73d2c83408cb113a5a989d30d2b655bdc8357660fef2f3",
-    "pages_validator_sha256": "25e293f48bb01898edf6e8da56960d8be466e1e0716a88591e80b9f3c7686402",
+    "pages_validator_sha256": "5a6fe1a8b376623f045836d42854c1339135fab34cec7f29b544f629d57f9e5a",
     "readiness_sha256": "3b92a498db88e4e249365a9a6bf5a3f4c1568bb46494425f8a4da1c3193f76ce",
     "readiness_support_sha256": "7fe970e366c46377cb8414455947e3aaec624cfab07f509b568a58f61d0b353a",
     "authority_validator_sha256": "5391ed5fc8e4e768a5d8d75a587c68d689ee7c182ea7c1dff47ba2b106fcaf7b"
