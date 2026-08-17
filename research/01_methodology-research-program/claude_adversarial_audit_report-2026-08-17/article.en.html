@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>🔴 RELATÓRIO DE AUDITORIA ADVERSARIAL INDEPENDENTE — Anthropic Chair</title>
+</head>
+<body>
+  <main>
+    <article data-tare-document>
+      <header data-tare-role="document-header">
+        <h1>🔴 RELATÓRIO DE AUDITORIA ADVERSARIAL INDEPENDENTE — Anthropic Chair</h1>
+        <p data-tare-role="abstract">Estudo formal de arquitetura para o tare.tools Agent OS.</p>
+      </header>
+
+      <aside data-tare-role="authority-boundary">
+        RESEARCH / PEER-REVIEW RATIFIED DRAFT. Published in tare.tools.research under Design Science governance. Does not grant mutation authority in production repositories without canonical Relay Mesh protocol.
+      </aside>
+
+      <section id="scope" data-tare-section="scope">
+        <h2>1. Scope &amp; Problem Formulation</h2>
+        <p><strong><code>AUDIT_VERDICT: FAIL</code></strong></p>
+<p>As correções sanaram bem a <strong>lógica de tally / FSM fail-closed (RT-001)</strong>, a <strong>validação de schema (RT-004)</strong> e a <strong>imutabilidade do <code>DECISION.md</code> (RT-007 parcial)</strong>. Porém <strong>três bloqueadores permanecem abertos</strong> e <strong>uma regressão nova foi introduzida pela própria correção</strong>:</p>
+<ul>
+<li><strong>RT-002 continua 100% aberto</strong>: as flags <code>--dangerously-bypass-approvals-and-sandbox</code> / <code>--dangerously-skip-permissions</code> seguem presentes (linhas 340, 363, 380), e o endpoint <code>/api/round_table/convene</code> <strong>não tem autenticação</strong>. A "correção" foi apenas um delimitador textual <code>&lt;untrusted_proposal_data&gt;</code> — mitigação de prompt, não de segurança. Isso é RCE não autenticado em 3 máquinas.</li>
+<li><strong>RT-003 continua aberto na dimensão que importa</strong>: os locks são <code>threading.Lock</code> (in-process). O docstring afirma <em>"Inter-process ... Mutex Lock"</em> — <strong>falso</strong>. E mesmo in-process não há lease "caso ocupado".</li>
+<li><strong>Regressão nova (RT-N1, Crítica funcional)</strong>: a verificação de hash de integridade (o "fix" do RT-007) <strong>transforma qualquer proposta com CRLF em um caso permanentemente quebrado</strong> (<code>HELD_ERROR</code>).</li>
+</ul>
+<p>A suíte passa (7 testes) mas cobre só caminhos felizes das correções; nenhum teste exercita CRLF, re-init de caso não-terminal, concorrência real, crescimento de <code>_CASE_LOCKS</code>, ou injeção.</p>
+<hr/>
+      </section>
+
+      <section id="evidence" data-tare-section="evidence">
+        <h2>2. Method &amp; Evidence Trail</h2>
+        <table aria-label="Tabela de Especificação / Specification Table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Status</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RT-001</strong></td>
+<td>✅ <strong>Resolvido</strong></td>
+<td>FSM fail-closed correta. <code>seat_failures</code> → <code>HELD_UNAVAILABLE</code>; <code>reject==1</code> → <code>REVISION_REQUIRED</code>; <code>APPROVED</code> exige <code>approve==3 AND blocking==0</code>. Verifiquei o caso sutil <em>APPROVE-com-issue-blocking</em>: cai corretamente em <code>REVISION_REQUIRED</code>. Bom.</td>
+</tr>
+<tr>
+<td><strong>RT-002</strong></td>
+<td>❌ <strong>NÃO resolvido</strong></td>
+<td>Flags perigosas intactas; endpoint sem auth; sandbox inexistente. Só houve endurecimento de prompt (bypassável). <strong>Bloqueador de rollout.</strong></td>
+</tr>
+<tr>
+<td><strong>RT-003</strong></td>
+<td>🟡 <strong>Parcial / residual grave</strong></td>
+<td>Lock por caso existe mas é <code>threading.Lock</code> → serializa só threads do mesmo processo. CLIs separados (<code>relay_mesh.py</code>), <code>overseer_agent</code>, e nós remotos do cluster <strong>não compartilham lock</strong>. E <code>run_full_deliberation</code> <strong>não segura o lock ao longo da deliberação</strong> (adquire/solta a cada <code>conduct_round</code>/<code>mediate</code>/<code>finalize</code>), então duas chamadas concorrentes intercalam rodadas. Sem lease "rodada ativa".</td>
+</tr>
+<tr>
+<td><strong>RT-004</strong></td>
+<td>✅ <strong>Resolvido</strong> (com ressalvas)</td>
+<td><code>validate_seat_vote</code> é estrito, sem inferência textual de voto. Ressalva menor: <code>confidence</code> inválida vira <code>0.8</code> silencioso; <code>strengths</code>/<code>recommendations</code> não-lista viram iteração de caracteres (ver RT-N4).</td>
+</tr>
+<tr>
+<td><strong>RT-005</strong></td>
+<td>🟡 <strong>Parcial</strong></td>
+<td>Path traversal e regex: OK. Mas o guard create-only é <strong>incompleto</strong> — só bloqueia status <code>{SEALED, COLLECTING, TALLY, APPROVED}</code>. Casos em <code>HELD_*</code>, <code>REJECTED</code>, <code>REVISION_REQUIRED</code> <strong>podem ser re-inicializados</strong>, sobrescrevendo <code>v001</code> e ressetando <code>current_round</code> (ver RT-N2).</td>
+</tr>
+<tr>
+<td><strong>RT-006</strong></td>
+<td>🟡 <strong>Parcial</strong></td>
+<td>Adicionou-se <code>HELD_ERROR</code> com <code>last_error</code> estruturado (bom). Mas <code>save_state</code> (replace atômico) e <code>append_ledger</code> (append) <strong>continuam sendo duas operações não-transacionais</strong> — sem WAL/commit. Crash entre elas = state/ledger dessincronizados.</td>
+</tr>
+<tr>
+<td><strong>RT-007</strong></td>
+<td>🟡 <strong>Parcial</strong></td>
+<td><code>DECISION.md</code> imutável via <code>exists()</code> ✔ (testado). Hash da proposta é verificado em <code>conduct_round</code> ✔. Mas <code>finalize_decision</code> ainda aceita <strong>veredito arbitrário</strong> (sem validar contra conjunto terminal), e a verificação de hash introduziu a regressão RT-N1.</td>
+</tr>
+<tr>
+<td><strong>RT-008</strong></td>
+<td>❌ <strong>NÃO resolvido</strong></td>
+<td>Timeout caiu 900→300 s, mas: (a) <code>capture_output=True</code> <strong>sem limite de bytes</strong> → saída de modelo verborrágica/maliciosa consome memória; (b) o 2º regex greedy <code>[\s\S]*</code> sobre saída ilimitada = backtracking/ReDoS; (c) <code>subprocess.run(timeout=)</code> <strong>não mata a árvore de netos</strong> no Windows (sem job object) → subprocessos órfãos; (d) ainda ~45 min de thread daemon por caso, sem deadline global.</td>
+</tr>
+<tr>
+<td><strong>RT-009</strong></td>
+<td>🟡 <strong>Cosmético</strong></td>
+<td>Estados fantasma reduzidos, mas <code>mediate_and_refine</code> <strong>continua sendo pura concatenação de texto</strong> ("Mediação Antigravity") — não há mediador real. Contrato ainda mente sobre "síntese independente".</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+      </section>
+
+      <section id="findings" data-tare-section="findings">
+        <h2>3. Architectural Proposal &amp; Findings</h2>
+        <hr/>
+<h1>🔴 RELATÓRIO DE AUDITORIA ADVERSARIAL INDEPENDENTE — Anthropic Chair</h1>
+<h3>3. Novos Achados Adversários</h3>
+<h3>🔴 RT-N1 — Crítica (funcional / disponibilidade)</h3>
+<p><strong>Cenário de falsificação:</strong> Proposta com terminadores CRLF quebra o caso permanentemente.</p>
+<ul>
+<li><code>init_round_table</code> grava <code>proposal_text</code> via <code>write_text_atomic</code> (<code>write_bytes</code> → preserva <code>\r\n</code>) e computa <code>sha256</code> sobre a string original <strong>com <code>\r\n</code></strong>.</li>
+<li><code>conduct_round</code> relê via <code>Path.read_text(encoding="utf-8")</code> → <strong><code>newline=None</code> (universal newlines) converte <code>\r\n</code>→<code>\n</code></strong> → recomputa sha sobre <code>\n</code> → <strong>mismatch</strong> → <code>raise ValueError("Integrity violation...")</code> → <code>except</code> → <code>status="HELD_ERROR"</code>, irrecuperável.</li>
+<li>Falsifier concreto: <code>init_round_table("RT-X","t","linha1\r\nlinha2")</code> seguido de <code>conduct_round("RT-X")</code> lança integridade e trava o caso. Em Windows (CRLF é o default de qualquer editor/<code>payload</code> HTTP com <code>\r\n</code>), isso atinge o caminho feliz.</li>
+</ul>
+<p><strong>Código afetado:</strong> <code>round_table_engine.py:439-444</code> (leitura) vs <code>:239</code> (hash de init).
+<strong>Correção:</strong> Ler bytes crus e hashear bytes (<code>v_file.read_bytes()</code> / <code>hashlib.sha256(raw)</code>), ou abrir com <code>newline=""</code>. Padronizar em uma única função <code>_read_proposal()</code> usada por init, conduct e finalize para eliminar o skew leitura↔escrita.</p>
+<h3>🔴 RT-N2 — Maior (integridade / imutabilidade)</h3>
+<p><strong>Cenário:</strong> Re-inicialização de caso não-terminal-whitelisted sobrescreve a proposta e resseta a máquina.</p>
+<ul>
+<li>O guard <code>if existing.status in ("SEALED","COLLECTING","TALLY","APPROVED")</code> <strong>não cobre</strong> <code>HELD_UNAVAILABLE</code>, <code>HELD_ERROR</code>, <code>HELD_NO_CONVERGENCE</code>, <code>REJECTED</code>, <code>REVISION_REQUIRED</code>.</li>
+<li>Falsifier: dirija um caso a <code>REJECTED</code> (gera <code>DECISION.md</code>). Chame <code>init_round_table(mesmo_id, novo_texto)</code> → <strong>sucede</strong>, sobrescreve <code>v001.md</code>, cria state novo <code>status=SEALED, round=1</code>, apaga histórico de versões em <code>state</code> — mas <code>DECISION.md</code> (imutável) ainda diz <code>REJECTED</code>. Resultado: <strong>state/ledger/decision dessincronizados</strong> (exatamente o "ledger desincronizado" do mandato).</li>
+</ul>
+<p><strong>Código afetado:</strong> <code>round_table_engine.py:234</code>.
+<strong>Correção:</strong> Create-only real — bloquear se <code>existing</code> <strong>existe</strong> (qualquer status), OU se <code>decision/DECISION.md</code> existe. Colisão deve falhar fechada.</p>
+<h3>🟠 RT-N3 — Maior (exaustão de recursos / memory leak)</h3>
+<p><strong>Cenário:</strong> Crescimento ilimitado de <code>_CASE_LOCKS</code>.</p>
+<ul>
+<li><code>_get_case_lock</code> insere um <code>Lock</code> por <code>case_id</code> e <strong>nunca remove</strong>. O espaço de <code>case_id</code> válido é enorme (<code>^[A-Za-z0-9_\-]{3,64}$</code>). Um cliente que bata em <code>/convene</code> ou <code>/deliberate</code> com IDs distintos (sem auth) faz o dict crescer sem limite no coordenador de longa duração → <strong>DoS por memória</strong>. Codex não viu porque os locks não existiam.</li>
+</ul>
+<p><strong>Código afetado:</strong> <code>round_table_engine.py:49, 83-87</code>.
+<strong>Correção:</strong> Limitar por número de casos ativos, ou usar <code>weakref</code>/GC de locks de casos terminais, ou trocar por lock interprocesso baseado em arquivo (<code>filelock</code>) por diretório de caso — o que também endereça RT-003.</p>
+<h3>🟠 RT-N4 — Menor (robustez de coerção)</h3>
+<p><strong>Cenário:</strong> <code>vote_data["strengths"] = "RCE"</code> (string, não lista).</p>
+<ul>
+<li><code>[str(s) for s in vote_data.get("strengths", [])]</code> itera <strong>caracteres</strong> da string → <code>["R","C","E"]</code>. Idem <code>recommendations</code>. <code>confidence</code> inválida vira <code>0.8</code> silenciosamente (viola "validação estrita" do RT-004).</li>
+</ul>
+<p><strong>Código afetado:</strong> <code>round_table_engine.py:212, 214, 158-160</code>.
+<strong>Correção:</strong> <code>isinstance(list)</code> guard antes de iterar; rejeitar (não coagir) confiança fora de faixa como schema inválido → <code>HELD_UNAVAILABLE</code>.</p>
+<h3>🟠 RT-N5 — Maior (concorrência residual, reforço do RT-003)</h3>
+<p><strong>Cenário:</strong> Dois <code>POST /api/round_table/deliberate</code> para o mesmo <code>cid</code>.</p>
+<ul>
+<li>Cada um dispara <code>threading.Thread(run_full_deliberation)</code>. Como o lock <strong>não é mantido durante toda</strong> a <code>run_full_deliberation</code>, a Thread B adquire o lock nos intervalos entre operações da Thread A → duas deliberações intercaladas: dobro de invocações de CLI (custo/blast radius), <code>seat_*.json</code> e <code>tally.json</code> sobrescritos, transições de estado retrocedendo (<code>APPROVED</code>→<code>COLLECTING</code>). <code>conduct_round</code> <strong>não verifica se o caso já está terminal</strong> antes de rodar.</li>
+</ul>
+<p><strong>Código afetado:</strong> <code>round_table_engine.py:427-450, 658-668</code>; <code>cluster_coordinator.py:2571-2576</code>.
+<strong>Correção:</strong> Lease/CAS "caso ocupado" no início de <code>run_full_deliberation</code>; <code>conduct_round</code> deve recusar se <code>status</code> já é terminal (<code>APPROVED/REJECTED/HELD_*</code>).</p>
+<h3>🟡 RT-N6 — Menor (subprocess órfão / Windows)</h3>
+<p>Timeout mata o filho direto (<code>codex</code>/<code>claude.cmd</code>/<code>agy</code>), mas os netos (node/python reais) sobrevivem sem job object → vazamento de processos ao longo de muitas deliberações. Reforça RT-008. Correção: criar grupo/job (<code>CREATE_NEW_PROCESS_GROUP</code> + <code>taskkill /T</code>, ou <code>psutil</code> para matar a árvore).</p>
+<hr/>
+<h3>4. Engenharia de Sistemas &amp; Resiliência Distribuída</h3>
+<ul>
+<li><strong>Modelo de concorrência inadequado ao topo distribuído declarado.</strong> O sistema explicitamente tem 2 PCs + nós remotos + CLIs + coordenador HTTP, mas a exclusão mútua é <code>threading.Lock</code> em memória de <strong>um</strong> processo. Não há single-writer, lease interprocesso, nem CAS. A afirmação de "Inter-process Mutex" no cabeçalho é <strong>falsa e perigosa</strong> (dá falsa confiança). Para o alvo declarado, o lock precisa ser <strong>por-arquivo no diretório do caso</strong> (ex.: <code>filelock</code>/<code>O_EXCL</code> lock file), que também resolve RT-N3.</li>
+<li><strong>Ledger não é fonte de verdade transacional.</strong> <code>save_state</code> (replace atômico) + <code>append_ledger</code> (append não-fsync) são operações independentes. Não há protocolo de commit; crash entre as duas dessincroniza. O <code>os.replace</code> garante <em>atomicidade por arquivo</em>, não <em>atomicidade da transição</em> (state+ledger+artefato). RT-006 segue conceitualmente aberto.</li>
+<li><strong>Integridade por hash frágil.</strong> O único ponto de verificação (RT-N1) usa uma leitura com normalização de newline diferente da escrita → o mecanismo de integridade <strong>falha inseguro para o sistema (brick)</strong>, não fecha de forma controlada. Hash deve ser sempre sobre bytes canônicos.</li>
+<li><strong>Autoridade determinística vs probabilística mal isolada (North Star).</strong> A decisão determinística (FSM/tally) está OK, mas ela depende de saída de LLMs executados com <strong>autoridade máxima e sem sandbox</strong> sobre dados não confiáveis. A fronteira probabilística→determinística é atravessada por RCE (RT-002): a camada probabilística pode adulterar a máquina que hospeda a camada determinística. Isolamento inexistente.</li>
+</ul>
+<hr/>
+      </section>
+
+      <section id="limitations" data-tare-section="limitations">
+        <h2>4. Limitations &amp; Threats to Validity</h2>
+        <p><strong>NÃO PRONTO PARA ROLLOUT.</strong> Bloqueadores obrigatórios antes de qualquer landing:</p>
+<ol>
+<li><strong>RT-002</strong>: remover flags perigosas; sandbox com allowlist e dir restrito; <strong>autenticar</strong> <code>/convene</code> e <code>/deliberate</code>.</li>
+<li><strong>RT-N1</strong>: hashear bytes canônicos (elimina o brick de CRLF).</li>
+<li><strong>RT-N2</strong>: init verdadeiramente create-only (bloquear qualquer caso existente).</li>
+<li><strong>RT-003/RT-N5</strong>: lock interprocesso por caso + lease "ocupado" + guarda de estado terminal em <code>conduct_round</code>.</li>
+<li><strong>RT-N3</strong>: limitar/coletar <code>_CASE_LOCKS</code>.</li>
+<li><strong>RT-008/RT-N6</strong>: limite de bytes na captura, deadline global por caso, kill de árvore de processos.</li>
+</ol>
+<p>Testes negativos ausentes a adicionar: CRLF→integridade, re-init de caso terminal, <code>strengths</code> string, deliberação concorrente, crescimento de locks, timeout com órfãos.</p>
+<p><strong>Achados que o Codex acertou e foram bem fechados:</strong> RT-001 e RT-004 estão sólidos; RT-005/RT-007 melhoraram mas ficaram com as brechas residuais acima. <strong>Nenhuma correção do Codex piorou a segurança</strong>, mas a correção de RT-007 <strong>introduziu</strong> a regressão RT-N1.</p>
+<hr/>
+<p>Não alterei nenhum arquivo — auditoria somente leitura, como pedido. Se quiser, aplico os fixes de RT-N1 (hash sobre bytes) e RT-N2 (init create-only) num diff mínimo — são as duas correções de maior impacto por menor linha.</p>
+      </section>
+
+      <section id="references" data-tare-section="references">
+        <h2>5. References &amp; Canonical Lineage</h2>
+        <p>Canonical repository tare-research/tare.tools.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
