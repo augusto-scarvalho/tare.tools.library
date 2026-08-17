@@ -1,0 +1,29 @@
+{
+  "record_version": "1.1",
+  "backend": "git-local",
+  "document_id": "research.architecture.decoupled-microkernel-5-plane-2026-08-17",
+  "destination": "research/02_harness-architecture/decoupled-microkernel-5-plane-architecture-2026-08-17",
+  "manifest_sha256": "3f2d6bf87487f70d5bb5f6c02b2c81cbd20f2e69ffab15eb71477707c84ef13e",
+  "artifact_sha256": {
+    "article.html": "b086588f72233b6eb175fd7a6bdf676182b92e5fa80c93e7f7bd8c0602df8b3a",
+    "document-metadata.json": "6d77828281943c6fad8c97677839d728654634a043e0a8094528d8d24fd2ec87"
+  },
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "pages_approved": true,
+  "editorial_decision": {
+    "decision_id": "editorial.decoupled-microkernel-5-plane.20260817.001",
+    "decision": "accept",
+    "pages_approved": true,
+    "reviewer": {
+      "name": "augusto-scarvalho",
+      "role": "editorial-reviewer",
+      "identity_ref": "github:augusto-scarvalho"
+    },
+    "reviewed_at": "2026-08-17T14:46:00Z",
+    "sha256": "aff948ed2f461223800f0ae841a9f03c3be1c4c63dd767b3df2c10b8e5218140"
+  },
+  "remote_effects": false
+}
