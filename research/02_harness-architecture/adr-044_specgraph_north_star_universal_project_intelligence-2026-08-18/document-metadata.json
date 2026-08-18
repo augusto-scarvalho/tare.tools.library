@@ -1,0 +1,30 @@
+{
+  "document_id": "research.architecture.adr-044_specgraph_north_star_universal_project_intelligence.2026-08-18",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
+  "created_at": "2026-08-18T00:14:51.754215+00:00",
+  "language": "pt-BR",
+  "abstract": "Estudo formal de arquitetura para o tare.tools Agent OS.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "Antigravity Mediator",
+      "role": "agent"
+    }
+  ],
+  "bounded_contexts": [
+    "Harness Architecture",
+    "Control Plane",
+    "Governance / Audit",
+    "Validation / Assurance"
+  ],
+  "provenance": {
+    "origin": "ratified_tripartite_round_table",
+    "source_file": "ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md",
+    "canonical_repo": "tare-research/tare.tools"
+  }
+}
