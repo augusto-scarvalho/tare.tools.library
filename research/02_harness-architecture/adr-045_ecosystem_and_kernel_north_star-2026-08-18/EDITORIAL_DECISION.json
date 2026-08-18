@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.adr-045_ecosystem_and_kernel_north_star.20260818.001",
+  "document_id": "research.architecture.adr-045_ecosystem_and_kernel_north_star.2026-08-18",
+  "manifest_sha256": "a0e8d23405d9642e1f5596a72beae6145c82d492bfe1efef847d37c6f0b44821",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-18T00:29:47.922721+00:00",
+  "notes": "Ratificado por consenso formal tripartite e publicado automaticamente via Relay Publisher Engine com derivativo EN."
+}

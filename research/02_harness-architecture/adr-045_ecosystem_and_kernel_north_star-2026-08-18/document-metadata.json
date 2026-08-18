@@ -1,0 +1,30 @@
+{
+  "document_id": "research.architecture.adr-045_ecosystem_and_kernel_north_star.2026-08-18",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
+  "created_at": "2026-08-18T00:29:47.922721+00:00",
+  "language": "pt-BR",
+  "abstract": "Estudo formal de arquitetura para o tare.tools Agent OS.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "Antigravity Mediator",
+      "role": "agent"
+    }
+  ],
+  "bounded_contexts": [
+    "Harness Architecture",
+    "Control Plane",
+    "Governance / Audit",
+    "Validation / Assurance"
+  ],
+  "provenance": {
+    "origin": "ratified_tripartite_round_table",
+    "source_file": "ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md",
+    "canonical_repo": "tare-research/tare.tools"
+  }
+}
