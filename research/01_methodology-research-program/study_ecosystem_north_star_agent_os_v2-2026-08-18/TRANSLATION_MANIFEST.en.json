@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "translation_id": "translation.en.research.architecture.study_ecosystem_north_star_agent_os_v2.2026-08-18",
+  "translation_of": "research.architecture.study_ecosystem_north_star_agent_os_v2.2026-08-18",
+  "source_path": "article.html",
+  "source_sha256": "e199091f976ccbfef394d2d17dd9cdff1f677d8b1df1efac54a4d63fc4b64131",
+  "translation_path": "article.en.html",
+  "translation_sha256": "16181b3d451904442ff91651623771d052d616e736fcc4db2695513ea4c805d5",
+  "translation_size_bytes": 18376,
+  "source_language": "pt-BR",
+  "target_language": "en",
+  "translation_status": "MACHINE_TRANSLATED_UNREVIEWED",
+  "translator": "tare-relay-publisher-ai",
+  "translated_at": "2026-08-18T00:34:11.378066+00:00",
+  "policy": "TRANSLATION_POLICY.md",
+  "notes": "Automated high-fidelity structural translation preserving canonical nouns and AST invariants."
+}

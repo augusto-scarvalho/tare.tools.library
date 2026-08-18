@@ -1,0 +1,30 @@
+{
+  "document_id": "research.architecture.study_ecosystem_north_star_agent_os_v2.2026-08-18",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "title": "North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0): A Plataforma Modular de Engenharia de Software Autônoma e Colaborativa para Humanos e Swarms de IA",
+  "created_at": "2026-08-18T00:34:11.378066+00:00",
+  "language": "en",
+  "abstract": "Este estudo formaliza a especificação canônica da **North Star do Ecossistema tare.tools e do tare-kernel (Agent OS 2.0)**, superando o monólito acidental do protótipo v1 e sintetizando o aprendizado longitudinal de mais de 80 sessões de engenharia e a deliberação tripartite unânime da Mesa Redonda. O ecossistema é estabelecido como uma **arquitetura modular de quatro repositórios independentes**: (1) **`tare-kernel`**, o microkernel de baixo nível e runtime de orquestração de swarms de agentes baseado em 5 Planos pragmáticos; (2) **`tare.tools-specgraph`**, a plataforma universal de Project Intelligence, Spec-Driven Development (SDD) e Matriz de Rastreabilidade Causal Viva; (3) **`tare-graph-backlog`**, o motor autônomo em stdlib de grafos de tarefas (DAG) e cálculo instantâneo da fronteira de trabalho; e (4) **`tare.tools.research`**, o acervo público imutável de artigos científicos, decisões arquiteturais e benchmarks no GitHub Pages. O estudo define a experiência de desenvolvimento com um happy path de 3 comandos (`tare task new` $\\rightarrow$ `tare run` $\\rightarrow$ `tare approve`), estabelece a matriz estrita de propriedade de estado sem acoplamento circular, formaliza o protocolo de aterrissagem transacional idempotente com CAS de revisão de grafo, e detalha o critério objetivo de cutover baseado em shadow-run de paridade por invariantes.",
+  "authors": [
+    {
+      "name": "Augusto Carvalho",
+      "role": "author"
+    },
+    {
+      "name": "Antigravity Mediator",
+      "role": "agent"
+    }
+  ],
+  "bounded_contexts": [
+    "Harness Architecture",
+    "Control Plane",
+    "Governance / Audit",
+    "Validation / Assurance"
+  ],
+  "provenance": {
+    "origin": "ratified_tripartite_round_table",
+    "translation_of": "research.architecture.study_ecosystem_north_star_agent_os_v2.2026-08-18",
+    "source_file": "STUDY_ECOSYSTEM_NORTH_STAR_AGENT_OS_V2.md"
+  }
+}

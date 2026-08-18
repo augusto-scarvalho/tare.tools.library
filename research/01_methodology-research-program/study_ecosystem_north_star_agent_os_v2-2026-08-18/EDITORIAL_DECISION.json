@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.study_ecosystem_north_star_agent_os_v2.20260818.001",
+  "document_id": "research.architecture.study_ecosystem_north_star_agent_os_v2.2026-08-18",
+  "manifest_sha256": "a75f984394dd3e766c8da67e3ae359798f7c6f8f0175880906d6e7f4472d1ace",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-18T00:34:11.378066+00:00",
+  "notes": "Ratificado por consenso formal tripartite e publicado automaticamente via Relay Publisher Engine com derivativo EN."
+}
