@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0): A Plataforma Modular de Engenharia de Software Autônoma e Colaborativa para Humanos e Swarms de IA</title>
+</head>
+<body>
+  <main>
+    <article data-tare-document>
+      <header data-tare-role="document-header">
+        <h1>North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0): A Plataforma Modular de Engenharia de Software Autônoma e Colaborativa para Humanos e Swarms de IA</h1>
+        <p data-tare-role="abstract">Este estudo formaliza a especificação canônica da **North Star do Ecossistema tare.tools e do tare-kernel (Agent OS 2.0)**, superando o monólito acidental do protótipo v1 e sintetizando o aprendizado longitudinal de mais de 80 sessões de engenharia e a deliberação tripartite unânime da Mesa Redonda. O ecossistema é estabelecido como uma **arquitetura modular de quatro repositórios independentes**: (1) **`tare-kernel`**, o microkernel de baixo nível e runtime de orquestração de swarms de agentes baseado em 5 Planos pragmáticos; (2) **`tare.tools-specgraph`**, a plataforma universal de Project Intelligence, Spec-Driven Development (SDD) e Matriz de Rastreabilidade Causal Viva; (3) **`tare-graph-backlog`**, o motor autônomo em stdlib de grafos de tarefas (DAG) e cálculo instantâneo da fronteira de trabalho; e (4) **`tare.tools.research`**, o acervo público imutável de artigos científicos, decisões arquiteturais e benchmarks no GitHub Pages. O estudo define a experiência de desenvolvimento com um happy path de 3 comandos (`tare task new` $\rightarrow$ `tare run` $\rightarrow$ `tare approve`), estabelece a matriz estrita de propriedade de estado sem acoplamento circular, formaliza o protocolo de aterrissagem transacional idempotente com CAS de revisão de grafo, e detalha o critério objetivo de cutover baseado em shadow-run de paridade por invariantes.</p>
+      </header>
+
+      <aside data-tare-role="authority-boundary">
+        RESEARCH / PEER-REVIEW RATIFIED DRAFT. Published in tare.tools.research under Design Science governance. Does not grant mutation authority in production repositories without canonical Relay Mesh protocol.
+      </aside>
+
+      <section id="scope" data-tare-section="scope">
+        <h2>1. Scope &amp; Problem Formulation</h2>
+        <p>O programa de pesquisa <code>tare.tools</code> foi concebido ao longo de centenas de sessões dialéticas com modelos de inteligência artificial de fronteira para resolver uma das questões mais prementes da computação moderna:</p>
+<blockquote>
+<p><em>"Como permitir que desenvolvedores humanos e agentes de IA autônomos (Claude, Codex, Gemini) colaborem na construção de software complexo de forma previsível, durável, assíncrona e com zero perda de intenção?"</em></p>
+</blockquote>
+<h3>1.1. As Lições do Protótipo v1 e a Superação do Monólito Acidental</h3>
+<p>Os experimentos empíricos com o protótipo v1 demonstraram a viabilidade prática da coordenação multiagente assíncrona, mas evidenciaram três limitações estruturais:</p>
+<ol>
+<li><strong>Acoplamento Monolítico Indevido:</strong> O agrupamento de agendamento de DAG, execução de ferramentas (<em>harness</em>), governança de branches Git e análise de código em um único repositório gerava atrito de versionamento e tornava o sistema frágil.</li>
+<li><strong>Concorrência Conflitante em Arquivos Planos:</strong> Múltiplos agentes e scripts concorrentes lendo e escrevendo simultaneamente no mesmo arquivo de grafo (<code>work-graph.json</code>) causavam corrupções silenciosas de estado (<em>lost updates</em> e <em>stale reads</em>).</li>
+<li><strong>Amnésia Arquitetural (<em>Documentation Drift</em>):</strong> Código era produzido velozmente pelos agentes, mas as motivações originais (<em>Specs</em> e <em>ADRs</em>) descolavam-se do código implementado e dos testes de verificação.</li>
+</ol>
+<h3>1.2. A Resposta da Arquitetura North Star 2.0</h3>
+<p>A North Star 2.0 responde a esse diagnóstico através de dois princípios fundamentais:</p>
+<ul>
+<li><strong>Desacoplamento Físico em 4 Repositórios:</strong> Cada ferramenta possui uma única responsabilidade estrita e opera de forma autônoma.</li>
+<li><strong>Ergonomia e Simplicidade Operacional (DX/AX First):</strong> A governança não pode paralisar o desenvolvedor; o sistema deve operar silenciosamente, permitindo um fluxo contínuo de submissão, execução autônoma e aprovação em 1 clique.</li>
+</ul>
+<hr/>
+      </section>
+
+      <section id="evidence" data-tare-section="evidence">
+        <h2>2. Method &amp; Evidence Trail</h2>
+        <p><strong>Document ID:</strong> <code>research.methodology.ecosystem-north-star-agent-os-v2.2026-08-18</code><br/>
+<strong>Autores:</strong> Augusto Carvalho, Antigravity Mediator &amp; Mesa Redonda Tripartite (Google Gemini 3.7 Flash High, Anthropic Claude Fable 5 High, OpenAI GPT-5.6 Sol High)<br/>
+<strong>Data:</strong> 2026-08-18<br/>
+<strong>Status:</strong> <code>RESEARCH / RATIFIED ARCHITECTURAL SPECIFICATION</code><br/>
+<strong>Contexto Temático:</strong> <code>01_methodology-research-program</code> / <code>02_harness-architecture</code><br/>
+<strong>Repositórios de Referência:</strong> <code>tare-research/tare.tools</code>, <code>tare.tools.research</code>, <code>tare.tools-specgraph</code>, <code>tare-graph-backlog</code><br/>
+<strong>Fundamentação Canônica:</strong> ADR-045 (North Star do Ecossistema &amp; Kernel), ADR-044 (North Star do SpecGraph), Corpus Histórico de 82 Conversas de Engenharia do ChatGPT.</p>
+<hr/>
+<pre><code>┌───────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                       ECOSSISTEMA TARE.TOOLS                                      │
+└───────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                                  │
+         ┌────────────────────────┬───────────────┴───────────────┬────────────────────────┐
+         │                        │                               │                        │
+         ▼                        ▼                               ▼                        ▼
+┌──────────────────┐    ┌──────────────────┐            ┌──────────────────┐    ┌──────────────────┐
+│   tare-kernel    │    │  tare-specgraph  │            │tare-graph-backlog│    │tare.tools.research│
+│  (Agent OS Core) │    │(Project Intel/SDD│            │  (Task DAG Engine│    │(Papers, ADRs &amp;   │
+│                  │    │  &amp; Traceability) │            │  &amp; Topology)     │    │ Research Memory) │
+│ • 5 Planos       │    │ • CPG AST Parser │            │ • DAG Acíclico   │    │ • Artigos IEEE   │
+│ • Relay Mesh     │    │ • Matriz Causal  │            │ • Cálculo de     │    │ • ADRs Formais   │
+│ • Sandboxes      │    │ • Drift Detection│            │   Fronteira      │    │ • GitHub Pages   │
+│ • Orquestração   │    │ • Context Engine │            │ • 79 Testes Unit.│    │ • Benchmarks     │
+└──────────────────┘    └──────────────────┘            └──────────────────┘    └──────────────────┘
+</code></pre>
+<h3>2.1. Matriz de Propriedade de Estado e Direção de Dependências</h3>
+<p>Para garantir desacoplamento total, a propriedade canônica de cada entidade é estritamente delimitada:</p>
+<table aria-label="Tabela de Especificação / Specification Table">
+<thead>
+<tr>
+<th>Repositório</th>
+<th>Entidade sob Propriedade Exclusiva</th>
+<th>Formato / Contrato Canônico</th>
+<th>Direção de Dependência Permitida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>tare-graph-backlog</code></strong></td>
+<td>Grafo de Tarefas &amp; Dependências de Backlog</td>
+<td><code>work-graph.json</code> (Schema v2, stdlib pura)</td>
+<td>Zero dependência externa (nunca importa o kernel).</td>
+</tr>
+<tr>
+<td><strong><code>tare-kernel</code></strong></td>
+<td>Ciclo de Vida de Trens, FSM do Relay Mesh &amp; Execução</td>
+<td><code>train.json</code> / SQLite State Store local</td>
+<td>Consome o <code>tare-graph-backlog</code> via CLI/API pública.</td>
+</tr>
+<tr>
+<td><strong><code>tare.tools-specgraph</code></strong></td>
+<td>Matriz Causal de Rastreabilidade (Specs $\leftrightarrow$ Code)</td>
+<td><code>.specgraph/graph.json</code> (JSON-LD / RFC 8785)</td>
+<td>Standalone e universal (nunca depende do kernel).</td>
+</tr>
+<tr>
+<td><strong><code>tare.tools.research</code></strong></td>
+<td>Artigos Científicos, ADRs e Benchmarks Públicos</td>
+<td>Markdown + HTML canônico no GitHub Pages</td>
+<td>Acervo público imutável de memória do projeto.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3>3.1. A Equação Canônica do Agent OS 2.0</h3>
+<p>$$\mathbf{Agent\ OS\ 2.0} = \underbrace{\text{Decoupled 5-Plane Microkernel}}<em>{\text{Separação Estrutural}} \times \underbrace{\text{Relay Mesh Pipeline}}</em>{\text{Passagem de Bastão Autônoma}} \times \underbrace{\text{Release Envelope CAS}}<em>{\text{Integridade Causal}} \times \underbrace{\text{3-Command Happy Path}}</em>{\text{Ergonomia DX/AX}}$$</p>
+<h3>3.2. Os 5 Planos Operando com Simplicidade Pragmática:</h3>
+<pre><code>┌──────────────────────────────────────────────────────────────────────────┐
+│ 1. EXPERIENCE PLANE (Interface Humana &amp; Observabilidade)                 │
+│    • CLI Unificada (`tare`), Web Cockpit (:8765 em 127.0.0.1 com token)  │
+│    • 1-Click Human Approval vinculado ao patch_sha256                    │
+└────────────────────────────────────┬─────────────────────────────────────┘
+                                     │ (Token de Sessão &amp; Release Envelope)
+┌────────────────────────────────────▼─────────────────────────────────────┐
+│ 2. CONTROL PLANE (Microkernel de Coordenação &amp; FSM)                      │
+│    • Relay Mesh: Planner (Codex) → Implementer (Claude) → Auditor (AGY)  │
+│    • Singleton Leader Lease com Fencing CAS Monotônico                   │
+│    • Landing Queue com Monotonic Aging &amp; Anti-Starvation                 │
+└───────┬──────────────────────┬───────────────────────────────────▲───────┘
+        │ (Single-Writer CAS)  │ (Despacho em Sandbox Efêmero)     │
+┌───────▼───────────────────┐  │                                   │ (Signed Attestation Receipt)
+│ 3. DATA PLANE (Estado)    │  │                                   │
+│    • SQLite WAL transac.  │  │                                   │
+│    • %LOCALAPPDATA%/tare  │  │                                   │
+│    • BEGIN IMMEDIATE      │  │                                   │
+└───────────────────────────┘  │                                   │
+                               │  ┌────────────────────────────────┴───────┐
+                               └──► 5. ASSURANCE PLANE (Oráculos &amp; Testes) │
+                                  │    • Pytest hermético em sandbox       │
+                                  │    • Notary Enclave Ed25519            │
+                                  │    • Signed Attestation Receipt        │
+                                  └────────────────────────────────────────┘
+                ▲
+                │ (Dispatch RPC / Patch)    ┌──────────────────────────────┐
+                └───────────────────────────┤ 4. COMPUTE PLANE (Workers)   │
+                                            │    • Sandboxes efêmeros      │
+                                            │    • Zero escrita no DB      │
+                                            │    • Suporte a GPU (RTX 3090)│
+                                            └──────────────────────────────┘
+</code></pre>
+<h3>3.3. O Happy Path de Desenvolvimento em 3 Comandos:</h3>
+<pre><code>[ 1. `tare task new "Título" --spec SPEC-XX` ] ──► [ 2. `tare run` ] ──► [ 3. `tare approve &lt;ID&gt;` ]
+• Cria a tarefa no DAG e associa à spec.           • O swarm despacha o Relay      • Operador revisa o diff no Cockpit
+• Valida dependências no backlog.                    Mesh (Plan → Code → Test).      e aterrissa o release em 1 clique.
+</code></pre>
+<hr/>
+      </section>
+
+      <section id="findings" data-tare-section="findings">
+        <h2>3. Architectural Proposal &amp; Findings</h2>
+        <h3>4. Protocolo de Landing Transacional &amp; Recuperação de Falhas (Governance)</h3>
+<p>O <code>tare-kernel</code> nunca escreve diretamente no <code>work-graph.json</code>. O processo de release é estruturado em uma máquina de estados idempotente e recuperável:</p>
+<p>$$\text{ReleaseEnvelope} = \langle \text{train_id},\ \text{spec_ids},\ \text{task_ids},\ \text{base_tree_hash},\ \text{patch_sha256},\ \text{resulting_tree_hash},\ \text{test_evidence_hash},\ \text{expected_dag_rev} \rangle$$</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    actor Operador as Operador Humano (Web Cockpit)
+    participant Kernel as tare-kernel (Control Plane)
+    participant Git as Repositório Git (Remote)
+    participant Backlog as tare-graph-backlog (DAG Engine)
+
+    Operador-&gt;&gt;Kernel: tare approve &lt;TRAIN_ID&gt; (1-Click)
+    Note over Kernel: 1. PREPARE: Gera ReleaseEnvelope e trava expected_dag_rev
+    Kernel-&gt;&gt;Git: 2. GIT LAND: git push --force-with-lease=&lt;ref&gt;:&lt;base_oid&gt;
+    Git--&gt;&gt;Kernel: Push Confirmado
+    Kernel-&gt;&gt;Backlog: 3. DAG LAND: graph_ops.py land --train &lt;ID&gt; --tasks &lt;IDS&gt; --expect-rev &lt;REV&gt;
+    Backlog--&gt;&gt;Kernel: CAS Sucesso (DAG Atualizado)
+    Note over Kernel: 4. COMMITTED: Release fechado no ledger local
+</code></pre>
+<ul>
+<li><strong>Crash Recovery Determinístico:</strong> Caso ocorra uma falha de energia ou interrupção entre o passo 2 e o passo 3, o daemon do kernel reconcilia deterministicamente o estado do backlog ao reiniciar, verificando o commit aterrisado no Git.</li>
+</ul>
+<hr/>
+      </section>
+
+      <section id="limitations" data-tare-section="limitations">
+        <h2>4. Limitations &amp; Threats to Validity</h2>
+        <p>Para eliminar os riscos do <em>second-system effect</em>:</p>
+<ol>
+<li><strong>Coexistência Inicial:</strong> O <code>tare-tools-relay</code> v1 permanece como o ambiente ativo e estável de produção.</li>
+<li><strong>Replay de Paridade por Invariantes:</strong> O <code>tare-kernel</code> v2 deve reexecutar 10 trens históricos do v1 e reproduzir <strong>exatamente os mesmos estados finais de release, conclusão de tarefas e atestação de testes</strong>.</li>
+<li><strong>Cutover Definitivo:</strong> O corte operacional para o v2 ocorre somente após a paridade de 100% ser comprovada no shadow-run.</li>
+</ol>
+<hr/>
+      </section>
+
+      <section id="references" data-tare-section="references">
+        <h2>5. References &amp; Canonical Lineage</h2>
+        <pre><code>[ FASE 1: Greenfield &amp; P0 Engine ] ──► [ FASE 2: CLI &amp; Cockpit Unificado ] ──► [ FASE 3: SpecGraph Integration ] ──► [ FASE 4: Multi-Node Compute ]
+• Inicializar repositórios limpos     • CLI unificada `tare`                   • Integração com Context Envelopes     • Workers remotos via Tailscale
+• Implementar CAS SQLite &amp; Notary     • Web Cockpit em FastAPI/React           • Drift Gate automático em PRs         • Despacho de tarefas pesadas de GPU
+• Extrair tare-graph-backlog          • Testes de integração end-to-end       • Rastreabilidade viva Requisito→Code  • Benchmarks públicos no research
+</code></pre>
+<hr/>
+<ol>
+<li><strong>ADR-045:</strong> North Star do Ecossistema tare.tools &amp; tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios (2026).</li>
+<li><strong>ADR-044:</strong> North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence &amp; SDD (2026).</li>
+<li><strong>ADR-042:</strong> Arquitetura de Microkernel Desacoplado em 5 Planos para o tare.tools Agent OS (2026).</li>
+<li><strong>Corpus de Engenharia do ChatGPT:</strong> Acervo histórico consolidado de 82 conversas de arquitetura.</li>
+</ol>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
