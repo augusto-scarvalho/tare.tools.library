@@ -1,0 +1,15 @@
+{
+  "decision_version": "1.0",
+  "decision_id": "editorial.adr-044_specgraph_north_star_universal_project_intelligence.20260818.001",
+  "document_id": "research.architecture.adr-044_specgraph_north_star_universal_project_intelligence.2026-08-18",
+  "manifest_sha256": "fb2d11cea861cc6f0783df4041efaf533607d75726fbedf4968c19e51bb7f112",
+  "decision": "accept",
+  "pages_approved": true,
+  "reviewer": {
+    "name": "augusto-scarvalho",
+    "role": "editorial-reviewer",
+    "identity_ref": "github:augusto-scarvalho"
+  },
+  "reviewed_at": "2026-08-18T00:14:51.754215+00:00",
+  "notes": "Ratificado por consenso formal tripartite e publicado automaticamente via Relay Publisher Engine com derivativo EN."
+}

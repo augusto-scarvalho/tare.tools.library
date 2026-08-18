@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)</title>
+</head>
+<body>
+  <main>
+    <article data-tare-document>
+      <header data-tare-role="document-header">
+        <h1>ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)</h1>
+        <p data-tare-role="abstract">Estudo formal de arquitetura para o tare.tools Agent OS.</p>
+      </header>
+
+      <aside data-tare-role="authority-boundary">
+        RESEARCH / PEER-REVIEW RATIFIED DRAFT. Publicação em tare.tools.research sob governança de Design Science. Não concede isoladamente autorização de mutação em repositórios de produção sem o protocolo canônico do Relay Mesh.
+      </aside>
+
+      <section id="scope" data-tare-section="scope">
+        <h2>1. Escopo &amp; Formulação do Problema</h2>
+        <p>O desenvolvimento acelerado de software por equipes humanas e swarms de agentes autônomos enfrenta um gargalo crítico de <strong>amnésia contextual e perda de intenção</strong>:</p>
+<ol>
+<li>O código evolui rapidamente, mas os motivos das decisões (<em>ADRs/Specs</em>) se perdem, causando <em>documentation drift</em>.</li>
+<li>Ferramentas de busca vetorial (<em>RAG</em>) encontram similaridade estatística, mas são cegas para causalidade e dependências lógicas.</li>
+<li>Indexadores estáticos (<em>Graphify/SCIP</em>) mapeiam a sintaxe do código, mas não entendem a intenção de negócio nem verificam critérios de aceite.</li>
+</ol>
+<p>O <strong><code>tare.tools-specgraph</code></strong> foi concebido para resolver essa lacuna, transformando o desenvolvimento de software através do paradigma <strong>SDD (Spec-Driven Development)</strong> e da <strong>Matriz Viva de Rastreabilidade Causal</strong>:</p>
+<p>$$\text{Requisito / Intenção} \longrightarrow \text{Design / Spec / ADR} \longrightarrow \text{Tarefa (DAG)} \longrightarrow \text{Código (AST)} \longrightarrow \text{Teste (Falsifier)} \longrightarrow \text{Evidência (Attestation)}$$</p>
+<hr/>
+      </section>
+
+      <section id="evidence" data-tare-section="evidence">
+        <h2>2. Método &amp; Trilha de Evidências</h2>
+        <h3>A. Desacoplamento Total do Microkernel (<code>tare-kernel</code>):</h3>
+<ul>
+<li>O <strong><code>tare-kernel</code></strong> é o runtime de baixo nível para sandboxing, CAS atômico e atestação de agentes.</li>
+<li>O <strong><code>tare.tools-specgraph</code></strong> é uma <strong>plataforma e biblioteca independente, modular e universal</strong>:<ul>
+<li>Funciona diretamente para desenvolvedores humanos via CLI (<code>specgraph</code>) e visualizador Web interativo;</li>
+<li>Funciona para qualquer agente de IA do mercado (Claude Code, OpenAI Codex, Cursor, Aider, Copilot);</li>
+<li>Opera <strong>100% local-first</strong> com latências sub-50ms na máquina do usuário.</li>
+</ul>
+</li>
+</ul>
+<h3>B. Sintaxe Concreta e Baixo Custo de Anotação:</h3>
+<ul>
+<li><strong>Specs:</strong> Frontmatter YAML com <code>implements: [REQ-01]</code> e <code>target_symbols: [...]</code>.</li>
+<li><strong>Código:</strong> Docstring tags (<code>@spec SPEC-042</code>) ou mapeamento declarativo <code>specgraph.yaml</code> (zero-touch no código).</li>
+<li><strong>Testes:</strong> Marker pytest nativo <code>@pytest.mark.verifies("SPEC-042", "AC-01")</code>.</li>
+<li><strong>Dependências:</strong> <code>DEPENDS_ON_STATIC</code> inferidas 100% por AST a partir dos imports do código.</li>
+</ul>
+<h3>C. Escopo Delimitado de Governança (<code>governed_paths</code>):</h3>
+<ul>
+<li>O gate de <em>Zero Código Órfão</em> aplica-se estritamente sobre arquivos declarados em <code>governed_paths</code> (ex.: <code>src/</code>), excluindo fixtures, scripts temporários e código gerado em <code>excluded_paths</code>.</li>
+</ul>
+<h3>D. Identidade Content-Addressed e Idempotência Estrita:</h3>
+<ul>
+<li>Gerações do grafo são puramente content-addressed:
+$$\text{generation_id} = \text{sha256}(\text{tree_hash} + \text{canonical_specgraph_digest})$$
+Reindexar o mesmo código produz exatamente o mesmo hash sem poluir o ledger.</li>
+</ul>
+<h3>E. Trust Tiers de Evidência:</h3>
+<ul>
+<li><strong>Tier 1 (Autoritativo):</strong> Testes re-executados e atestados pelo CI com hash verificado. Apenas este Tier aprova gates de merge.</li>
+<li><strong>Tier 2 (Inferência Estática):</strong> Imports e re-bindings assistidos confirmados.</li>
+<li><strong>Tier 3 (Consultivo):</strong> Sugestões semânticas de linguagem natural para o comando <code>explain</code>.</li>
+</ul>
+<hr/>
+      </section>
+
+      <section id="findings" data-tare-section="findings">
+        <h2>3. Proposta &amp; Resultados Arquiteturais</h2>
+        <ul>
+<li><strong>Status:</strong> Ratificado e Aprovado pela Mesa Redonda Tripartite (<code>CASE-2026-08-17-SPECGRAPH-NORTH-STAR-V1</code>)</li>
+<li><strong>Data:</strong> 2026-08-17</li>
+<li><strong>Autores:</strong> Antigravity Mediator (sob direcionamento do Operador Humano e consenso da Mesa Tripartite: Google Gemini 3.7 Flash High, Anthropic Claude Fable 5 High, OpenAI GPT-5.6 Sol High)</li>
+<li><strong>Escopo:</strong> <code>tare.tools-specgraph</code> (Repositório Standalone Universal)</li>
+</ul>
+<hr/>
+<h3>3. Roadmap de Implementação em 4 Fases</h3>
+<ol>
+<li><strong>Fase 1 (Fatia Vertical Python MVP):</strong><ul>
+<li>1 Linguagem: Python (AST nativo);</li>
+<li>1 Formato: OpenSDD / Markdown com frontmatter YAML;</li>
+<li>Ciclo CLI completo: <code>specgraph init</code> $\rightarrow$ <code>trace</code> $\rightarrow$ <code>drift-check</code> $\rightarrow$ <code>explain</code>;</li>
+<li>Dogfooding real no repositório <code>tare.tools</code> com suite de 20 mutações sintéticas (100% recall).</li>
+</ul>
+</li>
+<li><strong>Fase 2 (Motor SDD &amp; Detecção de Drift em Tempo Real):</strong><ul>
+<li>Re-binding assistido e burn-down de dívida de rastreabilidade do legado;</li>
+<li>Ingestão do acervo histórico de 82 conversas do ChatGPT como camada informativa.</li>
+</ul>
+</li>
+<li><strong>Fase 3 (Visualizador Interativo Web &amp; Expansão Multi-Linguagem):</strong><ul>
+<li>Single-file HTML GUI com visualização 2D da topologia e simulação de análise de impacto;</li>
+<li>Parsers Tree-sitter para TypeScript e Rust.</li>
+</ul>
+</li>
+<li><strong>Fase 4 (Integração de Agentes &amp; MCP Server):</strong><ul>
+<li>Provedor de <em>Context Envelopes</em> para Claude Code, Cursor e OpenAI Codex via MCP Server local;</li>
+<li>Integração com o gate de auditoria do <code>tare-kernel</code>.</li>
+</ul>
+</li>
+</ol>
+<hr/>
+<h3>4. Consequências e Benefícios</h3>
+<ul>
+<li><strong>Preservação de Intenção:</strong> Nenhuma decisão ou critério de aceite se perde durante a evolução do código.</li>
+<li><strong>Redução Drástica de Tokens:</strong> Agentes recebem apenas o fecho transitivo exato necessário para a tarefa ($\ge 65%$ de economia de contexto).</li>
+<li><strong>Sem Falsos Bloqueios:</strong> Fixtures e scripts utilitários não exigem specs artificiais.</li>
+<li><strong>Soberania e Velocidade:</strong> Operação 100% offline, local e determinística.</li>
+</ul>
+      </section>
+
+      <section id="limitations" data-tare-section="limitations">
+        <h2>4. Limitações &amp; Ameaças à Validade</h2>
+        <p>Limitações operacionais aplicáveis a ambientes de execução heterogêneos.</p>
+      </section>
+
+      <section id="references" data-tare-section="references">
+        <h2>5. Referências &amp; Genealogia Canônica</h2>
+        <p>Repositório canônico tare-research/tare.tools.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

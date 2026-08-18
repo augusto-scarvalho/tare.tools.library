@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "translation_id": "translation.en.research.architecture.adr-044_specgraph_north_star_universal_project_intelligence.2026-08-18",
+  "translation_of": "research.architecture.adr-044_specgraph_north_star_universal_project_intelligence.2026-08-18",
+  "source_path": "article.html",
+  "source_sha256": "dd28db774a9e9af3105e268759df83b95f3d5f473b99eb65db2199ce9bb53662",
+  "translation_path": "article.en.html",
+  "translation_sha256": "8b28b59b5b00471bc1784ce53a05df139e6d8fb1d4811aa2387c5a5258c15e34",
+  "translation_size_bytes": 7718,
+  "source_language": "pt-BR",
+  "target_language": "en",
+  "translation_status": "MACHINE_TRANSLATED_UNREVIEWED",
+  "translator": "tare-relay-publisher-ai",
+  "translated_at": "2026-08-18T00:14:51.754215+00:00",
+  "policy": "TRANSLATION_POLICY.md",
+  "notes": "Automated high-fidelity structural translation preserving canonical nouns and AST invariants."
+}
