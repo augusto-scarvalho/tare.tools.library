@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios</title>
+</head>
+<body>
+  <main>
+    <article data-tare-document>
+      <header data-tare-role="document-header">
+        <h1>ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios</h1>
+        <p data-tare-role="abstract">Estudo formal de arquitetura para o tare.tools Agent OS.</p>
+      </header>
+
+      <aside data-tare-role="authority-boundary">
+        RESEARCH / PEER-REVIEW RATIFIED DRAFT. Published in tare.tools.research under Design Science governance. Does not grant mutation authority in production repositories without canonical Relay Mesh protocol.
+      </aside>
+
+      <section id="scope" data-tare-section="scope">
+        <h2>1. Scope &amp; Problem Formulation</h2>
+        <p>O programa <code>tare.tools</code> evoluiu ao longo de mais de 80 sessões de engenharia catalogadas no ChatGPT, provando a viabilidade de swarms multi-agente assíncronos. Contudo, o protótipo v1 revelou o gargalo do <strong>monólito acidental</strong>:</p>
+<ul>
+<li>O motor de tarefas (DAG), o executor de ferramentas (harness), a indexação de código e a governança de releases conviviam no mesmo repositório;</li>
+<li>Múltiplos processos concorrentes colidiam na escrita do arquivo de grafo compartilhado (<code>work-graph.json</code>);</li>
+<li>A amnésia de decisões (<em>documentation drift</em>) ocorria por falta de amarração causal entre specs e código.</li>
+</ul>
+<p>Este ADR estabelece a <strong>North Star definitiva de Produto e Arquitetura do Ecossistema tare.tools e do <code>tare-kernel</code> (Agent OS 2.0)</strong>, superando o viés puramente adversarial para entregar uma plataforma modular, ergonômica e veloz.</p>
+<hr/>
+      </section>
+
+      <section id="evidence" data-tare-section="evidence">
+        <h2>2. Method &amp; Evidence Trail</h2>
+        <ul>
+<li><strong>Status:</strong> Ratificado e Aprovado pela Mesa Redonda Tripartite (<code>CASE-2026-08-17-ECOSYSTEM-AND-KERNEL-NORTH-STAR</code>)</li>
+<li><strong>Data:</strong> 2026-08-17</li>
+<li><strong>Autores:</strong> Antigravity Mediator (sob direcionamento do Operador Humano e consenso da Mesa Tripartite: Google Gemini 3.7 Flash High, Anthropic Claude Fable 5 High, OpenAI GPT-5.6 Sol High)</li>
+<li><strong>Escopo:</strong> Ecossistema Global <code>tare.tools</code> &amp; <code>tare-kernel</code></li>
+</ul>
+<hr/>
+<pre><code>┌───────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                       ECOSSISTEMA TARE.TOOLS                                      │
+└───────────────────────────────────────────────────────────────────────────────────────────────────┘
+                                                  │
+         ┌────────────────────────┬───────────────┴───────────────┬────────────────────────┐
+         │                        │                               │                        │
+         ▼                        ▼                               ▼                        ▼
+┌──────────────────┐    ┌──────────────────┐            ┌──────────────────┐    ┌──────────────────┐
+│   tare-kernel    │    │  tare-specgraph  │            │tare-graph-backlog│    │tare.tools.research│
+│  (Agent OS Core) │    │(Project Intel/SDD│            │  (Task DAG Engine│    │(Papers, ADRs &amp;   │
+│                  │    │  &amp; Traceability) │            │  &amp; Topology)     │    │ Research Memory) │
+│ • 5 Planos       │    │ • CPG AST Parser │            │ • DAG Acíclico   │    │ • Artigos IEEE   │
+│ • Relay Mesh     │    │ • Matriz Causal  │            │ • Cálculo de     │    │ • ADRs Formais   │
+│ • Sandboxes      │    │ • Drift Detection│            │   Fronteira      │    │ • GitHub Pages   │
+│ • Orquestração   │    │ • Context Engine │            │ • 79 Testes Unit.│    │ • Benchmarks     │
+└──────────────────┘    └──────────────────┘            └──────────────────┘    └──────────────────┘
+</code></pre>
+<h3>Matriz de Propriedade de Estado Estrita:</h3>
+<ol>
+<li><strong><code>tare-graph-backlog</code>:</strong> Dono exclusivo do <code>work-graph.json</code> (DAG de tarefas). Zero dependência externa.</li>
+<li><strong><code>tare-kernel</code>:</strong> Dono do ciclo de vida de trens e FSM de execução. Consome o backlog via API transacional.</li>
+<li><strong><code>tare.tools-specgraph</code>:</strong> Dono da matriz causal de rastreabilidade (Specs $\leftrightarrow$ Code $\leftrightarrow$ Tests).</li>
+<li><strong><code>tare.tools.research</code>:</strong> Acervo público de artigos científicos, benchmarks e ADRs formais no GitHub Pages.</li>
+</ol>
+<hr/>
+      </section>
+
+      <section id="findings" data-tare-section="findings">
+        <h2>3. Architectural Proposal &amp; Findings</h2>
+        <h3>3. Protocolo de Landing Idempotente e Recuperável</h3>
+<p>O <code>tare-kernel</code> nunca edita diretamente o arquivo de grafo. A aterrissagem de releases segue 4 etapas recuperáveis:</p>
+<ol>
+<li><strong>Prepare:</strong> O kernel gera o <code>ReleaseEnvelope</code> assinado e bloqueia a revisão esperada do DAG (<code>expected_dag_rev</code>).</li>
+<li><strong>Git Land:</strong> O commit e push atômico são executados com <code>--force-with-lease</code>.</li>
+<li><strong>DAG Update:</strong> O kernel invoca a API transacional do backlog:<pre><code class="language-bash">python graph_ops.py land --train &lt;TRAIN_ID&gt; --tasks &lt;TASK_IDS&gt; --expect-rev &lt;REVISION_HASH&gt;
+</code></pre>
+</li>
+<li><strong>Crash Recovery:</strong> Em caso de interrupção entre os passos 2 e 3, a reinicialização do daemon reconcilia deterministicamente o estado do backlog com base no commit pousado no Git.</li>
+</ol>
+<hr/>
+<h3>4. O Happy Path de Desenvolvimento em 3 Comandos</h3>
+<p>A experiência do desenvolvedor humano e dos agentes de IA é rápida e intuitiva:</p>
+<pre><code>[ 1. `tare task new "Título" --spec SPEC-XX` ] ──► [ 2. `tare run` ] ──► [ 3. `tare approve &lt;ID&gt;` ]
+• Cria a tarefa no DAG e associa à spec.           • O swarm despacha o Relay      • Operador revisa o diff no Cockpit
+• Valida dependências no backlog.                    Mesh (Plan → Code → Test).      e aterrissa o release em 1 clique.
+</code></pre>
+<hr/>
+<ol>
+<li><strong>Fase 1 (Greenfield &amp; P0 Engine):</strong> Inicialização dos repositórios limpos, CAS SQLite, Ingress Gatekeeper, Notary Ed25519 e extração do <code>tare-graph-backlog</code>.</li>
+<li><strong>Fase 2 (CLI &amp; Cockpit Unificado):</strong> CLI unificada <code>tare</code> e Web Cockpit visual com monitoramento do swarm.</li>
+<li><strong>Fase 3 (SpecGraph Integration):</strong> Integração com Context Envelopes e Drift Gate em PRs.</li>
+<li><strong>Fase 4 (Multi-Node Compute):</strong> Workers remotos via Tailscale para despacho de tarefas pesadas.</li>
+</ol>
+      </section>
+
+      <section id="limitations" data-tare-section="limitations">
+        <h2>4. Limitations &amp; Threats to Validity</h2>
+        <p>Todo release gerenciado pelo kernel empacota um <strong>Release Envelope</strong> canônico:
+$$\text{ReleaseEnvelope} = \langle \text{train_id},\ \text{spec_ids},\ \text{task_ids},\ \text{base_tree_hash},\ \text{patch_sha256},\ \text{resulting_tree_hash},\ \text{test_evidence_hash},\ \text{expected_dag_rev} \rangle$$
+O botão de aprovação no Web Cockpit (:8765 em <code>127.0.0.1</code>) vincula todos esses campos, garantindo que o Operador aprove exatamente o artefato testado e atestado.</p>
+<hr/>
+      </section>
+
+      <section id="references" data-tare-section="references">
+        <h2>5. References &amp; Canonical Lineage</h2>
+        <ol>
+<li><strong>Coexistência Inicial:</strong> O <code>tare-tools-relay</code> v1 permanece como o ambiente ativo de produção.</li>
+<li><strong>Replay de Paridade por Invariantes:</strong> O <code>tare-kernel</code> v2 reexecuta 10 trens históricos do v1 e valida <strong>equivalência exata de resultado determinístico</strong> (árvore Git resultante idêntica, tarefas concluídas e atestação de testes aprovada).</li>
+<li><strong>Cutover Definitivo:</strong> O corte ocorre somente após a paridade comprovada no replay.</li>
+</ol>
+<hr/>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
