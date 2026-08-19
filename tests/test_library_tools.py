@@ -67,6 +67,16 @@ class LibraryToolsTests(unittest.TestCase):
             loaded = json.loads(out_file.read_text(encoding="utf-8"))
             self.assertEqual(loaded["total_documents"], 2)
 
+    def test_atomic_manifest_publication(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            manifest = build_library_manifest(root_dir=tmp_path)
+            out_file = save_manifest(manifest, root_dir=tmp_path)
+            self.assertTrue(out_file.exists())
+            # Ensure no residual .tmp files exist in catalog/
+            tmp_files = list((tmp_path / "catalog").glob("*.tmp"))
+            self.assertEqual(len(tmp_files), 0)
+
     def test_query_engine(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
