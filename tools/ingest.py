@@ -105,7 +105,8 @@ def ingest_document(
                 except Exception:
                     continue
 
-    # 2. Derive Destination Path & ID
+    # 2. Derive Destination Path & ID with Atomic Exclusive Creation (Zero-TOCTOU Non-Destructive)
+    import time
     base_subpath, prefix = TYPE_ROUTING[doc_type]
     dest_dir = root / base_subpath
     if category and doc_type == "experiment":
@@ -116,13 +117,33 @@ def ingest_document(
     dest_filename = src.name
     target_file = dest_dir / dest_filename
 
-    # Ensure zero silent overwrite: if target exists and overwrite is not explicitly requested, suffix with hash
-    if target_file.exists() and not overwrite:
-        stem = src.stem
-        suffix = src.suffix
-        target_file = dest_dir / f"{stem}_{digest[:8]}{suffix}"
+    if overwrite:
+        target_file.write_bytes(raw_bytes)
+    else:
+        # Atomic non-destructive write loop: attempt exclusive creation ('xb')
+        written = False
+        candidates = [
+            target_file,
+            dest_dir / f"{src.stem}_{digest[:8]}{src.suffix}",
+            dest_dir / f"{src.stem}_{digest[:12]}{src.suffix}",
+        ]
+        for candidate in candidates:
+            try:
+                with candidate.open("xb") as f:
+                    f.write(raw_bytes)
+                    f.flush()
+                target_file = candidate
+                written = True
+                break
+            except FileExistsError:
+                continue
 
-    target_file.write_bytes(raw_bytes)
+        if not written:
+            unique_name = f"{src.stem}_{digest[:8]}_{int(time.time()*1000)}{src.suffix}"
+            target_file = dest_dir / unique_name
+            with target_file.open("xb") as f:
+                f.write(raw_bytes)
+                f.flush()
 
     doc_id = target_file.stem
     rel_path = str(target_file.relative_to(root)).replace("\\", "/")
