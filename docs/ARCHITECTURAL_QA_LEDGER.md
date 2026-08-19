@@ -254,3 +254,15 @@
   2. *Configuração do `.gitmodules` Atualizada:* Seção e path unificados para `[submodule "satellites/tare.tools.library"]` e `path = satellites/tare.tools.library`.
   3. *Testes & CLI de Automação:* `tests/test_federation_submodules.py` e `scripts/ops/bump_satellite.py` atualizados e validados (100% green).
   4. *Documentação do OS:* `README.md` e `AGENTS.md` do Agent OS totalmente sincronizados com o nome `tare.tools.library`.
+
+---
+
+### ❓ Pergunta 28: *“e quanto aos scripts de ingestão por exemplo? estão presentes já? quero saber como o nosso repositório vai disponibilizar tools e outras coisas para os agentes e outros projetos operarem sobre ele também”* & *“mas assim, mcp mesmo? ou CLI?”*
+* **Contexto:** Definição da arquitetura de ferramentas (CLI-First vs Daemons MCP) para ingestão, consulta e exportação de especificações OpenSDD sem sobrecarga de processos em background.
+* **Resolução & Ferramentas Operacionais Criadas:**
+  1. *Arquitetura CLI-First & Pure Python Module:* Adotada abordagem sem daemons pesados, executável via `python -m tools.<cmd>` ou importável diretamente via Python stdlib.
+  2. *Motor de Ingestão Automatizado (`tools/ingest.py`):* Validação de duplicatas em tempo real, cálculo de SHA-256 e roteamento automático para `specs/`, `experiments/`, `docs/` ou `archaeology/`.
+  3. *Compilador de Manifesto Canônico (`tools/build_manifest.py`):* Gera `catalog/LIBRARY_MANIFEST.json` agregando ADRs, SPECs, AC-01..N e hashes criptográficos para consumo em $O(1)$ pelo SpecGraph (SAG) e Backlog-Graph (DAG).
+  4. *Motor de Consulta Rápida (`tools/query.py`):* Busca por texto, tags e extração cirúrgica de SPECs e ADRs em envelopes de contexto enxutos (<4k tokens).
+  5. *Especificações OpenSDD Fundacionais Materializadas:* Criados `specs/SPEC-KERNEL-001.md`, `SPEC-SPECGRAPH-001.md`, `SPEC-BACKLOG-001.md`, `SPEC-DIALOG-001.md` e `SPEC-LIBRARY-001.md`.
+  6. *Qualidade Comprovada:* Suíte de testes expandida para **74/74 testes passando 100% green**.
