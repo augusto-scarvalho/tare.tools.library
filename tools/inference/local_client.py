@@ -53,6 +53,25 @@ class LocalInferenceClient:
             except Exception as e2:
                 return {"online": False, "error": str(e2), "url": self.config.host}
 
+    def readiness_check(self, required_model: Optional[str] = None) -> Dict[str, Any]:
+        """Deep hardware and model readiness probe verifying model offload and context."""
+        health = self.health_check()
+        if not health.get("online"):
+            return {"ready": False, "error": health.get("error", "offline"), "details": health}
+
+        # Check models listing if available
+        models = health.get("models", [])
+        if required_model and models:
+            model_ids = [m.get("id") for m in models if isinstance(m, dict)]
+            if required_model not in model_ids and not any(required_model in mid for mid in model_ids if mid):
+                return {
+                    "ready": False,
+                    "error": f"Required model '{required_model}' not found in loaded models: {model_ids}",
+                    "details": health,
+                }
+
+        return {"ready": True, "details": health}
+
     def generate_embeddings(self, texts: List[str]) -> List[List[float]]:
         """Generate dense vector embeddings using local server endpoint."""
         url = f"{self.config.host}/v1/embeddings"

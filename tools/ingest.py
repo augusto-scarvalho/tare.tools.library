@@ -50,32 +50,40 @@ def compute_sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def _normalize_text(text: str) -> str:
+    """Normalize text for canonical shingling (lowercase, strip frontmatter/codeblocks, remove punctuation)."""
+    t = text.lower()
+    t = re.sub(r"^---[\s\S]*?---", "", t, flags=re.MULTILINE)  # strip frontmatter
+    t = re.sub(r"```[\s\S]*?```", "", t)  # strip codeblocks
+    t = re.sub(r"[^\w\s]", " ", t)       # remove punctuation
+    return " ".join(t.split())
+
+
 def ingest_document(
     source_path: str | Path,
     doc_type: str,
-    title: str = "",
-    category: str = "",
+    title: Optional[str] = None,
+    category: Optional[str] = None,
     force: bool = False,
+    overwrite: bool = False,
     root_dir: str | Path = ROOT,
 ) -> IngestionResult:
-    """Ingest a markdown document into the library with automated deduplication and cataloging."""
-    src = Path(source_path)
+    """Ingest a markdown document non-destructively with canonical deduplication check."""
     root = Path(root_dir)
-
-    if not src.exists():
+    src = Path(source_path)
+    if not src.exists() or not src.is_file():
         return IngestionResult(
             success=False,
-            target_path=None,
+            target_path=src,
             doc_id="",
             sha256="",
-            message=f"Source file does not exist: {source_path}",
+            message=f"Source file '{source_path}' does not exist.",
         )
 
-    doc_type = doc_type.lower().strip()
     if doc_type not in TYPE_ROUTING:
         return IngestionResult(
             success=False,
-            target_path=None,
+            target_path=src,
             doc_id="",
             sha256="",
             message=f"Invalid document type '{doc_type}'. Allowed: {list(TYPE_ROUTING.keys())}",
@@ -87,7 +95,6 @@ def ingest_document(
 
     # 1. Deduplication check across existing active docs
     if not force:
-        # Check against existing docs (excluding the source file itself)
         src_resolved = src.resolve()
         for existing in root.rglob("*.md"):
             if existing.is_file() and existing.resolve() != src_resolved and not any(part in existing.parts for part in (".git", ".pytest_cache", "__pycache__")):
@@ -118,8 +125,8 @@ def ingest_document(
     dest_filename = src.name
     target_file = dest_dir / dest_filename
 
-    # If target exists and not forcing, create a timestamped or indexed name
-    if target_file.exists() and not force:
+    # Ensure zero silent overwrite: if target exists and overwrite is not explicitly requested, suffix with hash
+    if target_file.exists() and not overwrite:
         stem = src.stem
         suffix = src.suffix
         target_file = dest_dir / f"{stem}_{digest[:8]}{suffix}"
