@@ -1,74 +1,119 @@
-# tare.tools Research Corpus
+# 📚 tare.tools.library — Biblioteca Técnica Central, SSOT de Memória & Conhecimento
 
-> **THIS REPOSITORY IS EVIDENCE, NOT ARCHITECTURAL AUTHORITY.**
+[![CI Validation](https://github.com/augusto-scarvalho/tare.tools.research/actions/workflows/validate.yml/badge.svg)](https://github.com/augusto-scarvalho/tare.tools.research/actions)
+[![Bookkeeper Compliance](https://img.shields.io/badge/bookkeeper-100%25%20compliant-brightgreen)](#-motor-de-bookkeeping--higiene-documental)
+[![ADRs](https://img.shields.io/badge/ADRs-ADR--001%20..%20ADR--052-blue)](docs/adr/)
+[![Ecosystem](https://img.shields.io/badge/ecosystem-TARE%202.0-orange)](https://github.com/augusto-scarvalho/tare.tools.os)
 
-Este repositório preserva pesquisa, fontes, experimentos, arqueologia, propostas e versões históricas do tare.tools.
+> **O Repositório Central de Conhecimento, Memória Histórica e Arquitetura do Ecossistema TARE.**  
+> Ratificado formalmente pelas **ADRs 043 a 052** como o *Single Source of Truth (SSOT)* para Decisões Arquiteturais, Post-Mortems Forenses, Benchmarks Empíricos e Acervo Histórico.
 
-Em conflito, prevalecem o repositório canônico `tare-tools`, Git, código, arquitetura ratificada, ADRs, SPECs, BDDs e gates.
+---
 
-English overview: **[README.en.md](README.en.md)**.
+## 🏛️ O Eixo Triplo da Engenharia Agêntica (ADR-051)
 
-## Comece aqui
+No ecossistema TARE, a inteligência autônoma é estruturada em uma tríade de responsabilidade clara e sem sobreposição:
 
-- **[Índice unificado de todos os documentos e estudos](catalog/ALL_DOCUMENTS_INDEX.md)** — 11 seed originals de chat, 1 live-ingestion exact source, 93 cópias exatas do snapshot privado e 72 referências File Library, com origem/authority explícitas.
-- **[Índice dos originals de chat materializados](catalog/DOCUMENT_INDEX.md)** — navegação PT-BR | EN por documento e por tema.
-- **[Primeira ingestão viva — Identity, Lineage, Learning & Evolution](catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12.md)** — ResearchObject transversal de 12/08, com review, technical delta, graph edges e Frontier curation.
-- **[Baseline histórico do GitHub privado](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — snapshot exato de 05/08, não CURRENT.
-- **[Índice das pesquisas presentes no snapshot privado](catalog/CANONICAL_SNAPSHOT_RESEARCH_INDEX.md)** — 93 arquivos byte-for-byte de `docs/research/`.
-- **[Fila de tradução EN do snapshot privado](catalog/CANONICAL_SNAPSHOT_TRANSLATION_QUEUE.md)** — sources não-EN materializados e elegíveis para tradução.
-- **[Fila de reidratação](catalog/REHYDRATION_QUEUE.md)** — File Library refs ainda sem bytes locais; tradução fica bloqueada até materialização exata.
-- **[Linhagens descobertas na File Library](catalog/LIBRARY_LINEAGES.md)** — projeção de descoberta.
-- **[Reconciliação de linhagens](catalog/LINEAGE_RECONCILIATION.md)** — separa ordem por versão, siblings e duplicatas ainda não provadas.
-- **[Expected identity assertions](catalog/IDENTITY_ASSERTIONS.md)** — hashes/tamanhos reportados por manifests independentes para future exact-byte verification.
-- **[Índice normalizado de fontes](sources/SOURCE_INDEX.md)** — URLs extraídas deterministicamente dos originals materializados.
-- **[Cobertura da reidratação](catalog/REHYDRATION_COVERAGE.md)** — baseline histórico vs. estado atual, sem somar identidades não reconciliadas.
-- **[Catálogo mestre](catalog/MASTER_CATALOG.md)** — tabela completa com IDs, status, contextos, links e hashes.
-- **[Status das traduções](catalog/TRANSLATION_STATUS.md)** — cobertura e estado de revisão das versões inglesas.
-- **[Fila de tradução EN](catalog/TRANSLATION_QUEUE.md)** — somente sources já materializados que ainda aguardam derivação inglesa.
-- **[QA das traduções](catalog/TRANSLATION_QA.md)** — checks estruturais de fidelidade e provenance.
-- **[Workflow de tradução no chat](CHAT_TRANSLATION_WORKFLOW.md)** — contrato operacional para traduzir durante a revisão sem reconciliar arquitetura.
-- **[Status da revisão](catalog/REVIEW_STATUS.md)** — separa revisão arquivística, tradução e reconciliation arquitetural.
-- **[Translation Policy](TRANSLATION_POLICY.md)** — autoridade do original e regras de fidelidade.
-- **[Cronologia](catalog/CHRONOLOGY.md)** — visão temporal.
-- **[Famílias de versões](catalog/VERSION_FAMILIES.md)** — lineage conhecido/pendente.
-- **[Research Graph](catalog/RESEARCH_GRAPH.json)** — relações estruturadas.
-- **[Coverage](catalog/COVERAGE.md)** — cobertura do corpus.
+```mermaid
+flowchart TD
+    subgraph Axis1 ["1. Eixo do Conhecimento & Memória (O Porquê)"]
+        Library["📚 tare.tools.library (SSOT Canônico)<br/>• ADRs Globais (ADR-001 a ADR-052)<br/>• Post-Mortems de Incidentes & RCA<br/>• Experimentos Empíricos (EXP-01..05)<br/>• Substrato Híbrido: Ontologia & Vetores"]
+    end
 
-### Seed atual
+    subgraph Axis2 ["2. Eixo da Ordem & Execução (O Quando & O Quê)"]
+        Backlog["📊 tare.tools.backlog-graph<br/>• Decomposição de ADRs em DAG de Tarefas<br/>• Fronteira Matemática O(1) de Execução<br/>• Controle Atômico de Concorrência (CAS)"]
+    end
 
-Foram materializados **11 documentos** do corpus de chat nesta árvore. O baseline histórico privado acrescenta **93 cópias exatas de `docs/research/`**, mantidas em um namespace separado para não confundir origem. Veja [`ALL_DOCUMENTS_INDEX.md`](catalog/ALL_DOCUMENTS_INDEX.md).
+    subgraph Axis3 ["3. Eixo da Topologia & Código (O Onde & Como)"]
+        Spec["🔍 tare.tools.specgraph<br/>• Substrate Admission Gate (SAG)<br/>• Indexação Causal Viva (ADR ➔ AST ➔ Testes)<br/>• Blast Radius Incremental sub-5ms<br/>• Context Envelopes Cirúrgicos (< 4k tokens)"]
+    end
 
-No corpus principal, foram materializados **11 documentos** nesta árvore. Os originals PT-BR ficam em `corpus/original/`; versões EN derivadas ficam em `corpus/translations/en/`. Tradução EN disponível: **11/11**. Há **72 referências File Library** registradas; **72** ainda aguardam materialização exata, sem reconstrução a partir de snippets.
+    subgraph Execution ["4. Substrato de Execução a Custo Zero ($0)"]
+        ZeroCost["⚡ Triplo Substrato de Custo Zero<br/>• Local slop.cpp @ aaaaa (RTX 3090): Bookkeeper & Implementers<br/>• Gemini API Free Tier (1M+ tokens): Ingestão Massiva de Chats<br/>• NVIDIA Build NIMs: Embeddings Densos & Reranking"]
+    end
 
-## Status permitidos
+    Library -->|Requisitos & DoD| Backlog
+    Backlog -->|Despacho de Tarefas Prontas| Spec
+    Spec -->|SAG Validado + Context Envelope| ZeroCost
+    ZeroCost -->|Evidências & Receipts de Teste| Library
 
-- `RESEARCH` — evidência, hipótese, revisão, investigação.
-- `PROPOSED` — proposta ainda não ratificada.
-- `HISTORICAL` — preservação/arqueologia.
-- `EXPERIMENTAL` — resultado experimental ainda não promovido.
+    classDef lStyle fill:#2d1b4e,stroke:#cba6f7,stroke-width:2px,color:#cdd6f4;
+    classDef bStyle fill:#1e1e2e,stroke:#89b4fa,stroke-width:2px,color:#cdd6f4;
+    classDef sStyle fill:#182820,stroke:#a6e3a1,stroke-width:2px,color:#a6e3a1;
+    classDef zStyle fill:#2d201b,stroke:#f9e2af,stroke-width:2px,color:#cdd6f4;
 
-`TARGET` não deve nascer aqui como autoridade. Um documento pode **referenciar** TARGET canônico, mas promoção é realizada no repositório canônico.
+    class Library lStyle;
+    class Backlog bStyle;
+    class Spec sStyle;
+    class ZeroCost zStyle;
+```
 
-## Estrutura
+---
 
-- [`research/`](research/) — índices e pesquisas temáticas.
-- `findings/` — sínteses ADOPT/ADAPT/RETIRE/OPEN.
-- `proposals/` — propostas ainda não ratificadas.
-- `experiments/` — protocolos e resultados.
-- `archaeology/` — chats, sessões e evolução histórica.
-- `sources/` — bibliografia e source manifests.
-- [`corpus/original/`](corpus/original/) — bytes históricos PT-BR imutáveis.
-- [`corpus/translations/en/`](corpus/translations/en/) — traduções inglesas derivadas.
-- `corpus/normalized/` — versões processáveis derivadas.
-- [`corpus/manifests/`](corpus/manifests/) — provenance sidecars.
-- [`corpus/library-references/`](corpus/library-references/) — referências File Library de descoberta.
-- [`catalog/identity-crosswalk/`](catalog/identity-crosswalk/) — vínculo entre uma referência e bytes exatos materializados, sem reescrever o registro de descoberta.
-- [`catalog/`](catalog/) — índices, catálogos e grafo.
-- `incoming/` — staging documental antes do roteamento.
-- [`HTML_PUBLICATION_STANDARD.md`](HTML_PUBLICATION_STANDARD.md) — contrato do HTML canônico; Pages Signal é uma projeção derivada.
-- `schemas/` — contratos de metadata/publicação/tradução.
-- `tools/` — automação determinística.
+## 🧭 Mapa de Navegação do Acervo
 
-## Regra de autoridade
+A biblioteca é particionada em zonas de governança estritas (ADR-052):
 
-Research / experiment / archaeology / proposal **informam**, mas não ratificam arquitetura. Tradução não altera authority/status. Promoção para TARGET exige o fluxo canônico no repositório `tare-tools`.
+### 1. 📁 [`docs/`](docs/) — Conhecimento Ativo & SSOT
+* **[`docs/adr/`](docs/adr/):** Catálogo canônico de Architectural Decision Records ([ADR-043](docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md) a [ADR-052](docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md)).
+* **[`docs/ARCHITECTURAL_QA_LEDGER.md`](docs/ARCHITECTURAL_QA_LEDGER.md):** Diário Mestre de Sessões com todas as 24 perguntas, formulações e decisões estratégicas do Operador Humano.
+* **`docs/post-mortems/`:** Relatórios forenses de análise de causa raiz (RCA) com medições e hashes.
+* **[`docs/templates/EXP-template.md`](docs/templates/EXP-template.md):** Template oficial enxuto para experimentos e benchmarks.
+
+### 2. 🧪 [`experiments/`](experiments/) — Ensaios Empíricos & Benchmarks
+* **[`experiments/README.md`](experiments/README.md):** Tabela central de registro de experimentos com vereditos (`ADOPT`, `ADAPT`, `RETIRE`).
+* **[`experiments/local-llm/`](experiments/local-llm/):** Ensaios de runtime local `slop.cpp`, KV-cache retention e placement na RTX 3090 (`EXP-01` a `EXP-05`).
+
+### 3. 🏺 [`archaeology/`](archaeology/) — Memória Fóssil & Arqueologia
+* **[`archaeology/README.md`](archaeology/README.md):** Acervo imutável (`status: archived_immutable`) contendo 93 documentos consolidados e transcrições de chat históricas protegidas por cadeia de custódia criptográfica.
+
+### 4. 🛠️ [`tools/bookkeeper/`](tools/bookkeeper/) — Motor de Bookkeeping & Higiene
+* Utilitários automatizados de curadoria contínua:
+  * `dedup_detector.py`: Detecção de quase-duplicatas por n-gramas e similaridade Jaccard.
+  * `ssot_registry.py`: Auditoria de unicidade de status `CANONICAL_SSOT` por tópico.
+  * `tombstone_manager.py`: Criação e validação de marcadores Tombstone.
+  * `cli.py`: Linha de comando para auditoria no CI.
+
+---
+
+## ⚡ Motor de Bookkeeping (Uso do CLI)
+
+O Bookkeeper pode ser executado localmente ou integrado a pipelines de CI:
+
+```powershell
+# Executar a suíte completa de auditoria da biblioteca
+python -m tools.bookkeeper.cli audit --root docs
+
+# Varrer por documentos duplicados ou com desvio semântico (>70%)
+python -m tools.bookkeeper.cli dedup --root docs --threshold 0.70
+
+# Auditar unicidade e conformidade de SSOT
+python -m tools.bookkeeper.cli ssot --root docs
+
+# Verificar integridade de ponteiros Tombstone
+python -m tools.bookkeeper.cli tombstone --verify --root docs
+```
+
+---
+
+## 🎯 O Mandato Documental Ágil (Invariante Constitucional)
+
+Conforme a **ADR-051**:
+* **Prerrogativa Humana:** Artigos científicos e papers acadêmicos formais são produzidos sob demanda exclusiva do Operador Humano.
+* **Mandato dos Agentes de IA:** *“Documentar a coisa certa, no lugar certo, na hora certa”*:
+  1. *Nos Satélites de Código:* Apenas documentação operacional direta de APIs, CLI e testes.
+  2. *Nos Incidentes:* Relatórios de RCA com medições e hashes em `docs/post-mortems/`.
+  3. *Nos Benchmarks:* Logs de hardware e dados empíricos em `experiments/`.
+  4. *Nas Decisões Globais:* ADRs canônicas consolidadas em `docs/adr/`.
+
+---
+
+## 🧪 Suíte de Testes & Qualidade
+
+```powershell
+# Executar a suíte completa de testes (67+ testes automatizados)
+pytest
+```
+
+---
+*Mantido pelo ecossistema TARE sob direção do Operador Humano.*
