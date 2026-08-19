@@ -187,3 +187,34 @@
 * **Contexto:** Confirmação da persistência contínua de todas as perguntas, diretrizes e respostas no Livro Mestre.
 * **Decisão & Resposta:** 
   * 100% de todas as 19 perguntas e formulações da sessão foram catalogadas cronologicamente, com contexto e decisão formal no [`ARCHITECTURAL_QA_LEDGER.md`](file:///C:/projects/tare.tools.research/docs/ARCHITECTURAL_QA_LEDGER.md).
+
+---
+
+### ❓ Pergunta 20: *“nós temos LLMs locais e a camada free da gemini API e NVIDIA BUILD API para gerar resumos ou processar documentações também viu.”*
+* **Contexto:** Alavancagem do arsenal de computação e inferência de custo zero para processamento em lote, geração de embeddings, resumos e manutenção do Bookkeeper.
+* **Decisão & Resposta (Orquestração do Triplo Substrato de Custo Zero):**
+  1. *Substrato Local (Workstation aaaaa / RTX 3090 / slop.cpp):* Processamento offline 24/7, verificação contínua de drifts e deduplicação sem limites de rate ou custo financeiro.
+  2. *Gemini API Free Tier (Janela de 1M+ tokens):* Ingestão em lote de transcrições massivas de chats e extração de entidades ontológicas.
+  3. *NVIDIA Build API (NIMs & NV-Embed):* Geração de embeddings vetoriais densos de alta dimensão e reranking semântico.
+### ❓ Pergunta 21: *“com esse novo refinamento, como ficaria o eixo triplo de tare.tools.specgraph + tare.tools.backlog-graph + tare.tools.research ?”*
+* **Contexto:** Definição da sinergia operacional e do fluxo fechado entre os três pilares de inteligência do ecossistema.
+* **Decisão & Resposta (O Eixo Triplo da Engenharia Agêntica):**
+  1. *🔬 tare.tools.research (O "Porquê" / Memória & Conhecimento):* O repositório canônico de ADRs, decisões, post-mortems, experimentos e ontologia.
+  2. *📊 tare.tools.backlog-graph (O "Quando" e "O Quê" / Ordem & Execução):* O motor de DAG determinístico que decompõe ADRs em nós executáveis com pré-requisitos matemáticos e transições atômicas CAS.
+### ❓ Pergunta 22: *“como isso se alinha com nossos north stars atuais?”*
+* **Contexto:** Mapeamento de conformidade total do novo modelo refinado com as 7 North Stars constitucionais (ADRs 044 a 050).
+* **Decisão & Resposta (Matriz de Alinhamento Constitucional com as 7 North Stars):**
+  1. *ADR-044 (SpecGraph):* Fortalece a Matriz Causal viva ligando ADRs do `research` ao código AST dos satélites.
+  2. *ADR-045 (Microkernel 5-Planos):* Mantém os contratos imutáveis v1 e isolamento de planos; o `research` documenta a arquitetura sem acoplamento de runtime.
+  3. *ADR-046 (Backlog Graph):* O DAG consome os requisitos das ADRs para gerar a fronteira de execução $O(1)$ via CAS.
+  4. *ADR-047 (Dialog Engine):* Preserva o motor agnóstico de esquemas e o fuzzer de mutação formal.
+  5. *ADR-048 (Local Inference & slop.cpp):* Usa a RTX 3090 no nó `aaaaa` para rodar o Bookkeeper e os implementers a custo zero de tokens.
+### ❓ Pergunta 23: *“ótimo. bora mandar pra mesa redonda correta avaliar”*
+* **Contexto:** Submissão formal da proposta ADR-051 à Mesa Redonda Tripartite (`CASE-2026-08-19-RESEARCH-TRIPLE-AXIS-AND-BOOKKEEPER`) com quórum Google Chair, Anthropic Chair e OpenAI Chair sob o perfil `north_star`.
+* **Decisão & Resposta (Síntese Canônica Ratificada v004):**
+  * A Mesa Redonda concluiu os 3 ciclos de auditoria adversarial e refinou a proposta para a versão canônica **`v004` (SHA-256: `d3ca7c4e...`)**, integrando 4 proteções críticas:
+    1. **Substrate Admission Gate (SAG):** O SpecGraph atua como gatekeeper que impede transição de tarefas se o hash da árvore de código divergir da especificação ativa no `research`.
+    2. **TrustedKeyRegistry:** Resolução criptográfica Ed25519 com checagem de escopo e revogação de chaves.
+    3. **FSM Estrita & Atomic Reopen Cascade:** O Backlog Graph formaliza matriz de transição finita e cascata atômica de invalidação caso nós pais sejam reabertos.
+    4. **CAS Fail-Closed (`BEGIN IMMEDIATE`):** Transações no SQLite com lock imediato e verificação obrigatória de `rowcount == 1`.
+  * Ratificada formalmente a **ADR-051** como a 8ª North Star do ecossistema `tare.tools`.
