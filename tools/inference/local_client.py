@@ -58,37 +58,57 @@ class LocalInferenceClient:
         required_model: Optional[str] = None,
         require_cuda: bool = False,
     ) -> Dict[str, Any]:
-        """Deep hardware and model readiness probe verifying model offload and context."""
+        """Deep hardware and model readiness probe verifying model offload and context (Fail-Closed)."""
         health = self.health_check()
         if not health.get("online"):
             return {"ready": False, "error": health.get("error", "offline"), "details": health}
 
-        # Check models listing if available
-        models = health.get("models", [])
-        if required_model and models:
+        # Check models listing if required
+        if required_model:
+            models = health.get("models", [])
+            if not models:
+                try:
+                    models_url = f"{self.config.host}/v1/models"
+                    req = urllib.request.Request(models_url, method="GET")
+                    with urllib.request.urlopen(req, timeout=3.0) as resp:
+                        data = json.loads(resp.read().decode("utf-8"))
+                        models = data.get("data", [])
+                except Exception as e:
+                    return {
+                        "ready": False,
+                        "error": f"Failed to verify required model '{required_model}': {e}",
+                        "details": health,
+                    }
+
             model_ids = [m.get("id") for m in models if isinstance(m, dict)]
-            if required_model not in model_ids and not any(required_model in mid for mid in model_ids if mid):
+            if not model_ids or (required_model not in model_ids and not any(required_model in str(mid) for mid in model_ids)):
                 return {
                     "ready": False,
                     "error": f"Required model '{required_model}' not found in loaded models: {model_ids}",
                     "details": health,
                 }
 
-        # Validate GPU/CUDA acceleration probe if requested
+        # Validate GPU/CUDA acceleration probe if requested (strictly fail-closed)
         if require_cuda:
             props_url = f"{self.config.host}/props"
             try:
                 req = urllib.request.Request(props_url, method="GET")
                 with urllib.request.urlopen(req, timeout=3.0) as resp:
                     props = json.loads(resp.read().decode("utf-8"))
-                    if props.get("n_gpu_layers", 1) == 0 or props.get("device", "").lower() == "cpu":
+                    n_gpu = props.get("n_gpu_layers")
+                    dev = str(props.get("device", "")).lower()
+                    if n_gpu is None or n_gpu == 0 or dev == "cpu":
                         return {
                             "ready": False,
                             "error": "Server is running in CPU-only mode (0 GPU layers offloaded)",
                             "details": props,
                         }
-            except Exception:
-                pass
+            except Exception as e_props:
+                return {
+                    "ready": False,
+                    "error": f"CUDA / GPU acceleration probe failed on endpoint '{props_url}': {e_props}",
+                    "details": health,
+                }
 
         return {"ready": True, "details": health}
 
