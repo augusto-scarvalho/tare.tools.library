@@ -82,6 +82,55 @@ class LibraryToolsTests(unittest.TestCase):
             self.assertEqual(len(results), 1)
             self.assertEqual(results[0].doc_id, "ADR-001_microkernel")
 
+    def test_domain_ontology_lookup(self):
+        from tools.query import lookup_concept
+        res = lookup_concept("CASPersistence")
+        self.assertIsNotNone(res)
+        self.assertIn("CASPersistence", res["id"])
+
+    def test_vector_db_lifecycle(self):
+        from tools.indexer.embed_corpus import LibraryVectorDB, cosine_similarity
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            db_file = Path(tmp_dir) / "test_vec.db"
+            vdb = LibraryVectorDB(db_file)
+            self.assertEqual(vdb.count_chunks(), 0)
+
+            vdb.upsert_chunk(
+                doc_id="DOC-1",
+                relative_path="docs/doc1.md",
+                chunk_index=0,
+                chunk_text="CAS state machine",
+                sha256="abc123",
+                embedding=[1.0, 0.0, 0.0],
+            )
+            self.assertEqual(vdb.count_chunks(), 1)
+
+            matches = vdb.search([1.0, 0.0, 0.0], top_k=1)
+            self.assertEqual(len(matches), 1)
+            self.assertAlmostEqual(matches[0].score, 1.0)
+
+    def test_vector_dimension_mismatch_fail_closed(self):
+        from tools.indexer.embed_corpus import cosine_similarity, LibraryVectorDB
+        # cosine_similarity must raise ValueError on length mismatch
+        with self.assertRaises(ValueError):
+            cosine_similarity([1.0, 0.0], [1.0, 0.0, 0.0])
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            db_file = Path(tmp_dir) / "test_vec2.db"
+            vdb = LibraryVectorDB(db_file)
+            vdb.upsert_chunk(
+                doc_id="DOC-1",
+                relative_path="docs/doc1.md",
+                chunk_index=0,
+                chunk_text="Chunk 1",
+                sha256="abc",
+                embedding=[1.0, 0.0],
+                provenance="pseudo",
+            )
+            # Searching with 3-dimensional query must fail-safe skip 2-dimensional chunks
+            results = vdb.search([1.0, 0.0, 0.0], top_k=5)
+            self.assertEqual(len(results), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
