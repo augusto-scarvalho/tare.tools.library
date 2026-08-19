@@ -187,7 +187,7 @@ def build_library_manifest(root_dir: str | Path = ROOT) -> LibraryManifest:
 
 
 def save_manifest(manifest: LibraryManifest, root_dir: str | Path = ROOT) -> Path:
-    """Save manifest to catalog/LIBRARY_MANIFEST.json."""
+    """Save manifest to catalog/LIBRARY_MANIFEST.json atomically to prevent partial reads."""
     root = Path(root_dir)
     catalog_dir = root / "catalog"
     catalog_dir.mkdir(parents=True, exist_ok=True)
@@ -205,7 +205,14 @@ def save_manifest(manifest: LibraryManifest, root_dir: str | Path = ROOT) -> Pat
         "post_mortems": [asdict(e) for e in manifest.post_mortems],
     }
 
-    manifest_file.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    import tempfile
+    # Write to temporary file in same directory and atomic replace to prevent corrupt/partial reads
+    temp_path = None
+    with tempfile.NamedTemporaryFile("w", dir=catalog_dir, delete=False, encoding="utf-8", suffix=".tmp") as tf:
+        json.dump(data, tf, indent=2, ensure_ascii=False)
+        temp_path = Path(tf.name)
+
+    os.replace(temp_path, manifest_file)
     return manifest_file
 
 
