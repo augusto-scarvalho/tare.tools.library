@@ -214,6 +214,15 @@ def save_manifest(manifest: LibraryManifest, root_dir: str | Path = ROOT) -> Pat
             os.fsync(tf.fileno())
             temp_path = Path(tf.name)
         os.replace(temp_path, manifest_file)
+        # Attempt directory fsync on platforms that support it (POSIX durability)
+        try:
+            dir_fd = os.open(str(catalog_dir), os.O_RDONLY)
+            try:
+                os.fsync(dir_fd)
+            finally:
+                os.close(dir_fd)
+        except Exception:
+            pass
     except Exception:
         if temp_path and temp_path.exists():
             temp_path.unlink(missing_ok=True)
