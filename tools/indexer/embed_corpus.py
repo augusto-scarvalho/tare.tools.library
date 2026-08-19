@@ -81,6 +81,7 @@ class LibraryVectorDB:
                     UNIQUE(relative_path, chunk_index)
                 )
             """)
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_chunks_ns ON document_chunks(dimensions, provenance, model_name);")
             conn.commit()
         finally:
             conn.close()
@@ -135,16 +136,12 @@ class LibraryVectorDB:
         conn = sqlite3.connect(self.db_path, timeout=5.0)
         try:
             cursor = conn.cursor()
-            cursor.execute("SELECT doc_id, relative_path, chunk_index, chunk_text, dimensions, provenance, model_name, embedding_json FROM document_chunks")
+            if allow_any_namespace:
+                cursor.execute("SELECT doc_id, relative_path, chunk_index, chunk_text, dimensions, provenance, model_name, embedding_json FROM document_chunks WHERE dimensions = ?", (q_dim,))
+            else:
+                cursor.execute("SELECT doc_id, relative_path, chunk_index, chunk_text, dimensions, provenance, model_name, embedding_json FROM document_chunks WHERE dimensions = ? AND provenance = ? AND model_name = ?", (q_dim, provenance, model_name))
             for row in cursor.fetchall():
                 doc_id, rel_path, c_idx, text, dim, prov, mod_name, emb_json = row
-                if dim != q_dim:
-                    continue  # Fail-safe skip on dimension mismatch
-                if not allow_any_namespace:
-                    if provenance and prov != provenance:
-                        continue  # Strict provenance isolation
-                    if model_name and mod_name != model_name:
-                        continue  # Strict semantic model space isolation
                 emb = json.loads(emb_json)
                 sim = cosine_similarity(query_embedding, emb)
                 results.append(VectorSearchResult(
