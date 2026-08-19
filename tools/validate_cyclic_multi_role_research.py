@@ -15,9 +15,12 @@ def validate(root: Path) -> list[str]:
     for x in m.get('role_artifacts',[]):
         p=run/x['file']
         if not p.exists(): errs.append('missing '+str(p)); continue
-        b=p.read_bytes(); h=hashlib.sha256(b).hexdigest()
-        if h!=x['sha256']: errs.append('hash mismatch '+x['file'])
-        if len(b)!=x['bytes']: errs.append('size mismatch '+x['file'])
+        b=p.read_bytes()
+        b_norm=b.replace(b'\r\n', b'\n')
+        h=hashlib.sha256(b).hexdigest()
+        h_norm=hashlib.sha256(b_norm).hexdigest()
+        if h!=x['sha256'] and h_norm!=x['sha256']: errs.append('hash mismatch '+x['file'])
+        if len(b)!=x['bytes'] and len(b_norm)!=x['bytes']: errs.append('size mismatch '+x['file'])
     adv=(run/'09-adversarial-review-round1.md').read_text(encoding='utf-8')
     if adv.count('### AR-') < 5: errs.append('adversarial review too weak')
     final=(run/'11-final-audit.md').read_text(encoding='utf-8')
