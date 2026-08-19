@@ -76,6 +76,7 @@ class LibraryVectorDB:
                     sha256 TEXT NOT NULL,
                     dimensions INTEGER NOT NULL,
                     provenance TEXT NOT NULL,
+                    model_name TEXT NOT NULL DEFAULT 'local-embed',
                     embedding_json TEXT NOT NULL,
                     UNIQUE(relative_path, chunk_index)
                 )
@@ -93,6 +94,7 @@ class LibraryVectorDB:
         sha256: str,
         embedding: List[float],
         provenance: str = "real",
+        model_name: str = "local-embed",
         max_retries: int = 3,
     ):
         import time
@@ -100,15 +102,16 @@ class LibraryVectorDB:
             conn = sqlite3.connect(self.db_path, timeout=5.0)
             try:
                 conn.execute("""
-                    INSERT INTO document_chunks (doc_id, relative_path, chunk_index, chunk_text, sha256, dimensions, provenance, embedding_json)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    INSERT INTO document_chunks (doc_id, relative_path, chunk_index, chunk_text, sha256, dimensions, provenance, model_name, embedding_json)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT(relative_path, chunk_index) DO UPDATE SET
                         chunk_text=excluded.chunk_text,
                         sha256=excluded.sha256,
                         dimensions=excluded.dimensions,
                         provenance=excluded.provenance,
+                        model_name=excluded.model_name,
                         embedding_json=excluded.embedding_json
-                """, (doc_id, relative_path, chunk_index, chunk_text, sha256, len(embedding), provenance, json.dumps(embedding)))
+                """, (doc_id, relative_path, chunk_index, chunk_text, sha256, len(embedding), provenance, model_name, json.dumps(embedding)))
                 conn.commit()
                 return
             except sqlite3.OperationalError as e:
@@ -119,24 +122,34 @@ class LibraryVectorDB:
             finally:
                 conn.close()
 
-    def search(self, query_embedding: List[float], top_k: int = 5) -> List[VectorSearchResult]:
+    def search(
+        self,
+        query_embedding: List[float],
+        top_k: int = 5,
+        provenance: Optional[str] = None,
+        model_name: Optional[str] = None,
+    ) -> List[VectorSearchResult]:
         results = []
         q_dim = len(query_embedding)
         conn = sqlite3.connect(self.db_path, timeout=5.0)
         try:
             cursor = conn.cursor()
-            cursor.execute("SELECT doc_id, relative_path, chunk_index, chunk_text, dimensions, provenance, embedding_json FROM document_chunks")
+            cursor.execute("SELECT doc_id, relative_path, chunk_index, chunk_text, dimensions, provenance, model_name, embedding_json FROM document_chunks")
             for row in cursor.fetchall():
-                doc_id, rel_path, c_idx, text, dim, prov, emb_json = row
+                doc_id, rel_path, c_idx, text, dim, prov, mod_name, emb_json = row
                 if dim != q_dim:
                     continue  # Fail-safe skip on dimension mismatch
+                if provenance and prov != provenance:
+                    continue  # Strict provenance isolation
+                if model_name and mod_name != model_name:
+                    continue  # Strict semantic model space isolation
                 emb = json.loads(emb_json)
                 sim = cosine_similarity(query_embedding, emb)
                 results.append(VectorSearchResult(
                     doc_id=doc_id,
                     relative_path=rel_path,
                     chunk_index=c_idx,
-                    text_snippet=f"[{prov.upper()}] " + text[:300] + ("..." if len(text) > 300 else ""),
+                    text_snippet=f"[{prov.upper()}|{mod_name}] " + text[:300] + ("..." if len(text) > 300 else ""),
                     score=sim,
                 ))
         finally:

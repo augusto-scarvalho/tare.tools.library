@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tools.bookkeeper.dedup_detector import detect_duplicates, compute_similarity
+from tools.bookkeeper.dedup_detector import detect_duplicates, compute_similarity, _normalize_text, EXCLUDE_DIRS
 
 
 @dataclass
@@ -48,15 +48,6 @@ TYPE_ROUTING = {
 def compute_sha256(data: bytes) -> str:
     """Compute SHA-256 digest of bytes."""
     return hashlib.sha256(data).hexdigest()
-
-
-def _normalize_text(text: str) -> str:
-    """Normalize text for canonical shingling (lowercase, strip frontmatter/codeblocks, remove punctuation)."""
-    t = text.lower()
-    t = re.sub(r"^---[\s\S]*?---", "", t, flags=re.MULTILINE)  # strip frontmatter
-    t = re.sub(r"```[\s\S]*?```", "", t)  # strip codeblocks
-    t = re.sub(r"[^\w\s]", " ", t)       # remove punctuation
-    return " ".join(t.split())
 
 
 def ingest_document(
@@ -97,7 +88,7 @@ def ingest_document(
     if not force:
         src_resolved = src.resolve()
         for existing in root.rglob("*.md"):
-            if existing.is_file() and existing.resolve() != src_resolved and not any(part in existing.parts for part in (".git", ".pytest_cache", "__pycache__")):
+            if existing.is_file() and existing.resolve() != src_resolved and not any(part in existing.parts for part in EXCLUDE_DIRS):
                 try:
                     existing_text = existing.read_text(encoding="utf-8", errors="ignore")
                     sim = compute_similarity(raw_text, existing_text)
