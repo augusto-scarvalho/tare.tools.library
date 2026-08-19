@@ -206,13 +206,18 @@ def save_manifest(manifest: LibraryManifest, root_dir: str | Path = ROOT) -> Pat
     }
 
     import tempfile
-    # Write to temporary file in same directory and atomic replace to prevent corrupt/partial reads
     temp_path = None
-    with tempfile.NamedTemporaryFile("w", dir=catalog_dir, delete=False, encoding="utf-8", suffix=".tmp") as tf:
-        json.dump(data, tf, indent=2, ensure_ascii=False)
-        temp_path = Path(tf.name)
-
-    os.replace(temp_path, manifest_file)
+    try:
+        with tempfile.NamedTemporaryFile("w", dir=catalog_dir, delete=False, encoding="utf-8", suffix=".tmp") as tf:
+            json.dump(data, tf, indent=2, ensure_ascii=False)
+            tf.flush()
+            os.fsync(tf.fileno())
+            temp_path = Path(tf.name)
+        os.replace(temp_path, manifest_file)
+    except Exception:
+        if temp_path and temp_path.exists():
+            temp_path.unlink(missing_ok=True)
+        raise
     return manifest_file
 
 
