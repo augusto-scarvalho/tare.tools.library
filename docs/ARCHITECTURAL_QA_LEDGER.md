@@ -216,5 +216,10 @@
     1. **Substrate Admission Gate (SAG):** O SpecGraph atua como gatekeeper que impede transição de tarefas se o hash da árvore de código divergir da especificação ativa no `research`.
     2. **TrustedKeyRegistry:** Resolução criptográfica Ed25519 com checagem de escopo e revogação de chaves.
     3. **FSM Estrita & Atomic Reopen Cascade:** O Backlog Graph formaliza matriz de transição finita e cascata atômica de invalidação caso nós pais sejam reabertos.
-    4. **CAS Fail-Closed (`BEGIN IMMEDIATE`):** Transações no SQLite com lock imediato e verificação obrigatória de `rowcount == 1`.
-  * Ratificada formalmente a **ADR-051** como a 8ª North Star do ecossistema `tare.tools`.
+### ❓ Pergunta 24: *“mais uma questão para a round table... Vamos manter o nome tare.tools.research (acho o nome tare.tools.library mais adequado)? vamos reutilizar esse mesmo repositório ou criar outro? o que vamos fazer com os documentos e estudos do tare.tools.research atual? e sobre formatos de experimento e publicação, vamos reutilizar ou criar algo novo?”*
+* **Contexto:** Alinhamento estratégico sobre a identidade (`tare.tools.library` vs `research`), preservação do acervo já pré-consolidado, ciclo de vida do repositório Git e reutilização de formatos enxutos sem hipertrofia técnica.
+* **Teses Submetidas à Mesa Redonda:**
+  1. *Identidade & Naming:* Transição para `tare.tools.library` (reflete com fidelidade a Biblioteca Central de Conhecimento e SSOT).
+  2. *Ciclo de Vida do Repositório:* Reutilizar o repositório existente renomeando-o no GitHub (preservando os 44 PRs, 67 testes e histórico Git) com ajuste de links.
+  3. *Governança do Acervo Atual:* O acervo histórico já consolidado vai para `archaeology/corpus/` como memória fria protegida, sem reprocessamento burocrático redundante.
+  4. *Formatos de Experimento:* Reutilizar o formato padrão enxuto `EXP-XX-nome.md` (Hipótese, Setup, Métricas, Veredito) e Markdown/Mermaid para publicação sem criar formatos pesados ou LaTeX desnecessário.
