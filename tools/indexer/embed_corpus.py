@@ -126,8 +126,9 @@ class LibraryVectorDB:
         self,
         query_embedding: List[float],
         top_k: int = 5,
-        provenance: Optional[str] = None,
-        model_name: Optional[str] = None,
+        provenance: Optional[str] = "real",
+        model_name: Optional[str] = "local-embed",
+        allow_any_namespace: bool = False,
     ) -> List[VectorSearchResult]:
         results = []
         q_dim = len(query_embedding)
@@ -139,10 +140,11 @@ class LibraryVectorDB:
                 doc_id, rel_path, c_idx, text, dim, prov, mod_name, emb_json = row
                 if dim != q_dim:
                     continue  # Fail-safe skip on dimension mismatch
-                if provenance and prov != provenance:
-                    continue  # Strict provenance isolation
-                if model_name and mod_name != model_name:
-                    continue  # Strict semantic model space isolation
+                if not allow_any_namespace:
+                    if provenance and prov != provenance:
+                        continue  # Strict provenance isolation
+                    if model_name and mod_name != model_name:
+                        continue  # Strict semantic model space isolation
                 emb = json.loads(emb_json)
                 sim = cosine_similarity(query_embedding, emb)
                 results.append(VectorSearchResult(
@@ -163,80 +165,74 @@ class LibraryVectorDB:
         try:
             cursor = conn.cursor()
             cursor.execute("SELECT COUNT(*) FROM document_chunks")
-            return cursor.fetchone()[0]
+            row = cursor.fetchone()
+            return row[0] if row else 0
         finally:
             conn.close()
 
 
-def chunk_markdown(text: str, chunk_size: int = 1500) -> List[str]:
-    """Split markdown text into logical paragraph-bounded chunks."""
-    paragraphs = text.split("\n\n")
+def chunk_markdown(content: str, max_chunk_tokens: int = 250) -> List[str]:
+    """Split markdown into roughly paragraph-sized chunks for dense embedding."""
+    paragraphs = re.split(r"\n\s*\n", content)
     chunks = []
     current_chunk = []
     current_len = 0
 
     for p in paragraphs:
-        p_len = len(p)
-        if current_len + p_len > chunk_size and current_chunk:
-            chunks.append("\n\n".join(current_chunk).strip())
-            current_chunk = [p]
+        p_clean = p.strip()
+        if not p_clean:
+            continue
+        p_len = len(p_clean.split())
+        if current_len + p_len > max_chunk_tokens and current_chunk:
+            chunks.append("\n\n".join(current_chunk))
+            current_chunk = [p_clean]
             current_len = p_len
         else:
-            current_chunk.append(p)
+            current_chunk.append(p_clean)
             current_len += p_len
 
     if current_chunk:
-        chunks.append("\n\n".join(current_chunk).strip())
-    return [c for c in chunks if len(c.strip()) > 30]
+        chunks.append("\n\n".join(current_chunk))
+    return chunks
 
 
 def index_corpus(
-    root_dir: Path = ROOT,
+    root_dir: Path,
     client: Optional[LocalInferenceClient] = None,
     db: Optional[LibraryVectorDB] = None,
+    model_name: str = "local-embed",
 ) -> int:
-    """Index active markdown documents in the library."""
+    """Index all markdown documents in the library into SQLite Vector store."""
     client = client or LocalInferenceClient()
-    db = db or LibraryVectorDB()
+    db = db or LibraryVectorDB(root_dir / "catalog" / "library_vectors.db")
+    server_online = client.health_check().get("online", False)
 
-    # Check if local server is online
-    status = client.health_check()
-    is_online = status.get("online", False)
-
-    target_dirs = [root_dir / "docs", root_dir / "specs", root_dir / "experiments"]
     total_indexed = 0
+    print(f"[INDEXER] Starting vector indexing. Server online: {server_online} (Mode: {'DENSE' if server_online else 'PSEUDO-HASH'})")
 
-    print(f"[INDEXER] Scanning corpus in '{root_dir}'...")
-    if not is_online:
-        print("⚠️ [WARNING] Local inference server (slop.cpp @ aaaaa) is offline.")
-        print("  Generating fallback deterministic pseudo-embeddings for offline validation.")
-
-    for base_dir in target_dirs:
-        if not base_dir.exists():
+    for file_path in root_dir.rglob("*.md"):
+        if any(p in file_path.parts for p in (".git", ".pytest_cache", "__pycache__", "site", "_site")):
             continue
-        for file_path in base_dir.rglob("*.md"):
-            if file_path.name.upper() == "README.MD" or ".git" in file_path.parts:
+        if file_path.is_file():
+            rel_path = str(file_path.relative_to(root_dir)).replace("\\", "/")
+            content = file_path.read_text(encoding="utf-8", errors="ignore")
+            chunks = chunk_markdown(content)
+            if not chunks:
                 continue
 
-            rel_path = str(file_path.relative_to(root_dir)).replace("\\", "/")
+            sha = hashlib.sha256(content.encode("utf-8")).hexdigest()
             try:
-                text = file_path.read_text(encoding="utf-8", errors="ignore")
-                chunks = chunk_markdown(text)
-                sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
+                if server_online:
+                    embs = client.generate_embeddings(chunks)
+                    prov = "real"
+                else:
+                    embs = None
+                    prov = "pseudo"
 
                 for idx, chunk in enumerate(chunks):
-                    prov = "real"
-                    if is_online:
-                        try:
-                            embs = client.generate_embeddings([chunk])
-                            emb = embs[0]
-                        except Exception:
-                            # Fallback if server error
-                            prov = "pseudo"
-                            emb = [float(b) / 255.0 for b in hashlib.sha256(chunk.encode("utf-8")).digest()]
+                    if embs and idx < len(embs):
+                        emb = embs[idx]
                     else:
-                        # Deterministic mock embedding
-                        prov = "pseudo"
                         digest = hashlib.sha256(chunk.encode("utf-8")).digest()
                         emb = [float(b) / 255.0 for b in digest]
 
@@ -248,6 +244,7 @@ def index_corpus(
                         sha256=sha,
                         embedding=emb,
                         provenance=prov,
+                        model_name=model_name,
                     )
                     total_indexed += 1
             except Exception as e:
@@ -262,6 +259,8 @@ def main() -> int:
     parser.add_argument("--root", default=".", help="Root directory")
     parser.add_argument("--query", "-q", help="Search vector database with query string")
     parser.add_argument("--top-k", "-k", type=int, default=5, help="Number of results")
+    parser.add_argument("--model", default="local-embed", help="Model namespace")
+    parser.add_argument("--provenance", default=None, help="Provenance filter ('real' or 'pseudo')")
 
     args = parser.parse_args()
     root_path = Path(args.root).resolve()
@@ -272,10 +271,12 @@ def main() -> int:
         print(f"[SEARCH] Querying: '{args.query}'...")
         if client.health_check().get("online"):
             q_emb = client.generate_embeddings([args.query])[0]
+            prov = args.provenance or "real"
         else:
             q_emb = [float(b) / 255.0 for b in hashlib.sha256(args.query.encode("utf-8")).digest()]
+            prov = args.provenance or "pseudo"
 
-        results = db.search(q_emb, top_k=args.top_k)
+        results = db.search(q_emb, top_k=args.top_k, provenance=prov, model_name=args.model)
         if not results:
             print("No matching vector results.")
             return 0

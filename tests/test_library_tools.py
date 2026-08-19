@@ -194,6 +194,13 @@ class LibraryToolsTests(unittest.TestCase):
         self.assertFalse(res["ready"])
         self.assertIn("error", res)
 
+    def test_local_inference_client_readiness_check_cuda_fail_closed(self):
+        from tools.inference.local_client import LocalInferenceClient, LocalInferenceConfig
+        client = LocalInferenceClient(LocalInferenceConfig(host="http://127.0.0.1:59999", timeout_seconds=1.0))
+        res = client.readiness_check(require_cuda=True)
+        self.assertFalse(res["ready"])
+        self.assertIn("error", res)
+
     def test_ingest_canonical_normalization_markdown_links_symmetry(self):
         from tools.bookkeeper.dedup_detector import detect_duplicates
         with tempfile.TemporaryDirectory() as tmp_dir:
