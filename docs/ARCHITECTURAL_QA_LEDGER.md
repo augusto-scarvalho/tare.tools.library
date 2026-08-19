@@ -244,3 +244,13 @@
   2. *Badge de CI Corrigida:* Apontada para a action correta (`document-integrity.yml`) com SVG funcional 100% renderizado.
   3. *Licença Oficial Adicionada:* Criado arquivo `LICENSE` com a licença **Apache License 2.0**, compatível com todo o ecossistema.
   4. *Pinos da Federação Atualizados:* Repositório sincronizado e pin atualizado no Agent OS (`@ b505bbc`).
+
+---
+
+### ❓ Pergunta 27: *“e aí, vamos deixar o satélite com nome de research mesmo? ficou confuso”*
+* **Contexto:** Alinhamento completo da federação de submódulos no repositório `tare.tools.os` para eliminar qualquer ambiguidade de nomenclatura remanescente entre o repositório (`tare.tools.library`) e o diretório de satélite (`satellites/tare.tools.research`).
+* **Resolução & Unificação Concluída:**
+  1. *Submódulo Renomeado no Git:* Executado `git mv satellites/tare.tools.research satellites/tare.tools.library` no `tare.tools.os`.
+  2. *Configuração do `.gitmodules` Atualizada:* Seção e path unificados para `[submodule "satellites/tare.tools.library"]` e `path = satellites/tare.tools.library`.
+  3. *Testes & CLI de Automação:* `tests/test_federation_submodules.py` e `scripts/ops/bump_satellite.py` atualizados e validados (100% green).
+  4. *Documentação do OS:* `README.md` e `AGENTS.md` do Agent OS totalmente sincronizados com o nome `tare.tools.library`.
