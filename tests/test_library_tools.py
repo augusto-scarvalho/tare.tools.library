@@ -201,6 +201,17 @@ class LibraryToolsTests(unittest.TestCase):
         self.assertFalse(res["ready"])
         self.assertIn("error", res)
 
+    def test_local_inference_client_readiness_check_model_mismatch_fail_closed(self):
+        from tools.inference.local_client import LocalInferenceClient
+        from unittest.mock import patch
+        client = LocalInferenceClient()
+        # Mock server reporting model B loaded on CUDA, but client requires model A
+        with patch.object(client, "health_check", return_value={"online": True, "models": [{"id": "model-B"}]}):
+            with patch("urllib.request.urlopen"):
+                res = client.readiness_check(required_model="model-A", require_cuda=False)
+                self.assertFalse(res["ready"])
+                self.assertIn("not found in loaded models", res["error"])
+
     def test_ingest_canonical_normalization_markdown_links_symmetry(self):
         from tools.bookkeeper.dedup_detector import detect_duplicates
         with tempfile.TemporaryDirectory() as tmp_dir:
