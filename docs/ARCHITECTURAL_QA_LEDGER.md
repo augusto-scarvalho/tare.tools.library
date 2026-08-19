@@ -266,3 +266,12 @@
   4. *Motor de Consulta Rápida (`tools/query.py`):* Busca por texto, tags e extração cirúrgica de SPECs e ADRs em envelopes de contexto enxutos (<4k tokens).
   5. *Especificações OpenSDD Fundacionais Materializadas:* Criados `specs/SPEC-KERNEL-001.md`, `SPEC-SPECGRAPH-001.md`, `SPEC-BACKLOG-001.md`, `SPEC-DIALOG-001.md` e `SPEC-LIBRARY-001.md`.
   6. *Qualidade Comprovada:* Suíte de testes expandida para **74/74 testes passando 100% green**.
+
+---
+
+### ❓ Pergunta 29: *“mas e aí, como a gente faz com que você e nossos agentes agora usem nosso tare.tools.library e essas ferramentas daqui pra frente? como é feita essa mecanização?”*
+* **Contexto:** Mecanização e garantia determinística de uso das ferramentas e do SSOT pelos agentes de IA sem depender de lembretes manuais do operador.
+* **Arquitetura de Mecanização em 3 Camadas:**
+  1. *Camada 1 (Diretrizes & Invariantes em AGENTS.md):* Formalizados 4 protocolos operacionais obrigatórios em `AGENTS.md` (Pre-Task Grounding via `tools.query`, Ingestão Guiada via `tools.ingest`, Sincronização de Manifesto via `tools.build_manifest` e Auditoria Bookkeeper via `tools.bookkeeper.cli`).
+  2. *Camada 2 (Portões de Código Fail-Closed / SAG):* SpecGraph impedindo avanço de tarefas se a SPEC no SSOT não estiver satisfeita; CI falhando se o Bookkeeper detectar desvio ou duplicatas.
+  3. *Camada 3 (Automação de Relay MARM):* O orquestrador (`relay_mesh.py`) amarra a release ao `spec_id` e executa a ingestão automática de evidências no encerramento de cada train.
