@@ -44,6 +44,13 @@ class LibraryToolsTests(unittest.TestCase):
             self.assertFalse(res_dup.success)
             self.assertTrue(res_dup.is_duplicate)
 
+    def test_ingest_duplicate_boundary_90_percent(self):
+        from tools.ingest import compute_similarity
+        # Shingle exact match
+        text_a = "alpha beta gamma delta epsilon zeta eta theta iota kappa lambda"
+        text_b = "alpha beta gamma delta epsilon zeta eta theta iota kappa lambda"
+        self.assertGreaterEqual(compute_similarity(text_a, text_b), 0.90)
+
     def test_build_manifest(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
