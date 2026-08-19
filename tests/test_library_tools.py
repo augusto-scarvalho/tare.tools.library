@@ -131,6 +131,23 @@ class LibraryToolsTests(unittest.TestCase):
             results = vdb.search([1.0, 0.0, 0.0], top_k=5)
             self.assertEqual(len(results), 0)
 
+    def test_local_inference_client_offline_graceful(self):
+        from tools.inference.local_client import LocalInferenceClient, LocalInferenceConfig
+        # Pointing to unroutable port must fail gracefully without crash
+        client = LocalInferenceClient(LocalInferenceConfig(host="http://127.0.0.1:59999", timeout_seconds=1.0))
+        status = client.health_check()
+        self.assertFalse(status["online"])
+        self.assertIn("error", status)
+
+    def test_agents_md_protocol_compliance(self):
+        agents_file = ROOT / "AGENTS.md"
+        self.assertTrue(agents_file.exists())
+        content = agents_file.read_text(encoding="utf-8")
+        self.assertIn("Protocolo 1: Pre-Task Grounding", content)
+        self.assertIn("Protocolo 2: Ingestão Automatizada", content)
+        self.assertIn("Protocolo 3: Sincronização do Manifesto", content)
+        self.assertIn("Protocolo 4: Auditoria de Higiene Documental", content)
+
 
 if __name__ == "__main__":
     unittest.main()
