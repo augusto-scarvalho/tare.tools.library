@@ -93,22 +93,31 @@ class LibraryVectorDB:
         sha256: str,
         embedding: List[float],
         provenance: str = "real",
+        max_retries: int = 3,
     ):
-        conn = sqlite3.connect(self.db_path, timeout=5.0)
-        try:
-            conn.execute("""
-                INSERT INTO document_chunks (doc_id, relative_path, chunk_index, chunk_text, sha256, dimensions, provenance, embedding_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(relative_path, chunk_index) DO UPDATE SET
-                    chunk_text=excluded.chunk_text,
-                    sha256=excluded.sha256,
-                    dimensions=excluded.dimensions,
-                    provenance=excluded.provenance,
-                    embedding_json=excluded.embedding_json
-            """, (doc_id, relative_path, chunk_index, chunk_text, sha256, len(embedding), provenance, json.dumps(embedding)))
-            conn.commit()
-        finally:
-            conn.close()
+        import time
+        for attempt in range(max_retries):
+            conn = sqlite3.connect(self.db_path, timeout=5.0)
+            try:
+                conn.execute("""
+                    INSERT INTO document_chunks (doc_id, relative_path, chunk_index, chunk_text, sha256, dimensions, provenance, embedding_json)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(relative_path, chunk_index) DO UPDATE SET
+                        chunk_text=excluded.chunk_text,
+                        sha256=excluded.sha256,
+                        dimensions=excluded.dimensions,
+                        provenance=excluded.provenance,
+                        embedding_json=excluded.embedding_json
+                """, (doc_id, relative_path, chunk_index, chunk_text, sha256, len(embedding), provenance, json.dumps(embedding)))
+                conn.commit()
+                return
+            except sqlite3.OperationalError as e:
+                if "locked" in str(e).lower() and attempt < max_retries - 1:
+                    time.sleep(0.05 * (2 ** attempt))
+                    continue
+                raise
+            finally:
+                conn.close()
 
     def search(self, query_embedding: List[float], top_k: int = 5) -> List[VectorSearchResult]:
         results = []
