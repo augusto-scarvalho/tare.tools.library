@@ -194,6 +194,61 @@ class LibraryToolsTests(unittest.TestCase):
         self.assertFalse(res["ready"])
         self.assertIn("error", res)
 
+    def test_ingest_canonical_normalization_markdown_links_symmetry(self):
+        from tools.bookkeeper.dedup_detector import detect_duplicates
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            dest_dir = tmp_path / "docs" / "adr"
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            doc_a = dest_dir / "ADR-100.md"
+            doc_a.write_text("# Decision Record\nAlpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi.", encoding="utf-8")
+
+            # Doc B has same body text but wrapping tokens in markdown links
+            doc_b = tmp_path / "ADR-101.md"
+            doc_b.write_text("# Decision Record\n[Alpha](https://example.com/a) [beta](https://example.com/b) [gamma](https://example.com/g) [delta](https://example.com/d) [epsilon](https://example.com/e) zeta eta theta iota kappa lambda mu nu xi.", encoding="utf-8")
+
+            # Ingest must reject doc_b as near duplicate
+            res = ingest_document(doc_b, doc_type="adr", root_dir=tmp_path)
+            self.assertFalse(res.success)
+            self.assertTrue(res.is_duplicate)
+
+            # Bookkeeper audit must also see the exact same duplicate relation
+            # write doc_b temporarily into acervo to audit
+            (dest_dir / "ADR-101.md").write_text(doc_b.read_text(encoding="utf-8"), encoding="utf-8")
+            report = detect_duplicates(tmp_path, similarity_threshold=0.85)
+            self.assertFalse(report.is_clean)
+
+    def test_vector_db_model_and_provenance_namespace_isolation(self):
+        from tools.indexer.embed_corpus import LibraryVectorDB
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            db_file = Path(tmp_dir) / "test_namespace.db"
+            vdb = LibraryVectorDB(db_file)
+            # Upsert two chunks with identical dimensions (3-dim) but different models / provenance
+            vdb.upsert_chunk(
+                doc_id="DOC-PSEUDO",
+                relative_path="docs/pseudo.md",
+                chunk_index=0,
+                chunk_text="Pseudo vector chunk",
+                sha256="hash1",
+                embedding=[1.0, 0.0, 0.0],
+                provenance="pseudo",
+                model_name="pseudo-hash",
+            )
+            vdb.upsert_chunk(
+                doc_id="DOC-REAL",
+                relative_path="docs/real.md",
+                chunk_index=0,
+                chunk_text="Real vector chunk",
+                sha256="hash2",
+                embedding=[1.0, 0.0, 0.0],
+                provenance="real",
+                model_name="bge-small-en",
+            )
+            # Querying with provenance='real' and model_name='bge-small-en' must return only DOC-REAL
+            real_results = vdb.search([1.0, 0.0, 0.0], top_k=5, provenance="real", model_name="bge-small-en")
+            self.assertEqual(len(real_results), 1)
+            self.assertEqual(real_results[0].doc_id, "DOC-REAL")
+
     def test_agents_md_protocol_compliance(self):
         agents_file = ROOT / "AGENTS.md"
         self.assertTrue(agents_file.exists())

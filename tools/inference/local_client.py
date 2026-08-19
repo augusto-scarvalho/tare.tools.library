@@ -53,7 +53,11 @@ class LocalInferenceClient:
             except Exception as e2:
                 return {"online": False, "error": str(e2), "url": self.config.host}
 
-    def readiness_check(self, required_model: Optional[str] = None) -> Dict[str, Any]:
+    def readiness_check(
+        self,
+        required_model: Optional[str] = None,
+        require_cuda: bool = False,
+    ) -> Dict[str, Any]:
         """Deep hardware and model readiness probe verifying model offload and context."""
         health = self.health_check()
         if not health.get("online"):
@@ -69,6 +73,22 @@ class LocalInferenceClient:
                     "error": f"Required model '{required_model}' not found in loaded models: {model_ids}",
                     "details": health,
                 }
+
+        # Validate GPU/CUDA acceleration probe if requested
+        if require_cuda:
+            props_url = f"{self.config.host}/props"
+            try:
+                req = urllib.request.Request(props_url, method="GET")
+                with urllib.request.urlopen(req, timeout=3.0) as resp:
+                    props = json.loads(resp.read().decode("utf-8"))
+                    if props.get("n_gpu_layers", 1) == 0 or props.get("device", "").lower() == "cpu":
+                        return {
+                            "ready": False,
+                            "error": "Server is running in CPU-only mode (0 GPU layers offloaded)",
+                            "details": props,
+                        }
+            except Exception:
+                pass
 
         return {"ready": True, "details": health}
 
