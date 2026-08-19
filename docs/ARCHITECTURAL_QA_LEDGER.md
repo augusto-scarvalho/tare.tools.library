@@ -234,3 +234,13 @@
   3. *Acervo e Arqueologia Estruturados:* Criados `archaeology/README.md`, `experiments/README.md` (tabela de ensaios com vereditos) e template oficial `docs/templates/EXP-template.md`.
   4. *Modernização Completa dos READMEs:* `README.md` e `README.en.md` reescritos com o Eixo Triplo, badges de CI e mapa de navegação moderno.
   5. *Federação Sincronizada:* Submódulo do Agent OS atualizado e validado via `bump_satellite.py` (71/71 testes passando green).
+
+---
+
+### ❓ Pergunta 26: *“tem inconsistências no readme.md do tare.tools.library. a badge CI Validation tá com imagem quebrada. as regras que definimos de documentação pra library não estão sendo aplicadas nem ao readme.md (tá em pt-br mano). não temos licença. fora do padrão do resto do ecossistema...”*
+* **Contexto:** Correção cirúrgica de alinhamento com o padrão universal do ecossistema `tare.tools` (como `kernel`, `specgraph`, `os`).
+* **Resolução & Padronização Concluída:**
+  1. *README Canônico em Inglês:* `README.md` estabelecido como canônico em Inglês (com layout centralizado, navigation pills e design idêntico a `tare.tools.kernel` e `tare.tools.specgraph`), e `README.pt-BR.md` para a versão traduzida.
+  2. *Badge de CI Corrigida:* Apontada para a action correta (`document-integrity.yml`) com SVG funcional 100% renderizado.
+  3. *Licença Oficial Adicionada:* Criado arquivo `LICENSE` com a licença **Apache License 2.0**, compatível com todo o ecossistema.
+  4. *Pinos da Federação Atualizados:* Repositório sincronizado e pin atualizado no Agent OS (`@ b505bbc`).
