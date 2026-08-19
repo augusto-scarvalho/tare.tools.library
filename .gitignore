@@ -9,3 +9,5 @@ Thumbs.db
 *.tmp
 *.log
 site/_site/
+catalog/*.db
+*.db
