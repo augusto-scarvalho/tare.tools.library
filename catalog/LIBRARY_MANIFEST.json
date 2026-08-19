@@ -1,0 +1,437 @@
+{
+  "version": "2.0.0",
+  "generated_at": "2026-08-19T18:34:05.022785+00:00",
+  "total_documents": 31,
+  "canonical_ssot_count": 15,
+  "adrs": [
+    {
+      "id": "ADR-043",
+      "doc_type": "adr",
+      "title": "ADR-043: North Star 2.0 Architectural Transition, Ecosystem Modular Split, and Adversarial Deliberation Synthesis",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md",
+      "sha256": "94766e8faf5a50ab3fc971d3d1af97d86ef6d92e2264eeeba2ff1a20aa678dd5",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ADR-044",
+      "doc_type": "adr",
+      "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md",
+      "sha256": "e78d3226fdb59b8744ad899809192e17d0f4c1872cd58870c80084f479c4b170",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ADR-045",
+      "doc_type": "adr",
+      "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md",
+      "sha256": "672cb461745e3a1def9d95da587b993e9c7f1435a888422e75106036e2960669",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ADR-046",
+      "doc_type": "adr",
+      "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md",
+      "sha256": "b74d88625b43c8bfcd04e15ce7aa24a06c1db0f2fd3f008e16cfbf4308bdd626",
+      "target_repositories": [
+        "tare.tools.backlog-graph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ADR-047",
+      "doc_type": "adr",
+      "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md",
+      "sha256": "535601219619181fc21ed5d06024c8871e447e36d7e73cf573f8ee52cd8496dd",
+      "target_repositories": [
+        "tare.tools.dialog-engine"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ADR-048",
+      "doc_type": "adr",
+      "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
+      "sha256": "2660bd9cfa30e282fa49ff4598bb1634384b0e01b0dca594f3fce8a523a74660",
+      "target_repositories": [
+        "tare.tools.kernel",
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ADR-049",
+      "doc_type": "adr",
+      "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md",
+      "sha256": "19247e44adde77483ded7aa8a7617014a845992b5aab18bf23a2c04c9486e93b",
+      "target_repositories": [
+        "tare.tools.backlog-graph",
+        "tare.tools.dialog-engine",
+        "tare.tools.kernel",
+        "tare.tools.os",
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ADR-050",
+      "doc_type": "adr",
+      "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-050_APP_DECOMPOSITION_ACL_AND_DEPENDENCY_GOVERNANCE.md",
+      "sha256": "7380fe438bd34df7792a748a49e70c341a1eb4ee47be90a6b5837c0d834b67a4",
+      "target_repositories": [
+        "tare.tools.backlog-graph",
+        "tare.tools.dialog-engine",
+        "tare.tools.kernel",
+        "tare.tools.os",
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ADR-051",
+      "doc_type": "adr",
+      "title": "ADR-051: O Eixo Triplo de Inteligência Agêntica (Research, Backlog-Graph & SpecGraph), Governança de Memória por Bookkeeping e o Mandato Documental Ágil",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md",
+      "sha256": "76c5c88894c60de880d3c691468ad8a60f3126d6f51c2bc9f93b8415774d98f4",
+      "target_repositories": [
+        "tare.tools.backlog-graph",
+        "tare.tools.dialog-engine",
+        "tare.tools.kernel",
+        "tare.tools.os",
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [
+        "AC-01 (Eixo Triplo):** `research`, `backlog-graph` e `specgraph` operam sem sobreposição funcional.",
+        "AC-02 (Bookkeeper):** Módulo de detecção de duplicatas e tombstone implementado e testado.",
+        "AC-03 (Alinhamento North Star):** 100% de conformidade com as ADRs 044 a 050.",
+        "AC-04 (Diário Mestre):** Registro auditável de todas as decisões e perguntas no `ARCHITECTURAL_QA_LEDGER.md`."
+      ],
+      "references": []
+    },
+    {
+      "id": "ADR-052",
+      "doc_type": "adr",
+      "title": "ADR-052: Transição de Identidade para tare.tools.library, Governança do Acervo Pré-Consolidado e Padronização Enxuta de Experimentos",
+      "status": "RATIFIED",
+      "relative_path": "docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md",
+      "sha256": "b7090826a19e072a39c83e907142b5fb9fbf274e814923b65ee16c97305df966",
+      "target_repositories": [
+        "tare.tools.backlog-graph",
+        "tare.tools.dialog-engine",
+        "tare.tools.kernel",
+        "tare.tools.os",
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [
+        "AC-01:** Transição para `tare.tools.library` aprovada com plano de renomeação no GitHub.",
+        "AC-02:** Cadeia de custódia com `PRE_MIGRATION_MANIFEST.sha256` para os 93 documentos em `archaeology/corpus/`.",
+        "AC-03:** Formato `EXP-XXX` consolidado com template e validação de unicidade.",
+        "AC-04:** Diário Mestre (`ARCHITECTURAL_QA_LEDGER.md`) atualizado com o veredito da Mesa Redonda."
+      ],
+      "references": []
+    }
+  ],
+  "specs": [
+    {
+      "id": "SPEC-BACKLOG-001",
+      "doc_type": "spec",
+      "title": "SPEC-BACKLOG-001: Mathematical Task DAG & Atomic CAS Concurrency",
+      "status": "CANONICAL_SSOT",
+      "relative_path": "specs/SPEC-BACKLOG-001.md",
+      "sha256": "d06e64684a97ebf4b7dd5dcca31c51d43b9370404a1635f28110ce1ffc0e0798",
+      "target_repositories": [
+        "tare.tools.backlog-graph"
+      ],
+      "acceptance_criteria": [
+        "AC-01: Pure Python Stdlib Core`**: O motor de grafo de tarefas não possui dependências externas pesadas (sem NetworkX em runtime crítico).",
+        "AC-02: O(1) Execution Frontier`**: O cálculo de tarefas elegíveis para despacho é indexado em $O(1)$ mantendo a lista de dependências resolvidas atualizada a cada mutação.",
+        "AC-03: Atomic Reopen Cascade`**: Se um nó pai for reaberto (`status -> IN_PROGRESS`), todos os nós descendentes já concluídos são automaticamente e atomicamente invalidados.",
+        "AC-04: CAS Leased Transitions`**: Transições de estado exigem `task_version` compatível (CAS), impedindo concorrência desordenada entre agentes em paralelo."
+      ],
+      "references": []
+    },
+    {
+      "id": "SPEC-DIALOG-001",
+      "doc_type": "spec",
+      "title": "SPEC-DIALOG-001: Topological Dialogue Engine & Statechart Protocol",
+      "status": "CANONICAL_SSOT",
+      "relative_path": "specs/SPEC-DIALOG-001.md",
+      "sha256": "9efc4ec8f08bab6a0c55bb06503406bc372dd654a3daa9c6aacea393a1ed559f",
+      "target_repositories": [
+        "tare.tools.dialog-engine"
+      ],
+      "acceptance_criteria": [
+        "AC-01: Schema-Agnostic Ingestion`**: O parser de diálogo converte transcrições brutas em AST canônico sem acoplamento a formatos proprietários de fornecedores.",
+        "AC-02: Statechart Turn Transitions`**: Estados conversacionais (Dispute, Convergence, Questioning, Consensus) seguem matriz de transição finita e determinística.",
+        "AC-03: Multi-Seat Quorum Evaluation`**: Vereditos de deliberação agêntica exigem quórum configurável com pontuações de confiança explícitas."
+      ],
+      "references": []
+    },
+    {
+      "id": "SPEC-KERNEL-001",
+      "doc_type": "spec",
+      "title": "SPEC-KERNEL-001: 5-Plane Decoupled Microkernel & CAS State Engine",
+      "status": "CANONICAL_SSOT",
+      "relative_path": "specs/SPEC-KERNEL-001.md",
+      "sha256": "90ae3c08bf66e2d6de1c6adac2705ab0e62422a772c116d3b98b3c8bae5e6821",
+      "target_repositories": [
+        "tare.tools.kernel"
+      ],
+      "acceptance_criteria": [
+        "AC-01: 5-Plane Boundary Enforcement`**: Nenhuma chamada do Compute Plane pode acessar credenciais de rede ou o Data Plane diretamente sem mediação do Control Plane.",
+        "AC-02: Single-Writer Atomic CAS`**: Todas as mutações de estado devem usar transações `BEGIN IMMEDIATE` com verificação de `rowcount == 1` garantindo zero split-brain sob concorrência.",
+        "AC-03: Hermetic Sandboxed Execution`**: Processos em execução no Compute Plane devem rodar em ambiente isolado (Windows Job Objects / bwrap) com limites de memória e timeout estritos.",
+        "AC-04: Cryptographic Envelope Attestation`**: Toda saída de execução deve ser acompanhada de digest SHA-256 e recibo de atestação."
+      ],
+      "references": []
+    },
+    {
+      "id": "SPEC-LIBRARY-001",
+      "doc_type": "spec",
+      "title": "SPEC-LIBRARY-001: Central SSOT Library, Bookkeeper & Hybrid Substrate",
+      "status": "CANONICAL_SSOT",
+      "relative_path": "specs/SPEC-LIBRARY-001.md",
+      "sha256": "21ea709720fe3fac0bfe09fa63d705c39cba55223c7c58639f2c4e6e61f9bcef",
+      "target_repositories": [],
+      "acceptance_criteria": [
+        "AC-01: Zero Duplicate Tolerance`**: O detector de duplicatas deve auditar todo novo documento ingerido, rejeitando similaridades $>90\\%$ sem autorização forçada.",
+        "AC-02: SSOT Uniqueness Enforcement`**: A biblioteca nunca pode conter mais de 1 documento ativo com status `CANONICAL_SSOT` para o mesmo identificador de tópico.",
+        "AC-03: Machine-Readable Manifest Export`**: O compilador de manifesto deve gerar `catalog/LIBRARY_MANIFEST.json` com hashes SHA-256 e critérios de aceitação extraídos em $O(1)$.",
+        "AC-04: Zero-Cost Substrate Compatibility`**: As operações de auditoria, busca e catalogação não podem depender de APIs pagas em ambiente de desenvolvimento local."
+      ],
+      "references": []
+    },
+    {
+      "id": "SPEC-SPECGRAPH-001",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-001: Living Causal Matrix & Substrate Admission Gate",
+      "status": "CANONICAL_SSOT",
+      "relative_path": "specs/SPEC-SPECGRAPH-001.md",
+      "sha256": "2428a562eb4af67cb3d3a35ce67a9c2585f8b9c7866bd5f2907273e776703f2f",
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [
+        "AC-01: Causal AST Traceability`**: Indexa símbolos de código e decorações `@spec` conectando-os biunivocamente aos nós de especificação em `tare.tools.library`.",
+        "AC-02: Incremental Blast Radius Cache`**: O cálculo de impacto de mudanças de arquivo deve retornar em tempo sub-5ms através de cache de dependências de símbolos.",
+        "AC-03: Substrate Admission Gate (SAG)`**: Rejeita despacho de tarefas agênticas se o `code_tree_hash` divergir dos critérios de aceitação formalizados na SSOT.",
+        "AC-04: Surgical Context Envelopes`**: O gerador de envelopes de contexto deve produzir payloads com menos de 4.000 tokens focados exclusivamente no grafo causal da tarefa."
+      ],
+      "references": []
+    }
+  ],
+  "experiments": [
+    {
+      "id": "01-research-planner",
+      "doc_type": "experiment",
+      "title": "Role 01 — Research Planner",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/01-research-planner.md",
+      "sha256": "db117be3cdc80ce8957ac4fc77f46fec191819573c8e7fe41bbdd97bb1a3b24c",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "02-corpus-archaeologist",
+      "doc_type": "experiment",
+      "title": "Role 02 — Corpus Archaeologist",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/02-corpus-archaeologist.md",
+      "sha256": "cb9dc585b874910f8037f5972e1fa5d4af5884aa7bcf8aa0dc0029798639eba4",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "03-literature-scout",
+      "doc_type": "experiment",
+      "title": "Role 03 — Consolidated Literature Scout",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/03-literature-scout.md",
+      "sha256": "2e63fc1fc2b8661ed03df2b98010abb6dacf2d82b4388e54a2e9d8b8c9c5a709",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "04-bleeding-edge-scout",
+      "doc_type": "experiment",
+      "title": "Role 04 — Bleeding-edge / Contradiction Scout",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/04-bleeding-edge-scout.md",
+      "sha256": "3540469a9ebbae6a9829bd66012ad48e2c468e64e03532039276f11faca48437",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "05-source-identity-curator",
+      "doc_type": "experiment",
+      "title": "Role 05 — Source & Identity Curator",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/05-source-identity-curator.md",
+      "sha256": "060fb0a7348fc8badedeb7469cc1ea6a9c393075e13fb07246f1b615dd6027aa",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "06-evidence-analyst",
+      "doc_type": "experiment",
+      "title": "Role 06 — Evidence Analyst",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/06-evidence-analyst.md",
+      "sha256": "8ab48e8e15dee557c0d2da046575379dd4b487c8e34950a60a6e6ba580469ff6",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "07-architecture-reconciler",
+      "doc_type": "experiment",
+      "title": "Role 07 — Architecture / Method Reconciler",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/07-architecture-reconciler.md",
+      "sha256": "d50ef5eb900f81df8204c57419ef882145b0af6e73f8c197530c3a24adfe4424",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "08-experimental-designer",
+      "doc_type": "experiment",
+      "title": "Role 08 — Experimental Designer",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/08-experimental-designer.md",
+      "sha256": "f38806b0d74767b7506b1a0bbc94031d995e1c9e4ce36489e751b420d25cf384",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "09-adversarial-review-round1",
+      "doc_type": "experiment",
+      "title": "Role 09 — Adversarial Reviewer, Round 1",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/09-adversarial-review-round1.md",
+      "sha256": "2a8e7dacf9bfef0482363502d482b0fc1d5d56e7d19ba025cfd1b71e0130c431",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "10-revision-delta-round1",
+      "doc_type": "experiment",
+      "title": "Role 10 — Revision Delta after Adversarial Review",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/10-revision-delta-round1.md",
+      "sha256": "529162f910c4ec56f44ab6cb4bf1c57c90d2ca7ee2c14bef42aa06dffab82126",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "11-final-audit",
+      "doc_type": "experiment",
+      "title": "Role 11 — Final Audit",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001/11-final-audit.md",
+      "sha256": "10d90e24f7f41721546e769aca1319a207dee6bcbefb867bee2ef4094c1cdfc6",
+      "target_repositories": [],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "EXP-01-local-llm-runtime-qualification",
+      "doc_type": "experiment",
+      "title": "🧪 Experiment Card: EXP-01 — Local LLM Runtime Qualification & Hardware Acceleration",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/local-llm/EXP-01-local-llm-runtime-qualification.md",
+      "sha256": "a659369f30f8336e40313239913e0ed94e3bee465341d67d03b638c97c010e3d",
+      "target_repositories": [
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "EXP-02-thinking-retention-kv-cache",
+      "doc_type": "experiment",
+      "title": "🧪 Experiment Card: EXP-02 — Thinking Retention ($K=1$), KV-Cache Hit-Rate ($R_{\\text{cache}}$) & Qwen-Sharp Terseness",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/local-llm/EXP-02-thinking-retention-kv-cache.md",
+      "sha256": "ea110a9e2e5f1301072db94823b39a755d88c9b32d5e24244bc67b586d0b287f",
+      "target_repositories": [
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "EXP-03-locality-aware-placement",
+      "doc_type": "experiment",
+      "title": "🧪 Experiment Card: EXP-03 — Locality-Aware Placement & Cost-to-Trust Dispatcher",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/local-llm/EXP-03-locality-aware-placement.md",
+      "sha256": "28f6ab4ec040e90e3482342f41b4091f9e02e0e8fdbf90d3efda130fee723721",
+      "target_repositories": [
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "EXP-04-sandboxed-execution-isolation",
+      "doc_type": "experiment",
+      "title": "🧪 Experiment Card: EXP-04 — 3-Process Sandboxed Test Harness Isolation & Egress Proof",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/local-llm/EXP-04-sandboxed-execution-isolation.md",
+      "sha256": "d98b0851b07f8a2d7448cf3593f008fca86e22f5b6d734dca6eb53a8c836c966",
+      "target_repositories": [
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "EXP-05-scheduling-admission-backpressure",
+      "doc_type": "experiment",
+      "title": "🧪 Experiment Card: EXP-05 — Scheduling Admission, Backpressure & VRAM Headroom Telemetry",
+      "status": "CONCLUDED",
+      "relative_path": "experiments/local-llm/EXP-05-scheduling-admission-backpressure.md",
+      "sha256": "e7087baf3d63a94db9a61b1d80f2a612e0216b7c4e70f0b317922fd0282ff07e",
+      "target_repositories": [
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    }
+  ],
+  "post_mortems": []
+}
