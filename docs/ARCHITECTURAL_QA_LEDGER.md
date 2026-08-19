@@ -218,8 +218,19 @@
     3. **FSM Estrita & Atomic Reopen Cascade:** O Backlog Graph formaliza matriz de transição finita e cascata atômica de invalidação caso nós pais sejam reabertos.
 ### ❓ Pergunta 24: *“mais uma questão para a round table... Vamos manter o nome tare.tools.research (acho o nome tare.tools.library mais adequado)? vamos reutilizar esse mesmo repositório ou criar outro? o que vamos fazer com os documentos e estudos do tare.tools.research atual? e sobre formatos de experimento e publicação, vamos reutilizar ou criar algo novo?”*
 * **Contexto:** Alinhamento estratégico sobre a identidade (`tare.tools.library` vs `research`), preservação do acervo já pré-consolidado, ciclo de vida do repositório Git e reutilização de formatos enxutos sem hipertrofia técnica.
-* **Teses Submetidas à Mesa Redonda:**
+* **Teses Ratificadas (ADR-052):**
   1. *Identidade & Naming:* Transição para `tare.tools.library` (reflete com fidelidade a Biblioteca Central de Conhecimento e SSOT).
-  2. *Ciclo de Vida do Repositório:* Reutilizar o repositório existente renomeando-o no GitHub (preservando os 44 PRs, 67 testes e histórico Git) com ajuste de links.
-  3. *Governança do Acervo Atual:* O acervo histórico já consolidado vai para `archaeology/corpus/` como memória fria protegida, sem reprocessamento burocrático redundante.
-  4. *Formatos de Experimento:* Reutilizar o formato padrão enxuto `EXP-XX-nome.md` (Hipótese, Setup, Métricas, Veredito) e Markdown/Mermaid para publicação sem criar formatos pesados ou LaTeX desnecessário.
+  2. *Ciclo de Vida do Repositório:* Reutilização in-place do repositório Git existente renomeado no GitHub (preservando todos os PRs, testes e histórico).
+  3. *Governança do Acervo Atual:* Os 93 documentos do acervo histórico ficam em `archaeology/corpus/` sob cadeia de custódia (`PRE_MIGRATION_MANIFEST.sha256`) com tag `status: archived_immutable`, sem retrabalho redundante.
+  4. *Formatos de Experimento:* Padrão enxuto `EXP-XXX-slug.md` (Hipótese, Setup, Métricas, Veredito) e Markdown/Mermaid no GitHub Pages.
+
+---
+
+### ❓ Pergunta 25: *“bora. aproveita e dá aquele banho de loja no repositório e já coloca as propostas em prática”*
+* **Contexto:** Execução imediata da reestruturação completa e modernização do repositório conforme as diretrizes ratificadas nas ADRs 051 e 052.
+* **Execução & Implementação Concluída:**
+  1. *Renomeação Oficial no GitHub:* Repositório renomeado com sucesso para [`https://github.com/augusto-scarvalho/tare.tools.library`](https://github.com/augusto-scarvalho/tare.tools.library).
+  2. *Motor de Bookkeeping Implementado:* Criado o pacote `tools/bookkeeper/` (`dedup_detector.py`, `ssot_registry.py`, `tombstone_manager.py`, `cli.py`) e suíte de testes 100% green (`tests/test_bookkeeper.py`).
+  3. *Acervo e Arqueologia Estruturados:* Criados `archaeology/README.md`, `experiments/README.md` (tabela de ensaios com vereditos) e template oficial `docs/templates/EXP-template.md`.
+  4. *Modernização Completa dos READMEs:* `README.md` e `README.en.md` reescritos com o Eixo Triplo, badges de CI e mapa de navegação moderno.
+  5. *Federação Sincronizada:* Submódulo do Agent OS atualizado e validado via `bump_satellite.py` (71/71 testes passando green).
