@@ -148,18 +148,51 @@ def search_library(
     return results[:max_results]
 
 
+def lookup_concept(concept_name: str, root_dir: str | Path = ROOT) -> Optional[Dict[str, Any]]:
+    """Lookup architectural concept in ontology/domain_ontology.yaml."""
+    root = Path(root_dir)
+    onto_path = root / "ontology" / "domain_ontology.yaml"
+    if not onto_path.exists():
+        return None
+
+    raw_text = onto_path.read_text(encoding="utf-8", errors="ignore")
+    # Quick simple parser for YAML concepts
+    clean_target = concept_name.lower().replace("-", "").replace("_", "").replace(" ", "")
+    
+    # Split into concept blocks
+    blocks = raw_text.split("- id:")
+    for b in blocks[1:]:
+        lines = b.splitlines()
+        first_line = lines[0].strip().strip('"').strip("'")
+        clean_id = first_line.lower().replace("-", "").replace("_", "").replace(" ", "")
+        if clean_target in clean_id or clean_id in clean_target:
+            return {"id": first_line, "raw": "- id:" + b}
+    return None
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Query CLI for tare.tools.library")
     parser.add_argument("--search", "-s", help="Free-form query string")
     parser.add_argument("--adr", help="Fetch specific ADR by ID (e.g. 'ADR-051')")
     parser.add_argument("--spec", help="Fetch specific SPEC by ID (e.g. 'SPEC-KERNEL-001')")
+    parser.add_argument("--concept", "-c", help="Lookup architectural concept in domain ontology")
     parser.add_argument("--type", "-t", choices=["adr", "spec", "experiment", "post_mortem", "doc"], help="Filter by document type")
     parser.add_argument("--limit", "-n", type=int, default=5, help="Max results to return")
     parser.add_argument("--root", default=".", help="Root directory of the library")
 
     args = parser.parse_args()
 
-    if args.adr:
+    if args.concept:
+        res = lookup_concept(args.concept, args.root)
+        if res:
+            print(f"[FOUND CONCEPT: {res['id']}]\n")
+            print(res["raw"].strip())
+            return 0
+        else:
+            print(f"[ERROR] Concept '{args.concept}' not found in domain ontology.")
+            return 1
+
+    elif args.adr:
         content = get_adr(args.adr, args.root)
         if content:
             print(f"[FOUND ADR: {args.adr}]\n")
