@@ -81,6 +81,36 @@ class LibraryToolsTests(unittest.TestCase):
             # Ingested file gets a non-colliding suffixed name
             self.assertNotEqual(res.target_path, existing_file)
             self.assertTrue(res.target_path.exists())
+            self.assertEqual(res.target_path.read_text(encoding="utf-8"), "DIFFERENT CONTENT")
+
+    def test_ingest_concurrent_collision_preserves_both_payloads(self):
+        import concurrent.futures
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            # Prepare two distinct sources with same target filename
+            src_a = tmp_path / "src_a" / "ADR-099.md"
+            src_a.parent.mkdir(parents=True, exist_ok=True)
+            src_a.write_text("PAYLOAD_ALPHA_12345", encoding="utf-8")
+
+            src_b = tmp_path / "src_b" / "ADR-099.md"
+            src_b.parent.mkdir(parents=True, exist_ok=True)
+            src_b.write_text("PAYLOAD_BETA_67890", encoding="utf-8")
+
+            # Execute simultaneous ingests
+            with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+                f_a = executor.submit(ingest_document, src_a, doc_type="adr", force=True, root_dir=tmp_path)
+                f_b = executor.submit(ingest_document, src_b, doc_type="adr", force=True, root_dir=tmp_path)
+                res_a = f_a.result()
+                res_b = f_b.result()
+
+            self.assertTrue(res_a.success)
+            self.assertTrue(res_b.success)
+            self.assertTrue(res_a.target_path.exists())
+            self.assertTrue(res_b.target_path.exists())
+            self.assertNotEqual(res_a.target_path, res_b.target_path)
+            # Verify both payloads are fully preserved byte-for-byte
+            self.assertEqual(res_a.target_path.read_text(encoding="utf-8"), "PAYLOAD_ALPHA_12345")
+            self.assertEqual(res_b.target_path.read_text(encoding="utf-8"), "PAYLOAD_BETA_67890")
 
     def test_build_manifest(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
