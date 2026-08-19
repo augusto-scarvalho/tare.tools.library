@@ -51,10 +51,16 @@ def _get_shingles(text: str, k: int = 3) -> Set[str]:
     return {" ".join(words[i : i + k]) for i in range(len(words) - k + 1)}
 
 
-def compute_similarity(text_a: str, text_b: str) -> float:
-    """Compute Jaccard similarity between two texts based on word 3-shingles."""
+EXCLUDE_DIRS = (".git", ".pytest_cache", "__pycache__", "site", "_site", "catalog")
+
+
+def compute_similarity(text_a: str, text_b: str, normalize: bool = True) -> float:
+    """Compute Jaccard similarity between two texts based on word 3-shingles with canonical normalization."""
+    if normalize:
+        text_a = _normalize_text(text_a)
+        text_b = _normalize_text(text_b)
     if text_a == text_b:
-        return 1.0
+        return 1.0 if text_a else 0.0
     shingles_a = _get_shingles(text_a)
     shingles_b = _get_shingles(text_b)
     if not shingles_a or not shingles_b:
@@ -68,7 +74,7 @@ def detect_duplicates(
     root_dir: str | Path,
     similarity_threshold: float = 0.70,
     include_extensions: Tuple[str, ...] = (".md", ".markdown"),
-    exclude_dirs: Tuple[str, ...] = (".git", ".pytest_cache", "__pycache__", "site", "_site"),
+    exclude_dirs: Tuple[str, ...] = EXCLUDE_DIRS,
 ) -> DuplicateReport:
     """Scan a directory for markdown files and identify exact or near duplicates."""
     root_path = Path(root_dir)
