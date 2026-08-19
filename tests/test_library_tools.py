@@ -46,10 +46,41 @@ class LibraryToolsTests(unittest.TestCase):
 
     def test_ingest_duplicate_boundary_90_percent(self):
         from tools.ingest import compute_similarity
-        # Shingle exact match
-        text_a = "alpha beta gamma delta epsilon zeta eta theta iota kappa lambda"
-        text_b = "alpha beta gamma delta epsilon zeta eta theta iota kappa lambda"
-        self.assertGreaterEqual(compute_similarity(text_a, text_b), 0.90)
+        # Build 10 shingles, 9 shared -> Jaccard = 9 / (10 + 10 - 9) = 9/11 = ~0.818
+        # Build 20 shingles with 19 shared -> Jaccard = 19 / (20 + 20 - 19) = 19/21 = ~0.9047
+        words_base = [f"token{i}" for i in range(25)]
+        words_90 = list(words_base)
+        words_90[-1] = "differenttoken"  # alters last shingle
+        
+        sim_high = compute_similarity(" ".join(words_base), " ".join(words_90))
+        self.assertGreaterEqual(sim_high, 0.90)
+
+        # Alter 5 shingles -> below 0.90
+        words_low = list(words_base)
+        for j in range(20, 25):
+            words_low[j] = f"changed{j}"
+        sim_low = compute_similarity(" ".join(words_base), " ".join(words_low))
+        self.assertLess(sim_low, 0.90)
+
+    def test_ingest_force_preserves_existing_file_non_destructive(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            dest_dir = tmp_path / "docs" / "adr"
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            existing_file = dest_dir / "ADR-001.md"
+            existing_file.write_text("ORIGINAL CONTENT", encoding="utf-8")
+
+            # Ingest new file with same target name using force=True
+            src_file = tmp_path / "ADR-001.md"
+            src_file.write_text("DIFFERENT CONTENT", encoding="utf-8")
+
+            res = ingest_document(src_file, doc_type="adr", force=True, root_dir=tmp_path)
+            self.assertTrue(res.success)
+            # Original file MUST NOT be destroyed
+            self.assertEqual(existing_file.read_text(encoding="utf-8"), "ORIGINAL CONTENT")
+            # Ingested file gets a non-colliding suffixed name
+            self.assertNotEqual(res.target_path, existing_file)
+            self.assertTrue(res.target_path.exists())
 
     def test_build_manifest(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -155,6 +186,13 @@ class LibraryToolsTests(unittest.TestCase):
         status = client.health_check()
         self.assertFalse(status["online"])
         self.assertIn("error", status)
+
+    def test_local_inference_client_readiness_check(self):
+        from tools.inference.local_client import LocalInferenceClient, LocalInferenceConfig
+        client = LocalInferenceClient(LocalInferenceConfig(host="http://127.0.0.1:59999", timeout_seconds=1.0))
+        res = client.readiness_check(required_model="qwen2.5-coder")
+        self.assertFalse(res["ready"])
+        self.assertIn("error", res)
 
     def test_agents_md_protocol_compliance(self):
         agents_file = ROOT / "AGENTS.md"
