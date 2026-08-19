@@ -1,5 +1,6 @@
 """Unit tests for tools in tare.tools.library (ingest, manifest builder, query)."""
 
+import hashlib
 import json
 import os
 import sys
@@ -46,8 +47,7 @@ class LibraryToolsTests(unittest.TestCase):
 
     def test_ingest_duplicate_boundary_90_percent(self):
         from tools.ingest import compute_similarity
-        # Build 10 shingles, 9 shared -> Jaccard = 9 / (10 + 10 - 9) = 9/11 = ~0.818
-        # Build 20 shingles with 19 shared -> Jaccard = 19 / (20 + 20 - 19) = 19/21 = ~0.9047
+        from unittest.mock import patch
         words_base = [f"token{i}" for i in range(25)]
         words_90 = list(words_base)
         words_90[-1] = "differenttoken"  # alters last shingle
@@ -61,6 +61,28 @@ class LibraryToolsTests(unittest.TestCase):
             words_low[j] = f"changed{j}"
         sim_low = compute_similarity(" ".join(words_base), " ".join(words_low))
         self.assertLess(sim_low, 0.90)
+
+        # End-to-end ingest gate validation:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            dest_dir = tmp_path / "docs" / "adr"
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            (dest_dir / "ADR-001.md").write_text(" ".join(words_base), encoding="utf-8")
+
+            # Document with exactly sim >= 0.90 must be rejected
+            src_file_90 = tmp_path / "incoming_90.md"
+            src_file_90.write_text(" ".join(words_90), encoding="utf-8")
+            with patch("tools.ingest.compute_similarity", return_value=0.90):
+                res_90 = ingest_document(src_file_90, doc_type="adr", root_dir=tmp_path)
+            self.assertFalse(res_90.success)
+            self.assertTrue(res_90.is_duplicate)
+
+            # Document with sim < 0.90 must be accepted
+            src_file_low = tmp_path / "incoming_low.md"
+            src_file_low.write_text(" ".join(words_low), encoding="utf-8")
+            res_low = ingest_document(src_file_low, doc_type="adr", root_dir=tmp_path)
+            self.assertTrue(res_low.success)
+            self.assertFalse(res_low.is_duplicate)
 
     def test_ingest_force_preserves_existing_file_non_destructive(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -136,14 +158,51 @@ class LibraryToolsTests(unittest.TestCase):
             self.assertEqual(loaded["total_documents"], 2)
 
     def test_atomic_manifest_publication(self):
+        from unittest.mock import patch
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
             manifest = build_library_manifest(root_dir=tmp_path)
-            out_file = save_manifest(manifest, root_dir=tmp_path)
-            self.assertTrue(out_file.exists())
+            with patch("os.fsync") as mock_fsync:
+                out_file = save_manifest(manifest, root_dir=tmp_path)
+                self.assertTrue(out_file.exists())
+                self.assertTrue(mock_fsync.called)
             # Ensure no residual .tmp files exist in catalog/
             tmp_files = list((tmp_path / "catalog").glob("*.tmp"))
             self.assertEqual(len(tmp_files), 0)
+
+    def test_vector_db_wal_mode_active(self):
+        from tools.indexer.embed_corpus import LibraryVectorDB
+        import sqlite3
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            db_file = Path(tmp_dir) / "test_wal.db"
+            vdb = LibraryVectorDB(db_file)
+            conn = sqlite3.connect(vdb.db_path)
+            try:
+                mode = conn.execute("PRAGMA journal_mode;").fetchone()[0]
+                self.assertEqual(mode.lower(), "wal")
+            finally:
+                conn.close()
+
+    def test_ingest_fallback_exclusive_creation(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            src_file = tmp_path / "test_doc.md"
+            src_file.write_text("SOME CONTENT", encoding="utf-8")
+            dest_dir = tmp_path / "docs" / "adr"
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            digest = hashlib.sha256("SOME CONTENT".encode("utf-8")).hexdigest()
+            # Pre-create candidate collision files to exhaust candidate list and force line 144 fallback
+            (dest_dir / "test_doc.md").write_text("C1", encoding="utf-8")
+            (dest_dir / f"test_doc_{digest[:8]}.md").write_text("C2", encoding="utf-8")
+            (dest_dir / f"test_doc_{digest[:12]}.md").write_text("C3", encoding="utf-8")
+            fallback = dest_dir / f"test_doc_{digest[:8]}_1234567890000.md"
+            fallback.write_text("C4", encoding="utf-8")
+
+            with patch("time.time", return_value=1234567890):
+                with self.assertRaises(FileExistsError):
+                    ingest_document(src_file, doc_type="adr", force=True, root_dir=tmp_path)
+            self.assertEqual(fallback.read_text(encoding="utf-8"), "C4")
 
     def test_query_engine(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -226,10 +285,33 @@ class LibraryToolsTests(unittest.TestCase):
 
     def test_local_inference_client_readiness_check_cuda_fail_closed(self):
         from tools.inference.local_client import LocalInferenceClient, LocalInferenceConfig
+        from unittest.mock import patch, MagicMock
         client = LocalInferenceClient(LocalInferenceConfig(host="http://127.0.0.1:59999", timeout_seconds=1.0))
         res = client.readiness_check(require_cuda=True)
         self.assertFalse(res["ready"])
         self.assertIn("error", res)
+
+        # Mock server online with 0 GPU layers (CPU mode) -> must fail closed
+        with patch.object(client, "health_check", return_value={"online": True, "models": [{"id": "m1"}]}):
+            with patch("urllib.request.urlopen") as mock_open:
+                mock_resp = MagicMock()
+                mock_resp.read.return_value = json.dumps({"n_gpu_layers": 0, "device": "cuda"}).encode("utf-8")
+                mock_resp.__enter__.return_value = mock_resp
+                mock_open.return_value = mock_resp
+                res = client.readiness_check(required_model="m1", require_cuda=True)
+                self.assertFalse(res["ready"])
+                self.assertIn("CPU-only mode", res["error"])
+
+        # Mock server online with device: 'cpu' -> must fail closed
+        with patch.object(client, "health_check", return_value={"online": True, "models": [{"id": "m1"}]}):
+            with patch("urllib.request.urlopen") as mock_open:
+                mock_resp = MagicMock()
+                mock_resp.read.return_value = json.dumps({"n_gpu_layers": 32, "device": "cpu"}).encode("utf-8")
+                mock_resp.__enter__.return_value = mock_resp
+                mock_open.return_value = mock_resp
+                res = client.readiness_check(required_model="m1", require_cuda=True)
+                self.assertFalse(res["ready"])
+                self.assertIn("CPU-only mode", res["error"])
 
     def test_local_inference_client_readiness_check_model_mismatch_fail_closed(self):
         from tools.inference.local_client import LocalInferenceClient
@@ -305,7 +387,156 @@ class LibraryToolsTests(unittest.TestCase):
         self.assertIn("Protocolo 2: Ingestão Automatizada", content)
         self.assertIn("Protocolo 3: Sincronização do Manifesto", content)
         self.assertIn("Protocolo 4: Auditoria de Higiene Documental", content)
+    def test_inference_contracts_and_canonical_fixtures(self):
+        from tools.inference.contracts import (
+            validate_props_payload,
+            validate_models_payload,
+            CANONICAL_FIXTURE_PROPS_CUDA,
+            CANONICAL_FIXTURE_PROPS_CPU_INVALID,
+            CANONICAL_FIXTURE_MODELS,
+            LlamaServerProps,
+            ModelsResponse,
+        )
+        # 1. Validate CUDA fixture
+        props_cuda = validate_props_payload(CANONICAL_FIXTURE_PROPS_CUDA)
+        self.assertIsInstance(props_cuda, LlamaServerProps)
+        self.assertTrue(props_cuda.is_cuda_accelerated())
+        self.assertEqual(props_cuda.n_gpu_layers, 99)
+        self.assertEqual(props_cuda.device, "cuda")
+
+        # 2. Validate CPU invalid fixture
+        props_cpu = validate_props_payload(CANONICAL_FIXTURE_PROPS_CPU_INVALID)
+        self.assertIsInstance(props_cpu, LlamaServerProps)
+        self.assertFalse(props_cpu.is_cuda_accelerated())
+
+        # 3. Validate Models fixture
+        models = validate_models_payload(CANONICAL_FIXTURE_MODELS)
+        self.assertIsInstance(models, ModelsResponse)
+        self.assertTrue(models.contains_model("qwen2.5-coder-32b-instruct"))
+        self.assertTrue(models.contains_model("bge-large-en-v1.5"))
+        self.assertFalse(models.contains_model("non-existent-model"))
+
+        # 4. Error validation on bad payloads
+        with self.assertRaises(ValueError):
+            validate_props_payload({"device": "cuda"})  # missing n_gpu_layers
+        with self.assertRaises(ValueError):
+            validate_models_payload({"data": "not-a-list"})
+
+    def test_local_inference_readiness_with_canonical_fixtures(self):
+        from tools.inference.local_client import LocalInferenceClient
+        from tools.inference.contracts import (
+            CANONICAL_FIXTURE_PROPS_CUDA,
+            CANONICAL_FIXTURE_PROPS_CPU_INVALID,
+            CANONICAL_FIXTURE_MODELS,
+        )
+        from unittest.mock import patch, MagicMock
+
+        client = LocalInferenceClient()
+
+        # Test against Canonical CUDA + Models fixtures -> Must pass readiness
+        with patch.object(client, "health_check", return_value={"online": True, "models": CANONICAL_FIXTURE_MODELS["data"]}):
+            with patch("urllib.request.urlopen") as mock_open:
+                mock_resp = MagicMock()
+                mock_resp.read.return_value = json.dumps(CANONICAL_FIXTURE_PROPS_CUDA).encode("utf-8")
+                mock_resp.__enter__.return_value = mock_resp
+                mock_open.return_value = mock_resp
+
+                res = client.readiness_check(
+                    required_model="qwen2.5-coder-32b-instruct",
+                    require_cuda=True,
+                )
+                self.assertTrue(res["ready"])
+
+        # Test against Canonical CPU fixture -> Must fail closed
+        with patch.object(client, "health_check", return_value={"online": True, "models": CANONICAL_FIXTURE_MODELS["data"]}):
+            with patch("urllib.request.urlopen") as mock_open:
+                mock_resp = MagicMock()
+                mock_resp.read.return_value = json.dumps(CANONICAL_FIXTURE_PROPS_CPU_INVALID).encode("utf-8")
+                mock_resp.__enter__.return_value = mock_resp
+                mock_open.return_value = mock_resp
+
+                res = client.readiness_check(
+                    required_model="qwen2.5-coder-32b-instruct",
+                    require_cuda=True,
+                )
+                self.assertFalse(res["ready"])
+                self.assertIn("CPU-only mode", res["error"])
+
+    def test_vector_db_high_concurrency_and_idempotence(self):
+        import concurrent.futures
+        from tools.indexer.embed_corpus import LibraryVectorDB
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            db_file = Path(tmp_dir) / "test_concurrent.db"
+            vdb = LibraryVectorDB(db_file)
+
+            def worker_insert(chunk_id: int):
+                vdb.upsert_chunk(
+                    doc_id=f"DOC-{chunk_id}",
+                    relative_path=f"docs/doc_{chunk_id}.md",
+                    chunk_index=0,
+                    chunk_text=f"Concurrent payload content for chunk {chunk_id}",
+                    sha256=f"sha_{chunk_id}",
+                    embedding=[float(chunk_id % 10), 1.0, 2.0],
+                    provenance="real",
+                    model_name="local-embed",
+                )
+                return chunk_id
+
+            # Run 40 concurrent inserts across 8 worker threads
+            num_chunks = 40
+            with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+                futures = [executor.submit(worker_insert, i) for i in range(num_chunks)]
+                results = [f.result() for f in concurrent.futures.as_completed(futures)]
+
+            self.assertEqual(len(results), num_chunks)
+            self.assertEqual(vdb.count_chunks(), num_chunks)
+
+            # Re-run the exact same inserts concurrently to verify 100% idempotence under concurrency
+            with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+                futures = [executor.submit(worker_insert, i) for i in range(num_chunks)]
+                results = [f.result() for f in concurrent.futures.as_completed(futures)]
+
+            self.assertEqual(vdb.count_chunks(), num_chunks)
+
+    def test_vector_db_atomic_document_upsert(self):
+        from tools.indexer.embed_corpus import LibraryVectorDB
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            db_file = Path(tmp_dir) / "test_atomic_doc.db"
+            vdb = LibraryVectorDB(db_file)
+
+            chunks_v1 = [
+                (0, "Paragraph 1 v1", "sha1", [1.0, 0.0]),
+                (1, "Paragraph 2 v1", "sha2", [0.0, 1.0]),
+                (2, "Paragraph 3 v1", "sha3", [0.5, 0.5]),
+            ]
+            ok = vdb.upsert_document_chunks(
+                doc_id="DOC-ATOMIC",
+                relative_path="docs/atomic.md",
+                chunks=chunks_v1,
+                provenance="real",
+                model_name="local-embed",
+            )
+            self.assertTrue(ok)
+            self.assertEqual(vdb.count_chunks(), 3)
+
+            # Replace with a 2-chunk version -> Old 3 chunks must be replaced atomically
+            chunks_v2 = [
+                (0, "Paragraph 1 v2", "sha4", [0.8, 0.2]),
+                (1, "Paragraph 2 v2", "sha5", [0.2, 0.8]),
+            ]
+            ok2 = vdb.upsert_document_chunks(
+                doc_id="DOC-ATOMIC",
+                relative_path="docs/atomic.md",
+                chunks=chunks_v2,
+                provenance="real",
+                model_name="local-embed",
+            )
+            self.assertTrue(ok2)
+            self.assertEqual(vdb.count_chunks(), 2)
 
 
 if __name__ == "__main__":
     unittest.main()
+

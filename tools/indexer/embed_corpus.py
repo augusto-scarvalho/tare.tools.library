@@ -123,6 +123,38 @@ class LibraryVectorDB:
             finally:
                 conn.close()
 
+    def upsert_document_chunks(
+        self,
+        doc_id: str,
+        relative_path: str,
+        chunks: List[Tuple[int, str, str, List[float]]],
+        provenance: str = "real",
+        model_name: str = "local-embed",
+        max_retries: int = 5,
+    ) -> bool:
+        """Atomically upsert all chunks for a document in a single transaction (all-or-nothing)."""
+        import time
+        for attempt in range(max_retries):
+            conn = sqlite3.connect(self.db_path, timeout=10.0)
+            try:
+                conn.execute("PRAGMA busy_timeout=10000;")
+                with conn:
+                    conn.execute("DELETE FROM document_chunks WHERE relative_path = ? AND model_name = ?", (relative_path, model_name))
+                    for chunk_idx, chunk_text, sha, emb in chunks:
+                        conn.execute("""
+                            INSERT INTO document_chunks (doc_id, relative_path, chunk_index, chunk_text, sha256, dimensions, provenance, model_name, embedding_json)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """, (doc_id, relative_path, chunk_idx, chunk_text, sha, len(emb), provenance, model_name, json.dumps(emb)))
+                return True
+            except sqlite3.OperationalError as e:
+                if ("locked" in str(e).lower() or "busy" in str(e).lower()) and attempt < max_retries - 1:
+                    time.sleep(0.05 * (2 ** attempt))
+                    continue
+                raise
+            finally:
+                conn.close()
+        return False
+
     def search(
         self,
         query_embedding: List[float],
@@ -268,23 +300,21 @@ def main() -> int:
         print(f"[SEARCH] Querying: '{args.query}'...")
         if client.health_check().get("online"):
             q_emb = client.generate_embeddings([args.query])[0]
-            prov = args.provenance or "real"
+            prov = "real"
         else:
-            q_emb = [float(b) / 255.0 for b in hashlib.sha256(args.query.encode("utf-8")).digest()]
+            q_digest = hashlib.sha256(args.query.encode("utf-8")).digest()
+            q_emb = [float(b) / 255.0 for b in q_digest]
             prov = args.provenance or "pseudo"
 
         results = db.search(q_emb, top_k=args.top_k, provenance=prov, model_name=args.model)
-        if not results:
-            print("No matching vector results.")
-            return 0
-        for i, r in enumerate(results, 1):
-            print(f"{i}. [{r.doc_id}] ({r.relative_path}#chunk{r.chunk_index}) [Score: {r.score:.3f}]")
-            print(f"   Excerpt: {r.text_snippet}\n")
+        print(f"\n[RESULTS] Found {len(results)} matches in namespace ({args.model}, {prov}):")
+        for i, res in enumerate(results, 1):
+            print(f"{i}. [{res.score:.4f}] {res.doc_id} ({res.relative_path}#chunk-{res.chunk_index})")
+            print(f"   {res.text_snippet}\n")
         return 0
 
-    else:
-        index_corpus(root_dir=root_path, client=client, db=db)
-        return 0
+    indexed = index_corpus(root_path, client, db, model_name=args.model)
+    return 0 if indexed >= 0 else 1
 
 
 if __name__ == "__main__":
