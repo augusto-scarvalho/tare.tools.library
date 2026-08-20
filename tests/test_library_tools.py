@@ -611,8 +611,54 @@ class LibraryToolsTests(unittest.TestCase):
             res = translate_markdown("# Local Inference Architecture\nThis document describes the pipeline.", client=client)
             self.assertIn("Arquitetura de Inferência Local", res)
 
+    def test_harvester_classification_and_crawler(self):
+        from tools.bookkeeper.harvest_corpus import (
+            classify_document_type,
+            scan_source_directory,
+            run_harvester,
+        )
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            ext_source = tmp_path / "external_repo"
+            ext_source.mkdir(parents=True, exist_ok=True)
+            lib_root = tmp_path / "lib_repo"
+            lib_root.mkdir(parents=True, exist_ok=True)
+
+            # Create test documents in external source
+            doc_adr = ext_source / "ADR-099_federated_harvesting.md"
+            doc_adr.write_text("# ADR-099: Federated Harvesting\nSpecifications for multi-source crawler.", encoding="utf-8")
+
+            doc_spec = ext_source / "SPEC-KERNEL-002.md"
+            doc_spec.write_text("# SPEC-KERNEL-002: Kernel OpenSDD\nStrict execution envelope.", encoding="utf-8")
+
+            doc_noise = ext_source / "package-lock.json"
+            doc_noise.write_text("{}", encoding="utf-8")
+
+            doc_tiny = ext_source / "stub.md"
+            doc_tiny.write_text("abc", encoding="utf-8")  # < 100 bytes -> ignored
+
+            # Classification checks
+            self.assertEqual(classify_document_type(doc_adr, doc_adr.read_text("utf-8")), "adr")
+            self.assertEqual(classify_document_type(doc_spec, doc_spec.read_text("utf-8")), "spec")
+
+            # Scan source directory (Dry-Run mode)
+            discovered = scan_source_directory(ext_source, library_root=lib_root)
+            self.assertEqual(len(discovered), 2)  # ADR and SPEC; noise & stub ignored
+            self.assertTrue(all(d.status == "NEW" for d in discovered))
+
+            # Run harvester with apply=True
+            report = run_harvester([ext_source], apply_ingest=True, library_root=lib_root)
+            self.assertEqual(report.ingested_count, 2)
+
+            # Re-running harvester must detect exact duplicates (idempotence)
+            report_re = run_harvester([ext_source], apply_ingest=True, library_root=lib_root)
+            self.assertEqual(report_re.ingested_count, 0)
+            self.assertEqual(report_re.skipped_duplicate_count, 2)
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
