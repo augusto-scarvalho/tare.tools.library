@@ -2,17 +2,19 @@
 
 Provides instant CLI and programmatic lookups of ADRs, OpenSDD Specifications,
 Acceptance Criteria (AC), and Empirical Benchmarks with token-efficient output envelopes.
+Supports Lexical Keyword Search, Dense Semantic Vector Search, and Local RAG Synthesis via LLM.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
     try:
@@ -22,6 +24,10 @@ if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
         pass
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.inference.local_client import LocalInferenceClient, LocalInferenceConfig
 
 
 @dataclass
@@ -59,7 +65,7 @@ def get_spec(spec_id: str, root_dir: str | Path = ROOT) -> Optional[str]:
         return None
 
     clean_id = spec_id.upper().strip()
-    for spec_file in spec_dir.rglob("*.md"):
+    for spec_file in spec_dir.glob("*.md"):
         if clean_id in spec_file.stem.upper():
             return spec_file.read_text(encoding="utf-8", errors="ignore")
     return None
@@ -71,53 +77,53 @@ def search_library(
     filter_type: Optional[str] = None,
     root_dir: str | Path = ROOT,
 ) -> List[QueryResult]:
-    """Perform keyword and regex search across active docs, ranking results by relevance."""
+    """Fast in-memory full-text keyword search across all indexed markdown files."""
     root = Path(root_dir)
     query_terms = [t.lower() for t in query.split() if len(t) > 2]
+    if not query_terms:
+        query_terms = [query.lower()]
+
     results: List[QueryResult] = []
+    seen_paths: set[Path] = set()
 
-    target_dirs = [root / "docs", root / "specs", root / "experiments"]
-    for base_dir in target_dirs:
-        if not base_dir.exists():
+    target_dirs = [
+        ("adr", root / "docs" / "adr"),
+        ("spec", root / "specs"),
+        ("experiment", root / "experiments"),
+        ("post_mortem", root / "findings" / "post-mortems"),
+        ("canonical", root / "canonical-references"),
+        ("doc", root / "docs"),
+    ]
+
+    for dtype, dpath in target_dirs:
+        if filter_type and dtype != filter_type:
             continue
-        for file_path in base_dir.rglob("*.md"):
-            if file_path.name.upper() == "README.MD" or ".git" in file_path.parts:
-                continue
+        if not dpath.exists():
+            continue
 
-            # Determine doc type
-            rel = str(file_path.relative_to(root)).replace("\\", "/")
-            if "docs/adr" in rel:
-                dtype = "adr"
-            elif "specs" in rel:
-                dtype = "spec"
-            elif "experiments" in rel:
-                dtype = "experiment"
-            elif "post-mortems" in rel:
-                dtype = "post_mortem"
-            else:
-                dtype = "doc"
-
-            if filter_type and dtype != filter_type.lower():
+        for file_path in dpath.rglob("*.md"):
+            resolved = file_path.resolve()
+            if resolved in seen_paths:
                 continue
+            seen_paths.add(resolved)
 
             try:
                 text = file_path.read_text(encoding="utf-8", errors="ignore")
                 text_lower = text.lower()
+                rel = str(file_path.relative_to(root)).replace("\\", "/")
 
-                # Score matching terms
+                # Calculate score based on term matches
                 score = 0.0
-                title_match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
-                title = title_match.group(1).strip() if title_match else file_path.stem
-
-                # Title match weighting
                 for t in query_terms:
-                    if t in title.lower():
-                        score += 10.0
-                    if t in text_lower:
-                        score += text_lower.count(t) * 1.0
+                    score += text_lower.count(t) * 1.0
 
-                if score > 0.0:
-                    # Extract best matching paragraph for context envelope
+
+                if score > 0:
+                    # Extract title
+                    title_match = re.search(r"^#\s+(.+)$", text, re.MULTILINE)
+                    title = title_match.group(1).strip() if title_match else file_path.stem
+
+                    # Extract best matching paragraph
                     paragraphs = text.split("\n\n")
                     best_para = paragraphs[0]
                     best_para_score = 0
@@ -128,7 +134,6 @@ def search_library(
                             best_para_score = p_score
                             best_para = p.strip()
 
-                    # Truncate snippet to 300 chars
                     snippet = best_para[:400] + ("..." if len(best_para) > 400 else "")
 
                     results.append(
@@ -148,6 +153,101 @@ def search_library(
     return results[:max_results]
 
 
+def semantic_search_library(
+    query: str,
+    max_results: int = 5,
+    client: Optional[LocalInferenceClient] = None,
+    root_dir: str | Path = ROOT,
+) -> List[QueryResult]:
+    """Dense vector semantic search using SQLite LibraryVectorDB and local embedding endpoint."""
+    from tools.indexer.embed_corpus import LibraryVectorDB
+
+    root = Path(root_dir)
+    db_path = root / "catalog" / "library_vectors.db"
+    if not db_path.exists():
+        # Fallback to lexical if vector DB has not been materialized yet
+        return search_library(query, max_results=max_results, root_dir=root_dir)
+
+    db = LibraryVectorDB(db_path)
+    client = client or LocalInferenceClient()
+
+    # Generate query embedding
+    try:
+        if client.health_check().get("online"):
+            embs = client.generate_embeddings([query])
+            if embs:
+                vec_results = db.search(embs[0], top_k=max_results, allow_any_namespace=True)
+                return [
+                    QueryResult(
+                        doc_id=vr.doc_id,
+                        doc_type="vector_match",
+                        title=vr.relative_path,
+                        relative_path=vr.relative_path,
+                        snippet=vr.text_snippet,
+                        score=vr.score,
+                    )
+                    for vr in vec_results
+                ]
+    except Exception:
+        pass
+
+    # Fallback to keyword search
+    return search_library(query, max_results=max_results, root_dir=root_dir)
+
+
+def ask_library(
+    question: str,
+    max_context_chunks: int = 3,
+    client: Optional[LocalInferenceClient] = None,
+    root_dir: str | Path = ROOT,
+) -> Dict[str, Any]:
+    """Full RAG pipeline: retrieves relevant context and synthesizes an answer via Local LLM."""
+    client = client or LocalInferenceClient()
+    
+    # 1. Retrieve most relevant context chunks
+    matches = semantic_search_library(question, max_results=max_context_chunks, client=client, root_dir=root_dir)
+    
+    if not matches:
+        return {
+            "answer": "No relevant documents found in the library to answer this question.",
+            "sources": [],
+        }
+
+    context_str = "\n\n---\n\n".join(
+        f"Source: {m.relative_path}\nExcerpt: {m.snippet}" for m in matches
+    )
+
+    prompt = (
+        f"You are the architectural intelligence assistant for tare.tools.library.\n"
+        f"Answer the user question accurately and concisely, citing specific ADRs, SPECs, or sources.\n\n"
+        f"=== CONTEXT FROM LIBRARY ===\n{context_str}\n\n"
+        f"=== USER QUESTION ===\n{question}\n\n"
+        f"=== ANSWER ==="
+    )
+
+    messages = [
+        {"role": "system", "content": "You are a precise technical architecture assistant."},
+        {"role": "user", "content": prompt},
+    ]
+
+    try:
+        if client.health_check().get("online"):
+            answer = client.chat_completion(messages, max_tokens=1024, temperature=0.1)
+        else:
+            answer = (
+                f"[OFFLINE SYNTHESIS - Server Offline]\n\n"
+                f"Most relevant excerpts found in the library:\n\n{context_str}"
+            )
+    except Exception as e:
+        answer = f"[ERROR querying local LLM]: {e}\n\nRelevant excerpts:\n{context_str}"
+
+    return {
+        "answer": answer,
+        "sources": [m.relative_path for m in matches],
+        "matches": matches,
+    }
+
+
 def lookup_concept(concept_name: str, root_dir: str | Path = ROOT) -> Optional[Dict[str, Any]]:
     """Lookup architectural concept in ontology/domain_ontology.yaml."""
     root = Path(root_dir)
@@ -156,10 +256,8 @@ def lookup_concept(concept_name: str, root_dir: str | Path = ROOT) -> Optional[D
         return None
 
     raw_text = onto_path.read_text(encoding="utf-8", errors="ignore")
-    # Quick simple parser for YAML concepts
     clean_target = concept_name.lower().replace("-", "").replace("_", "").replace(" ", "")
-    
-    # Split into concept blocks
+
     blocks = raw_text.split("- id:")
     for b in blocks[1:]:
         lines = b.splitlines()
@@ -172,17 +270,42 @@ def lookup_concept(concept_name: str, root_dir: str | Path = ROOT) -> Optional[D
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Query CLI for tare.tools.library")
-    parser.add_argument("--search", "-s", help="Free-form query string")
+    parser.add_argument("--search", "-s", help="Free-form lexical keyword search")
+    parser.add_argument("--semantic", "-v", help="Dense semantic vector search across embeddings")
+    parser.add_argument("--ask", "-a", help="Ask a question to the library with local LLM RAG synthesis")
     parser.add_argument("--adr", help="Fetch specific ADR by ID (e.g. 'ADR-051')")
     parser.add_argument("--spec", help="Fetch specific SPEC by ID (e.g. 'SPEC-KERNEL-001')")
     parser.add_argument("--concept", "-c", help="Lookup architectural concept in domain ontology")
-    parser.add_argument("--type", "-t", choices=["adr", "spec", "experiment", "post_mortem", "doc"], help="Filter by document type")
+    parser.add_argument("--type", "-t", choices=["adr", "spec", "experiment", "post_mortem", "doc", "canonical"], help="Filter by document type")
     parser.add_argument("--limit", "-n", type=int, default=5, help="Max results to return")
     parser.add_argument("--root", default=".", help="Root directory of the library")
 
     args = parser.parse_args()
 
-    if args.concept:
+    if args.ask:
+        print(f"[*] Querying tare.tools.library RAG with question: '{args.ask}'...\n")
+        rag_res = ask_library(args.ask, max_context_chunks=args.limit, root_dir=args.root)
+        print("=" * 70)
+        print(rag_res["answer"])
+        print("=" * 70)
+        print("\n📚 Fontes Consultadas:")
+        for s in rag_res["sources"]:
+            print(f"  • {s}")
+        return 0
+
+    elif args.semantic:
+        results = semantic_search_library(args.semantic, max_results=args.limit, root_dir=args.root)
+        if not results:
+            print(f"[QUERY] No vector matches found for '{args.semantic}'.")
+            return 0
+
+        print(f"[SEMANTIC SEARCH RESULTS] Found {len(results)} matches for '{args.semantic}':\n")
+        for i, r in enumerate(results, 1):
+            print(f"{i}. {r.title} [Score: {r.score:.3f}]")
+            print(f"   Excerpt: {r.snippet}\n")
+        return 0
+
+    elif args.concept:
         res = lookup_concept(args.concept, args.root)
         if res:
             print(f"[FOUND CONCEPT: {res['id']}]\n")
