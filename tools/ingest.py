@@ -2,6 +2,7 @@
 
 Provides unified, zero-friction ingestion of architectural decisions, specifications,
 empirical experiments, incident post-mortems, and historical chat transcripts.
+Optionally triggers local LLM summarization and dense vector indexing in one step.
 """
 
 from __future__ import annotations
@@ -178,37 +179,96 @@ def ingest_document(
     )
 
 
+def auto_index_file(target_file: Path, root_dir: Path) -> int:
+    """Vectorize single ingested document into SQLite Vector store."""
+    from tools.inference.local_client import LocalInferenceClient
+    from tools.indexer.embed_corpus import LibraryVectorDB, chunk_markdown
+
+    client = LocalInferenceClient()
+    db = LibraryVectorDB(root_dir / "catalog" / "library_vectors.db")
+    content = target_file.read_text(encoding="utf-8", errors="ignore")
+    chunks = chunk_markdown(content)
+    if not chunks:
+        return 0
+
+    rel_path = str(target_file.relative_to(root_dir)).replace("\\", "/")
+    sha = hashlib.sha256(content.encode("utf-8")).hexdigest()
+    server_online = client.health_check().get("online", False)
+
+    try:
+        embs = client.generate_embeddings(chunks) if server_online else None
+        prov = "real" if embs else "pseudo"
+    except Exception:
+        embs = None
+        prov = "pseudo"
+
+    chunk_tuples = []
+    for idx, chunk in enumerate(chunks):
+        if embs and idx < len(embs):
+            emb = embs[idx]
+        else:
+            digest = hashlib.sha256(chunk.encode("utf-8")).digest()
+            emb = [float(b) / 255.0 for b in digest]
+        chunk_tuples.append((idx, chunk, sha, emb))
+
+    db.upsert_document_chunks(
+        doc_id=target_file.stem,
+        relative_path=rel_path,
+        chunks=chunk_tuples,
+        provenance=prov,
+        model_name="local-embed",
+    )
+    return len(chunk_tuples)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Automated Ingestion CLI for tare.tools.library")
     parser.add_argument("--file", "-f", required=True, help="Path to markdown document to ingest")
     parser.add_argument("--type", "-t", required=True, choices=list(TYPE_ROUTING.keys()), help="Document type")
     parser.add_argument("--title", help="Human-readable title (defaults to filename)")
     parser.add_argument("--category", "-c", default="", help="Sub-category (e.g. 'local-llm', 'routing' for experiments)")
+    parser.add_argument("--embed", "-e", action="store_true", help="Automatically vectorize and index into catalog/library_vectors.db")
+    parser.add_argument("--summarize", "-s", action="store_true", help="Automatically generate executive summary & ontology tags via local LLM")
     parser.add_argument("--force", action="store_true", help="Force ingestion even if similarity > 90%")
     parser.add_argument("--root", default=".", help="Root directory of tare.tools.library")
 
     args = parser.parse_args()
+    root_path = Path(args.root).resolve()
+
     res = ingest_document(
         source_path=args.file,
         doc_type=args.type,
         title=args.title or "",
         category=args.category,
         force=args.force,
-        root_dir=args.root,
+        root_dir=root_path,
     )
 
-    if res.success:
-        print(f"[INGESTION SUCCESS] {res.message}")
-        print(f"  - Doc ID: {res.doc_id}")
-        print(f"  - Path: {res.target_path}")
-        print(f"  - SHA-256: {res.sha256}")
-        return 0
-    else:
+    if not res.success:
         print(f"[INGESTION ERROR] {res.message}")
         if res.is_duplicate:
             print(f"  - Conflicting File: {res.duplicate_match}")
             print("  - Use --force to override deduplication rejection.")
         return 1
+
+    print(f"[INGESTION SUCCESS] {res.message}")
+    print(f"  - Doc ID: {res.doc_id}")
+    print(f"  - Path: {res.target_path}")
+    print(f"  - SHA-256: {res.sha256}")
+
+    if args.embed and res.target_path:
+        count = auto_index_file(res.target_path, root_path)
+        print(f"  - Vector DB: {count} chunks embedded and indexed into catalog/library_vectors.db")
+
+    if args.summarize and res.target_path:
+        from tools.inference.summarize_reference import summarize_document
+        print("\n[*] Generating Architectural Summary via Local LLM...")
+        sum_res = summarize_document(res.target_path)
+        print(f"  - Resumo: {sum_res.get('executive_summary')}")
+        if sum_res.get("matched_concepts"):
+            print(f"  - Conceitos: {', '.join(sum_res.get('matched_concepts'))}")
+
+    return 0
 
 
 if __name__ == "__main__":
