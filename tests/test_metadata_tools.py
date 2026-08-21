@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class MetadataToolTests(unittest.TestCase):
     def test_source_index_is_nonempty_and_tracking_params_removed(self):
         subprocess.run([sys.executable,'tools/build_source_index.py'],cwd=ROOT,check=True,capture_output=True,text=True)
-        d=json.loads((ROOT/'sources'/'SOURCE_INDEX.json').read_text(encoding='utf-8'))
+        d=json.loads((ROOT/'catalog/sources'/'SOURCE_INDEX.json').read_text(encoding='utf-8'))
         self.assertEqual(d['documents_scanned'],sum(d['origin_counts'].values()))
         self.assertGreaterEqual(d['origin_counts']['chat-corpus-original'],13)
         self.assertEqual(d['origin_counts']['private-github-snapshot-2026-08-05'],93)

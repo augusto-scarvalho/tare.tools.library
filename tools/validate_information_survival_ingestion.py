@@ -30,7 +30,7 @@ else:
  if r.get('role')!='cross-lineage-research-object': errs.append('research object role mismatch')
  if len(r.get('lineage_ids',[]))<8: errs.append('insufficient cross-lineage mapping')
 for name in ['information-survival-demand-lineage-corpus-integration-review-2026-08-12.html','information-survival-demand-lineage-corpus-integration-review-2026-08-12.en.html','information-survival-demand-lineage-technical-integration-delta-2026-08-12.html','information-survival-demand-lineage-technical-integration-delta-2026-08-12.en.html']:
- p=ROOT/'refresh-editions/2026-08-12/information-survival-demand-lineage'/name
+ p=ROOT/'docs/archive/refresh-editions/2026-08-12/information-survival-demand-lineage'/name
  if not p.exists(): errs.append(f'derived doc missing {name}'); continue
  s=p.read_text(encoding='utf-8'); ids=re.findall(r'\bid="([^"]+)"',s); anchors=re.findall(r'href="#([^"]+)"',s)
  if len(ids)!=len(set(ids)): errs.append(f'duplicate ids {name}')

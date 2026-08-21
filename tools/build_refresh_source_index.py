@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 import json
 ROOT=Path(__file__).resolve().parents[1]
-REF=ROOT/'refresh-editions'/'2026-08-11'
+REF=ROOT/'docs/archive/refresh-editions'/'2026-08-11'
 class P(HTMLParser):
     def __init__(self): super().__init__(); self.urls=[]
     def handle_starttag(self,tag,attrs):

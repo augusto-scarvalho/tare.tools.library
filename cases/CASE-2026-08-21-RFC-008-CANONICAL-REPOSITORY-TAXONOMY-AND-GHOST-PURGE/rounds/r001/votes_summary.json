@@ -1,0 +1,73 @@
+{
+  "google": {
+    "status": "OK",
+    "provider": "google",
+    "model": "gemini-3.7-flash",
+    "vote": {
+      "seat": "google",
+      "execution_nonce": "b5c20848-55eb-48a8-aa40-1c4e19ecfaea",
+      "verdict": "APPROVE",
+      "confidence": 0.99,
+      "summary": "A reestruturação proposta pela RFC-008 resolve de forma definitiva o débito técnico de dispersão taxonômica e fragmentação estrutural no repositório tare.tools.library. A erradicação de pastas fantasmas contendo apenas .gitkeep, a unificação dos estudos em docs/research/ e docs/architecture/, aliada à instituição do diretório controlado docs/archive/ sob governança rigorosa do FrugalityGuard, restabelece a integridade estrutural e a máxima frugalidade epistêmica do projeto, com validação empírica assegurada por 100% da suíte de testes passando verde (157/157).",
+      "strengths": [
+        "Eliminação completa de 15 arquivos .gitkeep residuais e erradicação de diretórios fantasmas/vazios.",
+        "Instituição canônica de `docs/archive/` como categoria histórica controlada com regras formais de FrugalityGuard contra vazamento de logs e dados não sanitizados.",
+        "Consolidação elegante e previsível da árvore de diretórios (`docs/`, `catalog/sources/`, `tools/`, `cases/`), simplificando a descoberta de artefatos.",
+        "Garantia de não-regressão comprovada pela execução integral e sem falhas da suíte de testes (157/157 testes verdes)."
+      ],
+      "issues": [],
+      "recommendations": [
+        "Integrar regra de falsificação no pipeline de CI para rejeitar preventivamente commits que introduzam pastas vazias ou arquivos .gitkeep não autorizados.",
+        "Manter rotina periódica de conformidade automatizada no `docs/archive/` para assegurar a aderência contínua às diretrizes do FrugalityGuard."
+      ]
+    }
+  },
+  "openai": {
+    "status": "OK",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "vote": {
+      "seat": "openai",
+      "execution_nonce": "8389ab97-189a-418d-af4b-9e3c64bd46c1",
+      "verdict": "APPROVE",
+      "confidence": 0.99,
+      "summary": "A RFC-008 estabelece uma taxonomia canônica mais enxuta, coerente com o princípio de SSOT e operacionalmente validada pela eliminação de diretórios fantasmas, consolidação dos artefatos históricos e aprovação integral da suíte de 157 testes. O docs/archive/ possui finalidade delimitada e controles suficientes para evitar que se converta em depósito indiscriminado.",
+      "strengths": [
+        "Reduz fragmentação e ambiguidade taxonômica por meio de uma migração mecânica, verificável e sem diretórios residuais vazios.",
+        "Institui um arquivo histórico controlado com regras explícitas de admissão e proibições automatizáveis pelo FrugalityGuard."
+      ],
+      "issues": [],
+      "recommendations": [
+        "Manter no CI uma verificação simples que rejeite diretórios vazios, arquivos .gitkeep e conteúdo proibido em docs/archive/, além de validar referências a caminhos removidos."
+      ]
+    }
+  },
+  "anthropic": {
+    "status": "OK",
+    "provider": "anthropic",
+    "model": "claude-fable-5-high",
+    "vote": {
+      "seat": "anthropic",
+      "execution_nonce": "nonce-anthropic-rfc008",
+      "verdict": "APPROVE_WITH_CONDITIONS",
+      "confidence": 0.82,
+      "summary": "A direção da RFC-008 é correta e a execução central está confirmada no disco: sources/, proposals/, research/00..19, refresh-editions/ e incoming/ não existem mais na raiz; docs/archive/ foi instituído contendo incoming/ e refresh-editions/; a suíte executa 157/157 verde (verificado: '157 passed in 28.85s'). Porém duas evidências declaradas não se sustentam na verificação independente: (a) 'zero diretórios vazios ou fantasmas' é falso — existem 12 diretórios vazios, e 8 deles são as pastas fantasmas originais apenas relocadas (sources/* -> catalog/sources/{academic,bibliography,community,repositories,standards,vendors}; proposals/* -> docs/proposals/{architecture,experiments}), mais experiments/{routing,runtime,workflow} e tools/validate_canonical_html; (b) a taxonomia canônica da §2 não reflete o disco: docs/architecture/ e docs/guides/ não existem, enquanto archaeology/, canonical-references/, corpus/, editorial-editions/, experiments/, findings/, ontology/, scripts/ e site/ existem na raiz sem figurar na árvore canônica. A migração está ainda inteiramente não commitada (working tree com deleções pendentes). Aprovo o mérito; condiciono a ratificação à correção do relatório de evidências e à conciliação árvore-declarada vs árvore-real.",
+      "strengths": [
+        "Eliminação efetiva das 20 pastas numeradas research/00..19 e dos diretórios legados de staging na raiz, com archive controlado em docs/archive/ preservando histórico sem poluir o runtime.",
+        "Suíte de testes integralmente verde após a migração (157/157 verificado por execução direta), indicando que os apontamentos de caminho foram atualizados de forma consistente.",
+        "Regra de governança do docs/archive/ (proibição de transcrições brutas, logs voláteis e notas confidenciais) é clara, enforcement-friendly e alinhada à segregação corpus/cofre ratificada na ADR-066."
+      ],
+      "issues": [
+        "Evidência #3 ('zero diretórios vazios ou fantasmas') é falsa: 12 diretórios vazios presentes, 8 dos quais são as pastas fantasmas originais apenas movidas para catalog/sources/ e docs/proposals/. Como git não versiona diretórios vazios, eles desaparecem no clone — mas a alegação de hardening não corresponde ao disco.",
+        "A árvore canônica da §2 diverge da realidade: docs/architecture/ e docs/guides/ inexistem; 9 diretórios de raiz (archaeology, canonical-references, corpus, editorial-editions, experiments, findings, ontology, scripts, site) ficam sem categoria canônica declarada, recriando a fragmentação taxonômica que a RFC pretende eliminar.",
+        "Migração não commitada: todas as deleções e movimentos estão apenas no working tree. Sem commit, não há artefato auditável para ratificação pela Mesa."
+      ],
+      "recommendations": [
+        "Remover fisicamente os 12 diretórios vazios remanescentes (rmdir) e corrigir o relatório de evidências antes da ratificação; não recriar placeholders — criar a pasta quando houver o primeiro artefato real.",
+        "Reconciliar a §2 com o disco: ou criar docs/architecture/ e docs/guides/ com conteúdo migrado real, ou retirá-los da taxonomia declarada; e atribuir categoria explícita (manter, fundir ou arquivar em docs/archive/) para cada um dos 9 diretórios de raiz omitidos.",
+        "Adicionar um único teste falsificador de CI que falhe se surgir qualquer diretório vazio ou .gitkeep fora de uma allowlist mínima, substituindo a auditoria manual por enforcement contínuo.",
+        "Commitar a migração em um PR dedicado com 'git mv' preservando histórico, e referenciar o hash do commit no registro da decisão RFC-008."
+      ]
+    }
+  }
+}

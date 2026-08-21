@@ -1,7 +1,7 @@
 import json, unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-REF=ROOT/'refresh-editions'/'2026-08-11'
+REF=ROOT/'docs/archive/refresh-editions'/'2026-08-11'
 class RefreshTests(unittest.TestCase):
     def test_refresh_coverage_and_qa(self):
         qa=json.loads((REF/'REFRESH_QA.json').read_text(encoding='utf-8'))

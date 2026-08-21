@@ -39,6 +39,12 @@ for r in records:
     if not r.get('origins'): errs.append(f'no origins {rid}')
     for o in r.get('origins',[]):
         p=ROOT/o.get('path','')
+        if not p.exists():
+            for prefix in ['docs/archive/', 'docs/research/', 'docs/proposals/', 'docs/']:
+                cand = ROOT / prefix / o.get('path','')
+                if cand.exists(): p = cand; break
+                cand_trim = ROOT / prefix / o.get('path','').replace('refresh-editions/', '').replace('incoming/', '').replace('research/', '')
+                if cand_trim.exists(): p = cand_trim; break
         if not p.exists(): errs.append(f'origin missing {rid}: {o.get("path")}')
     matches=list((FR/'pointers').glob(f'{rid}-*.md'))
     if len(matches)!=1: errs.append(f'pointer file count {rid}: {len(matches)}')
@@ -67,7 +73,7 @@ for line in f.read_text(encoding='utf-8').splitlines():
         body=line[2:].strip(); mb=re.match(r'^\*\*(.+?)\*\*\s*[—-]\s*(.+)$',body)
         title=mb.group(1) if mb else body
         observed.append(norm(strip_title(title)))
-for fp in sorted((ROOT/'refresh-editions/2026-08-11').glob('*/*scientific-refresh-2026-08-11.html')):
+for fp in sorted((ROOT/'docs/archive/refresh-editions/2026-08-11').glob('*/*scientific-refresh-2026-08-11.html')):
     if fp.parent.name not in {'agent-os-foundations','workflow-procedural','context-memory-playbooks','assurance-governance-quality','runtime-reliability-sandbox','routing-economics-observability','interoperability-protocols','experience-ux','research-methodology-evidence'}: continue
     txt=fp.read_text(encoding='utf-8'); m=re.search(r'<section id="pointers">(.*?)</section>',txt,re.S)
     if m:

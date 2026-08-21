@@ -36,7 +36,7 @@ else:
     if len(r.get('lineage_ids',[]))<6: errs.append('research object insufficient cross-lineage mapping')
 # Derived docs HTML basic structure and duplicate IDs/anchors
 for name in ['identity-lineage-learning-corpus-integration-review-2026-08-12.html','identity-lineage-learning-corpus-integration-review-2026-08-12.en.html','identity-lineage-learning-technical-integration-delta-2026-08-12.html','identity-lineage-learning-technical-integration-delta-2026-08-12.en.html']:
-    p=ROOT/'refresh-editions/2026-08-12/identity-lineage-learning'/name
+    p=ROOT/'docs/archive/refresh-editions/2026-08-12/identity-lineage-learning'/name
     if not p.exists(): errs.append(f'derived doc missing {name}'); continue
     s=p.read_text(encoding='utf-8')
     ids=re.findall(r'\bid="([^"]+)"',s)

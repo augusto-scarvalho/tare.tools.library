@@ -120,9 +120,9 @@ def cmd_validate_repo(args):
    if not tr.is_file(): errs.append(f'translation file missing: {tp.relative_to(root)}')
    elif tm.get('translation_sha256') != sha256(tr): errs.append(f'translation hash mismatch: {tp.relative_to(root)}')
    if tm.get('source_language')!='pt-BR' or tm.get('target_language')!='en': errs.append(f'translation language contract mismatch: {tp.relative_to(root)}')
- incoming=root/'incoming'
- if incoming.exists():
-  for p in incoming.rglob('PUBLISH_MANIFEST.json'):
+ incoming_dir=root/'docs/archive/incoming'
+ if incoming_dir.exists():
+  for p in incoming_dir.rglob('PUBLISH_MANIFEST.json'):
    manifest=load_json(p)
    errs += [f'{p.relative_to(root)}: {x}' for x in validate_manifest(manifest)]
    if manifest.get('packet_version')=='1.1':
@@ -158,7 +158,7 @@ def cmd_prepare(args):
  root=Path(args.root).resolve(); src=Path(args.document).resolve()
  if not src.is_file(): print('ERROR document not found'); return 2
  safe=args.document_id.replace('.','-')
- packet=root/'incoming'/safe
+ packet=root/'docs/archive/incoming'/safe
  if packet.exists(): print('ERROR packet already exists',packet); return 2
  packet.mkdir(parents=True)
  try:
