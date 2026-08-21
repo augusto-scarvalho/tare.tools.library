@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   publish:
+    if: ${{ secrets.TARE_PUBLISHER_APP_ID != '' && secrets.TARE_PUBLISHER_APP_PRIVATE_KEY != '' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
