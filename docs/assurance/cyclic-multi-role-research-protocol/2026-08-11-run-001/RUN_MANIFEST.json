@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "run_id": "CMRP-2026-08-11-001",
+  "method": "cyclic-multi-role-research-protocol",
+  "executor": {
+    "model": "GPT-5.6 Sol",
+    "runtime": "ChatGPT current session",
+    "mode": "same-model sequential roles",
+    "epistemic_independence": "NOT_INDEPENDENT"
+  },
+  "status": "COMPLETED_SCREENING_ONLY",
+  "strict_proof_eligible": false,
+  "role_artifacts": [
+    {
+      "file": "01-research-planner.md",
+      "sha256": "02221a95f50b3cd43635d3d5448dbb6e48a5cdb0ced6f4248a06323b6d2cd155",
+      "bytes": 3175
+    },
+    {
+      "file": "02-corpus-archaeologist.md",
+      "sha256": "8088f1551ab0ea18ef7a1c3e0edb8730cd01cf01b7836b68c61d363ef1dfd10c",
+      "bytes": 3003
+    },
+    {
+      "file": "03-literature-scout.md",
+      "sha256": "b6ec0c6404e5ac3ae96bdbd0375547eb004b3217dcd9b46c7a7fc2ab32062b6b",
+      "bytes": 2988
+    },
+    {
+      "file": "04-bleeding-edge-scout.md",
+      "sha256": "9ee081747a19e47d1d126a8bd7a95b99817a09057f97668fff45b4b3dfc58726",
+      "bytes": 2363
+    },
+    {
+      "file": "05-source-identity-curator.md",
+      "sha256": "8f6837be18c3e8c735f99c21dbb91dec3292c54a7255b5956a1283c2f7e27ee7",
+      "bytes": 2224
+    },
+    {
+      "file": "06-evidence-analyst.md",
+      "sha256": "1b591b1aedc86c3508ffc4c4c0b22d85926aadf6d9c929e171aaa74de179464a",
+      "bytes": 2607
+    },
+    {
+      "file": "07-architecture-reconciler.md",
+      "sha256": "ad2e168aa2a8e3c94b885fda04f20545dc91fc7a95bd66c5b5aabf9426165c73",
+      "bytes": 2777
+    },
+    {
+      "file": "08-experimental-designer.md",
+      "sha256": "431ef2652ed24459ec672de84969da6dd66b6cfaa1d1282aae8d0badedde7b73",
+      "bytes": 3133
+    },
+    {
+      "file": "09-adversarial-review-round1.md",
+      "sha256": "bdf9edef68858edc9bb091f31b90e1475a1e50472d7aa2d6576a30b64b2c83e4",
+      "bytes": 3540
+    },
+    {
+      "file": "10-revision-delta-round1.md",
+      "sha256": "9108d2047fde546db30f8a59f319edfc8de880799c76c4e51bfa38ea137bc4ac",
+      "bytes": 1909
+    },
+    {
+      "file": "11-final-audit.md",
+      "sha256": "ed4f7bdd6487683e982db5995a2d93c5d4e7c57a79961a1093012b8d21734698",
+      "bytes": 2056
+    }
+  ],
+  "external_effects": [
+    "web read/search only",
+    "local filesystem writes inside research bootstrap; no GitHub remote effects"
+  ],
+  "final_decision": "ADAPT / ACCEPT_FOR_EXPERIMENTAL_SHADOW_USE"
+}
