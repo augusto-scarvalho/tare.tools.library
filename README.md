@@ -2,14 +2,15 @@
 
 # tare.tools.library
 
-**The Central Technical Library & Canonical SSOT of Architectural Knowledge, Empirical Benchmarks, System Memory, and Historical Archaeology across the TARE 2.0 Ecosystem.**
+**The Central Technical Library & Canonical SSOT of Architectural Knowledge, Empirical Benchmarks, System Memory, and Long-Term Epistemic Evolution across the TARE 2.0 Ecosystem.**
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://python.org)
 [![CI Validation](https://github.com/augusto-scarvalho/tare.tools.library/actions/workflows/document-integrity.yml/badge.svg)](https://github.com/augusto-scarvalho/tare.tools.library/actions)
-[![Tests](https://img.shields.io/badge/Tests-71%2F71%20Passing-brightgreen.svg)](#formal-verification--quality-gates)
-[![Bookkeeper](https://img.shields.io/badge/Bookkeeper-100%25%20Compliant-purple.svg)](#the-bookkeeper--memory-hygiene-engine)
-[![Spec](https://img.shields.io/badge/Spec-ADR--051%20%7C%20ADR--052%20Ratified-success.svg)](docs/adr/)
+[![Tests](https://img.shields.io/badge/Tests-158%2F158%20Passing-brightgreen.svg)](#formal-verification--quality-gates)
+[![Governance](https://img.shields.io/badge/Mesa%20Redonda-Byzantine%20Consensus%20(ADR--065)-purple.svg)](cases/)
+[![Spec](https://img.shields.io/badge/Spec-ADR--001%20through%20ADR--067%20Ratified-success.svg)](docs/adr/)
+[![Frugality](https://img.shields.io/badge/Frugality%20Guard-%3C50MB%20Budget%20Enforced-orange.svg)](tests/test_frugality_guard.py)
 
 <p align="center">
   <a href="#what-is-taretoolslibrary">What is tare.tools.library</a> •
@@ -37,11 +38,12 @@
 `tare.tools.library` is the single canonical knowledge repository and long-term memory store powering the `tare.tools` agent operating system.
 
 Rather than fragmenting architecture decisions across transient chat sessions, unversioned wiki pages, or ephemeral code comments, `tare.tools.library` establishes a deterministic **Single Source of Truth (SSOT)** for:
-1. **Architectural Decisions (ADRs):** Fully deliberated, cryptographically attested North Star records ([ADR-001 through ADR-052](docs/adr/)).
-2. **Forensic Post-Mortems & RCAs:** Incident root-cause analyses with empirical measurements, commit hashes, and causal remediation plans.
-3. **Empirical Benchmarks & Experiments:** Objective hardware benchmarks, LLM quantization tests, and runtime evaluations ([`experiments/`](experiments/)).
-4. **Architectural Q&A Ledger:** A complete, living audit trail of strategic human operator inquiries and formal consensus verdicts ([`docs/ARCHITECTURAL_QA_LEDGER.md`](docs/ARCHITECTURAL_QA_LEDGER.md)).
-5. **Immutable Historical Archaeology:** A 93-document pre-consolidated fossil corpus preserved under strict cryptographic custody ([`archaeology/`](archaeology/)).
+1. **Architectural Decisions (ADRs):** Fully deliberated, cryptographically attested North Star records ([ADR-001 through ADR-067](docs/adr/)).
+2. **Tripartite Governance Cases (RFCs):** Deliberations with multi-seat Byzantine consensus (Google Gemini, OpenAI GPT, Anthropic Claude) under [`cases/`](cases/).
+3. **Forensic Post-Mortems & RCAs:** Incident root-cause analyses with empirical measurements, commit hashes, and causal remediation plans in [`docs/post-mortems/`](docs/post-mortems/).
+4. **Epistemic Research Frontier:** Continuous research radar, pointers, and evidence lineages in [`catalog/frontier/`](catalog/frontier/).
+5. **Domain Ontology & Schemas:** Formal entity definitions, capability contracts, and taxonomy schemas under [`catalog/`](catalog/).
+6. **Curated Historical Archive:** Canonical baseline references, past snapshot editions, and segregated archive in [`docs/archive/`](docs/archive/).
 
 ---
 
@@ -52,7 +54,7 @@ Governed by **[ADR-051](docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GO
 ```mermaid
 flowchart TD
     subgraph Axis1 ["1. Knowledge & Memory Axis (The Why)"]
-        Library["📚 tare.tools.library (Canonical SSOT)<br/>• Global ADRs (ADR-001 through ADR-052)<br/>• Incident Post-Mortems & RCA<br/>• Empirical Experiments (EXP-01..05)<br/>• Hybrid Substrate: Ontology & Dense Vectors"]
+        Library["📚 tare.tools.library (Canonical SSOT)<br/>• Global ADRs (ADR-001 through ADR-067)<br/>• Governance Cases & Byzantine Consensus<br/>• Epistemic Frontier Radar & Pointers<br/>• Hybrid Substrate: Ontology & Dense Vectors"]
     end
 
     subgraph Axis2 ["2. Order & Execution Axis (The When & What)"]
@@ -64,7 +66,7 @@ flowchart TD
     end
 
     subgraph Execution ["4. Zero-Cost Execution Substrate ($0)"]
-        ZeroCost["⚡ Triple Zero-Cost Substrate<br/>• Local slop.cpp @ aaaaa (RTX 3090): 24/7 Bookkeeper & Implementers<br/>• Gemini API Free Tier (1M+ tokens): Massive Chat Ingestion<br/>• NVIDIA Build NIMs: Dense Embeddings & Reranking"]
+        ZeroCost["⚡ Triple Zero-Cost Substrate<br/>• Local llama.cpp / slop @ aaaaa (RTX 3090): 24/7 Bookkeeper & MCP<br/>• Google Gemini API Free Tier (1M+ tokens): Deep Reasoning & Synthesis<br/>• NVIDIA Build NIMs: Dense Embeddings & Reranking"]
     end
 
     Library -->|Requirements & Acceptance Criteria| Backlog
@@ -89,21 +91,20 @@ flowchart TD
 
 To support unstructured technical narrative, structured architecture rules, and executable code ASTs without semantic loss:
 
-```
-                  ┌─────────────────────────────────────────────────────────┐
-                  │              HYBRID KNOWLEDGE SUBSTRATE                 │
-                  └─────────────────────────────────────────────────────────┘
-                                   │                       │
-           ┌───────────────────────┴───────────┐   ┌───────┴────────────────────────┐
-           ▼                                   ▼   ▼                                ▼
-┌─────────────────────┐   ┌─────────────────────────────┐   ┌─────────────────────────────┐
-│  Layer 1: Dense     │   │  Layer 2: Domain Ontology   │   │  Layer 3: Causal AST Graph  │
-│  Vector Embeddings  │   │  & Conceptual Graph         │   │  (SpecGraph Integration)    │
-├─────────────────────┤   ├─────────────────────────────┤   ├─────────────────────────────┤
-│ Free-form text,     │   │ Core concepts (Isolation,   │   │ Direct AST node linking     │
-│ raw transcripts,    │   │ Concurrency, Sandboxing)    │   │ to specifications, pytest   │
-│ semantic search RAG │   │ and semantic relations      │   │ markers, and git commits    │
-└─────────────────────┘   └─────────────────────────────┘   └─────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph Substrate ["🧠 HYBRID KNOWLEDGE SUBSTRATE (ADR-064)"]
+        direction LR
+        L1["<b>Layer 1: Dense Vector Embeddings</b><br/>• Nomic-Embed-Text v1.5 (8192-dim)<br/>• Semantic search & RAG retrieval<br/>• Approximate Nearest Neighbor"]
+        L2["<b>Layer 2: Domain Ontology Graph</b><br/>• Formal conceptual models<br/>• Explicit typed relationships<br/>• Zero-drift entity resolution"]
+        L3["<b>Layer 3: Causal AST Graph</b><br/>• SpecGraph SDD linking<br/>• AST symbols & pytest markers<br/>• Cryptographic commit provenance"]
+    end
+
+    L1 <--> L2
+    L2 <--> L3
+
+    classDef subStyle fill:#1e1e2e,stroke:#cba6f7,stroke-width:2px,color:#cdd6f4;
+    class Substrate subStyle;
 ```
 
 ---
@@ -111,9 +112,9 @@ To support unstructured technical narrative, structured architecture rules, and 
 ## Zero-Cost Execution Substrate ($0)
 
 Continuous knowledge curation, deduplication, summarization, and embedding generation operate completely cost-free across three subsidized and local tiers:
-* **Local Substrate (`slop.cpp` @ `aaaaa` / RTX 3090 24GB):** Executes 24/7 background bookkeeping, offline drift calculation, and unit test execution.
-* **Google Gemini API (Free Tier — 1M+ tokens):** Ingests and digests massive chat logs, meeting transcripts, and large technical documents.
-* **NVIDIA Build API (NIMs Free Quota):** Generates high-fidelity dense vector embeddings and semantic reranking.
+* **Local Substrate (`llama.cpp` / `nomic-embed-text` @ node `aaaaa` / RTX 3090 24GB):** Executes 24/7 background bookkeeping, local vector embeddings, and automated test suites.
+* **Google Gemini API (Free Tier — 1M+ tokens):** Ingests and synthesizes massive technical documents, deliberações de governança, and multi-model consensus.
+* **NVIDIA Build API (NIMs Free Quota):** High-speed supplementary inference and semantic reranking.
 
 ---
 
@@ -139,26 +140,30 @@ python -m tools.bookkeeper.cli tombstone --verify --root docs
 
 ## Repository Navigation
 
-Governed by **[ADR-052](docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md)**, the library is partitioned into strict governance zones:
+Governed by **[ADR-067](docs/adr/ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE.md)** (RFC-008), the library follows a strict, zero-ghost canonical layout:
 
 ```text
 tare.tools.library/
-├── docs/                                # Active Technical Knowledge & Living SSOT
-│   ├── adr/                             # Canonical ADRs (ADR-001 through ADR-052)
-│   ├── ARCHITECTURAL_QA_LEDGER.md       # Master Ledger of Human Operator Directives
-│   ├── post-mortems/                    # Forensic Root-Cause Analysis (RCA) Reports
-│   └── templates/                       # Standard Templates (EXP-template.md)
-├── experiments/                         # Empirical Benchmarks & Hardware Trials
-│   ├── README.md                        # Master Registry Table (EXP-01..05)
-│   └── local-llm/                       # slop.cpp, KV-Cache & VRAM Placement Trials
-├── archaeology/                         # Immutable Historical Memory (status: archived_immutable)
-│   ├── README.md                        # Custody Manifest & Commit Anchors
-│   ├── chats/                           # Historical Session Transcripts
-│   └── architectural-evolution/         # Early Prototype Transition Logs
-├── corpus/                              # 93 Pre-Consolidated Exact Snapshot Documents
-├── tools/                               # Automation Primitives
-│   └── bookkeeper/                      # Deduplication, SSOT Registry & Tombstone Engine
-└── tests/                               # Test Suites (71/71 Passing Green)
+├── .github/                             # CI/CD Workflows & Integrity Gates
+├── cases/                               # Formal Governance RFC Cases (RFC-001..RFC-008)
+├── catalog/                             # Master Catalog, Capabilities, Corpus & Ontology
+│   ├── corpus/                          # Ingested Canonical Artifacts & Manifests
+│   ├── frontier/                        # Epistemic Frontier Radar & Research Pointers
+│   ├── ontology/                        # Domain Ontology (YAML)
+│   └── schemas/                         # JSON Schemas
+├── docs/                                # Canonical Technical Documentation & Living SSOT
+│   ├── adr/                             # Canonical ADRs (ADR-001 through ADR-067)
+│   ├── architecture/                    # High-Level Architecture & Plane Topologies
+│   ├── assurance/                       # Quality Gates & Verification Topologies
+│   ├── guides/                          # Developer & Operator Guides
+│   ├── policies/                        # Standard Governance Policies
+│   ├── references/                      # Baseline References & Crosswalks
+│   ├── research/                        # 20 Research Program Portfolios
+│   └── archive/                         # Curated Historical Archive
+├── site/                                # GitHub Pages Authority & Signal Profile
+├── specs/                               # EARS-Formatted System Requirements (SDD)
+├── tests/                               # 158 Automated Verification Tests & Falsifiers
+└── tools/                               # Mesh Runtime, Local Inference, MCP & Bookkeeper
 ```
 
 ---
@@ -170,17 +175,17 @@ Ratified as a **Constitutional Invariant** in ADR-051:
 * **AI Agent Mandate:** *“Document the right thing, in the right place, at the right time”*:
   1. *In Code Repositories:* Concise, actionable operational docs for APIs, CLI commands, and test suites.
   2. *In System Incidents:* Thorough RCA post-mortems with measurements, commit hashes, and causal remediation in `docs/post-mortems/`.
-  3. *In Benchmarks:* Raw hardware logs and verified empirical numbers in `experiments/`.
-  4. *In Global Architectural Decisions:* Attested, canonical ADRs in `docs/adr/`.
+  3. *In Governance Decisions:* Multi-seat ratified RFCs in `cases/` and canonical ADRs in `docs/adr/`.
+  4. *In Epistemic Frontiers:* Formal research pointers in `catalog/frontier/`.
 
 ---
 
 ## Formal Verification & Quality Gates
 
-The test suite validates both repository integrity and automated bookkeeping mechanisms:
+The test suite validates repository taxonomy, frugality ceilings, and automated bookkeeping mechanisms:
 
 ```powershell
-# Run full automated test suite (71 passing tests)
+# Run full automated test suite (158 passing tests)
 pytest
 ```
 
@@ -197,7 +202,7 @@ pytest
 | **`tare.tools.specgraph`** | Universal SDD Causal Traceability Matrix & Blast Radius | [ADR-044](docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md) |
 | **`tare.tools.backlog-graph`** | Mathematical DAG Task Engine with CAS Concurrency | [ADR-046](docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md) |
 | **`tare.tools.dialog-engine`** | Schema-Agnostic Dialog Fuzzer & Protocol Engine | [ADR-047](docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md) |
-| **`tare.tools.library`** | Canonical SSOT Technical Library, Memory & Experiments | [ADR-051](docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md) / [ADR-052](docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md) |
+| **`tare.tools.library`** | Canonical SSOT Technical Library, Memory & Epistemic Evolution | [ADR-051](docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md) / [ADR-067](docs/adr/ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE.md) |
 
 ---
 
