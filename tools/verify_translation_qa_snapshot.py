@@ -10,7 +10,7 @@ def main():
  if d.get('summary',{}).get('fail')!=0: errs.append('qa report contains failures')
  if d.get('summary',{}).get('pass')!=d.get('summary',{}).get('total'): errs.append('qa report not all pass')
  manifests={}
- for p in (ROOT/'corpus'/'manifests'/'translations'/'en').glob('*.json'):
+ for p in (ROOT/'catalog/corpus'/'manifests'/'translations'/'en').glob('*.json'):
   m=json.loads(p.read_text(encoding='utf-8')); manifests[m['translation_of']]=m
  for r in d.get('documents',[]):
   m=manifests.get(r['document_id'])

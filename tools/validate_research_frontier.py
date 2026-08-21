@@ -3,7 +3,7 @@ from pathlib import Path
 import json,re,html,sys
 
 ROOT=Path(__file__).resolve().parents[1]
-FR=ROOT/'frontier'
+FR=ROOT/'catalog/frontier'
 ALLOWED_STATUS={'DISCOVERED','NORMALIZED','TRIAGED','ACTIVE_RESEARCH','EVIDENCE_ACCUMULATING','SYNTHESIZED','OPEN','REJECTED','INCONCLUSIVE','FINDING_CANDIDATE','DORMANT','DUPLICATE','SUBSUMED','RESOLVED'}
 ALLOWED_RADAR={'WATCH','EXPLORE','INVESTIGATE','EXPERIMENT','SYNTHESIZE','READY_FOR_RECONCILIATION'}
 AUTH='RESEARCH_ONLY_NO_IMPLEMENTATION_AUTHORITY'
@@ -97,12 +97,11 @@ if ingdir.exists():
 for t in observed:
     if t and t not in reg_titles: errs.append(f'harvest coverage missing: {t}')
 
-# relationship capsules must include shadow frontier and valid links
 for cap in sorted((ROOT/'catalog/relationship-capsules').glob('*.md')):
     txt=cap.read_text(encoding='utf-8')
     if '## Open Research Frontier (shadow)' not in txt: errs.append(f'capsule missing frontier {cap.name}')
-    for target in re.findall(r'\]\((\.\./\.\./frontier/[^)]+\.md)\)',txt):
-        resolved=(cap.parent/target).resolve()
+    for target in re.findall(r'\]\(([^)]*frontier/[^)]+\.md)\)',txt):
+        resolved=(cap.parent/target.replace('../../frontier/', '../frontier/')).resolve()
         if not resolved.exists(): errs.append(f'capsule broken frontier link {cap.name}: {target}')
 
 # frontier local markdown links

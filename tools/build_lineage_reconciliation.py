@@ -5,7 +5,7 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-REF_ROOT=ROOT/"corpus"/"library-references"
+REF_ROOT=ROOT/"catalog"/"corpus"/"library-references"
 OUTJ=ROOT/"catalog"/"LINEAGE_RECONCILIATION.json"
 OUTM=ROOT/"catalog"/"LINEAGE_RECONCILIATION.md"
 VER=re.compile(r"(?:^|[_-])v(\d+(?:\.\d+)*)",re.I)

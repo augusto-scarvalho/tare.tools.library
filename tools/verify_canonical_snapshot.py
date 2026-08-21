@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib,json,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-BASE=ROOT/'canonical-references'/'baselines'/'private-github-main-2026-08-05'
+BASE=ROOT/'docs/references'/'baselines'/'private-github-main-2026-08-05'
 
 def sha_bytes(data:bytes)->str: return hashlib.sha256(data).hexdigest()
 def sha_file(p:Path)->str:

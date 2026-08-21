@@ -4,9 +4,9 @@ import argparse, hashlib, json, shutil, re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 INDEX=ROOT/'catalog'/'CANONICAL_SNAPSHOT_RESEARCH_INDEX.json'
-SRCROOT=ROOT/'corpus'/'canonical-snapshot'/'2026-08-05'/'docs'/'research'
-TRROOT=ROOT/'corpus'/'canonical-snapshot'/'2026-08-05'/'translations'/'en'/'docs'/'research'
-MANROOT=ROOT/'corpus'/'canonical-snapshot'/'2026-08-05'/'translation-manifests'/'en'
+SRCROOT=ROOT/'catalog/corpus'/'canonical-snapshot'/'2026-08-05'/'docs'/'research'
+TRROOT=ROOT/'catalog/corpus'/'canonical-snapshot'/'2026-08-05'/'translations'/'en'/'docs'/'research'
+MANROOT=ROOT/'catalog/corpus'/'canonical-snapshot'/'2026-08-05'/'translation-manifests'/'en'
 def sha(p):
  h=hashlib.sha256();
  with open(p,'rb') as f:

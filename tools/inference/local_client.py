@@ -222,7 +222,7 @@ def main() -> int:
     else:
         print(f"⚠️ Local inference server OFFLINE or unreachable at {client.config.host}")
         print(f"   Details: {status.get('error')}")
-        print("   To launch on node aaaaa, run: bash scripts/inference/start_slop_server.sh")
+        print("   To launch on node aaaaa, run: bash tools/scripts/inference/start_slop_server.sh")
         return 0
 
 

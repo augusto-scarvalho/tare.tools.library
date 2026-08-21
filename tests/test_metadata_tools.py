@@ -24,7 +24,7 @@ class MetadataToolTests(unittest.TestCase):
         q=json.loads((ROOT/'catalog'/'IDENTITY_ASSERTIONS.json').read_text(encoding='utf-8'))
         self.assertEqual(len(q['assertions']),6)
         refs={}
-        for p in (ROOT/'corpus'/'library-references').rglob('*.reference.json'):
+        for p in (ROOT/'catalog/corpus'/'library-references').rglob('*.reference.json'):
             d=json.loads(p.read_text(encoding='utf-8')); refs[d['file_library_id']]=d
         for a in q['assertions']:
             r=refs[a['target_file_library_id']]

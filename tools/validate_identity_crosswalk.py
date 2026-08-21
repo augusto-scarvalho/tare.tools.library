@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib, json, sys
 ROOT=Path(__file__).resolve().parents[1]
 CROSS=ROOT/'catalog'/'identity-crosswalk'
-REFROOT=ROOT/'corpus'/'library-references'
+REFROOT=ROOT/'catalog/corpus'/'library-references'
 
 def sha(p):
  h=hashlib.sha256(); h.update(p.read_bytes()); return h.hexdigest()

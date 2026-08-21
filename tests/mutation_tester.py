@@ -122,7 +122,7 @@ class MutationTester:
                 if (self.root_dir / rel_path).exists():
                     shutil.copy2(self.root_dir / rel_path, shadow_root / rel_path)
             if (self.root_dir / "ontology").exists():
-                shutil.copytree(self.root_dir / "ontology", shadow_root / "ontology")
+                shutil.copytree(self.root_dir / "ontology", shadow_root / "catalog/ontology")
             return MutationTester(shadow_root, self.test_command)._run_mutation_analysis_in_place()
 
     def _run_mutation_analysis_in_place(self) -> List[MutationResult]:

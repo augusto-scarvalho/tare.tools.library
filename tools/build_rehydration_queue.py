@@ -2,7 +2,7 @@
 from pathlib import Path
 import json, collections
 ROOT=Path(__file__).resolve().parents[1]
-REFROOT=ROOT/'corpus'/'library-references'
+REFROOT=ROOT/'catalog/corpus'/'library-references'
 CROSSROOT=ROOT/'catalog'/'identity-crosswalk'
 OUTJSON=ROOT/'catalog'/'REHYDRATION_QUEUE.json'
 OUTMD=ROOT/'catalog'/'REHYDRATION_QUEUE.md'

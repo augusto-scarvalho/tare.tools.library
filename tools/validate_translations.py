@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 CAT=ROOT/'catalog'/'MASTER_CATALOG.json'
-TR_MAN=ROOT/'corpus'/'manifests'/'translations'/'en'
+TR_MAN=ROOT/'catalog/corpus'/'manifests'/'translations'/'en'
 REPORT_MD=ROOT/'catalog'/'TRANSLATION_QA.md'
 REPORT_JSON=ROOT/'catalog'/'TRANSLATION_QA.json'
 

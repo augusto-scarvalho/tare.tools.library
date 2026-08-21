@@ -2,7 +2,7 @@
 from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
-MAN=ROOT/'corpus'/'manifests'
+MAN=ROOT/'catalog/corpus'/'manifests'
 TMAN=MAN/'translations'/'en'
 CROSS=ROOT/'catalog'/'identity-crosswalk'
 OUTJ=ROOT/'catalog'/'TRANSLATION_QUEUE.json'

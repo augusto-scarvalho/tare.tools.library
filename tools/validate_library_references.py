@@ -2,7 +2,7 @@
 from pathlib import Path
 import json, re, sys
 ROOT=Path(__file__).resolve().parents[1]
-files=sorted((ROOT/'corpus'/'library-references').rglob('*.reference.json'))
+files=sorted((ROOT/'catalog/corpus'/'library-references').rglob('*.reference.json'))
 seen=set(); errors=[]
 for p in files:
     try: d=json.loads(p.read_text(encoding='utf-8'))

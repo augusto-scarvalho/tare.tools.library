@@ -99,7 +99,7 @@ def cmd_route(args):
 
 def cmd_validate_repo(args):
  root=Path(args.root); errs=[]
- originals=root/'corpus'/'original'; manifests=root/'corpus'/'manifests'
+ originals=root/'catalog/corpus'/'original'; manifests=root/'catalog/corpus'/'manifests'
  if originals.exists():
   for p in originals.rglob('*'):
    if p.is_file():
@@ -109,7 +109,7 @@ def cmd_validate_repo(args):
      m=load_json(side)
      if m.get('provenance',{}).get('source_sha256') != sha256(p): errs.append(f'hash mismatch: {p.relative_to(root)}')
  # Validate translation derivatives without treating them as source authority.
- tmdir=root/'corpus'/'manifests'/'translations'/'en'
+ tmdir=root/'catalog/corpus'/'manifests'/'translations'/'en'
  if tmdir.exists():
   for tp in sorted(tmdir.glob('*.json')):
    tm=load_json(tp)
@@ -143,7 +143,7 @@ def cmd_validate_repo(args):
  print('PASS repository validation'); return 0
 
 def cmd_rebuild(args):
- root=Path(args.root); manifests=root/'corpus'/'manifests'; entries=[]
+ root=Path(args.root); manifests=root/'catalog/corpus'/'manifests'; entries=[]
  if manifests.exists():
   for p in sorted(manifests.glob('*.json'),key=lambda p:p.name):
    m=load_json(p); prov=m.get('provenance',{})

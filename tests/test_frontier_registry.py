@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 class FrontierRegistryTests(unittest.TestCase):
     def records(self):
-        return [json.loads(x) for x in (ROOT/'frontier/RESEARCH_POINTERS.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+        return [json.loads(x) for x in (ROOT/'catalog/frontier/RESEARCH_POINTERS.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
     def test_validator_passes(self):
         cp=subprocess.run([sys.executable,'tools/validate_research_frontier.py'],cwd=ROOT)
         self.assertEqual(cp.returncode,0)

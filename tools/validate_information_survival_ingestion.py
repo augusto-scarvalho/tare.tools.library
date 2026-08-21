@@ -3,24 +3,25 @@ import json,hashlib,re
 ROOT=Path(__file__).resolve().parents[1]
 errs=[]
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
-source=ROOT/'corpus/original/2026-08-12-chat-import/Tare.tools - Durable State, Persistence & Consistency Semantics.txt'
+source=ROOT/'catalog/corpus/original/2026-08-12-chat-import/Tare.tools - Durable State, Persistence & Consistency Semantics.txt'
 expected='39d7c678bb4b87a6f5455f4db4ae0c8a1552f4c3fb40896dc4a66af29758e4e7'
 if not source.exists() or sha(source)!=expected: errs.append('exact chat source hash mismatch')
 mf=ROOT/'catalog/NEW_RESEARCH_INGESTION-information-survival-demand-lineage-2026-08-12.json'
 if not mf.exists(): errs.append('ingestion manifest missing'); m={}
 else: m=json.loads(mf.read_text(encoding='utf-8'))
 if m.get('status')!='INTEGRATED_AS_CROSS_LINEAGE_RESEARCH_OBJECT': errs.append('bad ingestion status')
-refdir=ROOT/'corpus/library-references/2026-08-12-information-survival-ingestion'
+refdir=ROOT/'catalog/corpus/library-references/2026-08-12-information-survival-ingestion'
 refs=[]
 for p in refdir.glob('*.reference.json'):
  o=json.loads(p.read_text(encoding='utf-8')); refs.append(o)
  if not o.get('file_library_id','').startswith('file_'): errs.append(f'bad file library id {p.name}')
  if o.get('availability')!='LIBRARY_REFERENCE_ONLY' or o.get('materialized_bytes') is not False: errs.append(f'bad ref availability {p.name}')
 if len(refs)!=6: errs.append(f'expected 6 File Library reference records, got {len(refs)}')
-trm=ROOT/'corpus/manifests/translations/en/Tare.tools - Durable State, Persistence & Consistency Semantics.txt.en.json'
+trm=ROOT/'catalog/corpus/manifests/translations/en/Tare.tools - Durable State, Persistence & Consistency Semantics.txt.en.json'
 if not trm.exists(): errs.append('translation manifest missing')
 else:
- tm=json.loads(trm.read_text(encoding='utf-8')); tp=ROOT/tm['translation_path']
+ tm=json.loads(trm.read_text(encoding='utf-8'))
+ tp=(ROOT/'catalog'/tm['translation_path']) if not (ROOT/tm['translation_path']).exists() else (ROOT/tm['translation_path'])
  if not tp.exists() or sha(tp)!=tm.get('translation_sha256'): errs.append('translation mismatch')
  if tm.get('source_sha256')!=expected: errs.append('translation source identity mismatch')
 ro=ROOT/'catalog/research-objects/information-survival-demand-lineage-2026-08-12.json'
@@ -42,7 +43,7 @@ if rid not in nids: errs.append('research object graph node missing')
 rels={(e['to'],e['relation']) for e in g['edges'] if e['from']==rid}
 for target in ['lineage.agent-os-foundations','lineage.workflow-procedural','lineage.context-memory-playbooks','lineage.runtime-reliability-sandbox','lineage.assurance-governance-quality','lineage.routing-economics-observability','lineage.interoperability-protocols','lineage.research-methodology-evidence']:
  if not any(t==target for t,r in rels): errs.append(f'cross-lineage edge missing {target}')
-reg=[json.loads(x) for x in (ROOT/'frontier/RESEARCH_POINTERS.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+reg=[json.loads(x) for x in (ROOT/'catalog/frontier/RESEARCH_POINTERS.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
 titles={r['title'] for r in reg}
 for title in ['Reconstructive Closure','Demand Accounting & Settlement Science','Independent Semantic Verification of Agent Work','Requirement Clarification as Governed Intake']:
  if title not in titles: errs.append(f'frontier pointer missing {title}')

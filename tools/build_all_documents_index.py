@@ -12,7 +12,7 @@ def main():
     cat=json.loads((ROOT/'catalog'/'MASTER_CATALOG.json').read_text(encoding='utf-8'))
     # translation manifests for the 11 seed originals
     translations={}
-    trroot=ROOT/'corpus'/'manifests'/'translations'/'en'
+    trroot=ROOT/'catalog/corpus'/'manifests'/'translations'/'en'
     if trroot.exists():
         for p in trroot.glob('*.json'):
             d=json.loads(p.read_text(encoding='utf-8')); translations[d['translation_of']]=d
