@@ -56,26 +56,30 @@ def ingest_document(
     doc_type: str,
     title: Optional[str] = None,
     category: Optional[str] = None,
+    tags: Optional[List[str]] = None,
     force: bool = False,
     overwrite: bool = False,
     root_dir: str | Path = ROOT,
+    check_duplicates: bool = True,
 ) -> IngestionResult:
-    """Ingest a markdown document non-destructively with canonical deduplication check."""
-    root = Path(root_dir)
+    """Ingest, validate, classify, route, and auto-catalog a document into the library."""
     src = Path(source_path)
+    root = Path(root_dir)
+
     if not src.exists() or not src.is_file():
         return IngestionResult(
             success=False,
-            target_path=src,
+            target_path=None,
             doc_id="",
             sha256="",
-            message=f"Source file '{source_path}' does not exist.",
+            message=f"Source file does not exist: {source_path}",
         )
 
+    doc_type = doc_type.lower().strip()
     if doc_type not in TYPE_ROUTING:
         return IngestionResult(
             success=False,
-            target_path=src,
+            target_path=None,
             doc_id="",
             sha256="",
             message=f"Invalid document type '{doc_type}'. Allowed: {list(TYPE_ROUTING.keys())}",
@@ -85,14 +89,25 @@ def ingest_document(
     raw_text = raw_bytes.decode("utf-8", errors="ignore")
     digest = compute_sha256(raw_bytes)
 
-    # 1. Deduplication check across existing active docs
-    if not force:
+    # 1. Deduplication check across existing active docs (if requested)
+    if not force and check_duplicates:
         src_resolved = src.resolve()
         for existing in root.rglob("*.md"):
             if existing.is_file() and existing.resolve() != src_resolved and not any(part in existing.parts for part in EXCLUDE_DIRS):
                 try:
-                    existing_text = existing.read_text(encoding="utf-8", errors="ignore")
-                    sim = compute_similarity(raw_text, existing_text)
+                    ex_bytes = existing.read_bytes()
+                    if hashlib.sha256(ex_bytes).hexdigest() == digest:
+                        return IngestionResult(
+                            success=False,
+                            target_path=existing,
+                            doc_id=existing.stem,
+                            sha256=digest,
+                            message=f"Exact duplicate content with existing file '{existing.relative_to(root)}'",
+                            is_duplicate=True,
+                            duplicate_match=str(existing.relative_to(root)),
+                        )
+                    ex_text = ex_bytes.decode("utf-8", errors="ignore")
+                    sim = compute_similarity(raw_text, ex_text)
                     if sim >= 0.90:
                         return IngestionResult(
                             success=False,

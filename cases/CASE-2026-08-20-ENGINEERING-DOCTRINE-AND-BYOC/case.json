@@ -1,0 +1,405 @@
+{
+  "case_id": "CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC",
+  "proposal_title": "RFC-003: Doutrina Universal de Engenharia Frugal e Liberdade de Computação (BYOC)",
+  "current_round": 3,
+  "max_rounds": 3,
+  "overtime_granted": false,
+  "transition_count": 0,
+  "status": "HELD_PROGRESS_REVIEW",
+  "quorum_mode": "DEGRADED_MIXED",
+  "rounds": {
+    "r001": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Equilíbrio pragmático entre a disciplina da Via Negativa na árvore estável e a liberdade irrestrita de exploração técnica em spikes/branches.",
+          "Instituição da Cláusula de Parada de Emergência com Laudo de Inconformidade, eliminando o risco de execução cega diante de premissas falsificadas.",
+          "Arquitetura de soberania computacional (BYOC) tripartite (Zero-Hardware, Enterprise API e Homelab/Local) agnóstica de fornecedor e sem lock-in."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "Paridade de contrato entre free-tier, APIs comerciais e execução local não implica paridade de disponibilidade, desempenho, capacidade de modelo ou operação offline; a redação atual promete mais do que o sistema pode controlar.",
+            "falsifier": "Uma suíte de conformidade executada nos três perfis demonstra que todas as operações normativas têm semântica idêntica, limites explicitamente declarados e degradação previsível, sem depender de quota, hardware ou capacidade ausente.",
+            "seat": "openai"
+          },
+          {
+            "claim": "A garantia de custo de contexto O(1) para Lean MCP Gateways é inválida sem limite formal de schema, paginação e descoberta; o contexto pode crescer com ferramentas, recursos ou metadados expostos.",
+            "falsifier": "Medições mostram um limite superior constante e documentado de tokens injetados por chamada, independentemente do número total de ferramentas e recursos disponíveis.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O Princípio VI bane 'formalmente' o Fat MCP como categoria, o que é exatamente o veto arquitetural baseado em dogma abstrato que o Princípio III proíbe sem um falsificador anexado.",
+            "falsifier": "Existir um caso onde um servidor MCP monolítico entregue o mesmo custo de contexto O(1) e schema compacto exigidos, medido por benchmark de tokens — se existe, o banimento por forma (e não por métrica) é falsificado e a regra deveria ser 'custo de contexto O(1) verificável', não 'Fat MCP proibido'.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [
+          "[openai] Priorizar exclusivamente o terminal Unix conflita com a universalidade declarada e com ambientes Windows nativos. (Classificado como não-bloqueante)",
+          "[openai] Termos como abstração inflada, framework desnecessário e filtragem cirúrgica não oferecem critérios operacionais suficientes para decisões reproduzíveis. (Classificado como não-bloqueante)",
+          "[anthropic] A 'paridade de contrato' entre as 3 realidades BYOC (IV) não define o contrato nem como verificá-lo; sem isso é intenção, não garantia. (Classificado como não-bloqueante)",
+          "[anthropic] O documento pratica em parte a hipertrofia retórica que condena: 6 princípios com nomenclatura ornamental correm risco de virar ritual não-executável se não houver gatilho de enforcement no CI/revisão. (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Padronizar o schema estruturado do Laudo de Inconformidade (ex: INCONFORMITY.json) para garantir parsing determinístico e acionamento automatizado da mesa de deliberação.",
+          "Estabelecer métricas estáticas de linting e inspeção contínua para limitar o tamanho e a complexidade de schemas de ferramentas expostos a agentes LLM.",
+          "Substituir garantias absolutas por contratos mínimos de capacidade, degradação explícita e testes de conformidade por perfil.",
+          "Definir limites mensuráveis para gateways enxutos e tratar O(1) como requisito verificável, não como propriedade presumida."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "2c576153-4e47-4942-a99c-78dd40585d3e",
+          "verdict": "APPROVE",
+          "confidence": 0.98,
+          "summary": "A RFC-003 estabelece uma base doutrinária sólida e elegante, harmonizando frugalidade radical com capacidade de inovação sem incorrer em overengineering. A formalização do falsificador empírico e da cláusula de parada de emergência resolve de forma robusta o dilema entre fidelidade contratual e bom senso de engenharia. A soberania computacional (BYOC) e as interfaces O(1) garantem viabilidade e escalabilidade agnóstica de infraestrutura.",
+          "strengths": [
+            "Equilíbrio pragmático entre a disciplina da Via Negativa na árvore estável e a liberdade irrestrita de exploração técnica em spikes/branches.",
+            "Instituição da Cláusula de Parada de Emergência com Laudo de Inconformidade, eliminando o risco de execução cega diante de premissas falsificadas.",
+            "Arquitetura de soberania computacional (BYOC) tripartite (Zero-Hardware, Enterprise API e Homelab/Local) agnóstica de fornecedor e sem lock-in.",
+            "Ergonomia Unix e Lean MCP com consumo constante de contexto O(1), prevenindo o inchaço de tokens típico de implementações monolíticas."
+          ],
+          "issues": [],
+          "recommendations": [
+            "Padronizar o schema estruturado do Laudo de Inconformidade (ex: INCONFORMITY.json) para garantir parsing determinístico e acionamento automatizado da mesa de deliberação.",
+            "Estabelecer métricas estáticas de linting e inspeção contínua para limitar o tamanho e a complexidade de schemas de ferramentas expostos a agentes LLM."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "03691979-70f7-4a52-a445-324743f4f8ff",
+          "verdict": "REVISE",
+          "confidence": 0.98,
+          "summary": "A proposta estabelece uma base sólida de frugalidade, experimentação livre e fidelidade contratual, mas contém garantias absolutas que não são tecnicamente demonstráveis. A ratificação deve depender de contratos verificáveis por capacidade, critérios objetivos de promoção de protótipos e execução pelo motor oficial de deliberação.",
+          "strengths": [
+            "Separa corretamente exploração experimental da consolidação rigorosa na árvore estável.",
+            "Combina YAGNI, falsificação empírica proporcional ao risco e parada segura diante de premissas invalidadas.",
+            "Preserva portabilidade computacional sem impor fornecedor ou classe específica de hardware."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "Paridade de contrato entre free-tier, APIs comerciais e execução local não implica paridade de disponibilidade, desempenho, capacidade de modelo ou operação offline; a redação atual promete mais do que o sistema pode controlar.",
+              "falsifier": "Uma suíte de conformidade executada nos três perfis demonstra que todas as operações normativas têm semântica idêntica, limites explicitamente declarados e degradação previsível, sem depender de quota, hardware ou capacidade ausente."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A garantia de custo de contexto O(1) para Lean MCP Gateways é inválida sem limite formal de schema, paginação e descoberta; o contexto pode crescer com ferramentas, recursos ou metadados expostos.",
+              "falsifier": "Medições mostram um limite superior constante e documentado de tokens injetados por chamada, independentemente do número total de ferramentas e recursos disponíveis."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Priorizar exclusivamente o terminal Unix conflita com a universalidade declarada e com ambientes Windows nativos.",
+              "falsifier": "Os contratos CLI e os testes de conformidade passam em Unix, Windows e macOS sem exigir uma camada Unix adicional."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Termos como abstração inflada, framework desnecessário e filtragem cirúrgica não oferecem critérios operacionais suficientes para decisões reproduzíveis.",
+              "falsifier": "Revisores independentes aplicam critérios normativos publicados aos mesmos casos e alcançam decisões equivalentes sobre promoção, rejeição ou simplificação."
+            }
+          ],
+          "recommendations": [
+            "Substituir garantias absolutas por contratos mínimos de capacidade, degradação explícita e testes de conformidade por perfil.",
+            "Definir limites mensuráveis para gateways enxutos e tratar O(1) como requisito verificável, não como propriedade presumida.",
+            "Reformular Ergonomia Unix como ergonomia CLI portátil baseada em stdin, stdout, stderr e códigos de saída.",
+            "Adicionar critérios mínimos para promover spikes à árvore estável: necessidade demonstrada, falsificador, custo operacional e remoção de complexidade especulativa.",
+            "Submeter este parecer ao motor oficial round_table_engine.py antes de qualquer ratificação ou registro como voto formal."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "072621de-f02c-4dc7-ad4a-f2c9e5cedce1",
+          "verdict": "REVISE",
+          "confidence": 0.8,
+          "summary": "A doutrina é engenharia sólida: Via Negativa/YAGNI, falsificador proporcional ao risco e cláusula de parada são princípios operacionalmente corretos e raros de ver bem articulados. Porém há uma contradição interna real entre o Princípio III (nenhum veto por dogma abstrato; exija falsificador) e o Princípio VI (banimento categórico de 'Fat MCP'), e a 'paridade de contrato' do BYOC (IV) é uma afirmação forte sem teste de conformidade que a torne verificável. Ratificável após corrigir essas duas arestas.",
+          "strengths": [
+            "Princípio III (falsificador empírico proporcional ao risco) é o coração da proposta e o que a salva de virar prosa aspiracional: amarra veto a reproduction_test/benchmark/modelo de ameaça em vez de opinião estética.",
+            "Princípio V (fidelidade ao plano + cláusula de parada de emergência) resolve corretamente o paradoxo obediência-cega vs. bom-senso, e a via negativa de não-objetivos evita que 'frugalidade' seja usada como desculpa para rejeitar inovação legítima."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O Princípio VI bane 'formalmente' o Fat MCP como categoria, o que é exatamente o veto arquitetural baseado em dogma abstrato que o Princípio III proíbe sem um falsificador anexado.",
+              "falsifier": "Existir um caso onde um servidor MCP monolítico entregue o mesmo custo de contexto O(1) e schema compacto exigidos, medido por benchmark de tokens — se existe, o banimento por forma (e não por métrica) é falsificado e a regra deveria ser 'custo de contexto O(1) verificável', não 'Fat MCP proibido'."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "A 'paridade de contrato' entre as 3 realidades BYOC (IV) não define o contrato nem como verificá-lo; sem isso é intenção, não garantia.",
+              "falsifier": "Rodar a mesma suíte de aceitação nas 3 configurações (free-tier CPU, API comercial, local GPU) e observar divergência de comportamento/saída além da tolerância declarada — se diverge, não há paridade, apenas suporte nominal."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "O documento pratica em parte a hipertrofia retórica que condena: 6 princípios com nomenclatura ornamental correm risco de virar ritual não-executável se não houver gatilho de enforcement no CI/revisão.",
+              "falsifier": "Um PR mergeado violando um princípio sem que nenhum gate (teste, checklist de review, lint de doutrina) o barre demonstra que a doutrina é decorativa, não operante."
+            }
+          ],
+          "recommendations": [
+            "Reescrever VI de proibição por forma ('Fat MCP banido') para limite por métrica ('gateways devem provar custo de contexto O(1) e schema abaixo de N tokens'), alinhando-o a III.",
+            "Anexar a IV um teste de conformidade BYOC (suíte única rodada nos 3 modos) como definição operacional de 'paridade de contrato'.",
+            "Definir para cada princípio o gate concreto que o falsifica em revisão/CI, para que a doutrina seja executável e não cerimonial."
+          ]
+        }
+      }
+    },
+    "r002": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Consolidação sólida da Cláusula de Parada de Emergência com emissão de Laudo de Inconformidade.",
+          "Arquitetura de soberania computacional (BYOC) preservando a neutralidade de fornecedores e a privacidade dos dados.",
+          "Equilíbrio ambidestro entre liberdade de prototipagem em spikes e rigor na árvore estável via Via Negativa."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "O Princípio VI mantém o banimento nominal/categórico de 'Fat MCP', violando a própria regra do Princípio III contra vetos baseados em dogmas abstratos em vez de métricas de engenharia.",
+            "falsifier": "Demonstração de arquitetura MCP monolítica capaz de manter injeção de schema compacta e consumo de tokens rigorosamente constante O(1) via paginação ou carregamento sob demanda.",
+            "seat": "google"
+          },
+          {
+            "claim": "O Princípio IV postula 'paridade de contrato' entre tiers de computação sem explicitar os limites de disponibilidade, degradação graciosa e tolerância a capacidades assimétricas de modelos.",
+            "falsifier": "Execução de suíte de testes em ambiente zero-hardware/CPU que resulte em falhas não documentadas por depender de capacidades exclusivas de modelos de fronteira ou APIs online.",
+            "seat": "google"
+          },
+          {
+            "claim": "A paridade de contrato entre os três perfis BYOC continua indefinida e promete capacidades que podem depender de quotas, hardware, conectividade ou modelos indisponíveis.",
+            "falsifier": "Uma suíte de conformidade executada nos três perfis demonstra semântica idêntica para todas as operações normativas, declara explicitamente os limites de cada perfil e comprova degradação previsível quando quota, hardware, conectividade ou capacidade de modelo estiverem ausentes.",
+            "seat": "openai"
+          },
+          {
+            "claim": "A garantia de custo de contexto O(1) permanece sem limite formal de schema, paginação, descoberta ou metadados injetados.",
+            "falsifier": "Medições reproduzíveis demonstram um limite superior constante e documentado de tokens injetados por chamada, independentemente do número total de ferramentas, recursos e metadados disponíveis.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O banimento formal de Fat MCP é um veto baseado na forma arquitetural, não na métrica empírica exigida pelo Princípio III.",
+            "falsifier": "Um servidor MCP monolítico satisfaz, em benchmark reproduzível, os mesmos limites de contexto O(1), compactação de schema e latência exigidos dos Lean MCP Gateways.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O Princípio VI mantém 'Servidores monolíticos de Fat MCP são formalmente banidos', um veto por categoria/forma que contradiz o Princípio III (proibição de veto arquitetural por dogma sem falsificador). O delta vazio confirma que a regra não foi convertida na métrica verificável exigida na Rodada 1.",
+            "falsifier": "Existir um servidor MCP monolítico que, medido por benchmark de tokens, entregue custo de contexto O(1) e schema compacto idênticos aos do Lean Gateway. Se existir, o banimento por forma está falsificado e a regra DEVE ser reescrita como 'custo de contexto O(1) verificável por benchmark', independente da topologia do servidor.",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "A 'paridade de contrato' do Princípio IV continua sem contrato definido e sem procedimento de verificação, e a garantia O(1) do Princípio VI continua sem limite formal de schema/paginação/descoberta — ambos os falsificadores da OpenAI seguem sem endereçamento no delta vazio.",
+            "falsifier": "Uma suíte de conformidade executada nos três perfis BYOC demonstrando semântica idêntica, limites explicitamente declarados e degradação previsível; e uma medição de teto constante e documentado de tokens injetados por chamada, independente do número total de ferramentas/recursos. Sem esses artefatos, IV e VI são intenção, não garantia.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Substituir o banimento formal de 'Fat MCP' no Princípio VI por uma exigência mensurável de teto máximo de tokens injetados por chamada e mecanismos formais de descoberta/paginação.",
+          "Ajustar a cláusula de paridade de contrato no Princípio IV para explicitar semântica idêntica de interface, limites declarados de capacidade e comportamento determinístico sob degradação operacional.",
+          "Definir explicitamente o contrato normativo comum dos perfis BYOC, seus limites e a matriz de degradação.",
+          "Substituir a promessa abstrata de O(1) por um orçamento máximo mensurável de tokens, com paginação e descoberta sob demanda."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "e4d21258-9911-4167-9134-1887a0634bdc",
+          "verdict": "REVISE",
+          "confidence": 0.95,
+          "summary": "A proposta RFC-003 mantém os consensos nucleares de frugalidade e ambidestria, mas a ausência de modificações no delta deixa sem saneamento os falsificadores bloqueantes apontados na síntese da Rodada 1. É imprescindível revisar os Princípios IV e VI para substituir vetos ontológicos por métricas empíricas de injeção de contexto e clarificar a semântica de degradação da paridade BYOC. Com esses ajustes cirúrgicos no texto normativo, a doutrina atingirá consistência técnica e prontidão para ratificação final.",
+          "strengths": [
+            "Consolidação sólida da Cláusula de Parada de Emergência com emissão de Laudo de Inconformidade.",
+            "Arquitetura de soberania computacional (BYOC) preservando a neutralidade de fornecedores e a privacidade dos dados.",
+            "Equilíbrio ambidestro entre liberdade de prototipagem em spikes e rigor na árvore estável via Via Negativa."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O Princípio VI mantém o banimento nominal/categórico de 'Fat MCP', violando a própria regra do Princípio III contra vetos baseados em dogmas abstratos em vez de métricas de engenharia.",
+              "falsifier": "Demonstração de arquitetura MCP monolítica capaz de manter injeção de schema compacta e consumo de tokens rigorosamente constante O(1) via paginação ou carregamento sob demanda."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O Princípio IV postula 'paridade de contrato' entre tiers de computação sem explicitar os limites de disponibilidade, degradação graciosa e tolerância a capacidades assimétricas de modelos.",
+              "falsifier": "Execução de suíte de testes em ambiente zero-hardware/CPU que resulte em falhas não documentadas por depender de capacidades exclusivas de modelos de fronteira ou APIs online."
+            }
+          ],
+          "recommendations": [
+            "Substituir o banimento formal de 'Fat MCP' no Princípio VI por uma exigência mensurável de teto máximo de tokens injetados por chamada e mecanismos formais de descoberta/paginação.",
+            "Ajustar a cláusula de paridade de contrato no Princípio IV para explicitar semântica idêntica de interface, limites declarados de capacidade e comportamento determinístico sob degradação operacional."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "7527ff2e-6f3a-4bde-8d87-8b7552e76174",
+          "verdict": "REVISE",
+          "confidence": 0.99,
+          "summary": "O delta vazio não altera a proposta e, portanto, não resolve nenhum dos falsificadores bloqueantes estabelecidos na Rodada 1. Permanecem sem definição verificável a paridade de contrato BYOC e o limite O(1) de contexto, enquanto o banimento categórico de Fat MCP continua em tensão com a própria Regra do Falsificador.",
+          "strengths": [
+            "Preserva o equilíbrio entre exploração livre e consolidação frugal na árvore estável.",
+            "Mantém a Cláusula de Parada de Emergência e a soberania computacional agnóstica de fornecedor."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A paridade de contrato entre os três perfis BYOC continua indefinida e promete capacidades que podem depender de quotas, hardware, conectividade ou modelos indisponíveis.",
+              "falsifier": "Uma suíte de conformidade executada nos três perfis demonstra semântica idêntica para todas as operações normativas, declara explicitamente os limites de cada perfil e comprova degradação previsível quando quota, hardware, conectividade ou capacidade de modelo estiverem ausentes."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A garantia de custo de contexto O(1) permanece sem limite formal de schema, paginação, descoberta ou metadados injetados.",
+              "falsifier": "Medições reproduzíveis demonstram um limite superior constante e documentado de tokens injetados por chamada, independentemente do número total de ferramentas, recursos e metadados disponíveis."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O banimento formal de Fat MCP é um veto baseado na forma arquitetural, não na métrica empírica exigida pelo Princípio III.",
+              "falsifier": "Um servidor MCP monolítico satisfaz, em benchmark reproduzível, os mesmos limites de contexto O(1), compactação de schema e latência exigidos dos Lean MCP Gateways."
+            }
+          ],
+          "recommendations": [
+            "Definir explicitamente o contrato normativo comum dos perfis BYOC, seus limites e a matriz de degradação.",
+            "Substituir a promessa abstrata de O(1) por um orçamento máximo mensurável de tokens, com paginação e descoberta sob demanda.",
+            "Trocar o banimento nominal de Fat MCP por critérios quantitativos aplicáveis a qualquer topologia."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "8106092c-f428-4c88-b93a-3cbc4347bd43",
+          "verdict": "REVISE",
+          "confidence": 0.88,
+          "summary": "O delta desta rodada está vazio ({}) e a proposta permanece idêntica à Rodada 1, portanto nenhum dos falsificadores bloqueantes registrados pelo Mediador foi satisfeito. A contradição interna que meu assento levantou — o Princípio VI bane 'Fat MCP' por forma, exatamente o veto arquitetural por dogma abstrato que o Princípio III proíbe sem falsificador anexo — segue textualmente no documento. Não posso ratificar um texto que viola seu próprio Princípio III.",
+          "strengths": [
+            "A Cláusula de Parada de Emergência com Laudo de Inconformidade (Princípio V) é um mecanismo executável e sólido que resolve o paradoxo entre fidelidade ao plano e bom senso de engenharia.",
+            "A Regra do Falsificador Proporcional ao Risco (Princípio III) é o núcleo correto da doutrina — desde que seja aplicada de forma consistente ao próprio documento."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O Princípio VI mantém 'Servidores monolíticos de Fat MCP são formalmente banidos', um veto por categoria/forma que contradiz o Princípio III (proibição de veto arquitetural por dogma sem falsificador). O delta vazio confirma que a regra não foi convertida na métrica verificável exigida na Rodada 1.",
+              "falsifier": "Existir um servidor MCP monolítico que, medido por benchmark de tokens, entregue custo de contexto O(1) e schema compacto idênticos aos do Lean Gateway. Se existir, o banimento por forma está falsificado e a regra DEVE ser reescrita como 'custo de contexto O(1) verificável por benchmark', independente da topologia do servidor."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A 'paridade de contrato' do Princípio IV continua sem contrato definido e sem procedimento de verificação, e a garantia O(1) do Princípio VI continua sem limite formal de schema/paginação/descoberta — ambos os falsificadores da OpenAI seguem sem endereçamento no delta vazio.",
+              "falsifier": "Uma suíte de conformidade executada nos três perfis BYOC demonstrando semântica idêntica, limites explicitamente declarados e degradação previsível; e uma medição de teto constante e documentado de tokens injetados por chamada, independente do número total de ferramentas/recursos. Sem esses artefatos, IV e VI são intenção, não garantia."
+            }
+          ],
+          "recommendations": [
+            "Reescrever o Princípio VI substituindo 'Fat MCP formalmente banido' por um critério métrico: 'toda topologia de servidor MCP é admissível desde que comprove custo de contexto O(1) com teto de tokens declarado por benchmark reproduzível', alinhando VI ao III.",
+            "Anexar ao Princípio IV a definição operacional do 'contrato' (conjunto de operações normativas, limites declarados por perfil e semântica de degradação) e ao VI o limite formal de schema/paginação/descoberta, cada um com seu falsificador executável no CI.",
+            "Adicionar um gatilho de enforcement em CI/revisão para cada princípio, evitando que a doutrina vire ritual não-executável — a não-objeção da Rodada 1 sobre hipertrofia retórica só se fecha com esse gancho."
+          ]
+        }
+      }
+    },
+    "r003": {
+      "status": "HELD_PROGRESS_REVIEW",
+      "reason": "Teto normativo de 3 rodadas atingido com progresso fértil.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Consolidação exemplar da Cláusula de Parada de Emergência com emissão de Laudo de Inconformidade no Princípio V.",
+          "Fundamentação sólida da Via Negativa e da inovação ambidestra (Princípios I e II) para combater a hipertrofia técnica.",
+          "Garantia inequívoca de soberania do usuário sobre chaves, dados e computação no Princípio IV."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "O Princípio VI perpetua o banimento categórico/topológico de 'Fat MCP', violando o Princípio III que veta decisões arquiteturais baseadas em dogmas ou formas nominais em vez de métricas empíricas.",
+            "falsifier": "Demonstração de arquitetura MCP monolítica capaz de manter injeção de schema compacta e consumo de tokens rigorosamente constante O(1) via paginação ou carregamento sob demanda, satisfazendo os mesmos benchmarks de latência e contexto exigidos de Lean Gateways.",
+            "seat": "google"
+          },
+          {
+            "claim": "O Princípio IV postula 'paridade de contrato' entre os tiers BYOC sem especificar limites de disponibilidade, matriz de capacidades mínimas ou semântica de degradação graciosa para o perfil zero-hardware/CPU.",
+            "falsifier": "Execução de suíte de testes de conformidade em ambiente zero-hardware/CPU que resulte em falhas não documentadas ou quebras de contrato por depender de capacidades exclusivas de modelos de fronteira ou APIs online sem fallback previsível.",
+            "seat": "google"
+          },
+          {
+            "claim": "A paridade de contrato entre os três perfis BYOC permanece sem semântica normativa, limites de capacidade ou procedimento de degradação definidos.",
+            "falsifier": "Uma suíte de conformidade executada nos três perfis demonstra semântica idêntica para todas as operações normativas, declara os limites de cada perfil e comprova degradação previsível diante da ausência de quota, hardware, conectividade ou capacidade do modelo.",
+            "seat": "openai"
+          },
+          {
+            "claim": "A garantia de custo de contexto O(1) não estabelece um teto constante de tokens nem contabiliza schema, descoberta, paginação e metadados.",
+            "falsifier": "Medições reproduzíveis demonstram um limite superior constante e documentado de tokens injetados por chamada, independentemente do número total de ferramentas, recursos e metadados disponíveis.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O banimento formal de Fat MCP é um veto por topologia arquitetural e viola o Princípio III, que exige julgamento por métricas empíricas.",
+            "falsifier": "Um servidor MCP monolítico satisfaz, em benchmark reproduzível, os mesmos limites documentados de contexto, compactação de schema, memória e latência exigidos dos Lean MCP Gateways.",
+            "seat": "openai"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Substituir o veto nominal a 'Fat MCP' no Princípio VI por uma exigência métrica e agnóstica de topologia: limite verificável de schema compacto e custo de contexto rigorosamente O(1) por chamada.",
+          "Explicitar no Princípio IV os limites de conformidade e a política de degradação graciosa aplicável quando quotas, aceleração por hardware ou conectividade externa estiverem ausentes.",
+          "Substituir a paridade absoluta por um contrato normativo mínimo, acompanhado de uma matriz explícita de capacidades, indisponibilidades e degradações por perfil.",
+          "Definir um orçamento máximo mensurável de tokens por chamada e um benchmark obrigatório que inclua schema, descoberta, paginação e metadados."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "ecef49b4-0488-4eb2-839b-2888b863176c",
+          "verdict": "REJECT",
+          "confidence": 0.95,
+          "summary": "A proposta RFC-003 apresenta um delta vazio ({}) na Rodada 3 e deixa de sanar as contradições internas e indefinições apontadas na síntese do Mediador. O Princípio VI mantém o veto nominal a 'Fat MCP' em violação direta à regra empírica do Princípio III, enquanto o Princípio IV segue sem contrato formal de degradação graciosa para os perfis BYOC. Com o teto mecânico atingido sem as emendas textuais mandatórias, o parecer técnico conclui pela rejeição do texto em sua formulação atual.",
+          "strengths": [
+            "Consolidação exemplar da Cláusula de Parada de Emergência com emissão de Laudo de Inconformidade no Princípio V.",
+            "Fundamentação sólida da Via Negativa e da inovação ambidestra (Princípios I e II) para combater a hipertrofia técnica.",
+            "Garantia inequívoca de soberania do usuário sobre chaves, dados e computação no Princípio IV."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O Princípio VI perpetua o banimento categórico/topológico de 'Fat MCP', violando o Princípio III que veta decisões arquiteturais baseadas em dogmas ou formas nominais em vez de métricas empíricas.",
+              "falsifier": "Demonstração de arquitetura MCP monolítica capaz de manter injeção de schema compacta e consumo de tokens rigorosamente constante O(1) via paginação ou carregamento sob demanda, satisfazendo os mesmos benchmarks de latência e contexto exigidos de Lean Gateways."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O Princípio IV postula 'paridade de contrato' entre os tiers BYOC sem especificar limites de disponibilidade, matriz de capacidades mínimas ou semântica de degradação graciosa para o perfil zero-hardware/CPU.",
+              "falsifier": "Execução de suíte de testes de conformidade em ambiente zero-hardware/CPU que resulte em falhas não documentadas ou quebras de contrato por depender de capacidades exclusivas de modelos de fronteira ou APIs online sem fallback previsível."
+            }
+          ],
+          "recommendations": [
+            "Substituir o veto nominal a 'Fat MCP' no Princípio VI por uma exigência métrica e agnóstica de topologia: limite verificável de schema compacto e custo de contexto rigorosamente O(1) por chamada.",
+            "Explicitar no Princípio IV os limites de conformidade e a política de degradação graciosa aplicável quando quotas, aceleração por hardware ou conectividade externa estiverem ausentes."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "58440679-3513-4164-88d0-9bf65d76f433",
+          "verdict": "REJECT",
+          "confidence": 0.99,
+          "summary": "O delta vazio não resolve nenhum dos falsificadores bloqueantes estabelecidos na rodada anterior. A proposta preserva uma paridade BYOC indefinida, uma garantia O(1) sem teto mensurável e um banimento arquitetural nominal que contradiz a própria Regra do Falsificador.",
+          "strengths": [
+            "Cláusula de Parada de Emergência com Laudo de Inconformidade",
+            "Soberania computacional e neutralidade de fornecedores",
+            "Equilíbrio entre liberdade experimental e rigor na árvore estável"
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A paridade de contrato entre os três perfis BYOC permanece sem semântica normativa, limites de capacidade ou procedimento de degradação definidos.",
+              "falsifier": "Uma suíte de conformidade executada nos três perfis demonstra semântica idêntica para todas as operações normativas, declara os limites de cada perfil e comprova degradação previsível diante da ausência de quota, hardware, conectividade ou capacidade do modelo."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A garantia de custo de contexto O(1) não estabelece um teto constante de tokens nem contabiliza schema, descoberta, paginação e metadados.",
+              "falsifier": "Medições reproduzíveis demonstram um limite superior constante e documentado de tokens injetados por chamada, independentemente do número total de ferramentas, recursos e metadados disponíveis."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O banimento formal de Fat MCP é um veto por topologia arquitetural e viola o Princípio III, que exige julgamento por métricas empíricas.",
+              "falsifier": "Um servidor MCP monolítico satisfaz, em benchmark reproduzível, os mesmos limites documentados de contexto, compactação de schema, memória e latência exigidos dos Lean MCP Gateways."
+            }
+          ],
+          "recommendations": [
+            "Substituir a paridade absoluta por um contrato normativo mínimo, acompanhado de uma matriz explícita de capacidades, indisponibilidades e degradações por perfil.",
+            "Definir um orçamento máximo mensurável de tokens por chamada e um benchmark obrigatório que inclua schema, descoberta, paginação e metadados.",
+            "Remover o banimento nominal de Fat MCP e proibir apenas implementações que excedam limites empíricos documentados de contexto, memória ou latência."
+          ]
+        },
+        "anthropic": {}
+      }
+    }
+  }
+}

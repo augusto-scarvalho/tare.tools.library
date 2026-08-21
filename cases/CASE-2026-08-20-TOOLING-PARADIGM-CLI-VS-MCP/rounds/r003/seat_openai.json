@@ -1,0 +1,31 @@
+{
+  "status": "OK",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "vote": {
+    "seat": "openai",
+    "execution_nonce": "6b903da7-8a93-4cac-a295-3d3277f0dcbf",
+    "verdict": "REJECT",
+    "confidence": 0.99,
+    "summary": "O delta vazio não corrige nenhum dos bloqueios estabelecidos. A proposta ainda aceita command como string e chama de contenção estrita uma validação de cwd que não constitui isolamento no nível do sistema operacional.",
+    "strengths": [
+      "Preserva a interface frugal O(1), a orientação CLI First e o envelope estruturado de telemetria."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "A assinatura command: list[str] | str mantém semântica ambígua e não garante execução determinística sem interpretação de shell.",
+        "falsifier": "pytest -q tests/test_gateway_exec_contract.py deve provar que apenas argv explícito list[str] é aceito e que toda entrada string é rejeitada antes da execução, sem efeitos colaterais."
+      },
+      {
+        "severity": "blocking",
+        "claim": "Validar cwd não confina o processo; caminhos absolutos, links simbólicos, variáveis de ambiente, arquivos de resposta, subprocessos e rede continuam capazes de acessar recursos externos ao workspace.",
+        "falsifier": "pytest -q tests/test_gateway_confinement.py deve provar, mediante isolamento no nível do sistema operacional, que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso, arquivo de resposta e egress de rede falham fechadas e não deixam efeitos externos."
+      }
+    ],
+    "recommendations": [
+      "Restringir exec_command a command: list[str] com shell=False obrigatório e rejeição explícita de strings.",
+      "Substituir a alegação de sandbox confinado por uma descrição limitada de dispatcher com cwd validado ou exigir isolamento real no nível do sistema operacional e seus testes de confinamento."
+    ]
+  }
+}

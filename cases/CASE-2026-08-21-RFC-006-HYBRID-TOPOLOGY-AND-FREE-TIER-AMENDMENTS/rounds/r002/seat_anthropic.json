@@ -1,0 +1,34 @@
+{
+  "status": "OK",
+  "provider": "anthropic",
+  "model": "claude-fable-5-high",
+  "vote": {
+    "seat": "anthropic",
+    "execution_nonce": "1980a545-f88f-42e4-9629-a70a0657fcfc",
+    "verdict": "REVISE",
+    "confidence": 0.93,
+    "summary": "O delta da revisão está vazio e a proposta é byte-a-byte idêntica à da Rodada 1; nenhuma das seis tensões registradas pelo Mediador foi endereçada. Verificação no código confirma que os defeitos persistem: tools/mesh/byoc_router.py:146 ainda faz cópia rasa do dict de classe e :150 muta a lista compartilhada; PIN_LOCAL_SOVEREIGN_BEST continua 'qwen38-27b.gguf' (divergente do nome de arquivo citado na RFC); o perfil 'pro' continua em claude-3-7-sonnet-20250219. Sem falsificadores cumpridos, aprovação seria aprovação por inércia.",
+    "strengths": [
+      "O desenho conceitual (matriz por papel + pin em runtime + pool $0.00) permanece sólido e já é consenso imutável.",
+      "A estrutura de ProviderTarget/ComputeProfile é simples o bastante para que todas as correções exigidas sejam diffs pequenos (copy.deepcopy + um teste + constante corrigida)."
+    ],
+    "issues": [
+      "byoc_router.py:146 — dict(self.DEFAULT_HYBRID_ROLE_MATRIX) é cópia rasa; insert(0, ...) em :150 muta a lista do atributo de classe. Estado vaza entre instâncias e entre testes (ordem do pytest passa a importar). Não corrigido.",
+      "byoc_router.py:120 — dict(self.DEFAULT_PROFILES) compartilha as instâncias ComputeProfile, inclusive o 'hybrid' que aponta para o próprio DEFAULT_HYBRID_ROLE_MATRIX. Não corrigido.",
+      "byoc_router.py:10 — PIN_LOCAL_SOVEREIGN_BEST='qwen38-27b.gguf' diverge dos nomes físicos citados na RFC (Qwen3.8-27B-Q4_K_M.gguf / -UD-Q4_K_XL.gguf). Falsificador 3 continua infalsificável: nenhum teste consulta disco ou /v1/models.",
+      "tests/test_byoc_router.py:68-77 — o teste de pin insere alvo igual ao já presente na cascata; não distingue prepend real de no-op. Não corrigido.",
+      "byoc_router.py:113 — perfil 'hybrid' com requires_network=True torna is_offline_capable() ambíguo para o único perfil em que a resposta depende do papel. RFC ainda não define o contrato.",
+      "RFC não declara que a semântica de failover da 'cascata' é responsabilidade do chamador (nada no código itera a lista em falha).",
+      "byoc_router.py:96 — 'pro' pinado em claude-3-7-sonnet-20250219, modelo obsoleto, num documento cujo título promete 'pinos canônicos auditados'. IP 100.107.245.30 repetido 8x como literal."
+    ],
+    "recommendations": [
+      "Substituir as duas cópias rasas por copy.deepcopy (ou construir a matriz em __init__ via fábrica) e adicionar teste: duas instâncias de router, pin em uma, asserção de que a outra e o atributo de classe permanecem intactos.",
+      "Alinhar PIN_LOCAL_SOVEREIGN_BEST ao nome de arquivo real e adicionar um teste marcado (ex.: @pytest.mark.hardware, skip se o endpoint não responder) que consulta GET /v1/models do llama-server e confirma que o pino está listado — isso torna o Falsificador 3 empiricamente executável.",
+      "Reescrever o teste de pin com um ProviderTarget sentinela inédito (modelo 'sentinel-pin-test') e asserir cascade[0] is target.",
+      "Tornar is_offline_capable() consciente de papel no perfil 'hybrid' (ex.: aceitar role opcional e avaliar requires_network do primeiro alvo da cascata), ou documentar explicitamente que retorna False para hybrid.",
+      "Adicionar à RFC uma frase: 'A cascata é uma lista ordenada de preferência; iteração em falha é responsabilidade do chamador (YAGNI nesta RFC)'.",
+      "Atualizar o pino 'pro' para um modelo Claude corrente e extrair o IP Tailscale para uma única constante LOCAL_NODE_HOST.",
+      "Submeter na Rodada 3 um delta não-vazio com diff de código + testes verdes; sem isso, o veredito permanecerá REVISE."
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "established_consensuses": [
+    "Consolidação exemplar da Cláusula de Parada de Emergência com emissão de Laudo de Inconformidade no Princípio V.",
+    "Fundamentação sólida da Via Negativa e da inovação ambidestra (Princípios I e II) para combater a hipertrofia técnica.",
+    "Garantia inequívoca de soberania do usuário sobre chaves, dados e computação no Princípio IV."
+  ],
+  "dialectical_tensions": [
+    {
+      "claim": "O Princípio VI perpetua o banimento categórico/topológico de 'Fat MCP', violando o Princípio III que veta decisões arquiteturais baseadas em dogmas ou formas nominais em vez de métricas empíricas.",
+      "falsifier": "Demonstração de arquitetura MCP monolítica capaz de manter injeção de schema compacta e consumo de tokens rigorosamente constante O(1) via paginação ou carregamento sob demanda, satisfazendo os mesmos benchmarks de latência e contexto exigidos de Lean Gateways.",
+      "seat": "google"
+    },
+    {
+      "claim": "O Princípio IV postula 'paridade de contrato' entre os tiers BYOC sem especificar limites de disponibilidade, matriz de capacidades mínimas ou semântica de degradação graciosa para o perfil zero-hardware/CPU.",
+      "falsifier": "Execução de suíte de testes de conformidade em ambiente zero-hardware/CPU que resulte em falhas não documentadas ou quebras de contrato por depender de capacidades exclusivas de modelos de fronteira ou APIs online sem fallback previsível.",
+      "seat": "google"
+    },
+    {
+      "claim": "A paridade de contrato entre os três perfis BYOC permanece sem semântica normativa, limites de capacidade ou procedimento de degradação definidos.",
+      "falsifier": "Uma suíte de conformidade executada nos três perfis demonstra semântica idêntica para todas as operações normativas, declara os limites de cada perfil e comprova degradação previsível diante da ausência de quota, hardware, conectividade ou capacidade do modelo.",
+      "seat": "openai"
+    },
+    {
+      "claim": "A garantia de custo de contexto O(1) não estabelece um teto constante de tokens nem contabiliza schema, descoberta, paginação e metadados.",
+      "falsifier": "Medições reproduzíveis demonstram um limite superior constante e documentado de tokens injetados por chamada, independentemente do número total de ferramentas, recursos e metadados disponíveis.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O banimento formal de Fat MCP é um veto por topologia arquitetural e viola o Princípio III, que exige julgamento por métricas empíricas.",
+      "falsifier": "Um servidor MCP monolítico satisfaz, em benchmark reproduzível, os mesmos limites documentados de contexto, compactação de schema, memória e latência exigidos dos Lean MCP Gateways.",
+      "seat": "openai"
+    }
+  ],
+  "discard_candidates": [],
+  "recommendations": [
+    "Substituir o veto nominal a 'Fat MCP' no Princípio VI por uma exigência métrica e agnóstica de topologia: limite verificável de schema compacto e custo de contexto rigorosamente O(1) por chamada.",
+    "Explicitar no Princípio IV os limites de conformidade e a política de degradação graciosa aplicável quando quotas, aceleração por hardware ou conectividade externa estiverem ausentes.",
+    "Substituir a paridade absoluta por um contrato normativo mínimo, acompanhado de uma matriz explícita de capacidades, indisponibilidades e degradações por perfil.",
+    "Definir um orçamento máximo mensurável de tokens por chamada e um benchmark obrigatório que inclua schema, descoberta, paginação e metadados."
+  ]
+}

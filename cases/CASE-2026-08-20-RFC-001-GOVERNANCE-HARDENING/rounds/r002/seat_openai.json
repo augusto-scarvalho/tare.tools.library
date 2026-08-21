@@ -1,0 +1,38 @@
+{
+  "status": "OK",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "vote": {
+    "seat": "openai",
+    "execution_nonce": "93aac271-a7eb-46f5-8818-a98a712b844e",
+    "verdict": "REVISE",
+    "confidence": 0.99,
+    "summary": "O teto absoluto e o estado terminal resolvem a prorrogação ilimitada, enquanto a serialização reduz o risco de estouro de VRAM. Contudo, o delta não define serialização e encadeamento canônicos, não pina tokenizer, template e configuração, e mantém lacunas determinísticas na agregação de votos.",
+    "strengths": [
+      "A Rodada 4 tornou-se um limite absoluto com transição terminal irreversível.",
+      "A serialização dos turnos evita carregamentos concorrentes incompatíveis com a VRAM disponível."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "finding": "A tabela não determina resultados para REVISE ou REJECT sem issue bloqueante, nem para três APPROVE acompanhados apenas de issues non-blocking.",
+        "falsifier": "Enumerar todas as combinações válidas de votos e severidades; o motor deve produzir exatamente um estado para cada combinação."
+      },
+      {
+        "severity": "blocking",
+        "finding": "O aditivo não especifica serialização canônica, vínculo prev_hash nem reconstrução determinística dos deltas.",
+        "falsifier": "Duas implementações independentes devem reconstruir o mesmo estado e hash final, rejeitando delta ausente, reordenado ou adulterado."
+      },
+      {
+        "severity": "blocking",
+        "finding": "O pinning cobre genericamente artefatos locais, mas não exige hashes individuais de pesos, tokenizer, template e configuração determinística efetivamente usados.",
+        "falsifier": "A execução deve falhar fechada quando qualquer um desses componentes divergir de seu SHA-256 registrado."
+      }
+    ],
+    "recommendations": [
+      "Completar a tabela de agregação para todas as combinações válidas.",
+      "Definir uma codificação canônica e uma cadeia prev_hash/curr_hash.",
+      "Registrar e validar separadamente todos os componentes determinantes da inferência."
+    ]
+  }
+}

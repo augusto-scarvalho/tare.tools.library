@@ -1,0 +1,36 @@
+{
+  "established_consensuses": [
+    "Eliminação formal de loops de prorrogação através do hard cap absoluto de N=4 com transição terminal para HELD_OVERTIME_EXHAUSTED.",
+    "Matriz determinística de votação que fecha as brechas de quórum e especifica a precedência de issues bloqueantes de forma inequívoca.",
+    "Fixação soberana de artefatos por SHA-256 e serialização estrita de turnos de inferência, assegurando estabilidade na GPU (24GB)."
+  ],
+  "dialectical_tensions": [
+    {
+      "claim": null,
+      "falsifier": "Enumerar todas as combinações válidas de votos e severidades; o motor deve produzir exatamente um estado para cada combinação.",
+      "seat": "openai"
+    },
+    {
+      "claim": null,
+      "falsifier": "Duas implementações independentes devem reconstruir o mesmo estado e hash final, rejeitando delta ausente, reordenado ou adulterado.",
+      "seat": "openai"
+    },
+    {
+      "claim": null,
+      "falsifier": "A execução deve falhar fechada quando qualquer um desses componentes divergir de seu SHA-256 registrado.",
+      "seat": "openai"
+    },
+    {
+      "claim": null,
+      "falsifier": "Dois assentos emitem APPROVE e um emite REVISE com exatamente um issue non-blocking e nenhum blocking. A partir apenas do schema da Tabela 5.2, o motor não consegue decidir deterministicamente entre APPROVED e REVISED/HELD_PROGRESS_REVIEW — o mesmo quórum quebrado do post-mortem.",
+      "seat": "anthropic"
+    }
+  ],
+  "discard_candidates": [],
+  "recommendations": [
+    "Completar a tabela de agregação para todas as combinações válidas.",
+    "Definir uma codificação canônica e uma cadeia prev_hash/curr_hash.",
+    "Registrar e validar separadamente todos os componentes determinantes da inferência.",
+    "Tornar a Tabela 5.2 total: adicionar linha explícita para 'qualquer voto != APPROVE sem nenhum issue blocking' com veredito determinístico (ex.: REVISED e avança rodada), separando a dimensão do voto da dimensão da severidade em vez de exigir ambas por conjunção."
+  ]
+}

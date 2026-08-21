@@ -1,0 +1,39 @@
+{
+  "established_consensuses": [
+    "Eliminação total de dependências compiladas (Rust/PyO3/DuckDB) em favor da stdlib (`ast`) e pytest nativo, garantindo portabilidade multiplataforma sem fricção de build.",
+    "Adoção de contratos de integridade determinística via manifestos JSON Lines com hashes SHA-256 e rastreabilidade EARS bidirecional.",
+    "Consolidação pragmática do hiper-estagiamento teórico do Fable em uma biblioteca coesa e executável já respaldada por suite de testes."
+  ],
+  "dialectical_tensions": [
+    {
+      "claim": "As metas de redução superior a 85% de tokens e latência inferior a 10 ms continuam sem benchmark anexado ou correção baseada no corpus real.",
+      "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre src/specgraph; redução mediana inferior a 85% ou latência p95 superior a 10 ms refuta os critérios declarados.",
+      "seat": "openai"
+    },
+    {
+      "claim": "Os ponteiros canônicos permanecem como caminhos file:/// locais, inacessíveis fora da máquina do autor e incompatíveis com proveniência reproduzível.",
+      "falsifier": "Clonar o repositório em um ambiente independente e tentar resolver todos os ponteiros da Seção 4; qualquer referência inacessível refuta a auditabilidade da proposta.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O delta de revisão está vazio ({}), falhando em endereçar as exigências da Rodada 2 de anexar benchmarks reprodutíveis para as métricas de redução de tokens e latência do parser AST.",
+      "falsifier": "A ausência de dados empíricos no delta significa que qualquer execução do Reviewer Context Bundle que não atinja os critérios de sucesso (>85% tokens, <10ms) invalida a premissa de frugalidade radical sem mecanismo de recalibração.",
+      "seat": "anthropic"
+    },
+    {
+      "claim": "A Seção 4 mantém ponteiros canônicos para caminhos de sistema de arquivos locais (file:///C:/Users/augus/OneDrive/...), quebrando a reprodutibilidade por terceiros e a auditoria de proveniência.",
+      "falsifier": "Qualquer desenvolvedor externo tentando clonar o repositório e rastrear a origem das joias arquiteturais falhará ao acessar os links quebrados, invalidando a reprodutibilidade determinística do RFC.",
+      "seat": "anthropic"
+    }
+  ],
+  "discard_candidates": [
+    "[google] As métricas quantitativas de redução de contexto (>85%) e latência p95 (<10ms) constam no texto da proposta sem suíte de benchmark formal acoplada ao CI. (Classificado como não-bloqueante)",
+    "[google] Ponteiros canônicos na Seção 4 contêm caminhos absolutos locais específicos do ambiente de desenvolvimento original. (Classificado como não-bloqueante)"
+  ],
+  "recommendations": [
+    "Integrar um runner de benchmark contínuo (asserções de tempo baseadas em `time.perf_counter_ns` ou `pytest-benchmark`) na pipeline de CI para monitorar o SLA de latência do parser AST.",
+    "Normalizar todos os links da Seção 4 para caminhos relativos ao repositório ou referências a tags/branches de documentação versionadas.",
+    "Proceder com o merge e implementação do RFC-004, tratando as calibrações empíricas de tokens como evolução contínua da suíte de testes.",
+    "Ratificar novamente somente após anexar resultados reprodutíveis do benchmark e substituir os caminhos locais por artefatos versionados com hashes SHA-256."
+  ]
+}
