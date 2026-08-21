@@ -11,3 +11,11 @@ Thumbs.db
 site/_site/
 catalog/*.db
 *.db
+*.tar
+*.gz
+.aider*
+archaeology/chats/
+archaeology/historical/
+experiments/
+_handoff/
+vault/
