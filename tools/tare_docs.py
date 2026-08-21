@@ -113,8 +113,8 @@ def cmd_validate_repo(args):
  if tmdir.exists():
   for tp in sorted(tmdir.glob('*.json')):
    tm=load_json(tp)
-   src=root/tm.get('source_path','')
-   tr=root/tm.get('translation_path','')
+   src=(root/tm.get('source_path','')) if (root/tm.get('source_path','')).is_file() else (root/'catalog'/tm.get('source_path',''))
+   tr=(root/tm.get('translation_path','')) if (root/tm.get('translation_path','')).is_file() else (root/'catalog'/tm.get('translation_path',''))
    if not src.is_file(): errs.append(f'translation source missing: {tp.relative_to(root)}')
    elif tm.get('source_sha256') != sha256(src): errs.append(f'translation source hash mismatch: {tp.relative_to(root)}')
    if not tr.is_file(): errs.append(f'translation file missing: {tp.relative_to(root)}')
