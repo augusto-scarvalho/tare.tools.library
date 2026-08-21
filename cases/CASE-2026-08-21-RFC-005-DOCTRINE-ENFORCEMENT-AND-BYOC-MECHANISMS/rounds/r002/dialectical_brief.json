@@ -1,0 +1,63 @@
+{
+  "established_consensuses": [
+    "Adesão consistente ao princípio da Via Negativa e incentivo ao uso estrito da biblioteca padrão para redução de footprint e superfície de ataque.",
+    "Estruturação clara dos 6 pilares de governança com protocolo explícito de contenção e parada emergencial (EmergencyHaltReceipt).",
+    "Adoção de execução por argv puro (shell=False) como baseline segura de execução no MCP Gateway."
+  ],
+  "dialectical_tensions": [
+    {
+      "claim": "O teto de contexto de 150 tokens para schemas JSON-RPC permanece inauditável e não-determinístico sem a fixação de um tokenizer canônico de referência ou definição em métrica física invariante (bytes/caracteres minificados).",
+      "falsifier": "O mesmo schema JSON-RPC serializado atinge 138 tokens em um tokenizer cl100k_base e 162 tokens no tokenizer do Gemma/Llama, fazendo com que o gate de CI aprove ou reprove o mesmo artefato de forma arbitrária conforme o ambiente.",
+      "seat": "google"
+    },
+    {
+      "claim": "O roteador BYOC não especifica matriz determinística de precedência, probe ativo de disponibilidade com timeout para sockets locais, nem tratamento terminal para bundles que excedam a janela de contexto do SLM.",
+      "falsifier": "Ao ativar profile: free sem chave de API configurada e sem binário llama.cpp instalado, o roteador entra em estado indefinido ou falha silenciosa sem emitir um EmergencyHaltReceipt com código de erro estruturado.",
+      "seat": "google"
+    },
+    {
+      "claim": "A contenção de diretório canônico no MCP Gateway não define resolução de symlinks (Path.resolve) nem sanitização de variáveis de ambiente do processo filho.",
+      "falsifier": "Um comando executado dentro de um cwd permitido acessa arquivos confidenciais externos através de um symlink pré-existente ou herda PYTHONPATH/LD_PRELOAD permitindo execução arbitrária fora do escopo confinado.",
+      "seat": "google"
+    },
+    {
+      "claim": "O Frugality Guard continua sem política determinística e auditável para distinguir dependências necessárias de dependências infladas.",
+      "falsifier": "Duas implementações conformes avaliam o mesmo import de requests e chegam legitimamente a decisões opostas com base em urllib, TLS e ergonomia.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O teto de 150 tokens continua sem serialização canônica, tokenizador de referência e versão fixados.",
+      "falsifier": "O mesmo schema serializado ou tokenizado por implementações distintas cruza o limiar de 150 tokens em sentidos opostos.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O marcador verifies demonstra apenas associação nominal, não que o teste falsifique o requisito ou exercite seu código normativo.",
+      "falsifier": "Um teste contendo somente assert True e marcado com verifies para um requisito é aceito por specgraph trace.",
+      "seat": "openai"
+    },
+    {
+      "claim": "shell=False e cwd validado não confinam acesso a arquivos externos, rede, ambiente, subprocessos ou consumo de recursos.",
+      "falsifier": "Um argv Python iniciado no cwd permitido lê um caminho absoluto externo ou cria um processo filho persistente.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O roteador BYOC continua sem descoberta de capacidades, ordem normativa de fallback, limites de contexto e condição terminal de indisponibilidade.",
+      "falsifier": "No perfil free sem credencial Gemini e sem llama.cpp, ou diante de bundle excessivo, implementações conformes divergem entre falhar, truncar e selecionar outra rota.",
+      "seat": "openai"
+    },
+    {
+      "claim": "EmergencyHaltReceipt continua sem schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes e regra para falha de gravação.",
+      "falsifier": "Com o destino do recibo somente leitura, executores conformes podem continuar, escolher outro destino ou parar sem evidência verificável.",
+      "seat": "openai"
+    }
+  ],
+  "discard_candidates": [
+    "[google] A rastreabilidade estática via @pytest.mark.verifies valida a anotação declarativa, mas não afere se a asserção efetivamente executa o caminho de código normativo correspondente. (Classificado como não-bloqueante)"
+  ],
+  "recommendations": [
+    "Formalizar no Mecanismo 1 o tokenizer de referência (ex: gemma-tokenizer canônico via tokenizador local padronizado) ou substituir o teto por uma métrica física determinística (ex: payload JSON minificado ≤ 600 bytes UTF-8).",
+    "Definir a máquina de estados finita do BYOC Router com ordem estrita de fallback (Pro -> Free -> Local -> Halt), timeout de 500ms para health check de socket local e emissão obrigatória de EmergencyHaltReceipt quando o contexto do modelo for extrapolado.",
+    "Reforçar o MCP Gateway exigindo validação via Path.resolve() com Path.is_relative_to(root_dir) para mitigação de symlinks e adoção de allowlist estrita para variáveis de ambiente transmitidas ao subprocesso.",
+    "Padronizar o schema JSON formal versionado do HALT_RECEIPT.json prevendo fallback atômico via stderr caso o sistema de arquivos esteja montado em modo somente-leitura."
+  ]
+}

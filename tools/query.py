@@ -171,28 +171,42 @@ def semantic_search_library(
     db = LibraryVectorDB(db_path)
     client = client or LocalInferenceClient()
 
-    # Generate query embedding
+    # Generate query embedding via dedicated embedding host
     try:
-        if client.health_check().get("online"):
+        if client.health_check(target="embed").get("online"):
             embs = client.generate_embeddings([query])
             if embs:
-                vec_results = db.search(embs[0], top_k=max_results, allow_any_namespace=True)
-                return [
-                    QueryResult(
-                        doc_id=vr.doc_id,
-                        doc_type="vector_match",
-                        title=vr.relative_path,
-                        relative_path=vr.relative_path,
-                        snippet=vr.text_snippet,
-                        score=vr.score,
-                    )
-                    for vr in vec_results
-                ]
-    except Exception:
-        pass
+                vec_results = db.search(embs[0], top_k=max_results, provenance="real", model_name="local-embed")
+                if not vec_results:
+                    vec_results = db.search(embs[0], top_k=max_results, allow_any_namespace=True)
+                if vec_results:
+                    return [
+                        QueryResult(
+                            doc_id=vr.doc_id,
+                            doc_type="vector_semantic",
+                            title=vr.relative_path,
+                            relative_path=vr.relative_path,
+                            snippet=vr.text_snippet,
+                            score=vr.score,
+                        )
+                        for vr in vec_results
+                    ]
+    except Exception as e:
+        sys.stderr.write(f"[WARN] Semantic vector search unavailable ({e}). Falling back to lexical keyword search.\n")
 
-    # Fallback to keyword search
-    return search_library(query, max_results=max_results, root_dir=root_dir)
+    # Explicit Fallback to keyword search with tagged doc_type
+    lexical_results = search_library(query, max_results=max_results, root_dir=root_dir)
+    return [
+        QueryResult(
+            doc_id=lr.doc_id,
+            doc_type="lexical_fallback",
+            title=lr.title,
+            relative_path=lr.relative_path,
+            snippet=lr.snippet,
+            score=lr.score,
+        )
+        for lr in lexical_results
+    ]
 
 
 def ask_library(
@@ -278,9 +292,28 @@ def main() -> int:
     parser.add_argument("--concept", "-c", help="Lookup architectural concept in domain ontology")
     parser.add_argument("--type", "-t", choices=["adr", "spec", "experiment", "post_mortem", "doc", "canonical"], help="Filter by document type")
     parser.add_argument("--limit", "-n", type=int, default=5, help="Max results to return")
+    parser.add_argument("--force-local", action="store_true", help="Force local query execution")
     parser.add_argument("--root", default=".", help="Root directory of the library")
 
     args = parser.parse_args()
+
+    # ADR-055: Adaptive Latency-Aware Query Routing on Thin Clients
+    if args.semantic and not args.force_local:
+        try:
+            from tools.mesh.router import LatencyAwareRouter
+            from tools.policy.compute_guard import is_thin_client
+
+            if is_thin_client():
+                router = LatencyAwareRouter()
+                rtt = router.probe_substrate_latency()
+                if rtt is not None and rtt <= router.latency_threshold_ms:
+                    route_res = router.route_query(args.semantic, top_k=args.limit)
+                    print(f"🛰️ [QUERY ROUTED VIA {route_res.route}] Latency: {route_res.latency_ms} ms (Execution: {route_res.execution_time_s}s)")
+                    for res in route_res.results:
+                        print(res.get("raw_output", ""))
+                    return 0
+        except ImportError:
+            pass
 
     if args.ask:
         print(f"[*] Querying tare.tools.library RAG with question: '{args.ask}'...\n")
@@ -296,12 +329,15 @@ def main() -> int:
     elif args.semantic:
         results = semantic_search_library(args.semantic, max_results=args.limit, root_dir=args.root)
         if not results:
-            print(f"[QUERY] No vector matches found for '{args.semantic}'.")
+            print(f"[QUERY] No matching records found for '{args.semantic}'.")
             return 0
 
-        print(f"[SEMANTIC SEARCH RESULTS] Found {len(results)} matches for '{args.semantic}':\n")
+        is_fallback = any(r.doc_type == "lexical_fallback" for r in results)
+        header = "⚠️ [FALLBACK: LEXICAL KEYWORD SEARCH (Embedding Endpoint Offline)]" if is_fallback else "✨ [SEMANTIC DENSE VECTOR SEARCH (Cosine Similarity)]"
+        print(f"{header} Found {len(results)} matches for '{args.semantic}':\n")
         for i, r in enumerate(results, 1):
-            print(f"{i}. {r.title} [Score: {r.score:.3f}]")
+            score_label = f"Term Matches: {r.score:.1f}" if is_fallback else f"Cosine Score: {r.score:.3f}"
+            print(f"{i}. [{r.doc_type.upper()}] {r.title} ({r.relative_path}) [{score_label}]")
             print(f"   Excerpt: {r.snippet}\n")
         return 0
 

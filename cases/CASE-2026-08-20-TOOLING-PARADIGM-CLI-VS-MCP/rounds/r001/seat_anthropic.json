@@ -1,0 +1,39 @@
+{
+  "status": "OK",
+  "provider": "anthropic",
+  "model": "claude-fable-5-high",
+  "vote": {
+    "seat": "anthropic",
+    "execution_nonce": "f6304668-d01d-43cc-946a-28dbc92f6783",
+    "verdict": "REVISE",
+    "confidence": 0.82,
+    "summary": "O paradigma central (CLI First + gateway de 2 endpoints genéricos) é frugal, componível e anti-hipertrofia — direção correta e alinhada com engenharia lean. Porém o critério de sucesso depende de 'contenção estrita de sandbox' que o contrato proposto (cwd + shell=False + timeout) demonstravelmente NÃO entrega, e a proposta empurra o isolamento real de SO para fora de escopo, criando uma contradição bloqueante entre a promessa de segurança e os mecanismos especificados.",
+    "strengths": [
+      "Reduz overhead de schema a ~0/150 tokens via terminal + dispatcher mínimo: economia real e verificável, sem abstração especulativa.",
+      "Superfície de API deliberadamente pequena (2 endpoints) com envelope estruturado (stdout/stderr/exit_code/duration_ms/timed_out) — contrato determinístico e testável."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "cwd confinado ao workspace + shell=False + timeout NÃO constituem sandbox nem 'contenção estrita'. cwd apenas define o diretório de trabalho; não impede que o comando leia/escreva via caminhos absolutos ou '../', abra rede, ou consuma o host. Isolamento real exige camada de SO (namespaces/containers/seccomp), que a proposta declara fora de escopo.",
+        "falsifier": "Executar exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=<workspace>) ou um comando que faça egress de rede: se ambos rodam apesar do 'confinamento', a alegação de sandbox está falsificada."
+      },
+      {
+        "severity": "blocking",
+        "claim": "Aceitar command como `str` além de `list[str]` reintroduz injeção de shell e anula a garantia shell=False. 'Preferência' não é contrato executável.",
+        "falsifier": "exec_command('rg foo; rm -rf .', cwd=...) — se a forma string chega a um shell, há execução de payload arbitrário; a mitigação declarada falha."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "Custo de descoberta é deslocado, não eliminado: sem schemas, o agente precisa conhecer a existência e as flags de ferramentas custom (round_table_engine.py, specgraph). Ferramentas conhecidas (git/pytest/rg) estão ok; as próprias não.",
+        "falsifier": "Um agente leve, sem schema e sem `--help` padronizado, invocar corretamente uma ferramenta custom do ecossistema na primeira tentativa em <N% dos casos."
+      }
+    ],
+    "recommendations": [
+      "Tornar `list[str]` a ÚNICA assinatura aceita de command (remover a forma str) e fixar shell=False como invariante do contrato, não como preferência.",
+      "Reformular o critério de sucesso: ou baixar a alegação de 'sandbox/contenção estrita' para 'confinamento de cwd + limites de recurso', ou incluir a camada de isolamento de SO como parte OBRIGATÓRIA do contrato (não como implementação fora de escopo). Não é aceitável prometer isolamento no §1 e proibir discuti-lo no §Não-Objetivos.",
+      "Exigir prova empírica do teto O(1): um teste que meça tokens de schema injetados e falhe se exceder o limite declarado (<150), fechando o gap entre a afirmação e a verificação.",
+      "Padronizar contrato mínimo de descoberta para ferramentas custom (`--help` e `--format=json`) para que a economia de schema não vire custo de alucinação de flags."
+    ]
+  }
+}

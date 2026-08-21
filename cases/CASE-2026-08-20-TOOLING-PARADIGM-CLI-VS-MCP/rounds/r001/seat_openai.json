@@ -1,0 +1,43 @@
+{
+  "status": "OK",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "vote": {
+    "seat": "openai",
+    "execution_nonce": "3f5588c7-58a0-401b-87f6-00f55e06e451",
+    "verdict": "REVISE",
+    "confidence": 0.98,
+    "summary": "A arquitetura CLI-first é frugal, componível e evita a hipertrofia de schemas, mas o gateway genérico concentra autoridade excessiva em um único endpoint. A proposta deve substituir metas absolutas não demonstradas por benchmarks reproduzíveis e completar o contrato de confinamento antes da aprovação.",
+    "strengths": [
+      "Prioriza CLIs existentes, formatos estruturados e composição nativa, evitando abstrações e servidores redundantes.",
+      "Define poucos endpoints, timeout, falha fechada de diretório e envelope determinístico de execução."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "Confinar apenas cwd não confina a execução: caminhos absolutos em argumentos, variáveis de ambiente, executáveis, links simbólicos, arquivos de resposta e subprocessos ainda podem acessar ou alterar recursos externos.",
+        "falsifier": "Um teste automatizado que execute pytest -q tests/test_gateway_confinement.py deve provar que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso e arquivo de resposta falham fechadas sem efeitos fora de um workspace temporário."
+      },
+      {
+        "severity": "blocking",
+        "claim": "Aceitar command como list[str] ou str torna ambígua a semântica de shell=False e pode reintroduzir interpretação de shell ou comportamento divergente entre plataformas.",
+        "falsifier": "Um teste automatizado que execute pytest -q tests/test_gateway_exec_contract.py deve demonstrar sem execução colateral que strings contendo operadores de shell são rejeitadas e que apenas argv explícito é aceito."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "As afirmações de zero tokens, schema menor que 150 tokens, redução superior a 80% e custo O(1) não possuem tokenizer, corpus, baseline nem procedimento de medição definidos.",
+        "falsifier": "Um benchmark versionado que execute python experiments/bench_tool_context.py --format=json deve confirmar os limites declarados para cada cliente e modelo suportado, incluindo descoberta paginada e instruções necessárias para uso das CLIs."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "O envelope não limita volume de saída nem define cancelamento da árvore de processos, permitindo exaustão de memória ou subprocessos órfãos apesar do timeout.",
+        "falsifier": "Um teste automatizado que execute pytest -q tests/test_gateway_limits.py deve provar truncamento sinalizado de stdout e stderr e encerramento de toda a árvore de processos após timeout."
+      }
+    ],
+    "recommendations": [
+      "Remover a variante string e aceitar somente argv como lista, salvo um endpoint de shell separado, explicitamente autorizado e desabilitado por padrão.",
+      "Definir uma política mínima de capacidades para executáveis, ambiente, rede, escrita, URIs, limites de saída e árvore de processos; manter detalhes de SO na implementação.",
+      "Trocar garantias universais de tokens e O(1) por orçamento inicial mensurável, com tokenizer, versões, corpus, baseline e benchmark reproduzível."
+    ]
+  }
+}

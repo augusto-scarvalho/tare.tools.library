@@ -1,0 +1,45 @@
+{
+  "status": "OK",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "vote": {
+    "seat": "openai",
+    "execution_nonce": "f1158672-c225-4326-b7ff-f85e4d83bfac",
+    "verdict": "REVISE",
+    "confidence": 0.97,
+    "summary": "O teto mecânico, a escalada humana e a matriz de quórum atacam diretamente as causas do incidente com pouca complexidade. A proposta ainda não garante terminação absoluta, integridade reconstruível do estado nem pinos realmente imutáveis, portanto requer correções contratuais antes da aprovação.",
+    "strengths": [
+      "Limite explícito de rodadas com estado terminal humano reduz loops e consumo imprevisível.",
+      "Fallback degradado preserva disponibilidade sem apresentar parecer local como consenso de fronteira."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "overtime_granted não possui limite total nem transição terminal definida, permitindo sucessivas prorrogações e contradizendo N <= 3.",
+        "falsifier": "Um teste de FSM prova que nenhuma sequência de eventos, inclusive concessões repetidas de overtime, executa mais que o máximo absoluto formalmente definido."
+      },
+      {
+        "severity": "blocking",
+        "claim": "Deltas com hashes de seção não definem serialização canônica, encadeamento com o estado anterior nem reconstrução determinística do documento vigente.",
+        "falsifier": "Um teste reproduz o mesmo hash e o mesmo estado final a partir da âncora e dos deltas em implementações independentes, rejeitando delta ausente, reordenado ou adulterado."
+      },
+      {
+        "severity": "blocking",
+        "claim": "Nomes de arquivos e famílias de modelo não constituem pinos soberanos imutáveis; pesos, quantização, tokenizer ou parâmetros podem mudar mantendo o mesmo nome.",
+        "falsifier": "Cada execução valida um SHA-256 registrado dos artefatos efetivos e falha fechada quando qualquer peso, tokenizer, template ou configuração determinística diverge."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "Limitar gravação atômica e locking por contagem de linhas é um critério estético, não uma garantia de correção ou portabilidade.",
+        "falsifier": "Testes de interrupção concorrente demonstram ausência de estado parcial, votos duplicados e corrupção nas plataformas suportadas, independentemente da quantidade de linhas."
+      }
+    ],
+    "recommendations": [
+      "Fixar max_total_rounds em 4, permitir uma única prorrogação humana e tornar qualquer estado posterior terminal.",
+      "Definir JSON canônico, hash do estado anterior e algoritmo determinístico de aplicação e validação dos deltas.",
+      "Pinar SHA-256 dos pesos, tokenizer, template, quantização e configuração de inferência, mantendo aliases apenas como rótulos.",
+      "Vincular nonce, case_id, número da rodada e hash da âncora no journal validado pelo motor.",
+      "Substituir o limite de cinco linhas por testes mínimos de atomicidade, concorrência e recuperação após interrupção."
+    ]
+  }
+}

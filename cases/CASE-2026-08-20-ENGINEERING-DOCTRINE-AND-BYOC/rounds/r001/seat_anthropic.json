@@ -1,0 +1,38 @@
+{
+  "status": "OK",
+  "provider": "anthropic",
+  "model": "claude-fable-5-high",
+  "vote": {
+    "seat": "anthropic",
+    "execution_nonce": "072621de-f02c-4dc7-ad4a-f2c9e5cedce1",
+    "verdict": "REVISE",
+    "confidence": 0.8,
+    "summary": "A doutrina é engenharia sólida: Via Negativa/YAGNI, falsificador proporcional ao risco e cláusula de parada são princípios operacionalmente corretos e raros de ver bem articulados. Porém há uma contradição interna real entre o Princípio III (nenhum veto por dogma abstrato; exija falsificador) e o Princípio VI (banimento categórico de 'Fat MCP'), e a 'paridade de contrato' do BYOC (IV) é uma afirmação forte sem teste de conformidade que a torne verificável. Ratificável após corrigir essas duas arestas.",
+    "strengths": [
+      "Princípio III (falsificador empírico proporcional ao risco) é o coração da proposta e o que a salva de virar prosa aspiracional: amarra veto a reproduction_test/benchmark/modelo de ameaça em vez de opinião estética.",
+      "Princípio V (fidelidade ao plano + cláusula de parada de emergência) resolve corretamente o paradoxo obediência-cega vs. bom-senso, e a via negativa de não-objetivos evita que 'frugalidade' seja usada como desculpa para rejeitar inovação legítima."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "O Princípio VI bane 'formalmente' o Fat MCP como categoria, o que é exatamente o veto arquitetural baseado em dogma abstrato que o Princípio III proíbe sem um falsificador anexado.",
+        "falsifier": "Existir um caso onde um servidor MCP monolítico entregue o mesmo custo de contexto O(1) e schema compacto exigidos, medido por benchmark de tokens — se existe, o banimento por forma (e não por métrica) é falsificado e a regra deveria ser 'custo de contexto O(1) verificável', não 'Fat MCP proibido'."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "A 'paridade de contrato' entre as 3 realidades BYOC (IV) não define o contrato nem como verificá-lo; sem isso é intenção, não garantia.",
+        "falsifier": "Rodar a mesma suíte de aceitação nas 3 configurações (free-tier CPU, API comercial, local GPU) e observar divergência de comportamento/saída além da tolerância declarada — se diverge, não há paridade, apenas suporte nominal."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "O documento pratica em parte a hipertrofia retórica que condena: 6 princípios com nomenclatura ornamental correm risco de virar ritual não-executável se não houver gatilho de enforcement no CI/revisão.",
+        "falsifier": "Um PR mergeado violando um princípio sem que nenhum gate (teste, checklist de review, lint de doutrina) o barre demonstra que a doutrina é decorativa, não operante."
+      }
+    ],
+    "recommendations": [
+      "Reescrever VI de proibição por forma ('Fat MCP banido') para limite por métrica ('gateways devem provar custo de contexto O(1) e schema abaixo de N tokens'), alinhando-o a III.",
+      "Anexar a IV um teste de conformidade BYOC (suíte única rodada nos 3 modos) como definição operacional de 'paridade de contrato'.",
+      "Definir para cada princípio o gate concreto que o falsifica em revisão/CI, para que a doutrina seja executável e não cerimonial."
+    ]
+  }
+}

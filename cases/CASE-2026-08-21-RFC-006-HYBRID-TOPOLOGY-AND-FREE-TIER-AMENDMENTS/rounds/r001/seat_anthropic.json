@@ -1,0 +1,34 @@
+{
+  "status": "OK",
+  "provider": "anthropic",
+  "model": "claude-fable-5-high",
+  "vote": {
+    "seat": "anthropic",
+    "execution_nonce": "93d4d516-243e-4c2e-995d-48b967ddccc9",
+    "verdict": "REVISE",
+    "confidence": 0.86,
+    "summary": "A proposta é pequena, legível e já está implementada em tools/mesh/byoc_router.py com testes passando — o tamanho da solução é proporcional ao problema, sem hipertrofia. Porém, pin_role_target muta listas compartilhadas em nível de classe (dict() é cópia rasa), o que vaza estado entre instâncias e entre testes, e o Falsificador 3 (modelo existente em disco) não é verificado por nenhum teste: o pino é a string 'qwen38-27b.gguf', que não corresponde a nenhum dos dois nomes de arquivo que a RFC afirma ter auditado.",
+    "strengths": [
+      "Implementação mínima: dois dataclasses + um dict de cascatas; sem factories, sem plugins, sem YAML loader — a matriz é dado, não código.",
+      "Contrato determinístico e testado: get_role_cascade lança KeyError com a lista de papéis disponíveis; set_profile lança ValueError (Falsificadores 1 e 2 cobertos em tests/test_byoc_router.py).",
+      "NVIDIA NIM free entra apenas como mais um ProviderTarget/ComputeProfile no mesmo shape dos demais — zero superfície nova de abstração.",
+      "O router só resolve, não executa: responsabilidade única, fácil de auditar."
+    ],
+    "issues": [
+      "tools/mesh/byoc_router.py:146 — dict(self.DEFAULT_HYBRID_ROLE_MATRIX) é cópia rasa; insert(0, ...) na linha 150 muta a lista compartilhada do atributo de classe. Além disso, o perfil 'hybrid' em DEFAULT_PROFILES referencia o próprio dict de classe e dict(self.DEFAULT_PROFILES) na linha 120 compartilha as instâncias de ComputeProfile. Resultado: um pin em qualquer instância altera todas as outras e persiste entre testes — ordem de execução do pytest passa a influenciar resultados.",
+      "Falsificador 3 não é falsificável hoje: PIN_LOCAL_SOVEREIGN_BEST = 'qwen38-27b.gguf' enquanto a RFC cita 'Qwen3.8-27B-Q4_K_M.gguf' / 'Qwen3.8-27B-UD-Q4_K_XL.gguf'. Nenhum teste toca disco ou /v1/models do llama-server; a 'comprovação empírica' existe apenas no texto.",
+      "tests/test_byoc_router.py:68-77 — o teste de pin insere um alvo idêntico ao que já está na cascata (mesmo modelo qwen), então a asserção passaria mesmo se o prepend fosse ignorado e o item caísse em outra posição. O teste não distingue sucesso de no-op.",
+      "ComputeProfile 'hybrid' tem requires_network=True, tornando is_offline_capable() sem sentido para o único perfil onde a resposta depende do papel. Contrato ambíguo.",
+      "O termo 'cascata' sugere failover automático, mas nada no código itera a lista em caso de falha. Aceitável por YAGNI, mas a RFC deve declarar explicitamente que a semântica de fallback é responsabilidade do chamador.",
+      "Menor: IP Tailscale 100.107.245.30 repetido 8 vezes como literal; perfil 'pro' pinado em 'claude-3-7-sonnet-20250219', modelo obsoleto num documento que se propõe a auditar pinos canônicos."
+    ],
+    "recommendations": [
+      "Em __init__, usar copy.deepcopy(self.DEFAULT_PROFILES) (stdlib, uma linha) e remover o fallback para DEFAULT_HYBRID_ROLE_MATRIX dentro de pin_role_target — todo estado mutável deve pertencer à instância.",
+      "Alinhar PIN_LOCAL_SOVEREIGN_BEST ao nome real do arquivo em disco e adicionar um teste marcado como integração (skip se o endpoint 8080 não responder) que consulte GET /v1/models e afirme que o pino está na lista. Sem isso, retirar a palavra 'auditado' do título.",
+      "No teste de pin, inserir um ProviderTarget com model sentinela (ex.: 'sentinel-model') e afirmar cascade[0].model == 'sentinel-model' e len aumentou em 1.",
+      "Definir requires_network do perfil hybrid como derivado: any(t.requires_network for t in cascade[0]) por papel, ou documentar que is_offline_capable() não se aplica ao hybrid e lançar NotImplementedError nesse caso.",
+      "Extrair o IP do nó local para uma única constante (LOCAL_NODE = os.getenv('TARE_LOCAL_NODE', 'http://100.107.245.30')) — sem framework de config, apenas um nome.",
+      "Acrescentar uma frase à RFC: 'O router retorna a cascata ordenada; a iteração com fallback é feita pelo consumidor.' Evita que o próximo leitor implemente um executor duplicado."
+    ]
+  }
+}

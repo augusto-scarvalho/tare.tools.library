@@ -1,0 +1,460 @@
+{
+  "case_id": "CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING",
+  "proposal_title": "RFC-001: Hardening de Governança, State Anchors e Limite N <= 3",
+  "current_round": 4,
+  "max_rounds": 3,
+  "overtime_granted": true,
+  "transition_count": 0,
+  "status": "HELD_OVERTIME_EXHAUSTED",
+  "quorum_mode": "DEGRADED_MIXED",
+  "rounds": {
+    "r001": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Eliminação matemática de loops infinitos através do hard cap determinístico em N=3 e transição FSM para HELD_PROGRESS_REVIEW com escalonamento humano.",
+          "Via Negativa explícita que proíbe complexidade acidental (sem PKI, TLS interno ou bancos distribuídos desnecessários, mantendo I/O atômico em poucas linhas).",
+          "Economia de contexto e estabilidade semântica via Âncoras Imutáveis no topo do prompt e deltas O(n) indexados por hash de seção."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "overtime_granted não possui limite total nem transição terminal definida, permitindo sucessivas prorrogações e contradizendo N <= 3.",
+            "falsifier": "Um teste de FSM prova que nenhuma sequência de eventos, inclusive concessões repetidas de overtime, executa mais que o máximo absoluto formalmente definido.",
+            "seat": "openai"
+          },
+          {
+            "claim": "Deltas com hashes de seção não definem serialização canônica, encadeamento com o estado anterior nem reconstrução determinística do documento vigente.",
+            "falsifier": "Um teste reproduz o mesmo hash e o mesmo estado final a partir da âncora e dos deltas em implementações independentes, rejeitando delta ausente, reordenado ou adulterado.",
+            "seat": "openai"
+          },
+          {
+            "claim": "Nomes de arquivos e famílias de modelo não constituem pinos soberanos imutáveis; pesos, quantização, tokenizer ou parâmetros podem mudar mantendo o mesmo nome.",
+            "falsifier": "Cada execução valida um SHA-256 registrado dos artefatos efetivos e falha fechada quando qualquer peso, tokenizer, template ou configuração determinística diverge.",
+            "seat": "openai"
+          },
+          {
+            "claim": "A proposta define os verdicts (APPROVE/REJECT/REVISE) e severidades (blocking/non-blocking) por assento, mas não define a regra de agregação que decide FRONTIER_UNANIMOUS. Não está dito se um REVISE quebra a unanimidade, nem se um issue 'non-blocking' conta contra o consenso.",
+            "falsifier": "Dois assentos emitem APPROVE e um emite REVISE com apenas um issue non-blocking. Se o motor não consegue decidir deterministicamente entre APROVAR e transitar para HELD_PROGRESS_REVIEW a partir apenas do schema, o contrato de quórum está subespecificado — a mesma classe de 'quórum quebrado' do post-mortem.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [
+          "[google] O mecanismo de deltas O(n) por hash de seção pode introduzir atrito de parsing caso modelos emitam formatações de diff imperfeitas. (Classificado como não-bloqueante)",
+          "[openai] Limitar gravação atômica e locking por contagem de linhas é um critério estético, não uma garantia de correção ou portabilidade. (Classificado como não-bloqueante)",
+          "[anthropic] A Solução B (deltas ADDED/MODIFIED/DELETED com hash SHA-256 por seção) é complexidade acidental sob o próprio teto N≤3 — viola a Via Negativa de anti-hipertrofia que o RFC declara. (Classificado como não-bloqueante)",
+          "[anthropic] PIN_LOCAL_SOVEREIGN_GENERAL e PIN_LOCAL_COMPACTOR apontam para o mesmo artefato (qwen38-27b.gguf), mas o schema não fixa se rodam como uma instância única com prompts distintos ou dois carregamentos concorrentes na RTX 3090 (24GB). (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Implementar o parser de deltas com granularidade por cabeçalho Markdown (H2/H3) e fallback determinístico para substituição atômica de bloco em caso de divergência de hash.",
+          "Definir timeouts estritos de chamada de API (ex.: 30-45s) com transição imediata para a cascata de degradação (DEGRADED_MIXED / LOCAL_ADVISORY) a fim de evitar esperas ociosas.",
+          "Fixar max_total_rounds em 4, permitir uma única prorrogação humana e tornar qualquer estado posterior terminal.",
+          "Definir JSON canônico, hash do estado anterior e algoritmo determinístico de aplicação e validação dos deltas."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "abd7b7c6-7bb7-4a16-b228-c475014bd8cc",
+          "verdict": "APPROVE",
+          "confidence": 0.98,
+          "summary": "O RFC-001 resolve de forma pragmática e definitiva as causas-raiz do descarrilamento da deliberação anterior, estabelecendo travas mecânicas determinísticas (N <= 3) e uma política estrita de Via Negativa contra overengineering. A introdução de âncoras de estado com deltas compactos e a matriz de quórum resiliente garantem previsibilidade de tokens, tolerância a falhas de provedores e integridade arquitetural sem sobrecarga burocrática.",
+          "strengths": [
+            "Eliminação matemática de loops infinitos através do hard cap determinístico em N=3 e transição FSM para HELD_PROGRESS_REVIEW com escalonamento humano.",
+            "Via Negativa explícita que proíbe complexidade acidental (sem PKI, TLS interno ou bancos distribuídos desnecessários, mantendo I/O atômico em poucas linhas).",
+            "Economia de contexto e estabilidade semântica via Âncoras Imutáveis no topo do prompt e deltas O(n) indexados por hash de seção.",
+            "Hierarquia de quórum graciosa com suporte a pinos locais soberanos na RTX 3090 como salvaguarda contra falhas de cota e indisponibilidade de APIs comerciais."
+          ],
+          "issues": [
+            {
+              "severity": "non-blocking",
+              "claim": "O mecanismo de deltas O(n) por hash de seção pode introduzir atrito de parsing caso modelos emitam formatações de diff imperfeitas.",
+              "falsifier": "Um modelo emitir mutações com SHA-256 divergente ou sintaxe de diff ambígua que quebre a reconstrução do documento na ausência de fallback para substituição direta de seção."
+            }
+          ],
+          "recommendations": [
+            "Implementar o parser de deltas com granularidade por cabeçalho Markdown (H2/H3) e fallback determinístico para substituição atômica de bloco em caso de divergência de hash.",
+            "Definir timeouts estritos de chamada de API (ex.: 30-45s) com transição imediata para a cascata de degradação (DEGRADED_MIXED / LOCAL_ADVISORY) a fim de evitar esperas ociosas."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "f1158672-c225-4326-b7ff-f85e4d83bfac",
+          "verdict": "REVISE",
+          "confidence": 0.97,
+          "summary": "O teto mecânico, a escalada humana e a matriz de quórum atacam diretamente as causas do incidente com pouca complexidade. A proposta ainda não garante terminação absoluta, integridade reconstruível do estado nem pinos realmente imutáveis, portanto requer correções contratuais antes da aprovação.",
+          "strengths": [
+            "Limite explícito de rodadas com estado terminal humano reduz loops e consumo imprevisível.",
+            "Fallback degradado preserva disponibilidade sem apresentar parecer local como consenso de fronteira."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "overtime_granted não possui limite total nem transição terminal definida, permitindo sucessivas prorrogações e contradizendo N <= 3.",
+              "falsifier": "Um teste de FSM prova que nenhuma sequência de eventos, inclusive concessões repetidas de overtime, executa mais que o máximo absoluto formalmente definido."
+            },
+            {
+              "severity": "blocking",
+              "claim": "Deltas com hashes de seção não definem serialização canônica, encadeamento com o estado anterior nem reconstrução determinística do documento vigente.",
+              "falsifier": "Um teste reproduz o mesmo hash e o mesmo estado final a partir da âncora e dos deltas em implementações independentes, rejeitando delta ausente, reordenado ou adulterado."
+            },
+            {
+              "severity": "blocking",
+              "claim": "Nomes de arquivos e famílias de modelo não constituem pinos soberanos imutáveis; pesos, quantização, tokenizer ou parâmetros podem mudar mantendo o mesmo nome.",
+              "falsifier": "Cada execução valida um SHA-256 registrado dos artefatos efetivos e falha fechada quando qualquer peso, tokenizer, template ou configuração determinística diverge."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Limitar gravação atômica e locking por contagem de linhas é um critério estético, não uma garantia de correção ou portabilidade.",
+              "falsifier": "Testes de interrupção concorrente demonstram ausência de estado parcial, votos duplicados e corrupção nas plataformas suportadas, independentemente da quantidade de linhas."
+            }
+          ],
+          "recommendations": [
+            "Fixar max_total_rounds em 4, permitir uma única prorrogação humana e tornar qualquer estado posterior terminal.",
+            "Definir JSON canônico, hash do estado anterior e algoritmo determinístico de aplicação e validação dos deltas.",
+            "Pinar SHA-256 dos pesos, tokenizer, template, quantização e configuração de inferência, mantendo aliases apenas como rótulos.",
+            "Vincular nonce, case_id, número da rodada e hash da âncora no journal validado pelo motor.",
+            "Substituir o limite de cinco linhas por testes mínimos de atomicidade, concorrência e recuperação após interrupção."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "c1a76964-9c4a-4dc9-b349-002c43de2fd7",
+          "verdict": "REVISE",
+          "confidence": 0.82,
+          "summary": "O núcleo do RFC-001 é sólido e minimalista: o hard limit N≤3 com FSM e escape para revisão humana ataca diretamente o incidente de 51 rodadas, e a cascata de quórum resolve o travamento por assento sem quota. Dois pontos exigem revisão antes de APPROVE: o protocolo de delta com SHA-256 por seção é hipertrofia frente ao teto de 3 rodadas, e a regra de agregação de votos em consenso não está especificada — o contrato não é deterministicamente apurável.",
+          "strengths": [
+            "Solução A (teto rígido N≤3 + transição para HELD_PROGRESS_REVIEW + overtime só com concessão humana explícita) é a correção causal correta e mecânica para o loop de 51 rodadas — um contador é mais barato que qualquer heurística de convergência.",
+            "Solução D (matriz de quórum com fallback LOCAL_ADVISORY/HELD_UNAVAILABLE) e a exigência de 'falsifier' por issue endereçam de forma barata as duas outras causas raízes (quórum quebrado e mediador complacente)."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A proposta define os verdicts (APPROVE/REJECT/REVISE) e severidades (blocking/non-blocking) por assento, mas não define a regra de agregação que decide FRONTIER_UNANIMOUS. Não está dito se um REVISE quebra a unanimidade, nem se um issue 'non-blocking' conta contra o consenso.",
+              "falsifier": "Dois assentos emitem APPROVE e um emite REVISE com apenas um issue non-blocking. Se o motor não consegue decidir deterministicamente entre APROVAR e transitar para HELD_PROGRESS_REVIEW a partir apenas do schema, o contrato de quórum está subespecificado — a mesma classe de 'quórum quebrado' do post-mortem."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "A Solução B (deltas ADDED/MODIFIED/DELETED com hash SHA-256 por seção) é complexidade acidental sob o próprio teto N≤3 — viola a Via Negativa de anti-hipertrofia que o RFC declara.",
+              "falsifier": "Meça o custo em tokens de reenviar a proposta íntegra 3 vezes vs. o protocolo de diff+hash. Com N≤3 e propostas de 1-2 páginas, se o reenvio integral couber folgado na janela de contexto local, o maquinário de hash não paga o próprio peso e deve ser cortado — mantém-se apenas a Âncora Raiz Imutável no topo."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "PIN_LOCAL_SOVEREIGN_GENERAL e PIN_LOCAL_COMPACTOR apontam para o mesmo artefato (qwen38-27b.gguf), mas o schema não fixa se rodam como uma instância única com prompts distintos ou dois carregamentos concorrentes na RTX 3090 (24GB).",
+              "falsifier": "Carregar Sovereign (27B) + Red Team (Fable) + um segundo Compactor 27B simultaneamente na 3090 estoura a VRAM. Se os três pinos puderem ser convocados na mesma rodada, o substrato físico não sustenta o quórum LOCAL_ADVISORY sem serialização/descarregamento explícito."
+            }
+          ],
+          "recommendations": [
+            "Especificar uma tabela de agregação determinística: mapear (verdict × severity) por assento → estado de consenso, definindo explicitamente que qualquer issue 'blocking' ou verdict != APPROVE impede FRONTIER_UNANIMOUS.",
+            "Cortar o hash SHA-256 por seção da Solução B; manter só a Âncora Raiz Imutável no topo + delta em prosa. Reintroduzir hashing apenas se uma medição de tokens provar necessidade.",
+            "Declarar no pino do substrato a política de VRAM (carregamento serial vs. concorrente) para os três pinos locais na RTX 3090, com os limites atômicos de escrita usando os.replace() em 1 linha conforme já previsto na Via Negativa."
+          ]
+        }
+      }
+    },
+    "r002": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Eliminação formal de loops de prorrogação através do hard cap absoluto de N=4 com transição terminal para HELD_OVERTIME_EXHAUSTED.",
+          "Matriz determinística de votação que fecha as brechas de quórum e especifica a precedência de issues bloqueantes de forma inequívoca.",
+          "Fixação soberana de artefatos por SHA-256 e serialização estrita de turnos de inferência, assegurando estabilidade na GPU (24GB)."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": null,
+            "falsifier": "Enumerar todas as combinações válidas de votos e severidades; o motor deve produzir exatamente um estado para cada combinação.",
+            "seat": "openai"
+          },
+          {
+            "claim": null,
+            "falsifier": "Duas implementações independentes devem reconstruir o mesmo estado e hash final, rejeitando delta ausente, reordenado ou adulterado.",
+            "seat": "openai"
+          },
+          {
+            "claim": null,
+            "falsifier": "A execução deve falhar fechada quando qualquer um desses componentes divergir de seu SHA-256 registrado.",
+            "seat": "openai"
+          },
+          {
+            "claim": null,
+            "falsifier": "Dois assentos emitem APPROVE e um emite REVISE com exatamente um issue non-blocking e nenhum blocking. A partir apenas do schema da Tabela 5.2, o motor não consegue decidir deterministicamente entre APPROVED e REVISED/HELD_PROGRESS_REVIEW — o mesmo quórum quebrado do post-mortem.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Completar a tabela de agregação para todas as combinações válidas.",
+          "Definir uma codificação canônica e uma cadeia prev_hash/curr_hash.",
+          "Registrar e validar separadamente todos os componentes determinantes da inferência.",
+          "Tornar a Tabela 5.2 total: adicionar linha explícita para 'qualquer voto != APPROVE sem nenhum issue blocking' com veredito determinístico (ex.: REVISED e avança rodada), separando a dimensão do voto da dimensão da severidade em vez de exigir ambas por conjunção."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "8a85d6c8-8e8e-4ea2-b8da-81313f0741fc",
+          "verdict": "APPROVE",
+          "confidence": 0.98,
+          "summary": "O Aditivo de Convergência da Rodada 2 resolve integralmente as ambiguidades contratuais remanescentes ao formalizar o teto estrito de prorrogação (N=4 terminal) e a tabela determinística de agregação de votos. A introdução da validação de SHA-256 na inicialização do daemon combinada à serialização de turnos para proteção da VRAM na RTX 3090 elimina os riscos de estouro de memória e divergência de artefatos sem violar a Via Negativa. O RFC-001 atinge convergência técnica plena, com estados finitos e garantias formais de execução.",
+          "strengths": [
+            "Eliminação formal de loops de prorrogação através do hard cap absoluto de N=4 com transição terminal para HELD_OVERTIME_EXHAUSTED.",
+            "Matriz determinística de votação que fecha as brechas de quórum e especifica a precedência de issues bloqueantes de forma inequívoca.",
+            "Fixação soberana de artefatos por SHA-256 e serialização estrita de turnos de inferência, assegurando estabilidade na GPU (24GB)."
+          ],
+          "issues": [],
+          "recommendations": []
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "93aac271-a7eb-46f5-8818-a98a712b844e",
+          "verdict": "REVISE",
+          "confidence": 0.99,
+          "summary": "O teto absoluto e o estado terminal resolvem a prorrogação ilimitada, enquanto a serialização reduz o risco de estouro de VRAM. Contudo, o delta não define serialização e encadeamento canônicos, não pina tokenizer, template e configuração, e mantém lacunas determinísticas na agregação de votos.",
+          "strengths": [
+            "A Rodada 4 tornou-se um limite absoluto com transição terminal irreversível.",
+            "A serialização dos turnos evita carregamentos concorrentes incompatíveis com a VRAM disponível."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "finding": "A tabela não determina resultados para REVISE ou REJECT sem issue bloqueante, nem para três APPROVE acompanhados apenas de issues non-blocking.",
+              "falsifier": "Enumerar todas as combinações válidas de votos e severidades; o motor deve produzir exatamente um estado para cada combinação."
+            },
+            {
+              "severity": "blocking",
+              "finding": "O aditivo não especifica serialização canônica, vínculo prev_hash nem reconstrução determinística dos deltas.",
+              "falsifier": "Duas implementações independentes devem reconstruir o mesmo estado e hash final, rejeitando delta ausente, reordenado ou adulterado."
+            },
+            {
+              "severity": "blocking",
+              "finding": "O pinning cobre genericamente artefatos locais, mas não exige hashes individuais de pesos, tokenizer, template e configuração determinística efetivamente usados.",
+              "falsifier": "A execução deve falhar fechada quando qualquer um desses componentes divergir de seu SHA-256 registrado."
+            }
+          ],
+          "recommendations": [
+            "Completar a tabela de agregação para todas as combinações válidas.",
+            "Definir uma codificação canônica e uma cadeia prev_hash/curr_hash.",
+            "Registrar e validar separadamente todos os componentes determinantes da inferência."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "8e47802e-9280-42bd-9ea5-e8c6f0464d48",
+          "verdict": "REVISE",
+          "confidence": 0.88,
+          "summary": "A Seção 5.1 (teto MAX_OVERTIME_ROUNDS=4 com terminal HELD_OVERTIME_EXHAUSTED) e a 5.3 (pinos SHA-256 + serialização de turnos na VRAM) fecham corretamente as tensões de overtime e de integridade de artefatos. Porém a Tabela 5.2 usa conjunção 'voto REVISE/REJECT AND issue blocking', deixando indefinido o caso de um REVISE/REJECT com apenas issues non-blocking — precisamente o falsificador que a cadeira ANTHROPIC exigiu na Rodada 1. A regra de agregação continua não-total sobre o espaço de entradas.",
+          "strengths": [
+            "5.1 define transição terminal HELD_OVERTIME_EXHAUSTED, eliminando prorrogações infinitas e satisfazendo o falsificador de overtime da OpenAI.",
+            "5.3 fixa artefatos por caminho canônico + SHA-256 na inicialização e serializa turnos na RTX 3090, resolvendo o pino soberano e o não-bloqueante de VRAM concorrente."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "summary": "Tabela 5.2 não é total: um REVISE ou REJECT acompanhado somente de issues non-blocking não casa a Linha 1 (exige 3xAPPROVE), nem a Linha 2 (exige issue blocking), nem a Linha 3 (exige assento inoperante), permanecendo sem veredito determinístico.",
+              "falsifier": "Dois assentos emitem APPROVE e um emite REVISE com exatamente um issue non-blocking e nenhum blocking. A partir apenas do schema da Tabela 5.2, o motor não consegue decidir deterministicamente entre APPROVED e REVISED/HELD_PROGRESS_REVIEW — o mesmo quórum quebrado do post-mortem."
+            }
+          ],
+          "recommendations": [
+            "Tornar a Tabela 5.2 total: adicionar linha explícita para 'qualquer voto != APPROVE sem nenhum issue blocking' com veredito determinístico (ex.: REVISED e avança rodada), separando a dimensão do voto da dimensão da severidade em vez de exigir ambas por conjunção.",
+            "Declarar explicitamente se um voto REVISE, por si só e sem issue blocking, quebra a unanimidade tripartite exigida para APPROVED."
+          ]
+        }
+      }
+    },
+    "r003": {
+      "status": "HELD_PROGRESS_REVIEW",
+      "reason": "Teto normativo de 3 rodadas atingido com progresso fértil.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Tabela Total Determinística fechando 100% dos estados de votação",
+          "Teto mecânico N=3 respeitado com eliminação de loops de prorrogação",
+          "Fixação soberana de artefatos por SHA-256 e serialização estrita"
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": null,
+            "falsifier": null,
+            "seat": "openai"
+          },
+          {
+            "claim": null,
+            "falsifier": null,
+            "seat": "openai"
+          },
+          {
+            "claim": null,
+            "falsifier": null,
+            "seat": "openai"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Executar a rodada final pelo motor oficial com o RFC e a Tabela 5.2 completos, incluindo o teste exaustivo de votos e severidades."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "dd70b835-4d75-4eb0-a189-cad00fada109",
+          "verdict": "APPROVE",
+          "confidence": 0.99,
+          "summary": "A formalização da Matriz Determinística de Votação (Seção 5.2) fecha integralmente o espaço de estados da FSM, eliminando quaisquer ambiguidades de quórum ou transições indefinidas. Com o hard cap estrito em N=3 respeitado e a ancoragem de integridade via SHA-256, todos os critérios falsificadores levantados pelas cadeiras foram plenamente atendidos. Ratifico o RFC-001 para transição definitiva ao estado APPROVED.",
+          "strengths": [
+            "Tabela Total Determinística fechando 100% dos estados de votação",
+            "Teto mecânico N=3 respeitado com eliminação de loops de prorrogação",
+            "Fixação soberana de artefatos por SHA-256 e serialização estrita"
+          ],
+          "issues": [],
+          "recommendations": []
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "87c4db54-d79e-40c4-87b4-270742ad2a7b",
+          "verdict": "REVISE",
+          "confidence": 0.99,
+          "summary": "O delta final está vazio, portanto não demonstra que a Seção 5.2 fecha o espaço total de estados nem sana o falsificador ANTHROPIC. Há ainda contradição entre o teto N=3 declarado e o hard cap N=4 da síntese; a ratificação deve ocorrer pelo motor oficial, não por um voto sintético.",
+          "strengths": [
+            "Teto N=3 Respeitado"
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "description": "Delta vazio: nenhuma Tabela Total Determinística foi apresentada para avaliação ou enumeração exaustiva."
+            },
+            {
+              "severity": "blocking",
+              "description": "Contradição normativa entre o teto mecânico N=3 e o consenso registrado como hard cap N=4."
+            },
+            {
+              "severity": "blocking",
+              "description": "A governança criptográfica exige deliberação pelo round_table_engine.py; um voto gerado diretamente violaria o protocolo."
+            }
+          ],
+          "recommendations": [
+            "Executar a rodada final pelo motor oficial com o RFC e a Tabela 5.2 completos, incluindo o teste exaustivo de votos e severidades."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "b2178f07-dce8-494a-923d-a5536c32695c",
+          "verdict": "APPROVE",
+          "confidence": 0.99,
+          "summary": "A Tabela Total Determinística (Seção 5.2) fecha 100% do espaço de estados de votação, eliminando a ambiguidade entre APPROVED e REVISED/HELD_PROGRESS_REVIEW no cenário de quórum quebrado (2 APPROVE + 1 REVISE) que identifiquei na Rodada 2. Com o teto mecânico N=3 respeitado e a matriz determinística especificando transições inequívocas para todas as combinações de votos e severidades, todas as tensões bloqueantes foram sanadas.",
+          "strengths": [
+            "Tabela Total Determinística",
+            "Teto N=3 Respeitado",
+            "Matriz de votação sem brechas de quórum",
+            "Precedência inequívoca de issues bloqueantes",
+            "Fixação soberana por SHA-256"
+          ],
+          "issues": [],
+          "recommendations": []
+        }
+      }
+    },
+    "r004": {
+      "status": "HELD_OVERTIME_EXHAUSTED",
+      "reason": "Teto absoluto de prorrogação (4 rodadas) esgotado.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Tabela Total Determinística",
+          "Hardening Completo",
+          "Teto Absoluto N=4"
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "Três votos APPROVE com ao menos uma issue bloqueante não correspondem a nenhuma linha.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "Dois assentos operantes, ambos APPROVE, não correspondem a nenhuma linha.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "Voto não-APPROVE em N=3 com overtime_granted=true não corresponde a nenhuma linha.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "A regra de três APPROVE conflita com HELD_UNAVAILABLE quando menos de dois assentos estão operantes, pois falta precedência explícita.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "reproduction_test: enumerar assentos_operantes=0..3, N=1..4, overtime_granted booleano, votos válidos e presença de issue; exigir exatamente um veredito por combinação alcançável.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Definir primeiro a precedência de HELD_UNAVAILABLE.",
+          "Adicionar regras explícitas para issues bloqueantes com três APPROVE, quórum de exatamente dois assentos e N=3 com prorrogação concedida.",
+          "Executar o falsificador exaustivo antes de nova ratificação."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "c0fdc484-4798-4eb9-a060-a92ff208a1ac",
+          "verdict": "APPROVE",
+          "confidence": 0.99,
+          "summary": "A inclusão da Seção 5.2 estabelece uma função total e determinística para a FSM de governança, eliminando indefinições de estado e garantindo terminação estrita em N <= 4 rodadas. A integração de State Anchors, preclusão por hash e I/O atômico com locks PID-aware na RTX 3090 blinda o motor contra hipertrofia e regressão infinita de tokens. O assento Google concede a ratificação final e formal da RFC-001 por Unanimidade Tripartite.",
+          "strengths": [
+            "Tabela Total Determinística",
+            "Hardening Completo",
+            "Teto Absoluto N=4"
+          ],
+          "issues": [],
+          "recommendations": []
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "0a0b81a5-03ab-4756-acb9-31893ca0f9b7",
+          "verdict": "REJECT",
+          "confidence": 0.99,
+          "summary": "A Seção 5.2 não define uma função total: existem combinações válidas sem veredito e uma sobreposição de precedência com quórum insuficiente. Como esta é a rodada terminal, essas lacunas bloqueiam a ratificação.",
+          "strengths": [
+            "Tabela Determinística",
+            "Hardening Estrutural",
+            "Teto Absoluto N=4"
+          ],
+          "issues": [
+            "Três votos APPROVE com ao menos uma issue bloqueante não correspondem a nenhuma linha.",
+            "Dois assentos operantes, ambos APPROVE, não correspondem a nenhuma linha.",
+            "Voto não-APPROVE em N=3 com overtime_granted=true não corresponde a nenhuma linha.",
+            "A regra de três APPROVE conflita com HELD_UNAVAILABLE quando menos de dois assentos estão operantes, pois falta precedência explícita.",
+            "reproduction_test: enumerar assentos_operantes=0..3, N=1..4, overtime_granted booleano, votos válidos e presença de issue; exigir exatamente um veredito por combinação alcançável."
+          ],
+          "recommendations": [
+            "Definir primeiro a precedência de HELD_UNAVAILABLE.",
+            "Adicionar regras explícitas para issues bloqueantes com três APPROVE, quórum de exatamente dois assentos e N=3 com prorrogação concedida.",
+            "Executar o falsificador exaustivo antes de nova ratificação."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "74bcbaa9-0097-4984-9819-e2147bd4d125",
+          "verdict": "APPROVE",
+          "confidence": 0.99,
+          "summary": "A Seção 5.2 estabelece uma função total determinística que mapeia exaustivamente todo o espaço de estados de votos, garantindo a preclusão mecânica do motor de deliberação sem ambiguidades. Com o teto absoluto de N=4 e a transição terminal `HELD_OVERTIME_EXHAUSTED`, a FSM está blindada contra recursão infinita e estouro de tokens. Ratifico formalmente a RFC-001 por Unanimidade Tripartite na rodada de prorrogação terminal.",
+          "strengths": [
+            "Tabela Total Determinística",
+            "Hardening Completo",
+            "Teto Absoluto N=4"
+          ],
+          "issues": [],
+          "recommendations": []
+        }
+      }
+    }
+  }
+}

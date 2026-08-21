@@ -1,0 +1,45 @@
+{
+  "status": "OK",
+  "provider": "anthropic",
+  "model": "claude-fable-5-high",
+  "vote": {
+    "seat": "anthropic",
+    "execution_nonce": "6f83d9e0-ee94-4724-8742-d84c74648f62",
+    "verdict": "REVISE",
+    "confidence": 0.82,
+    "summary": "A arquitetura é sólida, frugal em espírito e com forte postura de segurança no gateway (argv puro, shell=False, contenção de diretório). Contudo, dois mecanismos carecem de falsificadores empíricos concretos e um terceiro reinventa ferramentas existentes, o que contradiz a própria Via Negativa da proposta. Aprovável após revisão pontual, não por chancela cega.",
+    "strengths": [
+      "Mecanismo 6 (Lean MCP Gateway): contrato mínimo e correto — vetor argv list[str] com shell=False e telemetria estruturada é exatamente a superfície certa, sem hipertrofia.",
+      "Mecanismo 4 (BYOC Router): desacoplamento por perfil com segredos via OS Keyring e endpoint OpenAI-compatível é pragmático e usa primitivas de stdlib/SO em vez de framework proprietário.",
+      "Protocolo de parada (Mecanismo 5) como contrato JSON simples e declarativo evita orquestração desnecessária."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "O critério de sucesso 'validação de schema < 150 tokens' é inauditável sem tokenizador especificado. Contagem de tokens é dependente de modelo; '150 tokens' não é uma grandeza física até fixar o tokenizador de referência.",
+        "falsifier": "Rodar o guard sobre um mesmo schema JSON-RPC com dois tokenizadores distintos (ex: cl100k_base vs tokenizer de um SLM local) e obter contagens divergentes que cruzem o limiar de 150 em direções opostas — o build passa e falha para o mesmo artefato conforme o backend."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "Mecanismo 1 (Frugality Guard) reinventa contratos de dependência já resolvidos por ferramentas instaladas/maduras (import-linter, ruff). Construir um auditor de imports próprio é a hipertrofia que a Via Negativa proíbe.",
+        "falsifier": "Demonstrar que import-linter (contract: forbidden) + ruff cobrem a regra de priorização de stdlib e proibição de deps infladas com config declarativa, tornando o módulo custom código morto."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "Mecanismo 3 falha o build para 'código normativo em produção sem falsificador', mas 'código normativo' não tem definição operacional. Sem um predicado decidível, o gate produz falsos positivos e vira fricção burocrática.",
+        "falsifier": "Apresentar dois revisores classificando o mesmo módulo utilitário como normativo/não-normativo de formas opostas — a ausência de critério mecânico torna o gate não-determinístico."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "Mecanismo 6: 'validação de contenção de diretório canônico' não menciona resolução de symlinks; contenção baseada em prefixo de path é evadível.",
+        "falsifier": "Criar um symlink dentro de cwd apontando para fora da raiz canônica e executar exec_command com um cwd que o atravesse — a escrita/leitura escapa da contenção se a validação não usar realpath/resolve() antes da checagem de prefixo."
+      }
+    ],
+    "recommendations": [
+      "Fixar o tokenizador de referência do teto de 150 tokens no contrato (nome + versão) ou substituir a métrica por bytes/caracteres, que são auditáveis sem dependência de modelo.",
+      "Delegar Mecanismo 1 a import-linter + ruff via config declarativa; manter código próprio apenas para o teto de schema, que essas ferramentas não cobrem.",
+      "Definir 'código normativo' por um predicado mecânico (ex: módulos sob caminhos declarados no specgraph) antes de ligar o gate de build do Mecanismo 3.",
+      "Exigir resolução canônica (Path.resolve/realpath) de cwd e do argv[0] antes da checagem de contenção no Mecanismo 6."
+    ]
+  }
+}

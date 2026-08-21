@@ -1,0 +1,16 @@
+# SÍNTESE DO MEDIADOR CONSTITUCIONAL — RODADA 1
+
+## 1. Consensos Estabelecidos (Imutáveis)
+- Eliminação cirúrgica de dependências pesadas (Rust/PyO3, Gherkin e DuckDB) em favor da biblioteca padrão Python (AST) e pytest nativo, garantindo zero atrito de instalação e manutenção.
+- Preservação intacta das joias de alto valor: Rastreabilidade Bidirecional (EARS -> ADR -> AST -> Test), Cálculo de Blast Radius e Reviewer Context Bundle para economia extrema de tokens (>85%).
+- Adoção de contratos formais de integridade baseados em manifestos JSON Lines atômicos com checksum SHA-256, promovendo reprodutibilidade determinística e facilidade de introspecção por agentes LLM.
+
+## 2. Tensões Dialéticas & Falsificadores Bloqueantes
+- **[ANTHROPIC]**: As métricas de sucesso '>85% de tokens inúteis cortados' e 'AST puro com <10ms de latência' são apresentadas como fato justificador, mas nenhum benchmark reprodutível é anexado ao RFC.
+  - *Falsificador Exigido:* `Rodar o Reviewer Context Bundle e o parser AST sobre o corpus real de `src/specgraph/`: se a redução mediana de tokens ficar abaixo de 85% ou a latência p95 do AST exceder 10ms, os critérios de sucesso do RFC estão empiricamente refutados e precisam ser recalibrados com números medidos.`
+
+## 3. Descarte por Via Negativa (Anti-Hipertrofia)
+- [google] Em monorepos massivos (>500k LOC), a análise sequencial de AST em Python puro pode apresentar degradação linear de tempo de parse comparado a implementações compiladas caso não haja cache incremental invalidável por hash. (Classificado como não-bloqueante)
+- [openai] A dependência exclusiva de JSON Lines para metadados e manifestos pode introduzir degradação de performance em operações de busca e junção (join) se o grafo de especificações escalar para dezenas de milhares de nós. (Classificado como não-bloqueante)
+- [anthropic] Resgatar as 5 joias (rastreabilidade bidirecional, context bundle, blast radius, EARS, drift detection) como um bloco único reintroduz complexidade acidental especulativa — a mesma anti-frugalidade que a seção 3 purga, deslocada da camada de infra para a conceitual. (Classificado como não-bloqueante)
+- [anthropic] Os ponteiros canônicos (seção 4) apontam para `OneDrive/.../SpecGraph` fora da árvore versionada do repositório, tornando a proveniência das 'joias' não auditável nem reproduzível por terceiros. (Classificado como não-bloqueante)

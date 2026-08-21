@@ -1,0 +1,58 @@
+{
+  "google": {
+    "status": "OK",
+    "provider": "google",
+    "model": "gemini-3.7-flash",
+    "vote": {
+      "seat": "google",
+      "execution_nonce": "162962df-c128-4440-bcb6-24aa6c3ef53d",
+      "verdict": "APPROVE",
+      "confidence": 0.99,
+      "summary": "Aprovação integral da RFC-006. A proposta consolida o Roteador Soberano BYOC com isolamento estrito de estado (copy.deepcopy), suporte a matriz topológica híbrida granular por papéis, integração formal do tier NVIDIA Build e auditabilidade canônica no nó físico 'aaaaa'. A suíte com 100% de testes verdes (158/158) e os testes de alvo canário atestam a robustez operacional e segurança contra regressões.",
+      "strengths": [
+        "Isolamento determinístico e imutabilidade de estado entre instâncias assegurados por deepcopy no construtor e em pin_role_target.",
+        "Granularidade topológica no perfil hybrid permitindo cascatas customizadas por assento/função com predicado de capacidade offline (is_offline_capable).",
+        "Maximização da soberania e do pool de computação $0.00 com NVIDIA Build Free e fact-check físico no nó local RTX 3090 (Qwen 3.8 27B).",
+        "Falsificabilidade comprovada via alvos canários e cobertura integral da suíte de testes (158/158 passing)."
+      ],
+      "issues": [],
+      "recommendations": [
+        "Monitorar a telemetria de latência e taxa de expiração de tokens/quotas no pool 'nvidia-build-free' para chaveamento automático de fallback para Gemini Free ou nó local.",
+        "Manter versionamento rigoroso dos pesos GGUF no nó 'aaaaa' via manifestos SHA-256 no repositório canônico."
+      ]
+    }
+  },
+  "openai": {
+    "status": "FAILED",
+    "provider": "local_gpu",
+    "error": "<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+  },
+  "anthropic": {
+    "status": "OK",
+    "provider": "anthropic",
+    "model": "claude-fable-5-high",
+    "vote": {
+      "seat": "anthropic",
+      "execution_nonce": "6c692b68-7a10-4411-80e1-d573a172c005",
+      "verdict": "APPROVE",
+      "confidence": 0.92,
+      "summary": "Verifiquei o código em tools/mesh/byoc_router.py e tests/test_byoc_router.py. Os quatro defeitos bloqueantes da rodada r003 (cópia rasa, teste tautológico, contrato ambíguo de is_offline_capable, constantes dispersas) foram efetivamente corrigidos: __init__ usa copy.deepcopy(DEFAULT_PROFILES) (l.127) e custom_profiles (l.129); pin_role_target faz deepcopy da matriz e do alvo (l.153-159); is_offline_capable(role) avalia a cascata por papel (l.168-178); DEFAULT_LOCAL_GPU_URL/EMBED_URL centralizadas (l.11-12); o teste RFC-006-REQ-BYOC-003 usa o canário 'canary-sentinel-v1.0' em duas instâncias e afirma que router2 permanece em 'gemini-3.7-flash'. Restam apenas questões não-bloqueantes: o Falsificador 3 (pino físico do modelo) segue provado apenas por texto, e get_role_cascade ainda pode devolver referência viva ao atributo de classe em perfis não-híbridos. A suíte 158/158 não foi reexecutada por mim nesta sessão (modo somente leitura).",
+      "strengths": [
+        "Isolamento de estado real e verificado: deepcopy no construtor (perfis e custom_profiles), na materialização da matriz híbrida e no próprio alvo pinado — nenhuma mutação alcança DEFAULT_HYBRID_ROLE_MATRIX ou DEFAULT_PROFILES via pin_role_target.",
+        "Teste canário não-tautológico: duas instâncias, pino em uma, asserção positiva (model == canário) e negativa (router2 preserva 'gemini-3.7-flash'), o que distingue sucesso de no-op e captura regressão de shallow copy.",
+        "Contrato determinístico de is_offline_capable(role): perfil monolítico responde pelo requires_network do perfil; hybrid+role responde pela cascata (any target offline); role desconhecido retorna False em vez de lançar.",
+        "Diffs mínimos e stdlib-only (copy.deepcopy), sem abstrações novas — coerente com a recomendação da mesa na rodada anterior."
+      ],
+      "issues": [
+        "Não-bloqueante — Falsificador 3 continua não-falsificável em código: PIN_LOCAL_SOVEREIGN_BEST='qwen38-27b' e as constantes PIN_LOCAL_GGUF_PRIMARY/FALLBACK (l.16-17) não são referenciadas por nenhum teste nem consultadas via disco ou /v1/models; o fact-check no nó aaaaa existe apenas como declaração.",
+        "Não-bloqueante — get_role_cascade (l.145) faz fallback para self.DEFAULT_HYBRID_ROLE_MATRIX (atributo de classe, sem cópia) quando role_matrix está vazio; um chamador que mutar a lista retornada em perfil não-híbrido contamina o estado de classe. pin_role_target está protegido, mas o getter não.",
+        "Cosmético — perfil 'pro' fixa model='claude-3-7-sonnet' (l.103), identificador defasado em relação aos pinos de vendor_cli da matriz ('claude-fable-5-high')."
+      ],
+      "recommendations": [
+        "Em get_role_cascade, substituir o fallback por copy.deepcopy(self.DEFAULT_HYBRID_ROLE_MATRIX) ou retornar list(...) para fechar a última via de vazamento de estado de classe.",
+        "Adicionar um teste opcional marcado como integração (skip se o endpoint Tailscale não responder) que consulte GET /v1/models em DEFAULT_LOCAL_GPU_URL e afirme que PIN_LOCAL_SOVEREIGN_BEST ou PIN_LOCAL_GGUF_PRIMARY/FALLBACK aparece na resposta — converte o fact-check textual em evidência reprodutível.",
+        "Atualizar o model do perfil 'pro' para o identificador Anthropic corrente e registrar a data do fact-check do pino local na própria constante (comentário) para rastreabilidade de obsolescência."
+      ]
+    }
+  }
+}

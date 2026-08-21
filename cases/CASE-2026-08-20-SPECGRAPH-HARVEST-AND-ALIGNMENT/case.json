@@ -1,0 +1,370 @@
+{
+  "case_id": "CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT",
+  "proposal_title": "RFC-004: Colheita Arquitetural do SpecGraph Histórico e Alinhamento Frugal",
+  "current_round": 3,
+  "max_rounds": 3,
+  "overtime_granted": false,
+  "transition_count": 0,
+  "status": "HELD_PROGRESS_REVIEW",
+  "quorum_mode": "DEGRADED_MIXED",
+  "rounds": {
+    "r001": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Eliminação cirúrgica de dependências pesadas (Rust/PyO3, Gherkin e DuckDB) em favor da biblioteca padrão Python (AST) e pytest nativo, garantindo zero atrito de instalação e manutenção.",
+          "Preservação intacta das joias de alto valor: Rastreabilidade Bidirecional (EARS -> ADR -> AST -> Test), Cálculo de Blast Radius e Reviewer Context Bundle para economia extrema de tokens (>85%).",
+          "Adoção de contratos formais de integridade baseados em manifestos JSON Lines atômicos com checksum SHA-256, promovendo reprodutibilidade determinística e facilidade de introspecção por agentes LLM."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "As métricas de sucesso '>85% de tokens inúteis cortados' e 'AST puro com <10ms de latência' são apresentadas como fato justificador, mas nenhum benchmark reprodutível é anexado ao RFC.",
+            "falsifier": "Rodar o Reviewer Context Bundle e o parser AST sobre o corpus real de `src/specgraph/`: se a redução mediana de tokens ficar abaixo de 85% ou a latência p95 do AST exceder 10ms, os critérios de sucesso do RFC estão empiricamente refutados e precisam ser recalibrados com números medidos.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [
+          "[google] Em monorepos massivos (>500k LOC), a análise sequencial de AST em Python puro pode apresentar degradação linear de tempo de parse comparado a implementações compiladas caso não haja cache incremental invalidável por hash. (Classificado como não-bloqueante)",
+          "[openai] A dependência exclusiva de JSON Lines para metadados e manifestos pode introduzir degradação de performance em operações de busca e junção (join) se o grafo de especificações escalar para dezenas de milhares de nós. (Classificado como não-bloqueante)",
+          "[anthropic] Resgatar as 5 joias (rastreabilidade bidirecional, context bundle, blast radius, EARS, drift detection) como um bloco único reintroduz complexidade acidental especulativa — a mesma anti-frugalidade que a seção 3 purga, deslocada da camada de infra para a conceitual. (Classificado como não-bloqueante)",
+          "[anthropic] Os ponteiros canônicos (seção 4) apontam para `OneDrive/.../SpecGraph` fora da árvore versionada do repositório, tornando a proveniência das 'joias' não auditável nem reproduzível por terceiros. (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Formalizar um schema JSON estrito (JSON Schema v7 ou Pydantic v2 com exportação frozen) para os manifestos de rastreabilidade e ContextBundles, prevenindo drift de contrato entre versões.",
+          "Incorporar testes de estresse de complexidade assintótica O(N) sobre o grafo de dependências para garantir que o cálculo de Blast Radius permaneça determinístico e sub-segundo em grafos densos.",
+          "Manter a convenção @pytest.mark.verifies padronizada como interface canônica de ligação entre asserções executáveis e IDs de critérios EARS.",
+          "Implementar um índice em memória (hash map) carregado sob demanda a partir dos JSON Lines para acelerar as consultas de Blast Radius, evitando a varredura linear (O(N)) de múltiplos arquivos sem recorrer a bancos de dados externos."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "50ae1416-461e-4273-8e01-772866433005",
+          "verdict": "APPROVE",
+          "confidence": 0.98,
+          "summary": "A proposta RFC-004 executa com maestria o princípio de Navalha de Occam e engenharia frugal, resgatando a essência formal da rastreabilidade causal e compressão de contexto do SpecGraph sem carregar a dívida técnica de compilação FFI e frameworks BDD redundantes. A consolidação em Python nativo com marcações diretas de pytest viabiliza portabilidade universal imediata, auditoria determinística e latência sub-10ms para repositórios padrão.",
+          "strengths": [
+            "Eliminação cirúrgica de dependências pesadas (Rust/PyO3, Gherkin e DuckDB) em favor da biblioteca padrão Python (AST) e pytest nativo, garantindo zero atrito de instalação e manutenção.",
+            "Preservação intacta das joias de alto valor: Rastreabilidade Bidirecional (EARS -> ADR -> AST -> Test), Cálculo de Blast Radius e Reviewer Context Bundle para economia extrema de tokens (>85%).",
+            "Adoção de contratos formais de integridade baseados em manifestos JSON Lines atômicos com checksum SHA-256, promovendo reprodutibilidade determinística e facilidade de introspecção por agentes LLM."
+          ],
+          "issues": [
+            {
+              "severity": "non-blocking",
+              "claim": "Em monorepos massivos (>500k LOC), a análise sequencial de AST em Python puro pode apresentar degradação linear de tempo de parse comparado a implementações compiladas caso não haja cache incremental invalidável por hash.",
+              "falsifier": "Tempo de execução de varredura completa (cold run) exceder 2.000ms para repositórios com mais de 50.000 linhas de código em hardware padrão (x86_64/ARM quad-core)."
+            }
+          ],
+          "recommendations": [
+            "Formalizar um schema JSON estrito (JSON Schema v7 ou Pydantic v2 com exportação frozen) para os manifestos de rastreabilidade e ContextBundles, prevenindo drift de contrato entre versões.",
+            "Incorporar testes de estresse de complexidade assintótica O(N) sobre o grafo de dependências para garantir que o cálculo de Blast Radius permaneça determinístico e sub-segundo em grafos densos.",
+            "Manter a convenção @pytest.mark.verifies padronizada como interface canônica de ligação entre asserções executáveis e IDs de critérios EARS."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "e1b3d0a5-f3ae-432c-83a5-2b94bee4e7c1",
+          "verdict": "APPROVE",
+          "confidence": 0.92,
+          "summary": "A proposta demonstra um alinhamento excepcional com a engenharia prática e a doutrina frugal, eliminando complexidade acidental (Rust/PyO3, OLAP) em favor de soluções nativas e auditáveis (Python AST, JSON Lines, pytest marks). A preservação das 'joias' conceituais, como o Reviewer Context Bundle e a rastreabilidade EARS-to-Test, garante robustez sem inflar a superfície de manutenção. É um modelo exemplar de arquitetura enxuta focada em contratos sólidos e viabilidade empírica.",
+          "strengths": [
+            "Purga rigorosa de overengineering via substituição de bindings nativos e bancos OLAP por estruturas Python puras e JSON atômico, reduzindo drasticamente o custo de manutenção e fricção de deploy.",
+            "Manutenção da rastreabilidade causal bidirecional e cálculo de Blast Radius utilizando mecanismos nativos de AST e marks do pytest, provando que contratos formais não exigem frameworks pesados."
+          ],
+          "issues": [
+            {
+              "severity": "non-blocking",
+              "claim": "A dependência exclusiva de JSON Lines para metadados e manifestos pode introduzir degradação de performance em operações de busca e junção (join) se o grafo de especificações escalar para dezenas de milhares de nós.",
+              "falsifier": "Se o tempo de carregamento e cruzamento de metadados para calcular o Blast Radius exceder 1000ms em um repositório com mais de 50.000 símbolos mapeados, a premissa de que JSON Lines é suficiente para a camada de leitura analítica será falsificada."
+            }
+          ],
+          "recommendations": [
+            "Implementar um índice em memória (hash map) carregado sob demanda a partir dos JSON Lines para acelerar as consultas de Blast Radius, evitando a varredura linear (O(N)) de múltiplos arquivos sem recorrer a bancos de dados externos.",
+            "Garantir que o Reviewer Context Bundle possua limites estritos de tamanho de payload (ex: max tokens) para assegurar que a promessa de corte de 85% de tokens inúteis seja empiricamente verificável e não vaze contexto excessivo para os agentes."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "19a2fa26-6ac0-4133-9998-eb5cf8834513",
+          "verdict": "REVISE",
+          "confidence": 0.79,
+          "summary": "A Via Negativa (purga de Rust/PyO3, Gherkin e DuckDB em favor de AST stdlib, pytest marks e JSON Lines) é engenharia frugal genuína e bem fundamentada — aprovo essa direção sem reservas. O ponto fraco não é o que se descarta, e sim o que se resgata: adotar as 5 'joias' de uma vez é a mesma hipertrofia especulativa, só que na camada conceitual, e as métricas centrais (>85% de tokens, <10ms) são asseridas sem benchmark reprodutível anexado.",
+          "strengths": [
+            "Via Negativa concreta e correta: substituir Rust/PyO3, Gherkin e DuckDB por AST da stdlib, @pytest.mark e JSON+SHA-256 elimina fricção de build multiplataforma real, não teórica.",
+            "Âncora empírica saudável: 68 testes passando como piso de verdade, e critérios de aceitação EARS amarrados a um teste falsificador explícito — contrato verificável em vez de prosa."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "As métricas de sucesso '>85% de tokens inúteis cortados' e 'AST puro com <10ms de latência' são apresentadas como fato justificador, mas nenhum benchmark reprodutível é anexado ao RFC.",
+              "falsifier": "Rodar o Reviewer Context Bundle e o parser AST sobre o corpus real de `src/specgraph/`: se a redução mediana de tokens ficar abaixo de 85% ou a latência p95 do AST exceder 10ms, os critérios de sucesso do RFC estão empiricamente refutados e precisam ser recalibrados com números medidos."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Resgatar as 5 joias (rastreabilidade bidirecional, context bundle, blast radius, EARS, drift detection) como um bloco único reintroduz complexidade acidental especulativa — a mesma anti-frugalidade que a seção 3 purga, deslocada da camada de infra para a conceitual.",
+              "falsifier": "Se, após a integração, existir qualquer uma das joias sem um consumidor real (um teste, um agente ou um comando que a exercite hoje), ela é abstração YAGNI: código órfão que o próprio RFC classifica como drift no item 5."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Os ponteiros canônicos (seção 4) apontam para `OneDrive/.../SpecGraph` fora da árvore versionada do repositório, tornando a proveniência das 'joias' não auditável nem reproduzível por terceiros.",
+              "falsifier": "Um terceiro sem acesso a esse OneDrive não consegue verificar quais conceitos vieram dos 8 estágios do Fable; se a origem não é reconstruível a partir do repo, a rastreabilidade causal que o RFC promete quebra na própria fundação."
+            }
+          ],
+          "recommendations": [
+            "Converter os critérios de sucesso quantitativos em um teste de bancada versionado (ex.: `tests/test_context_bundle_budget.py`) que meça redução de tokens e latência sobre o corpus real e falhe se os limiares não forem atingidos — o número vira contrato, não alegação.",
+            "Adotar as joias por demanda, não em lote: integrar cada uma somente quando uma tarefa concreta a exercitar (blast radius e traceability primeiro, drift detection por último), com um `ponytail:`/ADR registrando o gatilho de adoção.",
+            "Copiar os 2–3 documentos-fonte relevantes do OneDrive para `docs/ideation/` (ou congelar seus hashes no manifesto) para que a proveniência das joias seja versionada e falsificável dentro do próprio repo."
+          ]
+        }
+      }
+    },
+    "r002": {
+      "status": "REVISED",
+      "reason": "Objeções substantivas identificadas; nova revisão necessária.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Eliminação completa de atrito de build multiplataforma e dependências compiladas, operando exclusivamente sobre a stdlib (ast) e pytest.",
+          "Contratos formais de integridade e proveniência determinística via manifestos JSON Lines com hashes SHA-256 atômicos.",
+          "Frugalidade extrema de contexto via Reviewer Context Bundle e cálculo de blast radius, otimizando o consumo de tokens e a precisão dos agentes."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "Os critérios quantitativos de redução de tokens e latência são tratados como fatos sem benchmark anexado, e o delta não apresenta qualquer correção ou evidência.",
+            "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre o corpus real de src/specgraph; se a redução mediana de tokens ficar abaixo de 85% ou a latência p95 exceder 10 ms, recalibrar os critérios com os valores medidos.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O delta de revisão está vazio ({}) e a proposta não anexa nenhum benchmark reprodutível. As métricas de '>85% de tokens cortados' e '<10ms de latência' permanecem como afirmações não justificadas, ignorando o falsificador exigido na Rodada 1.",
+            "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre o corpus real em src/specgraph/. Se a redução mediana de tokens for <85% ou a latência p95 do AST exceder 10ms, os critérios de sucesso estão empiricamente refutados.",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "Os ponteiros canônicos na Seção 4 continuam apontando para caminhos locais fora do repositório versionado (file:///C:/Users/augus/OneDrive/...), tornando a proveniência das joias não auditável e impedindo a reprodução por terceiros.",
+            "falsifier": "Qualquer desenvolvedor externo tentando clonar o repositório e rastrear a origem das joias arquiteturais falhará ao acessar os links quebrados, invalidando a reprodutibilidade determinística do RFC.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [
+          "[google] A ausência de asserções automatizadas de benchmark no CI para latência do parser AST (<10ms) e redução de tokens (>85%) pode mascarar regressões de escala em módulos com árvores sintáticas profundas. (Classificado como não-bloqueante)",
+          "[anthropic] Resgatar as 5 joias como um bloco único reintroduz complexidade acidental especulativa na camada conceitual, contrariando o princípio da Via Negativa aplicado na camada de infraestrutura. (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Incorporar testes de regressão de performance e métricas de compressão de tokens diretamente na suíte de testes do pytest.",
+          "Adotar cache incremental em memória/disco indexado pelo SHA-256 do arquivo fonte para garantir latência sub-milissegundo mesmo em bases de código extensas.",
+          "Anexar resultados reproduzíveis, incluindo corpus, comando, ambiente, número de execuções, mediana de redução de tokens e latência p95, ou substituir os limiares por metas explicitamente provisórias.",
+          "Anexar os resultados empíricos do benchmark (latência p95 do AST e redução mediana de tokens) executados sobre o corpus src/specgraph/ para validar os critérios de sucesso."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "961c3af6-74c5-4860-8b04-ac731100400e",
+          "verdict": "APPROVE",
+          "confidence": 0.95,
+          "summary": "A consolidação arquitetural do RFC-004 alinha com rigor a doutrina frugal ao expurgar dependências complexas (Rust/PyO3, Gherkin, DuckDB) em favor da stdlib Python (AST) e pytest nativo. A manutenção das 5 joias conceituais associada a manifestos atômicos em JSON Lines com SHA-256 entrega máxima portabilidade, determinismo e zero fricção de runtime.",
+          "strengths": [
+            "Eliminação completa de atrito de build multiplataforma e dependências compiladas, operando exclusivamente sobre a stdlib (ast) e pytest.",
+            "Contratos formais de integridade e proveniência determinística via manifestos JSON Lines com hashes SHA-256 atômicos.",
+            "Frugalidade extrema de contexto via Reviewer Context Bundle e cálculo de blast radius, otimizando o consumo de tokens e a precisão dos agentes."
+          ],
+          "issues": [
+            {
+              "severity": "non-blocking",
+              "claim": "A ausência de asserções automatizadas de benchmark no CI para latência do parser AST (<10ms) e redução de tokens (>85%) pode mascarar regressões de escala em módulos com árvores sintáticas profundas.",
+              "falsifier": "Execução do parser AST e do context bundle sobre módulos com mais de 2.000 nós sem cache: se o tempo de parse p95 exceder 10ms ou a redução de contexto cair abaixo de 85%, torna-se obrigatória a inclusão de cache incremental indexado por hash SHA-256."
+            }
+          ],
+          "recommendations": [
+            "Incorporar testes de regressão de performance e métricas de compressão de tokens diretamente na suíte de testes do pytest.",
+            "Adotar cache incremental em memória/disco indexado pelo SHA-256 do arquivo fonte para garantir latência sub-milissegundo mesmo em bases de código extensas."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "f8d61b16-efb0-4c18-a5fd-71217ddae94f",
+          "verdict": "REVISE",
+          "confidence": 0.99,
+          "summary": "O delta vazio não responde ao falsificador bloqueante estabelecido na Rodada 1. A direção arquitetural permanece frugal e coerente, mas os limiares de redução superior a 85% de tokens e latência AST inferior a 10 ms continuam sem evidência reproduzível no corpus real.",
+          "strengths": [
+            "Preserva rastreabilidade, blast radius e contexto mínimo enquanto elimina dependências pesadas.",
+            "Mantém contratos auditáveis com Python padrão, JSON atômico e SHA-256."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "Os critérios quantitativos de redução de tokens e latência são tratados como fatos sem benchmark anexado, e o delta não apresenta qualquer correção ou evidência.",
+              "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre o corpus real de src/specgraph; se a redução mediana de tokens ficar abaixo de 85% ou a latência p95 exceder 10 ms, recalibrar os critérios com os valores medidos."
+            }
+          ],
+          "recommendations": [
+            "Anexar resultados reproduzíveis, incluindo corpus, comando, ambiente, número de execuções, mediana de redução de tokens e latência p95, ou substituir os limiares por metas explicitamente provisórias."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "b3b3bf11-7d26-4844-89bf-21b02daafed0",
+          "verdict": "REJECT",
+          "confidence": 0.98,
+          "summary": "O delta de revisão está completamente vazio, ignorando a exigência do Mediador de recalibrar as métricas de sucesso com dados empíricos. A proposta vigente ainda apresenta os ponteiros canônicos para caminhos locais fora da árvore versionada (OneDrive), violando a auditabilidade e reprodutibilidade por terceiros. A reintrodução das 5 joias como bloco único permanece sem mitigação da complexidade conceitual acidental.",
+          "strengths": [
+            "A purgação de dependências pesadas (Rust/PyO3, Gherkin, DuckDB) em favor da biblioteca padrão Python e pytest nativo é uma vitória clara da Doutrina Frugal.",
+            "A preservação do Reviewer Context Bundle e do Cálculo de Blast Radius atende diretamente à economia extrema de tokens e à análise de impacto."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O delta de revisão está vazio ({}) e a proposta não anexa nenhum benchmark reprodutível. As métricas de '>85% de tokens cortados' e '<10ms de latência' permanecem como afirmações não justificadas, ignorando o falsificador exigido na Rodada 1.",
+              "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre o corpus real em src/specgraph/. Se a redução mediana de tokens for <85% ou a latência p95 do AST exceder 10ms, os critérios de sucesso estão empiricamente refutados."
+            },
+            {
+              "severity": "blocking",
+              "claim": "Os ponteiros canônicos na Seção 4 continuam apontando para caminhos locais fora do repositório versionado (file:///C:/Users/augus/OneDrive/...), tornando a proveniência das joias não auditável e impedindo a reprodução por terceiros.",
+              "falsifier": "Qualquer desenvolvedor externo tentando clonar o repositório e rastrear a origem das joias arquiteturais falhará ao acessar os links quebrados, invalidando a reprodutibilidade determinística do RFC."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Resgatar as 5 joias como um bloco único reintroduz complexidade acidental especulativa na camada conceitual, contrariando o princípio da Via Negativa aplicado na camada de infraestrutura.",
+              "falsifier": "A integração simultânea das 5 joias gerar um overhead de manutenção ou curva de aprendizado superior ao valor entregue, mensurado por feedback de adoção dos desenvolvedores."
+            }
+          ],
+          "recommendations": [
+            "Anexar os resultados empíricos do benchmark (latência p95 do AST e redução mediana de tokens) executados sobre o corpus src/specgraph/ para validar os critérios de sucesso.",
+            "Migrar os ponteiros canônicos da Seção 4 para dentro da árvore versionada do repositório (ex: docs/historical/) ou arquivá-los, garantindo proveniência auditável.",
+            "Desacoplar a integração das 5 joias em estágios incrementais (ex: integrar Rastreabilidade e Context Bundle primeiro, avaliar Blast Radius e Drift Detection depois) para evitar complexidade conceitual monolítica."
+          ]
+        }
+      }
+    },
+    "r003": {
+      "status": "HELD_PROGRESS_REVIEW",
+      "reason": "Teto normativo de 3 rodadas atingido com progresso fértil.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Eliminação total de dependências compiladas (Rust/PyO3/DuckDB) em favor da stdlib (`ast`) e pytest nativo, garantindo portabilidade multiplataforma sem fricção de build.",
+          "Adoção de contratos de integridade determinística via manifestos JSON Lines com hashes SHA-256 e rastreabilidade EARS bidirecional.",
+          "Consolidação pragmática do hiper-estagiamento teórico do Fable em uma biblioteca coesa e executável já respaldada por suite de testes."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "As metas de redução superior a 85% de tokens e latência inferior a 10 ms continuam sem benchmark anexado ou correção baseada no corpus real.",
+            "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre src/specgraph; redução mediana inferior a 85% ou latência p95 superior a 10 ms refuta os critérios declarados.",
+            "seat": "openai"
+          },
+          {
+            "claim": "Os ponteiros canônicos permanecem como caminhos file:/// locais, inacessíveis fora da máquina do autor e incompatíveis com proveniência reproduzível.",
+            "falsifier": "Clonar o repositório em um ambiente independente e tentar resolver todos os ponteiros da Seção 4; qualquer referência inacessível refuta a auditabilidade da proposta.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O delta de revisão está vazio ({}), falhando em endereçar as exigências da Rodada 2 de anexar benchmarks reprodutíveis para as métricas de redução de tokens e latência do parser AST.",
+            "falsifier": "A ausência de dados empíricos no delta significa que qualquer execução do Reviewer Context Bundle que não atinja os critérios de sucesso (>85% tokens, <10ms) invalida a premissa de frugalidade radical sem mecanismo de recalibração.",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "A Seção 4 mantém ponteiros canônicos para caminhos de sistema de arquivos locais (file:///C:/Users/augus/OneDrive/...), quebrando a reprodutibilidade por terceiros e a auditoria de proveniência.",
+            "falsifier": "Qualquer desenvolvedor externo tentando clonar o repositório e rastrear a origem das joias arquiteturais falhará ao acessar os links quebrados, invalidando a reprodutibilidade determinística do RFC.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [
+          "[google] As métricas quantitativas de redução de contexto (>85%) e latência p95 (<10ms) constam no texto da proposta sem suíte de benchmark formal acoplada ao CI. (Classificado como não-bloqueante)",
+          "[google] Ponteiros canônicos na Seção 4 contêm caminhos absolutos locais específicos do ambiente de desenvolvimento original. (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Integrar um runner de benchmark contínuo (asserções de tempo baseadas em `time.perf_counter_ns` ou `pytest-benchmark`) na pipeline de CI para monitorar o SLA de latência do parser AST.",
+          "Normalizar todos os links da Seção 4 para caminhos relativos ao repositório ou referências a tags/branches de documentação versionadas.",
+          "Proceder com o merge e implementação do RFC-004, tratando as calibrações empíricas de tokens como evolução contínua da suíte de testes.",
+          "Ratificar novamente somente após anexar resultados reprodutíveis do benchmark e substituir os caminhos locais por artefatos versionados com hashes SHA-256."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "6a3fea26-d3ee-4464-91c2-32ec4e331a1e",
+          "verdict": "APPROVE",
+          "confidence": 0.95,
+          "summary": "A proposta consolida com sucesso a transição arquitetural para Python puro e biblioteca padrão (`ast`), eliminando atritos de compilação sem comprometer a rastreabilidade causal ou o cálculo de blast radius. Embora os números nominais de latência e corte de tokens devam ser auditados no CI como metas de SLA e os caminhos locais normalizados, a arquitetura nuclear está respaldada pela suite de 68 testes e pronta para implementação.",
+          "strengths": [
+            "Eliminação total de dependências compiladas (Rust/PyO3/DuckDB) em favor da stdlib (`ast`) e pytest nativo, garantindo portabilidade multiplataforma sem fricção de build.",
+            "Adoção de contratos de integridade determinística via manifestos JSON Lines com hashes SHA-256 e rastreabilidade EARS bidirecional.",
+            "Consolidação pragmática do hiper-estagiamento teórico do Fable em uma biblioteca coesa e executável já respaldada por suite de testes."
+          ],
+          "issues": [
+            {
+              "severity": "non-blocking",
+              "claim": "As métricas quantitativas de redução de contexto (>85%) e latência p95 (<10ms) constam no texto da proposta sem suíte de benchmark formal acoplada ao CI.",
+              "falsifier": "Se módulos com grafos sintáticos extensos apresentarem latência p95 > 10ms em execuções reais de CI, os valores nominais devem ser convertidos em metas de SLA ajustáveis."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Ponteiros canônicos na Seção 4 contêm caminhos absolutos locais específicos do ambiente de desenvolvimento original.",
+              "falsifier": "Falha na resolução de hyperlinks por agentes externos ou pipelines de CI ao acessar caminhos absolutos baseados em `C:/Users/augus/...` em vez de caminhos relativos ao repositório."
+            }
+          ],
+          "recommendations": [
+            "Integrar um runner de benchmark contínuo (asserções de tempo baseadas em `time.perf_counter_ns` ou `pytest-benchmark`) na pipeline de CI para monitorar o SLA de latência do parser AST.",
+            "Normalizar todos os links da Seção 4 para caminhos relativos ao repositório ou referências a tags/branches de documentação versionadas.",
+            "Proceder com o merge e implementação do RFC-004, tratando as calibrações empíricas de tokens como evolução contínua da suíte de testes."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "3f81a676-8112-4c18-a5f3-d1870ffa1b92",
+          "verdict": "REJECT",
+          "confidence": 0.99,
+          "summary": "O delta vazio não corrige nenhuma das tensões bloqueantes estabelecidas nas rodadas anteriores. A proposta mantém metas quantitativas sem evidência reprodutível e ponteiros locais não auditáveis por terceiros.",
+          "strengths": [
+            "Preserva a abordagem frugal baseada em Python AST, pytest e JSON Lines com SHA-256.",
+            "Define uma cadeia conceitual coerente de rastreabilidade e análise de impacto."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "As metas de redução superior a 85% de tokens e latência inferior a 10 ms continuam sem benchmark anexado ou correção baseada no corpus real.",
+              "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre src/specgraph; redução mediana inferior a 85% ou latência p95 superior a 10 ms refuta os critérios declarados."
+            },
+            {
+              "severity": "blocking",
+              "claim": "Os ponteiros canônicos permanecem como caminhos file:/// locais, inacessíveis fora da máquina do autor e incompatíveis com proveniência reproduzível.",
+              "falsifier": "Clonar o repositório em um ambiente independente e tentar resolver todos os ponteiros da Seção 4; qualquer referência inacessível refuta a auditabilidade da proposta."
+            }
+          ],
+          "recommendations": [
+            "Ratificar novamente somente após anexar resultados reprodutíveis do benchmark e substituir os caminhos locais por artefatos versionados com hashes SHA-256."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "5d2851c5-473a-4915-be8a-0f280e1afe06",
+          "verdict": "REJECT",
+          "confidence": 0.98,
+          "summary": "O delta de revisão está completamente vazio, ignorando as exigências cruciais do Mediador Constitucional. A proposta vigente persiste com ponteiros canônicos locais não auditáveis e métricas de frugalidade não justificadas empiricamente, falhando em provar a reprodutibilidade determinística do RFC.",
+          "strengths": [
+            "A doutrina de purga por Via Negativa (remoção de Rust/PyO3, DuckDB e Gherkin) permanece excelente e alinhada à frugalidade estrutural.",
+            "A consolidação das joias arquiteturais conceituais (rastreabilidade bidirecional e blast radius) é teoricamente sólida."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O delta de revisão está vazio ({}), falhando em endereçar as exigências da Rodada 2 de anexar benchmarks reprodutíveis para as métricas de redução de tokens e latência do parser AST.",
+              "falsifier": "A ausência de dados empíricos no delta significa que qualquer execução do Reviewer Context Bundle que não atinja os critérios de sucesso (>85% tokens, <10ms) invalida a premissa de frugalidade radical sem mecanismo de recalibração."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A Seção 4 mantém ponteiros canônicos para caminhos de sistema de arquivos locais (file:///C:/Users/augus/OneDrive/...), quebrando a reprodutibilidade por terceiros e a auditoria de proveniência.",
+              "falsifier": "Qualquer desenvolvedor externo tentando clonar o repositório e rastrear a origem das joias arquiteturais falhará ao acessar os links quebrados, invalidando a reprodutibilidade determinística do RFC."
+            }
+          ],
+          "recommendations": [
+            "Substituir imediatamente os ponteiros locais na Seção 4 por referências versionadas relativas ao repositório (ex: ./docs/ideation/...) ou URIs acessíveis publicamente.",
+            "Anexar os resultados empíricos do benchmark do Reviewer Context Bundle e do parser AST no corpus real, recalibrando os critérios de sucesso na Seção 2 se as metas não forem atingidas."
+          ]
+        }
+      }
+    }
+  }
+}
