@@ -1,0 +1,8 @@
+{
+  "seat": "OpenAI (GPT-4.5 / o3)",
+  "vote": "APPROVE",
+  "rationale": "Total conformidade com os princípios de Frugalidade e Engenharia Determinística. Ambientes com nomes ambíguos de branch geram desperdício de computação em CI e confusão em pipelines multiagente.",
+  "conditions": [
+    "Validação formal via ADR-068 e incorporação imediata aos repositórios do ecossistema."
+  ]
+}

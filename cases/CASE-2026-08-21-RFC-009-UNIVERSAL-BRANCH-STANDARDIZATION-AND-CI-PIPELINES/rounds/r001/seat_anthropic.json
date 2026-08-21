@@ -1,0 +1,9 @@
+{
+  "seat": "Anthropic (Claude 3.7 Sonnet)",
+  "vote": "APPROVE",
+  "rationale": "A assimetria entre `master` e `main` que observamos no `tare.tools.backlog-graph` comprova a necessidade de governança topológica formal. A unificação dos nomes de branches e workflows de CI impede que desenvolvedores e agentes insiram código em branches zumbis sem validação dos falsificadores.",
+  "conditions": [
+    "Inclusão de teste falsificador no repositório validando a configuração dos workflows do GitHub Actions.",
+    "Garantia de que as proteções de branch e permissões de merge sejam estritamente mantidas."
+  ]
+}
