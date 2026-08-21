@@ -90,3 +90,22 @@ def test_canonical_directory_structure_exists():
     ]
     for cd in canonical_dirs:
         assert cd.exists() and cd.is_dir(), f"Missing canonical directory: {cd.relative_to(ROOT)}"
+
+@pytest.mark.verifies("RFC-009-REQ-BRANCH-CI-001")
+def test_branch_and_ci_standardization():
+    """Ensure CI workflows adhere to RFC-009/ADR-068 standards (main, dev triggers)."""
+    workflows_dir = ROOT / ".github/workflows"
+    assert workflows_dir.exists(), "Workflows directory missing"
+    
+    # Verify ADR-068 and Case RFC-009 exist
+    adr_file = ROOT / "docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md"
+    assert adr_file.exists(), "Missing ADR-068 documentation"
+    
+    case_file = ROOT / "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/DECISION.md"
+    assert case_file.exists(), "Missing RFC-009 case decision"
+    
+    # Verify CI workflow triggers
+    for wf in workflows_dir.glob("*.yml"):
+        text = wf.read_text(encoding="utf-8")
+        if "branches:" in text:
+            assert "main" in text, f"Workflow {wf.name} does not target canonical branch 'main'"

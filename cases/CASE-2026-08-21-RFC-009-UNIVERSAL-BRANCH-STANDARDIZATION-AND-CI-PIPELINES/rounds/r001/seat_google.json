@@ -1,0 +1,9 @@
+{
+  "seat": "Google (Gemini 2.5 Pro)",
+  "vote": "APPROVE",
+  "rationale": "A padronização estrita de `main` e `dev` elimina assimetrias críticas de roteamento de agentes autônomos. Agentes que operam via CLI ou Git Submodules precisam de contratos determinísticos de branch names para evitar descompassos de upstream e detritos em branches legadas.",
+  "conditions": [
+    "Eliminação definitiva do branch `master` e `develop` via fast-forward e remoção remota.",
+    "Padronização dos gatilhos de CI para escutar simultaneamente `[main, dev]` em todos os fluxos."
+  ]
+}

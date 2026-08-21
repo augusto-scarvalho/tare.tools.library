@@ -7,9 +7,9 @@
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://python.org)
 [![CI Validation](https://github.com/augusto-scarvalho/tare.tools.library/actions/workflows/document-integrity.yml/badge.svg)](https://github.com/augusto-scarvalho/tare.tools.library/actions)
-[![Tests](https://img.shields.io/badge/Tests-158%2F158%20Passing-brightgreen.svg)](#formal-verification--quality-gates)
+[![Tests](https://img.shields.io/badge/Tests-159%2F159%20Passing-brightgreen.svg)](#formal-verification--quality-gates)
 [![Governance](https://img.shields.io/badge/Mesa%20Redonda-Byzantine%20Consensus%20(ADR--065)-purple.svg)](cases/)
-[![Spec](https://img.shields.io/badge/Spec-ADR--001%20through%20ADR--067%20Ratified-success.svg)](docs/adr/)
+[![Spec](https://img.shields.io/badge/Spec-ADR--001%20through%20ADR--068%20Ratified-success.svg)](docs/adr/)
 [![Frugality](https://img.shields.io/badge/Frugality%20Guard-%3C50MB%20Budget%20Enforced-orange.svg)](tests/test_frugality_guard.py)
 
 <p align="center">
