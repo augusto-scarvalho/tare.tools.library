@@ -42,7 +42,7 @@ class CanonicalHtmlTests(unittest.TestCase):
         self.assertEqual(Path(module.__file__).resolve(),ROOT/'tools'/'validate_canonical_html.py')
 
     def test_example_packet_passes(self):
-        packet=ROOT/'incoming'/'example-reliability-publication'
+        packet=ROOT/'docs/archive/incoming'/'example-reliability-publication'
         manifest=json.loads((packet/'PUBLISH_MANIFEST.json').read_text(encoding='utf-8'))
         self.assertEqual(validate_packet(packet,manifest),[])
 

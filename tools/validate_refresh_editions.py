@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-REFRESH = ROOT / "refresh-editions" / "2026-08-11"
+REFRESH = ROOT / "docs/archive/refresh-editions" / "2026-08-11"
 EXPECTED_LINEAGE_HTML = 20
 EXPECTED_SUPPLEMENTAL_HTML = 2
 EXPECTED_HTML = EXPECTED_LINEAGE_HTML + EXPECTED_SUPPLEMENTAL_HTML

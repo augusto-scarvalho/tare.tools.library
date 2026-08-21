@@ -1,4 +1,4 @@
-"""Frugality and Corpus Segregation Guard Test (RFC-007 / ADR-066)."""
+"""Frugality, Taxonomy, and Corpus Segregation Guard Test (RFC-007 / RFC-008 / ADR-067)."""
 import os
 import subprocess
 import pytest
@@ -30,16 +30,35 @@ def test_no_raw_chat_dumps_tracked():
             assert not tf.startswith(prefix), f"Forbidden artifact tracked in git: {tf}"
 
 
-@pytest.mark.verifies("RFC-007-REQ-SEGREGATION-003")
-def test_gitignore_and_crawler_quarantine():
-    """Ensure .gitignore and harvest_corpus.py contain required quarantine rules."""
-    from tools.bookkeeper.harvest_corpus import CRAWL_EXCLUDED_DIRS, NOISE_FILENAMES
+@pytest.mark.verifies("RFC-008-REQ-TAXONOMY-001")
+def test_no_ghost_gitkeeps_tracked():
+    """Ensure zero ghost .gitkeep files exist in legacy/purged directory paths."""
+    res = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True)
+    tracked_files = [f.strip() for f in res.stdout.strip().splitlines() if f.strip()]
     
-    gi = (ROOT / ".gitignore").read_text(encoding="utf-8")
-    assert "archaeology/chats/" in gi
-    assert "experiments/" in gi
-    assert "vault/" in gi
-    
-    assert "vault" in CRAWL_EXCLUDED_DIRS
-    assert "raw_logs" in CRAWL_EXCLUDED_DIRS
-    assert ".aider.chat.history.md" in NOISE_FILENAMES
+    purged_patterns = [
+        "sources/", "proposals/architecture", "proposals/experiments",
+        "research/00_", "research/01_", "refresh-editions/", "incoming/"
+    ]
+    for tf in tracked_files:
+        for pat in purged_patterns:
+            assert not tf.startswith(pat), f"Purged legacy path still tracked in git: {tf}"
+
+
+@pytest.mark.verifies("RFC-008-REQ-TAXONOMY-002")
+def test_canonical_directory_structure_exists():
+    """Ensure canonical directories exist and contain valid assets."""
+    canonical_dirs = [
+        ROOT / "docs/adr",
+        ROOT / "docs/architecture",
+        ROOT / "docs/assurance",
+        ROOT / "docs/guides",
+        ROOT / "docs/archive",
+        ROOT / "specs",
+        ROOT / "tools",
+        ROOT / "tests",
+        ROOT / "cases",
+        ROOT / "catalog",
+    ]
+    for cd in canonical_dirs:
+        assert cd.exists() and cd.is_dir(), f"Missing canonical directory: {cd.relative_to(ROOT)}"

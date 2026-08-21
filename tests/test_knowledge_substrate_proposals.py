@@ -10,7 +10,7 @@ class P(HTMLParser):
         if tag=='a' and 'href' in a: self.hrefs.append(a['href'])
 class KnowledgeSubstrateProposalTests(unittest.TestCase):
     def test_proposed_schemas_are_json(self):
-        d=ROOT/'proposals'/'research-knowledge-substrate'/'schemas'
+        d=ROOT/'docs/proposals'/'research-knowledge-substrate'/'schemas'
         files=sorted(d.glob('*.json'))
         self.assertEqual(len(files),5)
         for p in files:
@@ -18,7 +18,7 @@ class KnowledgeSubstrateProposalTests(unittest.TestCase):
             self.assertIn('$schema',obj)
             self.assertIn('PROPOSED',obj.get('title',''))
     def test_documents_structurally_clean(self):
-        d=ROOT/'refresh-editions'/'2026-08-11'/'research-knowledge-substrate'
+        d=ROOT/'docs/archive/refresh-editions'/'2026-08-11'/'research-knowledge-substrate'
         files=sorted(d.glob('*.html')); self.assertEqual(len(files),2)
         for p in files:
             txt=p.read_text(encoding='utf-8'); self.assertNotIn('�',txt)

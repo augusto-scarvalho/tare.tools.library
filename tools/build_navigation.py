@@ -18,7 +18,7 @@ IDENTITY_CROSSWALK = ROOT / "catalog" / "identity-crosswalk"
 
 TOPIC_DIRS = [
     ("00_north-star-historical", "North Star histórica", {"Project / Workspace", "Routing & Adaptation", "Workflow"}, ["programa formal", "arquitetura multiagente"]),
-    ("01_methodology-research-program", "Metodologia e programa de pesquisa", set(), ["programa formal", "pesquisa"]),
+    ("01_methodology-docs/research-program", "Metodologia e programa de pesquisa", set(), ["programa formal", "pesquisa"]),
     ("02_harness-architecture", "Harness / Agent OS Architecture", {"Project / Workspace", "Identity / Authority / Policy"}, ["arquitetura", "review"]),
     ("03_workflow", "Workflow", {"Workflow"}, ["workflow", "task"]),
     ("04_routing-reputation", "Routing & Reputation", {"Routing & Adaptation", "Reputation / Qualification"}, ["routing", "roteamento"]),
@@ -108,7 +108,7 @@ def table(entries, base_dir: Path, translations):
 
 def build_topic_readmes(entries, translations, refs):
     for dirname, title, contexts, keywords in TOPIC_DIRS:
-        d = ROOT / "research" / dirname; d.mkdir(parents=True, exist_ok=True)
+        d = ROOT / "docs/research" / dirname; d.mkdir(parents=True, exist_ok=True)
         selected = [e for e in entries if matches(e, contexts, keywords)]
         pending = [e for e in refs if not e.get("_materialization") and reference_matches(e, contexts, keywords)]
         lines = [
@@ -138,7 +138,7 @@ def build_document_index(entries, translations, refs):
     for dirname, title, contexts, keywords in TOPIC_DIRS:
         count = sum(1 for e in entries if matches(e, contexts, keywords))
         pending = sum(1 for e in refs if not e.get("_materialization") and reference_matches(e, contexts, keywords))
-        lines.append(f"- [{title}](../research/{dirname}/README.md) — {count} materializado(s) · {pending} pendente(s)")
+        lines.append(f"- [{title}](../docs/research/{dirname}/README.md) — {count} materializado(s) · {pending} pendente(s)")
     lines += ["", "## Provenance", "", "Cada original possui sidecar em [`corpus/manifests/`](../corpus/manifests/) com SHA-256 e provenance. Traduções possuem sidecar em [`corpus/manifests/translations/en/`](../corpus/manifests/translations/en/) e obedecem à [Translation Policy](../TRANSLATION_POLICY.md). Referências ainda não materializadas ficam em [`corpus/library-references/`](../corpus/library-references/) e nunca recebem `source_path` local inventado.", ""]
     (ROOT / "catalog" / "DOCUMENT_INDEX.md").write_text("\n".join(lines), encoding="utf-8")
 
@@ -182,7 +182,7 @@ English overview: **[README.en.md](README.en.md)**.
 - **[Índice dos originals de chat materializados](catalog/DOCUMENT_INDEX.md)** — navegação PT-BR | EN por documento e por tema.
 - **[Primeira ingestão viva — Identity, Lineage, Learning & Evolution](catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12.md)** — ResearchObject transversal de 12/08, com review, technical delta, graph edges e Frontier curation.
 - **[Baseline histórico do GitHub privado](canonical-references/baselines/private-github-main-2026-08-05/README.md)** — snapshot exato de 05/08, não CURRENT.
-- **[Índice das pesquisas presentes no snapshot privado](catalog/CANONICAL_SNAPSHOT_RESEARCH_INDEX.md)** — 93 arquivos byte-for-byte de `docs/research/`.
+- **[Índice das pesquisas presentes no snapshot privado](catalog/CANONICAL_SNAPSHOT_RESEARCH_INDEX.md)** — 93 arquivos byte-for-byte de `docs/docs/research/`.
 - **[Fila de tradução EN do snapshot privado](catalog/CANONICAL_SNAPSHOT_TRANSLATION_QUEUE.md)** — sources não-EN materializados e elegíveis para tradução.
 - **[Fila de reidratação](catalog/REHYDRATION_QUEUE.md)** — File Library refs ainda sem bytes locais; tradução fica bloqueada até materialização exata.
 - **[Linhagens descobertas na File Library](catalog/LIBRARY_LINEAGES.md)** — projeção de descoberta.
@@ -204,7 +204,7 @@ English overview: **[README.en.md](README.en.md)**.
 
 ### Seed atual
 
-Foram materializados **{len(entries)} documentos** do corpus de chat nesta árvore. O baseline histórico privado acrescenta **93 cópias exatas de `docs/research/`**, mantidas em um namespace separado para não confundir origem. Veja [`ALL_DOCUMENTS_INDEX.md`](catalog/ALL_DOCUMENTS_INDEX.md).
+Foram materializados **{len(entries)} documentos** do corpus de chat nesta árvore. O baseline histórico privado acrescenta **93 cópias exatas de `docs/docs/research/`**, mantidas em um namespace separado para não confundir origem. Veja [`ALL_DOCUMENTS_INDEX.md`](catalog/ALL_DOCUMENTS_INDEX.md).
 
 No corpus principal, foram materializados **{len(entries)} documentos** nesta árvore. Os originals PT-BR ficam em `corpus/original/`; versões EN derivadas ficam em `corpus/translations/en/`. Tradução EN disponível: **{translated}/{len(entries)}**. Há **{len(refs)} referências File Library** registradas; **{sum(1 for r in refs if not r.get("_materialization"))}** ainda aguardam materialização exata, sem reconstrução a partir de snippets.
 
@@ -219,7 +219,7 @@ No corpus principal, foram materializados **{len(entries)} documentos** nesta á
 
 ## Estrutura
 
-- [`research/`](research/) — índices e pesquisas temáticas.
+- [`docs/research/`](docs/research/) — índices e pesquisas temáticas.
 - `findings/` — sínteses ADOPT/ADAPT/RETIRE/OPEN.
 - `proposals/` — propostas ainda não ratificadas.
 - `experiments/` — protocolos e resultados.
@@ -272,7 +272,7 @@ def build_review_status(entries, translations, refs):
         "- `PENDING_CANONICAL_REPO_RECONCILIATION` is intentional: CURRENT/TARGET reconciliation must be performed against the actual canonical repository/Git/specs/gates, not inferred from historical documents or chat summaries.",
         "",
         "## Recommended read-only reconciliation order", "",
-        "1. North Star / formal research programme and harness architecture history.",
+        "1. North Star / formal docs/research programme and harness architecture history.",
         "2. Workflow lifecycle and Reliability Semantics.",
         "3. Governance/Audit and Validation/Assurance/tests-gates.",
         "4. Protocols/Interoperability and Runtime/CLI archaeology.",
@@ -283,7 +283,7 @@ def build_review_status(entries, translations, refs):
 
 def validate_links():
     failures=[]
-    files=[ROOT/'README.md',ROOT/'README.en.md',ROOT/'catalog'/'DOCUMENT_INDEX.md',ROOT/'catalog'/'MASTER_CATALOG.md',ROOT/'catalog'/'TRANSLATION_STATUS.md',ROOT/'catalog'/'TRANSLATION_QUEUE.md',ROOT/'catalog'/'TRANSLATION_QA.md',ROOT/'catalog'/'REVIEW_STATUS.md',ROOT/'CHAT_TRANSLATION_WORKFLOW.md',ROOT/'catalog'/'REHYDRATION_QUEUE.md',ROOT/'catalog'/'LIBRARY_LINEAGES.md',ROOT/'catalog'/'LINEAGE_RECONCILIATION.md',ROOT/'catalog'/'IDENTITY_ASSERTIONS.md',ROOT/'catalog'/'REHYDRATION_COVERAGE.md',ROOT/'sources'/'SOURCE_INDEX.md',*sorted((ROOT/'research').glob('*/README.md'))]
+    files=[ROOT/'README.md',ROOT/'README.en.md',ROOT/'catalog'/'DOCUMENT_INDEX.md',ROOT/'catalog'/'MASTER_CATALOG.md',ROOT/'catalog'/'TRANSLATION_STATUS.md',ROOT/'catalog'/'TRANSLATION_QUEUE.md',ROOT/'catalog'/'TRANSLATION_QA.md',ROOT/'catalog'/'REVIEW_STATUS.md',ROOT/'CHAT_TRANSLATION_WORKFLOW.md',ROOT/'catalog'/'REHYDRATION_QUEUE.md',ROOT/'catalog'/'LIBRARY_LINEAGES.md',ROOT/'catalog'/'LINEAGE_RECONCILIATION.md',ROOT/'catalog'/'IDENTITY_ASSERTIONS.md',ROOT/'catalog'/'REHYDRATION_COVERAGE.md',ROOT/'sources'/'SOURCE_INDEX.md',*sorted((ROOT/'docs/research').glob('*/README.md'))]
     for p in files:
         txt=p.read_text(encoding='utf-8')
         for link in re.findall(r"\[[^\]]*\]\(([^)]+)\)",txt):

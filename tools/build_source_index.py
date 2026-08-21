@@ -7,8 +7,8 @@ from urllib.parse import urlsplit,urlunsplit,parse_qsl,urlencode
 ROOT=Path(__file__).resolve().parents[1]
 ORIG=ROOT/'corpus'/'original'
 SNAP=ROOT/'corpus'/'canonical-snapshot'/'2026-08-05'/'docs'/'research'
-OUTJ=ROOT/'sources'/'SOURCE_INDEX.json'
-OUTM=ROOT/'sources'/'SOURCE_INDEX.md'
+OUTJ=ROOT/'catalog/sources'/'SOURCE_INDEX.json'
+OUTM=ROOT/'catalog/sources'/'SOURCE_INDEX.md'
 URL_RE=re.compile(r'https?://[^\s<>"\']+')
 TRAIL='.,;:)]}'
 
