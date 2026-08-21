@@ -1,0 +1,32 @@
+{
+  "status": "OK",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "vote": {
+    "seat": "openai",
+    "execution_nonce": "87c4db54-d79e-40c4-87b4-270742ad2a7b",
+    "verdict": "REVISE",
+    "confidence": 0.99,
+    "summary": "O delta final está vazio, portanto não demonstra que a Seção 5.2 fecha o espaço total de estados nem sana o falsificador ANTHROPIC. Há ainda contradição entre o teto N=3 declarado e o hard cap N=4 da síntese; a ratificação deve ocorrer pelo motor oficial, não por um voto sintético.",
+    "strengths": [
+      "Teto N=3 Respeitado"
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "description": "Delta vazio: nenhuma Tabela Total Determinística foi apresentada para avaliação ou enumeração exaustiva."
+      },
+      {
+        "severity": "blocking",
+        "description": "Contradição normativa entre o teto mecânico N=3 e o consenso registrado como hard cap N=4."
+      },
+      {
+        "severity": "blocking",
+        "description": "A governança criptográfica exige deliberação pelo round_table_engine.py; um voto gerado diretamente violaria o protocolo."
+      }
+    ],
+    "recommendations": [
+      "Executar a rodada final pelo motor oficial com o RFC e a Tabela 5.2 completos, incluindo o teste exaustivo de votos e severidades."
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "status": "OK",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "vote": {
+    "seat": "openai",
+    "execution_nonce": "0a0b81a5-03ab-4756-acb9-31893ca0f9b7",
+    "verdict": "REJECT",
+    "confidence": 0.99,
+    "summary": "A Seção 5.2 não define uma função total: existem combinações válidas sem veredito e uma sobreposição de precedência com quórum insuficiente. Como esta é a rodada terminal, essas lacunas bloqueiam a ratificação.",
+    "strengths": [
+      "Tabela Determinística",
+      "Hardening Estrutural",
+      "Teto Absoluto N=4"
+    ],
+    "issues": [
+      "Três votos APPROVE com ao menos uma issue bloqueante não correspondem a nenhuma linha.",
+      "Dois assentos operantes, ambos APPROVE, não correspondem a nenhuma linha.",
+      "Voto não-APPROVE em N=3 com overtime_granted=true não corresponde a nenhuma linha.",
+      "A regra de três APPROVE conflita com HELD_UNAVAILABLE quando menos de dois assentos estão operantes, pois falta precedência explícita.",
+      "reproduction_test: enumerar assentos_operantes=0..3, N=1..4, overtime_granted booleano, votos válidos e presença de issue; exigir exatamente um veredito por combinação alcançável."
+    ],
+    "recommendations": [
+      "Definir primeiro a precedência de HELD_UNAVAILABLE.",
+      "Adicionar regras explícitas para issues bloqueantes com três APPROVE, quórum de exatamente dois assentos e N=3 com prorrogação concedida.",
+      "Executar o falsificador exaustivo antes de nova ratificação."
+    ]
+  }
+}

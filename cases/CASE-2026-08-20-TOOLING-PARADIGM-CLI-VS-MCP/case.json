@@ -1,0 +1,440 @@
+{
+  "case_id": "CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP",
+  "proposal_title": "RFC-002: Paradigma de Ferramentas CLI First, Lean MCP e Banimento de Fat MCP",
+  "current_round": 3,
+  "max_rounds": 3,
+  "overtime_granted": false,
+  "transition_count": 0,
+  "status": "HELD_PROGRESS_REVIEW",
+  "quorum_mode": "FRONTIER_UNANIMOUS",
+  "rounds": {
+    "r001": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Redução drástica do overhead de system prompt ao transicionar de schemas O(N) para uma interface frugal O(1) (<150 tokens), otimizando o Time-To-First-Token (TTFT) e o raciocínio útil do modelo.",
+          "Aderência à filosofia Unix de componibilidade através de fluxos padronizados (stdin/stdout/stderr, exit codes e JSON/JSONL estruturado), simplificando a testabilidade e a portabilidade entre diferentes agentes.",
+          "Contrato de segurança com falha fechada para isolamento de diretório (cwd restrito ao workspace), mitigação de command injection via shell=False e envelope de telemetria completo (duration_ms, timed_out, exit_code)."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "Confinar apenas cwd não confina a execução: caminhos absolutos em argumentos, variáveis de ambiente, executáveis, links simbólicos, arquivos de resposta e subprocessos ainda podem acessar ou alterar recursos externos.",
+            "falsifier": "Um teste automatizado que execute pytest -q tests/test_gateway_confinement.py deve provar que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso e arquivo de resposta falham fechadas sem efeitos fora de um workspace temporário.",
+            "seat": "openai"
+          },
+          {
+            "claim": "Aceitar command como list[str] ou str torna ambígua a semântica de shell=False e pode reintroduzir interpretação de shell ou comportamento divergente entre plataformas.",
+            "falsifier": "Um teste automatizado que execute pytest -q tests/test_gateway_exec_contract.py deve demonstrar sem execução colateral que strings contendo operadores de shell são rejeitadas e que apenas argv explícito é aceito.",
+            "seat": "openai"
+          },
+          {
+            "claim": "cwd confinado ao workspace + shell=False + timeout NÃO constituem sandbox nem 'contenção estrita'. cwd apenas define o diretório de trabalho; não impede que o comando leia/escreva via caminhos absolutos ou '../', abra rede, ou consuma o host. Isolamento real exige camada de SO (namespaces/containers/seccomp), que a proposta declara fora de escopo.",
+            "falsifier": "Executar exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=<workspace>) ou um comando que faça egress de rede: se ambos rodam apesar do 'confinamento', a alegação de sandbox está falsificada.",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "Aceitar command como `str` além de `list[str]` reintroduz injeção de shell e anula a garantia shell=False. 'Preferência' não é contrato executável.",
+            "falsifier": "exec_command('rg foo; rm -rf .', cwd=...) — se a forma string chega a um shell, há execução de payload arbitrário; a mitigação declarada falha.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [
+          "[google] A flexibilidade do tipo de comando (list[str] | str) em exec_command pode induzir inconsistências de tokenização de argumentos em ambientes heterogêneos (POSIX vs Windows) caso command seja fornecido como string e interpretado sem shlex.split canônico sob shell=False. (Classificado como não-bloqueante)",
+          "[google] Ausência de especificação de teto máximo de bytes (max_output_bytes) e estratégia de truncamento (tail/head truncation) para stdout/stderr no envelope de resposta do Lean Gateway. (Classificado como não-bloqueante)",
+          "[openai] As afirmações de zero tokens, schema menor que 150 tokens, redução superior a 80% e custo O(1) não possuem tokenizer, corpus, baseline nem procedimento de medição definidos. (Classificado como não-bloqueante)",
+          "[openai] O envelope não limita volume de saída nem define cancelamento da árvore de processos, permitindo exaustão de memória ou subprocessos órfãos apesar do timeout. (Classificado como não-bloqueante)",
+          "[anthropic] Custo de descoberta é deslocado, não eliminado: sem schemas, o agente precisa conhecer a existência e as flags de ferramentas custom (round_table_engine.py, specgraph). Ferramentas conhecidas (git/pytest/rg) estão ok; as próprias não. (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Padronizar o schema de exec_command para exigir preferencialmente list[str] ou documentar a sanitização obrigatória via shlex.split(posix=...) no backend do gateway quando string for fornecida.",
+          "Adicionar campos max_output_bytes (com valor padrão razoável, ex: 64KB) e truncated: bool no envelope de retorno para garantir contenção estrita do payload devolvido ao contexto.",
+          "Incentivar o uso explícito de flags de streaming estruturado (--format=jsonl) nas ferramentas de Camada 1 para viabilizar processamento incremental sem alocação em bloco.",
+          "Remover a variante string e aceitar somente argv como lista, salvo um endpoint de shell separado, explicitamente autorizado e desabilitado por padrão."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "732fa448-c56a-4d11-95ef-daeae31f4e5d",
+          "verdict": "APPROVE",
+          "confidence": 0.98,
+          "summary": "A RFC-002 estabelece uma arquitetura pragmática e de alta eficiência computacional, substituindo o desperdício de contexto de servidores MCP monolíticos por execução Unix determinística e um gateway minimalista O(1). O isolamento via workspace containment, timeouts estritos e preferência por lista de argumentos confere solidez operacional sem introduzir sobrecarga de abstrações desnecessárias.",
+          "strengths": [
+            "Redução drástica do overhead de system prompt ao transicionar de schemas O(N) para uma interface frugal O(1) (<150 tokens), otimizando o Time-To-First-Token (TTFT) e o raciocínio útil do modelo.",
+            "Aderência à filosofia Unix de componibilidade através de fluxos padronizados (stdin/stdout/stderr, exit codes e JSON/JSONL estruturado), simplificando a testabilidade e a portabilidade entre diferentes agentes.",
+            "Contrato de segurança com falha fechada para isolamento de diretório (cwd restrito ao workspace), mitigação de command injection via shell=False e envelope de telemetria completo (duration_ms, timed_out, exit_code)."
+          ],
+          "issues": [
+            {
+              "severity": "non-blocking",
+              "claim": "A flexibilidade do tipo de comando (list[str] | str) em exec_command pode induzir inconsistências de tokenização de argumentos em ambientes heterogêneos (POSIX vs Windows) caso command seja fornecido como string e interpretado sem shlex.split canônico sob shell=False.",
+              "falsifier": "Um comando com argumentos contendo aspas e espaços passados como string única falha na execução ou diverge de comportamento entre Linux e Windows."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Ausência de especificação de teto máximo de bytes (max_output_bytes) e estratégia de truncamento (tail/head truncation) para stdout/stderr no envelope de resposta do Lean Gateway.",
+              "falsifier": "A execução de um utilitário CLI que despeja centenas de megabytes em stdout consome memória excessiva do gateway e satura o contexto de retorno do agente."
+            }
+          ],
+          "recommendations": [
+            "Padronizar o schema de exec_command para exigir preferencialmente list[str] ou documentar a sanitização obrigatória via shlex.split(posix=...) no backend do gateway quando string for fornecida.",
+            "Adicionar campos max_output_bytes (com valor padrão razoável, ex: 64KB) e truncated: bool no envelope de retorno para garantir contenção estrita do payload devolvido ao contexto.",
+            "Incentivar o uso explícito de flags de streaming estruturado (--format=jsonl) nas ferramentas de Camada 1 para viabilizar processamento incremental sem alocação em bloco."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "3f5588c7-58a0-401b-87f6-00f55e06e451",
+          "verdict": "REVISE",
+          "confidence": 0.98,
+          "summary": "A arquitetura CLI-first é frugal, componível e evita a hipertrofia de schemas, mas o gateway genérico concentra autoridade excessiva em um único endpoint. A proposta deve substituir metas absolutas não demonstradas por benchmarks reproduzíveis e completar o contrato de confinamento antes da aprovação.",
+          "strengths": [
+            "Prioriza CLIs existentes, formatos estruturados e composição nativa, evitando abstrações e servidores redundantes.",
+            "Define poucos endpoints, timeout, falha fechada de diretório e envelope determinístico de execução."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "Confinar apenas cwd não confina a execução: caminhos absolutos em argumentos, variáveis de ambiente, executáveis, links simbólicos, arquivos de resposta e subprocessos ainda podem acessar ou alterar recursos externos.",
+              "falsifier": "Um teste automatizado que execute pytest -q tests/test_gateway_confinement.py deve provar que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso e arquivo de resposta falham fechadas sem efeitos fora de um workspace temporário."
+            },
+            {
+              "severity": "blocking",
+              "claim": "Aceitar command como list[str] ou str torna ambígua a semântica de shell=False e pode reintroduzir interpretação de shell ou comportamento divergente entre plataformas.",
+              "falsifier": "Um teste automatizado que execute pytest -q tests/test_gateway_exec_contract.py deve demonstrar sem execução colateral que strings contendo operadores de shell são rejeitadas e que apenas argv explícito é aceito."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "As afirmações de zero tokens, schema menor que 150 tokens, redução superior a 80% e custo O(1) não possuem tokenizer, corpus, baseline nem procedimento de medição definidos.",
+              "falsifier": "Um benchmark versionado que execute python experiments/bench_tool_context.py --format=json deve confirmar os limites declarados para cada cliente e modelo suportado, incluindo descoberta paginada e instruções necessárias para uso das CLIs."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "O envelope não limita volume de saída nem define cancelamento da árvore de processos, permitindo exaustão de memória ou subprocessos órfãos apesar do timeout.",
+              "falsifier": "Um teste automatizado que execute pytest -q tests/test_gateway_limits.py deve provar truncamento sinalizado de stdout e stderr e encerramento de toda a árvore de processos após timeout."
+            }
+          ],
+          "recommendations": [
+            "Remover a variante string e aceitar somente argv como lista, salvo um endpoint de shell separado, explicitamente autorizado e desabilitado por padrão.",
+            "Definir uma política mínima de capacidades para executáveis, ambiente, rede, escrita, URIs, limites de saída e árvore de processos; manter detalhes de SO na implementação.",
+            "Trocar garantias universais de tokens e O(1) por orçamento inicial mensurável, com tokenizer, versões, corpus, baseline e benchmark reproduzível."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "f6304668-d01d-43cc-946a-28dbc92f6783",
+          "verdict": "REVISE",
+          "confidence": 0.82,
+          "summary": "O paradigma central (CLI First + gateway de 2 endpoints genéricos) é frugal, componível e anti-hipertrofia — direção correta e alinhada com engenharia lean. Porém o critério de sucesso depende de 'contenção estrita de sandbox' que o contrato proposto (cwd + shell=False + timeout) demonstravelmente NÃO entrega, e a proposta empurra o isolamento real de SO para fora de escopo, criando uma contradição bloqueante entre a promessa de segurança e os mecanismos especificados.",
+          "strengths": [
+            "Reduz overhead de schema a ~0/150 tokens via terminal + dispatcher mínimo: economia real e verificável, sem abstração especulativa.",
+            "Superfície de API deliberadamente pequena (2 endpoints) com envelope estruturado (stdout/stderr/exit_code/duration_ms/timed_out) — contrato determinístico e testável."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "cwd confinado ao workspace + shell=False + timeout NÃO constituem sandbox nem 'contenção estrita'. cwd apenas define o diretório de trabalho; não impede que o comando leia/escreva via caminhos absolutos ou '../', abra rede, ou consuma o host. Isolamento real exige camada de SO (namespaces/containers/seccomp), que a proposta declara fora de escopo.",
+              "falsifier": "Executar exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=<workspace>) ou um comando que faça egress de rede: se ambos rodam apesar do 'confinamento', a alegação de sandbox está falsificada."
+            },
+            {
+              "severity": "blocking",
+              "claim": "Aceitar command como `str` além de `list[str]` reintroduz injeção de shell e anula a garantia shell=False. 'Preferência' não é contrato executável.",
+              "falsifier": "exec_command('rg foo; rm -rf .', cwd=...) — se a forma string chega a um shell, há execução de payload arbitrário; a mitigação declarada falha."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Custo de descoberta é deslocado, não eliminado: sem schemas, o agente precisa conhecer a existência e as flags de ferramentas custom (round_table_engine.py, specgraph). Ferramentas conhecidas (git/pytest/rg) estão ok; as próprias não.",
+              "falsifier": "Um agente leve, sem schema e sem `--help` padronizado, invocar corretamente uma ferramenta custom do ecossistema na primeira tentativa em <N% dos casos."
+            }
+          ],
+          "recommendations": [
+            "Tornar `list[str]` a ÚNICA assinatura aceita de command (remover a forma str) e fixar shell=False como invariante do contrato, não como preferência.",
+            "Reformular o critério de sucesso: ou baixar a alegação de 'sandbox/contenção estrita' para 'confinamento de cwd + limites de recurso', ou incluir a camada de isolamento de SO como parte OBRIGATÓRIA do contrato (não como implementação fora de escopo). Não é aceitável prometer isolamento no §1 e proibir discuti-lo no §Não-Objetivos.",
+            "Exigir prova empírica do teto O(1): um teste que meça tokens de schema injetados e falhe se exceder o limite declarado (<150), fechando o gap entre a afirmação e a verificação.",
+            "Padronizar contrato mínimo de descoberta para ferramentas custom (`--help` e `--format=json`) para que a economia de schema não vire custo de alucinação de flags."
+          ]
+        }
+      }
+    },
+    "r002": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Frugalidade estrita de contexto (<150 tokens) eliminando o desperdício massivo de tokens de sistema inerente ao paradigma Fat MCP.",
+          "Aderência à filosofia Unix de componibilidade através de fluxos padronizados e envelope estruturado de telemetria (exit_code, duration_ms, timed_out).",
+          "Preserva a interface frugal O(1), a orientação CLI First e o envelope estruturado de telemetria."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "A manutenção da assinatura `command: list[str] | str` com mera 'preferência' por lista viola o princípio de falha fechada, permitindo injeção de shell ou parsing inconsistente de argumentos entre plataformas POSIX e Windows.",
+            "falsifier": "A invocação de `exec_command('sh -c \"cat /etc/passwd\"', cwd=workspace)` ou passagem de payload com operadores de controle como string ser aceita pelo gateway, demonstrando que a garantia de `shell=False` não é aplicada de forma determinística.",
+            "seat": "google"
+          },
+          {
+            "claim": "A qualificação da Camada 2 como 'sandbox com contenção estrita' apoiada apenas na validação de `cwd` é tecnicamente insustentável, pois não restringe acessos a arquivos fora do workspace via caminhos absolutos, variáveis de ambiente ou chamadas diretas de sistema.",
+            "falsifier": "A execução de `exec_command(['python', '-c', 'import os; print(os.path.exists(\"/etc/hosts\"))'], cwd=workspace)` acessar com sucesso recursos do host fora da raiz do workspace temporário sem bloqueio no nível de sistema operacional.",
+            "seat": "google"
+          },
+          {
+            "claim": "A validação de cwd não confina o processo: caminhos absolutos, links simbólicos, variáveis de ambiente, arquivos de resposta e subprocessos ainda podem produzir efeitos fora do workspace.",
+            "falsifier": "pytest -q tests/test_gateway_confinement.py deve provar, em workspace temporário, que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso e arquivo de resposta falham fechadas e não deixam efeitos externos.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O contrato command: list[str] | str mantém semântica ambígua e incompatível com a garantia de execução sem interpretação de shell.",
+            "falsifier": "pytest -q tests/test_gateway_exec_contract.py deve provar que apenas argv explícito list[str] é aceito e que strings contendo operadores de shell são rejeitadas sem qualquer execução colateral.",
+            "seat": "openai"
+          },
+          {
+            "claim": "A nomenclatura 'sandbox confinado' e 'contenção estrita' persiste sem qualquer camada de SO (namespaces/containers/seccomp). cwd + shell=False + timeout definem apenas o diretório de trabalho; não impedem leitura/escrita por caminho absoluto, egress de rede ou consumo do host.",
+            "falsifier": "Executar exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=<workspace>) e um comando de egress de rede a partir do cwd confinado: se ambos rodam, a alegação de sandbox está falsificada. Nenhum tests/test_gateway_confinement.py foi entregue provando falha-fechada para caminho absoluto, symlink, env var, subprocesso e arquivo de resposta.",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "A assinatura mantém command: list[str] | str e apenas 'prefere' lista. 'Preferência' não é contrato; a forma str anula a garantia shell=False e reabre injeção de shell.",
+            "falsifier": "exec_command('rg foo; rm -rf .', cwd=...) — se a forma string alcança um shell, executa payload arbitrário. Nenhum tests/test_gateway_exec_contract.py foi entregue demonstrando que strings com operadores de shell são rejeitadas e que apenas argv explícito é aceito.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [
+          "[google] O envelope de resposta não especifica limites máximos de saída (`max_output_bytes`) nem estratégia de truncamento seguro, expondo o gateway e o agente a estouro de buffer ou exaustão de memória. (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Restringir estritamente o tipo de `command` para `list[str]`, rejeitando strings simples no validador de schema e impondo `shell=False` incondicionalmente.",
+          "Readequar a taxonomia textual de 'sandbox com contenção estrita' para 'execução com escopo de diretório (CWD-scoped execution)', explicitando que o confinamento de recursos de SO (namespaces/cgroups/seccomp) é responsabilidade do runtime hospedeiro.",
+          "Definir `max_output_bytes` com política determinística de truncamento (tail/head) e mecanismo de terminação da árvore completa de processos filhos (process group kill) ao estourar o timeout.",
+          "Restringir exec_command a command: list[str], tornar shell=False obrigatório e rejeitar entradas string."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "1ff3fb87-6ca9-42c1-8f00-f79012957f55",
+          "verdict": "REVISE",
+          "confidence": 0.95,
+          "summary": "A proposta mantém o mérito da frugalidade de contexto O(1) e a elegância do paradigma CLI First, mas a ausência de modificações no delta ({}) deixa pendentes as tensões críticas de segurança levantadas na Rodada 1. Persiste a ambiguidade na assinatura de execução que aceita strings arbitrárias e a caracterização indevida de isolamento de cwd como 'sandbox de contenção estrita'.",
+          "strengths": [
+            "Frugalidade estrita de contexto (<150 tokens) eliminando o desperdício massivo de tokens de sistema inerente ao paradigma Fat MCP.",
+            "Aderência à filosofia Unix de componibilidade através de fluxos padronizados e envelope estruturado de telemetria (exit_code, duration_ms, timed_out)."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A manutenção da assinatura `command: list[str] | str` com mera 'preferência' por lista viola o princípio de falha fechada, permitindo injeção de shell ou parsing inconsistente de argumentos entre plataformas POSIX e Windows.",
+              "falsifier": "A invocação de `exec_command('sh -c \"cat /etc/passwd\"', cwd=workspace)` ou passagem de payload com operadores de controle como string ser aceita pelo gateway, demonstrando que a garantia de `shell=False` não é aplicada de forma determinística."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A qualificação da Camada 2 como 'sandbox com contenção estrita' apoiada apenas na validação de `cwd` é tecnicamente insustentável, pois não restringe acessos a arquivos fora do workspace via caminhos absolutos, variáveis de ambiente ou chamadas diretas de sistema.",
+              "falsifier": "A execução de `exec_command(['python', '-c', 'import os; print(os.path.exists(\"/etc/hosts\"))'], cwd=workspace)` acessar com sucesso recursos do host fora da raiz do workspace temporário sem bloqueio no nível de sistema operacional."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "O envelope de resposta não especifica limites máximos de saída (`max_output_bytes`) nem estratégia de truncamento seguro, expondo o gateway e o agente a estouro de buffer ou exaustão de memória.",
+              "falsifier": "Um comando emitindo gigabytes em stdout/stderr causar travamento por Out-Of-Memory (OOM) no processo do Lean Gateway durante a serialização JSON."
+            }
+          ],
+          "recommendations": [
+            "Restringir estritamente o tipo de `command` para `list[str]`, rejeitando strings simples no validador de schema e impondo `shell=False` incondicionalmente.",
+            "Readequar a taxonomia textual de 'sandbox com contenção estrita' para 'execução com escopo de diretório (CWD-scoped execution)', explicitando que o confinamento de recursos de SO (namespaces/cgroups/seccomp) é responsabilidade do runtime hospedeiro.",
+            "Definir `max_output_bytes` com política determinística de truncamento (tail/head) e mecanismo de terminação da árvore completa de processos filhos (process group kill) ao estourar o timeout."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "0392c768-1f61-4cde-b977-fd4e06131abe",
+          "verdict": "REVISE",
+          "confidence": 0.99,
+          "summary": "O delta vazio não incorpora nenhuma correção para os dois bloqueios estabelecidos na Rodada 1. A proposta continua tratando cwd como contenção estrita e aceitando command como string, embora nenhuma dessas garantias seja sustentada pelo contrato descrito.",
+          "strengths": [
+            "Preserva a interface frugal O(1), a orientação CLI First e o envelope estruturado de telemetria.",
+            "Mantém shell=False e validação de cwd como defesas úteis, desde que não sejam apresentadas como sandbox completo."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A validação de cwd não confina o processo: caminhos absolutos, links simbólicos, variáveis de ambiente, arquivos de resposta e subprocessos ainda podem produzir efeitos fora do workspace.",
+              "falsifier": "pytest -q tests/test_gateway_confinement.py deve provar, em workspace temporário, que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso e arquivo de resposta falham fechadas e não deixam efeitos externos."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O contrato command: list[str] | str mantém semântica ambígua e incompatível com a garantia de execução sem interpretação de shell.",
+              "falsifier": "pytest -q tests/test_gateway_exec_contract.py deve provar que apenas argv explícito list[str] é aceito e que strings contendo operadores de shell são rejeitadas sem qualquer execução colateral."
+            }
+          ],
+          "recommendations": [
+            "Restringir exec_command a command: list[str], tornar shell=False obrigatório e rejeitar entradas string.",
+            "Substituir a alegação de sandbox ou contenção estrita por isolamento de diretório de trabalho, ou especificar uma camada real de isolamento de SO.",
+            "Adicionar e aprovar os dois testes falsificadores bloqueantes antes da ratificação."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "a560f2d9-25b2-479e-97cf-4fbb348291bb",
+          "verdict": "REVISE",
+          "confidence": 0.93,
+          "summary": "O delta da Rodada 2 está vazio ({}) e a proposta vigente permanece idêntica à Rodada 1: os dois falsificadores bloqueantes que levantei não foram endereçados. A camada CLI-First (O(1), zero tokens) segue sólida e é aprovável, mas o Lean Gateway ainda vende 'sandbox/contenção estrita' sem camada de SO e ainda aceita command como str, reintroduzindo injeção de shell.",
+          "strengths": [
+            "Camada 1 (CLI First) é arquiteturalmente correta: custo de contexto O(1)/zero tokens, componibilidade Unix e saídas estruturadas são um contrato executável e testável.",
+            "O envelope de telemetria (stdout/stderr/exit_code/duration_ms/timed_out) e shell=False como default são boas primitivas, desde que o contrato de tipo seja fechado."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A nomenclatura 'sandbox confinado' e 'contenção estrita' persiste sem qualquer camada de SO (namespaces/containers/seccomp). cwd + shell=False + timeout definem apenas o diretório de trabalho; não impedem leitura/escrita por caminho absoluto, egress de rede ou consumo do host.",
+              "falsifier": "Executar exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=<workspace>) e um comando de egress de rede a partir do cwd confinado: se ambos rodam, a alegação de sandbox está falsificada. Nenhum tests/test_gateway_confinement.py foi entregue provando falha-fechada para caminho absoluto, symlink, env var, subprocesso e arquivo de resposta."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A assinatura mantém command: list[str] | str e apenas 'prefere' lista. 'Preferência' não é contrato; a forma str anula a garantia shell=False e reabre injeção de shell.",
+              "falsifier": "exec_command('rg foo; rm -rf .', cwd=...) — se a forma string alcança um shell, executa payload arbitrário. Nenhum tests/test_gateway_exec_contract.py foi entregue demonstrando que strings com operadores de shell são rejeitadas e que apenas argv explícito é aceito."
+            }
+          ],
+          "recommendations": [
+            "Remover str da assinatura: exec_command(command: list[str], cwd, timeout_seconds) — argv puro, sem shlex.split implícito, contrato fechado.",
+            "Rebatizar 'sandbox/contenção estrita' para 'confinamento best-effort de cwd' OU comprometer explicitamente uma camada de SO; alinhar título e critério de sucesso à garantia real.",
+            "Entregar como parte da proposta os dois falsificadores exigidos (test_gateway_confinement.py e test_gateway_exec_contract.py) verdes antes do APPROVE; enquanto o delta for {}, os bloqueios permanecem."
+          ]
+        }
+      }
+    },
+    "r003": {
+      "status": "HELD_PROGRESS_REVIEW",
+      "reason": "Teto normativo de 3 rodadas atingido com progresso fértil.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Definição exemplar de teto estrito de contexto (<150 tokens) combatendo a sobrecarga computacional do paradigma Fat MCP.",
+          "Adoção consistente do princípio Unix e orientação CLI First com envelope estruturado de telemetria (exit_code, duration_ms, timed_out).",
+          "Preserva a interface frugal O(1), a orientação CLI First e o envelope estruturado de telemetria."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "A permanência do tipo `command: list[str] | str` com mera 'preferência' por lista degrada a segurança do gateway ao permitir execução por shell e injeção de comandos arbitrários em cenários de entrada de string.",
+            "falsifier": "A invocação de exec_command('sh -c \"cat /etc/passwd\"', cwd=workspace) ou passagem de payload com operadores de controle como string ser aceita pelo gateway, demonstrando que a garantia de shell=False não é aplicada de forma determinística.",
+            "seat": "google"
+          },
+          {
+            "claim": "A qualificação da Camada 2 como 'sandbox com contenção estrita' apoiada apenas na validação de cwd é tecnicamente insustentável, pois não restringe acessos a arquivos fora do workspace via caminhos absolutos, variáveis de ambiente ou chamadas diretas de sistema sem isolamento no nível de SO.",
+            "falsifier": "A execução de exec_command(['python', '-c', 'import os; print(os.path.exists(\"/etc/hosts\"))'], cwd=workspace) acessar com sucesso recursos do host fora da raiz do workspace temporário sem bloqueio no nível de sistema operacional.",
+            "seat": "google"
+          },
+          {
+            "claim": "A assinatura command: list[str] | str mantém semântica ambígua e não garante execução determinística sem interpretação de shell.",
+            "falsifier": "pytest -q tests/test_gateway_exec_contract.py deve provar que apenas argv explícito list[str] é aceito e que toda entrada string é rejeitada antes da execução, sem efeitos colaterais.",
+            "seat": "openai"
+          },
+          {
+            "claim": "Validar cwd não confina o processo; caminhos absolutos, links simbólicos, variáveis de ambiente, arquivos de resposta, subprocessos e rede continuam capazes de acessar recursos externos ao workspace.",
+            "falsifier": "pytest -q tests/test_gateway_confinement.py deve provar, mediante isolamento no nível do sistema operacional, que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso, arquivo de resposta e egress de rede falham fechadas e não deixam efeitos externos.",
+            "seat": "openai"
+          },
+          {
+            "claim": "A assinatura mantém `command: list[str] | str` com mera 'preferência' por lista; preferência não é contrato e a forma `str` reabre injeção de shell.",
+            "falsifier": "exec_command('rg foo; rm -rf .', cwd=workspace) alcança um shell e executa o payload. Nenhum tests/test_gateway_exec_contract.py foi entregue provando que apenas argv explícito list[str] é aceito e que strings com operadores de shell são rejeitadas sem execução colateral.",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "A nomenclatura 'sandbox confinado / contenção estrita' persiste apoiada só em validação de cwd, sem nenhuma camada de SO (namespaces/containers/seccomp). cwd + shell=False + timeout definem apenas o diretório de trabalho.",
+            "falsifier": "exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=workspace) lê fora da raiz e um comando de egress de rede a partir do cwd conclui: se ambos rodam, a alegação de sandbox está falsificada. Nenhum tests/test_gateway_confinement.py provou falha-fechada para caminho absoluto, symlink, variável de ambiente, subprocesso e arquivo de resposta.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Restringir estritamente o contrato de execução para `command: list[str]` (argv explícito), rejeitando tipos de string primitivos na camada de interface.",
+          "Retificar a nomenclatura da Camada 2 de 'sandbox com contenção estrita' para 'executor local com validação de cwd', ou exigir backend de isolamento por containers/namespaces para sustentar a alegação de sandbox.",
+          "Restringir exec_command a command: list[str] com shell=False obrigatório e rejeição explícita de strings.",
+          "Substituir a alegação de sandbox confinado por uma descrição limitada de dispatcher com cwd validado ou exigir isolamento real no nível do sistema operacional e seus testes de confinamento."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "5496ff81-47f6-4cf9-8250-26a4a903b60e",
+          "verdict": "REJECT",
+          "confidence": 0.98,
+          "summary": "A proposta RFC-002 atinge o teto mecânico da Rodada 3 sem apresentar qualquer delta de revisão para sanar as vulnerabilidades críticas apontadas em consenso tripartite. A manutenção da assinatura polimórfica `command: list[str] | str` e a rotulação enganosa de 'sandbox com contenção estrita' baseada meramente em validação de `cwd` violam princípios fundamentais de segurança e falha-fechada. Diante da inação na resolução dos falsificadores bloqueantes, a rejeição formal é a única postura tecnicamente consistente.",
+          "strengths": [
+            "Definição exemplar de teto estrito de contexto (<150 tokens) combatendo a sobrecarga computacional do paradigma Fat MCP.",
+            "Adoção consistente do princípio Unix e orientação CLI First com envelope estruturado de telemetria (exit_code, duration_ms, timed_out)."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A permanência do tipo `command: list[str] | str` com mera 'preferência' por lista degrada a segurança do gateway ao permitir execução por shell e injeção de comandos arbitrários em cenários de entrada de string.",
+              "falsifier": "A invocação de exec_command('sh -c \"cat /etc/passwd\"', cwd=workspace) ou passagem de payload com operadores de controle como string ser aceita pelo gateway, demonstrando que a garantia de shell=False não é aplicada de forma determinística."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A qualificação da Camada 2 como 'sandbox com contenção estrita' apoiada apenas na validação de cwd é tecnicamente insustentável, pois não restringe acessos a arquivos fora do workspace via caminhos absolutos, variáveis de ambiente ou chamadas diretas de sistema sem isolamento no nível de SO.",
+              "falsifier": "A execução de exec_command(['python', '-c', 'import os; print(os.path.exists(\"/etc/hosts\"))'], cwd=workspace) acessar com sucesso recursos do host fora da raiz do workspace temporário sem bloqueio no nível de sistema operacional."
+            }
+          ],
+          "recommendations": [
+            "Restringir estritamente o contrato de execução para `command: list[str]` (argv explícito), rejeitando tipos de string primitivos na camada de interface.",
+            "Retificar a nomenclatura da Camada 2 de 'sandbox com contenção estrita' para 'executor local com validação de cwd', ou exigir backend de isolamento por containers/namespaces para sustentar a alegação de sandbox."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "6b903da7-8a93-4cac-a295-3d3277f0dcbf",
+          "verdict": "REJECT",
+          "confidence": 0.99,
+          "summary": "O delta vazio não corrige nenhum dos bloqueios estabelecidos. A proposta ainda aceita command como string e chama de contenção estrita uma validação de cwd que não constitui isolamento no nível do sistema operacional.",
+          "strengths": [
+            "Preserva a interface frugal O(1), a orientação CLI First e o envelope estruturado de telemetria."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A assinatura command: list[str] | str mantém semântica ambígua e não garante execução determinística sem interpretação de shell.",
+              "falsifier": "pytest -q tests/test_gateway_exec_contract.py deve provar que apenas argv explícito list[str] é aceito e que toda entrada string é rejeitada antes da execução, sem efeitos colaterais."
+            },
+            {
+              "severity": "blocking",
+              "claim": "Validar cwd não confina o processo; caminhos absolutos, links simbólicos, variáveis de ambiente, arquivos de resposta, subprocessos e rede continuam capazes de acessar recursos externos ao workspace.",
+              "falsifier": "pytest -q tests/test_gateway_confinement.py deve provar, mediante isolamento no nível do sistema operacional, que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso, arquivo de resposta e egress de rede falham fechadas e não deixam efeitos externos."
+            }
+          ],
+          "recommendations": [
+            "Restringir exec_command a command: list[str] com shell=False obrigatório e rejeição explícita de strings.",
+            "Substituir a alegação de sandbox confinado por uma descrição limitada de dispatcher com cwd validado ou exigir isolamento real no nível do sistema operacional e seus testes de confinamento."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "fac65da7-d3cd-4ce5-af91-b0b57e5f24fa",
+          "verdict": "REVISE",
+          "confidence": 0.9,
+          "summary": "O núcleo arquitetural (CLI First, gateway enxuto O(1), envelope de telemetria) é sólido e consensual. Porém o delta desta rodada é vazio ({}) e a proposta vigente é textualmente idêntica à da Rodada 2: os dois falsificadores bloqueantes que este assento levantou permanecem sem resposta. Aprovar no teto mecânico sem endereçá-los seria ratificar por exaustão, não por mérito.",
+          "strengths": [
+            "Eliminação comprovável do overhead de schema (>80%) com teto de contexto O(1) e paginação sob demanda.",
+            "Envelope estruturado obrigatório (stdout, stderr, exit_code, duration_ms, timed_out) preserva a filosofia Unix de componibilidade determinística."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "A assinatura mantém `command: list[str] | str` com mera 'preferência' por lista; preferência não é contrato e a forma `str` reabre injeção de shell.",
+              "falsifier": "exec_command('rg foo; rm -rf .', cwd=workspace) alcança um shell e executa o payload. Nenhum tests/test_gateway_exec_contract.py foi entregue provando que apenas argv explícito list[str] é aceito e que strings com operadores de shell são rejeitadas sem execução colateral."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A nomenclatura 'sandbox confinado / contenção estrita' persiste apoiada só em validação de cwd, sem nenhuma camada de SO (namespaces/containers/seccomp). cwd + shell=False + timeout definem apenas o diretório de trabalho.",
+              "falsifier": "exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=workspace) lê fora da raiz e um comando de egress de rede a partir do cwd conclui: se ambos rodam, a alegação de sandbox está falsificada. Nenhum tests/test_gateway_confinement.py provou falha-fechada para caminho absoluto, symlink, variável de ambiente, subprocesso e arquivo de resposta."
+            }
+          ],
+          "recommendations": [
+            "Estreitar o contrato para command: list[str] (remover a união com str) e rejeitar shell=True de forma determinística, provado por tests/test_gateway_exec_contract.py.",
+            "Rebatizar a Camada 2 para linguagem honesta ('confinamento de diretório de trabalho + timeout', não 'sandbox'), OU adicionar uma camada de SO real (container/namespace/seccomp) e comprová-la com tests/test_gateway_confinement.py cobrindo os cinco vetores de fuga.",
+            "Reemitir com delta não-vazio; um delta {} na rodada final não pode fechar falsificadores bloqueantes abertos."
+          ]
+        }
+      }
+    }
+  }
+}

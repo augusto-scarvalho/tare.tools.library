@@ -1,0 +1,497 @@
+{
+  "case_id": "CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS",
+  "proposal_title": "RFC-005: Mecanismos Executáveis de Enforcement da Doutrina Frugal, Ambidestria e BYOC",
+  "max_rounds": 3,
+  "rounds": {
+    "r001": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Contenção segura e determinística de execução no MCP Gateway utilizando argv puro (`shell=False`) e validação canônica de diretório.",
+          "Imposição de teto estrito de contexto (<150 tokens) e priorização da biblioteca padrão via Via Negativa, minimizando a superfície de ataque e latência de inferência.",
+          "Rastreabilidade formal bidirecional entre especificações EARS e testes com `@pytest.mark.verifies`, garantindo falsificabilidade empírica contínua."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "O Frugality Guard não possui política determinística para distinguir dependência necessária de dependência inflada, e o limite de 150 tokens não fixa serialização, tokenizer nem versão.",
+            "falsifier": "Duas implementações conformes analisam o mesmo import de requests: uma o rejeita por existir urllib e outra o aceita por requisitos de TLS e ergonomia. Serialize o mesmo schema com tokenizers distintos e obtenha resultados em lados opostos do teto.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O marcador @pytest.mark.verifies cria associação declarativa, mas não demonstra que o teste falsifica o requisito nem que exercita o código normativo correspondente.",
+            "falsifier": "Crie um teste marcado com verifies(\"SPEC-REQ-001\") contendo apenas assert True; se specgraph trace aprovar a cobertura, a garantia bidirecional é falsa.",
+            "seat": "openai"
+          },
+          {
+            "claim": "cwd canônico não confina um processo arbitrário: executáveis e argumentos ainda podem acessar caminhos externos, rede, ambiente, subprocessos e recursos ilimitados.",
+            "falsifier": "Execute a partir de um cwd permitido um argv Python que leia um arquivo absoluto externo ou invoque um filho persistente; se funcionar, o gateway não é confinado apesar de shell=False e da validação de cwd.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O roteador BYOC mistura política de custo, fornecedores específicos e mecanismos opcionais sem definir descoberta de capacidades, ordem de fallback, limites de contexto ou condição terminal de indisponibilidade.",
+            "falsifier": "Ative profile free sem credencial Gemini e sem binário llama.cpp, ou envie um bundle maior que o contexto do SLM; duas implementações podem falhar, truncar silenciosamente ou escolher rotas diferentes sem violar o texto.",
+            "seat": "openai"
+          },
+          {
+            "claim": "EmergencyHaltReceipt não define schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes nem comportamento quando o recibo não puder ser gravado.",
+            "falsifier": "Torne o destino do recibo somente leitura e provoque risco de integridade; se o executor continuar, improvisar outro destino ou encerrar sem evidência verificável, o contrato não determina um resultado conforme.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O critério de sucesso 'validação de schema < 150 tokens' é inauditável sem tokenizador especificado. Contagem de tokens é dependente de modelo; '150 tokens' não é uma grandeza física até fixar o tokenizador de referência.",
+            "falsifier": "Rodar o guard sobre um mesmo schema JSON-RPC com dois tokenizadores distintos (ex: cl100k_base vs tokenizer de um SLM local) e obter contagens divergentes que cruzem o limiar de 150 em direções opostas — o build passa e falha para o mesmo artefato conforme o backend.",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [
+          "[google] A análise estática de imports do Frugality Guard pode acusar falsos-positivos em importações dinâmicas ou opcionais de desenvolvimento caso não suporte anotações explícitas de exceção. (Classificado como não-bloqueante)",
+          "[google] O roteador BYOC em perfis locais (`llama.cpp`) pode induzir latência excessiva se não houver probe ativo de prontidão do socket antes do despacho da inferência. (Classificado como não-bloqueante)",
+          "[openai] A exigência genérica de 100% de testes unitários é ambígua e pode incentivar cobertura superficial, além de não validar integrações reais com keyring, endpoints e processos locais. (Classificado como não-bloqueante)",
+          "[anthropic] Mecanismo 1 (Frugality Guard) reinventa contratos de dependência já resolvidos por ferramentas instaladas/maduras (import-linter, ruff). Construir um auditor de imports próprio é a hipertrofia que a Via Negativa proíbe. (Classificado como não-bloqueante)",
+          "[anthropic] Mecanismo 3 falha o build para 'código normativo em produção sem falsificador', mas 'código normativo' não tem definição operacional. Sem um predicado decidível, o gate produz falsos positivos e vira fricção burocrática. (Classificado como não-bloqueante)",
+          "[anthropic] Mecanismo 6: 'validação de contenção de diretório canônico' não menciona resolução de symlinks; contenção baseada em prefixo de path é evadível. (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Adicionar suporte a comentários estruturados (ex.: `# nosec: frugality-guard`) para exceções justificadas de imports no validador estático.",
+          "Incluir health-check assíncrono com timeout agressivo (<=500ms) no `byoc_router.py` para verificação de disponibilidade de instâncias locais antes do roteamento.",
+          "Trocar a inferência de dependência desnecessária por allowlist explícita, exceções justificadas e medição com serialização e tokenizer fixados.",
+          "Exigir ao menos um teste negativo ou mutante por requisito; o marcador deve indexar evidência, não constituí-la."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "e801b7e0-fb27-4ae2-94a1-1ed2fc7ff1a2",
+          "verdict": "APPROVE",
+          "confidence": 0.98,
+          "summary": "A RFC-005 estabelece uma disciplina de engenharia exemplar, combinando contenção estrita de segurança, rastreabilidade determinística de testes e governança de contexto com zero hipertrofia. Os contratos propostos priorizam primitivas de baixo custo computacional e máxima robustez operacional.",
+          "strengths": [
+            "Contenção segura e determinística de execução no MCP Gateway utilizando argv puro (`shell=False`) e validação canônica de diretório.",
+            "Imposição de teto estrito de contexto (<150 tokens) e priorização da biblioteca padrão via Via Negativa, minimizando a superfície de ataque e latência de inferência.",
+            "Rastreabilidade formal bidirecional entre especificações EARS e testes com `@pytest.mark.verifies`, garantindo falsificabilidade empírica contínua.",
+            "Arquitetura BYOC pragmática com suporte a fallback gracioso e armazenamento seguro de credenciais via OS Keyring."
+          ],
+          "issues": [
+            {
+              "severity": "non-blocking",
+              "claim": "A análise estática de imports do Frugality Guard pode acusar falsos-positivos em importações dinâmicas ou opcionais de desenvolvimento caso não suporte anotações explícitas de exceção.",
+              "falsifier": "Um teste unitário que importa um adapter condicional falha o pipeline de CI por ausência de diretiva inline de bypass auditável."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "O roteador BYOC em perfis locais (`llama.cpp`) pode induzir latência excessiva se não houver probe ativo de prontidão do socket antes do despacho da inferência.",
+              "falsifier": "Uma requisição roteada para endpoint local inacessível aguarda o timeout integral da conexão HTTP em vez de disparar fallback imediato."
+            }
+          ],
+          "recommendations": [
+            "Adicionar suporte a comentários estruturados (ex.: `# nosec: frugality-guard`) para exceções justificadas de imports no validador estático.",
+            "Incluir health-check assíncrono com timeout agressivo (<=500ms) no `byoc_router.py` para verificação de disponibilidade de instâncias locais antes do roteamento."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "ced637ca-d65b-4c97-8205-4a999d1163e7",
+          "verdict": "REVISE",
+          "confidence": 0.98,
+          "summary": "A proposta acerta ao transformar princípios em contratos executáveis, privilegiando CLI, argv estruturado, falsificadores e parada segura. Contudo, quatro garantias centrais ainda não são implementáveis como escritas: detecção objetiva de dependência desnecessária, rastreabilidade causal por marcador, confinamento por cwd e fallback BYOC determinístico.",
+          "strengths": [
+            "O uso de list[str] com shell=False elimina uma classe importante de injeção de shell.",
+            "A separação entre exploração e consolidação reconhece corretamente que spikes e código canônico exigem gates diferentes.",
+            "O HALT_RECEIPT estabelece uma base útil para comportamento fail-closed e auditoria posterior."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O Frugality Guard não possui política determinística para distinguir dependência necessária de dependência inflada, e o limite de 150 tokens não fixa serialização, tokenizer nem versão.",
+              "falsifier": "Duas implementações conformes analisam o mesmo import de requests: uma o rejeita por existir urllib e outra o aceita por requisitos de TLS e ergonomia. Serialize o mesmo schema com tokenizers distintos e obtenha resultados em lados opostos do teto."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O marcador @pytest.mark.verifies cria associação declarativa, mas não demonstra que o teste falsifica o requisito nem que exercita o código normativo correspondente.",
+              "falsifier": "Crie um teste marcado com verifies(\"SPEC-REQ-001\") contendo apenas assert True; se specgraph trace aprovar a cobertura, a garantia bidirecional é falsa."
+            },
+            {
+              "severity": "blocking",
+              "claim": "cwd canônico não confina um processo arbitrário: executáveis e argumentos ainda podem acessar caminhos externos, rede, ambiente, subprocessos e recursos ilimitados.",
+              "falsifier": "Execute a partir de um cwd permitido um argv Python que leia um arquivo absoluto externo ou invoque um filho persistente; se funcionar, o gateway não é confinado apesar de shell=False e da validação de cwd."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O roteador BYOC mistura política de custo, fornecedores específicos e mecanismos opcionais sem definir descoberta de capacidades, ordem de fallback, limites de contexto ou condição terminal de indisponibilidade.",
+              "falsifier": "Ative profile free sem credencial Gemini e sem binário llama.cpp, ou envie um bundle maior que o contexto do SLM; duas implementações podem falhar, truncar silenciosamente ou escolher rotas diferentes sem violar o texto."
+            },
+            {
+              "severity": "blocking",
+              "claim": "EmergencyHaltReceipt não define schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes nem comportamento quando o recibo não puder ser gravado.",
+              "falsifier": "Torne o destino do recibo somente leitura e provoque risco de integridade; se o executor continuar, improvisar outro destino ou encerrar sem evidência verificável, o contrato não determina um resultado conforme."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "A exigência genérica de 100% de testes unitários é ambígua e pode incentivar cobertura superficial, além de não validar integrações reais com keyring, endpoints e processos locais.",
+              "falsifier": "Alcance 100% de cobertura de linhas usando mocks e depois execute contra keyring indisponível, endpoint incompatível ou subprocesso que ignora timeout; a suíte permanece verde enquanto o mecanismo falha."
+            }
+          ],
+          "recommendations": [
+            "Trocar a inferência de dependência desnecessária por allowlist explícita, exceções justificadas e medição com serialização e tokenizer fixados.",
+            "Exigir ao menos um teste negativo ou mutante por requisito; o marcador deve indexar evidência, não constituí-la.",
+            "Renomear o gateway como dispatcher confiável ou adicionar confinamento real do sistema operacional, allowlist e encerramento da árvore de processos.",
+            "Definir um protocolo BYOC mínimo baseado em capacidades, ordem determinística de fallback e HALT explícito quando nenhuma rota satisfizer o contrato.",
+            "Versionar HALT_RECEIPT.json e especificar escrita atômica, vínculo com tarefa e artefato, exit code e comportamento fail-closed."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "6f83d9e0-ee94-4724-8742-d84c74648f62",
+          "verdict": "REVISE",
+          "confidence": 0.82,
+          "summary": "A arquitetura é sólida, frugal em espírito e com forte postura de segurança no gateway (argv puro, shell=False, contenção de diretório). Contudo, dois mecanismos carecem de falsificadores empíricos concretos e um terceiro reinventa ferramentas existentes, o que contradiz a própria Via Negativa da proposta. Aprovável após revisão pontual, não por chancela cega.",
+          "strengths": [
+            "Mecanismo 6 (Lean MCP Gateway): contrato mínimo e correto — vetor argv list[str] com shell=False e telemetria estruturada é exatamente a superfície certa, sem hipertrofia.",
+            "Mecanismo 4 (BYOC Router): desacoplamento por perfil com segredos via OS Keyring e endpoint OpenAI-compatível é pragmático e usa primitivas de stdlib/SO em vez de framework proprietário.",
+            "Protocolo de parada (Mecanismo 5) como contrato JSON simples e declarativo evita orquestração desnecessária."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O critério de sucesso 'validação de schema < 150 tokens' é inauditável sem tokenizador especificado. Contagem de tokens é dependente de modelo; '150 tokens' não é uma grandeza física até fixar o tokenizador de referência.",
+              "falsifier": "Rodar o guard sobre um mesmo schema JSON-RPC com dois tokenizadores distintos (ex: cl100k_base vs tokenizer de um SLM local) e obter contagens divergentes que cruzem o limiar de 150 em direções opostas — o build passa e falha para o mesmo artefato conforme o backend."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Mecanismo 1 (Frugality Guard) reinventa contratos de dependência já resolvidos por ferramentas instaladas/maduras (import-linter, ruff). Construir um auditor de imports próprio é a hipertrofia que a Via Negativa proíbe.",
+              "falsifier": "Demonstrar que import-linter (contract: forbidden) + ruff cobrem a regra de priorização de stdlib e proibição de deps infladas com config declarativa, tornando o módulo custom código morto."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Mecanismo 3 falha o build para 'código normativo em produção sem falsificador', mas 'código normativo' não tem definição operacional. Sem um predicado decidível, o gate produz falsos positivos e vira fricção burocrática.",
+              "falsifier": "Apresentar dois revisores classificando o mesmo módulo utilitário como normativo/não-normativo de formas opostas — a ausência de critério mecânico torna o gate não-determinístico."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "Mecanismo 6: 'validação de contenção de diretório canônico' não menciona resolução de symlinks; contenção baseada em prefixo de path é evadível.",
+              "falsifier": "Criar um symlink dentro de cwd apontando para fora da raiz canônica e executar exec_command com um cwd que o atravesse — a escrita/leitura escapa da contenção se a validação não usar realpath/resolve() antes da checagem de prefixo."
+            }
+          ],
+          "recommendations": [
+            "Fixar o tokenizador de referência do teto de 150 tokens no contrato (nome + versão) ou substituir a métrica por bytes/caracteres, que são auditáveis sem dependência de modelo.",
+            "Delegar Mecanismo 1 a import-linter + ruff via config declarativa; manter código próprio apenas para o teto de schema, que essas ferramentas não cobrem.",
+            "Definir 'código normativo' por um predicado mecânico (ex: módulos sob caminhos declarados no specgraph) antes de ligar o gate de build do Mecanismo 3.",
+            "Exigir resolução canônica (Path.resolve/realpath) de cwd e do argv[0] antes da checagem de contenção no Mecanismo 6."
+          ]
+        }
+      }
+    },
+    "r002": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Adesão consistente ao princípio da Via Negativa e incentivo ao uso estrito da biblioteca padrão para redução de footprint e superfície de ataque.",
+          "Estruturação clara dos 6 pilares de governança com protocolo explícito de contenção e parada emergencial (EmergencyHaltReceipt).",
+          "Adoção de execução por argv puro (shell=False) como baseline segura de execução no MCP Gateway."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "O teto de contexto de 150 tokens para schemas JSON-RPC permanece inauditável e não-determinístico sem a fixação de um tokenizer canônico de referência ou definição em métrica física invariante (bytes/caracteres minificados).",
+            "falsifier": "O mesmo schema JSON-RPC serializado atinge 138 tokens em um tokenizer cl100k_base e 162 tokens no tokenizer do Gemma/Llama, fazendo com que o gate de CI aprove ou reprove o mesmo artefato de forma arbitrária conforme o ambiente.",
+            "seat": "google"
+          },
+          {
+            "claim": "O roteador BYOC não especifica matriz determinística de precedência, probe ativo de disponibilidade com timeout para sockets locais, nem tratamento terminal para bundles que excedam a janela de contexto do SLM.",
+            "falsifier": "Ao ativar profile: free sem chave de API configurada e sem binário llama.cpp instalado, o roteador entra em estado indefinido ou falha silenciosa sem emitir um EmergencyHaltReceipt com código de erro estruturado.",
+            "seat": "google"
+          },
+          {
+            "claim": "A contenção de diretório canônico no MCP Gateway não define resolução de symlinks (Path.resolve) nem sanitização de variáveis de ambiente do processo filho.",
+            "falsifier": "Um comando executado dentro de um cwd permitido acessa arquivos confidenciais externos através de um symlink pré-existente ou herda PYTHONPATH/LD_PRELOAD permitindo execução arbitrária fora do escopo confinado.",
+            "seat": "google"
+          },
+          {
+            "claim": "O Frugality Guard continua sem política determinística e auditável para distinguir dependências necessárias de dependências infladas.",
+            "falsifier": "Duas implementações conformes avaliam o mesmo import de requests e chegam legitimamente a decisões opostas com base em urllib, TLS e ergonomia.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O teto de 150 tokens continua sem serialização canônica, tokenizador de referência e versão fixados.",
+            "falsifier": "O mesmo schema serializado ou tokenizado por implementações distintas cruza o limiar de 150 tokens em sentidos opostos.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O marcador verifies demonstra apenas associação nominal, não que o teste falsifique o requisito ou exercite seu código normativo.",
+            "falsifier": "Um teste contendo somente assert True e marcado com verifies para um requisito é aceito por specgraph trace.",
+            "seat": "openai"
+          },
+          {
+            "claim": "shell=False e cwd validado não confinam acesso a arquivos externos, rede, ambiente, subprocessos ou consumo de recursos.",
+            "falsifier": "Um argv Python iniciado no cwd permitido lê um caminho absoluto externo ou cria um processo filho persistente.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O roteador BYOC continua sem descoberta de capacidades, ordem normativa de fallback, limites de contexto e condição terminal de indisponibilidade.",
+            "falsifier": "No perfil free sem credencial Gemini e sem llama.cpp, ou diante de bundle excessivo, implementações conformes divergem entre falhar, truncar e selecionar outra rota.",
+            "seat": "openai"
+          },
+          {
+            "claim": "EmergencyHaltReceipt continua sem schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes e regra para falha de gravação.",
+            "falsifier": "Com o destino do recibo somente leitura, executores conformes podem continuar, escolher outro destino ou parar sem evidência verificável.",
+            "seat": "openai"
+          }
+        ],
+        "discard_candidates": [
+          "[google] A rastreabilidade estática via @pytest.mark.verifies valida a anotação declarativa, mas não afere se a asserção efetivamente executa o caminho de código normativo correspondente. (Classificado como não-bloqueante)"
+        ],
+        "recommendations": [
+          "Formalizar no Mecanismo 1 o tokenizer de referência (ex: gemma-tokenizer canônico via tokenizador local padronizado) ou substituir o teto por uma métrica física determinística (ex: payload JSON minificado ≤ 600 bytes UTF-8).",
+          "Definir a máquina de estados finita do BYOC Router com ordem estrita de fallback (Pro -> Free -> Local -> Halt), timeout de 500ms para health check de socket local e emissão obrigatória de EmergencyHaltReceipt quando o contexto do modelo for extrapolado.",
+          "Reforçar o MCP Gateway exigindo validação via Path.resolve() com Path.is_relative_to(root_dir) para mitigação de symlinks e adoção de allowlist estrita para variáveis de ambiente transmitidas ao subprocesso.",
+          "Padronizar o schema JSON formal versionado do HALT_RECEIPT.json prevendo fallback atômico via stderr caso o sistema de arquivos esteja montado em modo somente-leitura."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "c231f394-b1f2-4573-af60-178d0b3d58d5",
+          "verdict": "REVISE",
+          "confidence": 0.95,
+          "summary": "A proposta RFC-005 mantém mérito arquitetural fundamental, mas não incorporou revisões no delta da Rodada 2 para mitigar os falsificadores bloqueantes sintetizados pelo Mediador. É imprescindível fixar uma métrica física ou tokenizer canônico para o teto de 150 tokens, determinar a precedência estrita de fallback no roteador BYOC e assegurar resolução canônica de symlinks e isolamento de ambiente no MCP Gateway.",
+          "strengths": [
+            "Adesão consistente ao princípio da Via Negativa e incentivo ao uso estrito da biblioteca padrão para redução de footprint e superfície de ataque.",
+            "Estruturação clara dos 6 pilares de governança com protocolo explícito de contenção e parada emergencial (EmergencyHaltReceipt).",
+            "Adoção de execução por argv puro (shell=False) como baseline segura de execução no MCP Gateway."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O teto de contexto de 150 tokens para schemas JSON-RPC permanece inauditável e não-determinístico sem a fixação de um tokenizer canônico de referência ou definição em métrica física invariante (bytes/caracteres minificados).",
+              "falsifier": "O mesmo schema JSON-RPC serializado atinge 138 tokens em um tokenizer cl100k_base e 162 tokens no tokenizer do Gemma/Llama, fazendo com que o gate de CI aprove ou reprove o mesmo artefato de forma arbitrária conforme o ambiente."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O roteador BYOC não especifica matriz determinística de precedência, probe ativo de disponibilidade com timeout para sockets locais, nem tratamento terminal para bundles que excedam a janela de contexto do SLM.",
+              "falsifier": "Ao ativar profile: free sem chave de API configurada e sem binário llama.cpp instalado, o roteador entra em estado indefinido ou falha silenciosa sem emitir um EmergencyHaltReceipt com código de erro estruturado."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A contenção de diretório canônico no MCP Gateway não define resolução de symlinks (Path.resolve) nem sanitização de variáveis de ambiente do processo filho.",
+              "falsifier": "Um comando executado dentro de um cwd permitido acessa arquivos confidenciais externos através de um symlink pré-existente ou herda PYTHONPATH/LD_PRELOAD permitindo execução arbitrária fora do escopo confinado."
+            },
+            {
+              "severity": "non-blocking",
+              "claim": "A rastreabilidade estática via @pytest.mark.verifies valida a anotação declarativa, mas não afere se a asserção efetivamente executa o caminho de código normativo correspondente.",
+              "falsifier": "Um teste com corpo 'assert True' decorado com @pytest.mark.verifies('SPEC-REQ-001') é computado pelo specgraph trace como cobertura válida de 100% sem jamais exercitar o requisito."
+            }
+          ],
+          "recommendations": [
+            "Formalizar no Mecanismo 1 o tokenizer de referência (ex: gemma-tokenizer canônico via tokenizador local padronizado) ou substituir o teto por uma métrica física determinística (ex: payload JSON minificado ≤ 600 bytes UTF-8).",
+            "Definir a máquina de estados finita do BYOC Router com ordem estrita de fallback (Pro -> Free -> Local -> Halt), timeout de 500ms para health check de socket local e emissão obrigatória de EmergencyHaltReceipt quando o contexto do modelo for extrapolado.",
+            "Reforçar o MCP Gateway exigindo validação via Path.resolve() com Path.is_relative_to(root_dir) para mitigação de symlinks e adoção de allowlist estrita para variáveis de ambiente transmitidas ao subprocesso.",
+            "Padronizar o schema JSON formal versionado do HALT_RECEIPT.json prevendo fallback atômico via stderr caso o sistema de arquivos esteja montado em modo somente-leitura."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "f6baad92-cdc2-471f-9894-a6829d23893c",
+          "verdict": "REVISE",
+          "confidence": 0.99,
+          "summary": "O delta vazio não altera a proposta e, portanto, nenhuma das tensões bloqueantes da Rodada 1 foi resolvida. Permanecem indeterminados os contratos do Frugality Guard, da contagem de tokens, da rastreabilidade, do confinamento, do roteamento BYOC e da parada de emergência.",
+          "strengths": [
+            "Mantém argv puro com shell=False e validação canônica de cwd como medidas básicas de redução de risco.",
+            "Preserva a orientação frugal, BYOC e a intenção de rastreabilidade entre requisitos e testes."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O Frugality Guard continua sem política determinística e auditável para distinguir dependências necessárias de dependências infladas.",
+              "falsifier": "Duas implementações conformes avaliam o mesmo import de requests e chegam legitimamente a decisões opostas com base em urllib, TLS e ergonomia."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O teto de 150 tokens continua sem serialização canônica, tokenizador de referência e versão fixados.",
+              "falsifier": "O mesmo schema serializado ou tokenizado por implementações distintas cruza o limiar de 150 tokens em sentidos opostos."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O marcador verifies demonstra apenas associação nominal, não que o teste falsifique o requisito ou exercite seu código normativo.",
+              "falsifier": "Um teste contendo somente assert True e marcado com verifies para um requisito é aceito por specgraph trace."
+            },
+            {
+              "severity": "blocking",
+              "claim": "shell=False e cwd validado não confinam acesso a arquivos externos, rede, ambiente, subprocessos ou consumo de recursos.",
+              "falsifier": "Um argv Python iniciado no cwd permitido lê um caminho absoluto externo ou cria um processo filho persistente."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O roteador BYOC continua sem descoberta de capacidades, ordem normativa de fallback, limites de contexto e condição terminal de indisponibilidade.",
+              "falsifier": "No perfil free sem credencial Gemini e sem llama.cpp, ou diante de bundle excessivo, implementações conformes divergem entre falhar, truncar e selecionar outra rota."
+            },
+            {
+              "severity": "blocking",
+              "claim": "EmergencyHaltReceipt continua sem schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes e regra para falha de gravação.",
+              "falsifier": "Com o destino do recibo somente leitura, executores conformes podem continuar, escolher outro destino ou parar sem evidência verificável."
+            }
+          ],
+          "recommendations": [
+            "Publicar um delta normativo que feche cada contrato bloqueante com algoritmos, schemas, precedências e testes de conformidade determinísticos antes da Rodada 3."
+          ]
+        },
+        "anthropic": {}
+      }
+    },
+    "r003": {
+      "status": "HELD_PROGRESS_REVIEW",
+      "reason": "Teto normativo de 3 rodadas atingido com progresso fértil.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Adesão consistente ao princípio da Via Negativa e priorização da biblioteca padrão Python (pathlib, subprocess, dataclasses) para redução de footprint e superfície de ataque.",
+          "Estruturação clara do fluxo ambidestro separando spikes de exploração livre em local-labs da consolidação estrita com testes unitários em library/specgraph.",
+          "Adoção do modelo de invocação exec_command via argv puro (list[str], shell=False) e formalização do contrato EmergencyHaltReceipt para interrupções seguras."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "O teto de 150 tokens para schemas JSON-RPC permanece inauditável e não-determinístico sem a fixação de um tokenizer canônico de referência ou conversão para métrica física invariante (tamanho em bytes UTF-8 minificado).",
+            "falsifier": "O mesmo schema JSON-RPC serializado atinge 138 tokens em um tokenizer cl100k_base e 162 tokens no tokenizer do Gemma/Llama, fazendo com que o gate de CI aprove ou reprove o mesmo artefato de forma arbitrária conforme o ambiente.",
+            "seat": "google"
+          },
+          {
+            "claim": "O roteador BYOC não especifica matriz determinística de precedência, probe ativo de disponibilidade com timeout para sockets locais, nem tratamento terminal para bundles que excedam a janela de contexto do SLM.",
+            "falsifier": "Ao ativar profile: free sem chave de API configurada e sem binário llama.cpp instalado, o roteador entra em estado indefinido ou falha silenciosa sem emitir um EmergencyHaltReceipt com código de erro estruturado.",
+            "seat": "google"
+          },
+          {
+            "claim": "A contenção de diretório canônico no MCP Gateway não define resolução estrita de symlinks (Path.resolve) nem sanitização e isolamento de variáveis de ambiente do processo filho.",
+            "falsifier": "Um comando executado dentro de um cwd permitido acessa arquivos confidenciais externos através de um symlink pré-existente ou herda PYTHONPATH/LD_PRELOAD permitindo execução arbitrária fora do escopo confinado.",
+            "seat": "google"
+          },
+          {
+            "claim": "O Frugality Guard não define uma política determinística e auditável para classificar dependências como necessárias ou infladas.",
+            "falsifier": "Duas implementações conformes avaliam o mesmo uso de requests e chegam legitimamente a decisões opostas diante das capacidades de urllib, TLS e ergonomia.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O limite de 150 tokens não fixa serialização canônica, tokenizador de referência nem versão.",
+            "falsifier": "O mesmo schema JSON-RPC cruza o limiar de 150 tokens em sentidos opostos quando processado por tokenizadores ou serializações distintos.",
+            "seat": "openai"
+          },
+          {
+            "claim": "A marca verifies comprova apenas associação nominal, sem demonstrar que o teste executa e falsifica o requisito normativo.",
+            "falsifier": "Um teste contendo apenas assert True e marcado com verifies para um requisito é aceito por specgraph trace.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O MCP Gateway não especifica confinamento de filesystem, ambiente, rede, subprocessos e recursos além de shell=False e cwd validado.",
+            "falsifier": "Um processo iniciado no cwd permitido lê um caminho absoluto externo, atravessa um symlink, herda PYTHONPATH ou cria um processo filho persistente.",
+            "seat": "openai"
+          },
+          {
+            "claim": "O roteador BYOC não define descoberta de capacidades, precedência normativa, timeouts, limites de contexto nem condição terminal de indisponibilidade.",
+            "falsifier": "No perfil free sem credencial Gemini e sem llama.cpp, ou com bundle excessivo, implementações conformes divergem entre falhar, truncar, selecionar outra rota ou permanecer em estado indefinido.",
+            "seat": "openai"
+          },
+          {
+            "claim": "EmergencyHaltReceipt não possui schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes nem regra para falha de gravação.",
+            "falsifier": "Com o destino do recibo somente leitura, executores conformes divergem entre continuar, gravar em outro destino ou parar sem evidência verificável.",
+            "seat": "openai"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Substituir o limiar arbitrário de 150 tokens por um teto físico invariante em bytes UTF-8 (ex: <= 600 bytes minificados) ou fixar nominalmente a biblioteca e versão do tokenizer de referência.",
+          "Formalizar a máquina de estados do BYOC Router com timeouts estritos para probes de sockets locais e emissão mandatória de EmergencyHaltReceipt em cenários de indisponibilidade de rotas ou overflow de contexto.",
+          "Exigir Path.resolve() com verificação de ancestralidade canônica no cwd e whitelist determinística de variáveis de ambiente antes da execução de subprocessos no MCP Gateway.",
+          "Não ratificar a RFC-005 sem uma nova proposta formal que incorpore contratos determinísticos e testes executáveis para todos os bloqueios registrados."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "304eeacb-6063-45bd-b8a7-cfadb2350644",
+          "verdict": "REJECT",
+          "confidence": 0.98,
+          "summary": "A proposta RFC-005 consolida diretrizes fundamentais de engenharia frugal e ambidestria, mas o delta vazio nesta rodada final mantém sem resolução as lacunas críticas de segurança e determinismo. Sem a fixação de métricas invariantes de payload, contenção estrita contra symlinks/ambiente no MCP Gateway e máquina de estados determinística no BYOC Router, a proposta não atinge os critérios de rigor para homologação no teto mecânico.",
+          "strengths": [
+            "Adesão consistente ao princípio da Via Negativa e priorização da biblioteca padrão Python (pathlib, subprocess, dataclasses) para redução de footprint e superfície de ataque.",
+            "Estruturação clara do fluxo ambidestro separando spikes de exploração livre em local-labs da consolidação estrita com testes unitários em library/specgraph.",
+            "Adoção do modelo de invocação exec_command via argv puro (list[str], shell=False) e formalização do contrato EmergencyHaltReceipt para interrupções seguras."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O teto de 150 tokens para schemas JSON-RPC permanece inauditável e não-determinístico sem a fixação de um tokenizer canônico de referência ou conversão para métrica física invariante (tamanho em bytes UTF-8 minificado).",
+              "falsifier": "O mesmo schema JSON-RPC serializado atinge 138 tokens em um tokenizer cl100k_base e 162 tokens no tokenizer do Gemma/Llama, fazendo com que o gate de CI aprove ou reprove o mesmo artefato de forma arbitrária conforme o ambiente."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O roteador BYOC não especifica matriz determinística de precedência, probe ativo de disponibilidade com timeout para sockets locais, nem tratamento terminal para bundles que excedam a janela de contexto do SLM.",
+              "falsifier": "Ao ativar profile: free sem chave de API configurada e sem binário llama.cpp instalado, o roteador entra em estado indefinido ou falha silenciosa sem emitir um EmergencyHaltReceipt com código de erro estruturado."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A contenção de diretório canônico no MCP Gateway não define resolução estrita de symlinks (Path.resolve) nem sanitização e isolamento de variáveis de ambiente do processo filho.",
+              "falsifier": "Um comando executado dentro de um cwd permitido acessa arquivos confidenciais externos através de um symlink pré-existente ou herda PYTHONPATH/LD_PRELOAD permitindo execução arbitrária fora do escopo confinado."
+            }
+          ],
+          "recommendations": [
+            "Substituir o limiar arbitrário de 150 tokens por um teto físico invariante em bytes UTF-8 (ex: <= 600 bytes minificados) ou fixar nominalmente a biblioteca e versão do tokenizer de referência.",
+            "Formalizar a máquina de estados do BYOC Router com timeouts estritos para probes de sockets locais e emissão mandatória de EmergencyHaltReceipt em cenários de indisponibilidade de rotas ou overflow de contexto.",
+            "Exigir Path.resolve() com verificação de ancestralidade canônica no cwd e whitelist determinística de variáveis de ambiente antes da execução de subprocessos no MCP Gateway."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "8c66735b-958b-4682-946f-cba54ce6de4a",
+          "verdict": "REJECT",
+          "confidence": 0.99,
+          "summary": "O delta vazio não altera a proposta e, portanto, nenhuma das tensões bloqueantes da Rodada 2 foi resolvida. Permanecem indeterminados os gates de frugalidade e contexto, a rastreabilidade empírica, o confinamento do gateway, o roteamento BYOC e o protocolo de parada segura.",
+          "strengths": [
+            "Mantém Via Negativa, preferência pela biblioteca padrão e execução por argv com shell=False.",
+            "Preserva uma decomposição clara em seis mecanismos executáveis."
+          ],
+          "issues": [
+            {
+              "severity": "blocking",
+              "claim": "O Frugality Guard não define uma política determinística e auditável para classificar dependências como necessárias ou infladas.",
+              "falsifier": "Duas implementações conformes avaliam o mesmo uso de requests e chegam legitimamente a decisões opostas diante das capacidades de urllib, TLS e ergonomia."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O limite de 150 tokens não fixa serialização canônica, tokenizador de referência nem versão.",
+              "falsifier": "O mesmo schema JSON-RPC cruza o limiar de 150 tokens em sentidos opostos quando processado por tokenizadores ou serializações distintos."
+            },
+            {
+              "severity": "blocking",
+              "claim": "A marca verifies comprova apenas associação nominal, sem demonstrar que o teste executa e falsifica o requisito normativo.",
+              "falsifier": "Um teste contendo apenas assert True e marcado com verifies para um requisito é aceito por specgraph trace."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O MCP Gateway não especifica confinamento de filesystem, ambiente, rede, subprocessos e recursos além de shell=False e cwd validado.",
+              "falsifier": "Um processo iniciado no cwd permitido lê um caminho absoluto externo, atravessa um symlink, herda PYTHONPATH ou cria um processo filho persistente."
+            },
+            {
+              "severity": "blocking",
+              "claim": "O roteador BYOC não define descoberta de capacidades, precedência normativa, timeouts, limites de contexto nem condição terminal de indisponibilidade.",
+              "falsifier": "No perfil free sem credencial Gemini e sem llama.cpp, ou com bundle excessivo, implementações conformes divergem entre falhar, truncar, selecionar outra rota ou permanecer em estado indefinido."
+            },
+            {
+              "severity": "blocking",
+              "claim": "EmergencyHaltReceipt não possui schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes nem regra para falha de gravação.",
+              "falsifier": "Com o destino do recibo somente leitura, executores conformes divergem entre continuar, gravar em outro destino ou parar sem evidência verificável."
+            }
+          ],
+          "recommendations": [
+            "Não ratificar a RFC-005 sem uma nova proposta formal que incorpore contratos determinísticos e testes executáveis para todos os bloqueios registrados."
+          ]
+        },
+        "anthropic": {}
+      }
+    }
+  },
+  "current_round": 3,
+  "status": "HELD_PROGRESS_REVIEW",
+  "quorum_mode": "DEGRADED_MIXED",
+  "overtime_granted": false
+}

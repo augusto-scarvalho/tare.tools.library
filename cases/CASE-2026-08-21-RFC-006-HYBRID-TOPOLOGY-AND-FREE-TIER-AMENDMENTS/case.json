@@ -1,0 +1,424 @@
+{
+  "case_id": "CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS",
+  "proposal_title": "RFC-006: Matriz Dinâmica de Topologia Híbrida, Integração do Free Tier NVIDIA Build e Pinos Canônicos Auditados",
+  "max_rounds": 3,
+  "rounds": {
+    "r001": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Desacoplamento granular de papéis funcionais com cascatas de fallback explícitas e determinísticas.",
+          "Otimização econômica sólida integrando tiers gratuitos auditados (NVIDIA NIM Free, Gemini Free e inferência local soberana).",
+          "Critérios de falsificação empírica claros (KeyError para papéis desconhecidos, mutabilidade de pin em runtime e validação física de hardware)."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "tools/mesh/byoc_router.py:146 — dict(self.DEFAULT_HYBRID_ROLE_MATRIX) é cópia rasa; insert(0, ...) na linha 150 muta a lista compartilhada do atributo de classe. Além disso, o perfil 'hybrid' em DEFAULT_PROFILES referencia o próprio dict de classe e dict(self.DEFAULT_PROFILES) na linha 120 compartilha as instâncias de ComputeProfile. Resultado: um pin em qualquer instância altera todas as outras e persiste entre testes — ordem de execução do pytest passa a influenciar resultados.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "Falsificador 3 não é falsificável hoje: PIN_LOCAL_SOVEREIGN_BEST = 'qwen38-27b.gguf' enquanto a RFC cita 'Qwen3.8-27B-Q4_K_M.gguf' / 'Qwen3.8-27B-UD-Q4_K_XL.gguf'. Nenhum teste toca disco ou /v1/models do llama-server; a 'comprovação empírica' existe apenas no texto.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "tests/test_byoc_router.py:68-77 — o teste de pin insere um alvo idêntico ao que já está na cascata (mesmo modelo qwen), então a asserção passaria mesmo se o prepend fosse ignorado e o item caísse em outra posição. O teste não distingue sucesso de no-op.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "ComputeProfile 'hybrid' tem requires_network=True, tornando is_offline_capable() sem sentido para o único perfil onde a resposta depende do papel. Contrato ambíguo.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "O termo 'cascata' sugere failover automático, mas nada no código itera a lista em caso de falha. Aceitável por YAGNI, mas a RFC deve declarar explicitamente que a semântica de fallback é responsabilidade do chamador.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "Menor: IP Tailscale 100.107.245.30 repetido 8 vezes como literal; perfil 'pro' pinado em 'claude-3-7-sonnet-20250219', modelo obsoleto num documento que se propõe a auditar pinos canônicos.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Garantir detecção e desvio automático transparente para o fallback local quando a cota de 1.000 créditos do NVIDIA NIM retornar 402/429.",
+          "Validar a compatibilidade de contratos de schema e tool calling na transição entre Vendor CLIs e os modelos open-weights (Llama 3.3 / Qwen 3.8).",
+          "Em __init__, usar copy.deepcopy(self.DEFAULT_PROFILES) (stdlib, uma linha) e remover o fallback para DEFAULT_HYBRID_ROLE_MATRIX dentro de pin_role_target — todo estado mutável deve pertencer à instância.",
+          "Alinhar PIN_LOCAL_SOVEREIGN_BEST ao nome real do arquivo em disco e adicionar um teste marcado como integração (skip se o endpoint 8080 não responder) que consulte GET /v1/models e afirme que o pino está na lista. Sem isso, retirar a palavra 'auditado' do título."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "54842b36-487d-457d-a081-b74425b358cd",
+          "verdict": "APPROVE",
+          "confidence": 0.98,
+          "summary": "A RFC-006 introduz uma topologia híbrida pragmática e resiliente, desacoplando papéis operacionais de endpoints fixos e maximizando o pool de computação a custo zero ($0.00). A definição de cascatas granulares com fallback local auditado no nó RTX 3090 (Qwen 3.8 27B) assegura soberania e continuidade de execução sem introduzir complexidade acidental.",
+          "strengths": [
+            "Desacoplamento granular de papéis funcionais com cascatas de fallback explícitas e determinísticas.",
+            "Otimização econômica sólida integrando tiers gratuitos auditados (NVIDIA NIM Free, Gemini Free e inferência local soberana).",
+            "Critérios de falsificação empírica claros (KeyError para papéis desconhecidos, mutabilidade de pin em runtime e validação física de hardware)."
+          ],
+          "issues": [],
+          "recommendations": [
+            "Garantir detecção e desvio automático transparente para o fallback local quando a cota de 1.000 créditos do NVIDIA NIM retornar 402/429.",
+            "Validar a compatibilidade de contratos de schema e tool calling na transição entre Vendor CLIs e os modelos open-weights (Llama 3.3 / Qwen 3.8)."
+          ]
+        },
+        "openai": {},
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "93d4d516-243e-4c2e-995d-48b967ddccc9",
+          "verdict": "REVISE",
+          "confidence": 0.86,
+          "summary": "A proposta é pequena, legível e já está implementada em tools/mesh/byoc_router.py com testes passando — o tamanho da solução é proporcional ao problema, sem hipertrofia. Porém, pin_role_target muta listas compartilhadas em nível de classe (dict() é cópia rasa), o que vaza estado entre instâncias e entre testes, e o Falsificador 3 (modelo existente em disco) não é verificado por nenhum teste: o pino é a string 'qwen38-27b.gguf', que não corresponde a nenhum dos dois nomes de arquivo que a RFC afirma ter auditado.",
+          "strengths": [
+            "Implementação mínima: dois dataclasses + um dict de cascatas; sem factories, sem plugins, sem YAML loader — a matriz é dado, não código.",
+            "Contrato determinístico e testado: get_role_cascade lança KeyError com a lista de papéis disponíveis; set_profile lança ValueError (Falsificadores 1 e 2 cobertos em tests/test_byoc_router.py).",
+            "NVIDIA NIM free entra apenas como mais um ProviderTarget/ComputeProfile no mesmo shape dos demais — zero superfície nova de abstração.",
+            "O router só resolve, não executa: responsabilidade única, fácil de auditar."
+          ],
+          "issues": [
+            "tools/mesh/byoc_router.py:146 — dict(self.DEFAULT_HYBRID_ROLE_MATRIX) é cópia rasa; insert(0, ...) na linha 150 muta a lista compartilhada do atributo de classe. Além disso, o perfil 'hybrid' em DEFAULT_PROFILES referencia o próprio dict de classe e dict(self.DEFAULT_PROFILES) na linha 120 compartilha as instâncias de ComputeProfile. Resultado: um pin em qualquer instância altera todas as outras e persiste entre testes — ordem de execução do pytest passa a influenciar resultados.",
+            "Falsificador 3 não é falsificável hoje: PIN_LOCAL_SOVEREIGN_BEST = 'qwen38-27b.gguf' enquanto a RFC cita 'Qwen3.8-27B-Q4_K_M.gguf' / 'Qwen3.8-27B-UD-Q4_K_XL.gguf'. Nenhum teste toca disco ou /v1/models do llama-server; a 'comprovação empírica' existe apenas no texto.",
+            "tests/test_byoc_router.py:68-77 — o teste de pin insere um alvo idêntico ao que já está na cascata (mesmo modelo qwen), então a asserção passaria mesmo se o prepend fosse ignorado e o item caísse em outra posição. O teste não distingue sucesso de no-op.",
+            "ComputeProfile 'hybrid' tem requires_network=True, tornando is_offline_capable() sem sentido para o único perfil onde a resposta depende do papel. Contrato ambíguo.",
+            "O termo 'cascata' sugere failover automático, mas nada no código itera a lista em caso de falha. Aceitável por YAGNI, mas a RFC deve declarar explicitamente que a semântica de fallback é responsabilidade do chamador.",
+            "Menor: IP Tailscale 100.107.245.30 repetido 8 vezes como literal; perfil 'pro' pinado em 'claude-3-7-sonnet-20250219', modelo obsoleto num documento que se propõe a auditar pinos canônicos."
+          ],
+          "recommendations": [
+            "Em __init__, usar copy.deepcopy(self.DEFAULT_PROFILES) (stdlib, uma linha) e remover o fallback para DEFAULT_HYBRID_ROLE_MATRIX dentro de pin_role_target — todo estado mutável deve pertencer à instância.",
+            "Alinhar PIN_LOCAL_SOVEREIGN_BEST ao nome real do arquivo em disco e adicionar um teste marcado como integração (skip se o endpoint 8080 não responder) que consulte GET /v1/models e afirme que o pino está na lista. Sem isso, retirar a palavra 'auditado' do título.",
+            "No teste de pin, inserir um ProviderTarget com model sentinela (ex.: 'sentinel-model') e afirmar cascade[0].model == 'sentinel-model' e len aumentou em 1.",
+            "Definir requires_network do perfil hybrid como derivado: any(t.requires_network for t in cascade[0]) por papel, ou documentar que is_offline_capable() não se aplica ao hybrid e lançar NotImplementedError nesse caso.",
+            "Extrair o IP do nó local para uma única constante (LOCAL_NODE = os.getenv('TARE_LOCAL_NODE', 'http://100.107.245.30')) — sem framework de config, apenas um nome.",
+            "Acrescentar uma frase à RFC: 'O router retorna a cascata ordenada; a iteração com fallback é feita pelo consumidor.' Evita que o próximo leitor implemente um executor duplicado."
+          ]
+        }
+      }
+    },
+    "r002": {
+      "status": "REVISED",
+      "reason": "Revisões pendentes de convergência.",
+      "quorum_mode": "FRONTIER_UNANIMOUS",
+      "brief": {
+        "established_consensuses": [
+          "Desacoplamento granular e determinístico de papéis operacionais (seat_google, seat_openai, seat_anthropic, scribe_compactor, mediator, indexer_embeddings).",
+          "Excelente alavancagem econômica combinando tiers gratuitos auditados (NVIDIA NIM Free, Gemini Free) com soberania local.",
+          "Modelo conceitual claro para parametrização dinâmica de rotas de inferência sem necessidade de recompilação."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "Delta vazio nesta rodada ({}), postergando as correções indispensáveis apontadas na síntese da Rodada 1.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "Risco de contaminação de estado global e flaky tests devido ao uso de cópia rasa (shallow copy) na matriz de papéis e nos perfis padrão ao executar mutações como insert.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "Asserção de teste em test_byoc_router.py vulnerável a falso positivo por reutilizar o mesmo alvo já presente na cascata.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "Ambiguidade no contrato de is_offline_capable() quando aplicado ao perfil 'hybrid', cujo suporte offline varia por papel funcional.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "A cópia rasa da matriz e o compartilhamento do perfil hybrid permitem que pin_role_target mutile estado de classe e contamine outras instâncias e testes.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "O Falsificador 2 usa alvo já presente na cascata e não prova que o prepend foi efetivamente aplicado.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "O Falsificador 3 não verifica disco nem /v1/models e usa identificador diferente dos nomes GGUF declarados.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "requires_network=True no perfil hybrid contradiz a capacidade offline dependente do papel.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "A RFC não define que a execução do failover da cascata pertence ao chamador.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "O endpoint Tailscale permanece duplicado e o pino claude-3-7-sonnet-20250219 continua obsoleto.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "byoc_router.py:146 — dict(self.DEFAULT_HYBRID_ROLE_MATRIX) é cópia rasa; insert(0, ...) em :150 muta a lista do atributo de classe. Estado vaza entre instâncias e entre testes (ordem do pytest passa a importar). Não corrigido.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "byoc_router.py:120 — dict(self.DEFAULT_PROFILES) compartilha as instâncias ComputeProfile, inclusive o 'hybrid' que aponta para o próprio DEFAULT_HYBRID_ROLE_MATRIX. Não corrigido.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "byoc_router.py:10 — PIN_LOCAL_SOVEREIGN_BEST='qwen38-27b.gguf' diverge dos nomes físicos citados na RFC (Qwen3.8-27B-Q4_K_M.gguf / -UD-Q4_K_XL.gguf). Falsificador 3 continua infalsificável: nenhum teste consulta disco ou /v1/models.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "tests/test_byoc_router.py:68-77 — o teste de pin insere alvo igual ao já presente na cascata; não distingue prepend real de no-op. Não corrigido.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "byoc_router.py:113 — perfil 'hybrid' com requires_network=True torna is_offline_capable() ambíguo para o único perfil em que a resposta depende do papel. RFC ainda não define o contrato.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "RFC não declara que a semântica de failover da 'cascata' é responsabilidade do chamador (nada no código itera a lista em falha).",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          },
+          {
+            "claim": "byoc_router.py:96 — 'pro' pinado em claude-3-7-sonnet-20250219, modelo obsoleto, num documento cujo título promete 'pinos canônicos auditados'. IP 100.107.245.30 repetido 8x como literal.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "anthropic"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Implementar isolamento estrito via copy.deepcopy na inicialização e mutação de DEFAULT_HYBRID_ROLE_MATRIX e perfis de computação.",
+          "Refatorar test_byoc_router.py para usar um alvo sintético exclusivo no teste de pinagem (pin_role_target), garantindo distinção entre sucesso e no-op.",
+          "Declarar formalmente na RFC que a travessia e failover da cascata de inferência são de responsabilidade do chamador (caller-driven fallback).",
+          "Refinar a semântica de is_offline_capable() no perfil 'hybrid' para delegar a inspeção aos componentes da cascata do papel consultado."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "50266a16-e1dd-4db0-9df9-6c15d3197831",
+          "verdict": "REVISE",
+          "confidence": 0.92,
+          "summary": "A proposta da RFC-006 consolida uma arquitetura sólida de governança heterogênea e otimização de custos, mas o delta de revisão desta rodada permaneceu vazio, mantendo pendentes os apontamentos críticos do Mediador. É mandatório corrigir a mutabilidade compartilhada decorrente de shallow copy e calibrar as asserções de testes antes da ratificação final.",
+          "strengths": [
+            "Desacoplamento granular e determinístico de papéis operacionais (seat_google, seat_openai, seat_anthropic, scribe_compactor, mediator, indexer_embeddings).",
+            "Excelente alavancagem econômica combinando tiers gratuitos auditados (NVIDIA NIM Free, Gemini Free) com soberania local.",
+            "Modelo conceitual claro para parametrização dinâmica de rotas de inferência sem necessidade de recompilação."
+          ],
+          "issues": [
+            "Delta vazio nesta rodada ({}), postergando as correções indispensáveis apontadas na síntese da Rodada 1.",
+            "Risco de contaminação de estado global e flaky tests devido ao uso de cópia rasa (shallow copy) na matriz de papéis e nos perfis padrão ao executar mutações como insert.",
+            "Asserção de teste em test_byoc_router.py vulnerável a falso positivo por reutilizar o mesmo alvo já presente na cascata.",
+            "Ambiguidade no contrato de is_offline_capable() quando aplicado ao perfil 'hybrid', cujo suporte offline varia por papel funcional."
+          ],
+          "recommendations": [
+            "Implementar isolamento estrito via copy.deepcopy na inicialização e mutação de DEFAULT_HYBRID_ROLE_MATRIX e perfis de computação.",
+            "Refatorar test_byoc_router.py para usar um alvo sintético exclusivo no teste de pinagem (pin_role_target), garantindo distinção entre sucesso e no-op.",
+            "Declarar formalmente na RFC que a travessia e failover da cascata de inferência são de responsabilidade do chamador (caller-driven fallback).",
+            "Refinar a semântica de is_offline_capable() no perfil 'hybrid' para delegar a inspeção aos componentes da cascata do papel consultado."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "be7c792b-adc1-4529-a699-f9acaf11eac7",
+          "verdict": "REVISE",
+          "confidence": 0.99,
+          "summary": "O delta vazio não corrige nem falsifica qualquer tensão bloqueante da Rodada 1; a proposta vigente permanece materialmente inalterada. Persistem mutabilidade compartilhada entre instâncias, testes incapazes de detectar no-op, ausência de verificação física do modelo e ambiguidades contratuais sobre offline e failover.",
+          "strengths": [
+            "A matriz mantém separação granular de papéis, cascatas determinísticas e opções econômicas soberanas."
+          ],
+          "issues": [
+            "A cópia rasa da matriz e o compartilhamento do perfil hybrid permitem que pin_role_target mutile estado de classe e contamine outras instâncias e testes.",
+            "O Falsificador 2 usa alvo já presente na cascata e não prova que o prepend foi efetivamente aplicado.",
+            "O Falsificador 3 não verifica disco nem /v1/models e usa identificador diferente dos nomes GGUF declarados.",
+            "requires_network=True no perfil hybrid contradiz a capacidade offline dependente do papel.",
+            "A RFC não define que a execução do failover da cascata pertence ao chamador.",
+            "O endpoint Tailscale permanece duplicado e o pino claude-3-7-sonnet-20250219 continua obsoleto."
+          ],
+          "recommendations": [
+            "Isolar profundamente a matriz, listas e ComputeProfile por instância e adicionar teste com duas instâncias que prove ausência de contaminação.",
+            "Testar prepend com alvo sentinela único, ausente da cascata original, verificando posição zero e preservação da ordem restante.",
+            "Implementar verificação empírica do artefato GGUF ou do inventário /v1/models e alinhar o identificador canônico ao arquivo realmente encontrado.",
+            "Definir capacidade offline por cascata ou papel, documentar explicitamente que o chamador executa o failover e centralizar os literais reutilizados."
+          ]
+        },
+        "anthropic": {
+          "seat": "anthropic",
+          "execution_nonce": "1980a545-f88f-42e4-9629-a70a0657fcfc",
+          "verdict": "REVISE",
+          "confidence": 0.93,
+          "summary": "O delta da revisão está vazio e a proposta é byte-a-byte idêntica à da Rodada 1; nenhuma das seis tensões registradas pelo Mediador foi endereçada. Verificação no código confirma que os defeitos persistem: tools/mesh/byoc_router.py:146 ainda faz cópia rasa do dict de classe e :150 muta a lista compartilhada; PIN_LOCAL_SOVEREIGN_BEST continua 'qwen38-27b.gguf' (divergente do nome de arquivo citado na RFC); o perfil 'pro' continua em claude-3-7-sonnet-20250219. Sem falsificadores cumpridos, aprovação seria aprovação por inércia.",
+          "strengths": [
+            "O desenho conceitual (matriz por papel + pin em runtime + pool $0.00) permanece sólido e já é consenso imutável.",
+            "A estrutura de ProviderTarget/ComputeProfile é simples o bastante para que todas as correções exigidas sejam diffs pequenos (copy.deepcopy + um teste + constante corrigida)."
+          ],
+          "issues": [
+            "byoc_router.py:146 — dict(self.DEFAULT_HYBRID_ROLE_MATRIX) é cópia rasa; insert(0, ...) em :150 muta a lista do atributo de classe. Estado vaza entre instâncias e entre testes (ordem do pytest passa a importar). Não corrigido.",
+            "byoc_router.py:120 — dict(self.DEFAULT_PROFILES) compartilha as instâncias ComputeProfile, inclusive o 'hybrid' que aponta para o próprio DEFAULT_HYBRID_ROLE_MATRIX. Não corrigido.",
+            "byoc_router.py:10 — PIN_LOCAL_SOVEREIGN_BEST='qwen38-27b.gguf' diverge dos nomes físicos citados na RFC (Qwen3.8-27B-Q4_K_M.gguf / -UD-Q4_K_XL.gguf). Falsificador 3 continua infalsificável: nenhum teste consulta disco ou /v1/models.",
+            "tests/test_byoc_router.py:68-77 — o teste de pin insere alvo igual ao já presente na cascata; não distingue prepend real de no-op. Não corrigido.",
+            "byoc_router.py:113 — perfil 'hybrid' com requires_network=True torna is_offline_capable() ambíguo para o único perfil em que a resposta depende do papel. RFC ainda não define o contrato.",
+            "RFC não declara que a semântica de failover da 'cascata' é responsabilidade do chamador (nada no código itera a lista em falha).",
+            "byoc_router.py:96 — 'pro' pinado em claude-3-7-sonnet-20250219, modelo obsoleto, num documento cujo título promete 'pinos canônicos auditados'. IP 100.107.245.30 repetido 8x como literal."
+          ],
+          "recommendations": [
+            "Substituir as duas cópias rasas por copy.deepcopy (ou construir a matriz em __init__ via fábrica) e adicionar teste: duas instâncias de router, pin em uma, asserção de que a outra e o atributo de classe permanecem intactos.",
+            "Alinhar PIN_LOCAL_SOVEREIGN_BEST ao nome de arquivo real e adicionar um teste marcado (ex.: @pytest.mark.hardware, skip se o endpoint não responder) que consulta GET /v1/models do llama-server e confirma que o pino está listado — isso torna o Falsificador 3 empiricamente executável.",
+            "Reescrever o teste de pin com um ProviderTarget sentinela inédito (modelo 'sentinel-pin-test') e asserir cascade[0] is target.",
+            "Tornar is_offline_capable() consciente de papel no perfil 'hybrid' (ex.: aceitar role opcional e avaliar requires_network do primeiro alvo da cascata), ou documentar explicitamente que retorna False para hybrid.",
+            "Adicionar à RFC uma frase: 'A cascata é uma lista ordenada de preferência; iteração em falha é responsabilidade do chamador (YAGNI nesta RFC)'.",
+            "Atualizar o pino 'pro' para um modelo Claude corrente e extrair o IP Tailscale para uma única constante LOCAL_NODE_HOST.",
+            "Submeter na Rodada 3 um delta não-vazio com diff de código + testes verdes; sem isso, o veredito permanecerá REVISE."
+          ]
+        }
+      }
+    },
+    "r003": {
+      "status": "HELD_PROGRESS_REVIEW",
+      "reason": "Teto normativo de 3 rodadas atingido com progresso fértil.",
+      "quorum_mode": "DEGRADED_MIXED",
+      "brief": {
+        "established_consensuses": [
+          "Modelo arquitetural modular e desacoplado para distribuição granular de papéis operacionais.",
+          "Excelente viabilidade econômica combinando tiers gratuitos auditados (NVIDIA NIM Free e Gemini Free) com inferência soberana local.",
+          "A decomposição granular por papéis e a combinação de tiers gratuitos com computação soberana local continuam conceitualmente sólidas."
+        ],
+        "dialectical_tensions": [
+          {
+            "claim": "Delta vazio ({}) na Rodada 3 postergando indefinidamente as correções técnicas e falsificadores exigidos na síntese anterior.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "Vazamento de estado e risco de flaky tests decorrente de cópia rasa (dict(self.DEFAULT_HYBRID_ROLE_MATRIX) e dict(self.DEFAULT_PROFILES)) ao invés de isolamento estrito ou deepcopy.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "Falsificador de teste em test_byoc_router.py vulnerável a falso positivo por reutilizar alvo preexistente na cascata sem provar o prepend em runtime.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "Ambiguidade no contrato de is_offline_capable() para o perfil 'hybrid', que define requires_network=True de forma monolítica sem checar a capacidade offline do papel específico.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "Omissão na RFC quanto à responsabilidade do chamador pela execução da cascata de failover.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "google"
+          },
+          {
+            "claim": "As cópias rasas de DEFAULT_PROFILES e DEFAULT_HYBRID_ROLE_MATRIX preservam listas e ComputeProfile compartilhados; pin_role_target pode mutar estado de classe e contaminar instâncias e testes.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "O Falsificador 2 reutiliza um alvo já presente na cascata e não distingue prepend efetivo de no-op.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "O Falsificador 3 não consulta disco nem /v1/models e usa qwen38-27b, identificador divergente dos nomes GGUF declarados.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "requires_network=True no perfil hybrid não representa capacidade offline dependente do papel, deixando is_offline_capable() sem contrato determinístico.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "A RFC não atribui explicitamente ao chamador a execução do failover da cascata.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          },
+          {
+            "claim": "O endpoint Tailscale permanece repetido como literal e o pino claude-3-7-sonnet-20250219 continua obsoleto.",
+            "falsifier": "Verificação empírica formal",
+            "seat": "openai"
+          }
+        ],
+        "discard_candidates": [],
+        "recommendations": [
+          "Adotar copy.deepcopy ou estruturas imutáveis (frozendict/tuples) na matriz de papéis e nos perfis padrão para blindar o estado de classe contra mutações em runtime.",
+          "Atualizar os testes unitários utilizando um identificador canário único para garantir que pin_role_target efetivamente prependa novos alvos.",
+          "Especificar formalmente o contrato de resolução offline por papel no perfil hybrid e documentar explicitamente que a iteração de failover cabe ao chamador.",
+          "Criar cópias independentes das listas e dos perfis por instância e adicionar um teste que prove isolamento entre dois roteadores."
+        ]
+      },
+      "votes": {
+        "google": {
+          "seat": "google",
+          "execution_nonce": "cb63c281-88ea-45ce-a31c-1d1c2f983ec2",
+          "verdict": "REJECT",
+          "confidence": 0.98,
+          "summary": "A proposta apresentou um delta vazio ({}) nesta rodada final, deixando sem resolução os defeitos críticos de contaminação de estado global via cópia rasa (shallow copy) e asserções tautológicas de teste. A ausência de definição do contrato de failover e a ambiguidade em is_offline_capable() impedem a aprovação em ambiente de produção.",
+          "strengths": [
+            "Modelo arquitetural modular e desacoplado para distribuição granular de papéis operacionais.",
+            "Excelente viabilidade econômica combinando tiers gratuitos auditados (NVIDIA NIM Free e Gemini Free) com inferência soberana local."
+          ],
+          "issues": [
+            "Delta vazio ({}) na Rodada 3 postergando indefinidamente as correções técnicas e falsificadores exigidos na síntese anterior.",
+            "Vazamento de estado e risco de flaky tests decorrente de cópia rasa (dict(self.DEFAULT_HYBRID_ROLE_MATRIX) e dict(self.DEFAULT_PROFILES)) ao invés de isolamento estrito ou deepcopy.",
+            "Falsificador de teste em test_byoc_router.py vulnerável a falso positivo por reutilizar alvo preexistente na cascata sem provar o prepend em runtime.",
+            "Ambiguidade no contrato de is_offline_capable() para o perfil 'hybrid', que define requires_network=True de forma monolítica sem checar a capacidade offline do papel específico.",
+            "Omissão na RFC quanto à responsabilidade do chamador pela execução da cascata de failover."
+          ],
+          "recommendations": [
+            "Adotar copy.deepcopy ou estruturas imutáveis (frozendict/tuples) na matriz de papéis e nos perfis padrão para blindar o estado de classe contra mutações em runtime.",
+            "Atualizar os testes unitários utilizando um identificador canário único para garantir que pin_role_target efetivamente prependa novos alvos.",
+            "Especificar formalmente o contrato de resolução offline por papel no perfil hybrid e documentar explicitamente que a iteração de failover cabe ao chamador."
+          ]
+        },
+        "openai": {
+          "seat": "openai",
+          "execution_nonce": "5e54ab40-68f1-4a79-947d-8db83e8337eb",
+          "verdict": "REJECT",
+          "confidence": 0.99,
+          "summary": "O delta vazio não corrige nenhum dos falsificadores bloqueantes reiterados nas rodadas anteriores. A proposta mantém contaminação de estado entre instâncias, testes incapazes de provar os invariantes declarados e contratos ambíguos ou factualmente desatualizados, portanto não está apta à ratificação.",
+          "strengths": [
+            "A decomposição granular por papéis e a combinação de tiers gratuitos com computação soberana local continuam conceitualmente sólidas.",
+            "A API de pinos dinâmicos oferece uma interface simples para reconfiguração sem recompilação."
+          ],
+          "issues": [
+            "As cópias rasas de DEFAULT_PROFILES e DEFAULT_HYBRID_ROLE_MATRIX preservam listas e ComputeProfile compartilhados; pin_role_target pode mutar estado de classe e contaminar instâncias e testes.",
+            "O Falsificador 2 reutiliza um alvo já presente na cascata e não distingue prepend efetivo de no-op.",
+            "O Falsificador 3 não consulta disco nem /v1/models e usa qwen38-27b, identificador divergente dos nomes GGUF declarados.",
+            "requires_network=True no perfil hybrid não representa capacidade offline dependente do papel, deixando is_offline_capable() sem contrato determinístico.",
+            "A RFC não atribui explicitamente ao chamador a execução do failover da cascata.",
+            "O endpoint Tailscale permanece repetido como literal e o pino claude-3-7-sonnet-20250219 continua obsoleto."
+          ],
+          "recommendations": [
+            "Criar cópias independentes das listas e dos perfis por instância e adicionar um teste que prove isolamento entre dois roteadores.",
+            "Testar prepend com um alvo sentinela inexistente na cascata original e verificar também a ausência de mutação nas constantes padrão.",
+            "Validar o pino soberano contra inventário real de disco ou /v1/models e unificar o identificador lógico com os arquivos GGUF aceitos.",
+            "Definir is_offline_capable(profile, role) para perfis dependentes de papel e declarar formalmente que o chamador executa a cascata de failover.",
+            "Centralizar o endpoint local e substituir ou remover o pino Anthropic obsoleto com evidência auditável."
+          ]
+        },
+        "anthropic": {}
+      }
+    }
+  },
+  "current_round": 3,
+  "status": "HELD_PROGRESS_REVIEW",
+  "quorum_mode": "DEGRADED_MIXED",
+  "overtime_granted": false
+}

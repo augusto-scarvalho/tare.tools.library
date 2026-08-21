@@ -1,0 +1,157 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-08-20T13:25:00Z",
+  "system_summary": "Universal capabilities, tools, MCPs, hooks, and memory anchors for tare.tools agents.",
+  "endpoints": {
+    "local_chat_model": {
+      "url": "http://100.107.245.30:8080",
+      "model": "Qwen 3.8 27B / Fable-TC 27B",
+      "device": "NVIDIA GeForce RTX 3090 (24 GB VRAM)",
+      "purpose": "Local private chat and code reasoning"
+    },
+    "local_embed_model": {
+      "url": "http://100.107.245.30:8081",
+      "model": "nomic-embed-text-v1.5.Q8_0",
+      "device": "NVIDIA GeForce RTX 3090 (24 GB VRAM)",
+      "purpose": "Local dense neural vector embeddings (768-dim)"
+    }
+  },
+  "tools": [
+    {
+      "name": "mesh",
+      "path": "tools/mesh/mesh.py",
+      "domain": "mesh",
+      "description": "Tailscale mesh management: GPU telemetry, repo sync, remote exec in WSL2, daemon management, and diagnostics.",
+      "commands": [
+        "python tools/mesh/mesh.py status [--json]",
+        "python tools/mesh/mesh.py gpu [--json]",
+        "python tools/mesh/mesh.py sync [node]",
+        "python tools/mesh/mesh.py exec <node> <cmd>",
+        "python tools/mesh/mesh.py daemon [start|stop|status]",
+        "python tools/mesh/mesh.py doctor"
+      ]
+    },
+    {
+      "name": "query",
+      "path": "tools/query.py",
+      "domain": "rag",
+      "description": "Fast knowledge retrieval, semantic dense vector search with latency-aware routing (ADR-055), and ADR/SPEC lookups.",
+      "commands": [
+        "python tools/query.py --search <term>",
+        "python tools/query.py --semantic <query> [--limit N]",
+        "python tools/query.py --adr <ADR-ID>",
+        "python tools/query.py --spec <SPEC-ID>",
+        "python tools/query.py --ask <question>"
+      ]
+    },
+    {
+      "name": "ingest",
+      "path": "tools/ingest.py",
+      "domain": "catalog",
+      "description": "Streaming document intake with automated SHA-256 hashing and deduplication.",
+      "commands": [
+        "python -m tools.ingest --file <file> --type <type> --title <title>"
+      ]
+    },
+    {
+      "name": "indexer",
+      "path": "tools/indexer/embed_corpus.py",
+      "domain": "indexing",
+      "description": "Content-addressed incremental neural vector indexer with SHA-256 cache (ADR-058) and GPU offload (ADR-053).",
+      "commands": [
+        "python tools/indexer/embed_corpus.py --root .",
+        "python tools/indexer/embed_corpus.py --root . --reindex-all",
+        "python tools/mesh/mesh.py exec aaaaa \"cd /home/augus/src/tare.tools.library && python3 tools/indexer/embed_corpus.py --root . --force-local\""
+      ]
+    },
+    {
+      "name": "bookkeeper",
+      "path": "tools/bookkeeper/cli.py",
+      "domain": "audit",
+      "description": "Repository hygiene auditor, SSOT verifier, and artifact integrity checker.",
+      "commands": [
+        "python -m tools.bookkeeper.cli audit --root docs"
+      ]
+    },
+    {
+      "name": "build_manifest",
+      "path": "tools/build_manifest.py",
+      "domain": "catalog",
+      "description": "Compiles the global library manifest (catalog/LIBRARY_MANIFEST.json).",
+      "commands": [
+        "python -m tools.build_manifest"
+      ]
+    },
+    {
+      "name": "discovery",
+      "path": "tools/discovery/discovery.py",
+      "domain": "discovery",
+      "description": "Universal capability discovery, task context resolver, and MCP configuration generator.",
+      "commands": [
+        "python tools/discovery/discovery.py list [--json]",
+        "python tools/discovery/discovery.py resolve <query> [--json]",
+        "python tools/discovery/discovery.py mcp-export"
+      ]
+    },
+    {
+      "name": "round_table",
+      "path": "relay/round_table_engine.py",
+      "domain": "governance",
+      "description": "Multi-Chair Architectural Round Table Consensus Engine (Google, Anthropic, OpenAI Chairs) (ADR-052/ADR-057).",
+      "commands": [
+        "python relay/round_table_engine.py init <case_id> <title> <proposal> --profile <archetype>",
+        "python relay/round_table_engine.py conduct <case_id> [--standalone-offline]",
+        "python relay/round_table_engine.py verify <case_id> [--strict]"
+      ]
+    }
+  ],
+  "mcps": [
+    {
+      "name": "tare-tools-library",
+      "command": "python",
+      "args": [
+        "-m",
+        "tools.discovery.mcp_server"
+      ],
+      "description": "Unified MCP Server exposing query, mesh, and discovery tools to Antigravity, Claude Code, and Cursor."
+    }
+  ],
+  "hooks": [
+    {
+      "name": "compute_guard",
+      "path": "tools/policy/compute_guard.py",
+      "trigger": "pre_execution",
+      "description": "Blocks heavy batches on thin-client (acer-augusto) and auto-dispatches to node aaaaa (ADR-053)."
+    },
+    {
+      "name": "adr_provenance_guard",
+      "path": "tests/test_adr_provenance.py",
+      "trigger": "pre_commit",
+      "description": "Enforces the Triple Cryptographic Verification: hash(DECISION.md) == ADR.sha256 == journal[FINAL].decision_sha256 (ADR-057)."
+    }
+  ],
+  "memory_anchors": {
+    "mesh_and_compute": [
+      "docs/adr/ADR-053_COMPUTE_OFFLOAD_AND_NODE_AAAAA_CENTRALIZATION.md",
+      "docs/adr/ADR-054_ERGONOMIC_TAILSCALE_MESH_CLI_AND_NODE_TOOLING.md",
+      "docs/adr/ADR-055_LATENCY_AWARE_HYBRID_TOPOLOGY_AND_LIGHTWEIGHT_SYNC.md",
+      "docs/adr/ADR-056_UNIVERSAL_CAPABILITY_DISCOVERY_AND_CROSS_AGENT_SHARING.md",
+      "docs/adr/ADR-058_INCREMENTAL_CONTENT_ADDRESSED_VECTOR_INDEXING.md"
+    ],
+    "specgraph_and_kernel": [
+      "specs/spec-index.md",
+      "docs/adr/ADR-001_DECOUPLED_KERNEL_ARCHITECTURE.md",
+      "docs/adr/ADR-002_SPECGRAPH_NORTH_STAR.md",
+      "docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md",
+      "docs/adr/ADR-059_SPECGRAPH_CURATION_SCOPE_AND_SNAPSHOT_ISOLATION.md"
+    ],
+    "governance_and_agents": [
+      "AGENTS.md",
+      "docs/ARCHITECTURAL_QA_LEDGER.md",
+      "docs/adr/ADR-051_CANONICAL_LIBRARY_SSOT_AND_SATELLITE_HYGIENE.md",
+      "docs/adr/ADR-052_GOVERNANCE_CHAIRS_AND_ROUND_TABLE_CONSENSUS.md",
+      "docs/adr/ADR-057_GOVERNANCE_ATTESTATION_AND_ANTI_FAKE_CONSENSUS.md",
+      "docs/adr/ADR-060_TOOLING_PARADIGM_CLI_VS_LEAN_MCP.md"
+    ]
+  }
+}

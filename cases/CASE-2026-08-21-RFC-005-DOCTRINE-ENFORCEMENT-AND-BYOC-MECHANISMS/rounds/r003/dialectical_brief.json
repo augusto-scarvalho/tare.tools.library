@@ -1,0 +1,61 @@
+{
+  "established_consensuses": [
+    "Adesão consistente ao princípio da Via Negativa e priorização da biblioteca padrão Python (pathlib, subprocess, dataclasses) para redução de footprint e superfície de ataque.",
+    "Estruturação clara do fluxo ambidestro separando spikes de exploração livre em local-labs da consolidação estrita com testes unitários em library/specgraph.",
+    "Adoção do modelo de invocação exec_command via argv puro (list[str], shell=False) e formalização do contrato EmergencyHaltReceipt para interrupções seguras."
+  ],
+  "dialectical_tensions": [
+    {
+      "claim": "O teto de 150 tokens para schemas JSON-RPC permanece inauditável e não-determinístico sem a fixação de um tokenizer canônico de referência ou conversão para métrica física invariante (tamanho em bytes UTF-8 minificado).",
+      "falsifier": "O mesmo schema JSON-RPC serializado atinge 138 tokens em um tokenizer cl100k_base e 162 tokens no tokenizer do Gemma/Llama, fazendo com que o gate de CI aprove ou reprove o mesmo artefato de forma arbitrária conforme o ambiente.",
+      "seat": "google"
+    },
+    {
+      "claim": "O roteador BYOC não especifica matriz determinística de precedência, probe ativo de disponibilidade com timeout para sockets locais, nem tratamento terminal para bundles que excedam a janela de contexto do SLM.",
+      "falsifier": "Ao ativar profile: free sem chave de API configurada e sem binário llama.cpp instalado, o roteador entra em estado indefinido ou falha silenciosa sem emitir um EmergencyHaltReceipt com código de erro estruturado.",
+      "seat": "google"
+    },
+    {
+      "claim": "A contenção de diretório canônico no MCP Gateway não define resolução estrita de symlinks (Path.resolve) nem sanitização e isolamento de variáveis de ambiente do processo filho.",
+      "falsifier": "Um comando executado dentro de um cwd permitido acessa arquivos confidenciais externos através de um symlink pré-existente ou herda PYTHONPATH/LD_PRELOAD permitindo execução arbitrária fora do escopo confinado.",
+      "seat": "google"
+    },
+    {
+      "claim": "O Frugality Guard não define uma política determinística e auditável para classificar dependências como necessárias ou infladas.",
+      "falsifier": "Duas implementações conformes avaliam o mesmo uso de requests e chegam legitimamente a decisões opostas diante das capacidades de urllib, TLS e ergonomia.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O limite de 150 tokens não fixa serialização canônica, tokenizador de referência nem versão.",
+      "falsifier": "O mesmo schema JSON-RPC cruza o limiar de 150 tokens em sentidos opostos quando processado por tokenizadores ou serializações distintos.",
+      "seat": "openai"
+    },
+    {
+      "claim": "A marca verifies comprova apenas associação nominal, sem demonstrar que o teste executa e falsifica o requisito normativo.",
+      "falsifier": "Um teste contendo apenas assert True e marcado com verifies para um requisito é aceito por specgraph trace.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O MCP Gateway não especifica confinamento de filesystem, ambiente, rede, subprocessos e recursos além de shell=False e cwd validado.",
+      "falsifier": "Um processo iniciado no cwd permitido lê um caminho absoluto externo, atravessa um symlink, herda PYTHONPATH ou cria um processo filho persistente.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O roteador BYOC não define descoberta de capacidades, precedência normativa, timeouts, limites de contexto nem condição terminal de indisponibilidade.",
+      "falsifier": "No perfil free sem credencial Gemini e sem llama.cpp, ou com bundle excessivo, implementações conformes divergem entre falhar, truncar, selecionar outra rota ou permanecer em estado indefinido.",
+      "seat": "openai"
+    },
+    {
+      "claim": "EmergencyHaltReceipt não possui schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes nem regra para falha de gravação.",
+      "falsifier": "Com o destino do recibo somente leitura, executores conformes divergem entre continuar, gravar em outro destino ou parar sem evidência verificável.",
+      "seat": "openai"
+    }
+  ],
+  "discard_candidates": [],
+  "recommendations": [
+    "Substituir o limiar arbitrário de 150 tokens por um teto físico invariante em bytes UTF-8 (ex: <= 600 bytes minificados) ou fixar nominalmente a biblioteca e versão do tokenizer de referência.",
+    "Formalizar a máquina de estados do BYOC Router com timeouts estritos para probes de sockets locais e emissão mandatória de EmergencyHaltReceipt em cenários de indisponibilidade de rotas ou overflow de contexto.",
+    "Exigir Path.resolve() com verificação de ancestralidade canônica no cwd e whitelist determinística de variáveis de ambiente antes da execução de subprocessos no MCP Gateway.",
+    "Não ratificar a RFC-005 sem uma nova proposta formal que incorpore contratos determinísticos e testes executáveis para todos os bloqueios registrados."
+  ]
+}

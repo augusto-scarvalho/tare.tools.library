@@ -1,0 +1,34 @@
+{
+  "established_consensuses": [
+    "Eliminação completa de atrito de build multiplataforma e dependências compiladas, operando exclusivamente sobre a stdlib (ast) e pytest.",
+    "Contratos formais de integridade e proveniência determinística via manifestos JSON Lines com hashes SHA-256 atômicos.",
+    "Frugalidade extrema de contexto via Reviewer Context Bundle e cálculo de blast radius, otimizando o consumo de tokens e a precisão dos agentes."
+  ],
+  "dialectical_tensions": [
+    {
+      "claim": "Os critérios quantitativos de redução de tokens e latência são tratados como fatos sem benchmark anexado, e o delta não apresenta qualquer correção ou evidência.",
+      "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre o corpus real de src/specgraph; se a redução mediana de tokens ficar abaixo de 85% ou a latência p95 exceder 10 ms, recalibrar os critérios com os valores medidos.",
+      "seat": "openai"
+    },
+    {
+      "claim": "O delta de revisão está vazio ({}) e a proposta não anexa nenhum benchmark reprodutível. As métricas de '>85% de tokens cortados' e '<10ms de latência' permanecem como afirmações não justificadas, ignorando o falsificador exigido na Rodada 1.",
+      "falsifier": "Executar o Reviewer Context Bundle e o parser AST sobre o corpus real em src/specgraph/. Se a redução mediana de tokens for <85% ou a latência p95 do AST exceder 10ms, os critérios de sucesso estão empiricamente refutados.",
+      "seat": "anthropic"
+    },
+    {
+      "claim": "Os ponteiros canônicos na Seção 4 continuam apontando para caminhos locais fora do repositório versionado (file:///C:/Users/augus/OneDrive/...), tornando a proveniência das joias não auditável e impedindo a reprodução por terceiros.",
+      "falsifier": "Qualquer desenvolvedor externo tentando clonar o repositório e rastrear a origem das joias arquiteturais falhará ao acessar os links quebrados, invalidando a reprodutibilidade determinística do RFC.",
+      "seat": "anthropic"
+    }
+  ],
+  "discard_candidates": [
+    "[google] A ausência de asserções automatizadas de benchmark no CI para latência do parser AST (<10ms) e redução de tokens (>85%) pode mascarar regressões de escala em módulos com árvores sintáticas profundas. (Classificado como não-bloqueante)",
+    "[anthropic] Resgatar as 5 joias como um bloco único reintroduz complexidade acidental especulativa na camada conceitual, contrariando o princípio da Via Negativa aplicado na camada de infraestrutura. (Classificado como não-bloqueante)"
+  ],
+  "recommendations": [
+    "Incorporar testes de regressão de performance e métricas de compressão de tokens diretamente na suíte de testes do pytest.",
+    "Adotar cache incremental em memória/disco indexado pelo SHA-256 do arquivo fonte para garantir latência sub-milissegundo mesmo em bases de código extensas.",
+    "Anexar resultados reproduzíveis, incluindo corpus, comando, ambiente, número de execuções, mediana de redução de tokens e latência p95, ou substituir os limiares por metas explicitamente provisórias.",
+    "Anexar os resultados empíricos do benchmark (latência p95 do AST e redução mediana de tokens) executados sobre o corpus src/specgraph/ para validar os critérios de sucesso."
+  ]
+}

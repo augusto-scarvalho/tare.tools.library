@@ -1,0 +1,27 @@
+{
+  "status": "OK",
+  "provider": "anthropic",
+  "model": "claude-fable-5-high",
+  "vote": {
+    "seat": "anthropic",
+    "execution_nonce": "8e47802e-9280-42bd-9ea5-e8c6f0464d48",
+    "verdict": "REVISE",
+    "confidence": 0.88,
+    "summary": "A Seção 5.1 (teto MAX_OVERTIME_ROUNDS=4 com terminal HELD_OVERTIME_EXHAUSTED) e a 5.3 (pinos SHA-256 + serialização de turnos na VRAM) fecham corretamente as tensões de overtime e de integridade de artefatos. Porém a Tabela 5.2 usa conjunção 'voto REVISE/REJECT AND issue blocking', deixando indefinido o caso de um REVISE/REJECT com apenas issues non-blocking — precisamente o falsificador que a cadeira ANTHROPIC exigiu na Rodada 1. A regra de agregação continua não-total sobre o espaço de entradas.",
+    "strengths": [
+      "5.1 define transição terminal HELD_OVERTIME_EXHAUSTED, eliminando prorrogações infinitas e satisfazendo o falsificador de overtime da OpenAI.",
+      "5.3 fixa artefatos por caminho canônico + SHA-256 na inicialização e serializa turnos na RTX 3090, resolvendo o pino soberano e o não-bloqueante de VRAM concorrente."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "summary": "Tabela 5.2 não é total: um REVISE ou REJECT acompanhado somente de issues non-blocking não casa a Linha 1 (exige 3xAPPROVE), nem a Linha 2 (exige issue blocking), nem a Linha 3 (exige assento inoperante), permanecendo sem veredito determinístico.",
+        "falsifier": "Dois assentos emitem APPROVE e um emite REVISE com exatamente um issue non-blocking e nenhum blocking. A partir apenas do schema da Tabela 5.2, o motor não consegue decidir deterministicamente entre APPROVED e REVISED/HELD_PROGRESS_REVIEW — o mesmo quórum quebrado do post-mortem."
+      }
+    ],
+    "recommendations": [
+      "Tornar a Tabela 5.2 total: adicionar linha explícita para 'qualquer voto != APPROVE sem nenhum issue blocking' com veredito determinístico (ex.: REVISED e avança rodada), separando a dimensão do voto da dimensão da severidade em vez de exigir ambas por conjunção.",
+      "Declarar explicitamente se um voto REVISE, por si só e sem issue blocking, quebra a unanimidade tripartite exigida para APPROVED."
+    ]
+  }
+}
