@@ -3,7 +3,7 @@ import json, hashlib, re
 from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parents[1]
 errs=[]
-def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def sha(p): return hashlib.sha256(Path(p).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
 source=ROOT/'catalog/corpus/original/2026-08-12-chat-import/Tare.tools - identidade.txt'
 expected='b7de23b2ce7e41c1f804b6a8d8c4c5f4a8bb636b056657ec33e6bae3340cc1eb'
 if not source.exists() or sha(source)!=expected: errs.append('exact chat source hash mismatch')

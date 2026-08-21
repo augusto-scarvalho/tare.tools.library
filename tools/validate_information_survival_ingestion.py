@@ -2,7 +2,7 @@ from pathlib import Path
 import json,hashlib,re
 ROOT=Path(__file__).resolve().parents[1]
 errs=[]
-def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def sha(p): return hashlib.sha256(Path(p).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
 source=ROOT/'catalog/corpus/original/2026-08-12-chat-import/Tare.tools - Durable State, Persistence & Consistency Semantics.txt'
 expected='39d7c678bb4b87a6f5455f4db4ae0c8a1552f4c3fb40896dc4a66af29758e4e7'
 if not source.exists() or sha(source)!=expected: errs.append('exact chat source hash mismatch')
