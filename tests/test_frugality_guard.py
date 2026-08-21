@@ -11,6 +11,7 @@ ALLOWED_ROOT_DIRS = {
     "cases",
     "catalog",
     "docs",
+    "site",
     "specs",
     "tools",
     "tests",
