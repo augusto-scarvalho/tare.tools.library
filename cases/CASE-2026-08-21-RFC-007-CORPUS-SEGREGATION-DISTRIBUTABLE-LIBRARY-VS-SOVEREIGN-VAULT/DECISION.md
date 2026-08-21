@@ -1,0 +1,7 @@
+# DECISÃO RATIFICADA: RFC-007 (Segregação Arquitetural do Acervo de Conhecimento)
+
+- **Caso:** `CASE-2026-08-21-RFC-007-CORPUS-SEGREGATION-DISTRIBUTABLE-LIBRARY-VS-SOVEREIGN-VAULT`
+- **Data de Homologação:** 2026-08-21
+- **Status:** RATIFICADO POR GOVERNANÇA TRIPARTITE
+- **Referência Arquitetural Canônica:** [`docs/adr/ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT.md`](file:///C:/projects/tare.tools.library/docs/adr/ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT.md)
+- **Modo de Quórum:** `FRONTIER_UNANIMOUS`

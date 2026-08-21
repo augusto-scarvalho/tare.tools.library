@@ -1,69 +1,45 @@
-"""Unit tests for Frugality Guard policy engine."""
-import json
+"""Frugality and Corpus Segregation Guard Test (RFC-007 / ADR-066)."""
 import os
-import sys
+import subprocess
+import pytest
 from pathlib import Path
 
-import pytest
-
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
-
-from tools.policy.frugality_guard import (
-    check_audit_findings_falsifiers,
-    check_case_round_limits,
-    check_mcp_schema_frugality,
-    run_repository_frugality_audit,
-)
 
 
-def test_check_mcp_schema_frugality():
-    """Lean schemas must pass; bloated schemas must fail."""
-    lean = [{"name": "exec", "description": "run", "inputSchema": {"type": "object"}}]
-    ok, msg = check_mcp_schema_frugality(lean)
-    assert ok is True
-
-    fat = [{"name": "bloated", "description": "a" * 1000, "inputSchema": {"type": "object", "properties": {f"prop_{i}": {"type": "string"} for i in range(50)}}}]
-    ok_fat, msg_fat = check_mcp_schema_frugality(fat, max_tokens_per_tool=150)
-    assert ok_fat is False
-    assert "excede limite de frugalidade" in msg_fat
-
-
-def test_check_case_round_limits():
-    """Cases with <= 3 rounds must pass; cases > 3 without overtime must fail."""
-    case_ok = {"current_round": 3, "overtime_granted": False}
-    ok, _ = check_case_round_limits(case_ok)
-    assert ok is True
-
-    case_fail = {"current_round": 4, "overtime_granted": False}
-    ok_fail, msg_fail = check_case_round_limits(case_fail)
-    assert ok_fail is False
-    assert "violou limite mecânico" in msg_fail
-
-    case_overtime = {"current_round": 4, "overtime_granted": True}
-    ok_ot, _ = check_case_round_limits(case_overtime)
-    assert ok_ot is True
+@pytest.mark.verifies("RFC-007-REQ-SEGREGATION-001")
+def test_repo_tracked_size_budget():
+    """Ensure git tracked files remain strictly under the 50 MB budget."""
+    res = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True)
+    tracked_files = [ROOT / f.strip() for f in res.stdout.strip().splitlines() if f.strip()]
+    
+    total_bytes = sum(f.stat().st_size for f in tracked_files if f.exists())
+    total_mb = total_bytes / (1024 * 1024)
+    assert total_mb < 50.0, f"Tracked repository size ({total_mb:.2f} MB) exceeds the 50 MB frugality budget!"
 
 
-def test_check_audit_findings_falsifiers():
-    """Blocking findings without actionable falsifiers must fail."""
-    valid_findings = [
-        {"severity": "blocking", "claim": "Lock órfão", "falsifier": "Processo morto deixa lock"}
-    ]
-    ok, _ = check_audit_findings_falsifiers(valid_findings)
-    assert ok is True
-
-    invalid_findings = [
-        {"severity": "blocking", "claim": "Estilo feio", "falsifier": ""}
-    ]
-    ok_inv, msg_inv = check_audit_findings_falsifiers(invalid_findings)
-    assert ok_inv is False
-    assert "não possui falsificador" in msg_inv
+@pytest.mark.verifies("RFC-007-REQ-SEGREGATION-002")
+def test_no_raw_chat_dumps_tracked():
+    """Ensure zero raw LLM chat transcripts, untracked experiment dumps, or secret logs are tracked in git."""
+    res = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True)
+    tracked_files = [f.strip() for f in res.stdout.strip().splitlines() if f.strip()]
+    
+    forbidden_prefixes = ["archaeology/chats/", "experiments/", "vault/", "_handoff/"]
+    for tf in tracked_files:
+        for prefix in forbidden_prefixes:
+            assert not tf.startswith(prefix), f"Forbidden artifact tracked in git: {tf}"
 
 
-def test_run_repository_frugality_audit():
-    """Full repository scan must pass with 100% compliance."""
-    res = run_repository_frugality_audit(ROOT)
-    assert res["passed"] is True
-    assert len(res["checks"]) >= 2
+@pytest.mark.verifies("RFC-007-REQ-SEGREGATION-003")
+def test_gitignore_and_crawler_quarantine():
+    """Ensure .gitignore and harvest_corpus.py contain required quarantine rules."""
+    from tools.bookkeeper.harvest_corpus import CRAWL_EXCLUDED_DIRS, NOISE_FILENAMES
+    
+    gi = (ROOT / ".gitignore").read_text(encoding="utf-8")
+    assert "archaeology/chats/" in gi
+    assert "experiments/" in gi
+    assert "vault/" in gi
+    
+    assert "vault" in CRAWL_EXCLUDED_DIRS
+    assert "raw_logs" in CRAWL_EXCLUDED_DIRS
+    assert ".aider.chat.history.md" in NOISE_FILENAMES

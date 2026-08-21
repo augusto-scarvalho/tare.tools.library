@@ -4,7 +4,7 @@ from pathlib import Path
 
 def validate(root: Path) -> list[str]:
     errs=[]
-    run=root/'experiments/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001'
+    run=root/'docs/assurance/cyclic-multi-role-research-protocol/2026-08-11-run-001'
     m=json.loads((run/'RUN_MANIFEST.json').read_text(encoding='utf-8'))
     if m.get('executor',{}).get('epistemic_independence')!='NOT_INDEPENDENT': errs.append('same-model run must be NOT_INDEPENDENT')
     if m.get('strict_proof_eligible') is not False: errs.append('same-model screening run cannot be strict-proof eligible')
