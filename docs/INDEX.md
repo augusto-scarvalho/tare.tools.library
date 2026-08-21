@@ -1,3 +1,6 @@
+# Acervo Documental e Governança tare.tools
+
+- [**`ENGINEERING_DOCTRINE.md`**](ENGINEERING_DOCTRINE.md): **Doutrina Soberana de Engenharia Frugal** (Os 5 Princípios Canônicos).
 # 📚 ÍNDICE DE PESQUISA & POLÍTICAS — TARE.TOOLS.RESEARCH
 
 > **Hub de Publicação Científica, Decisões de Arquitetura (ADRs), Experimentos de Modelos Locais e Políticas Editoriais.**
@@ -14,8 +17,11 @@
 
 ---
 
-## 🏛️ 2. Propostas Arquiteturais & ADRs (`proposals/`)
-* **[`proposals/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md`](../proposals/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md):** Decisão arquitetural de inferência local e auto-reparo.
+## 🏛️ 2. Propostas Arquiteturais, RFCs & Governança (`docs/proposals/`)
+* **[`docs/proposals/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md`](proposals/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md):** Whitepaper Master e Registro Integral de Ideação da Governança Frugal, Separação de Poderes e Topologia Universal de Resiliência.
+* **[`docs/proposals/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md`](proposals/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md):** Especificação Técnica dos 5 Pilares de Governança Frugal, State Anchors e Escriba Local em GPU.
+* **[`docs/proposals/RFC-001_IMPLEMENTATION_PLAN.md`](proposals/RFC-001_IMPLEMENTATION_PLAN.md):** Roteiro Detalhado de Implementação em 6 Fases.
+* **[`docs/post-mortems/POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md`](post-mortems/POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md):** Autópsia do Incidente de 51 Rodadas e Diagnóstico de Descarrilamento de Escopo.
 
 ---
 
@@ -24,3 +30,9 @@
 * **[`HTML_PUBLICATION_STANDARD.md`](../HTML_PUBLICATION_STANDARD.md):** Padrão canônico de publicação e semântica HTML para o GitHub Pages.
 * **[`TRANSLATION_POLICY.md`](../TRANSLATION_POLICY.md):** Regras de paridade e registro criptográfico de traduções multilíngues.
 * **[`PAGES_CUTOVER_READINESS.md`](../PAGES_CUTOVER_READINESS.md):** Critérios formais de cutover e gates de autoridade de publicação.
+
+## Casos Deliberativos Notáveis
+- [`CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING`](../cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/DECISION.md): **Marco Histórico** — Primeira aprovação unânime tripartite em 1ª rodada (FSM Frugal, State Anchors e Pinos Soberanos).
+- [`CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP`](../cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/DECISION.md): **RFC-002 Ratificado** — Paradigma de Ferramentas (CLI First, Lean MCP Gateway e Banimento de Fat MCP).
+- [`CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC`](../cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/DECISION.md): **RFC-003 Ratificado** — Doutrina Universal de Engenharia Frugal e Liberdade de Computação (BYOC).
+- [`CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT`](../cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/DECISION.md): **RFC-004 Ratificado** — Colheita Arquitetural do SpecGraph Histórico e Alinhamento Frugal.

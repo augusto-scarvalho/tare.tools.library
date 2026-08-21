@@ -39,7 +39,8 @@ CRAWL_EXCLUDED_DIRS: Set[str] = {
     "node_modules", "venv", ".venv", "env", ".env", "dist", "build",
     "site", "_site", "site/_site", "target", "bin", "obj", ".idea",
     ".vscode", ".system_generated", ".gemini", "AppData", "coverage",
-    "htmlcov", ".tox", ".eggs", "eggs", "parts", "develop-eggs"
+    "htmlcov", ".tox", ".eggs", "eggs", "parts", "develop-eggs",
+    "archaeology/chats", "chats", "vault", "_handoff", "raw_logs", "transcripts", ".aider"
 }
 
 # Binary and non-document extensions to reject immediately
@@ -53,7 +54,8 @@ BINARY_EXCLUDED_EXTENSIONS: Set[str] = {
 # Known noise files to discard
 NOISE_FILENAMES: Set[str] = {
     "package-lock.json", "pnpm-lock.yaml", "yarn.lock", "poetry.lock",
-    "cargo.lock", "gemfile.lock", "composer.lock", "index.lock"
+    "cargo.lock", "gemfile.lock", "composer.lock", "index.lock",
+    ".aider.chat.history.md", ".aider.input.history"
 }
 
 # Pre-Ingestion Secret Scanner patterns (rejects tokens, private keys, API keys)

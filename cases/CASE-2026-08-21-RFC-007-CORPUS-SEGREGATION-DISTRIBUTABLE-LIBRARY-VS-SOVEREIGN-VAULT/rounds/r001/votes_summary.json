@@ -1,0 +1,65 @@
+{
+  "google": {
+    "status": "OK",
+    "provider": "google",
+    "model": "gemini-3.7-flash",
+    "vote": {
+      "seat": "google",
+      "execution_nonce": "43137eb4-29b9-4341-8e40-f5f3fc6c5391",
+      "verdict": "APPROVE",
+      "confidence": 0.99,
+      "summary": "Parecer favorável à ratificação final da RFC-007. Todas as emendas arquiteturais foram integralmente executadas com êxito: o acervo sensível/pesado foi desvinculado do Git, a pegada rastreada foi reduzida drasticamente para 4.4 MB, barreiras ativas contra vazamento foram incorporadas ao crawler e à suíte de testes de frugalidade, e a soberania dos dados foi consolidada via cofre com manifesto SHA-256.",
+      "strengths": [
+        "Desvinculação completa e determinística de experiments/ e archaeology/chats/, reduzindo a pegada rastreada para 4.4 MB (91.2% abaixo do teto de 50 MB).",
+        "Blindagem em múltiplas camadas via harvest_corpus.py (CRAWL_EXCLUDED_DIRS, NOISE_FILENAMES) e asserções estritas em tests/test_frugality_guard.py.",
+        "Atestação e preservação de integridade criptográfica no nó soberano aaaaa (/home/augus/vault/corpus_archive/MANIFEST.sha256)."
+      ],
+      "issues": [],
+      "recommendations": [
+        "Integrar o test_frugality_guard.py a um git pre-commit hook ou pipeline de CI local para impedir regressões inadvertidas de staging.",
+        "Estabelecer rotina periódica de auditoria de integridade (sha256sum -c MANIFEST.sha256) no cofre soberano."
+      ]
+    }
+  },
+  "openai": {
+    "status": "OK",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "vote": {
+      "seat": "openai",
+      "execution_nonce": "d62247d4-887e-485c-935f-b01c5a00ef69",
+      "verdict": "APPROVE",
+      "confidence": 0.99,
+      "summary": "As emendas encerram as lacunas bloqueantes da rodada anterior: os acervos privados foram retirados do índice Git, a exclusão do crawler foi endurecida, os falsificadores cobrem estritamente os diretórios proibidos e o corpus soberano possui atestação de integridade. A RFC-007 está apta à ratificação final.",
+      "strengths": [
+        "A segregação agora é aplicada por invariantes automatizadas e falsificáveis, não apenas por convenção documental.",
+        "O substrato distribuível permanece abaixo do teto constitucional de 50 MB, enquanto o acervo privado é preservado no nó soberano com manifesto criptográfico."
+      ],
+      "issues": [],
+      "recommendations": [
+        "Executar periodicamente um restore drill do cofre soberano, validando hashes, completude, controle de acesso e redundância."
+      ]
+    }
+  },
+  "anthropic": {
+    "status": "OK",
+    "provider": "anthropic",
+    "model": "claude-fable-5-high",
+    "vote": {
+      "seat": "anthropic",
+      "execution_nonce": "d2c95f5f-be14-4730-9875-c9af02edc9fe",
+      "verdict": "APPROVE",
+      "confidence": 0.97,
+      "summary": "Verificação independente no repositório confirma a segregação: `git ls-files experiments archaeology/chats vault` retorna 0 entradas; `.gitignore` cobre archaeology/chats/, archaeology/historical/, experiments/ e vault/; `tools/bookkeeper/harvest_corpus.py:37-55` define CRAWL_EXCLUDED_DIRS e NOISE_FILENAMES e os aplica na poda de diretórios (linha 172) e filtro de arquivos (linha 184); `tests/test_frugality_guard.py` asserta prefixos proibidos e a presença das exclusões; o conjunto rastreado soma 4.55 MB (<50 MB). A atestação do nó soberano em /home/augus/vault/corpus_archive/MANIFEST.sha256 não é acessível a partir deste ambiente Windows e é aceita como declarada pelo proponente. Recomendo ratificação final da RFC-007.",
+      "strengths": [
+        "Segregação aplicada em três camadas independentes e mutuamente reforçadas: histórico Git (ls-files vazio), ingestão (CRAWL_EXCLUDED_DIRS/NOISE_FILENAMES no harvester) e guarda de regressão (test_frugality_guard.py falha se qualquer arquivo privado voltar a ser rastreado).",
+        "Orçamento de tamanho com margem de ~10x (4.55 MB vs. teto de 50 MB) e teste de mutação (test_library_mutants.py) já consumindo as mesmas constantes de exclusão, evitando divergência entre política e implementação."
+      ],
+      "issues": [],
+      "recommendations": [
+        "Tornar a atestação do cofre soberano verificável pelo CI: publicar apenas o hash raiz do MANIFEST.sha256 (não o conteúdo) em catalog/LIBRARY_MANIFEST.json e adicionar um teste que compare o hash declarado com o recomputado quando o vault estiver montado, degradando para SKIP (não PASS) quando ausente.",
+        "Adicionar um pre-commit/CI hook que bloqueie `git add` de qualquer caminho em CRAWL_EXCLUDED_DIRS, para que a barreira atue antes do commit e não apenas no teste pós-fato; e agendar revisão anual dos prefixos proibidos, pois novos diretórios privados (ex.: _handoff/) tendem a surgir fora da lista."
+      ]
+    }
+  }
+}
