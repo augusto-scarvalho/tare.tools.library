@@ -20,9 +20,9 @@ class MaterializationTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name) / 'research'
-        (self.root / 'corpus' / 'library-references').mkdir(parents=True)
-        (self.root / 'corpus' / 'manifests' / 'translations' / 'en').mkdir(parents=True)
-        (self.root / 'corpus' / 'original').mkdir(parents=True)
+        (self.root / 'catalog/corpus' / 'library-references').mkdir(parents=True)
+        (self.root / 'catalog/corpus' / 'manifests' / 'translations' / 'en').mkdir(parents=True)
+        (self.root / 'catalog/corpus' / 'original').mkdir(parents=True)
         (self.root / 'catalog' / 'identity-crosswalk').mkdir(parents=True)
         self.source = Path(self.tmp.name) / 'source.md'
         self.source.write_bytes(b'# Exact source\nconteudo\n')
@@ -38,7 +38,7 @@ class MaterializationTests(unittest.TestCase):
             'priority':'P0','suggested_kind':'research','suggested_status':'RESEARCH','suggested_contexts':['Workflow'],
             'lineage_family':'test','lineage_order_hint':1,'reported_sha256':reported,
             'hash_status':'REPORTED_NOT_LOCALLY_VERIFIED' if reported else 'UNKNOWN','discovered_at':'2026-08-11T00:00:00Z','discovery_basis':'test','notes':''}
-        p=self.root/'corpus'/'library-references'/f'{fid}.reference.json'
+        p=self.root/'catalog/corpus'/'library-references'/f'{fid}.reference.json'
         p.write_text(json.dumps(ref),encoding='utf-8'); return p
 
     def run_materialize(self, ref: Path, *, language='pt-BR'):
@@ -53,7 +53,7 @@ class MaterializationTests(unittest.TestCase):
         p=self.run_materialize(ref)
         self.assertEqual(p.returncode,3,p.stdout+p.stderr)
         self.assertFalse(any((self.root/'catalog'/'identity-crosswalk').glob('*.json')))
-        self.assertFalse(any((self.root/'corpus'/'original').rglob('*.md')))
+        self.assertFalse(any((self.root/'catalog/corpus'/'original').rglob('*.md')))
 
     def test_exact_materialization_creates_crosswalk_and_ready_translation(self):
         ref=self.write_ref(reported=sha(self.source.read_bytes()))

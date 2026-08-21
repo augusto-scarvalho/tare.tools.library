@@ -91,7 +91,7 @@ def search_library(
         ("spec", root / "specs"),
         ("experiment", root / "experiments"),
         ("post_mortem", root / "findings" / "post-mortems"),
-        ("canonical", root / "canonical-references"),
+        ("canonical", root / "docs/references"),
         ("doc", root / "docs"),
     ]
 
@@ -263,9 +263,9 @@ def ask_library(
 
 
 def lookup_concept(concept_name: str, root_dir: str | Path = ROOT) -> Optional[Dict[str, Any]]:
-    """Lookup architectural concept in ontology/domain_ontology.yaml."""
+    """Lookup architectural concept in catalog/ontology/domain_ontology.yaml."""
     root = Path(root_dir)
-    onto_path = root / "ontology" / "domain_ontology.yaml"
+    onto_path = root / "catalog/ontology" / "domain_ontology.yaml"
     if not onto_path.exists():
         return None
 

@@ -99,7 +99,7 @@ def cmd_route(args):
 
 def cmd_validate_repo(args):
  root=Path(args.root); errs=[]
- originals=root/'corpus'/'original'; manifests=root/'corpus'/'manifests'
+ originals=root/'catalog/corpus'/'original'; manifests=root/'catalog/corpus'/'manifests'
  if originals.exists():
   for p in originals.rglob('*'):
    if p.is_file():
@@ -109,12 +109,12 @@ def cmd_validate_repo(args):
      m=load_json(side)
      if m.get('provenance',{}).get('source_sha256') != sha256(p): errs.append(f'hash mismatch: {p.relative_to(root)}')
  # Validate translation derivatives without treating them as source authority.
- tmdir=root/'corpus'/'manifests'/'translations'/'en'
+ tmdir=root/'catalog/corpus'/'manifests'/'translations'/'en'
  if tmdir.exists():
   for tp in sorted(tmdir.glob('*.json')):
    tm=load_json(tp)
-   src=root/tm.get('source_path','')
-   tr=root/tm.get('translation_path','')
+   src=(root/tm.get('source_path','')) if (root/tm.get('source_path','')).is_file() else (root/'catalog'/tm.get('source_path',''))
+   tr=(root/tm.get('translation_path','')) if (root/tm.get('translation_path','')).is_file() else (root/'catalog'/tm.get('translation_path',''))
    if not src.is_file(): errs.append(f'translation source missing: {tp.relative_to(root)}')
    elif tm.get('source_sha256') != sha256(src): errs.append(f'translation source hash mismatch: {tp.relative_to(root)}')
    if not tr.is_file(): errs.append(f'translation file missing: {tp.relative_to(root)}')
@@ -143,7 +143,7 @@ def cmd_validate_repo(args):
  print('PASS repository validation'); return 0
 
 def cmd_rebuild(args):
- root=Path(args.root); manifests=root/'corpus'/'manifests'; entries=[]
+ root=Path(args.root); manifests=root/'catalog/corpus'/'manifests'; entries=[]
  if manifests.exists():
   for p in sorted(manifests.glob('*.json'),key=lambda p:p.name):
    m=load_json(p); prov=m.get('provenance',{})

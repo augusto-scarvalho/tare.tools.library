@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parents[1]
 errs=[]
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
-source=ROOT/'corpus/original/2026-08-12-chat-import/Tare.tools - identidade.txt'
+source=ROOT/'catalog/corpus/original/2026-08-12-chat-import/Tare.tools - identidade.txt'
 expected='b7de23b2ce7e41c1f804b6a8d8c4c5f4a8bb636b056657ec33e6bae3340cc1eb'
 if not source.exists() or sha(source)!=expected: errs.append('exact chat source hash mismatch')
 manifest=ROOT/'catalog/NEW_RESEARCH_INGESTION-identity-lineage-learning-2026-08-12.json'
@@ -12,7 +12,7 @@ if not manifest.exists(): errs.append('ingestion manifest missing'); m={}
 else: m=json.loads(manifest.read_text(encoding='utf-8'))
 if m.get('status')!='INTEGRATED_AS_CROSS_LINEAGE_RESEARCH_OBJECT': errs.append('bad ingestion status')
 # No placeholder/fabricated File Library IDs.
-refdir=ROOT/'corpus/library-references/2026-08-12-identity-lineage-ingestion'
+refdir=ROOT/'catalog/corpus/library-references/2026-08-12-identity-lineage-ingestion'
 refs=[]
 for p in refdir.glob('*.reference.json'):
     o=json.loads(p.read_text(encoding='utf-8')); refs.append(o)
@@ -20,10 +20,11 @@ for p in refdir.glob('*.reference.json'):
     if o.get('availability')!='LIBRARY_REFERENCE_ONLY' or o.get('materialized_bytes') is not False: errs.append(f'bad reference availability {p.name}')
 if len(refs)!=6: errs.append(f'expected 6 materialized File Library reference records, got {len(refs)}')
 # English translation sidecar
-trm=ROOT/'corpus/manifests/translations/en/Tare.tools - identidade.txt.en.json'
+trm=ROOT/'catalog/corpus/manifests/translations/en/Tare.tools - identidade.txt.en.json'
 if not trm.exists(): errs.append('translation manifest missing')
 else:
-    tm=json.loads(trm.read_text(encoding='utf-8')); tp=ROOT/tm['translation_path']
+    tm=json.loads(trm.read_text(encoding='utf-8'))
+    tp=(ROOT/'catalog'/tm['translation_path']) if not (ROOT/tm['translation_path']).exists() else (ROOT/tm['translation_path'])
     if not tp.exists() or sha(tp)!=tm.get('translation_sha256'): errs.append('translation manifest mismatch')
     if tm.get('source_sha256')!=expected: errs.append('translation source identity mismatch')
 
@@ -54,7 +55,7 @@ for target in ['lineage.agent-os-foundations','lineage.workflow-procedural','lin
 # Frontier source and new specific titles
 front_src=ROOT/'catalog/NEW_RESEARCH_INGESTIONS/identity-lineage-learning-2026-08-12-pointers.md'
 if not front_src.exists(): errs.append('frontier ingestion source missing')
-reg=[json.loads(x) for x in (ROOT/'frontier/RESEARCH_POINTERS.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+reg=[json.loads(x) for x in (ROOT/'catalog/frontier/RESEARCH_POINTERS.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
 titles={r['title'] for r in reg}
 for title in ['Minimum Canonical Lineage Contract','ExecutionAttempt identity semantics','Cross-lineage dogfooding of Canonical Lineage']:
     if title not in titles: errs.append(f'frontier pointer missing {title}')

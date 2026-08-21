@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSERTIONS = ROOT / "catalog" / "IDENTITY_ASSERTIONS.json"
-REF_ROOT = ROOT / "corpus" / "library-references"
+REF_ROOT = ROOT / "catalog/corpus" / "library-references"
 OUT_MD = ROOT / "catalog" / "IDENTITY_ASSERTIONS.md"
 
 

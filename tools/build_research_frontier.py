@@ -4,7 +4,7 @@ import json, re, hashlib, html, unicodedata, difflib
 from collections import defaultdict, Counter
 
 ROOT = Path(__file__).resolve().parents[1]
-FR = ROOT/'frontier'
+FR = ROOT/'catalog/frontier'
 DATE='2026-08-11'
 
 for d in [FR, FR/'pointers', FR/'clusters', FR/'by-lineage', FR/'decisions']:

@@ -39,7 +39,7 @@ def safe_name(name: str) -> str:
 
 
 def find_existing_by_hash(root: Path, sha: str) -> tuple[dict, Path] | None:
-    for p in sorted((root / 'corpus' / 'manifests').glob('*.json')):
+    for p in sorted((root / 'catalog/corpus' / 'manifests').glob('*.json')):
         try:
             m = load(p)
         except (json.JSONDecodeError, OSError):
@@ -52,7 +52,7 @@ def find_existing_by_hash(root: Path, sha: str) -> tuple[dict, Path] | None:
 
 
 def translation_exists(root: Path, source_path: Path, source_sha: str) -> bool:
-    for p in sorted((root / 'corpus' / 'manifests' / 'translations' / 'en').glob('*.json')):
+    for p in sorted((root / 'catalog/corpus' / 'manifests' / 'translations' / 'en').glob('*.json')):
         try:
             m = load(p)
         except (json.JSONDecodeError, OSError):
@@ -122,7 +122,7 @@ def main() -> int:
         if not Path(original_filename).suffix and source.suffix:
             original_filename += source.suffix
         unique_name = f"{ref['file_library_id']}__{original_filename}"
-        target_dir = root / 'corpus' / 'original' / args.batch
+        target_dir = root / 'catalog/corpus' / 'original' / args.batch
         target_dir.mkdir(parents=True, exist_ok=True)
         target = target_dir / unique_name
         if target.exists():
@@ -159,7 +159,7 @@ def main() -> int:
                 'notes': 'Exact-byte materialization of a prior File Library discovery reference; discovery reference is preserved separately.'
             }
         }
-        manifest_path = root / 'corpus' / 'manifests' / f'{unique_name}.json'
+        manifest_path = root / 'catalog/corpus' / 'manifests' / f'{unique_name}.json'
         manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         status = 'MATERIALIZED_NEW'
         materialized_source = target

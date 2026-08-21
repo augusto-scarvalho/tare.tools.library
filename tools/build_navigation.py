@@ -12,8 +12,8 @@ from urllib.parse import quote, unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "catalog" / "MASTER_CATALOG.json"
-TRANSLATIONS = ROOT / "corpus" / "manifests" / "translations" / "en"
-LIBRARY_REFERENCES = ROOT / "corpus" / "library-references"
+TRANSLATIONS = ROOT / "catalog/corpus" / "manifests" / "translations" / "en"
+LIBRARY_REFERENCES = ROOT / "catalog/corpus" / "library-references"
 IDENTITY_CROSSWALK = ROOT / "catalog" / "identity-crosswalk"
 
 TOPIC_DIRS = [

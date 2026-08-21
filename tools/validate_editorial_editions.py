@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import collections, json
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'editorial-editions'/'2026-08-05-private-github-snapshot'
+OUT=ROOT/'docs/archive/editorial-editions'/'2026-08-05-private-github-snapshot'
 MANIFEST=OUT/'manifests'/'editorial-manifest.json'
 QA_JSON=ROOT/'catalog'/'EDITORIAL_QA.json'
 QA_MD=ROOT/'catalog'/'EDITORIAL_QA.md'

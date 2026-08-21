@@ -18,7 +18,7 @@ def load(p): return json.loads(p.read_text(encoding='utf-8'))
 
 def find_manifest(root:Path,did:str):
  matches=[]
- for p in (root/'corpus'/'manifests').glob('*.json'):
+ for p in (root/'catalog/corpus'/'manifests').glob('*.json'):
   d=load(p)
   if d.get('document_id')==did: matches.append((d,p))
  if len(matches)!=1: raise ValueError(f'expected exactly one source manifest for {did}, found {len(matches)}')
@@ -32,12 +32,12 @@ def main():
  except ValueError as e: print('DENY',e); return 2
  source=root/sm['provenance']['source_path']
  if not source.is_file() or sha(source)!=sm['provenance']['source_sha256']: print('DENY source identity/hash invalid'); return 3
- outman=root/'corpus'/'manifests'/'translations'/'en'; outman.mkdir(parents=True,exist_ok=True)
+ outman=root/'catalog/corpus'/'manifests'/'translations'/'en'; outman.mkdir(parents=True,exist_ok=True)
  for p in outman.glob('*.json'):
   d=load(p)
   if d.get('translation_of')==a.document_id:
    print('DENY translation already registered',p); return 4
- targetdir=root/'corpus'/'translations'/'en'/a.batch; targetdir.mkdir(parents=True,exist_ok=True)
+ targetdir=root/'catalog/corpus'/'translations'/'en'/a.batch; targetdir.mkdir(parents=True,exist_ok=True)
  name=a.target_name or f"{Path(sm['provenance'].get('original_filename') or source.name).stem}.en{trsrc.suffix or '.md'}"
  target=targetdir/name
  if target.exists(): print('DENY target collision',target); return 4
