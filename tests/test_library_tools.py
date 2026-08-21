@@ -536,7 +536,129 @@ class LibraryToolsTests(unittest.TestCase):
             self.assertTrue(ok2)
             self.assertEqual(vdb.count_chunks(), 2)
 
+    def test_query_semantic_search_and_rag_synthesis(self):
+        from unittest.mock import patch
+        from tools.query import semantic_search_library, ask_library
+        from tools.inference.local_client import LocalInferenceClient
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            cat_dir = tmp_path / "catalog"
+            cat_dir.mkdir(parents=True, exist_ok=True)
+            db_file = cat_dir / "library_vectors.db"
+
+            from tools.indexer.embed_corpus import LibraryVectorDB
+            vdb = LibraryVectorDB(db_file)
+            vdb.upsert_chunk(
+                doc_id="ADR-048",
+                relative_path="docs/adr/ADR-048.md",
+                chunk_index=0,
+                chunk_text="ADR-048 defines the Local Inference Substrate and Dual-Engine compute plane.",
+                sha256="sha_adr48",
+                embedding=[1.0, 0.0, 0.0],
+                provenance="real",
+                model_name="local-embed",
+            )
+
+            client = LocalInferenceClient()
+            with patch.object(client, "health_check", return_value={"online": True}):
+                with patch.object(client, "generate_embeddings", return_value=[[1.0, 0.0, 0.0]]):
+                    results = semantic_search_library("local inference", max_results=3, client=client, root_dir=tmp_path)
+                    self.assertTrue(len(results) > 0)
+                    self.assertEqual(results[0].doc_id, "ADR-048")
+                    self.assertGreater(results[0].score, 0.99)
+
+                with patch.object(client, "generate_embeddings", return_value=[[1.0, 0.0, 0.0]]):
+                    with patch.object(client, "chat_completion", return_value="ADR-048 is the local substrate specification."):
+                        rag_res = ask_library("What is ADR-048?", max_context_chunks=2, client=client, root_dir=tmp_path)
+                        self.assertIn("ADR-048 is the local substrate", rag_res["answer"])
+                        self.assertEqual(rag_res["sources"], ["docs/adr/ADR-048.md"])
+
+    def test_summarize_reference_pipeline(self):
+        from unittest.mock import patch
+        from tools.inference.summarize_reference import summarize_document
+        from tools.inference.local_client import LocalInferenceClient
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            sample_file = tmp_path / "sample_paper.md"
+            sample_file.write_text("# Deep Seek Architecture\nDetails on MoE routing and KV-cache compression.", encoding="utf-8")
+
+            client = LocalInferenceClient()
+            fake_summary_json = json.dumps({
+                "title": "Deep Seek Architecture",
+                "executive_summary": "Paper on Multi-head Latent Attention and MoE routing.",
+                "key_findings": ["MLA reduces KV cache footprint", "Dynamic routing balances expert compute"],
+                "matched_concepts": ["kv_cache", "mixture_of_experts"],
+                "suggested_tags": ["mla", "moe", "efficiency"]
+            })
+
+            with patch.object(client, "chat_completion", return_value=fake_summary_json):
+                summary = summarize_document(sample_file, client=client, ontology_concepts=["kv_cache", "moe"])
+                self.assertEqual(summary["title"], "Deep Seek Architecture")
+                self.assertEqual(len(summary["key_findings"]), 2)
+                self.assertIn("kv_cache", summary["matched_concepts"])
+
+    def test_translate_reference_pipeline(self):
+        from unittest.mock import patch
+        from tools.inference.translate_reference import translate_markdown
+        from tools.inference.local_client import LocalInferenceClient
+
+        client = LocalInferenceClient()
+        fake_translation = "# Arquitetura de Inferência Local\nEste documento descreve o pipeline de execução."
+
+        with patch.object(client, "chat_completion", return_value=fake_translation):
+            res = translate_markdown("# Local Inference Architecture\nThis document describes the pipeline.", client=client)
+            self.assertIn("Arquitetura de Inferência Local", res)
+
+    def test_harvester_classification_and_crawler(self):
+        from tools.bookkeeper.harvest_corpus import (
+            classify_document_type,
+            scan_source_directory,
+            run_harvester,
+        )
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            ext_source = tmp_path / "external_repo"
+            ext_source.mkdir(parents=True, exist_ok=True)
+            lib_root = tmp_path / "lib_repo"
+            lib_root.mkdir(parents=True, exist_ok=True)
+
+            # Create test documents in external source
+            doc_adr = ext_source / "ADR-099_federated_harvesting.md"
+            doc_adr.write_text("# ADR-099: Federated Harvesting\nSpecifications for multi-source crawler.", encoding="utf-8")
+
+            doc_spec = ext_source / "SPEC-KERNEL-002.md"
+            doc_spec.write_text("# SPEC-KERNEL-002: Kernel OpenSDD\nStrict execution envelope.", encoding="utf-8")
+
+            doc_noise = ext_source / "package-lock.json"
+            doc_noise.write_text("{}", encoding="utf-8")
+
+            doc_tiny = ext_source / "stub.md"
+            doc_tiny.write_text("abc", encoding="utf-8")  # < 100 bytes -> ignored
+
+            # Classification checks
+            self.assertEqual(classify_document_type(doc_adr, doc_adr.read_text("utf-8")), "adr")
+            self.assertEqual(classify_document_type(doc_spec, doc_spec.read_text("utf-8")), "spec")
+
+            # Scan source directory (Dry-Run mode)
+            discovered = scan_source_directory(ext_source, library_root=lib_root)
+            self.assertEqual(len(discovered), 2)  # ADR and SPEC; noise & stub ignored
+            self.assertTrue(all(d.status == "NEW" for d in discovered))
+
+            # Run harvester with apply=True
+            report = run_harvester([ext_source], apply_ingest=True, library_root=lib_root)
+            self.assertEqual(report.ingested_count, 2)
+
+            # Re-running harvester must detect exact duplicates (idempotence)
+            report_re = run_harvester([ext_source], apply_ingest=True, library_root=lib_root)
+            self.assertEqual(report_re.ingested_count, 0)
+            self.assertEqual(report_re.skipped_duplicate_count, 2)
+
 
 if __name__ == "__main__":
     unittest.main()
+
+
 

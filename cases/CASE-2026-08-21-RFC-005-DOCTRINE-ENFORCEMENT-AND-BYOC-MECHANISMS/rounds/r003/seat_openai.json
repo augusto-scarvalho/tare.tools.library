@@ -1,0 +1,51 @@
+{
+  "status": "OK",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "vote": {
+    "seat": "openai",
+    "execution_nonce": "8c66735b-958b-4682-946f-cba54ce6de4a",
+    "verdict": "REJECT",
+    "confidence": 0.99,
+    "summary": "O delta vazio não altera a proposta e, portanto, nenhuma das tensões bloqueantes da Rodada 2 foi resolvida. Permanecem indeterminados os gates de frugalidade e contexto, a rastreabilidade empírica, o confinamento do gateway, o roteamento BYOC e o protocolo de parada segura.",
+    "strengths": [
+      "Mantém Via Negativa, preferência pela biblioteca padrão e execução por argv com shell=False.",
+      "Preserva uma decomposição clara em seis mecanismos executáveis."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "O Frugality Guard não define uma política determinística e auditável para classificar dependências como necessárias ou infladas.",
+        "falsifier": "Duas implementações conformes avaliam o mesmo uso de requests e chegam legitimamente a decisões opostas diante das capacidades de urllib, TLS e ergonomia."
+      },
+      {
+        "severity": "blocking",
+        "claim": "O limite de 150 tokens não fixa serialização canônica, tokenizador de referência nem versão.",
+        "falsifier": "O mesmo schema JSON-RPC cruza o limiar de 150 tokens em sentidos opostos quando processado por tokenizadores ou serializações distintos."
+      },
+      {
+        "severity": "blocking",
+        "claim": "A marca verifies comprova apenas associação nominal, sem demonstrar que o teste executa e falsifica o requisito normativo.",
+        "falsifier": "Um teste contendo apenas assert True e marcado com verifies para um requisito é aceito por specgraph trace."
+      },
+      {
+        "severity": "blocking",
+        "claim": "O MCP Gateway não especifica confinamento de filesystem, ambiente, rede, subprocessos e recursos além de shell=False e cwd validado.",
+        "falsifier": "Um processo iniciado no cwd permitido lê um caminho absoluto externo, atravessa um symlink, herda PYTHONPATH ou cria um processo filho persistente."
+      },
+      {
+        "severity": "blocking",
+        "claim": "O roteador BYOC não define descoberta de capacidades, precedência normativa, timeouts, limites de contexto nem condição terminal de indisponibilidade.",
+        "falsifier": "No perfil free sem credencial Gemini e sem llama.cpp, ou com bundle excessivo, implementações conformes divergem entre falhar, truncar, selecionar outra rota ou permanecer em estado indefinido."
+      },
+      {
+        "severity": "blocking",
+        "claim": "EmergencyHaltReceipt não possui schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes nem regra para falha de gravação.",
+        "falsifier": "Com o destino do recibo somente leitura, executores conformes divergem entre continuar, gravar em outro destino ou parar sem evidência verificável."
+      }
+    ],
+    "recommendations": [
+      "Não ratificar a RFC-005 sem uma nova proposta formal que incorpore contratos determinísticos e testes executáveis para todos os bloqueios registrados."
+    ]
+  }
+}

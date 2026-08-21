@@ -74,13 +74,23 @@ class LibraryVectorDB:
                     chunk_index INTEGER NOT NULL,
                     chunk_text TEXT NOT NULL,
                     sha256 TEXT NOT NULL,
-                    dimensions INTEGER NOT NULL,
-                    provenance TEXT NOT NULL,
+                    dimensions INTEGER NOT NULL DEFAULT 32,
+                    provenance TEXT NOT NULL DEFAULT 'real',
                     model_name TEXT NOT NULL DEFAULT 'local-embed',
                     embedding_json TEXT NOT NULL,
                     UNIQUE(relative_path, chunk_index)
                 )
             """)
+            # Check existing columns for auto-migration
+            cursor = conn.cursor()
+            cursor.execute("PRAGMA table_info(document_chunks);")
+            cols = {row[1] for row in cursor.fetchall()}
+            if "dimensions" not in cols:
+                conn.execute("ALTER TABLE document_chunks ADD COLUMN dimensions INTEGER NOT NULL DEFAULT 32;")
+            if "provenance" not in cols:
+                conn.execute("ALTER TABLE document_chunks ADD COLUMN provenance TEXT NOT NULL DEFAULT 'real';")
+            if "model_name" not in cols:
+                conn.execute("ALTER TABLE document_chunks ADD COLUMN model_name TEXT NOT NULL DEFAULT 'local-embed';")
             conn.execute("CREATE INDEX IF NOT EXISTS idx_chunks_ns ON document_chunks(dimensions, provenance, model_name);")
             conn.commit()
         finally:
@@ -139,6 +149,15 @@ class LibraryVectorDB:
             try:
                 conn.execute("PRAGMA busy_timeout=10000;")
                 with conn:
+                    # Invariant: Never allow pseudo/hash vectors to overwrite existing real embeddings
+                    if provenance == "pseudo":
+                        cursor = conn.cursor()
+                        cursor.execute("SELECT COUNT(*) FROM document_chunks WHERE relative_path = ? AND provenance = 'real'", (relative_path,))
+                        row = cursor.fetchone()
+                        if row and row[0] > 0:
+                            # Real vectors already exist; preserve them and abort pseudo overwrite
+                            return True
+
                     conn.execute("DELETE FROM document_chunks WHERE relative_path = ? AND model_name = ?", (relative_path, model_name))
                     for chunk_idx, chunk_text, sha, emb in chunks:
                         conn.execute("""
@@ -199,6 +218,32 @@ class LibraryVectorDB:
         finally:
             conn.close()
 
+    def get_indexed_file_hashes(self, model_name: str = "local-embed") -> Dict[str, str]:
+        """Return mapping of relative_path -> sha256 for all indexed documents in this model namespace."""
+        conn = sqlite3.connect(self.db_path, timeout=5.0)
+        try:
+            cursor = conn.cursor()
+            cursor.execute("SELECT DISTINCT relative_path, sha256 FROM document_chunks WHERE model_name = ?", (model_name,))
+            return {row[0]: row[1] for row in cursor.fetchall()}
+        finally:
+            conn.close()
+
+    def remove_stale_documents(self, active_relative_paths: set, model_name: str = "local-embed") -> int:
+        """Remove vector records for files that have been deleted or renamed."""
+        conn = sqlite3.connect(self.db_path, timeout=5.0)
+        try:
+            cursor = conn.cursor()
+            cursor.execute("SELECT DISTINCT relative_path FROM document_chunks WHERE model_name = ?", (model_name,))
+            existing = {row[0] for row in cursor.fetchall()}
+            stale = existing - active_relative_paths
+            if stale:
+                with conn:
+                    for rel_path in stale:
+                        conn.execute("DELETE FROM document_chunks WHERE relative_path = ? AND model_name = ?", (rel_path, model_name))
+            return len(stale)
+        finally:
+            conn.close()
+
 
 def chunk_markdown(content: str, max_chunk_tokens: int = 250) -> List[str]:
     """Split markdown into roughly paragraph-sized chunks for dense embedding."""
@@ -230,57 +275,82 @@ def index_corpus(
     client: Optional[LocalInferenceClient] = None,
     db: Optional[LibraryVectorDB] = None,
     model_name: str = "local-embed",
+    force_reindex: bool = False,
 ) -> int:
-    """Index all markdown documents in the library into SQLite Vector store."""
+    """Incrementally index markdown documents into SQLite Vector store (only embeddings changed/new files)."""
     client = client or LocalInferenceClient()
     db = db or LibraryVectorDB(root_dir / "catalog" / "library_vectors.db")
-    server_online = client.health_check().get("online", False)
+    server_online = client.health_check(target="embed").get("online", False)
 
-    total_indexed = 0
-    print(f"[INDEXER] Starting vector indexing. Server online: {server_online} (Mode: {'DENSE' if server_online else 'PSEUDO-HASH'})")
+    all_files = [
+        f for f in root_dir.rglob("*.md")
+        if f.is_file() and not any(p in f.parts for p in (".git", ".pytest_cache", "__pycache__", "site", "_site"))
+    ]
+    total_files = len(all_files)
+    active_paths = {str(f.relative_to(root_dir)).replace("\\", "/") for f in all_files}
 
-    for file_path in root_dir.rglob("*.md"):
-        if any(p in file_path.parts for p in (".git", ".pytest_cache", "__pycache__", "site", "_site")):
+    # 1. Clean up deleted/renamed documents
+    stale_count = db.remove_stale_documents(active_paths, model_name=model_name)
+    if stale_count:
+        print(f"[INDEXER] Removed {stale_count} stale documents from vector store.")
+
+    # 2. Get existing hashes for incremental skip
+    existing_hashes = {} if force_reindex else db.get_indexed_file_hashes(model_name=model_name)
+
+    # 3. Identify modified/new files
+    files_to_index = []
+    for f in all_files:
+        rel_path = str(f.relative_to(root_dir)).replace("\\", "/")
+        content = f.read_text(encoding="utf-8", errors="ignore")
+        sha = hashlib.sha256(content.encode("utf-8")).hexdigest()
+        if rel_path not in existing_hashes or existing_hashes[rel_path] != sha:
+            files_to_index.append((f, rel_path, content, sha))
+
+    skipped = total_files - len(files_to_index)
+    print(f"[INDEXER] Starting incremental vector indexing. Server online: {server_online} (Mode: {'DENSE NEURAL (RTX 3090)' if server_online else 'PSEUDO-HASH'})")
+    print(f"[INDEXER] Total: {total_files} docs | Unchanged (Skipped): {skipped} | Need Vectorizing: {len(files_to_index)}")
+
+    if not files_to_index:
+        print(f"✅ [INDEXER COMPLETE] All {total_files} documents are already up to date in '{db.db_path}'! (0 embeddings computed)", flush=True)
+        return 0
+
+    total_indexed_chunks = 0
+    for idx, (file_path, rel_path, content, sha) in enumerate(files_to_index, 1):
+        chunks = chunk_markdown(content)
+        if not chunks:
             continue
-        if file_path.is_file():
-            rel_path = str(file_path.relative_to(root_dir)).replace("\\", "/")
-            content = file_path.read_text(encoding="utf-8", errors="ignore")
-            chunks = chunk_markdown(content)
-            if not chunks:
-                continue
 
-            sha = hashlib.sha256(content.encode("utf-8")).hexdigest()
-            try:
-                if server_online:
-                    embs = client.generate_embeddings(chunks)
-                    prov = "real"
+        try:
+            if server_online:
+                embs = client.generate_embeddings(chunks)
+                prov = "real"
+            else:
+                embs = None
+                prov = "pseudo"
+
+            doc_chunk_tuples = []
+            for c_idx, chunk in enumerate(chunks):
+                if embs and c_idx < len(embs):
+                    emb = embs[c_idx]
                 else:
-                    embs = None
-                    prov = "pseudo"
+                    digest = hashlib.sha256(chunk.encode("utf-8")).digest()
+                    emb = [float(b) / 255.0 for b in digest]
+                doc_chunk_tuples.append((c_idx, chunk, sha, emb))
 
-                for idx, chunk in enumerate(chunks):
-                    if embs and idx < len(embs):
-                        emb = embs[idx]
-                    else:
-                        digest = hashlib.sha256(chunk.encode("utf-8")).digest()
-                        emb = [float(b) / 255.0 for b in digest]
+            db.upsert_document_chunks(
+                doc_id=file_path.stem,
+                relative_path=rel_path,
+                chunks=doc_chunk_tuples,
+                provenance=prov,
+                model_name=model_name,
+            )
+            total_indexed_chunks += len(doc_chunk_tuples)
+            print(f"  [EMBED {idx}/{len(files_to_index)}] Ingerido: {rel_path} ({len(chunks)} chunks)", flush=True)
+        except Exception as e:
+            print(f"  Error indexing '{rel_path}': {e}", flush=True)
 
-                    db.upsert_chunk(
-                        doc_id=file_path.stem,
-                        relative_path=rel_path,
-                        chunk_index=idx,
-                        chunk_text=chunk,
-                        sha256=sha,
-                        embedding=emb,
-                        provenance=prov,
-                        model_name=model_name,
-                    )
-                    total_indexed += 1
-            except Exception as e:
-                print(f"  Error indexing '{rel_path}': {e}")
-
-    print(f"✅ [INDEXER COMPLETE] Indexed {total_indexed} chunks into '{db.db_path}' (Total in DB: {db.count_chunks()})")
-    return total_indexed
+    print(f"✅ [INDEXER COMPLETE] Incrementally indexed {total_indexed_chunks} new/updated chunks into '{db.db_path}' (Total in DB: {db.count_chunks()})", flush=True)
+    return total_indexed_chunks
 
 
 def main() -> int:
@@ -289,7 +359,8 @@ def main() -> int:
     parser.add_argument("--query", "-q", help="Search vector database with query string")
     parser.add_argument("--top-k", "-k", type=int, default=5, help="Number of results")
     parser.add_argument("--model", default="local-embed", help="Model namespace")
-    parser.add_argument("--provenance", default=None, help="Provenance filter ('real' or 'pseudo')")
+    parser.add_argument("--force-local", action="store_true", help="Force execution on thin client despite ADR-053")
+    parser.add_argument("--reindex-all", action="store_true", help="Force reindexing all files, bypassing incremental cache")
 
     args = parser.parse_args()
     root_path = Path(args.root).resolve()
@@ -313,7 +384,26 @@ def main() -> int:
             print(f"   {res.text_snippet}\n")
         return 0
 
-    indexed = index_corpus(root_path, client, db, model_name=args.model)
+    # ADR-053 Guard: Thin-clients automatically offload to Node aaaaa
+    try:
+        from tools.policy.compute_guard import assert_compute_guard
+        from tools.bookkeeper.dispatch_job import dispatch_remote_task
+
+        can_run_local, guard_msg = assert_compute_guard(
+            task_name="embed_corpus",
+            item_count=1000,
+            threshold=50,
+            force_local=args.force_local,
+        )
+        if not can_run_local:
+            print(guard_msg)
+            return dispatch_remote_task(
+                "cd /home/augus/src/tare.tools.library && python3 tools/indexer/embed_corpus.py --root ."
+            )
+    except ImportError:
+        pass
+
+    indexed = index_corpus(root_path, client, db, model_name=args.model, force_reindex=args.reindex_all)
     return 0 if indexed >= 0 else 1
 
 

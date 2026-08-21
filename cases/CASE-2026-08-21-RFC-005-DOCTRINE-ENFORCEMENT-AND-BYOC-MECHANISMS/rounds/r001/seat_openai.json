@@ -1,0 +1,56 @@
+{
+  "status": "OK",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "vote": {
+    "seat": "openai",
+    "execution_nonce": "ced637ca-d65b-4c97-8205-4a999d1163e7",
+    "verdict": "REVISE",
+    "confidence": 0.98,
+    "summary": "A proposta acerta ao transformar princípios em contratos executáveis, privilegiando CLI, argv estruturado, falsificadores e parada segura. Contudo, quatro garantias centrais ainda não são implementáveis como escritas: detecção objetiva de dependência desnecessária, rastreabilidade causal por marcador, confinamento por cwd e fallback BYOC determinístico.",
+    "strengths": [
+      "O uso de list[str] com shell=False elimina uma classe importante de injeção de shell.",
+      "A separação entre exploração e consolidação reconhece corretamente que spikes e código canônico exigem gates diferentes.",
+      "O HALT_RECEIPT estabelece uma base útil para comportamento fail-closed e auditoria posterior."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "O Frugality Guard não possui política determinística para distinguir dependência necessária de dependência inflada, e o limite de 150 tokens não fixa serialização, tokenizer nem versão.",
+        "falsifier": "Duas implementações conformes analisam o mesmo import de requests: uma o rejeita por existir urllib e outra o aceita por requisitos de TLS e ergonomia. Serialize o mesmo schema com tokenizers distintos e obtenha resultados em lados opostos do teto."
+      },
+      {
+        "severity": "blocking",
+        "claim": "O marcador @pytest.mark.verifies cria associação declarativa, mas não demonstra que o teste falsifica o requisito nem que exercita o código normativo correspondente.",
+        "falsifier": "Crie um teste marcado com verifies(\"SPEC-REQ-001\") contendo apenas assert True; se specgraph trace aprovar a cobertura, a garantia bidirecional é falsa."
+      },
+      {
+        "severity": "blocking",
+        "claim": "cwd canônico não confina um processo arbitrário: executáveis e argumentos ainda podem acessar caminhos externos, rede, ambiente, subprocessos e recursos ilimitados.",
+        "falsifier": "Execute a partir de um cwd permitido um argv Python que leia um arquivo absoluto externo ou invoque um filho persistente; se funcionar, o gateway não é confinado apesar de shell=False e da validação de cwd."
+      },
+      {
+        "severity": "blocking",
+        "claim": "O roteador BYOC mistura política de custo, fornecedores específicos e mecanismos opcionais sem definir descoberta de capacidades, ordem de fallback, limites de contexto ou condição terminal de indisponibilidade.",
+        "falsifier": "Ative profile free sem credencial Gemini e sem binário llama.cpp, ou envie um bundle maior que o contexto do SLM; duas implementações podem falhar, truncar silenciosamente ou escolher rotas diferentes sem violar o texto."
+      },
+      {
+        "severity": "blocking",
+        "claim": "EmergencyHaltReceipt não define schema versionado, persistência atômica, código de saída, precedência sobre efeitos pendentes nem comportamento quando o recibo não puder ser gravado.",
+        "falsifier": "Torne o destino do recibo somente leitura e provoque risco de integridade; se o executor continuar, improvisar outro destino ou encerrar sem evidência verificável, o contrato não determina um resultado conforme."
+      },
+      {
+        "severity": "non-blocking",
+        "claim": "A exigência genérica de 100% de testes unitários é ambígua e pode incentivar cobertura superficial, além de não validar integrações reais com keyring, endpoints e processos locais.",
+        "falsifier": "Alcance 100% de cobertura de linhas usando mocks e depois execute contra keyring indisponível, endpoint incompatível ou subprocesso que ignora timeout; a suíte permanece verde enquanto o mecanismo falha."
+      }
+    ],
+    "recommendations": [
+      "Trocar a inferência de dependência desnecessária por allowlist explícita, exceções justificadas e medição com serialização e tokenizer fixados.",
+      "Exigir ao menos um teste negativo ou mutante por requisito; o marcador deve indexar evidência, não constituí-la.",
+      "Renomear o gateway como dispatcher confiável ou adicionar confinamento real do sistema operacional, allowlist e encerramento da árvore de processos.",
+      "Definir um protocolo BYOC mínimo baseado em capacidades, ordem determinística de fallback e HALT explícito quando nenhuma rota satisfizer o contrato.",
+      "Versionar HALT_RECEIPT.json e especificar escrita atômica, vínculo com tarefa e artefato, exit code e comportamento fail-closed."
+    ]
+  }
+}

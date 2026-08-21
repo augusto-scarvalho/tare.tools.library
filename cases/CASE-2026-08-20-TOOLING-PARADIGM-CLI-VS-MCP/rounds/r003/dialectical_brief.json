@@ -1,0 +1,46 @@
+{
+  "established_consensuses": [
+    "Definição exemplar de teto estrito de contexto (<150 tokens) combatendo a sobrecarga computacional do paradigma Fat MCP.",
+    "Adoção consistente do princípio Unix e orientação CLI First com envelope estruturado de telemetria (exit_code, duration_ms, timed_out).",
+    "Preserva a interface frugal O(1), a orientação CLI First e o envelope estruturado de telemetria."
+  ],
+  "dialectical_tensions": [
+    {
+      "claim": "A permanência do tipo `command: list[str] | str` com mera 'preferência' por lista degrada a segurança do gateway ao permitir execução por shell e injeção de comandos arbitrários em cenários de entrada de string.",
+      "falsifier": "A invocação de exec_command('sh -c \"cat /etc/passwd\"', cwd=workspace) ou passagem de payload com operadores de controle como string ser aceita pelo gateway, demonstrando que a garantia de shell=False não é aplicada de forma determinística.",
+      "seat": "google"
+    },
+    {
+      "claim": "A qualificação da Camada 2 como 'sandbox com contenção estrita' apoiada apenas na validação de cwd é tecnicamente insustentável, pois não restringe acessos a arquivos fora do workspace via caminhos absolutos, variáveis de ambiente ou chamadas diretas de sistema sem isolamento no nível de SO.",
+      "falsifier": "A execução de exec_command(['python', '-c', 'import os; print(os.path.exists(\"/etc/hosts\"))'], cwd=workspace) acessar com sucesso recursos do host fora da raiz do workspace temporário sem bloqueio no nível de sistema operacional.",
+      "seat": "google"
+    },
+    {
+      "claim": "A assinatura command: list[str] | str mantém semântica ambígua e não garante execução determinística sem interpretação de shell.",
+      "falsifier": "pytest -q tests/test_gateway_exec_contract.py deve provar que apenas argv explícito list[str] é aceito e que toda entrada string é rejeitada antes da execução, sem efeitos colaterais.",
+      "seat": "openai"
+    },
+    {
+      "claim": "Validar cwd não confina o processo; caminhos absolutos, links simbólicos, variáveis de ambiente, arquivos de resposta, subprocessos e rede continuam capazes de acessar recursos externos ao workspace.",
+      "falsifier": "pytest -q tests/test_gateway_confinement.py deve provar, mediante isolamento no nível do sistema operacional, que tentativas por caminho absoluto, symlink, variável de ambiente, subprocesso, arquivo de resposta e egress de rede falham fechadas e não deixam efeitos externos.",
+      "seat": "openai"
+    },
+    {
+      "claim": "A assinatura mantém `command: list[str] | str` com mera 'preferência' por lista; preferência não é contrato e a forma `str` reabre injeção de shell.",
+      "falsifier": "exec_command('rg foo; rm -rf .', cwd=workspace) alcança um shell e executa o payload. Nenhum tests/test_gateway_exec_contract.py foi entregue provando que apenas argv explícito list[str] é aceito e que strings com operadores de shell são rejeitadas sem execução colateral.",
+      "seat": "anthropic"
+    },
+    {
+      "claim": "A nomenclatura 'sandbox confinado / contenção estrita' persiste apoiada só em validação de cwd, sem nenhuma camada de SO (namespaces/containers/seccomp). cwd + shell=False + timeout definem apenas o diretório de trabalho.",
+      "falsifier": "exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=workspace) lê fora da raiz e um comando de egress de rede a partir do cwd conclui: se ambos rodam, a alegação de sandbox está falsificada. Nenhum tests/test_gateway_confinement.py provou falha-fechada para caminho absoluto, symlink, variável de ambiente, subprocesso e arquivo de resposta.",
+      "seat": "anthropic"
+    }
+  ],
+  "discard_candidates": [],
+  "recommendations": [
+    "Restringir estritamente o contrato de execução para `command: list[str]` (argv explícito), rejeitando tipos de string primitivos na camada de interface.",
+    "Retificar a nomenclatura da Camada 2 de 'sandbox com contenção estrita' para 'executor local com validação de cwd', ou exigir backend de isolamento por containers/namespaces para sustentar a alegação de sandbox.",
+    "Restringir exec_command a command: list[str] com shell=False obrigatório e rejeição explícita de strings.",
+    "Substituir a alegação de sandbox confinado por uma descrição limitada de dispatcher com cwd validado ou exigir isolamento real no nível do sistema operacional e seus testes de confinamento."
+  ]
+}

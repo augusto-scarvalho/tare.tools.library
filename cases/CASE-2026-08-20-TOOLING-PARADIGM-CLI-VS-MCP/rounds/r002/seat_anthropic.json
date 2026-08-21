@@ -1,0 +1,33 @@
+{
+  "status": "OK",
+  "provider": "anthropic",
+  "model": "claude-fable-5-high",
+  "vote": {
+    "seat": "anthropic",
+    "execution_nonce": "a560f2d9-25b2-479e-97cf-4fbb348291bb",
+    "verdict": "REVISE",
+    "confidence": 0.93,
+    "summary": "O delta da Rodada 2 está vazio ({}) e a proposta vigente permanece idêntica à Rodada 1: os dois falsificadores bloqueantes que levantei não foram endereçados. A camada CLI-First (O(1), zero tokens) segue sólida e é aprovável, mas o Lean Gateway ainda vende 'sandbox/contenção estrita' sem camada de SO e ainda aceita command como str, reintroduzindo injeção de shell.",
+    "strengths": [
+      "Camada 1 (CLI First) é arquiteturalmente correta: custo de contexto O(1)/zero tokens, componibilidade Unix e saídas estruturadas são um contrato executável e testável.",
+      "O envelope de telemetria (stdout/stderr/exit_code/duration_ms/timed_out) e shell=False como default são boas primitivas, desde que o contrato de tipo seja fechado."
+    ],
+    "issues": [
+      {
+        "severity": "blocking",
+        "claim": "A nomenclatura 'sandbox confinado' e 'contenção estrita' persiste sem qualquer camada de SO (namespaces/containers/seccomp). cwd + shell=False + timeout definem apenas o diretório de trabalho; não impedem leitura/escrita por caminho absoluto, egress de rede ou consumo do host.",
+        "falsifier": "Executar exec_command(['python','-c','open(\"/etc/passwd\").read()'], cwd=<workspace>) e um comando de egress de rede a partir do cwd confinado: se ambos rodam, a alegação de sandbox está falsificada. Nenhum tests/test_gateway_confinement.py foi entregue provando falha-fechada para caminho absoluto, symlink, env var, subprocesso e arquivo de resposta."
+      },
+      {
+        "severity": "blocking",
+        "claim": "A assinatura mantém command: list[str] | str e apenas 'prefere' lista. 'Preferência' não é contrato; a forma str anula a garantia shell=False e reabre injeção de shell.",
+        "falsifier": "exec_command('rg foo; rm -rf .', cwd=...) — se a forma string alcança um shell, executa payload arbitrário. Nenhum tests/test_gateway_exec_contract.py foi entregue demonstrando que strings com operadores de shell são rejeitadas e que apenas argv explícito é aceito."
+      }
+    ],
+    "recommendations": [
+      "Remover str da assinatura: exec_command(command: list[str], cwd, timeout_seconds) — argv puro, sem shlex.split implícito, contrato fechado.",
+      "Rebatizar 'sandbox/contenção estrita' para 'confinamento best-effort de cwd' OU comprometer explicitamente uma camada de SO; alinhar título e critério de sucesso à garantia real.",
+      "Entregar como parte da proposta os dois falsificadores exigidos (test_gateway_confinement.py e test_gateway_exec_contract.py) verdes antes do APPROVE; enquanto o delta for {}, os bloqueios permanecem."
+    ]
+  }
+}
