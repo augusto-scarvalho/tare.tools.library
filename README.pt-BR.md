@@ -22,6 +22,7 @@
   <a href="#o-mandato-documental-ágil">Mandato Ágil</a> •
   <a href="#verificação-formal--portões-de-qualidade">Portões de Qualidade</a> •
   <a href="#família-do-ecossistema">Família do Ecossistema</a> •
+  <a href="CHANGELOG.md">Changelog</a> •
   <a href="#licença">Licença</a>
 </p>
 

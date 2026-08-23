@@ -22,6 +22,7 @@
   <a href="#the-agile-documentation-mandate">Agile Mandate</a> •
   <a href="#formal-verification--quality-gates">Quality Gates</a> •
   <a href="#ecosystem-family">Ecosystem Family</a> •
+  <a href="CHANGELOG.md">Changelog</a> •
   <a href="#license">License</a>
 </p>
 

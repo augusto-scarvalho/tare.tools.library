@@ -21,6 +21,7 @@ ALLOWED_ROOT_FILES = {
     ".gitignore",
     ".gitattributes",
     "AGENTS.md",
+    "CHANGELOG.md",
     "CONTRIBUTING.md",
     "LICENSE",
     "README.md",
