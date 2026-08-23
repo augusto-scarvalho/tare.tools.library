@@ -110,3 +110,15 @@ def test_branch_and_ci_standardization():
         text = wf.read_text(encoding="utf-8")
         if "branches:" in text:
             assert "main" in text, f"Workflow {wf.name} does not target canonical branch 'main'"
+
+
+@pytest.mark.verifies("RFC-009-REQ-BRANCH-CI-001")
+def test_publication_workflow_uses_current_paths_and_step_scoped_secret_gate():
+    """Keep publication routing valid after the repository taxonomy migration."""
+    workflow = (ROOT / ".github/workflows/create-publication-pr.yml").read_text(encoding="utf-8")
+
+    assert "if: ${{ secrets." not in workflow
+    assert "id: publisher-credentials" in workflow
+    assert "docs/archive/incoming/**/EDITORIAL_DECISION.json" in workflow
+    assert "-- docs/archive/incoming" in workflow
+    assert "repositories: tare.tools.library" in workflow
