@@ -3,7 +3,7 @@ name: create-publication-pr
 on:
   push:
     branches: [main]
-    paths: ['incoming/**/EDITORIAL_DECISION.json']
+    paths: ['docs/archive/incoming/**/EDITORIAL_DECISION.json']
 
 permissions:
   contents: write
@@ -11,30 +11,46 @@ permissions:
 
 jobs:
   publish:
-    if: ${{ secrets.TARE_PUBLISHER_APP_ID != '' && secrets.TARE_PUBLISHER_APP_PRIVATE_KEY != '' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check publisher credentials
+        id: publisher-credentials
+        shell: bash
+        env:
+          APP_ID: ${{ secrets.TARE_PUBLISHER_APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.TARE_PUBLISHER_APP_PRIVATE_KEY }}
+        run: |
+          if [[ -n "$APP_ID" && -n "$APP_PRIVATE_KEY" ]]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Publication PR skipped: publisher GitHub App credentials are not configured."
+          fi
       - uses: actions/checkout@v4
+        if: steps.publisher-credentials.outputs.available == 'true'
         with:
           fetch-depth: 0
       - uses: actions/setup-python@v5
+        if: steps.publisher-credentials.outputs.available == 'true'
         with:
           python-version: '3.12'
       - name: Mint publisher installation token
+        if: steps.publisher-credentials.outputs.available == 'true'
         id: publisher-token
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.TARE_PUBLISHER_APP_ID }}
           private-key: ${{ secrets.TARE_PUBLISHER_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
-          repositories: tare.tools.research
+          repositories: tare.tools.library
       - name: Create deterministic Publication PR
+        if: steps.publisher-credentials.outputs.available == 'true'
         env:
           GH_TOKEN: ${{ steps.publisher-token.outputs.token }}
           BEFORE: ${{ github.event.before }}
         run: |
           set -euo pipefail
-          mapfile -t decisions < <(git diff --name-only "$BEFORE" HEAD -- incoming | grep '/EDITORIAL_DECISION.json$' || true)
+          mapfile -t decisions < <(git diff --name-only "$BEFORE" HEAD -- docs/archive/incoming | grep '/EDITORIAL_DECISION.json$' || true)
           test "${#decisions[@]}" -eq 1 || { echo 'No single accepted editorial decision to publish'; exit 0; }
           packet="${decisions[0]%/EDITORIAL_DECISION.json}"
           test "$(python -c "import json; d=json.load(open('$packet/EDITORIAL_DECISION.json')); print(d['decision']=='accept')")" = True || { echo 'Decision is not an acceptance'; exit 0; }

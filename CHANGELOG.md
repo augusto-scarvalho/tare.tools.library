@@ -4,7 +4,9 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
-No entries yet.
+### Fixed
+
+- Repaired Publication PR workflow validation, credential gating, current incoming-path routing, and repository targeting.
 
 ## 2026-08-21
 
