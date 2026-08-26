@@ -9,7 +9,7 @@ from tools.delivery_evidence import EvidencePolicyError, classify_delivery, main
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST = ROOT / "policies" / "delivery-evidence.json"
+MANIFEST = ROOT / "docs" / "policies" / "delivery-evidence.json"
 
 
 def test_mixed_diff_uses_highest_floor_and_observes_underclassification() -> None:
@@ -63,7 +63,7 @@ def test_named_critical_floor_survives_an_already_weakened_parent(tmp_path: Path
 
 
 def test_manifest_has_a_builtin_e3_floor() -> None:
-    receipt = classify_delivery(MANIFEST, ["policies/delivery-evidence.json"], "E2_OPERATIONAL")
+    receipt = classify_delivery(MANIFEST, ["docs/policies/delivery-evidence.json"], "E2_OPERATIONAL")
     assert receipt["effective_class"] == "E3_CRITICAL"
     assert receipt["paths"][0]["rules"][0]["rule"] == "builtin_manifest_authority"
     assert receipt["manifest_basis"] == "bootstrap_candidate"

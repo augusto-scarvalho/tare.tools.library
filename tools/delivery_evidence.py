@@ -15,7 +15,7 @@ EVIDENCE_CLASSES = (
     "E3_CRITICAL",
 )
 CLASS_RANK = {name: rank for rank, name in enumerate(EVIDENCE_CLASSES)}
-MANIFEST_PATH = "policies/delivery-evidence.json"
+MANIFEST_PATH = "docs/policies/delivery-evidence.json"
 GRAPH_GAPS = {
     "READY": None,
     "READY_TRUNCATED": "specgraph_output_truncated",

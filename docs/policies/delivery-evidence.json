@@ -7,7 +7,7 @@
     {
       "id": "classification-authority",
       "class": "E3_CRITICAL",
-      "paths": ["policies/delivery-evidence.json", "tools/delivery_evidence.py"]
+      "paths": ["docs/policies/delivery-evidence.json", "tools/delivery_evidence.py"]
     },
     {
       "id": "canonical-library-authority",

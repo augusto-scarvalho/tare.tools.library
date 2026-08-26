@@ -71,7 +71,7 @@ py -m pytest -q tests/test_delivery_evidence.py tests/test_mutation_tester_safet
 py tests/mutation_tester.py
 py -m pytest -q tests tools/publisher/tests
 py -m tools.delivery_evidence --declared E3_CRITICAL `
-  --path policies/delivery-evidence.json `
+  --path docs/policies/delivery-evidence.json `
   --path tools/delivery_evidence.py `
   --path tests/mutation_tester.py `
   --path tests/test_delivery_evidence.py `
