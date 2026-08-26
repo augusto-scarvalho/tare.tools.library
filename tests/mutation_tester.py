@@ -11,6 +11,7 @@ import time
 import shutil
 import tempfile
 import subprocess
+import hashlib
 from pathlib import Path
 from dataclasses import dataclass
 from typing import List, Dict, Tuple, Optional
@@ -73,7 +74,15 @@ TARGET_MODULES = [
 class MutationTester:
     def __init__(self, root_dir: Path, test_command: Optional[List[str]] = None):
         self.root_dir = root_dir.resolve()
-        self.test_command = test_command or [sys.executable, "-m", "pytest", "tests/test_library_tools.py", "tests/test_bookkeeper.py", "-q"]
+        self.test_command = test_command or [
+            sys.executable,
+            "-m",
+            "pytest",
+            "tests/test_library_tools.py",
+            "tests/test_bookkeeper.py",
+            "tests/test_vector_namespace_isolation.py",
+            "-q",
+        ]
 
     def discover_mutations(self) -> List[Tuple[Path, MutationRule, int, str, str]]:
         """Find all applicable mutations in target files."""
@@ -90,8 +99,8 @@ class MutationTester:
                         discovered.append((file_path, rule, line_idx, line, mutated_line))
         return discovered
 
-    def run_test_suite(self) -> Tuple[bool, str]:
-        """Run the test suite. Returns (passed, output)."""
+    def run_test_suite(self) -> Tuple[str, str]:
+        """Run the test suite without laundering infrastructure failures."""
         try:
             res = subprocess.run(
                 self.test_command,
@@ -101,37 +110,62 @@ class MutationTester:
                 text=True,
                 timeout=45,
             )
-            return (res.returncode == 0, res.stdout)
+            if res.returncode == 0:
+                return ("PASS", res.stdout)
+            if res.returncode == 1:
+                return ("FAIL", res.stdout)
+            return ("ERROR", res.stdout)
         except subprocess.TimeoutExpired:
-            return (False, "TIMEOUT")
+            return ("TIMEOUT", "TIMEOUT")
         except Exception as e:
-            return (False, f"ERROR: {e}")
+            return ("ERROR", f"ERROR: {e}")
 
     def run_mutation_analysis(self) -> List[MutationResult]:
-        with tempfile.TemporaryDirectory(prefix="tare-library-mutants-") as tmp_dir:
-            shadow_root = Path(tmp_dir)
-            shutil.copytree(
-                self.root_dir / "tools",
-                shadow_root / "tools",
-                ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
-            )
-            (shadow_root / "tests").mkdir()
-            for rel_path in ("tests/test_library_tools.py", "tests/test_bookkeeper.py"):
-                shutil.copy2(self.root_dir / rel_path, shadow_root / rel_path)
-            for rel_path in ("AGENTS.md", "pytest.ini"):
-                if (self.root_dir / rel_path).exists():
+        source_hashes = {
+            rel_path: hashlib.sha256((self.root_dir / rel_path).read_bytes()).hexdigest()
+            for rel_path in TARGET_MODULES
+            if (self.root_dir / rel_path).is_file()
+        }
+        try:
+            with tempfile.TemporaryDirectory(prefix="tare-library-mutants-") as tmp_dir:
+                shadow_root = Path(tmp_dir)
+                shutil.copytree(
+                    self.root_dir / "tools",
+                    shadow_root / "tools",
+                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+                )
+                (shadow_root / "tests").mkdir()
+                for rel_path in (
+                    "tests/test_library_tools.py",
+                    "tests/test_bookkeeper.py",
+                    "tests/test_vector_namespace_isolation.py",
+                ):
                     shutil.copy2(self.root_dir / rel_path, shadow_root / rel_path)
-            if (self.root_dir / "ontology").exists():
-                shutil.copytree(self.root_dir / "ontology", shadow_root / "catalog/ontology")
-            return MutationTester(shadow_root, self.test_command)._run_mutation_analysis_in_place()
+                for rel_path in ("AGENTS.md", "pytest.ini"):
+                    if (self.root_dir / rel_path).exists():
+                        shutil.copy2(self.root_dir / rel_path, shadow_root / rel_path)
+                ontology = self.root_dir / "catalog" / "ontology"
+                if ontology.exists():
+                    shutil.copytree(ontology, shadow_root / "catalog" / "ontology")
+                results = MutationTester(shadow_root, self.test_command)._run_mutation_analysis_in_place()
+        finally:
+            changed_sources = [
+                rel_path
+                for rel_path, expected in source_hashes.items()
+                if hashlib.sha256((self.root_dir / rel_path).read_bytes()).hexdigest() != expected
+            ]
+            if changed_sources:
+                raise RuntimeError(f"Source integrity check failed: {changed_sources}")
+            print("[INTEGRITY] ALL_SOURCES_UNCHANGED=True")
+        return results
 
     def _run_mutation_analysis_in_place(self) -> List[MutationResult]:
         mutations = self.discover_mutations()
         print(f"\n[MUTATION ENGINE] Discovered {len(mutations)} applicable mutation targets across {len(TARGET_MODULES)} modules.")
         print("[TEST] Validating baseline test suite before mutation run...")
-        base_pass, base_out = self.run_test_suite()
-        if not base_pass:
-            print("[ERROR] Baseline test suite FAILED! Cannot proceed with mutation testing.")
+        base_status, base_out = self.run_test_suite()
+        if base_status != "PASS":
+            print(f"[ERROR] Baseline test suite did not pass ({base_status}). Cannot proceed with mutation testing.")
             print(base_out)
             sys.exit(1)
         print("[OK] Baseline test suite is 100% GREEN.\n")
@@ -152,16 +186,19 @@ class MutationTester:
                 target_file.write_text("\n".join(lines), encoding="utf-8")
 
                 # Run tests against mutant
-                test_passed, test_out = self.run_test_suite()
+                test_status, test_out = self.run_test_suite()
 
-                if not test_passed:
+                if test_status == "FAIL":
                     # Test failed -> mutant was successfully caught!
                     status = "KILLED"
                     print(f"       -> Result : KILLED (Test Suite Caught Mutation)\n")
-                else:
+                elif test_status == "PASS":
                     # Test passed -> mutant survived! Test suite missed the regression!
                     status = "SURVIVED"
                     print(f"       -> Result : SURVIVED (Test Suite Missed Mutation)\n")
+                else:
+                    status = test_status
+                    print(f"       -> Result : {status} (Infrastructure Result; Not Killed)\n")
 
                 results.append(MutationResult(
                     mutant_id=mutant_id,
@@ -188,6 +225,8 @@ def main() -> int:
     total = len(results)
     killed = sum(1 for r in results if r.status == "KILLED")
     survived = sum(1 for r in results if r.status == "SURVIVED")
+    timed_out = sum(1 for r in results if r.status == "TIMEOUT")
+    errored = sum(1 for r in results if r.status == "ERROR")
     score = (killed / total * 100.0) if total > 0 else 0.0
 
     print("=" * 80)
@@ -196,15 +235,19 @@ def main() -> int:
     print(f"Total Mutants Generated: {total}")
     print(f"Mutants Killed (Tests Caught Bug): {killed}")
     print(f"Mutants Survived (Coverage Gaps):  {survived}")
+    print(f"Mutation Runs Timed Out:           {timed_out}")
+    print(f"Mutation Runs Errored:             {errored}")
     print("-" * 80)
 
-    if survived > 0:
+    if survived > 0 or timed_out > 0 or errored > 0:
         print("[WARNING] SURVIVING MUTANTS REQUIRING TEST STRENGTHENING:")
         for r in results:
             if r.status == "SURVIVED":
                 print(f"  - [{r.rule_name}] at {r.target_file}:{r.line_number}")
                 print(f"    Original: {r.original_line}")
                 print(f"    Mutated : {r.mutated_line}\n")
+        if timed_out or errored:
+            print("[ERROR] Infrastructure failures are not counted as killed mutants.")
         return 1
     else:
         print("[SUCCESS] ALL MUTANTS KILLED! Test suite has 100% Mutation Resilience on core invariants.")

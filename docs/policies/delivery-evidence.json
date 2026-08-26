@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "policy": "ADR-058",
+  "repository": "tare.tools.library",
+  "mode": "observe",
+  "surfaces": [
+    {
+      "id": "classification-authority",
+      "class": "E3_CRITICAL",
+      "paths": ["docs/policies/delivery-evidence.json", "tools/delivery_evidence.py"]
+    },
+    {
+      "id": "canonical-library-authority",
+      "class": "E3_CRITICAL",
+      "paths": ["catalog/LIBRARY_MANIFEST.json", "docs/adr/**", "specs/**"]
+    },
+    {
+      "id": "ingestion-and-canonical-identity",
+      "class": "E3_CRITICAL",
+      "paths": ["tools/ingest.py", "tools/build_manifest.py"]
+    },
+    {
+      "id": "governance-admission-publication",
+      "class": "E3_CRITICAL",
+      "paths": ["tools/governance/**", "tools/policy/**", "tools/publisher/**"]
+    },
+    {
+      "id": "operational-library-contracts",
+      "class": "E2_OPERATIONAL",
+      "paths": ["tools/bookkeeper/**", "tools/indexer/**", "tools/inference/**", "tools/mesh/**", "tools/query.py"]
+    },
+    {
+      "id": "mutation-runner-safety",
+      "class": "E2_OPERATIONAL",
+      "paths": ["tests/mutation_tester.py"]
+    },
+    {
+      "id": "ci-and-test-configuration",
+      "class": "E2_OPERATIONAL",
+      "paths": [".github/workflows/**", "pytest.ini"]
+    },
+    {
+      "id": "test-behavior",
+      "class": "E1_LOCAL_BEHAVIOR",
+      "paths": ["tests/**"]
+    }
+  ]
+}
