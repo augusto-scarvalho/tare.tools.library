@@ -16,7 +16,8 @@ This sets the repository-local Git configuration to
 `core.hooksPath=.githooks`. The tracked `pre-push` hook checks every pushed
 branch range against the corresponding remote SHA. GitHub CI runs the same
 Python implementation, so bypassing a local hook does not bypass repository
-policy.
+policy. Because the hooks are versioned repository policy, `.githooks` is an
+admitted root in the canonical repository taxonomy.
 
 The hook accepts Python 3.10 or newer through `PYTHON`, `python`, `python3`, or
 the Windows `py -3` launcher. It validates each candidate before selecting it,
