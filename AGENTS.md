@@ -20,12 +20,23 @@
 Todos os agentes de IA (Antigravity, Codex, subagentes e scripts autônomos) DEVEM seguir os 4 protocolos operacionais abaixo:
 
 ### 🔹 Protocolo 1: Pre-Task Grounding (Consulta à SSOT antes de Codificar)
-Antes de propor designs ou implementar código em qualquer satélite, o agente deve consultar a especificação correspondente para obter os Critérios de Aceitação (`AC-01..N`):
+Antes de propor designs ou implementar código em qualquer satélite, o agente deve consumir a projeção limitada e específica do repositório através do SpecGraph:
 ```powershell
-# Extrair critérios de aceitação de uma SPEC:
-python -m tools.query --spec SPEC-KERNEL-001
+# Caminho canônico para agentes nos satélites:
+specgraph ground --repo tare.tools.kernel `
+  --library-manifest C:\projects\tare.tools.library\catalog\LIBRARY_MANIFEST.json `
+  --max-bytes 8192 --format json
+```
 
-# Buscar decisões arquiteturais por conceito ou palavra-chave:
+`tare.tools.library` continua dona do conteúdo, ingestão, deduplicação,
+publicação e geração do manifesto; não é dependência síncrona direta dos
+adaptadores de fornecedor. O Kernel transporta os bytes do comando e o Agent
+Runtime os admite antes do provedor. Não há descoberta automática de manifesto.
+
+Somente mantenedores trabalhando dentro da própria Library usam `tools.query`
+como ferramenta editorial/diagnóstica direta:
+
+```powershell
 python -m tools.query --search "CAS"
 python -m tools.query --adr ADR-051
 ```

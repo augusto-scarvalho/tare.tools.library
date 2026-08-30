@@ -6,7 +6,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from .dedup_detector import detect_duplicates
+from .dedup_detector import EXCLUDE_DIRS, detect_duplicates
 from .ssot_registry import audit_ssot_registry
 from .tombstone_manager import apply_tombstone, verify_tombstones
 
@@ -26,6 +26,7 @@ def main() -> int:
 
     # Subcommand: tombstone
     tomb_parser = subparsers.add_parser("tombstone", help="Apply or verify tombstone markers")
+    tomb_parser.add_argument("--root", default=".", help="Root directory for tombstone verification")
     tomb_parser.add_argument("--verify", action="store_true", help="Verify all tombstone target links")
     tomb_parser.add_argument("--file", help="File to apply tombstone to")
     tomb_parser.add_argument("--target", help="Canonical target URL / path")
@@ -56,13 +57,17 @@ def main() -> int:
         print(f"[BOOKKEEPER] Auditing SSOT Registry on '{root_path}'...")
         report = audit_ssot_registry(root_path)
         print(f"[SUMMARY] Total documents: {report.total_documents} | Canonical SSOT docs: {report.canonical_documents}")
+        print(
+            f"[STATUS] Unclassified (excluded): {len(report.unclassified_documents)} | "
+            f"Unknown (fail-closed): {len(report.unknown_status_documents)}"
+        )
         if report.is_valid:
             print("[OK] SSOT Registry is 100% compliant! Exactly 1 canonical doc per topic.")
             return 0
         else:
             print(f"[ERROR] Found {len(report.violations)} SSOT split-brain violations:")
             for v in report.violations:
-                print(f"  - Doc ID '{v.doc_id}': conflicting files: {v.files}")
+                print(f"  - Doc ID '{v.doc_id}': {v.description}; files: {v.files}")
             return 1
 
     elif args.command == "tombstone":
@@ -91,12 +96,20 @@ def main() -> int:
         print(f"[BOOKKEEPER] Running Full Library Audit Suite on '{root_path}'...")
         ssot_rep = audit_ssot_registry(root_path)
         tomb_res = verify_tombstones(root_path)
-        dedup_rep = detect_duplicates(root_path, similarity_threshold=0.85)
+        dedup_rep = detect_duplicates(
+            root_path,
+            similarity_threshold=0.85,
+            exclude_dirs=EXCLUDE_DIRS + ("archive",),
+        )
 
         print("\n--- AUDIT SUMMARY ---")
         print(f"1. SSOT Compliance: {'[OK] PASS' if ssot_rep.is_valid else '[FAIL]'}")
         print(f"2. Tombstone Health: {'[OK] PASS' if tomb_res.is_healthy else '[FAIL]'}")
         print(f"3. High Duplication (>85%): {len(dedup_rep.duplicates_found)} pairs detected.")
+        print(
+            f"4. Status receipt: {len(ssot_rep.unclassified_documents)} unclassified/excluded | "
+            f"{len(ssot_rep.unknown_status_documents)} unknown/fail-closed"
+        )
 
         if not ssot_rep.is_valid or not tomb_res.is_healthy:
             return 1

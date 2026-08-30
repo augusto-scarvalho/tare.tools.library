@@ -11,7 +11,13 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.bookkeeper.dedup_detector import detect_duplicates, compute_similarity
-from tools.bookkeeper.ssot_registry import audit_ssot_registry
+from tools.bookkeeper.ssot_registry import (
+    STATUS_CANONICAL,
+    STATUS_NON_CANONICAL,
+    STATUS_UNKNOWN,
+    audit_ssot_registry,
+    classify_status,
+)
 from tools.bookkeeper.tombstone_manager import apply_tombstone, verify_tombstones
 
 
@@ -74,6 +80,67 @@ This document specifies the relational table layouts and indexing strategies for
             self.assertEqual(len(report.violations), 1)
             self.assertEqual(report.violations[0].doc_id, "ADR-001")
 
+    def test_status_vocabulary_covers_english_portuguese_and_fails_unknown(self):
+        self.assertEqual(
+            classify_status("Ratified and Approved by Tripartite Deliberation"),
+            STATUS_CANONICAL,
+        )
+        self.assertEqual(
+            classify_status("Ratificado e Aprovado pela Mesa Redonda Tripartite"),
+            STATUS_CANONICAL,
+        )
+        self.assertEqual(classify_status("ACCEPTED"), STATUS_CANONICAL)
+        self.assertEqual(classify_status("Official Source of Truth"), STATUS_CANONICAL)
+        self.assertEqual(classify_status("ARCHIVED_SUPERSEDED"), STATUS_NON_CANONICAL)
+        self.assertEqual(classify_status("Aceito"), STATUS_UNKNOWN)
+
+    def test_ssot_allows_exact_sources_with_one_semantic_identity(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            adr_dir = Path(tmp_dir) / "adr"
+            adr_dir.mkdir()
+            portuguese = """# Backlog Graph
+- **Status:** Ratificado e Aprovado pela Mesa Redonda Tripartite
+"""
+            english = """# SpecGraph
+- **Status:** Ratified and Approved by Tripartite Deliberation
+"""
+            (adr_dir / "ADR-001_BACKLOG_GRAPH.md").write_text(portuguese, encoding="utf-8")
+            (adr_dir / "ADR-001_BACKLOG_GRAPH_deadbeef.md").write_text(portuguese, encoding="utf-8")
+            (adr_dir / "ADR-001_SPECGRAPH.md").write_text(english, encoding="utf-8")
+            (adr_dir / "ADR-001_SPECGRAPH_b6d508c0.md").write_text(english, encoding="utf-8")
+
+            report = audit_ssot_registry(tmp_dir)
+
+            self.assertTrue(report.is_valid)
+            self.assertEqual(report.canonical_documents, 4)
+
+    def test_generic_version_filenames_use_titles_as_semantic_identity(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            adr_dir = Path(tmp_dir) / "adr"
+            adr_dir.mkdir()
+            status = "\n- **Status:** Ratificado\n"
+            (adr_dir / "v001_11111111.md").write_text(
+                "# ADR-100: Alpha" + status, encoding="utf-8"
+            )
+            (adr_dir / "v001_22222222.md").write_text(
+                "# ADR-200: Beta" + status, encoding="utf-8"
+            )
+
+            report = audit_ssot_registry(tmp_dir)
+
+            self.assertTrue(report.is_valid)
+
+    def test_unknown_explicit_status_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            doc = Path(tmp_dir) / "ADR-777_unknown.md"
+            doc.write_text("# Unknown\n- **Status:** Aceito\n", encoding="utf-8")
+
+            report = audit_ssot_registry(tmp_dir)
+
+            self.assertFalse(report.is_valid)
+            self.assertEqual(report.unknown_status_documents, ["ADR-777_unknown.md"])
+            self.assertIn("Unrecognized status", report.violations[0].description)
+
     def test_tombstone_lifecycle(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
@@ -91,6 +158,31 @@ This document specifies the relational table layouts and indexing strategies for
             self.assertEqual(res.total_tombstones, 1)
             self.assertEqual(res.valid_tombstones, 1)
             self.assertTrue(res.is_healthy)
+
+            ssot = audit_ssot_registry(tmp_path)
+            self.assertTrue(ssot.is_valid)
+            self.assertEqual(ssot.canonical_documents, 0)
+
+    def test_tombstone_verifier_ignores_mentions_and_requires_pointer(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            (tmp_path / "discussion.md").write_text(
+                "# Discussion\nThe TOMBSTONE and ARCHIVED_SUPERSEDED markers are documented here.\n",
+                encoding="utf-8",
+            )
+            (tmp_path / "broken.md").write_text(
+                "# [TOMBSTONE] Broken\n> **Status:** `ARCHIVED_SUPERSEDED`\n",
+                encoding="utf-8",
+            )
+
+            report = verify_tombstones(tmp_path)
+
+            self.assertEqual(report.total_tombstones, 1)
+            self.assertEqual(report.valid_tombstones, 0)
+            self.assertEqual(
+                report.broken_pointers,
+                [("broken.md", "<missing canonical target>")],
+            )
 
 
 if __name__ == "__main__":
