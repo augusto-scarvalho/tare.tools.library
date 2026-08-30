@@ -75,19 +75,37 @@ def verify_tombstones(
         if file_path.is_file() and file_path.suffix.lower() in include_extensions:
             try:
                 text = file_path.read_text(encoding="utf-8", errors="ignore")
-                if "TOMBSTONE" in text or "ARCHIVED_SUPERSEDED" in text:
+                is_tombstone = bool(
+                    re.search(r"^#\s+\[TOMBSTONE\]", text, flags=re.MULTILINE)
+                    and re.search(
+                        r"\*\*Status:\*\*\s+`?ARCHIVED_SUPERSEDED`?",
+                        text,
+                        flags=re.IGNORECASE,
+                    )
+                )
+                if is_tombstone:
                     total_tombstones += 1
                     # Extract target pointer
-                    match = re.search(r"👉\s+\*\*Canônico:\*\*\s+\[([^\]]+)\]\(([^)]+)\)", text)
+                    match = re.search(
+                        r"\*\*Canônico:\*\*\s+\[[^\]]+\]\(([^)]+)\)",
+                        text,
+                        flags=re.IGNORECASE,
+                    )
                     if match:
-                        target = match.group(2).strip()
-                        target_file = root_path / target.lstrip("/")
-                        if target_file.exists():
+                        target = match.group(1).strip()
+                        relative_target = target.lstrip("/")
+                        candidates = (
+                            root_path / relative_target,
+                            file_path.parent / relative_target,
+                        )
+                        if any(candidate.exists() for candidate in candidates):
                             valid_tombstones += 1
                         else:
                             broken.append((str(file_path.relative_to(root_path)), target))
                     else:
-                        valid_tombstones += 1  # Standard marker without explicit target
+                        broken.append(
+                            (str(file_path.relative_to(root_path)), "<missing canonical target>")
+                        )
             except Exception:
                 continue
 

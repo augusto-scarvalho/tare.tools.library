@@ -4,6 +4,25 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+### Changed
+
+- Added a shared, tested changelog guard for local pre-push and GitHub CI. It
+  requires meaningful `Unreleased` entries for material changes, validates
+  committed content, and prevents silent deletion or rewriting of history.
+- Admitted repository-owned `.githooks` in the canonical root taxonomy.
+- Routed satellite-agent pre-task grounding through the bounded SpecGraph
+  projection while retaining direct `tools.query` use for Library-local
+  editorial and diagnostic work.
+- Implemented the ADR-060 exact-content projection contract: payload IDs are
+  content hashes, provenance retains ordered per-source authority, exact copies
+  collapse in linear time, mixed authority stays explicit, and byte-distinct
+  semantic conflicts fail closed with a machine-readable receipt. The current
+  catalog remains intentionally unpublished while nine measured authority
+  conflicts await explicit source disposition.
+- Bounded the full Bookkeeper audit by excluding preserved `docs/archive`
+  material from its quadratic near-duplicate scan, while SSOT and tombstone
+  integrity checks still cover the governed document set.
+
 ### Fixed
 
 - Repaired Publication PR workflow validation, credential gating, current incoming-path routing, and repository targeting.

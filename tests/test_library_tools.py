@@ -13,7 +13,14 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.ingest import ingest_document
-from tools.build_manifest import build_library_manifest, save_manifest
+from tools.build_manifest import (
+    AUTHORITY_DECLARED,
+    AUTHORITY_EXCLUDED,
+    AUTHORITY_UNMANAGED,
+    build_library_manifest,
+    save_manifest,
+)
+from tools.bookkeeper.tombstone_manager import apply_tombstone
 from tools.query import get_adr, get_spec, search_library
 
 
@@ -149,8 +156,11 @@ class LibraryToolsTests(unittest.TestCase):
             self.assertEqual(manifest.total_documents, 2)
             self.assertEqual(len(manifest.adrs), 1)
             self.assertEqual(len(manifest.specs), 1)
-            self.assertEqual(manifest.adrs[0].id, "ADR-099")
-            self.assertEqual(manifest.specs[0].id, "SPEC-TEST-001")
+            self.assertEqual(manifest.version, "3.0.0")
+            self.assertEqual(manifest.adrs[0].id, manifest.adrs[0].sha256)
+            self.assertEqual(manifest.adrs[0].authority_state, AUTHORITY_EXCLUDED)
+            self.assertEqual(manifest.specs[0].authority_state, AUTHORITY_UNMANAGED)
+            self.assertEqual(manifest.projection_receipt["source_count"], 2)
 
             out_file = save_manifest(manifest, root_dir=tmp_path)
             self.assertTrue(out_file.exists())
@@ -169,6 +179,189 @@ class LibraryToolsTests(unittest.TestCase):
             # Ensure no residual .tmp files exist in catalog/
             tmp_files = list((tmp_path / "catalog").glob("*.tmp"))
             self.assertEqual(len(tmp_files), 0)
+
+    def test_manifest_ids_are_content_addressed_and_globally_unique(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            adr_dir = tmp_path / "docs" / "adr"
+            adr_dir.mkdir(parents=True, exist_ok=True)
+            (adr_dir / "DECISION_a1b2c3d4.md").write_text(
+                "# First decision", encoding="utf-8"
+            )
+            (adr_dir / "DECISION_e5f6a7b8.md").write_text(
+                "# Second decision", encoding="utf-8"
+            )
+            spec_dir = tmp_path / "specs"
+            spec_dir.mkdir()
+            (spec_dir / "DECISION_a1b2c3d4.md").write_text(
+                "# Specification with colliding stem", encoding="utf-8"
+            )
+
+            manifest = build_library_manifest(root_dir=tmp_path)
+
+            self.assertEqual(manifest.version, "3.0.0")
+            all_ids = [
+                entry.id for entry in manifest.adrs + manifest.specs
+            ]
+            self.assertEqual(len(all_ids), len(set(all_ids)))
+            self.assertTrue(all(entry.id == entry.sha256 for entry in manifest.adrs))
+
+    def test_manifest_consolidates_active_canonical_exact_copy(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            adr_dir = Path(tmp_dir) / "docs" / "adr"
+            adr_dir.mkdir(parents=True)
+            content = """# ADR-100: Canonical
+- **Status:** Ratificado e Aprovado pela Mesa Redonda Tripartite
+Targets tare.tools.specgraph.
+"""
+            (adr_dir / "ADR-100_TEST.md").write_text(content, encoding="utf-8")
+            (adr_dir / "ADR-100_TEST_deadbeef.md").write_text(content, encoding="utf-8")
+
+            manifest = build_library_manifest(root_dir=tmp_dir)
+
+            self.assertEqual(len(manifest.adrs), 1)
+            self.assertEqual(manifest.adrs[0].authority_state, AUTHORITY_DECLARED)
+            self.assertEqual(len(manifest.adrs[0].source_paths), 2)
+            self.assertEqual(
+                manifest.projection_receipt["exact_groups_consolidated"], 1
+            )
+            self.assertEqual(
+                manifest.adrs[0].relative_path,
+                "docs/adr/ADR-100_TEST.md",
+            )
+
+    def test_manifest_rejects_distinct_bytes_with_same_active_semantic_id(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            adr_dir = Path(tmp_dir) / "docs" / "adr"
+            adr_dir.mkdir(parents=True)
+            status = "\n- **Status:** Ratified and Approved by Tripartite Deliberation\n"
+            (adr_dir / "ADR-101_TEST.md").write_text(
+                "# First" + status, encoding="utf-8"
+            )
+            (adr_dir / "ADR-101_TEST_cafebabe.md").write_text(
+                "# Second" + status, encoding="utf-8"
+            )
+
+            with self.assertRaisesRegex(ValueError, "semantic document ID 'ADR-101_TEST'"):
+                build_library_manifest(root_dir=tmp_dir)
+
+    def test_manifest_tombstone_preserves_source_without_grounding_authority(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            adr_dir = Path(tmp_dir) / "docs" / "adr"
+            adr_dir.mkdir(parents=True)
+            canonical = adr_dir / "ADR-102_TEST.md"
+            canonical.write_text(
+                "# ADR-102\n- **Status:** Ratificado e Aprovado\n"
+                "Applies to tare.tools.specgraph.\n",
+                encoding="utf-8",
+            )
+            redundant = adr_dir / "ADR-102_TEST_deadbeef.md"
+            redundant.write_bytes(canonical.read_bytes())
+            apply_tombstone(
+                redundant,
+                "adr/ADR-102_TEST.md",
+                "Exact duplicate disposition under ADR-059",
+            )
+
+            manifest = build_library_manifest(root_dir=tmp_dir)
+            by_path = {entry.relative_path: entry for entry in manifest.adrs}
+
+            self.assertEqual(manifest.canonical_ssot_count, 1)
+            self.assertEqual(
+                by_path["docs/adr/ADR-102_TEST.md"].target_repositories,
+                ["tare.tools.specgraph"],
+            )
+            tombstone = by_path["docs/adr/ADR-102_TEST_deadbeef.md"]
+            self.assertEqual(tombstone.status, "ARCHIVED_SUPERSEDED")
+            self.assertEqual(tombstone.authority_state, AUTHORITY_EXCLUDED)
+            self.assertEqual(tombstone.target_repositories, [])
+
+    def test_manifest_unknown_status_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            adr_dir = Path(tmp_dir) / "docs" / "adr"
+            adr_dir.mkdir(parents=True)
+            (adr_dir / "ADR-103_UNKNOWN.md").write_text(
+                "# Unknown\n- **Status:** Aceito\n", encoding="utf-8"
+            )
+
+            with self.assertRaisesRegex(ValueError, "unrecognized document status"):
+                build_library_manifest(root_dir=tmp_dir)
+
+    def test_manifest_consolidates_specs_and_preserves_ordered_provenance(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            spec_dir = Path(tmp_dir) / "specs"
+            spec_dir.mkdir(parents=True)
+            content = "# SPEC-200: One payload\nTargets tare.tools.specgraph.\n"
+            (spec_dir / "SPEC-200.md").write_text(content, encoding="utf-8")
+            (spec_dir / "SPEC-200_deadbeef.md").write_text(content, encoding="utf-8")
+
+            manifest = build_library_manifest(root_dir=tmp_dir)
+
+            self.assertEqual(len(manifest.specs), 1)
+            entry = manifest.specs[0]
+            self.assertEqual(
+                entry.id,
+                hashlib.sha256((spec_dir / "SPEC-200.md").read_bytes()).hexdigest(),
+            )
+            self.assertEqual(entry.authority_state, AUTHORITY_UNMANAGED)
+            self.assertEqual(
+                [source.relative_path for source in entry.source_paths],
+                ["specs/SPEC-200.md", "specs/SPEC-200_deadbeef.md"],
+            )
+            self.assertEqual(
+                manifest.projection_receipt["consolidated_source_count"], 1
+            )
+
+    def test_manifest_mixed_exact_group_preserves_per_source_authority(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            adr_dir = root / "docs" / "adr"
+            spec_dir = root / "specs"
+            adr_dir.mkdir(parents=True)
+            spec_dir.mkdir()
+            content = (
+                "# Shared\n- **Status:** Ratified\n"
+                "Targets tare.tools.specgraph.\n"
+            )
+            (adr_dir / "ADR-201_SHARED.md").write_text(content, encoding="utf-8")
+            (spec_dir / "SPEC-201_SHARED.md").write_text(content, encoding="utf-8")
+
+            manifest = build_library_manifest(root_dir=root)
+            entries = manifest.adrs + manifest.specs
+
+            self.assertEqual(len(entries), 1)
+            self.assertEqual(entries[0].authority_state, AUTHORITY_DECLARED)
+            self.assertEqual(
+                {source.authority_state for source in entries[0].source_paths},
+                {AUTHORITY_DECLARED, AUTHORITY_UNMANAGED},
+            )
+            self.assertEqual(manifest.projection_receipt["mixed_state_groups"], 1)
+
+    def test_manifest_serialization_is_deterministic(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            spec_dir = root / "specs"
+            spec_dir.mkdir(parents=True)
+            (spec_dir / "SPEC-A.md").write_text("# A", encoding="utf-8")
+
+            first = save_manifest(build_library_manifest(root), root).read_bytes()
+            second = save_manifest(build_library_manifest(root), root).read_bytes()
+
+            self.assertEqual(first, second)
+
+    def test_manifest_rejects_broken_tombstone_before_publication(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            adr_dir = Path(tmp_dir) / "docs" / "adr"
+            adr_dir.mkdir(parents=True)
+            (adr_dir / "ADR-202_OLD.md").write_text(
+                "# [TOMBSTONE] Broken\n"
+                "> **Canônico:** [missing](adr/missing.md)\n"
+                "> **Status:** `ARCHIVED_SUPERSEDED`\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ValueError, "broken tombstone"):
+                build_library_manifest(root_dir=tmp_dir)
 
     def test_vector_db_wal_mode_active(self):
         from tools.indexer.embed_corpus import LibraryVectorDB
@@ -659,6 +852,3 @@ class LibraryToolsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-
