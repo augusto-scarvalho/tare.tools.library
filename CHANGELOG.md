@@ -9,6 +9,7 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 - Added a shared, tested changelog guard for local pre-push and GitHub CI. It
   requires meaningful `Unreleased` entries for material changes, validates
   committed content, and prevents silent deletion or rewriting of history.
+- Admitted repository-owned `.githooks` in the canonical root taxonomy.
 - Routed satellite-agent pre-task grounding through the bounded SpecGraph
   projection while retaining direct `tools.query` use for Library-local
   editorial and diagnostic work.
