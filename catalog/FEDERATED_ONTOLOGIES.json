@@ -25,7 +25,7 @@
     {
       "repository": "tare.tools.kernel",
       "url": "https://github.com/augusto-scarvalho/tare.tools.kernel",
-      "revision": "338e0e14843dc085a8cfcaac27c0c8087060fefb",
+      "revision": "dc8bbad0d1202fde0bde12943acac7a635483b15",
       "canonical_path": "ontology/domain_ontology.yaml",
       "canonical_sha256": "3ad38e9580a2a35d237fbf5e8f45bf73b7e62d8972b5c8898c874968ad880cb3",
       "version": "1.0.0",
@@ -37,7 +37,7 @@
     {
       "repository": "tare.tools.os",
       "url": "https://github.com/augusto-scarvalho/tare.tools.os",
-      "revision": "56c00fda5ddea9b7ebd09b779ee7eaedf1d2b34c",
+      "revision": "4b778217a8ef927b0e16433f6d9e094edda470c5",
       "canonical_path": "ontology/domain_ontology.yaml",
       "canonical_sha256": "e8faf2dc9e76e1cfd1aeb963b10000a2700ba21ce9ab90e22818e6a04a627aa7",
       "version": "1.0.0",

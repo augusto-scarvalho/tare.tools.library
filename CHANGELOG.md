@@ -8,6 +8,8 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 - Registered the BacklogGraph repository-owned ontology and advanced the
   SpecGraph pointer to its federated-consumer revision.
+- Advanced Kernel and OS ontology pointers to revisions that preserve their
+  canonical payload bytes identically on Windows and Linux checkouts.
 - Added a closed inventory for the four retained legacy Pages projections.
 - Added a fail-closed federated ontology registry that resolves every concept
   to one repository, commit, path and SHA-256 without copying its payload.
