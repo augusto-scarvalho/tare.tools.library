@@ -29,7 +29,8 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ### Fixed
 
-- Repaired Publication PR workflow validation, credential gating, current incoming-path routing, and repository targeting.
+- Pointed hosted-runner pip caching at the repository's real dependency file
+  so CI reaches validation instead of failing during Python setup.
 
 ### Removed
 
