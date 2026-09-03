@@ -2376,7 +2376,7 @@
       "repository": "tare.tools.os",
       "url": "https://github.com/augusto-scarvalho/tare.tools.os",
       "default_branch": "main",
-      "revision": "cc06877404dc6dc338e1a12960be731a1d3ea4de",
+      "revision": "3acfc740b3c95a53abbc4de6c6b922c3be802447",
       "documents": [
         {
           "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v003.md",
@@ -3087,29 +3087,17 @@
           ]
         },
         {
-          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
-          "document_type": "archive",
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
+          "document_type": "adr",
           "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
-          "canonical_path": "docs/history/library-era/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
-          "canonical_sha256": "2660bd9cfa30e282fa49ff4598bb1634384b0e01b0dca594f3fce8a523a74660",
-          "migration": "exact-content",
+          "canonical_path": "docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
+          "canonical_sha256": "bc888d7cb5469d44bb9bee1b917fb1abb7e8d119598f691a0c8b6aca18ffed47",
+          "migration": "relocated-and-authority-clarified",
           "retired_library_paths": [
             "docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
-            "docs/proposals/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md"
-          ],
-          "retired_library_sha256": "2660bd9cfa30e282fa49ff4598bb1634384b0e01b0dca594f3fce8a523a74660"
-        },
-        {
-          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS_524b10ba.md",
-          "document_type": "archive",
-          "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
-          "canonical_path": "docs/history/library-era/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS_524b10ba.md",
-          "canonical_sha256": "cd0f87186369d311e4245bc5a3ca7d54715943c155864c1c21859be3cccd8dcd",
-          "migration": "exact-content",
-          "retired_library_paths": [
+            "docs/proposals/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
             "docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS_524b10ba.md"
-          ],
-          "retired_library_sha256": "cd0f87186369d311e4245bc5a3ca7d54715943c155864c1c21859be3cccd8dcd"
+          ]
         },
         {
           "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-053_COMPUTE_OFFLOAD_AND_NODE_AAAAA_CENTRALIZATION.md",
