@@ -6,6 +6,8 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ### Added
 
+- Added a fail-closed federated ontology registry that resolves every concept
+  to one repository, commit, path and SHA-256 without copying its payload.
 - Added the pinned federated document registry, its fail-closed validator and
   a v3 manifest projection with repository-qualified source identities.
 - Added ADR-069 and the practical document-ownership guide.
@@ -23,6 +25,8 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ### Removed
 
+- Retired the central six-concept ontology payload after Kernel, SpecGraph and
+  OS took ownership of their respective concepts.
 - Retired 445 verified payload copies after recording their canonical owner,
   path, full commit and SHA-256; immutable snapshot editions remain available
   outside the default retrieval scope.

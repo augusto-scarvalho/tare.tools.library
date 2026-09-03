@@ -258,6 +258,8 @@ class LibraryToolsTests(unittest.TestCase):
         res = lookup_concept("CASPersistence")
         self.assertIsNotNone(res)
         self.assertIn("CASPersistence", res["id"])
+        self.assertEqual(res["repository"], "tare.tools.kernel")
+        self.assertEqual(res["canonical_path"], "ontology/domain_ontology.yaml")
 
     def test_vector_db_lifecycle(self):
         from tools.indexer.embed_corpus import LibraryVectorDB, cosine_similarity

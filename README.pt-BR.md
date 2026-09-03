@@ -44,7 +44,7 @@ repositório, caminho, commit e SHA-256 em
 A própria Library mantém:
 
 1. **Curadoria de pesquisa e políticas de publicação** em [`docs/`](docs/).
-2. **Fronteira epistêmica e ontologia** em [`catalog/`](catalog/).
+2. **Fronteira epistêmica e ponteiros de ontologias federadas** em [`catalog/`](catalog/).
 3. **Ferramentas e especificação da Library** em [`tools/`](tools/) e [`specs/`](specs/).
 4. **Edições históricas imutáveis**, fora da busca normal, em
    [`docs/archive/`](docs/archive/) e [`catalog/corpus/`](catalog/corpus/).
@@ -61,7 +61,7 @@ Pela regra federada da **[ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP
 ```mermaid
 flowchart TD
     subgraph Axis1 ["1. Eixo do Conhecimento & Memória (O Porquê)"]
-        Library["📚 tare.tools.library<br/>• Ponteiros federados<br/>• Pesquisa própria<br/>• Fronteira epistêmica e ontologia<br/>• Busca lexical e vetorial limitada"]
+        Library["📚 tare.tools.library<br/>• Ponteiros de documentos e ontologias<br/>• Pesquisa própria<br/>• Fronteira epistêmica<br/>• Busca lexical e vetorial limitada"]
     end
 
     subgraph Axis2 ["2. Eixo da Ordem & Execução (O Quando & O Quê)"]
@@ -153,10 +153,11 @@ Governado pela **[ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOU
 tare.tools.library/
 ├── .github/                             # Workflows de CI/CD & Portões de Integridade
 ├── cases/                               # Casos Formais de Governança RFC (RFC-001..RFC-008)
-├── catalog/                             # Catálogo Mestre, Capabilities, Corpus & Ontologia
+├── catalog/                             # Ponteiros federados, capabilities e corpus
+│   ├── FEDERATED_DOCUMENTS.json         # Documentos externos por repo, commit, caminho e hash
+│   ├── FEDERATED_ONTOLOGIES.json        # Ontologias externas por dono, commit, caminho e hash
 │   ├── corpus/                          # Artefatos Canônicos Ingeridos & Manifestos
 │   ├── frontier/                        # Radar da Fronteira Epistêmica & Ponteiros
-│   ├── ontology/                        # Ontologia de Domínio (YAML)
 │   └── schemas/                         # Schemas JSON
 ├── docs/                                # Documentação Técnica Canônica & SSOT Vivo
 │   ├── adr/                             # ADRs Canônicas (ADR-001 a ADR-067)
@@ -182,7 +183,8 @@ Atualizado pela decisão explícita do Operador na **ADR-069**:
 * **Mandato dos Agentes de IA:** *“Documentar a coisa certa, no lugar certo, na hora certa”*:
   1. *Em cada repositório de código:* especificações, arquitetura e operações da própria ferramenta.
   2. *No `tare.tools.os`:* governança, autoridade e settlement do ecossistema.
-  3. *Nesta Library:* curadoria, ontologia, publicação e ferramentas próprias.
+  3. *Nesta Library:* curadoria, publicação, ferramentas próprias e somente o
+     vocabulário específico da Library; ontologias externas ficam com seus donos.
   4. *No catálogo federado:* ponteiros imutáveis para documentos externos.
 
 ---

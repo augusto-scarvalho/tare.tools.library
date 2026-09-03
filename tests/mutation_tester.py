@@ -144,9 +144,15 @@ class MutationTester:
                 for rel_path in ("AGENTS.md", "pytest.ini"):
                     if (self.root_dir / rel_path).exists():
                         shutil.copy2(self.root_dir / rel_path, shadow_root / rel_path)
-                ontology = self.root_dir / "catalog" / "ontology"
-                if ontology.exists():
-                    shutil.copytree(ontology, shadow_root / "catalog" / "ontology")
+                ontology_registry = (
+                    self.root_dir / "catalog" / "FEDERATED_ONTOLOGIES.json"
+                )
+                if ontology_registry.exists():
+                    (shadow_root / "catalog").mkdir(exist_ok=True)
+                    shutil.copy2(
+                        ontology_registry,
+                        shadow_root / "catalog" / "FEDERATED_ONTOLOGIES.json",
+                    )
                 results = MutationTester(shadow_root, self.test_command)._run_mutation_analysis_in_place()
         finally:
             changed_sources = [
