@@ -21,17 +21,18 @@ from tools.inference.local_client import LocalInferenceClient, LocalInferenceCon
 
 
 def load_ontology_keywords(root_dir: Path = ROOT) -> List[str]:
-    """Extract list of concept IDs from domain_ontology.yaml for prompting."""
-    onto_path = root_dir / "ontology" / "domain_ontology.yaml"
-    if not onto_path.exists():
+    """Read concept IDs from owner pointers without copying ontology payloads."""
+    from tools.federated_ontologies import load_federated_ontologies
+
+    try:
+        payload = load_federated_ontologies(root_dir)
+    except (OSError, ValueError, json.JSONDecodeError):
         return []
-    text = onto_path.read_text(encoding="utf-8", errors="ignore")
-    concepts = []
-    for line in text.splitlines():
-        if line.strip().startswith("- id:"):
-            c_id = line.split("- id:")[1].strip().strip('"').strip("'")
-            concepts.append(c_id)
-    return concepts
+    return [
+        concept_id
+        for ontology in payload["ontologies"]
+        for concept_id in ontology["concept_ids"]
+    ]
 
 
 def summarize_document(

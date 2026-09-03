@@ -44,7 +44,7 @@ its repository, path, commit and SHA-256 in
 The Library itself owns:
 
 1. **Research curation and publication policy** under [`docs/`](docs/).
-2. **Epistemic frontier and ontology data** under [`catalog/`](catalog/).
+2. **Epistemic frontier and federated ontology pointers** under [`catalog/`](catalog/).
 3. **Library tooling and its own specification** under [`tools/`](tools/) and [`specs/`](specs/).
 4. **Immutable historical editions**, excluded from normal retrieval, under
    [`docs/archive/`](docs/archive/) and [`catalog/corpus/`](catalog/corpus/).
@@ -61,7 +61,7 @@ Under the federated ownership rule in **[ADR-069](docs/adr/ADR-069_FEDERATED_DOC
 ```mermaid
 flowchart TD
     subgraph Axis1 ["1. Knowledge & Memory Axis (The Why)"]
-        Library["📚 tare.tools.library<br/>• Federated document pointers<br/>• Library-owned research<br/>• Epistemic frontier and ontology<br/>• Bounded lexical and vector retrieval"]
+        Library["📚 tare.tools.library<br/>• Federated document and ontology pointers<br/>• Library-owned research<br/>• Epistemic frontier<br/>• Bounded lexical and vector retrieval"]
     end
 
     subgraph Axis2 ["2. Order & Execution Axis (The When & What)"]
@@ -153,11 +153,11 @@ Governed by **[ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDE
 tare.tools.library/
 ├── .github/                             # CI/CD Workflows & Integrity Gates
 ├── cases/                               # Library research/editorial case records
-├── catalog/                             # Federated pointers, frontier & ontology
+├── catalog/                             # Federated pointers and epistemic frontier
 │   ├── FEDERATED_DOCUMENTS.json         # External owner paths, commits and hashes
+│   ├── FEDERATED_ONTOLOGIES.json        # External ontology owners, commits and hashes
 │   ├── corpus/                          # Immutable history (opt-in retrieval)
 │   ├── frontier/                        # Epistemic Frontier Radar & Research Pointers
-│   ├── ontology/                        # Domain Ontology (YAML)
 │   └── schemas/                         # JSON Schemas
 ├── docs/                                # Active Library-owned documentation
 │   ├── adr/                             # Decisions governing the Library
@@ -183,7 +183,8 @@ Ratified as a **Constitutional Invariant** in ADR-051:
 * **AI Agent Mandate:** *“Document the right thing, in the right place, at the right time”*:
   1. *In each code repository:* that tool's specifications, architecture and operations.
   2. *In `tare.tools.os`:* ecosystem-wide governance, authority and settlement.
-  3. *In this Library:* research curation, ontology, publication and Library tooling.
+  3. *In this Library:* research curation, publication, Library tooling and only
+     Library-specific vocabulary; every external ontology stays with its owner.
   4. *In the federated catalog:* immutable pointers to external owner documents.
 
 ---

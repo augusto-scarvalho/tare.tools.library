@@ -263,22 +263,25 @@ def ask_library(
 
 
 def lookup_concept(concept_name: str, root_dir: str | Path = ROOT) -> Optional[Dict[str, Any]]:
-    """Lookup architectural concept in catalog/ontology/domain_ontology.yaml."""
-    root = Path(root_dir)
-    onto_path = root / "catalog/ontology" / "domain_ontology.yaml"
-    if not onto_path.exists():
-        return None
+    """Resolve a concept to its repository-owned ontology pointer."""
+    from tools.federated_ontologies import load_federated_ontologies
 
-    raw_text = onto_path.read_text(encoding="utf-8", errors="ignore")
     clean_target = concept_name.lower().replace("-", "").replace("_", "").replace(" ", "")
-
-    blocks = raw_text.split("- id:")
-    for b in blocks[1:]:
-        lines = b.splitlines()
-        first_line = lines[0].strip().strip('"').strip("'")
-        clean_id = first_line.lower().replace("-", "").replace("_", "").replace(" ", "")
-        if clean_target in clean_id or clean_id in clean_target:
-            return {"id": first_line, "raw": "- id:" + b}
+    payload = load_federated_ontologies(root_dir)
+    for ontology in payload["ontologies"]:
+        for concept_id in ontology["concept_ids"]:
+            clean_id = concept_id.lower().replace("-", "").replace("_", "").replace(" ", "")
+            if clean_target in clean_id or clean_id in clean_target:
+                result = {
+                    "id": concept_id,
+                    "repository": ontology["repository"],
+                    "revision": ontology["revision"],
+                    "canonical_path": ontology["canonical_path"],
+                    "canonical_sha256": ontology["canonical_sha256"],
+                    "version": ontology["version"],
+                }
+                result["raw"] = json.dumps(result, ensure_ascii=False, indent=2)
+                return result
     return None
 
 
@@ -349,11 +352,11 @@ def main() -> int:
     elif args.concept:
         res = lookup_concept(args.concept, args.root)
         if res:
-            print(f"[FOUND CONCEPT: {res['id']}]\n")
+            print(f"[FOUND CONCEPT OWNER: {res['id']}]\n")
             print(res["raw"].strip())
             return 0
         else:
-            print(f"[ERROR] Concept '{args.concept}' not found in domain ontology.")
+            print(f"[ERROR] Concept '{args.concept}' not found in the federated ontology catalog.")
             return 1
 
     elif args.adr:

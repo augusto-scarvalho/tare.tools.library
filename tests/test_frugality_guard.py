@@ -82,7 +82,6 @@ def test_canonical_directory_structure_exists():
         ROOT / "docs/policies",
         ROOT / "catalog/frontier",
         ROOT / "catalog/schemas",
-        ROOT / "catalog/ontology",
         ROOT / "catalog/corpus",
         ROOT / "specs",
         ROOT / "tools",

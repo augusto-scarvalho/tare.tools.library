@@ -24,12 +24,12 @@ def test_runner_distinguishes_failure_timeout_and_error(tmp_path: Path) -> None:
         assert tester.run_test_suite() == ("TIMEOUT", "TIMEOUT")
 
 
-def test_shadow_copy_preserves_ontology_and_reports_source_integrity(capsys) -> None:
+def test_shadow_copy_preserves_ontology_registry_and_reports_source_integrity(capsys) -> None:
     tester = mutation_tester.MutationTester(ROOT)
 
     def observe_shadow(shadow_tester: object) -> list[bool]:
         shadow_root = shadow_tester.root_dir
-        return [(shadow_root / "catalog" / "ontology" / "domain_ontology.yaml").is_file()]
+        return [(shadow_root / "catalog" / "FEDERATED_ONTOLOGIES.json").is_file()]
 
     with patch.object(mutation_tester.MutationTester, "_run_mutation_analysis_in_place", autospec=True, side_effect=observe_shadow):
         assert tester.run_mutation_analysis() == [True]

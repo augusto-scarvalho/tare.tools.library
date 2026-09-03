@@ -6,11 +6,14 @@
 
 ## 🏛️ 1. Authority & ownership boundaries (ADR-069)
 
-`tare.tools.library` owns Library research, ontology, curation, publication
-policy and its own tooling. Tool-specific documents live with their tool;
+`tare.tools.library` owns Library research, Library-specific vocabulary,
+curation, publication policy and its own tooling. Every repository owns its
+own ontology; the Library never stores another repository's ontology payload.
+Tool-specific documents live with their tool;
 ecosystem governance lives in `tare.tools.os`. External documents are pointers
 in `catalog/FEDERATED_DOCUMENTS.json`, identified by repository, path, commit
-and SHA-256. Never restore a retired payload copy here.
+and SHA-256. External ontologies follow the same rule through
+`catalog/FEDERATED_ONTOLOGIES.json`. Never restore a retired payload copy here.
 
 Normal search and embedding exclude `docs/archive/**`, `catalog/corpus/**` and
 generated catalog projections. History requires the explicit
@@ -111,8 +114,10 @@ python -m unittest tests/test_adr_provenance.py
 * **Mandato dos Agentes:** *“Documentar a coisa certa, no lugar certo, na hora certa”*:
   1. *Nos Satélites de Código:* especificações e documentação da própria ferramenta.
   2. *No OS:* decisões e incidentes de alcance do ecossistema.
-  3. *Na Library:* pesquisa, ontologia, curadoria, publicação e ferramentas da Library.
-  4. *No catálogo federado:* somente ponteiros verificáveis para documentos externos.
+  3. *Na Library:* pesquisa, curadoria, publicação, ferramentas e somente o
+     vocabulário específico da própria Library.
+  4. *No catálogo federado:* somente ponteiros verificáveis para documentos e
+     ontologias externos; os payloads permanecem em seus repositórios donos.
 
 ### 🔹 Protocolo 6: Doutrina de Engenharia Frugal & Anti-Hipertrofia (RFC-001 / RFC-002 / RFC-003)
 Todos os agentes e subagentes que atuam no repositório DEVEM operar sob a **[`Doutrina de Engenharia Frugal`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/ENGINEERING_DOCTRINE.md)**, mantida pelo `tare.tools.os`:
