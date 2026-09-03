@@ -1,0 +1,10 @@
+{
+  "schema": "tare.tools/legacy-pages-projections/1.0",
+  "status": "FROZEN_READ_ONLY",
+  "publication_records": [
+    "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "docs/research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/PUBLICATION_RECORD.json",
+    "docs/research/08_validation-assurance/research-pages-canary-v1/PUBLICATION_RECORD.json",
+    "docs/research/11_project-workspace/hierarchical-work-planning-cross-task-optimization-2026-08-13/PUBLICATION_RECORD.json"
+  ]
+}

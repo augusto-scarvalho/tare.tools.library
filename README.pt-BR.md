@@ -43,7 +43,7 @@ repositório, caminho, commit e SHA-256 em
 
 A própria Library mantém:
 
-1. **Curadoria de pesquisa e políticas de publicação** em [`docs/`](docs/).
+1. **Curadoria de pesquisa própria e políticas de busca** em [`docs/`](docs/).
 2. **Fronteira epistêmica e ponteiros de ontologias federadas** em [`catalog/`](catalog/).
 3. **Ferramentas e especificação da Library** em [`tools/`](tools/) e [`specs/`](specs/).
 4. **Edições históricas imutáveis**, fora da busca normal, em
@@ -51,6 +51,10 @@ A própria Library mantém:
 
 Veja a [ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)
 e o [guia de propriedade](docs/DOCUMENT_OWNERSHIP.md).
+
+O antigo publicador central de artigos foi aposentado. Quatro páginas HTML já
+aceitas permanecem como uma projeção fechada e somente leitura; material novo é
+indexado em seu dono canônico, sem ser copiado para a Library.
 
 ---
 
@@ -183,7 +187,7 @@ Atualizado pela decisão explícita do Operador na **ADR-069**:
 * **Mandato dos Agentes de IA:** *“Documentar a coisa certa, no lugar certo, na hora certa”*:
   1. *Em cada repositório de código:* especificações, arquitetura e operações da própria ferramenta.
   2. *No `tare.tools.os`:* governança, autoridade e settlement do ecossistema.
-  3. *Nesta Library:* curadoria, publicação, ferramentas próprias e somente o
+  3. *Nesta Library:* curadoria, busca, ferramentas próprias e somente o
      vocabulário específico da Library; ontologias externas ficam com seus donos.
   4. *No catálogo federado:* ponteiros imutáveis para documentos externos.
 

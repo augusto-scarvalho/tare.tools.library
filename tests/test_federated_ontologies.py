@@ -43,6 +43,20 @@ def test_registry_accepts_owner_pointers_without_payload_copies(tmp_path: Path):
     assert payload["ontologies"][0]["repository"] == "tare.tools.kernel"
 
 
+def test_repository_catalog_includes_backlog_graph_owner():
+    payload = load_federated_ontologies(Path(__file__).resolve().parents[1])
+    backlog = next(
+        item for item in payload["ontologies"]
+        if item["repository"] == "tare.tools.backlog-graph"
+    )
+    assert backlog["concept_ids"] == [
+        "AtomicReopenCascade",
+        "CasLeasedGraphMutation",
+        "DeterministicExecutionFrontier",
+        "TypedDependencySemantics",
+    ]
+
+
 def test_registry_rejects_retired_library_payload_copy(tmp_path: Path):
     _write_registry(tmp_path)
     copy = tmp_path / "catalog" / "ontology" / "domain_ontology.yaml"

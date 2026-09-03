@@ -1,5 +1,5 @@
-corpus/original/** -text
-corpus/translations/** -text
+catalog/corpus/original/** -text
+catalog/corpus/translations/** -text
 *.json text eol=lf
 *.html text eol=lf
 *.md text eol=lf

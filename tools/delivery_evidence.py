@@ -36,7 +36,9 @@ FIXED_E3_PATTERNS = (
     "tools/build_manifest.py",
     "tools/governance/**",
     "tools/policy/**",
-    "tools/publisher/**",
+    "tools/build_pages.py",
+    "tools/pages_translation.py",
+    "site/LEGACY_PAGES_PROJECTIONS.json",
 )
 
 

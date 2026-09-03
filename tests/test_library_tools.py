@@ -420,7 +420,7 @@ class LibraryToolsTests(unittest.TestCase):
         self.assertTrue(agents_file.exists())
         content = agents_file.read_text(encoding="utf-8")
         self.assertIn("Protocolo 1: Pre-Task Grounding", content)
-        self.assertIn("Protocolo 2: Ingestão Automatizada", content)
+        self.assertIn("Protocolo 2: Ingestão de pesquisa própria da Library", content)
         self.assertIn("Protocolo 3: Sincronização do Manifesto", content)
         self.assertIn("Protocolo 4: Auditoria de Higiene Documental", content)
     def test_inference_contracts_and_canonical_fixtures(self):

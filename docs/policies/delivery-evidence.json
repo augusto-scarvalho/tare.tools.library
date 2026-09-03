@@ -20,9 +20,9 @@
       "paths": ["tools/ingest.py", "tools/build_manifest.py"]
     },
     {
-      "id": "governance-admission-publication",
+      "id": "governance-and-legacy-pages-projection",
       "class": "E3_CRITICAL",
-      "paths": ["tools/governance/**", "tools/policy/**", "tools/publisher/**"]
+      "paths": ["tools/governance/**", "tools/policy/**", "tools/build_pages.py", "tools/pages_translation.py", "site/LEGACY_PAGES_PROJECTIONS.json"]
     },
     {
       "id": "operational-library-contracts",

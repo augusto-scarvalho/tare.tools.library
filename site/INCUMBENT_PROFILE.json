@@ -9,8 +9,8 @@
     "retired_branch_commit": "0597d045590975105f28f466f321e36171952ead",
     "retired_workflow_blob": "2e2183586942f3d5ef31f8031516183e85ac4d5f"
   },
-  "candidate_deploy_owner": ".github/workflows/pages.yml@main",
-  "ownership_state": "CANDIDATE_ONLY",
+  "candidate_deploy_owner": null,
+  "ownership_state": "NO_OWNER_READ_ONLY_PREVIEW",
   "base_path": "/tare.tools.research/",
   "expected_materialized_file_count": 176,
   "expected_materialized_inventory_digest": "48f47c55c246663fcb6821486cfadf1324b4e115ccd8b4fbeda165f47820625b",
@@ -25,5 +25,5 @@
     "assets/site.js",
     "search.json"
   ],
-  "migration_rule": "the retired incumbent remains the rollback content source while main owns the sole Pages deployment capability; activation requires a separately validated owner authority record"
+  "migration_rule": "the retired incumbent is a compatibility input; the current workflow can validate and upload an ordinary preview artifact but has no Pages deployment capability"
 }

@@ -66,6 +66,19 @@ class BuildPagesTests(unittest.TestCase):
             'editorial_decision':{'decision_id':decision['decision_id'],'decision':'accept','pages_approved':True,'reviewer':decision['reviewer'],'reviewed_at':decision['reviewed_at'],'sha256':sha(decision_path)},
         }
         (packet/'PUBLICATION_RECORD.json').write_text(json.dumps(record,indent=2),encoding='utf-8')
+        site=root/'site'; site.mkdir(exist_ok=True)
+        records=sorted(
+            path.relative_to(root).as_posix()
+            for path in root.rglob('PUBLICATION_RECORD.json')
+        )
+        (site/'LEGACY_PAGES_PROJECTIONS.json').write_text(
+            json.dumps({
+                'schema':'tare.tools/legacy-pages-projections/1.0',
+                'status':'FROZEN_READ_ONLY',
+                'publication_records':records,
+            }),
+            encoding='utf-8',
+        )
         return packet
 
     def _write_incumbent(self,root: Path) -> Path:
@@ -120,6 +133,18 @@ class BuildPagesTests(unittest.TestCase):
             subprocess.run(['git','-C',str(root),'add','.'],check=True)
             subprocess.run(['git','-C',str(root),'-c','user.name=t','-c','user.email=t@x.invalid','commit','-qm','publication'],check=True)
             with self.assertRaisesRegex(ValueError,'unresolved internal href'):
+                build(root,root/'site-output',base_path='/tare.tools.research/')
+
+    def test_unallowlisted_publication_record_fails_closed(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); self._git_init(root)
+            packet=self._write_publication(root,'study-a')
+            unlisted=root/'research'/'03_workflow'/'unlisted'
+            unlisted.mkdir(parents=True)
+            (unlisted/'PUBLICATION_RECORD.json').write_bytes(
+                (packet/'PUBLICATION_RECORD.json').read_bytes()
+            )
+            with self.assertRaisesRegex(ValueError,'unallowlisted publication records'):
                 build(root,root/'site-output',base_path='/tare.tools.research/')
 
     def test_rejected_decision_cannot_be_overridden_by_publication_record(self):

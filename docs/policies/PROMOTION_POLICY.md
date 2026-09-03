@@ -1,6 +1,7 @@
 # Promotion Policy
 
-Publication to `tare.tools.research` is an evidence-management action. Promotion into `tare-tools` is a governance/architecture action.
+Indexing research is an evidence-management action. Promotion is a separate
+governance and architecture action in the canonical owner repository.
 
 ## Research promotion path
 
@@ -14,4 +15,6 @@ RESEARCH / PROPOSED
   → canonical merge
 ```
 
-A publisher backend MUST NOT create its own promotion authority. `TARGET` or `CURRENT` material must be supported by canonical repo state and the applicable authority/review process.
+Library catalog, search, ingestion, and the frozen Pages projection MUST NOT
+create promotion authority. `TARGET` or `CURRENT` material must be supported by
+canonical owner state and the applicable authority/review process.
