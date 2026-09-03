@@ -1,4 +1,5 @@
-"""Frugality, Taxonomy, and Clean Root Guard Test (RFC-007 / RFC-008 / ADR-067)."""
+"""Frugality, taxonomy, and federated ownership guard tests."""
+import json
 import os
 import subprocess
 import pytest
@@ -75,7 +76,6 @@ def test_canonical_directory_structure_exists():
     """Ensure canonical directories exist and contain valid assets."""
     canonical_dirs = [
         ROOT / "docs/adr",
-        ROOT / "docs/architecture",
         ROOT / "docs/assurance",
         ROOT / "docs/guides",
         ROOT / "docs/archive",
@@ -94,17 +94,34 @@ def test_canonical_directory_structure_exists():
 
 @pytest.mark.verifies("RFC-009-REQ-BRANCH-CI-001")
 def test_branch_and_ci_standardization():
-    """Ensure CI workflows adhere to RFC-009/ADR-068 standards (main, dev triggers)."""
+    """Ensure CI and the federated ADR-068 authority pointer remain present."""
     workflows_dir = ROOT / ".github/workflows"
     assert workflows_dir.exists(), "Workflows directory missing"
-    
-    # Verify ADR-068 and Case RFC-009 exist
-    adr_file = ROOT / "docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md"
-    assert adr_file.exists(), "Missing ADR-068 documentation"
-    
+
+    registry = json.loads(
+        (ROOT / "catalog/FEDERATED_DOCUMENTS.json").read_text(encoding="utf-8")
+    )
+    os_repository = next(
+        item for item in registry["repositories"] if item["repository"] == "tare.tools.os"
+    )
+    adr = next(
+        item
+        for item in os_repository["documents"]
+        if item["canonical_path"]
+        == "docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md"
+    )
+    assert len(os_repository["revision"]) == 40
+    assert (
+        "docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md"
+        in adr["retired_library_paths"]
+    )
+    assert not (
+        ROOT / "docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md"
+    ).exists()
+
     case_file = ROOT / "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/DECISION.md"
     assert case_file.exists(), "Missing RFC-009 case decision"
-    
+
     # Verify CI workflow triggers
     for wf in workflows_dir.glob("*.yml"):
         text = wf.read_text(encoding="utf-8")
