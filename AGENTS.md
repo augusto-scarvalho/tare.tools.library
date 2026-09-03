@@ -7,7 +7,7 @@
 ## 🏛️ 1. Authority & ownership boundaries (ADR-069)
 
 `tare.tools.library` owns Library research, Library-specific vocabulary,
-curation, publication policy and its own tooling. Every repository owns its
+curation, retrieval policy and its own tooling. Every repository owns its
 own ontology; the Library never stores another repository's ontology payload.
 Tool-specific documents live with their tool;
 ecosystem governance lives in `tare.tools.os`. External documents are pointers
@@ -39,8 +39,10 @@ python -m tools.query --search "CAS"
 python -m tools.query --adr ADR-051
 ```
 
-### 🔹 Protocolo 2: Ingestão Automatizada de Novos Artefatos
-Ao concluir estudos, benchmarks, sessões de design ou relatórios de incidentes, o agente DEVE usar o motor de ingestão (que calcula SHA-256 e valida duplicatas automaticamente):
+### 🔹 Protocolo 2: Ingestão de pesquisa própria da Library
+Somente pesquisa cujo dono seja a Library usa o motor de ingestão local. Estudos,
+benchmarks, design e incidentes de outra ferramenta ficam no repositório dono;
+a Library recebe apenas um ponteiro federado com commit, caminho e SHA-256:
 ```powershell
 # Ingerir novo experimento empírico:
 python -m tools.ingest --file resultado.md --type experiment --category local-llm --title "Benchmark RTX 3090"
@@ -114,7 +116,7 @@ python -m unittest tests/test_adr_provenance.py
 * **Mandato dos Agentes:** *“Documentar a coisa certa, no lugar certo, na hora certa”*:
   1. *Nos Satélites de Código:* especificações e documentação da própria ferramenta.
   2. *No OS:* decisões e incidentes de alcance do ecossistema.
-  3. *Na Library:* pesquisa, curadoria, publicação, ferramentas e somente o
+  3. *Na Library:* pesquisa, curadoria, busca, ferramentas e somente o
      vocabulário específico da própria Library.
   4. *No catálogo federado:* somente ponteiros verificáveis para documentos e
      ontologias externos; os payloads permanecem em seus repositórios donos.

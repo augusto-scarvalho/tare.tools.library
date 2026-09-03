@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Build the allowlisted SIGNAL reading projection.
+"""Build the frozen, read-only SIGNAL reading projection.
 
-The publisher is a Strangler/compatibility layer:
+The legacy projection is a compatibility layer:
 - an optional pinned incumbent site is copied byte-for-byte first;
-- new publication pages are additive under /publications/ and /p/<slug>/;
+- only retained historical pages are emitted under /publications/ and /p/<slug>/;
 - the incumbent root/navigation are not replaced until an explicit later cutover;
 - every projected study is bound to source hashes, editorial decision evidence,
   deterministic link rewrites and source↔projection semantic parity.
@@ -17,15 +17,13 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
-import sys
 from urllib.parse import urlsplit, urlunsplit
 
 from bs4 import BeautifulSoup
 
-sys.path.insert(0, str(Path(__file__).resolve().parent / 'publisher' / 'src'))
 from pages_common import normalize_base_path, semantic_fingerprint, sha256_file, site_url
+from pages_translation import validate_pages_translation
 from validate_canonical_html import validate_artifacts
-from tare_tools_publisher.translation import validate_pages_translation
 
 ROOT=Path(__file__).resolve().parents[1]
 PROFILE=ROOT/'site'/'SIGNAL_PROFILE.json'
@@ -34,6 +32,7 @@ ASSETS=ROOT/'site'/'assets'
 MEDIA={'.png','.jpg','.jpeg','.webp','.svg','.gif','.mp3','.mp4','.pdf'}
 PUBLISHED_ROOTS={'research','proposals','experiments','archaeology','sources','findings'}
 REPO_SLUG='augusto-scarvalho/tare.tools.research'
+LEGACY_PROJECTIONS=Path('site/LEGACY_PAGES_PROJECTIONS.json')
 
 
 def head(root: Path) -> str:
@@ -54,15 +53,41 @@ def _copy_tree(source: Path, output: Path) -> None:
 
 
 def _publication_records(root: Path) -> list[Path]:
+    allowlist_path=root/LEGACY_PROJECTIONS
+    if not allowlist_path.is_file():
+        raise ValueError(f'missing frozen Pages projection allowlist: {LEGACY_PROJECTIONS}')
+    allowlist=json.loads(allowlist_path.read_text(encoding='utf-8'))
+    if allowlist.get('schema')!='tare.tools/legacy-pages-projections/1.0':
+        raise ValueError(f'{LEGACY_PROJECTIONS}: unsupported schema')
+    declared=allowlist.get('publication_records')
+    if not isinstance(declared,list) or any(not isinstance(path,str) or not path for path in declared):
+        raise ValueError(f'{LEGACY_PROJECTIONS}: publication_records must be paths')
+    if declared!=sorted(set(declared)):
+        raise ValueError(f'{LEGACY_PROJECTIONS}: publication_records must be sorted and unique')
     records=[]
+    for raw in declared:
+        path=Path(raw)
+        if path.is_absolute() or '..' in path.parts or path.name!='PUBLICATION_RECORD.json':
+            raise ValueError(f'{LEGACY_PROJECTIONS}: unsafe publication record path: {raw}')
+        record=(root/path).resolve()
+        try:
+            record.relative_to(root.resolve())
+        except ValueError as exc:
+            raise ValueError(f'{LEGACY_PROJECTIONS}: path escapes repository: {raw}') from exc
+        if not record.is_file():
+            raise ValueError(f'{LEGACY_PROJECTIONS}: missing publication record: {raw}')
+        records.append(record)
+    discovered=[]
     for rp in root.rglob('PUBLICATION_RECORD.json'):
         rel=rp.relative_to(root)
-        if not rel.parts or rel.parts[0] not in PUBLISHED_ROOTS:
-            continue
         if any(part.startswith('.') for part in rel.parts):
             continue
-        records.append(rp)
-    return sorted(records)
+        if rel.parts[0] in PUBLISHED_ROOTS or rel.parts[:2]==('docs','research'):
+            discovered.append(rel.as_posix())
+    undeclared=sorted(set(discovered)-set(declared))
+    if undeclared:
+        raise ValueError('unallowlisted publication records: '+', '.join(undeclared))
+    return records
 
 
 def _load_studies(root: Path, commit: str) -> list[dict]:
@@ -305,8 +330,8 @@ def build(root: Path, output: Path, *, base_path: str='/tare.tools.research/', i
     if incumbent_profile and normalize_base_path(incumbent_profile['base_path'])!=base_path:
         raise ValueError('configured Pages base path disagrees with pinned incumbent profile')
     _copy_tree(incumbent,output)
-    publisher_assets=output/'assets'/'publisher'; publisher_assets.mkdir(parents=True,exist_ok=True)
-    for name in ('signal.css','site.js'): shutil.copy2(ASSETS/name,publisher_assets/name)
+    legacy_assets=output/'assets'/'publisher'; legacy_assets.mkdir(parents=True,exist_ok=True)
+    for name in ('signal.css','site.js'): shutil.copy2(ASSETS/name,legacy_assets/name)
     commit=head(root)
     source_studies=_load_studies(root,commit); source_map=_published_source_map(source_studies)
     studies=[_build_study(s,root,output,source_map,base_path,profile) for s in source_studies]

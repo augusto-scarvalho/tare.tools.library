@@ -128,13 +128,19 @@ def test_branch_and_ci_standardization():
             assert "main" in text, f"Workflow {wf.name} does not target canonical branch 'main'"
 
 
-@pytest.mark.verifies("RFC-009-REQ-BRANCH-CI-001")
-def test_publication_workflow_uses_current_paths_and_step_scoped_secret_gate():
-    """Keep publication routing valid after the repository taxonomy migration."""
-    workflow = (ROOT / ".github/workflows/create-publication-pr.yml").read_text(encoding="utf-8")
-
-    assert "if: ${{ secrets." not in workflow
-    assert "id: publisher-credentials" in workflow
-    assert "docs/archive/incoming/**/EDITORIAL_DECISION.json" in workflow
-    assert "-- docs/archive/incoming" in workflow
-    assert "repositories: tare.tools.library" in workflow
+@pytest.mark.verifies("ADR-069")
+def test_central_publication_automation_stays_retired():
+    """External owners keep documents; Library must not recreate the copy pipeline."""
+    retired = [
+        ROOT / "tools/editorial_decision.py",
+        ROOT / ".github/workflows/create-publication-pr.yml",
+        ROOT / ".github/workflows/editorial-accept.yml",
+    ]
+    assert all(not path.exists() for path in retired), retired
+    publisher = ROOT / "tools/publisher"
+    assert not publisher.exists() or not any(path.is_file() for path in publisher.rglob("*"))
+    allowlist = json.loads(
+        (ROOT / "site/LEGACY_PAGES_PROJECTIONS.json").read_text(encoding="utf-8")
+    )
+    assert allowlist["status"] == "FROZEN_READ_ONLY"
+    assert allowlist["publication_records"] == sorted(set(allowlist["publication_records"]))

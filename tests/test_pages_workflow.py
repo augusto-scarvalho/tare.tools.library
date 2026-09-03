@@ -1,51 +1,32 @@
 from pathlib import Path
-import json
-import subprocess
-import sys
 import unittest
 
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]
 
 
 class PagesWorkflowTests(unittest.TestCase):
-    def test_candidate_owner_is_authority_gated_and_required_gate_runs_unit_suites(self):
-        workflow=(ROOT/'.github/workflows/pages.yml').read_text(encoding='utf-8')
-        gate=(ROOT/'.github/workflows/document-integrity.yml').read_text(encoding='utf-8')
+    def test_projection_workflow_has_no_deploy_or_publisher_capability(self):
+        workflow = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+        gate = (ROOT / ".github/workflows/document-integrity.yml").read_text(
+            encoding="utf-8"
+        )
 
-        # The owner capability exists, but production effects remain reachable only
-        # through the separately validated durable authority record on main.
-        self.assertIn('actions/deploy-pages@v4',workflow)
-        self.assertIn('actions/upload-pages-artifact@v4',workflow)
-        self.assertIn('pages: write',workflow)
-        self.assertIn('id-token: write',workflow)
-        self.assertIn("if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'",workflow)
-        self.assertIn('tools/pages_cutover_authority.py',workflow)
-        self.assertGreaterEqual(workflow.count("if: needs.authorize.outputs.authorized == 'true'"),2)
-        self.assertIn('needs: [qualify, authorize]',workflow)
-        self.assertIn('needs: [authorize, package-pages]',workflow)
-        self.assertIn('expected_materialized_inventory_digest',workflow)
-        self.assertIn('group: github-pages',workflow)
+        self.assertIn("actions/upload-artifact@v4", workflow)
+        self.assertIn("tools/build_pages.py", workflow)
+        self.assertIn("tools/validate_pages_contract.py", workflow)
+        self.assertIn("contents: read", workflow)
+        self.assertNotIn("actions/upload-pages-artifact", workflow)
+        self.assertNotIn("actions/deploy-pages", workflow)
+        self.assertNotIn("pages: write", workflow)
+        self.assertNotIn("id-token: write", workflow)
+        self.assertNotIn("pages_cutover_authority", workflow)
 
-        # Post-authorization invariant: an active authority record must exist and
-        # independently pass the same fail-closed validator used by the workflow.
-        authority=ROOT/'site/PAGES_CUTOVER_AUTHORITY.json'
-        self.assertTrue(authority.is_file())
-        for mode in ('candidate','rollback'):
-            proc=subprocess.run(
-                [sys.executable,str(ROOT/'tools/pages_cutover_authority.py'),'--root',str(ROOT),'--mode',mode],
-                text=True,capture_output=True,check=False,
-            )
-            self.assertEqual(proc.returncode,0,proc.stdout+proc.stderr)
-            result=json.loads(proc.stdout)
-            self.assertTrue(result['authorized'])
-            self.assertEqual(result['reason'],'authorized')
-            self.assertEqual(result['mode'],mode)
-        self.assertTrue(json.loads(authority.read_text(encoding='utf-8'))['rollback_allowed'])
-
-        # Main branch protection continues to depend on a gate that executes both suites.
-        self.assertIn('python -m unittest discover -s tests',gate)
-        self.assertIn('python -m unittest discover -s tools/publisher/tests',gate)
+        self.assertIn("python -m unittest discover -s tests", gate)
+        self.assertNotIn("tools/publisher", gate)
+        self.assertFalse((ROOT / "site/PAGES_CUTOVER_AUTHORITY.json").exists())
+        self.assertFalse((ROOT / "site/PAGES_CUTOVER_AUTHORITY.proposed.json").exists())
 
 
-if __name__=='__main__': unittest.main()
+if __name__ == "__main__":
+    unittest.main()

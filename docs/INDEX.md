@@ -29,9 +29,9 @@
 
 ## 📋 3. Políticas Editoriais e Padrões de Publicação
 * **[`DOCUMENT_POLICY.md`](policies/DOCUMENT_POLICY.md):** Política de integridade e ciclo de vida de documentos de pesquisa.
-* **[`HTML_PUBLICATION_STANDARD.md`](policies/HTML_PUBLICATION_STANDARD.md):** Padrão canônico de publicação e semântica HTML para o GitHub Pages.
+* **[`HTML_PUBLICATION_STANDARD.md`](policies/HTML_PUBLICATION_STANDARD.md):** Contrato histórico ainda verificado nas quatro projeções Pages congeladas; não admite novas publicações.
 * **[`TRANSLATION_POLICY.md`](policies/TRANSLATION_POLICY.md):** Regras de paridade e registro criptográfico de traduções multilíngues.
-* **[`PAGES_CUTOVER_READINESS.md`](policies/PAGES_CUTOVER_READINESS.md):** Critérios formais de cutover e gates de autoridade de publicação.
+* **[`PAGES_CUTOVER_READINESS.md`](policies/PAGES_CUTOVER_READINESS.md):** Registro histórico do cutover; o inventário atual é fechado em `site/LEGACY_PAGES_PROJECTIONS.json`.
 
 ## Casos Deliberativos Notáveis
 - [`CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING`](../cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/DECISION.md): **Marco Histórico** — Primeira aprovação unânime tripartite em 1ª rodada (FSM Frugal, State Anchors e Pinos Soberanos).

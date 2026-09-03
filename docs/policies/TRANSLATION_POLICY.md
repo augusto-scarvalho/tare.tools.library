@@ -1,5 +1,9 @@
 # Translation Policy
 
+> This policy continues to govern Library corpus translations. References to
+> Pages packets below apply only to the frozen records listed in
+> `site/LEGACY_PAGES_PROJECTIONS.json`; the central publisher is retired.
+
 ## Authority
 
 The Portuguese source document is the historical source artifact. English translations are derived representations and **do not acquire architectural authority by translation**.

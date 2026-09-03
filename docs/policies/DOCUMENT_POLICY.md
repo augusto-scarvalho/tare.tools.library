@@ -19,26 +19,24 @@ Git / source / canonical architecture / ADR / SPEC / BDD / gates
 
 | Status | Meaning | Default repository |
 |---|---|---|
-| RESEARCH | evidence/hypothesis/investigation | tare.tools.research |
-| PROPOSED | proposal not ratified | tare.tools.research |
-| EXPERIMENTAL | experimental protocol/result | tare.tools.research |
-| HISTORICAL | immutable historical evidence | tare.tools.research |
-| TARGET | ratified desired architecture | tare-tools only |
-| CURRENT | proven implementation/state | tare-tools/Git/evidence |
+| RESEARCH | evidence/hypothesis/investigation | owning repository |
+| PROPOSED | proposal not ratified | owning repository |
+| EXPERIMENTAL | experimental protocol/result | owning repository |
+| HISTORICAL | immutable historical evidence | owning repository |
+| TARGET | ratified desired architecture | canonical owner only |
+| CURRENT | proven implementation/state | canonical owner/Git/evidence |
 
-The research repository may **quote/reference** CURRENT/TARGET, but does not mint them.
+Library research may **quote/reference** CURRENT/TARGET, but does not mint them.
 
-## 4. Deterministic routing
+## 4. Repository ownership
 
-- `document_type=research` → `research/<primary-context>/...`
-- `document_type=proposal` → `proposals/<primary-context>/...`
-- `document_type=experiment` → `experiments/<primary-context>/...`
-- `document_type=archaeology|handoff` → `archaeology/...`
-- `document_type=source` → `sources/...`
-- `status=TARGET|CURRENT` with destination `tare.tools.research` → DENY.
-- canonical types (`adr`, `spec`, `bdd`, `implementation_packet`) → require promotion flow and canonical repository.
-
-LLMs may propose metadata; the validator/router owns routing decisions.
+- Tool-specific material stays in that tool's repository.
+- Ecosystem governance and settlement stay in `tare.tools.os`.
+- Library-owned research stays under this repository's `docs/research/`.
+- External documents and ontologies enter Library only as pinned catalog
+  pointers; their payloads are never routed or copied here.
+- Canonical types (`adr`, `spec`, `bdd`, `implementation_packet`) require the
+  owning repository's governed lifecycle.
 
 ## 5. Originals
 
@@ -50,6 +48,8 @@ Every substantial derived document SHOULD record `supersedes`, `superseded_by`, 
 
 ## 7. Promotion
 
-Publication != ratification.
+Indexing or a research record is not ratification.
 
-Research promotion requires a separate Promotion Packet with canonical references, decision authority and required assurance. The publisher implemented here intentionally does not auto-promote.
+Research promotion requires the owner repository's governed change, canonical
+references, decision authority, and required assurance. Library indexing has no
+promotion authority.

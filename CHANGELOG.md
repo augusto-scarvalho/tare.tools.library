@@ -6,6 +6,11 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ### Added
 
+- Registered the BacklogGraph repository-owned ontology and advanced the
+  SpecGraph pointer to its federated-consumer revision.
+- Advanced Kernel and OS ontology pointers to revisions that preserve their
+  canonical payload bytes identically on Windows and Linux checkouts.
+- Added a closed inventory for the four retained legacy Pages projections.
 - Added a fail-closed federated ontology registry that resolves every concept
   to one repository, commit, path and SHA-256 without copying its payload.
 - Added the pinned federated document registry, its fail-closed validator and
@@ -14,6 +19,9 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ### Changed
 
+- Converted Pages into a read-only compatibility projection over that closed
+  inventory; it no longer discovers publication records by broad directory
+  scanning and its workflow no longer has GitHub Pages deployment capability.
 - Limited default lexical and vector retrieval to active Library-owned
   Markdown, with exact-content collapse and explicit historical opt-in.
 - Reframed the Library as a catalog and research owner instead of a mirror of
@@ -21,10 +29,16 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ### Fixed
 
-- Repaired Publication PR workflow validation, credential gating, current incoming-path routing, and repository targeting.
+- Pointed hosted-runner pip caching at the repository's real dependency file
+  so CI reaches validation instead of failing during Python setup.
 
 ### Removed
 
+- Retired the central article publisher, its submission/editorial workflows,
+  routing backends and packet-preparation commands. New external documents now
+  remain exclusively in their owner repository and enter Library by pointer.
+- Removed superseded cutover authority/readiness machinery and its stale audit
+  receipt after the Pages workflow became a deploy-incapable preview build.
 - Retired the central six-concept ontology payload after Kernel, SpecGraph and
   OS took ownership of their respective concepts.
 - Retired 445 verified payload copies after recording their canonical owner,

@@ -43,7 +43,7 @@ its repository, path, commit and SHA-256 in
 
 The Library itself owns:
 
-1. **Research curation and publication policy** under [`docs/`](docs/).
+1. **Library-owned research curation and retrieval policy** under [`docs/`](docs/).
 2. **Epistemic frontier and federated ontology pointers** under [`catalog/`](catalog/).
 3. **Library tooling and its own specification** under [`tools/`](tools/) and [`specs/`](specs/).
 4. **Immutable historical editions**, excluded from normal retrieval, under
@@ -51,6 +51,10 @@ The Library itself owns:
 
 See [ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)
 and the [ownership guide](docs/DOCUMENT_OWNERSHIP.md).
+
+The former central article publisher is retired. Four already accepted HTML
+pages remain as a closed, read-only compatibility projection; new material is
+indexed at its canonical owner instead of being copied into Library.
 
 ---
 
@@ -183,7 +187,7 @@ Ratified as a **Constitutional Invariant** in ADR-051:
 * **AI Agent Mandate:** *“Document the right thing, in the right place, at the right time”*:
   1. *In each code repository:* that tool's specifications, architecture and operations.
   2. *In `tare.tools.os`:* ecosystem-wide governance, authority and settlement.
-  3. *In this Library:* research curation, publication, Library tooling and only
+  3. *In this Library:* research curation, retrieval, Library tooling and only
      Library-specific vocabulary; every external ontology stays with its owner.
   4. *In the federated catalog:* immutable pointers to external owner documents.
 
