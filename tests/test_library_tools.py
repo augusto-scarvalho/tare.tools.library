@@ -149,13 +149,38 @@ class LibraryToolsTests(unittest.TestCase):
             self.assertEqual(manifest.total_documents, 2)
             self.assertEqual(len(manifest.adrs), 1)
             self.assertEqual(len(manifest.specs), 1)
-            self.assertEqual(manifest.adrs[0].id, "ADR-099")
-            self.assertEqual(manifest.specs[0].id, "SPEC-TEST-001")
+            self.assertEqual(manifest.version, "3.0.0")
+            self.assertEqual(manifest.adrs[0].semantic_document_id, "ADR-099")
+            self.assertEqual(manifest.specs[0].semantic_document_id, "SPEC-TEST-001")
+            self.assertEqual(manifest.adrs[0].id, manifest.adrs[0].sha256)
+            self.assertEqual(manifest.adrs[0].target_repositories, ["tare.tools.library"])
 
             out_file = save_manifest(manifest, root_dir=tmp_path)
             self.assertTrue(out_file.exists())
             loaded = json.loads(out_file.read_text(encoding="utf-8"))
             self.assertEqual(loaded["total_documents"], 2)
+
+    def test_manifest_ownership_requires_explicit_metadata(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            adr_dir = tmp_path / "docs" / "adr"
+            adr_dir.mkdir(parents=True, exist_ok=True)
+            (adr_dir / "ADR-100_prose.md").write_text(
+                "# ADR-100\n\nThis decision discusses tare.tools.os.",
+                encoding="utf-8",
+            )
+            (adr_dir / "ADR-101_explicit.md").write_text(
+                "# ADR-101\n\n**Canonical repository:** `tare.tools.specgraph`\n",
+                encoding="utf-8",
+            )
+
+            manifest = build_library_manifest(root_dir=tmp_path)
+            ownership = {
+                entry.semantic_document_id: entry.target_repositories
+                for entry in manifest.adrs
+            }
+            self.assertEqual(ownership["ADR-100"], ["tare.tools.library"])
+            self.assertEqual(ownership["ADR-101"], ["tare.tools.specgraph"])
 
     def test_atomic_manifest_publication(self):
         from unittest.mock import patch
@@ -218,6 +243,15 @@ class LibraryToolsTests(unittest.TestCase):
             results = search_library("Microkernel", root_dir=tmp_path)
             self.assertEqual(len(results), 1)
             self.assertEqual(results[0].doc_id, "ADR-001_microkernel")
+
+            original_cwd = Path.cwd()
+            try:
+                os.chdir(tmp_path)
+                relative_results = search_library("Microkernel", root_dir=".")
+            finally:
+                os.chdir(original_cwd)
+            self.assertEqual(len(relative_results), 1)
+            self.assertEqual(relative_results[0].relative_path, "docs/adr/ADR-001_microkernel.md")
 
     def test_domain_ontology_lookup(self):
         from tools.query import lookup_concept
@@ -659,6 +693,3 @@ class LibraryToolsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-

@@ -1,20 +1,26 @@
-# SPEC-LIBRARY-001: Central SSOT Library, Bookkeeper & Hybrid Substrate
+# SPEC-LIBRARY-001: Federated technical catalog and bounded retrieval
 
-- **Status:** CANONICAL_SSOT
-- **Governing ADR:** [ADR-051](docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md) / [ADR-052](docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md)
-- **Target Repository:** `tare.tools.library`
-- **Version:** 1.0.0
+- **Status:** `OWNER_ADOPTED`
+- **Governing decision:** [ADR-069](../docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)
+- **Canonical repository:** `tare.tools.library`
+- **Version:** 2.0.0
 
----
+## Purpose
 
-## 1. Contexto & Objetivo
-Estabelece a governança da biblioteca técnica central, ferramentas automatizadas de higiene documental (Bookkeeper) e exportação do manifesto canônico para a federação.
+Provide content-addressed cataloging, Library-owned research and deterministic
+retrieval without storing editable copies of documents owned by other tools.
 
----
+## Verifiable acceptance criteria
 
-## 2. Critérios de Aceitação Verificáveis
-
-* **`AC-01: Zero Duplicate Tolerance`**: O detector de duplicatas deve auditar todo novo documento ingerido, rejeitando similaridades $>90\%$ sem autorização forçada.
-* **`AC-02: SSOT Uniqueness Enforcement`**: A biblioteca nunca pode conter mais de 1 documento ativo com status `CANONICAL_SSOT` para o mesmo identificador de tópico.
-* **`AC-03: Machine-Readable Manifest Export`**: O compilador de manifesto deve gerar `catalog/LIBRARY_MANIFEST.json` com hashes SHA-256 e critérios de aceitação extraídos em $O(1)$.
-* **`AC-04: Zero-Cost Substrate Compatibility`**: As operações de auditoria, busca e catalogação não podem depender de APIs pagas em ambiente de desenvolvimento local.
+- **AC-01 — One owner payload:** every retired Library copy resolves to one
+  repository-qualified canonical path and pinned revision.
+- **AC-02 — Repository-qualified identity:** external identity includes
+  repository, path, revision and SHA-256; bare document numbers never identify
+  an ecosystem-wide record.
+- **AC-03 — Bounded default corpus:** default lexical and vector retrieval omit
+  immutable history and generated catalog projections.
+- **AC-04 — Exact-content collapse:** equal SHA-256 payloads are indexed once.
+- **AC-05 — Machine-readable federation:** the v3 Library manifest carries
+  canonical external sources and marks retired Library paths `EXCLUDED`.
+- **AC-06 — Zero-cost validation:** catalog validation and lexical search need
+  no paid API.

@@ -75,6 +75,34 @@ class TestIncrementalIndexer(unittest.TestCase):
         reindexed = index_corpus(self.temp_dir, db=self.db, force_reindex=True)
         self.assertGreater(reindexed, 0)
 
+    def test_default_scope_excludes_history_and_exact_duplicates(self):
+        active = self.temp_dir / "docs" / "research" / "active.md"
+        duplicate = self.temp_dir / "docs" / "research" / "active_deadbeef.md"
+        history = self.temp_dir / "docs" / "archive" / "old.md"
+        snapshot = self.temp_dir / "catalog" / "corpus" / "snapshot.md"
+        projection = self.temp_dir / "catalog" / "frontier" / "pointer.md"
+        for path in (active, duplicate, history, snapshot, projection):
+            path.parent.mkdir(parents=True, exist_ok=True)
+        active.write_text("# Active\n\nUnique active payload.", encoding="utf-8")
+        duplicate.write_bytes(active.read_bytes())
+        history.write_text("# Historical\n\nArchive payload.", encoding="utf-8")
+        snapshot.write_text("# Snapshot\n\nSnapshot payload.", encoding="utf-8")
+        projection.write_text("# Projection\n\nGenerated projection.", encoding="utf-8")
+
+        index_corpus(self.temp_dir, db=self.db)
+        indexed = self.db.get_indexed_file_hashes()
+        self.assertIn("docs/research/active.md", indexed)
+        self.assertNotIn("docs/research/active_deadbeef.md", indexed)
+        self.assertNotIn("docs/archive/old.md", indexed)
+        self.assertNotIn("catalog/corpus/snapshot.md", indexed)
+        self.assertNotIn("catalog/frontier/pointer.md", indexed)
+
+        index_corpus(self.temp_dir, db=self.db, include_history=True)
+        indexed_with_history = self.db.get_indexed_file_hashes()
+        self.assertIn("docs/archive/old.md", indexed_with_history)
+        self.assertIn("catalog/corpus/snapshot.md", indexed_with_history)
+        self.assertNotIn("catalog/frontier/pointer.md", indexed_with_history)
+
 
 if __name__ == "__main__":
     unittest.main()

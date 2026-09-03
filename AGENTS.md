@@ -1,17 +1,20 @@
 # AGENTS.md — tare.tools.library Operating Contract & Tooling Invariants
 
-> **The Central Technical Library & Canonical SSOT of Architectural Knowledge, Specifications, and System Memory.**
+> **Federated catalog, Library-owned research corpus and bounded retrieval layer.**
 
 ---
 
-## 🏛️ 1. Authority & Governance Boundaries (ADR-051 & ADR-052)
+## 🏛️ 1. Authority & ownership boundaries (ADR-069)
 
-`tare.tools.library` is the **Single Source of Truth (SSOT)** for:
-* **Decisões Arquiteturais Globais:** [`docs/adr/`](docs/adr/) (ADR-001 a ADR-052).
-* **Especificações Funcionais OpenSDD:** [`specs/`](specs/) (`SPEC-KERNEL-001`, `SPEC-SPECGRAPH-001`, `SPEC-BACKLOG-001`, `SPEC-DIALOG-001`, `SPEC-LIBRARY-001`).
-* **Experimentos & Benchmarks Empíricos:** [`experiments/`](experiments/) (`EXP-01` a `EXP-05`).
-* **Relatórios Forenses de Causa Raiz (RCA):** `docs/post-mortems/`.
-* **Memória Histórica Imutável:** [`archaeology/`](archaeology/) (`status: archived_immutable`).
+`tare.tools.library` owns Library research, ontology, curation, publication
+policy and its own tooling. Tool-specific documents live with their tool;
+ecosystem governance lives in `tare.tools.os`. External documents are pointers
+in `catalog/FEDERATED_DOCUMENTS.json`, identified by repository, path, commit
+and SHA-256. Never restore a retired payload copy here.
+
+Normal search and embedding exclude `docs/archive/**`, `catalog/corpus/**` and
+generated catalog projections. History requires the explicit
+`--include-history` flag.
 
 ---
 
@@ -22,8 +25,11 @@ Todos os agentes de IA (Antigravity, Codex, subagentes e scripts autônomos) DEV
 ### 🔹 Protocolo 1: Pre-Task Grounding (Consulta à SSOT antes de Codificar)
 Antes de propor designs ou implementar código em qualquer satélite, o agente deve consultar a especificação correspondente para obter os Critérios de Aceitação (`AC-01..N`):
 ```powershell
-# Extrair critérios de aceitação de uma SPEC:
-python -m tools.query --spec SPEC-KERNEL-001
+# Consultar a SPEC própria da Library:
+python -m tools.query --spec SPEC-LIBRARY-001
+
+# Validar a localização exata de SPECs e ADRs externos:
+python -m tools.federated_documents --root .
 
 # Buscar decisões arquiteturais por conceito ou palavra-chave:
 python -m tools.query --search "CAS"
@@ -44,9 +50,9 @@ python -m tools.ingest --file chat.md --type chat --title "Sessão de Alinhament
 ```
 
 ### 🔹 Protocolo 3: Sincronização do Manifesto Canônico
-Sempre que uma nova ADR, SPEC ou experimento for adicionado/modificado, o agente DEVE compilar o manifesto da biblioteca para consumo pelo SpecGraph e Backlog-Graph:
+Sempre que um documento local ou ponteiro federado mudar, o agente DEVE validar o catálogo e recompilar o manifesto:
 ```powershell
-# Recompilar catalog/LIBRARY_MANIFEST.json:
+python -m tools.federated_documents --root .
 python -m tools.build_manifest
 ```
 
@@ -103,13 +109,13 @@ python -m unittest tests/test_adr_provenance.py
 
 * **Prerrogativa Humana:** Artigos científicos e papers formais são produzidos sob demanda exclusiva do Operador Humano.
 * **Mandato dos Agentes:** *“Documentar a coisa certa, no lugar certo, na hora certa”*:
-  1. *Nos Satélites de Código:* Apenas documentação operacional direta de APIs, CLI e testes.
-  2. *Nos Incidentes:* Relatórios de RCA com medições e hashes em `docs/post-mortems/`.
-  3. *Nos Benchmarks:* Logs de hardware e dados empíricos em `experiments/`.
-  4. *Nas Decisões Globais:* ADRs canônicas consolidadas em `docs/adr/`.
+  1. *Nos Satélites de Código:* especificações e documentação da própria ferramenta.
+  2. *No OS:* decisões e incidentes de alcance do ecossistema.
+  3. *Na Library:* pesquisa, ontologia, curadoria, publicação e ferramentas da Library.
+  4. *No catálogo federado:* somente ponteiros verificáveis para documentos externos.
 
 ### 🔹 Protocolo 6: Doutrina de Engenharia Frugal & Anti-Hipertrofia (RFC-001 / RFC-002 / RFC-003)
-Todos os agentes e subagentes que atuam no repositório DEVEM operar sob a **[`Doutrina de Engenharia Frugal`](docs/ENGINEERING_DOCTRINE.md)**:
+Todos os agentes e subagentes que atuam no repositório DEVEM operar sob a **[`Doutrina de Engenharia Frugal`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/ENGINEERING_DOCTRINE.md)**, mantida pelo `tare.tools.os`:
 1. **Via Negativa (Subtração antes de Adição):** O melhor código é aquele que nunca precisou ser escrito. Nunca crie classes, interfaces ou abstrações para casos de uso hipotéticos (*YAGNI*). Use a biblioteca padrão do Python antes de bibliotecas externas.
 2. **Regra do Falsificador:** Nenhuma crítica ou rejeição é válida sem um comando de teste automatizado (`reproduction_test`) que falhe na prática.
 3. **Ergonomia CLI First:** Ferramentas devem ser primariamente utilitários CLI via terminal (0 tokens de schema). Servidores Fat MCP são proibidos.

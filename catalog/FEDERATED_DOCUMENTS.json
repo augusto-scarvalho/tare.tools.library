@@ -1,0 +1,3333 @@
+{
+  "schema": "tare.tools/federated-document-index/1.0",
+  "source_library": {
+    "repository": "tare.tools.library",
+    "revision": "d5473e69ee5945e30a6a280da43b11812f90fa87"
+  },
+  "identity": "repository + canonical_path + revision + canonical_sha256",
+  "default_index_policy": {
+    "include": "active Library-owned Markdown only",
+    "exclude": [
+      "catalog/corpus/**",
+      "docs/archive/**",
+      "site/**",
+      "_site/**"
+    ],
+    "history": "opt-in",
+    "exact_content": "one indexed path per SHA-256"
+  },
+  "retired_library_path_count": 467,
+  "local_retirements": [],
+  "repositories": [
+    {
+      "repository": "tare.tools.backlog-graph",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.backlog-graph",
+      "default_branch": "main",
+      "revision": "41dc603c59e6355864e3a64abb448e2397f4204b",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.backlog-graph:docs/SPEC-BACKLOG-001.md",
+          "document_type": "spec",
+          "title": "SPEC-BACKLOG-001: Mathematical Task DAG and atomic CAS concurrency",
+          "canonical_path": "docs/SPEC-BACKLOG-001.md",
+          "canonical_sha256": "8c3d43a6382daba5afb8b57d1eb29b9d0d4b6dab33da5f53145eb7dac74d775e",
+          "migration": "relocated-and-clarified",
+          "retired_library_paths": [
+            "specs/SPEC-BACKLOG-001.md"
+          ],
+          "retired_library_sha256": "d06e64684a97ebf4b7dd5dcca31c51d43b9370404a1635f28110ce1ffc0e0798"
+        },
+        {
+          "semantic_document_id": "tare.tools.backlog-graph:docs/ADR-001_BACKLOG_GRAPH_NORTH_STAR.md",
+          "document_type": "adr",
+          "title": "ADR-001: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
+          "canonical_path": "docs/ADR-001_BACKLOG_GRAPH_NORTH_STAR.md",
+          "canonical_sha256": "0fd8540003121625af4ce693f340f4dd9d624f7195caa676f7adb9cc80540899",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-001_BACKLOG_GRAPH_NORTH_STAR.md",
+            "docs/adr/ADR-001_BACKLOG_GRAPH_NORTH_STAR_5accf48d.md"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "tare.tools.specgraph",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.specgraph",
+      "default_branch": "main",
+      "revision": "c3e11e1035bf1eb3b0398e473987d5049e454f92",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/SPEC-SPECGRAPH-001.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-001: Living causal matrix and substrate admission gate",
+          "canonical_path": "docs/SPEC-SPECGRAPH-001.md",
+          "canonical_sha256": "209bbb59b8183e873619766af4825afe5fe172cccff277eb3fdbfd92ff0dc0e4",
+          "migration": "relocated-and-clarified",
+          "retired_library_paths": [
+            "specs/SPEC-SPECGRAPH-001.md"
+          ],
+          "retired_library_sha256": "2428a562eb4af67cb3d3a35ce67a9c2585f8b9c7866bd5f2907273e776703f2f"
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/ADR-001_SPECGRAPH_NORTH_STAR.md",
+          "document_type": "adr",
+          "title": "ADR-001: SpecGraph North Star — Universal Project Intelligence & Spec-Driven Development (SDD) Platform",
+          "canonical_path": "docs/ADR-001_SPECGRAPH_NORTH_STAR.md",
+          "canonical_sha256": "dca51fcef5e0aaa8f8399e4410b3067e7425dd6f2a4f252ef33cc5c96c283ac5",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-001_SPECGRAPH_NORTH_STAR.md",
+            "docs/adr/ADR-001_SPECGRAPH_NORTH_STAR_b6d508c0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/04-multidimensional-indexing-guide.md",
+          "document_type": "adr",
+          "title": "Comprehensive Multidimensional Indexing Guide — SpecGraph",
+          "canonical_path": "docs/04-multidimensional-indexing-guide.md",
+          "canonical_sha256": "f5b1ca93b88d6e5a59a00e1297a4c9612f125bad2e1740ea87be5cff47d2374d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/04-multidimensional-indexing-guide.md",
+            "docs/adr/04-multidimensional-indexing-guide_2ebe14f8.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-059_SPECGRAPH_CURATION_SCOPE_AND_SNAPSHOT_ISOLATION.md",
+          "document_type": "adr",
+          "title": "ADR-059: Matriz de Curadoria do Acervo Histórico do SpecGraph, Escopo Operacional e Isolamento de Snapshot",
+          "canonical_path": "docs/adr/ADR-059_SPECGRAPH_CURATION_SCOPE_AND_SNAPSHOT_ISOLATION.md",
+          "canonical_sha256": "8cd911a4e52a6c45e0ef91ada307023661b95b80f9e1c927049cb601b0356802",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-059_SPECGRAPH_CURATION_SCOPE_AND_SNAPSHOT_ISOLATION.md"
+          ],
+          "retired_library_sha256": "8cd911a4e52a6c45e0ef91ada307023661b95b80f9e1c927049cb601b0356802"
+        }
+      ]
+    },
+    {
+      "repository": "tare.tools.dialog-engine",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.dialog-engine",
+      "default_branch": "main",
+      "revision": "9d4de6358a8218bd86d4a85a1ed785b880671bc6",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0007-dialog-engine-north-star.md",
+          "document_type": "adr",
+          "title": "ADR-0007: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
+          "canonical_path": "docs/adr/0007-dialog-engine-north-star.md",
+          "canonical_sha256": "b0a997031b9c2976a50da342efbe34626b88d2487af7c4f75c0a94c44d5870f8",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/0007-dialog-engine-north-star.md",
+            "docs/adr/0007-dialog-engine-north-star_535eaceb.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0006-universal-schema-binding-and-state-machine-adapter.md",
+          "document_type": "adr",
+          "title": "ADR-0006: Universal Schema Binding, Semantic Decoupling, and On-Demand Mutation",
+          "canonical_path": "docs/adr/0006-universal-schema-binding-and-state-machine-adapter.md",
+          "canonical_sha256": "3909401b3271f681a5f2cff0e1eca67e25b74a355f9714e791df4e8ba4fa7e6f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/0006-universal-schema-binding-and-state-machine-adapter.md",
+            "docs/adr/0006-universal-schema-binding-and-state-machine-adapter_3909401b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/SPEC-DIALOG-001.md",
+          "document_type": "spec",
+          "title": "SPEC-DIALOG-001: Topological dialogue engine and statechart protocol",
+          "canonical_path": "docs/SPEC-DIALOG-001.md",
+          "canonical_sha256": "ad4c2464f1017baac205e55d0a9f0dd8a120ad3e777ea66539dc6d36e6f7e4c3",
+          "migration": "relocated-and-clarified",
+          "retired_library_paths": [
+            "specs/SPEC-DIALOG-001.md"
+          ],
+          "retired_library_sha256": "9efc4ec8f08bab6a0c55bb06503406bc372dd654a3daa9c6aacea393a1ed559f"
+        },
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/operations/TRIAGE_AND_DOGFOODING_GUIDE.md",
+          "document_type": "post_mortem",
+          "title": "Triage, Dogfooding, and Curation Guide",
+          "canonical_path": "docs/operations/TRIAGE_AND_DOGFOODING_GUIDE.md",
+          "canonical_sha256": "54a7e504c7d71425d6ed192f76b5b26b284e1d489e41459b2151a0a159e2c1e6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/TRIAGE_AND_DOGFOODING_GUIDE.md",
+            "docs/post-mortems/TRIAGE_AND_DOGFOODING_GUIDE_54a7e504.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0005-package-modularization-and-performance-acceleration.md",
+          "document_type": "adr",
+          "title": "ADR-0005 — Package Modularization (`src/tare_dialog`) and Performance Acceleration (`orjson`, `networkx`, `rich`, `pydantic`)",
+          "canonical_path": "docs/adr/0005-package-modularization-and-performance-acceleration.md",
+          "canonical_sha256": "93cc421e12820f9beef6fe790698e64790c3ebe5f1f952c40b81c0a541b9d61c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/0005-package-modularization-and-performance-acceleration.md",
+            "docs/adr/0005-package-modularization-and-performance-acceleration_93cc421e.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0002-preserve-v1-sequence-diff-parity.md",
+          "document_type": "adr",
+          "title": "ADR-0002 — Preserving V1 Positional Diff Semantics During External-Memory Migration",
+          "canonical_path": "docs/adr/0002-preserve-v1-sequence-diff-parity.md",
+          "canonical_sha256": "12f35eb26db55317749393865f4568bf0130f6e9ea64e14c3bf791b9ec17131e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/0002-preserve-v1-sequence-diff-parity.md",
+            "docs/adr/0002-preserve-v1-sequence-diff-parity_12f35eb2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0001-adaptive-external-memory-foundation.md",
+          "document_type": "adr",
+          "title": "ADR-0001 — Adaptive External-Memory Foundation for Watson Dialog Engine",
+          "canonical_path": "docs/adr/0001-adaptive-external-memory-foundation.md",
+          "canonical_sha256": "ffbecb78e875402dc4f1adaefe35c90ad1c79a9a220cd9fb065c74d9ffb245df",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/0001-adaptive-external-memory-foundation.md",
+            "docs/adr/0001-adaptive-external-memory-foundation_ffbecb78.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0004-dual-distribution-strategy-modular-and-ephemeral.md",
+          "document_type": "adr",
+          "title": "ADR-0004 — Dual Distribution Strategy: Modular and Ephemeral (ChatGPT ADA & Copilot)",
+          "canonical_path": "docs/adr/0004-dual-distribution-strategy-modular-and-ephemeral.md",
+          "canonical_sha256": "572c79b2601729cd0a74688317e8940c1a2af4b79b26d6a0064f13471e4b453d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/0004-dual-distribution-strategy-modular-and-ephemeral.md",
+            "docs/adr/0004-dual-distribution-strategy-modular-and-ephemeral_572c79b2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0003-resource-aware-auto-engine-selection.md",
+          "document_type": "adr",
+          "title": "ADR-0003 — Resource-Aware Automatic Engine Selection",
+          "canonical_path": "docs/adr/0003-resource-aware-auto-engine-selection.md",
+          "canonical_sha256": "233862bfa1f040d93aaea6f34745e4933bef9cb80ddbfcc06324d736996f063d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/0003-resource-aware-auto-engine-selection.md",
+            "docs/adr/0003-resource-aware-auto-engine-selection_233862bf.md"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "tare.tools.harness",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.harness",
+      "default_branch": "main",
+      "revision": "f59611dc387ca567941720a5e806918fdf1bd8e9",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/posix-suite.md",
+          "document_type": "spec",
+          "title": "POSIX suite over WSL — dated record, doctor staleness, linux arm only",
+          "canonical_path": "specs/40-features/posix-suite.md",
+          "canonical_sha256": "76261a4badd1ac7bd0bd75b33af424f4a29dcaadaff18f23a0197d5f6f8aa4d8",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/posix-suite.md",
+            "specs/posix-suite_76261a4b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/playbook-registry.md",
+          "document_type": "spec",
+          "title": "SPEC-170 — Playbook registry & role inheritance",
+          "canonical_path": "specs/40-features/playbook-registry.md",
+          "canonical_sha256": "a0d71359a144b03ca61302c1c29521b8b13d4bd3933d490bc1241d1c28b9aa23",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/playbook-registry.md",
+            "specs/playbook-registry_a0d71359.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/precommit-validation-gate.md",
+          "document_type": "spec",
+          "title": "SPEC-137 — precommit-validation-gate: every delivery passes validation, agent-agnostic",
+          "canonical_path": "specs/40-features/precommit-validation-gate.md",
+          "canonical_sha256": "9bc80c3df7f337b4bdc91ffb8af7789689e80d7efd2f93a266af37fd30e2d910",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/precommit-validation-gate.md",
+            "specs/precommit-validation-gate_9bc80c3d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/qa-evidence-capsule.md",
+          "document_type": "spec",
+          "title": "SPEC-121 — QA evidence capsule (`oracleEvidence`) in WORKER_RESULT",
+          "canonical_path": "specs/40-features/qa-evidence-capsule.md",
+          "canonical_sha256": "4b33e66fa40b7099c70f292aa6369933229dcd46f29ef31564da422ad9cf64eb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/qa-evidence-capsule.md",
+            "specs/qa-evidence-capsule_4b33e66f.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/prompt-slots.md",
+          "document_type": "spec",
+          "title": "SEC.8 — non-local system-prompt slots: detect + surface, never edit",
+          "canonical_path": "specs/40-features/prompt-slots.md",
+          "canonical_sha256": "b5cf67b8fbec8f67bcbe8f03331d4df57835dbf68108f15682c5c2096faa5c85",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/prompt-slots.md",
+            "specs/prompt-slots_b5cf67b8.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/playbook-compiler.md",
+          "document_type": "spec",
+          "title": "SPEC-173 — Playbook compiler (Effective Playbook + Spawn Envelope + lockfile)",
+          "canonical_path": "specs/40-features/playbook-compiler.md",
+          "canonical_sha256": "d468328b101fa2f171d3f18650c1136355901eac5a1c8197df9c5347a8726422",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/playbook-compiler.md",
+            "specs/playbook-compiler_d468328b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/parallel-scenarios.md",
+          "document_type": "spec",
+          "title": "SPEC-160 — Parallel scenarios: sharded execution for the scenarios gate (DEFAULT)",
+          "canonical_path": "specs/40-features/parallel-scenarios.md",
+          "canonical_sha256": "d4287db89efcaa3d16f1644fb6bea47f6e2fc5e2bea6b10e6ec9f9302cff110a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/parallel-scenarios.md",
+            "specs/parallel-scenarios_d4287db8.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/panel-work-queue.md",
+          "document_type": "spec",
+          "title": "Panel work queue — B0 live view (`queue-view-live`)",
+          "canonical_path": "specs/40-features/panel-work-queue.md",
+          "canonical_sha256": "489bb15641adce167410e13b510701e6af6c5bd12f84a4eb54d0e6911ccda995",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/panel-work-queue.md",
+            "specs/panel-work-queue_489bb156.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/parallel-verify-heartbeat.md",
+          "document_type": "spec",
+          "title": "SPEC-157 — Parallel verify + reckon join: commit gated on the ledger",
+          "canonical_path": "specs/40-features/parallel-verify-heartbeat.md",
+          "canonical_sha256": "c9fa94031e9893f0971dbf0784c0df17357a722ac8596934ec628b0d87c10cb9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/parallel-verify-heartbeat.md",
+            "specs/parallel-verify-heartbeat_c9fa9403.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/playbook-compiler.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — door NEW checklist",
+          "canonical_path": "specs/40-features/playbook-compiler.intake.md",
+          "canonical_sha256": "9c47c9a659e7da4b97364973e92036f290fae4ef7393911eed04faefffc1f5f6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/playbook-compiler.intake.md",
+            "specs/playbook-compiler.intake_9c47c9a6.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/perf-metrics-rung.md",
+          "document_type": "spec",
+          "title": "Perf-metrics rung — gate wall-time ledger (Phase 1 of the PyO3 roadmap)",
+          "canonical_path": "specs/40-features/perf-metrics-rung.md",
+          "canonical_sha256": "35391d2d9225b14d8ef5c34f3dc3e8dca21bf150b0db5e188aaee76a13ba3774",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/perf-metrics-rung.md",
+            "specs/perf-metrics-rung_35391d2d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/research-skill.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — door NEW checklist (Double Diamond research skill)",
+          "canonical_path": "specs/40-features/research-skill.intake.md",
+          "canonical_sha256": "1a03407cc94ffd8ef40661b9e9f5c602136acd82c618300f1a519c5d814e6d12",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/research-skill.intake.md",
+            "specs/research-skill.intake_1a03407c.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/research-admin.md",
+          "document_type": "spec",
+          "title": "SPEC-125 — `research`: research-round admin (list + guarded delete)",
+          "canonical_path": "specs/40-features/research-admin.md",
+          "canonical_sha256": "5e317460679ff1b003859f782bd068135d862c6eceef8cc082235dc90ab6494f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/research-admin.md",
+            "specs/research-admin_5e317460.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/research-skill.md",
+          "document_type": "spec",
+          "title": "SPEC-119 — Double Diamond research skill over the harness fork-join",
+          "canonical_path": "specs/40-features/research-skill.md",
+          "canonical_sha256": "78d1c2ff2810658e2797a3d52181c8eea04d7bf9e0d40d76fec34a5fa9ab8d99",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/research-skill.md",
+            "specs/research-skill_78d1c2ff.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/risk-tier-routing.md",
+          "document_type": "spec",
+          "title": "CQ.1 — per-patch risk-tier classifier (observe-only)",
+          "canonical_path": "specs/40-features/risk-tier-routing.md",
+          "canonical_sha256": "6103dfc0ec557c3526b118d1213809904bb077db464c3269e45df8283e6275ce",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/risk-tier-routing.md",
+            "specs/risk-tier-routing_6103dfc0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/responsibility-chain.md",
+          "document_type": "spec",
+          "title": "SPEC-161 — responsibilityChain: o crachá tipado de decisão/aprovação/aceite (N-AUTHCHAIN)",
+          "canonical_path": "specs/40-features/responsibility-chain.md",
+          "canonical_sha256": "663c4cfa2abb675899b065722af840e59690b754f6d266c6d78332c8cacde5bd",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/responsibility-chain.md",
+            "specs/responsibility-chain_663c4cfa.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/repo-health-doctor.md",
+          "document_type": "spec",
+          "title": "SPEC-123 — Repo-health `doctor`: WARN-only environment diagnostics",
+          "canonical_path": "specs/40-features/repo-health-doctor.md",
+          "canonical_sha256": "f4aa30e290c2d012ace3b6c30c331a008ec46ece016374eec032c51bb3bbf247",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/repo-health-doctor.md",
+            "specs/repo-health-doctor_f4aa30e2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/records-ledger.md",
+          "document_type": "spec",
+          "title": "SPEC-112 — Records ledger",
+          "canonical_path": "specs/40-features/records-ledger.md",
+          "canonical_sha256": "85efd7118b9adb8c780155fdef5ab29088d28ec020932e66888da218afa60292",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/records-ledger.md",
+            "specs/records-ledger_85efd711.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/raw-subprocess-ratchet.md",
+          "document_type": "spec",
+          "title": "Raw-subprocess ratchet — no new unmediated spawn sites (`no-raw-subprocess-gate`)",
+          "canonical_path": "specs/40-features/raw-subprocess-ratchet.md",
+          "canonical_sha256": "2e3286ea38a2f37c6866be5427b8813ce309e0216c52edfcf6786d4d929be1f0",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/raw-subprocess-ratchet.md",
+            "specs/raw-subprocess-ratchet_2e3286ea.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/records-summarize.md",
+          "document_type": "spec",
+          "title": "M5.sum - Deterministic records digest",
+          "canonical_path": "specs/40-features/records-summarize.md",
+          "canonical_sha256": "5193f475b273e93739d2c4e63a0002d027ac1b9e1f06041d04d2d5673616c8a7",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/records-summarize.md",
+            "specs/records-summarize_5193f475.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/repl-ux-onboarding.md",
+          "document_type": "spec",
+          "title": "SPEC-111 — REPL Interactive UX and Onboarding",
+          "canonical_path": "specs/40-features/repl-ux-onboarding.md",
+          "canonical_sha256": "c3d8042bd470a2933d3a8f435ad36ba237739f2cd6e76c87a5ef281bf480221c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/repl-ux-onboarding.md",
+            "specs/repl-ux-onboarding_c3d8042b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/regen-manifest.md",
+          "document_type": "spec",
+          "title": "wf-regen-manifest — the declared regen contract",
+          "canonical_path": "specs/40-features/regen-manifest.md",
+          "canonical_sha256": "3a69a15f511d84900cec19a96a18f5e5efc95685371bfe5e3a13372b3b7bd469",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/regen-manifest.md",
+            "specs/regen-manifest_3a69a15f.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/lint-format-backend-shippability.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement -- lint/format backend shippability (door NEW)",
+          "canonical_path": "specs/40-features/lint-format-backend-shippability.intake.md",
+          "canonical_sha256": "3f2ff1537ba97dc03b036f8196951947b30a9b4e1389e3db78c6ec88baf6e6d6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/lint-format-backend-shippability.intake.md",
+            "specs/lint-format-backend-shippability.intake_3f2ff153.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/lane-scratch-contract.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — door NEW checklist",
+          "canonical_path": "specs/40-features/lane-scratch-contract.intake.md",
+          "canonical_sha256": "33ed7d09aa2df3f6c3ef6b6ecbb077e0fa695023a08c4e0351ef2d5be8d211f7",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/lane-scratch-contract.intake.md",
+            "specs/lane-scratch-contract.intake_33ed7d09.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/model-routing.md",
+          "document_type": "spec",
+          "title": "SPEC-115 — Model-card management + role-based model routing with fallbacks",
+          "canonical_path": "specs/40-features/model-routing.md",
+          "canonical_sha256": "8d1c511b3b68dccc13dd1a22d8c74ab793c26dd44fde62e307aa70d7dcb580b6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/model-routing.md",
+            "specs/model-routing_8d1c511b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/overseer-review-toolkit.md",
+          "document_type": "spec",
+          "title": "Overseer review toolkit (`ort`)",
+          "canonical_path": "specs/40-features/overseer-review-toolkit.md",
+          "canonical_sha256": "067424fbe07806fccb09a69f78b2fad54599b0c9cb901ff2f9c2f0007c164931",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/overseer-review-toolkit.md",
+            "specs/overseer-review-toolkit_067424fb.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/mutation-probe-oracle.md",
+          "document_type": "spec",
+          "title": "Mutation-probe oracle (`mpo`) — CQ.5 slice, observe-only",
+          "canonical_path": "specs/40-features/mutation-probe-oracle.md",
+          "canonical_sha256": "4aa1066c70808b13c4bfa6f70890811c5d65407c01a24d306a3ba7e9115788e2",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/mutation-probe-oracle.md",
+            "specs/mutation-probe-oracle_4aa1066c.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/keys-keyring.md",
+          "document_type": "spec",
+          "title": "SPEC-169 — keys-keyring: vendor keys move to the OS vault, write-only",
+          "canonical_path": "specs/40-features/keys-keyring.md",
+          "canonical_sha256": "5f6b5e99a930d825084fb0f89d3aff26266176f9f7d5cf8316ca86746eb5b3ca",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/keys-keyring.md",
+            "specs/keys-keyring_5f6b5e99.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/harness-sandbox.md",
+          "document_type": "spec",
+          "title": "SPEC-148 — Harness-owned sandbox (`sandbox_spawn` chokepoint)",
+          "canonical_path": "specs/40-features/harness-sandbox.md",
+          "canonical_sha256": "cad0bfe1f77a32cc88ad93d59e236c21086307f97280942cd5700ac45fa7efc6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/harness-sandbox.md",
+            "specs/harness-sandbox_cad0bfe1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/harness-sandbox.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — harness-owned sandbox (door NEW)",
+          "canonical_path": "specs/40-features/harness-sandbox.intake.md",
+          "canonical_sha256": "c53b62c955ea4566cc4007ad4109f712ac43c8a3caaf664a89607bbd690fdac5",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/harness-sandbox.intake.md",
+            "specs/harness-sandbox.intake_c53b62c9.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/harness-target-governance.md",
+          "document_type": "spec",
+          "title": "SPEC-110 — Harness-Target Governance (Milestone HT)",
+          "canonical_path": "specs/40-features/harness-target-governance.md",
+          "canonical_sha256": "c7b1ce6756cf76053982a68d3c61740e96b2e1a020690d0e98902a3cc07d05b4",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/harness-target-governance.md",
+            "specs/harness-target-governance_c7b1ce67.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/interactive-write-approval.md",
+          "document_type": "spec",
+          "title": "Interactive per-item write approval (`iwa`)",
+          "canonical_path": "specs/40-features/interactive-write-approval.md",
+          "canonical_sha256": "02473f22ae1a640f9422b181791d3df4045fc5039249b65d9281975e62b582da",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/interactive-write-approval.md",
+            "specs/interactive-write-approval_02473f22.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/intake-queue.md",
+          "document_type": "spec",
+          "title": "Durable requirement-intake queue (`iq`)",
+          "canonical_path": "specs/40-features/intake-queue.md",
+          "canonical_sha256": "c754619695e030a38529ab53aaf336b10d448515a3b7d5f22955a5201bbdfeaf",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/intake-queue.md",
+            "specs/intake-queue_c7546196.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/panel-records-changelogs.md",
+          "document_type": "spec",
+          "title": "Panel records & changelogs — M5.rec commit timeline + diff viewer",
+          "canonical_path": "specs/40-features/panel-records-changelogs.md",
+          "canonical_sha256": "1b445cd4f262fa3ebb1ae590bc590c8319c58c09efd723ce1c1dea631e92d56a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/panel-records-changelogs.md",
+            "specs/panel-records-changelogs_1b445cd4.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/panel-memory-snapshot.md",
+          "document_type": "spec",
+          "title": "Panel memory snapshot — scope × purpose, every byte redacted (`M5.mem`)",
+          "canonical_path": "specs/40-features/panel-memory-snapshot.md",
+          "canonical_sha256": "ad5841a96fe053f016c0c4a62dde725c703c674c02e3d25f93cb43c6e3471652",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/panel-memory-snapshot.md",
+            "specs/panel-memory-snapshot_ad5841a9.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/panel-research-screen.md",
+          "document_type": "spec",
+          "title": "SPEC-135 — panel-research-screen: read-only 🔬 Research view (research rounds at a glance)",
+          "canonical_path": "specs/40-features/panel-research-screen.md",
+          "canonical_sha256": "8997202a4d4aae3f77366842e3cffc54084c44d772ed64169ff4813726cefcab",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/panel-research-screen.md",
+            "specs/panel-research-screen_8997202a.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/panel-tasks-board.md",
+          "document_type": "spec",
+          "title": "Panel tasks board — A0 read-only derived Kanban (`tasks-board-read`)",
+          "canonical_path": "specs/40-features/panel-tasks-board.md",
+          "canonical_sha256": "a113640f8f65eb7a0d70b781f7d789720ddeb934d83a0d8240fbd88caa6bf556",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/panel-tasks-board.md",
+            "specs/panel-tasks-board_a113640f.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/panel-specs-screen.md",
+          "document_type": "spec",
+          "title": "SPEC-134 — panel-specs-screen: read-only 📋 Specs view (SDD inventory at a glance)",
+          "canonical_path": "specs/40-features/panel-specs-screen.md",
+          "canonical_sha256": "b3a6599f16d96a4fc1dfd59d880a52ed86d45a4e2a5d799cf849f6de9911a0d9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/panel-specs-screen.md",
+            "specs/panel-specs-screen_b3a6599f.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/panel-experiments-screen.md",
+          "document_type": "spec",
+          "title": "SPEC-136 — panel-experiments-screen: read-only 🧪 Experiments view (experiment-lifecycle board at a glance)",
+          "canonical_path": "specs/40-features/panel-experiments-screen.md",
+          "canonical_sha256": "0f988f12f9621fa3174efb3fe0a9ee9dc441a3e209b5cf5738161bb6d4a5c272",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/panel-experiments-screen.md",
+            "specs/panel-experiments-screen_0f988f12.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/ownership-epoch.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — ownership epoch geral (door NEW)",
+          "canonical_path": "specs/40-features/ownership-epoch.intake.md",
+          "canonical_sha256": "315b710cfa840cb9021104a31306d7dc2f0106edb5da6504dfb84bc98ed3b822",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/ownership-epoch.intake.md",
+            "specs/ownership-epoch.intake_315b710c.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/overseer-warmup.md",
+          "document_type": "spec",
+          "title": "SPEC-138 — Overseer session warm-up (ambient discipline + cost rules)",
+          "canonical_path": "specs/40-features/overseer-warmup.md",
+          "canonical_sha256": "1984b7e90b4b210da5e3142a1d31e3bc419bca7773316ec4cfa424f3a0845a9d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/overseer-warmup.md",
+            "specs/overseer-warmup_1984b7e9.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/ownership-epoch.md",
+          "document_type": "spec",
+          "title": "SPEC-149 — Ownership epoch (fencing geral de escritores de estado)",
+          "canonical_path": "specs/40-features/ownership-epoch.md",
+          "canonical_sha256": "676b7a9b0095b5b54cfb9ededc1cf608937e559b709b107c5041699b5dc915a3",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/ownership-epoch.md",
+            "specs/ownership-epoch_676b7a9b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/panel-chat-qol.md",
+          "document_type": "spec",
+          "title": "SPEC-133 — panel-chat QoL batch: markdown, honest indicators, multi-line, plan/approve contract",
+          "canonical_path": "specs/40-features/panel-chat-qol.md",
+          "canonical_sha256": "d69aa20bdb4fa873984ceb00c023a598e394fef7a3cbcec2cd039f8dac8068c9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/panel-chat-qol.md",
+            "specs/panel-chat-qol_45929d20.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/packet-economy-seam.md",
+          "document_type": "spec",
+          "title": "SPEC-141 — Packet-economy compose seam (compact-output env + per-delegation budget)",
+          "canonical_path": "specs/40-features/packet-economy-seam.md",
+          "canonical_sha256": "06b5965fac5663384bdab7caacbb2d3f9d820b2303fc7a86d690b78b71b0d465",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/packet-economy-seam.md",
+            "specs/packet-economy-seam_06b5965f.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/wiki-spec-guard.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement -- wiki-spec-guard (door NEW)",
+          "canonical_path": "specs/40-features/wiki-spec-guard.intake.md",
+          "canonical_sha256": "adf4c0e6d538898c04e8f51da5bb625f1e4aa10dc47a7d957d8fbabccea996f2",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/wiki-spec-guard.intake.md",
+            "specs/wiki-spec-guard.intake_adf4c0e6.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/vendor-fuel-gauge.md",
+          "document_type": "spec",
+          "title": "SPEC-168 — Vendor fuel gauge (gasômetro, N-VENDORCREDIT v1)",
+          "canonical_path": "specs/40-features/vendor-fuel-gauge.md",
+          "canonical_sha256": "644a2d503dd4fe7f07a04ae99bdcffcbccec89da71997ed86d9695ec35d052f3",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/vendor-fuel-gauge.md",
+            "specs/vendor-fuel-gauge_911017bb.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/wiki-spec-guard.md",
+          "document_type": "spec",
+          "title": "SPEC-167 — Wiki-spec guard: docs/wiki conformance + repo-wide spec-ref resolution",
+          "canonical_path": "specs/40-features/wiki-spec-guard.md",
+          "canonical_sha256": "bd8b8f3102e3742ccd95a3b2b1505f7abf8cd6459639878725e6b58edbc271d2",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/wiki-spec-guard.md",
+            "specs/wiki-spec-guard_bd8b8f31.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/worker-live-tail.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — door NEW checklist (live worker/subagent output)",
+          "canonical_path": "specs/40-features/worker-live-tail.intake.md",
+          "canonical_sha256": "68437e9af9041c94864eed915c2feab2cb5b08baafcc0bc3094a7cf7bd8952c4",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/worker-live-tail.intake.md",
+            "specs/worker-live-tail.intake_68437e9a.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/worker-group-cards.md",
+          "document_type": "spec",
+          "title": "UX-GA.2 — Grouped fan-out worker cards",
+          "canonical_path": "specs/40-features/worker-group-cards.md",
+          "canonical_sha256": "8865975637dd46f1bb5c22312e5d735a3443e54c7441eb8a18325a0fb23a46d8",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/worker-group-cards.md",
+            "specs/worker-group-cards_88659756.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/vendor-acceptances.md",
+          "document_type": "spec",
+          "title": "SPEC-172 — Vendor environment acceptances (ask the vendor, drive the yes)",
+          "canonical_path": "specs/40-features/vendor-acceptances.md",
+          "canonical_sha256": "501f2bbb62bed3297578e6c7587838222c9702cb3fbfc3428feeb40280dca1a9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/vendor-acceptances.md",
+            "specs/vendor-acceptances_6d9e6855.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/te5-agent-output.md",
+          "document_type": "spec",
+          "title": "TE.5 agent-facing output contract (`te5`)",
+          "canonical_path": "specs/40-features/te5-agent-output.md",
+          "canonical_sha256": "14d743bebe11a53e15f38a1d5984f3b2d5f79fe54d471562082e2b3b4625c835",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/te5-agent-output.md",
+            "specs/te5-agent-output_14d743be.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/tasks-store.md",
+          "document_type": "spec",
+          "title": "Tasks canonical store — A1 `tasks import/add/move/close` (`tasks-store-cli`)",
+          "canonical_path": "specs/40-features/tasks-store.md",
+          "canonical_sha256": "6bf4eec3f71009235b5c8d27f63622e2fde432ccaa7cbdc7f5f142f4f34dd6cd",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/tasks-store.md",
+            "specs/tasks-store_6bf4eec3.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/te5-compact-adoption.md",
+          "document_type": "spec",
+          "title": "SPEC-139 — TE.5 compact adoption on flat-list emitters (`te5a`)",
+          "canonical_path": "specs/40-features/te5-compact-adoption.md",
+          "canonical_sha256": "236961a0716cabea0dc17eb5de1bf38d17ea4c5eaf5881ca6d25720fc8a56b54",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/te5-compact-adoption.md",
+            "specs/te5-compact-adoption_236961a0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/trace-failure-digest.md",
+          "document_type": "spec",
+          "title": "OB.4 - Failure-focused trace digest",
+          "canonical_path": "specs/40-features/trace-failure-digest.md",
+          "canonical_sha256": "ae2e3dda2fe2c55d952085ab871dfef18ffd8b1ec54b2ea9d9e2b609774b3118",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/trace-failure-digest.md",
+            "specs/trace-failure-digest_ae2e3dda.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/topology-router.md",
+          "document_type": "spec",
+          "title": "DW.4 — topology router (observe-only fork verdict)",
+          "canonical_path": "specs/40-features/topology-router.md",
+          "canonical_sha256": "4941f063db855fb0a02df70e0d7249d251ec51f75e8d59e1457794b4fd2e6471",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/topology-router.md",
+            "specs/topology-router_4941f063.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/90-operations/OPERATIONS.md",
+          "document_type": "spec",
+          "title": "Operations Specs",
+          "canonical_path": "specs/90-operations/OPERATIONS.md",
+          "canonical_sha256": "2192a1ab44b47e3b2ab45c835893a47b6c11d5bbdce7830da87527f7832ebb88",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/OPERATIONS.md",
+            "specs/OPERATIONS_8962c8a3.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/workflow-typed-ir.md",
+          "document_type": "spec",
+          "title": "DW.2 — workflow.json as the typed workflow IR (plan-time schema gate)",
+          "canonical_path": "specs/40-features/workflow-typed-ir.md",
+          "canonical_sha256": "a8d8cb0bec552cf958185810d602b1b24ef981ea49c6c97edd0cecf1ef978aba",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/workflow-typed-ir.md",
+            "specs/workflow-typed-ir_a8d8cb0b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/SPEC_TEMPLATE.md",
+          "document_type": "spec",
+          "title": "SPEC-000 — Title",
+          "canonical_path": "specs/SPEC_TEMPLATE.md",
+          "canonical_sha256": "bb963fd8a411fce24757ba618308909b7c41e7de7d715bd95a09247d7daf7a20",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/SPEC_TEMPLATE.md",
+            "specs/SPEC_TEMPLATE_bb963fd8.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/templates/intake-refinement.md",
+          "document_type": "spec",
+          "title": "Intake refinement — door NEW checklist",
+          "canonical_path": "specs/templates/intake-refinement.md",
+          "canonical_sha256": "481bc5def15b937738b239d2afa388b1b428fb0f2f4d5b944d7c1a1001bbfc5f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/intake-refinement.md",
+            "specs/intake-refinement_481bc5de.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/SPECS.md",
+          "document_type": "spec",
+          "title": "Specs Directory",
+          "canonical_path": "specs/SPECS.md",
+          "canonical_sha256": "1c1089cddd248d7c1fe2b624c6c41d2ebf71878bbba71955bcb3936e74501581",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/SPECS.md",
+            "specs/SPECS_1c1089cd.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/workflow-rollback-restore.md",
+          "document_type": "spec",
+          "title": "Workflow rollback restores data (`wfrb`)",
+          "canonical_path": "specs/40-features/workflow-rollback-restore.md",
+          "canonical_sha256": "a6e56c00eaad68243149c06cd4d9ef9b7f939ecd52823d50e91978e21f8c3300",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/workflow-rollback-restore.md",
+            "specs/workflow-rollback-restore_a6e56c00.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/worker-permission-tier.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — worker permission tier by role (door NEW)",
+          "canonical_path": "specs/40-features/worker-permission-tier.intake.md",
+          "canonical_sha256": "2e4e1dfaeb5382cc53b6b9f53fab630bfa7da5a3e4732a357b66b020b8d75231",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/worker-permission-tier.intake.md",
+            "specs/worker-permission-tier.intake_2e4e1dfa.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/worker-live-tail.md",
+          "document_type": "spec",
+          "title": "SPEC-118 — Live worker output: runtime redirect + `workflow tail`",
+          "canonical_path": "specs/40-features/worker-live-tail.md",
+          "canonical_sha256": "cacbe41d3ecf4df117d06cbf4512e3c1092fc50f0bdbc6d4a21e749abcd26e2d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/worker-live-tail.md",
+            "specs/worker-live-tail_cacbe41d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/workflow-cli-tree.md",
+          "document_type": "spec",
+          "title": "SPEC-132 — workflow CLI tree extracted to `harness_lib/cli_workflow_tree.py`",
+          "canonical_path": "specs/40-features/workflow-cli-tree.md",
+          "canonical_sha256": "7e35b5f10686aac593075d981346a6427c42fdc0a08630ad57a6e6c47c80fcb7",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/workflow-cli-tree.md",
+            "specs/workflow-cli-tree_7e35b5f1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/workflow-provenance.md",
+          "document_type": "spec",
+          "title": "CQ.3 — workflow finalize provenance record",
+          "canonical_path": "specs/40-features/workflow-provenance.md",
+          "canonical_sha256": "e4b71dfb2e2686b660f14165ff2c438f6ed039ad35f1469952ae8f92a475a2a7",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/workflow-provenance.md",
+            "specs/workflow-provenance_e4b71dfb.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/workflow-guard-gates.md",
+          "document_type": "spec",
+          "title": "Workflow guard gates (`wfg`)",
+          "canonical_path": "specs/40-features/workflow-guard-gates.md",
+          "canonical_sha256": "0af4023aa7cf6191f6de4378ed106c291380c0a16eeb390d02df074b6686fd4a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/workflow-guard-gates.md",
+            "specs/workflow-guard-gates_0af4023a.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/security-baseline.md",
+          "document_type": "spec",
+          "title": "Security baseline (observe-only evaluator)",
+          "canonical_path": "specs/40-features/security-baseline.md",
+          "canonical_sha256": "80f8920886bff4f78b4beca512a7844dc42bc30208e1977f2cd3a4b0edeadb93",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/security-baseline.md",
+            "specs/security-baseline_80f89208.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/scrub-guard-gates.md",
+          "document_type": "spec",
+          "title": "Scrub guard gates (`wsg`)",
+          "canonical_path": "specs/40-features/scrub-guard-gates.md",
+          "canonical_sha256": "5a5e393be1d37647209acd5356da46bc6b4f6ca9270ef45df45888864969b652",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/scrub-guard-gates.md",
+            "specs/scrub-guard-gates_5a5e393b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/security-directive-map.md",
+          "document_type": "spec",
+          "title": "Security directive map — no prose-only directive merges silently",
+          "canonical_path": "specs/40-features/security-directive-map.md",
+          "canonical_sha256": "5f5eea7d5cd22610cae25eb6b7e6444da63031d199efa88d4e213ae8c3072139",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/security-directive-map.md",
+            "specs/security-directive-map_5f5eea7d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/service-bootstrap.md",
+          "document_type": "spec",
+          "title": "Service bootstrap — registry + lifecycle P0 (`svc-registry-mvp`)",
+          "canonical_path": "specs/40-features/service-bootstrap.md",
+          "canonical_sha256": "4809d4b4cc804b4346a2082477a3eca8e1c735ae42823ae321b4e5b14c080df0",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/service-bootstrap.md",
+            "specs/service-bootstrap_4809d4b4.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/self-evolution-loop.md",
+          "document_type": "spec",
+          "title": "SPEC-109 — Self-Evolution Loop (Milestone SE)",
+          "canonical_path": "specs/40-features/self-evolution-loop.md",
+          "canonical_sha256": "b3d9b8da38b2e6cc545b738d3cd64751b6fb1facf3cbdd8f1d04bacf8f6527fa",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/self-evolution-loop.md",
+            "specs/self-evolution-loop_b3d9b8da.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/screen-graphs-providers.md",
+          "document_type": "spec",
+          "title": "Graph providers — graphify becomes ONE provider (`graph-provider-abstraction`)",
+          "canonical_path": "specs/40-features/screen-graphs-providers.md",
+          "canonical_sha256": "6fbe96c14bd148bb9d41bcfd0dee8dc24da01019f086a78d2e672315c3d3fe89",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/screen-graphs-providers.md",
+            "specs/screen-graphs-providers_6fbe96c1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/role-resource-allowlist.md",
+          "document_type": "spec",
+          "title": "SPEC-140 — Per-role resource allowlist (tokenEconomy skills/mcp)",
+          "canonical_path": "specs/40-features/role-resource-allowlist.md",
+          "canonical_sha256": "fd916432eed39e6ef818862c9fdfc5424295e5b6048f28a4dcd9ae48af0aad7d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/role-resource-allowlist.md",
+            "specs/role-resource-allowlist_fd916432.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/role-calibration.md",
+          "document_type": "spec",
+          "title": "RF.1 — per-role (model, effort) bake-off runner (observe-only, phase 1)",
+          "canonical_path": "specs/40-features/role-calibration.md",
+          "canonical_sha256": "656b0628a16777964752ad8241835c12e3f3e90fef238d81f69e0ac81fffc45f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/role-calibration.md",
+            "specs/role-calibration_656b0628.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/route-dispatcher.md",
+          "document_type": "spec",
+          "title": "SPEC-144 — route-dispatcher: opt-in two-tier router + specialized overseer",
+          "canonical_path": "specs/40-features/route-dispatcher.md",
+          "canonical_sha256": "f68f7cfa8a4828618cecc03e36539662fc4e327f1555531022ec6da9505ff92b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/route-dispatcher.md",
+            "specs/route-dispatcher_f68f7cfa.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/sandbox-manifest-honesty.md",
+          "document_type": "spec",
+          "title": "SPEC-163 — Sandbox manifest honesty + Job-Object containment across all spawn seams",
+          "canonical_path": "specs/40-features/sandbox-manifest-honesty.md",
+          "canonical_sha256": "8ec69e18799564a23caf4b7dce387fe897268c64719cfa1b70f9713fb9dda3ca",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/sandbox-manifest-honesty.md",
+            "specs/sandbox-manifest-honesty_8ec69e18.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/rt6-parallel-worktree-blindspot.intake.md",
+          "document_type": "spec",
+          "title": "Intake — rt6's dirty-surface guard is blind inside the parallel gate's worktree",
+          "canonical_path": "specs/40-features/rt6-parallel-worktree-blindspot.intake.md",
+          "canonical_sha256": "0000caa041816456715e5f7815cf3a0ff96fe060d5829a52222560be2fcdc9f1",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/rt6-parallel-worktree-blindspot.intake.md",
+            "specs/rt6-parallel-worktree-blindspot.intake_0000caa0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/supervision-m3-trustworthy-evaluation.md",
+          "document_type": "spec",
+          "title": "SPEC-103 — Trustworthy Evaluation (Backlog M3)",
+          "canonical_path": "specs/40-features/supervision-m3-trustworthy-evaluation.md",
+          "canonical_sha256": "8b4408d2a5e68072101b9e5acac9943b6d4004c34e7a4f7d93fbd1fdf4af0b24",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/supervision-m3-trustworthy-evaluation.md",
+            "specs/supervision-m3-trustworthy-evaluation_8b4408d2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/supervision-m2h-hardening.md",
+          "document_type": "spec",
+          "title": "SPEC-108 — M2H: Hardening & tracked technical debt",
+          "canonical_path": "specs/40-features/supervision-m2h-hardening.md",
+          "canonical_sha256": "787171359cdfebaaa0270a2b2db719f4a5562cb90aca2143bbcd26b71c6136b6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/supervision-m2h-hardening.md",
+            "specs/supervision-m2h-hardening_78717135.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/supervision-m4-readonly-gui.md",
+          "document_type": "spec",
+          "title": "SPEC-104 — Read-Only GUI Snapshot (Backlog M4)",
+          "canonical_path": "specs/40-features/supervision-m4-readonly-gui.md",
+          "canonical_sha256": "4d0d85adc4a84e33c16cfc323added883084d504aa823d39297935a0c1520a30",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/supervision-m4-readonly-gui.md",
+            "specs/supervision-m4-readonly-gui_4d0d85ad.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/syntax-highlighting.md",
+          "document_type": "spec",
+          "title": "Syntax highlighting (native tree-sitter, CLI + panel)",
+          "canonical_path": "specs/40-features/syntax-highlighting.md",
+          "canonical_sha256": "ff581f233e98cb49fb18b945dfe5fb8b2b45aec3c68aea64c4ed09a82fbc82cb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/syntax-highlighting.md",
+            "specs/syntax-highlighting_ff581f23.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/supervision-m5-interactive-panel.md",
+          "document_type": "spec",
+          "title": "SPEC-114 — Supervision panel with embedded chat",
+          "canonical_path": "specs/40-features/supervision-m5-interactive-panel.md",
+          "canonical_sha256": "c3630fc10942886dc62a80857ba9fe977a817f1e47691b00f0086219b3370514",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/supervision-m5-interactive-panel.md",
+            "specs/supervision-m5-interactive-panel_c3630fc1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/supervision-m2-cli-surface.md",
+          "document_type": "spec",
+          "title": "SPEC-102 — CLI as a Complete Supervision Surface (Backlog M2)",
+          "canonical_path": "specs/40-features/supervision-m2-cli-surface.md",
+          "canonical_sha256": "e427ae2103cb5b4f4cfce982a3b252b8b85b1c8e9345e7880551cd35cc0a959e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/supervision-m2-cli-surface.md",
+            "specs/supervision-m2-cli-surface_e427ae21.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/spawn-economy-guard.md",
+          "document_type": "spec",
+          "title": "SPEC-153 -- Spawn-economy guard: vendor-independent block on under-specified / frontier-for-grunt spawns",
+          "canonical_path": "specs/40-features/spawn-economy-guard.md",
+          "canonical_sha256": "79a0fdef52b31431f265806014527e97f23bdd12ccef56cc1cecd1e6242b1d61",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/spawn-economy-guard.md",
+            "specs/spawn-economy-guard_79a0fdef.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/spawn-economy-guard.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement -- spawn-economy guard (door NEW)",
+          "canonical_path": "specs/40-features/spawn-economy-guard.intake.md",
+          "canonical_sha256": "1652aec887bef7ca749483fc230bf0bacecb9c44c2d4eb258172856659dd7d48",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/spawn-economy-guard.intake.md",
+            "specs/spawn-economy-guard.intake_1652aec8.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/spec-index.md",
+          "document_type": "spec",
+          "title": "SPEC-124 — `spec-index`: read-only spec inventory verb",
+          "canonical_path": "specs/40-features/spec-index.md",
+          "canonical_sha256": "6e15e514edadb23144b5f94eed9927af083dde1a853d373c3cb40a051a9cf908",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/spec-index.md",
+            "specs/spec-index_6e15e514.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/supervision-m1-legible-failures.md",
+          "document_type": "spec",
+          "title": "SPEC-101 — Legible Failures (Backlog M1)",
+          "canonical_path": "specs/40-features/supervision-m1-legible-failures.md",
+          "canonical_sha256": "5b49934245b5a3ee66440e2cc7f15003512d66a161c466b576127b842583551c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/supervision-m1-legible-failures.md",
+            "specs/supervision-m1-legible-failures_5b499342.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/spec-intake-triage.md",
+          "document_type": "spec",
+          "title": "SPEC-117 — Intake-triage hook: SPEC-116 routing at the moment of the request",
+          "canonical_path": "specs/40-features/spec-intake-triage.md",
+          "canonical_sha256": "bcf4d49d9a3d9062eb73ca99f5dc87ef1e40927e6cdd099f0cfbcab7c450c691",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/spec-intake-triage.md",
+            "specs/spec-intake-triage_bcf4d49d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/harness-own-sandbox.md",
+          "document_type": "spec",
+          "title": "SPEC-151 — Harness-own sandbox (vendor-agnostic spawn containment)",
+          "canonical_path": "specs/40-features/harness-own-sandbox.md",
+          "canonical_sha256": "e3c4f3eb77c042204ee93c3670e03ac60003319c923e4ef93ab6c7e50f9ab28a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/harness-own-sandbox.md",
+            "specs/harness-own-sandbox_e3c4f3eb.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/20-architecture/ARCHITECTURE.md",
+          "document_type": "spec",
+          "title": "Architecture Specs",
+          "canonical_path": "specs/20-architecture/ARCHITECTURE.md",
+          "canonical_sha256": "4d5dadbc78f0616d25e9f220ff08f2ca2a75fd1279b6382558e4026067f55e22",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/ARCHITECTURE.md",
+            "specs/ARCHITECTURE_ee115aaa.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/10-project/PROJECT.md",
+          "document_type": "spec",
+          "title": "Project Specs",
+          "canonical_path": "specs/10-project/PROJECT.md",
+          "canonical_sha256": "3d7e2fb721957a93b53aaf50c59b0f994699fecfa94ce0b50b1c0916a795a43e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/PROJECT.md",
+            "specs/PROJECT_3fb98aa2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/30-stack/STACK.md",
+          "document_type": "spec",
+          "title": "Stack Specs",
+          "canonical_path": "specs/30-stack/STACK.md",
+          "canonical_sha256": "7b0d03f9d74e7918785a3c43cb4ff23b7950999bb62bec27e272ebaf4c3ae459",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/STACK.md",
+            "specs/STACK_e402deae.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/anomaly-card.md",
+          "document_type": "spec",
+          "title": "SPEC-131 — `anomaly-card`: deterministic anomaly feature card (OB.3, deterministic half)",
+          "canonical_path": "specs/40-features/anomaly-card.md",
+          "canonical_sha256": "58b899aee313d97ffa84d3df2865f89f01073250aa0885114a2381233a82fbf5",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/anomaly-card.md",
+            "specs/anomaly-card_58b899ae.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/agent-capability-parity.md",
+          "document_type": "spec",
+          "title": "SPEC-113 — Agent capability parity",
+          "canonical_path": "specs/40-features/agent-capability-parity.md",
+          "canonical_sha256": "66fa9a44f7488de4ac2335b2acd96eb337cd39debbe50b6e07498b4cad478575",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/agent-capability-parity.md",
+            "specs/agent-capability-parity_66fa9a44.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/UNIVERSAL_BASELINE.md",
+          "document_type": "spec",
+          "title": "Universal Baseline Specs",
+          "canonical_path": "specs/00-universal/UNIVERSAL_BASELINE.md",
+          "canonical_sha256": "dde0ea3c21147f339f4765a0c7b16cb49aacbd4774822ded06649213f6e53eb4",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/UNIVERSAL_BASELINE.md",
+            "specs/UNIVERSAL_BASELINE_dde0ea3c.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/secure-engineering.md",
+          "document_type": "spec",
+          "title": "Universal Spec — Secure Engineering",
+          "canonical_path": "specs/00-universal/secure-engineering.md",
+          "canonical_sha256": "05bd34e373e45a6213328503a2c931d14779db1bb9d74e0cfa3b61f47e0ba66b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/secure-engineering.md",
+            "specs/secure-engineering_05bd34e3.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/secrets-and-configuration.md",
+          "document_type": "spec",
+          "title": "Universal Spec — Secrets and Configuration",
+          "canonical_path": "specs/00-universal/secrets-and-configuration.md",
+          "canonical_sha256": "727570c2410992185e1481055d170a114f9d7964356b3a4deea8c1af6c601dfd",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/secrets-and-configuration.md",
+            "specs/secrets-and-configuration_727570c2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/software-engineering-guardrails.md",
+          "document_type": "spec",
+          "title": "Software engineering guardrails",
+          "canonical_path": "specs/00-universal/software-engineering-guardrails.md",
+          "canonical_sha256": "a2a0df6ee35b367021ea0359f4531f51bc0c8e1fefed1f9145eb6a9bd48b4b9e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/software-engineering-guardrails.md",
+            "specs/software-engineering-guardrails_a2a0df6e.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/testing-and-quality-gates.md",
+          "document_type": "spec",
+          "title": "Universal Spec — Testing and Quality Gates",
+          "canonical_path": "specs/00-universal/testing-and-quality-gates.md",
+          "canonical_sha256": "bc22afeca14ef4fc25969c203b6b5898c046d4880956b8269858ee3311463a39",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/testing-and-quality-gates.md",
+            "specs/testing-and-quality-gates_bc22afec.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/structural-discovery.md",
+          "document_type": "spec",
+          "title": "Structural Discovery and Source Verification",
+          "canonical_path": "specs/00-universal/structural-discovery.md",
+          "canonical_sha256": "1898a4ad7549d74cadb3b2cef80289de78157bb5391529b8258101fd5a0e6e7b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/structural-discovery.md",
+            "specs/structural-discovery_1898a4ad.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-overlays.md",
+          "document_type": "spec",
+          "title": "Chat overlays — tool-call chips + expand-to-inspect (`chat-tool-chips`)",
+          "canonical_path": "specs/40-features/chat-overlays.md",
+          "canonical_sha256": "69d5651158a5ee7dbf2fff6761b7d79c249b7664ffbfda00f5e879e9e1ed42a7",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-overlays.md",
+            "specs/chat-overlays_69d56511.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-midrun-failover.md",
+          "document_type": "spec",
+          "title": "SPEC-166 — Chat mid-run failover: the chain completes the loop",
+          "canonical_path": "specs/40-features/chat-midrun-failover.md",
+          "canonical_sha256": "007a1be3c97bce691302528aecb23b3b07a90b08f59b498b129cfd880205fefa",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-midrun-failover.md",
+            "specs/chat-midrun-failover_007a1be3.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-profile-switch-resolution.md",
+          "document_type": "spec",
+          "title": "Chat profile switch resolves its own overseer (`cm1`)",
+          "canonical_path": "specs/40-features/chat-profile-switch-resolution.md",
+          "canonical_sha256": "dd9528170db653a5537bbcf28662ef45d303258f68ef28a97d37ea3c3848cd17",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-profile-switch-resolution.md",
+            "specs/chat-profile-switch-resolution_dd952817.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-tail-hardening.md",
+          "document_type": "spec",
+          "title": "Chat contract hardening — tail batch (`rct`)",
+          "canonical_path": "specs/40-features/chat-tail-hardening.md",
+          "canonical_sha256": "a8539c55e6b0b1608475be364298bcfababf07ff2d8832e51bba89b536b48365",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-tail-hardening.md",
+            "specs/chat-tail-hardening_a8539c55.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-rooms.md",
+          "document_type": "spec",
+          "title": "SPEC-146 — Chat rooms: porteiro -> overseer room + a cheap ui-overseer",
+          "canonical_path": "specs/40-features/chat-rooms.md",
+          "canonical_sha256": "50d0e904e96fb1dcbf89d5b6a236d0eb07e5e25d552d02b64941239d30dbe569",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-rooms.md",
+            "specs/chat-rooms_50d0e904.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-midrun-failover.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement -- chat mid-run failover (door NEW)",
+          "canonical_path": "specs/40-features/chat-midrun-failover.intake.md",
+          "canonical_sha256": "b9efc847c021d502c708f615069ace71f4851d14e5cd8ffd5465338629af7a18",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-midrun-failover.intake.md",
+            "specs/chat-midrun-failover.intake_b9efc847.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/backlog-closure-guard.md",
+          "document_type": "spec",
+          "title": "SPEC-154 -- Backlog-closure guard (tie delivery to item closure in lockstep)",
+          "canonical_path": "specs/40-features/backlog-closure-guard.md",
+          "canonical_sha256": "7d516846ed8357b0d912ab60b8e644c22af85c8e28d7dd2bbfd0d8b7a6361e9a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/backlog-closure-guard.md",
+            "specs/backlog-closure-guard_7d516846.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/attention-risk-summary.md",
+          "document_type": "spec",
+          "title": "UX-GA.1 — Risk-summary strip above the Attention bay",
+          "canonical_path": "specs/40-features/attention-risk-summary.md",
+          "canonical_sha256": "d25d3cb199baa5f97e103609ce968e0026dc959d9ba91b1ef770699c12b39edf",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/attention-risk-summary.md",
+            "specs/attention-risk-summary_d25d3cb1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/backlog-entry-groom.md",
+          "document_type": "spec",
+          "title": "SPEC-155 -- Backlog-entry-groom guard (groom a task AT ENTRY, in lockstep)",
+          "canonical_path": "specs/40-features/backlog-entry-groom.md",
+          "canonical_sha256": "7614d0641bc1a0a77ed8eb592121158e234b13e808c56b78c66ddddc0fba8cf3",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/backlog-entry-groom.md",
+            "specs/backlog-entry-groom_7614d064.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-contract-hardening.md",
+          "document_type": "spec",
+          "title": "Chat contract hardening (`rhc`)",
+          "canonical_path": "specs/40-features/chat-contract-hardening.md",
+          "canonical_sha256": "8eb99362e65666c0f2e369134321ecc37358967d7e9c0d45f7195817ec5af42c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-contract-hardening.md",
+            "specs/chat-contract-hardening_8eb99362.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/capability-panels.md",
+          "document_type": "spec",
+          "title": "Capability panels — CAP.1 scoped inventory + `agents skills`/`agents mcp`",
+          "canonical_path": "specs/40-features/capability-panels.md",
+          "canonical_sha256": "f81c9135e8ed6476a7b6ab832cc05c87fc76d1466a5927f883278d5f5c2ba9aa",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/capability-panels.md",
+            "specs/capability-panels_f81c9135.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/spec-recovery/chat-mined.md",
+          "document_type": "archive",
+          "title": "Chat-mined spec recovery (DRAFT — NON-CANONICAL)",
+          "canonical_path": "docs/spec-recovery/chat-mined.md",
+          "canonical_sha256": "09d55f424d0a085edcc3c4bb60b3fcfc72dc5aed2fa1e0af64bdf894f0c0df2a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/chat-mined.md",
+            "docs/archive/archaeology/chats/chat-mined_09d55f42.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/POST_MORTEM_AND_ARCHITECTURAL_PIVOT.md",
+          "document_type": "post_mortem",
+          "title": "🏛️ POST-MORTEM ARQUITETURAL: TRANSIÇÃO DO HARNESS MONOLÍTICO PARA O AGENT OS FEDERADO",
+          "canonical_path": "docs/POST_MORTEM_AND_ARCHITECTURAL_PIVOT.md",
+          "canonical_sha256": "75dfa789fa37b00c63013542b1924296b0ae2eaf36dfcc8fd91ffb1ab3128f7d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/POST_MORTEM_AND_ARCHITECTURAL_PIVOT.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/spec-recovery/plan-mined.md",
+          "document_type": "archive",
+          "title": "Spec recovery — PLAN-shaped corpus scan (DRAFT — NON-CANONICAL)",
+          "canonical_path": "docs/spec-recovery/plan-mined.md",
+          "canonical_sha256": "388bb35097f98dcc6e22f43155435b4694bba382aee6fe90e0c3e3a723c9502d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/plan-mined.md",
+            "docs/archive/archaeology/chats/plan-mined_388bb350.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/agentic-async-await.md",
+          "document_type": "spec",
+          "title": "Agentic Async-Await Workflow Pattern",
+          "canonical_path": "specs/00-universal/agentic-async-await.md",
+          "canonical_sha256": "00447c3d888fdca46dedf97983b415009a968a31687160151186cd97aedf43a1",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/agentic-async-await.md",
+            "specs/agentic-async-await_00447c3d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:README.md",
+          "document_type": "post_mortem",
+          "title": "tare.tools.harness (Legacy Prototype)",
+          "canonical_path": "README.md",
+          "canonical_sha256": "2acb13d16bdede8b4926e85ffb13881c2fc54fd802c07be5a56d8d02163b04a9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/README.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/PANEL_CHAT.md",
+          "document_type": "archive",
+          "title": "Chat tab (the supervision panel's operator chat)",
+          "canonical_path": "docs/PANEL_CHAT.md",
+          "canonical_sha256": "62e5fb636db6df926c923ebdbcb14078b5d603e9d4e37b21f0f27816bbd5f120",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/PANEL_CHAT.md",
+            "docs/archive/archaeology/chats/PANEL_CHAT_62e5fb63.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/design/gui-review-checklist.md",
+          "document_type": "archive",
+          "title": "GUI review checklist (GUI-X6 antipatterns)",
+          "canonical_path": "docs/design/gui-review-checklist.md",
+          "canonical_sha256": "2490d599ae38ba1dfc9d4056e0a365b8c0e42c6b970530083cbaf18ee0e03ec6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/gui-review-checklist.md",
+            "docs/archive/archaeology/chats/gui-review-checklist_2490d599.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/architecture/GOVERNANCE_PROOF_AUTHORITY.md",
+          "document_type": "spec",
+          "title": "SPEC-183 Governance Proof Authority & Transaction Correctness Architecture",
+          "canonical_path": "docs/architecture/GOVERNANCE_PROOF_AUTHORITY.md",
+          "canonical_sha256": "68ab63b1cd0ecf50c792f425a1e82bcad211bb5ecd863e19665f4725aa034126",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/GOVERNANCE_PROOF_AUTHORITY.md",
+            "specs/GOVERNANCE_PROOF_AUTHORITY_68ab63b1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/DESIGN_SYSTEM_LEGACY.md",
+          "document_type": "archive",
+          "title": "Harness panel design system — Phase 1 (tokens + global chrome)",
+          "canonical_path": "docs/DESIGN_SYSTEM_LEGACY.md",
+          "canonical_sha256": "4d64541d2e636c167c1f4606ed3d13cf90ab3f2599e54d35497dd8a1be38e2af",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/DESIGN_SYSTEM_LEGACY.md",
+            "docs/archive/archaeology/chats/DESIGN_SYSTEM_LEGACY_4d64541d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/MILESTONE_REPORT_2026-07-11.md",
+          "document_type": "post_mortem",
+          "title": "Milestone report — 2026-07-11: live worker observability + research skill",
+          "canonical_path": "docs/MILESTONE_REPORT_2026-07-11.md",
+          "canonical_sha256": "201e7dd73224de6ddcd121a5a207b7a38d980c1bb3e86bfca8cbd153fd14dc1c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/MILESTONE_REPORT_2026-07-11.md",
+            "docs/post-mortems/MILESTONE_REPORT_2026-07-11_201e7dd7.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:docs/INDEX.md",
+          "document_type": "post_mortem",
+          "title": "📚 ÍNDICE DE DOCUMENTAÇÃO HISTÓRICA — TARE.TOOLS.HARNESS",
+          "canonical_path": "docs/INDEX.md",
+          "canonical_sha256": "b3aa67c136ca60dca702a3d81cabe90a6019550656f33fc77e4eb310cd1fab50",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/INDEX.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/data-protection-and-privacy.md",
+          "document_type": "spec",
+          "title": "Universal Spec — Data Protection and Privacy",
+          "canonical_path": "specs/00-universal/data-protection-and-privacy.md",
+          "canonical_sha256": "810247c65046b2912c6fe95ecc82a3ef32a8198d1902edac21fc5e821d0b084a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/data-protection-and-privacy.md",
+            "specs/data-protection-and-privacy_810247c6.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/coverage-and-regression.md",
+          "document_type": "spec",
+          "title": "Universal Spec — Coverage and Regression",
+          "canonical_path": "specs/00-universal/coverage-and-regression.md",
+          "canonical_sha256": "19be8072e6133757f4de97673c909700ebbb883b56bdf37dfdb35911cd987f8f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/coverage-and-regression.md",
+            "specs/coverage-and-regression_19be8072.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/dependency-and-supply-chain.md",
+          "document_type": "spec",
+          "title": "Universal Spec — Dependency and Supply Chain",
+          "canonical_path": "specs/00-universal/dependency-and-supply-chain.md",
+          "canonical_sha256": "809c84ff25bc0c8d65fe61fc1ea7d61da15693b3bd4b1cd58d30baf3ae643f2a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/dependency-and-supply-chain.md",
+            "specs/dependency-and-supply-chain_809c84ff.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/sdd-bdd-flow.md",
+          "document_type": "spec",
+          "title": "SDD + BDD Flow — how requests become (or amend) specs",
+          "canonical_path": "specs/00-universal/sdd-bdd-flow.md",
+          "canonical_sha256": "f5e5fa806989f261e8a33eca5be4092cddcaedbe3da3edb47a15d6aab48fa13b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/sdd-bdd-flow.md",
+            "specs/sdd-bdd-flow_f5e5fa80.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/observability-and-operability.md",
+          "document_type": "spec",
+          "title": "Universal Spec — Observability and Operability",
+          "canonical_path": "specs/00-universal/observability-and-operability.md",
+          "canonical_sha256": "a2a92e1a5ace1fa4897e0134be3ee1312a3e9f290938a101497cb3c385f15f7f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/observability-and-operability.md",
+            "specs/observability-and-operability_a2a92e1a.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/code-quality.md",
+          "document_type": "spec",
+          "title": "Universal Spec — Code Quality",
+          "canonical_path": "specs/00-universal/code-quality.md",
+          "canonical_sha256": "e3cf3bbfefb41c461ea1f42f4ee8f65d29f424e6296418bc711969fd02303242",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/code-quality.md",
+            "specs/code-quality_e3cf3bbf.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/agentic-map-reduce.md",
+          "document_type": "spec",
+          "title": "Agentic Map-Reduce",
+          "canonical_path": "specs/00-universal/agentic-map-reduce.md",
+          "canonical_sha256": "9f026c57e8b689a23b483c59acaea9ca66b5fb6d78b111af2675cdce4ffd811b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/agentic-map-reduce.md",
+            "specs/agentic-map-reduce_9f026c57.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/agentic-fork-join.md",
+          "document_type": "spec",
+          "title": "Agentic Fork-Join",
+          "canonical_path": "specs/00-universal/agentic-fork-join.md",
+          "canonical_sha256": "9277493067ed7cffd35687b16052f9a9ae165ecc412bbca862601a879b18bfdc",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/agentic-fork-join.md",
+            "specs/agentic-fork-join_92774930.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/ai-agent-safety.md",
+          "document_type": "spec",
+          "title": "Universal Spec — AI Agent Safety",
+          "canonical_path": "specs/00-universal/ai-agent-safety.md",
+          "canonical_sha256": "95f37c97034a7f307851361a33a5e935142983fbff91fc8c2d7f14c80ddc9438",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/ai-agent-safety.md",
+            "specs/ai-agent-safety_95f37c97.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/canonical-file-protection.md",
+          "document_type": "spec",
+          "title": "Canonical file protection",
+          "canonical_path": "specs/00-universal/canonical-file-protection.md",
+          "canonical_sha256": "c7bcd267efe0b3a1382746b5a621323c41c96ff57735a350f35c2a75e22a4f69",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/canonical-file-protection.md",
+            "specs/canonical-file-protection_c7bcd267.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/00-universal/api-and-interface-security.md",
+          "document_type": "spec",
+          "title": "Universal Spec — API and Interface Security",
+          "canonical_path": "specs/00-universal/api-and-interface-security.md",
+          "canonical_sha256": "0cd4c8daffc2d0930e23d7bef2010354dc6647825450272421eba45d93770a0e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/api-and-interface-security.md",
+            "specs/api-and-interface-security_0cd4c8da.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/failure-patterns.md",
+          "document_type": "spec",
+          "title": "SPEC-126 — `failure-patterns`: repeat-failure rollup verb (OB.1)",
+          "canonical_path": "specs/40-features/failure-patterns.md",
+          "canonical_sha256": "e5bede7380ea3f2cfcd0494f32bd3af656bfb16c4a80dd49f53dc41e7bd43bd9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/failure-patterns.md",
+            "specs/failure-patterns_e5bede73.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/experiment-lifecycle.md",
+          "document_type": "spec",
+          "title": "Experiment-lifecycle registry (`exl`) — SPEC-116 pack",
+          "canonical_path": "specs/40-features/experiment-lifecycle.md",
+          "canonical_sha256": "6f0f3729d5caa974900b9b8be4a19703111063f146130ee311ee8d0788059f09",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/experiment-lifecycle.md",
+            "specs/experiment-lifecycle_6f0f3729.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/FEATURES.md",
+          "document_type": "spec",
+          "title": "Feature Specs",
+          "canonical_path": "specs/40-features/FEATURES.md",
+          "canonical_sha256": "9a206201e2062abf5d03eae079874879b77cd2d824125b4cfdf58ef6e0543d2c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/FEATURES.md",
+            "specs/FEATURES_9a206201.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/flow-composer.md",
+          "document_type": "spec",
+          "title": "SPEC-120 — Renderer-first flow composer (derived DAG + validate-only)",
+          "canonical_path": "specs/40-features/flow-composer.md",
+          "canonical_sha256": "fba6671e8d5972a9e65200c1fcd05c2f0253d28196d43b61f448b54c8f8bd0b8",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/flow-composer.md",
+            "specs/flow-composer_fba6671e.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/flow-composer.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — door NEW checklist (renderer-first flow composer)",
+          "canonical_path": "specs/40-features/flow-composer.intake.md",
+          "canonical_sha256": "951c4c85900e577574aa97df104ed91956bb75e89c5ef968cb70c9f04da0791a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/flow-composer.intake.md",
+            "specs/flow-composer.intake_951c4c85.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/executor-spawn-hygiene.md",
+          "document_type": "spec",
+          "title": "Executor spawn hygiene — closed stdin + explicit model pinning (`esh`)",
+          "canonical_path": "specs/40-features/executor-spawn-hygiene.md",
+          "canonical_sha256": "7dd21d35ac0e5f6ceb44d1a86994fd4ad0928446af8d4685abae8efc235fcf3c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/executor-spawn-hygiene.md",
+            "specs/executor-spawn-hygiene_7dd21d35.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/docs-tree.md",
+          "document_type": "spec",
+          "title": "SPEC-127 — `docs-tree`: read-only docs+specs inventory verb",
+          "canonical_path": "specs/40-features/docs-tree.md",
+          "canonical_sha256": "1532d17c39308de9b7f180196d066f85ac38dd33bad14d89c384e6cadcf311c4",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/docs-tree.md",
+            "specs/docs-tree_1532d17c.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/discovery-wrapper-cheap-apis.md",
+          "document_type": "spec",
+          "title": "SPEC-107 — Cheap Discovery Wrapper (Backlog M2W)",
+          "canonical_path": "specs/40-features/discovery-wrapper-cheap-apis.md",
+          "canonical_sha256": "153a9c3cb12ec89560e1e5beba30e9e34ca003aff67b9dfb7abc507a098d277c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/discovery-wrapper-cheap-apis.md",
+            "specs/discovery-wrapper-cheap-apis_153a9c3c.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/escalation-subject-scope.md",
+          "document_type": "spec",
+          "title": "Escalation subject scope — every ask belongs to one world (`esc-subject-scope`)",
+          "canonical_path": "specs/40-features/escalation-subject-scope.md",
+          "canonical_sha256": "e192ed9d1cabc93a5dae9602a870f78f67d40e9995e3b3d1c3f235b6d657dbac",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/escalation-subject-scope.md",
+            "specs/escalation-subject-scope_e192ed9d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/evidence-bundle.md",
+          "document_type": "spec",
+          "title": "SPEC-129 — Reviewer evidence bundle (`workflow evidence`, CLI half)",
+          "canonical_path": "specs/40-features/evidence-bundle.md",
+          "canonical_sha256": "aa58cd8abbbcbfca5145e09199329e6885648b04f3e2bc21a7f7878cabcb5321",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/evidence-bundle.md",
+            "specs/evidence-bundle_aa58cd8a.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/event-chain-verification.md",
+          "document_type": "spec",
+          "title": "SPEC-164 — Event hash-chain: production verification + compaction seal (SECREV M4+M5)",
+          "canonical_path": "specs/40-features/event-chain-verification.md",
+          "canonical_sha256": "e6b8ba2c3bf1734fef1a31bc1d19569f9b14cc8f26d02e30e6b2cbd8771b2fac",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/event-chain-verification.md",
+            "specs/event-chain-verification_e6b8ba2c.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/graph-refresh-decoupled.md",
+          "document_type": "spec",
+          "title": "SPEC — graph refresh is decoupled from the commit path",
+          "canonical_path": "specs/40-features/graph-refresh-decoupled.md",
+          "canonical_sha256": "96804df16f7fd0f179e898fc6e808747bcef9d31645376c95c5a1e2c979936ef",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/graph-refresh-decoupled.md",
+            "specs/graph-refresh-decoupled_96804df1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/graded-resource-enforcement.md",
+          "document_type": "spec",
+          "title": "SPEC-143 — Graded resource enforcement (resourcesRespected)",
+          "canonical_path": "specs/40-features/graded-resource-enforcement.md",
+          "canonical_sha256": "af3acc9437fc7ce0a9b1004e929d06bf5f17b2ec3ef584805933883953d786fc",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/graded-resource-enforcement.md",
+            "specs/graded-resource-enforcement_af3acc94.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/harness-exec-transport.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement -- harness exec transport (door NEW, DEFERRED)",
+          "canonical_path": "specs/40-features/harness-exec-transport.intake.md",
+          "canonical_sha256": "1671a56dc07ca615ec5a5a178c236e8fce42ce6c7bab458f9bcff4b55fd9d217",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/harness-exec-transport.intake.md",
+            "specs/harness-exec-transport.intake_1671a56d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/harness-own-sandbox.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — door NEW checklist — harness-own sandbox",
+          "canonical_path": "specs/40-features/harness-own-sandbox.intake.md",
+          "canonical_sha256": "28e27dcdbeffec24c0fd2e6601cf9d7fc5368827469b28254ef086eba0e02f61",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/harness-own-sandbox.intake.md",
+            "specs/harness-own-sandbox.intake_28e27dcd.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/harness-exec-transport.md",
+          "document_type": "spec",
+          "title": "SPEC-174 — agy accept-edits / coding lane (cli-agent write transport)",
+          "canonical_path": "specs/40-features/harness-exec-transport.md",
+          "canonical_sha256": "22631bea572d17896ee5eab88fb7020532b06ad24ea4bc74363541b785a49bd9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/harness-exec-transport.md",
+            "specs/harness-exec-transport_22631bea.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/governed-memory-firewall.md",
+          "document_type": "spec",
+          "title": "SPEC-162 — Governed-memory item registry + GM-3 provenance firewall (measure-only bootstrap)",
+          "canonical_path": "specs/40-features/governed-memory-firewall.md",
+          "canonical_sha256": "bea3897126f14132700d59b392dfd949e66803ba04a44a1d01d04163e9175080",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/governed-memory-firewall.md",
+            "specs/governed-memory-firewall_bea38971.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/gate-hold-guard.md",
+          "document_type": "spec",
+          "title": "SPEC-156 — Gate-hold guard: mechanize SPEC-137 during the gate window",
+          "canonical_path": "specs/40-features/gate-hold-guard.md",
+          "canonical_sha256": "28cb1531312ae5b4f7b48f37ce4263ea924c6973a37fe69857964cefd050fa02",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/gate-hold-guard.md",
+            "specs/gate-hold-guard_fc325c47.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/gate-affected-cache.md",
+          "document_type": "spec",
+          "title": "SPEC-159 — Affected-scenario selection + per-scenario gate cache (Phase 1: SHADOW)",
+          "canonical_path": "specs/40-features/gate-affected-cache.md",
+          "canonical_sha256": "53793753e4c19e30ced917f1d10cd27db13b1dc4ac40046487c72d0ef8b21ac3",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/gate-affected-cache.md",
+            "specs/gate-affected-cache_53793753.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/gate-observability.md",
+          "document_type": "spec",
+          "title": "SPEC-158 — Gate observability: the `gate-perf` read verb",
+          "canonical_path": "specs/40-features/gate-observability.md",
+          "canonical_sha256": "b8a372f2e2c39ebac489f5f507fe378a920df32a94beeda46e574986b5ce31b9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/gate-observability.md",
+            "specs/gate-observability_b8a372f2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/gate-structure-checks.md",
+          "document_type": "spec",
+          "title": "Gate structure/syntax checks module (gate-lines-burndown r1)",
+          "canonical_path": "specs/40-features/gate-structure-checks.md",
+          "canonical_sha256": "7f8bf46aa0f9cff2e214970157a9a37c2fd95a9c927eca8266fabdcca84bff07",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/gate-structure-checks.md",
+            "specs/gate-structure-checks_7f8bf46a.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/gate-perf-governance.md",
+          "document_type": "spec",
+          "title": "Gate performance governance (B4) — metric → suggestion → decision",
+          "canonical_path": "specs/40-features/gate-perf-governance.md",
+          "canonical_sha256": "8a29262540347fd707a8d5d4c052775aaffb0c237de705f1bf318dc155fa9e5a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/gate-perf-governance.md",
+            "specs/gate-perf-governance_8a292625.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/codex-hook-trust-bypass.md",
+          "document_type": "spec",
+          "title": "SPEC-171 — Conditional codex hook-trust bypass (verify-then-spawn)",
+          "canonical_path": "specs/40-features/codex-hook-trust-bypass.md",
+          "canonical_sha256": "c236de1dfe6962072db7dbac42ab1178a5d672028a524e0d568059908aa8a71d",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/codex-hook-trust-bypass.md",
+            "specs/codex-hook-trust-bypass_c236de1d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/codex-hook-trust-bypass.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — door NEW checklist",
+          "canonical_path": "specs/40-features/codex-hook-trust-bypass.intake.md",
+          "canonical_sha256": "54f7f629271e9588dc47732b56e2e97cac1f6773cb28eee1bdbe98aecf20879f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/codex-hook-trust-bypass.intake.md",
+            "specs/codex-hook-trust-bypass.intake_54f7f629.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/commit-tie-receipt.md",
+          "document_type": "spec",
+          "title": "Commit-tie receipt — every shipping commit names what now enforces it",
+          "canonical_path": "specs/40-features/commit-tie-receipt.md",
+          "canonical_sha256": "681cc718acb725c3a8d88cd3cb7aaac97aa773ae4071358c15c45082bc37cadb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/commit-tie-receipt.md",
+            "specs/commit-tie-receipt_681cc718.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/compat-executor-routing.md",
+          "document_type": "spec",
+          "title": "SPEC-165 — Compat-executor routing: http executors first-class in model routing",
+          "canonical_path": "specs/40-features/compat-executor-routing.md",
+          "canonical_sha256": "9f96ab324d3c7a1ce6e8a63cb2b75078a6c99fef70b8cdee2310409b66057c66",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/compat-executor-routing.md",
+            "specs/compat-executor-routing_9f96ab32.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/compat-executor-routing.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement -- compat-executor routing (door NEW)",
+          "canonical_path": "specs/40-features/compat-executor-routing.intake.md",
+          "canonical_sha256": "31babbb4649b219e112bd6b068e77940c0f6209c34a0a75b4cea9aaa3aec7ae0",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/compat-executor-routing.intake.md",
+            "specs/compat-executor-routing.intake_31babbb4.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/codex-hook-trust.md",
+          "document_type": "spec",
+          "title": "SPEC-150 -- Codex hook-trust stays off (hooks on codex are advisory)",
+          "canonical_path": "specs/40-features/codex-hook-trust.md",
+          "canonical_sha256": "2c202c896584c9bf8afcc6d905a2a01bd873e8e87133423162b8b324e4051f3b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/codex-hook-trust.md",
+            "specs/codex-hook-trust_2c202c89.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-workspace.md",
+          "document_type": "spec",
+          "title": "SPEC-147 — Chat workspace: CM6 diff pane (vibe) + IDE (copilot)",
+          "canonical_path": "specs/40-features/chat-workspace.md",
+          "canonical_sha256": "e7ed00b054a11cb5a48770139d49d7acf4befd95a10f9b9cd7b77ccfcbcd84b6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-workspace.md",
+            "specs/chat-workspace_e7ed00b0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/chat-workspace.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — chat workspace IDE (vibe + copilot modes)",
+          "canonical_path": "specs/40-features/chat-workspace.intake.md",
+          "canonical_sha256": "b494145615d3b80bb7b1d46424c9e96ec74c41a956d0baba2ccb765068e959af",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/chat-workspace.intake.md",
+            "specs/chat-workspace.intake_b4941456.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/cli-exit-code-contract.md",
+          "document_type": "spec",
+          "title": "CLI exit-code contract (`cec`)",
+          "canonical_path": "specs/40-features/cli-exit-code-contract.md",
+          "canonical_sha256": "33d9eb526222d2227d9232aedb63fcd6083cead0e20de27066fa31b1a4dded13",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/cli-exit-code-contract.md",
+            "specs/cli-exit-code-contract_33d9eb52.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/codex-hook-trust.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement -- codex hook-trust decision (door NEW)",
+          "canonical_path": "specs/40-features/codex-hook-trust.intake.md",
+          "canonical_sha256": "6ae77cf0953c532ac861685f05c28cf10d56552303c1c5cb3b41e79120c74ffb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/codex-hook-trust.intake.md",
+            "specs/codex-hook-trust.intake_6ae77cf0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/cli-tool-catalog.md",
+          "document_type": "spec",
+          "title": "CLI tool catalog — the argparse tree, demand-paged (CE.4)",
+          "canonical_path": "specs/40-features/cli-tool-catalog.md",
+          "canonical_sha256": "6056268f1a020991d9224bcd2833e6dfe1e2241f0736e5e78841584d2e76a26f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/cli-tool-catalog.md",
+            "specs/cli-tool-catalog_6056268f.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/demand-funnel.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement — demand-funnel: um funil, uma porta de commit",
+          "canonical_path": "specs/40-features/demand-funnel.intake.md",
+          "canonical_sha256": "1994b1ceac1f37ac35260371c715a5a276d0718969edc3ac7c46d4e9a1430039",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/demand-funnel.intake.md",
+            "specs/demand-funnel.intake_1994b1ce.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/delegation-output-cap.md",
+          "document_type": "spec",
+          "title": "SPEC-142 — Delegation output-cap contract line (worker-facing, via the seam)",
+          "canonical_path": "specs/40-features/delegation-output-cap.md",
+          "canonical_sha256": "07fc396225f02ceb6daaeb9e295ef3fdf5e650087be0e3e5893efd146ae7f658",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/delegation-output-cap.md",
+            "specs/delegation-output-cap_07fc3962.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/design-system-guard.intake.md",
+          "document_type": "spec",
+          "title": "Intake refinement -- design-system-guard (door NEW)",
+          "canonical_path": "specs/40-features/design-system-guard.intake.md",
+          "canonical_sha256": "1e8a45d165fb9a9fa5ad750c27b0082c30cfac231c7f0898eaef08e148a24cfc",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/design-system-guard.intake.md",
+            "specs/design-system-guard.intake_1e8a45d1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/discover-pre-egress.md",
+          "document_type": "spec",
+          "title": "SEC.1 — discover pre-egress secret gate",
+          "canonical_path": "specs/40-features/discover-pre-egress.md",
+          "canonical_sha256": "aac2cc3b493df29b18a5aea542e7fc362659752934061e6d97d067a5661ab11a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/discover-pre-egress.md",
+            "specs/discover-pre-egress_aac2cc3b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/design-system-guard.md",
+          "document_type": "spec",
+          "title": "SPEC-152 -- Design-system guard (tie the SIGNAL UI law to the machine)",
+          "canonical_path": "specs/40-features/design-system-guard.md",
+          "canonical_sha256": "011aa4511c33834dd675dbc8770588108e2b575639fc7b15a2dbd9d694e3d824",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/design-system-guard.md",
+            "specs/design-system-guard_011aa451.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/delegation-cost-trends.md",
+          "document_type": "spec",
+          "title": "SPEC-128 — Delegation cost + duration trend by model / agent type (OB.2)",
+          "canonical_path": "specs/40-features/delegation-cost-trends.md",
+          "canonical_sha256": "c6b445bbc2c200a7fb6404fe6d9efdacce521b808b924a25bcae2125f539393f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/delegation-cost-trends.md",
+            "specs/delegation-cost-trends_c6b445bb.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/context-checkpoint.md",
+          "document_type": "spec",
+          "title": "Context checkpoint + post-compact reinjection (`ckpt`)",
+          "canonical_path": "specs/40-features/context-checkpoint.md",
+          "canonical_sha256": "fae1f0f07798d81564a9895c391b4023d015b8207d859001015d946bfbaa14a6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/context-checkpoint.md",
+            "specs/context-checkpoint_fae1f0f0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/config-keys.md",
+          "document_type": "spec",
+          "title": "SPEC-130 — `config`: read-only masked inventory of expected env/config keys",
+          "canonical_path": "specs/40-features/config-keys.md",
+          "canonical_sha256": "355edb9c3383c65ffbf817f044e97f11923899593ffa332dd9ca5ebebe83ed73",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/config-keys.md",
+            "specs/config-keys_355edb9c.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/control-liveness.md",
+          "document_type": "spec",
+          "title": "Control-plane liveness (SEC.3)",
+          "canonical_path": "specs/40-features/control-liveness.md",
+          "canonical_sha256": "8f42baa70a81cada35b4f251e8f9f9810f355ceadc2040ac85c4b44642481cf1",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/control-liveness.md",
+            "specs/control-liveness_8f42baa7.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/decision-inbox.md",
+          "document_type": "spec",
+          "title": "SPEC-145 — Decision inbox: plain-language human decisions in CLI + GUI",
+          "canonical_path": "specs/40-features/decision-inbox.md",
+          "canonical_sha256": "1555d3e0c6ee301b947d9b7a512b23976fd8f6170a5f0c1c57ff83e1da00f733",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/decision-inbox.md",
+            "specs/decision-inbox_1555d3e0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.harness:specs/40-features/cross-project-isolation-data.md",
+          "document_type": "spec",
+          "title": "Cross-project isolation audit — dual-subject gate (`isolation-audit-gate`)",
+          "canonical_path": "specs/40-features/cross-project-isolation-data.md",
+          "canonical_sha256": "7dc3ef4e9e41dcdeca0a59ffb880c0b40d9b3d024cc91e14206b33338d386995",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "specs/cross-project-isolation-data.md",
+            "specs/cross-project-isolation-data_7dc3ef4e.md"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "tare.tools.kernel",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.kernel",
+      "default_branch": "main",
+      "revision": "37cba65cbb5e1a570bbc4986bfa404c8ec217609",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.kernel:docs/SPEC-KERNEL-001.md",
+          "document_type": "spec",
+          "title": "SPEC-KERNEL-001: Five-plane microkernel and CAS state engine",
+          "canonical_path": "docs/SPEC-KERNEL-001.md",
+          "canonical_sha256": "b7fb5a51eba32515d5ef330a0eccc396a35ead1b5b9352aae6b2eae1d5022e21",
+          "migration": "relocated-and-clarified",
+          "retired_library_paths": [
+            "specs/SPEC-KERNEL-001.md"
+          ],
+          "retired_library_sha256": "90ae3c08bf66e2d6de1c6adac2705ab0e62422a772c116d3b98b3c8bae5e6821"
+        }
+      ]
+    },
+    {
+      "repository": "tare.tools.os",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.os",
+      "default_branch": "main",
+      "revision": "cc06877404dc6dc338e1a12960be731a1d3ea4de",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v003.md",
+          "document_type": "adr",
+          "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v003.md",
+          "canonical_sha256": "927a46b2e0a2c9943af1617dc30d7f797d1d5c7ea444c85dec53ede9a084d16a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003_c2f297fb.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/decision/DECISION.md",
+          "canonical_sha256": "f143c57016ad402b188b8cc94547893836fbd73a8f15c4b824cc41aac0c6e011",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION_b61ce6e1.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v001.md",
+          "document_type": "adr",
+          "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v001.md",
+          "canonical_sha256": "cd2e1eda7e9e0a616d4473dc448cfc662494baf7cb94fa0a1fee882d96fcfcf9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v001_57cd1bd6.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v002.md",
+          "canonical_sha256": "ea6b8300eac3e6432760a4ba9eff1ee8c1067d9837635296a17fac37fbdb81fc",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_80bdbaaf.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v003.md",
+          "document_type": "adr",
+          "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v003.md",
+          "canonical_sha256": "5f908f5e6995f7f0cf9f340b6063a66944b9c284a18c2d9d0320040c31e7e931",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003_b05151f2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v004.md",
+          "document_type": "adr",
+          "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v004.md",
+          "canonical_sha256": "a52f7284e2b05e0f0c389b83af1b04ad1e20ce4da4c309c5cff06350410e7cea",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v004_dfcfe78e.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v001.md",
+          "document_type": "adr",
+          "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências e Governança de Forks de Alto Desempenho",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v001.md",
+          "canonical_sha256": "f59139e0f4e612bc7df2a7ccc2ab080f014cab131cc35b2d40a94c95bdc559bc",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v001_f62826c6.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v002.md",
+          "canonical_sha256": "2165ff60fa29f9e317af1414f3e05a43f0a9d4fea1425c731f58a1cb7997e2df",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_88a11408.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/decision/DECISION.md",
+          "canonical_sha256": "b67ee0ab4e40c4b875fa17093655c8ec96a5dee7420e0d03bef1a3aa9a832e2c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION_1162a6d0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v001.md",
+          "document_type": "adr",
+          "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v001.md",
+          "canonical_sha256": "cd6da3c7a2de0ef32b146c501512c77827c4639573d3c23a4a1ce2dd942e853c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v001_50c66062.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v003.md",
+          "document_type": "adr",
+          "title": "SÍNTESE ARQUITETURAL CANÔNICA (MESA REDONDA TRIPARTITE — RODADA 2)",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v003.md",
+          "canonical_sha256": "57b10e5d023dd64e644ba2d8855b412ab13973d056ccecd60f1091d264d7bcfb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003_57b10e5d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v004.md",
+          "document_type": "adr",
+          "title": "SÍNTESE ARQUITETURAL CANÔNICA (MESA REDONDA TRIPARTITE — RODADA 3)",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v004.md",
+          "canonical_sha256": "752763b21567d569fe9d5d6d0dd3913f6e250d390fe5843b75d9468c2943499e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v004_752763b2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v004.md",
+          "document_type": "adr",
+          "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v004.md",
+          "canonical_sha256": "5256bbf0531a1cb46685fa6f88e334794a44f7e623c36d85d759d4eda8622529",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v004_0b456253.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/decision/DECISION.md",
+          "canonical_sha256": "a320c104b284259e417a8679cb3f31b0c74e28af88bfe741cd62147ddbae9ab9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION_e9343b3d.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v002.md",
+          "canonical_sha256": "efe7f5c9218ee6f86eeb8062060634dab8cb9ee1033a742e69d83209261a238e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_e309a722.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v003.md",
+          "document_type": "adr",
+          "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v003.md",
+          "canonical_sha256": "e638f8c4a320668bb15108f65f1b9fd8ace29d92bcd81e2a24b14aa52f426c8b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003_e09c35c5.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: RT-ADR-042",
+          "canonical_path": "relay/round_tables/RT-ADR-042/decision/DECISION.md",
+          "canonical_sha256": "50c197e8f9204fd3a15341afbab483792868adc89f34c826dd6dfe66dbd96015",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION_5395779b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042/proposals/v001.md",
+          "document_type": "adr",
+          "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
+          "canonical_path": "relay/round_tables/RT-ADR-042/proposals/v001.md",
+          "canonical_sha256": "fa9507560be4b3c19ea8f3665f9482e8bfebbcf73884c81f78e0c45b23af1a1f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v001_9364b6d0.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v004.md",
+          "document_type": "adr",
+          "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v004.md",
+          "canonical_sha256": "4889ee0220324ca7cedcb95b25267ad2dd3a7e29c8d1ae15960eb003262ad7f2",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v004_eb104bd5.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/proposal_adr052.md",
+          "document_type": "adr",
+          "title": "ADR-052: Transição de Identidade para tare.tools.library, Governança do Acervo Pré-Consolidado e Padronização Enxuta de Experimentos",
+          "canonical_path": "relay/round_tables/proposal_adr052.md",
+          "canonical_sha256": "b1f29b88bfbbcfb46e2a3867dcdd6b07d00e0b66158cbba1cf2db9d9d494d5b7",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/proposal_adr052.md",
+            "docs/adr/v001_e646b946.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042-PROD/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
+          "canonical_path": "relay/round_tables/RT-ADR-042-PROD/proposals/v002.md",
+          "canonical_sha256": "f9e7c0283565f7470cd7e1a5529e7197e7ca9f637ff0d74d37472899a8cb5a2c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_c04e18f2.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042-PROD/proposals/v003.md",
+          "document_type": "adr",
+          "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
+          "canonical_path": "relay/round_tables/RT-ADR-042-PROD/proposals/v003.md",
+          "canonical_sha256": "816c81447ce8480854449742428a8653e3909c2c5d01425634cdb697f937d58f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003_17705f70.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
+          "canonical_path": "relay/round_tables/RT-ADR-042/proposals/v002.md",
+          "canonical_sha256": "b35b74138cc0d2b2f8f6128e14ed020cd0f7fb3018d974355fa0706b3dbc39e9",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_a5a51342.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042-PROD/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: RT-ADR-042-PROD",
+          "canonical_path": "relay/round_tables/RT-ADR-042-PROD/decision/DECISION.md",
+          "canonical_sha256": "c19bbaf3e601ffade1482dd15382e33340f00cdce79e8cb807d3681156d4d7b3",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION_518042cd.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v003.md",
+          "document_type": "adr",
+          "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v003.md",
+          "canonical_sha256": "df174437bdad1e4d4095abe6209b681156aba8748dd602b98b55e288c2ddbc7c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003_9ac32672.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v004.md",
+          "document_type": "adr",
+          "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v004.md",
+          "canonical_sha256": "75d7081487e2f95b13dcd500bc0c5c11521e90e5a99ec4ea3fefc38ff1b3ccd2",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v004_0c59161b.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/decision/DECISION.md",
+          "canonical_sha256": "91648d391b9794d7b200d932bdef3c2e81017a106ab1aa83d9b0fd936a756026",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION_2517eabc.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v002.md",
+          "canonical_sha256": "fe2578a9fe495df0b30dd0b36d5ff137ca47ced13de152b246ad3b7d23b804cc",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_04f97787.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes e Separação Estrita de Backlogs",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v002.md",
+          "canonical_sha256": "dd098c182f203e3c5991284eb280fac930214412332cf7433c377aed89ea56a3",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_73ef740f.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v003.md",
+          "document_type": "adr",
+          "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v003.md",
+          "canonical_sha256": "bacf17bde9523860bcf71af148f318d2a33a2d778038327e7f42108bbb308a4a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003_f5e6a8db.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/decision/DECISION.md",
+          "canonical_sha256": "e61356369925f6b8dce2066f1ce36758fb317a44e4c7ea000354f9fc07ea9f47",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION_f9659e57.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v001.md",
+          "document_type": "adr",
+          "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes e Separação Estrita de Backlogs",
+          "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v001.md",
+          "canonical_sha256": "db70d83544c32293dea6ebbe40fb438bd1f0834aeb46e231cbc86a86c1f8528a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v001_a06e4146.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md",
+          "document_type": "adr",
+          "title": "ADR-052: Transição de Identidade para tare.tools.library, Governança do Acervo Pré-Consolidado e Padronização Enxuta de Experimentos",
+          "canonical_path": "docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md",
+          "canonical_sha256": "ca08c40c484608b4898156817e6a011dba4f0bd73871095ca058fdf06e0b909f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/architecture/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
+          "document_type": "adr",
+          "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
+          "canonical_path": "docs/architecture/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
+          "canonical_sha256": "2159b98ce33bf5699659eaa46a10a3e7e281f36c8b289cd8178be71beeba8cfd",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECOUPLED_MICROKERNEL_ARCHITECTURE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-050_APP_DECOMPOSITION_ACL_AND_DEPENDENCY_GOVERNANCE.md",
+          "document_type": "adr",
+          "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
+          "canonical_path": "docs/adr/ADR-050_APP_DECOMPOSITION_ACL_AND_DEPENDENCY_GOVERNANCE.md",
+          "canonical_sha256": "0274dd42d9c51a6463f53444738622918675bfc06310b1657e587721313136bd",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-050_APP_DECOMPOSITION_ACL_AND_DEPENDENCY_GOVERNANCE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md",
+          "document_type": "adr",
+          "title": "ADR-051: O Eixo Triplo de Inteligência Agêntica (Research, Backlog-Graph & SpecGraph), Governança de Memória por Bookkeeping e o Mandato Documental Ágil",
+          "canonical_path": "docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md",
+          "canonical_sha256": "eb9daa31fd61bba4a13c7c0e760148400a75449fbbed84e130ac0ae6ec855084",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/operations/BACKLOG_TOPOLOGICAL_REFINEMENT_REPORT.md",
+          "document_type": "archive",
+          "title": "Topological Backlog Refinement & North Star Alignment Report",
+          "canonical_path": "docs/operations/BACKLOG_TOPOLOGICAL_REFINEMENT_REPORT.md",
+          "canonical_sha256": "aa76d53ecdcbcc6ffd803b54539bcda302fb585b74dd06ea773c9b9f93643259",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/BACKLOG_TOPOLOGICAL_REFINEMENT_REPORT.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
+          "document_type": "adr",
+          "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
+          "canonical_path": "relay/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
+          "canonical_sha256": "98fb5f96528de7e6b5f1839ff730c8da0ba3ea15dfa4139cc5ab029be27476b7",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECOUPLED_MICROKERNEL_ARCHITECTURE_f3179a70.md",
+            "docs/adr/v001_f3179a70.md",
+            "docs/adr/v001_f3179a70dbef.md",
+            "docs/adr/v003_f3179a70.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/architecture/POST_MORTEM_LEGACY_HARNESS_AND_ARCHITECTURAL_PIVOT.md",
+          "document_type": "post_mortem",
+          "title": "🏛️ POST-MORTEM ARQUITETURAL HISTÓRICO: A TRANSIÇÃO DO HARNESS MONOLÍTICO PARA O AGENT OS DESCENTRALIZADO",
+          "canonical_path": "docs/architecture/POST_MORTEM_LEGACY_HARNESS_AND_ARCHITECTURAL_PIVOT.md",
+          "canonical_sha256": "2288744047ad8ee4c8c8492c587c05ce97bcea5c41918f68d6ef67bbc884624f",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/POST_MORTEM_LEGACY_HARNESS_AND_ARCHITECTURAL_PIVOT.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/intake/RELAY-INTAKE-DOGFOODING-CONSENSUS-01-INTAKE.md",
+          "document_type": "archive",
+          "title": "RELAY-INTAKE-DOGFOODING-CONSENSUS-01 — Asynchronous Human Intake Queue & Multi-Agent Consensus Dogfooding",
+          "canonical_path": "docs/intake/RELAY-INTAKE-DOGFOODING-CONSENSUS-01-INTAKE.md",
+          "canonical_sha256": "a23d80f4dac14217ecafd374f1f86bf778b33789840195dcde26214a017945cb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/RELAY-INTAKE-DOGFOODING-CONSENSUS-01-INTAKE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md",
+          "document_type": "adr",
+          "title": "ADR-043: North Star 2.0 Architectural Transition, Ecosystem Modular Split, and Adversarial Deliberation Synthesis",
+          "canonical_path": "docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md",
+          "canonical_sha256": "94766e8faf5a50ab3fc971d3d1af97d86ef6d92e2264eeeba2ff1a20aa678dd5",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md",
+          "document_type": "adr",
+          "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
+          "canonical_path": "docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md",
+          "canonical_sha256": "3751f76748b60f94d703cd7b34f67726b84fb3af91870856a075d004a8dedf3b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:continuity/01_chatgpt_transcripts/03_printintel/2026-07-02-branch-oportunidades-para-devs-solidity.md",
+          "document_type": "adr",
+          "title": "Conversa Histórica: Branch · Oportunidades para Devs Solidity",
+          "canonical_path": "continuity/01_chatgpt_transcripts/03_printintel/2026-07-02-branch-oportunidades-para-devs-solidity.md",
+          "canonical_sha256": "785a22edb982d2e494aa0d53708b7ab321fe473fcdb9d46453fe983f0592edd8",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/2026-07-02-branch-oportunidades-para-devs-solidity.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:continuity/chat-handoffs/tare_tools_governance_deadlock_post_mortem_and_taxonomy_scientific_research_2026-08-15.md",
+          "document_type": "post_mortem",
+          "title": "Post-Mortem Comparativo e Taxonomia de Deadlocks em Sistemas Agênticos Autoevolutivos: O Segundo Deadlock de Governança no tare.tools, a Paralisia de Zenão e a Reconciliação por Composição de Autoridade",
+          "canonical_path": "continuity/chat-handoffs/tare_tools_governance_deadlock_post_mortem_and_taxonomy_scientific_research_2026-08-15.md",
+          "canonical_sha256": "4c343cd006dbd76155faa9e5896dda7573bb22d9547c028defadbbbd4c018d18",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/tare_tools_governance_deadlock_post_mortem_and_taxonomy_scientific_research_2026-08-15.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md",
+          "document_type": "adr",
+          "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
+          "canonical_path": "docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md",
+          "canonical_sha256": "78cc27d3c36073fd5f1112bfb9b9eba242bd3d1b9a5c11491139e6426396e9e6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md",
+          "document_type": "adr",
+          "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
+          "canonical_path": "docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md",
+          "canonical_sha256": "ddbeebb3f7513090f1188436adac958f00a1eeb2d845818783a7be6289ef8250",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md",
+          "document_type": "adr",
+          "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
+          "canonical_path": "docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md",
+          "canonical_sha256": "672cb461745e3a1def9d95da587b993e9c7f1435a888422e75106036e2960669",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md",
+          "document_type": "adr",
+          "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
+          "canonical_path": "docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md",
+          "canonical_sha256": "92d652bc47e95d1da5ce75d2b8b2f7dfe1cfbb111b03d33ff9ca4ce0b4329efb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v001.md",
+          "document_type": "adr",
+          "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v001.md",
+          "canonical_sha256": "c199e29f6476d51a29bca76416cbd37c1fceacf116b6894db582a9397905d502",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v001_995ed3f5.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v002.md",
+          "canonical_sha256": "34cc968c6bd8248464e65d70ec91b83efdcf9e5aaa15d085847f9444a69b2227",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_f217c615.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v004.md",
+          "document_type": "adr",
+          "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v004.md",
+          "canonical_sha256": "c29c1789c5fc1b08cdbeee83c0f3af7d0628978c23f91fd39412fbdc262655b0",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v004.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/decision/DECISION.md",
+          "canonical_sha256": "0c3ea0cab60af2c8fea8da3638f2789b54dc774329d46c0091a8ccc9d3dc31fc",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION_8336bfec.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v001.md",
+          "document_type": "adr",
+          "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v001.md",
+          "canonical_sha256": "3ad6ccbf95bd2a2ab9da39b91567917888faced266778fe33c843d988fc325b2",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v001_3ad6ccbf.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v002.md",
+          "canonical_sha256": "d5e4640a02c663139a3fd5fe3a8b788fbc8ac2338bf7e9254605183efd0770fb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002_d5e4640a.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v003.md",
+          "document_type": "adr",
+          "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v003.md",
+          "canonical_sha256": "b00dd06efdb0773a2c30a67d25c5adddd725c9ec680f4de2499e0223757c8e77",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003_31a377ac.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v004.md",
+          "document_type": "adr",
+          "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v004.md",
+          "canonical_sha256": "27eb7cfe184ba01f7cf546dcdcf9f437cd3fab60bb63bb57629453c96886adc7",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v004_67420cb4.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/history/TRAIN-25-PAGES-CUTOVER-AUTHORITY-RECONCILE-01_LANDED_1786938734/IMPLEMENTATION_EVIDENCE.md",
+          "document_type": "post_mortem",
+          "title": "Implementation Evidence: TRAIN-25-PAGES-CUTOVER-AUTHORITY-RECONCILE-01",
+          "canonical_path": "relay/history/TRAIN-25-PAGES-CUTOVER-AUTHORITY-RECONCILE-01_LANDED_1786938734/IMPLEMENTATION_EVIDENCE.md",
+          "canonical_sha256": "22d3bf7ee5a84941a73c38973a61b0d2d36e62346a96b83f54134d31f27cbf3e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/IMPLEMENTATION_EVIDENCE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/history/TRAIN-28-COCKPIT-E2E-INTAKE-ISOLATION-02_LANDED_1786939624/AUDIT_REPORT.md",
+          "document_type": "post_mortem",
+          "title": "Code Audit Report: TRAIN-28-COCKPIT-E2E-INTAKE-ISOLATION-02",
+          "canonical_path": "relay/history/TRAIN-28-COCKPIT-E2E-INTAKE-ISOLATION-02_LANDED_1786939624/AUDIT_REPORT.md",
+          "canonical_sha256": "f233292e079195c53d10381af83898fb084727e6126b14f5749da94c0c63b8f4",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/AUDIT_REPORT.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/history/TRAIN-18-INTAKE-GEMINI-QUOTA-01_LANDED_1786929624/evidence/CHANGED_PATHS.md",
+          "document_type": "archive",
+          "title": "Changed-Path Review — TRAIN-18-INTAKE-GEMINI-QUOTA-01",
+          "canonical_path": "relay/history/TRAIN-18-INTAKE-GEMINI-QUOTA-01_LANDED_1786929624/evidence/CHANGED_PATHS.md",
+          "canonical_sha256": "c8c71e592a994593a75ce45028e995c1f1fe1d4c8ae481f187ec30062cec326b",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/CHANGED_PATHS.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/history/TRAIN-18-INTAKE-GEMINI-QUOTA-01_LANDED_1786929624/IMPLEMENTATION_EVIDENCE.md",
+          "document_type": "archive",
+          "title": "IMPLEMENTATION EVIDENCE — TRAIN-18-INTAKE-GEMINI-QUOTA-01",
+          "canonical_path": "relay/history/TRAIN-18-INTAKE-GEMINI-QUOTA-01_LANDED_1786929624/IMPLEMENTATION_EVIDENCE.md",
+          "canonical_sha256": "8a52a93a647851e863b90979726ac40d4d83430dd2c715a5f348c8feecd74f35",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/archive/archaeology/chats/IMPLEMENTATION_EVIDENCE.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v002.md",
+          "document_type": "adr",
+          "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v002.md",
+          "canonical_sha256": "0e7ae5b38f3d1a576404456811b14ba9823a5ec2a683e39ecc6feca7fc39e7b8",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v002.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v003.md",
+          "document_type": "adr",
+          "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v003.md",
+          "canonical_sha256": "af606e3499497c08e74efbca97d84c3f9290447d382f76e451d293fd98928235",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v003.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/decision/DECISION.md",
+          "document_type": "adr",
+          "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/decision/DECISION.md",
+          "canonical_sha256": "10e4dcaa2af6aad56edc72f23515ba30551ca045d2d4bc4d370c3d9596e5f75a",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/DECISION.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v001.md",
+          "document_type": "adr",
+          "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
+          "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v001.md",
+          "canonical_sha256": "57a89d096825b14dbfe69e8d8566fffcc3aec08ba00c56b7fe1c90312f827be4",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/v001.md"
+          ]
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
+          "document_type": "archive",
+          "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
+          "canonical_path": "docs/history/library-era/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
+          "canonical_sha256": "2660bd9cfa30e282fa49ff4598bb1634384b0e01b0dca594f3fce8a523a74660",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
+            "docs/proposals/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md"
+          ],
+          "retired_library_sha256": "2660bd9cfa30e282fa49ff4598bb1634384b0e01b0dca594f3fce8a523a74660"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS_524b10ba.md",
+          "document_type": "archive",
+          "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
+          "canonical_path": "docs/history/library-era/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS_524b10ba.md",
+          "canonical_sha256": "cd0f87186369d311e4245bc5a3ca7d54715943c155864c1c21859be3cccd8dcd",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS_524b10ba.md"
+          ],
+          "retired_library_sha256": "cd0f87186369d311e4245bc5a3ca7d54715943c155864c1c21859be3cccd8dcd"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-053_COMPUTE_OFFLOAD_AND_NODE_AAAAA_CENTRALIZATION.md",
+          "document_type": "archive",
+          "title": "ADR-053: Centralização do Heavy Compute Substrate no Nó aaaaa, Topologia Thin-Client e Paridade com CI",
+          "canonical_path": "docs/history/library-era/adr/ADR-053_COMPUTE_OFFLOAD_AND_NODE_AAAAA_CENTRALIZATION.md",
+          "canonical_sha256": "e1c3a50de9fcd98fab32bd35906b73730be803f3386c1f3dfaf52b995e159844",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-053_COMPUTE_OFFLOAD_AND_NODE_AAAAA_CENTRALIZATION.md"
+          ],
+          "retired_library_sha256": "e1c3a50de9fcd98fab32bd35906b73730be803f3386c1f3dfaf52b995e159844"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-054_ERGONOMIC_TAILSCALE_MESH_CLI_AND_NODE_TOOLING.md",
+          "document_type": "archive",
+          "title": "ADR-054: CLI e SDK Ergonômico de Malha Distribuída (`tare.tools.mesh`) — Princípio de Zero Hipertrofia",
+          "canonical_path": "docs/history/library-era/adr/ADR-054_ERGONOMIC_TAILSCALE_MESH_CLI_AND_NODE_TOOLING.md",
+          "canonical_sha256": "60cc2604bc0675d03c392399586de42ffb6990532c791eeaf76bce16911a0a9c",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-054_ERGONOMIC_TAILSCALE_MESH_CLI_AND_NODE_TOOLING.md"
+          ],
+          "retired_library_sha256": "60cc2604bc0675d03c392399586de42ffb6990532c791eeaf76bce16911a0a9c"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-055_LATENCY_AWARE_HYBRID_TOPOLOGY_AND_LIGHTWEIGHT_SYNC.md",
+          "document_type": "archive",
+          "title": "ADR-055: Topologia Híbrida Sensível à Latência, Centralização de Indexação no Nó Forte e Snapshot Vetorial Compactado para Mobilidade",
+          "canonical_path": "docs/history/library-era/adr/ADR-055_LATENCY_AWARE_HYBRID_TOPOLOGY_AND_LIGHTWEIGHT_SYNC.md",
+          "canonical_sha256": "b4ec020f00aed775f52e8c45ecf0292500e6c4d55999af0a747c04a326d46839",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-055_LATENCY_AWARE_HYBRID_TOPOLOGY_AND_LIGHTWEIGHT_SYNC.md"
+          ],
+          "retired_library_sha256": "b4ec020f00aed775f52e8c45ecf0292500e6c4d55999af0a747c04a326d46839"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-056_UNIVERSAL_CAPABILITY_DISCOVERY_AND_CROSS_AGENT_SHARING.md",
+          "document_type": "archive",
+          "title": "ADR-056: Protocolo Universal de Descoberta On-Demand de Memória, Tools, MCPs e Hooks Interoperáveis entre Agentes e Vendors",
+          "canonical_path": "docs/history/library-era/adr/ADR-056_UNIVERSAL_CAPABILITY_DISCOVERY_AND_CROSS_AGENT_SHARING.md",
+          "canonical_sha256": "c43e0f7ec1b904ef21f94921f656635e0665e86ae467fa2422ac0c67435d85db",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-056_UNIVERSAL_CAPABILITY_DISCOVERY_AND_CROSS_AGENT_SHARING.md"
+          ],
+          "retired_library_sha256": "c43e0f7ec1b904ef21f94921f656635e0665e86ae467fa2422ac0c67435d85db"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-057_GOVERNANCE_ATTESTATION_AND_ANTI_FAKE_CONSENSUS.md",
+          "document_type": "archive",
+          "title": "ADR-057: Governança Operacional, Proveniência Criptográfica e Prevenção de Consenso Forjado",
+          "canonical_path": "docs/history/library-era/adr/ADR-057_GOVERNANCE_ATTESTATION_AND_ANTI_FAKE_CONSENSUS.md",
+          "canonical_sha256": "2d49115385d1d9dec2f4d37c24398131d4c20f629d90b7d27d07ecb8ae7aa347",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-057_GOVERNANCE_ATTESTATION_AND_ANTI_FAKE_CONSENSUS.md"
+          ],
+          "retired_library_sha256": "2d49115385d1d9dec2f4d37c24398131d4c20f629d90b7d27d07ecb8ae7aa347"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/history/library-era/adr/ADR-060_TOOLING_PARADIGM_CLI_VS_LEAN_MCP.md",
+          "document_type": "archive",
+          "title": "ADR-060: [ENGAVETADO] Taxonomia de Ferramental do Ecossistema: CLI no Modo 1, Lean MCP Gateway Read-Only e Banimento de Fat MCP",
+          "canonical_path": "docs/history/library-era/adr/ADR-060_TOOLING_PARADIGM_CLI_VS_LEAN_MCP.md",
+          "canonical_sha256": "6c10c67d03d102d42f0a1c5dad94fcc2d4e4be55b82912abbd808c535e2dae49",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-060_TOOLING_PARADIGM_CLI_VS_LEAN_MCP.md"
+          ],
+          "retired_library_sha256": "6c10c67d03d102d42f0a1c5dad94fcc2d4e4be55b82912abbd808c535e2dae49"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-061_DELIBERATIVE_GOVERNANCE_HARDENING_FSM_AND_VENDOR_CLI_FIRST.md",
+          "document_type": "adr",
+          "title": "ADR-061: Hardening de Governança Deliberativa, FSM Anti-Looping, Invariante Anti-Sybil e Topologia Vendor CLI First",
+          "canonical_path": "docs/adr/ADR-061_DELIBERATIVE_GOVERNANCE_HARDENING_FSM_AND_VENDOR_CLI_FIRST.md",
+          "canonical_sha256": "97e2cddde4834358dfdad826095c77da09fc1868c480c7e66f22f1b3ad67b577",
+          "migration": "relocated-and-link-normalized",
+          "retired_library_paths": [
+            "docs/adr/ADR-061_DELIBERATIVE_GOVERNANCE_HARDENING_FSM_AND_VENDOR_CLI_FIRST.md"
+          ],
+          "retired_library_sha256": "44a23c471cf3428afc0845910bdebe6c3ca6fa35704aeb833010464e9944102b"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-062_UNIVERSAL_FRUGAL_ENGINEERING_DOCTRINE_AND_SOVEREIGN_BYOC.md",
+          "document_type": "adr",
+          "title": "ADR-062: Doutrina Universal de Engenharia Frugal, Inovação Ambidestra e Liberdade de Computação (BYOC)",
+          "canonical_path": "docs/adr/ADR-062_UNIVERSAL_FRUGAL_ENGINEERING_DOCTRINE_AND_SOVEREIGN_BYOC.md",
+          "canonical_sha256": "8416d646a7b28f9948f7a86f16048ca25653043fa6bcb4e45a8c4d3ffbed235e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-062_UNIVERSAL_FRUGAL_ENGINEERING_DOCTRINE_AND_SOVEREIGN_BYOC.md"
+          ],
+          "retired_library_sha256": "8416d646a7b28f9948f7a86f16048ca25653043fa6bcb4e45a8c4d3ffbed235e"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-063_TOOLING_PARADIGM_CLI_FIRST_LEAN_MCP_GATEWAY_AND_O1_CONTEXT.md",
+          "document_type": "adr",
+          "title": "ADR-063: Paradigma de Ferramentas CLI First, Lean MCP Gateway e Interfaces Frugais de Contexto O(1)",
+          "canonical_path": "docs/adr/ADR-063_TOOLING_PARADIGM_CLI_FIRST_LEAN_MCP_GATEWAY_AND_O1_CONTEXT.md",
+          "canonical_sha256": "bd3701575efb7c33cdf9d76304223bca5b1dd7f299b253bbb29692992ab6210f",
+          "migration": "relocated-and-link-normalized",
+          "retired_library_paths": [
+            "docs/adr/ADR-063_TOOLING_PARADIGM_CLI_FIRST_LEAN_MCP_GATEWAY_AND_O1_CONTEXT.md"
+          ],
+          "retired_library_sha256": "7cac9f1a3c6f0b899cd6180f95d865a4ed6cbd936e6cacc6479c2fee1bd3db75"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-064_DOCTRINE_ENFORCEMENT_MECHANISMS_AND_BYOC_ROUTER.md",
+          "document_type": "adr",
+          "title": "ADR-064: Mecanismos Executáveis de Enforcement da Doutrina Frugal, Roteador BYOC e Protocolo de Parada Segura",
+          "canonical_path": "docs/adr/ADR-064_DOCTRINE_ENFORCEMENT_MECHANISMS_AND_BYOC_ROUTER.md",
+          "canonical_sha256": "4103b570c951291abdcd282e0e969899fb590aa8a2c6b9590a274874204caf5e",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-064_DOCTRINE_ENFORCEMENT_MECHANISMS_AND_BYOC_ROUTER.md"
+          ],
+          "retired_library_sha256": "4103b570c951291abdcd282e0e969899fb590aa8a2c6b9590a274874204caf5e"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-065_HYBRID_TOPOLOGY_MATRIX_AND_EXPANDED_FREE_TIERS.md",
+          "document_type": "adr",
+          "title": "ADR-065: Matriz Topológica de Inferência Híbrida, Quotas Gratuitas Expandidas e Pinos Canônicos Auditados",
+          "canonical_path": "docs/adr/ADR-065_HYBRID_TOPOLOGY_MATRIX_AND_EXPANDED_FREE_TIERS.md",
+          "canonical_sha256": "8a183d8b49d6921ba81ff9cb39756a26492b7aa1d97ec9d16e567a4c477e78ee",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/adr/ADR-065_HYBRID_TOPOLOGY_MATRIX_AND_EXPANDED_FREE_TIERS.md"
+          ],
+          "retired_library_sha256": "8a183d8b49d6921ba81ff9cb39756a26492b7aa1d97ec9d16e567a4c477e78ee"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md",
+          "document_type": "adr",
+          "title": "ADR-068: Universal Repository Branching, CI/CD Pipeline Standardization, and Legacy Alias Deprecation",
+          "canonical_path": "docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md",
+          "canonical_sha256": "3c05347dbbf44b59d35888a08a955456b0e55bcd255896ef98d2b17dcf4b79f0",
+          "migration": "relocated-and-link-normalized",
+          "retired_library_paths": [
+            "docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md"
+          ],
+          "retired_library_sha256": "9e07f182edb6a92e8b129c18e8bf5c408bc499ef55106dcb67dc569ea13ffbb4"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/governance/ENGINEERING_DOCTRINE.md",
+          "document_type": "archive",
+          "title": "🏛️ DOUTRINA DE ENGENHARIA FRUGAL DE TARE.TOOLS",
+          "canonical_path": "docs/governance/ENGINEERING_DOCTRINE.md",
+          "canonical_sha256": "b6efe9dc1bb656ad2d019a38f2d05585517999916c80df9a57f4fe6b38a1eefa",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/architecture/ENGINEERING_DOCTRINE.md"
+          ],
+          "retired_library_sha256": "b6efe9dc1bb656ad2d019a38f2d05585517999916c80df9a57f4fe6b38a1eefa"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/operations/POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md",
+          "document_type": "post_mortem",
+          "title": "📋 Post-Mortem e Especificação de Arquitetura: Governança Frugal da Mesa Redonda (State Anchor, Local LLM Scribe & Dialectical Compaction)",
+          "canonical_path": "docs/operations/POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md",
+          "canonical_sha256": "c4461716534086ae07436cb2219307287fdb6b08e981b5be0cbeb7e67948c8ab",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/post-mortems/POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md"
+          ],
+          "retired_library_sha256": "c4461716534086ae07436cb2219307287fdb6b08e981b5be0cbeb7e67948c8ab"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/governance/library-era-rfcs/RFC-001_IMPLEMENTATION_PLAN.md",
+          "document_type": "archive",
+          "title": "🛠️ Plano de Implementação: RFC-001 (Governança Frugal, Mediador Isolado, Escriba Local em GPU & Failover Kimi k3)",
+          "canonical_path": "docs/governance/library-era-rfcs/RFC-001_IMPLEMENTATION_PLAN.md",
+          "canonical_sha256": "58ff363f6abceffed0b79d0566d5a577d804d140cc3797ff9fc8262a47670ecb",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/proposals/RFC-001_IMPLEMENTATION_PLAN.md"
+          ],
+          "retired_library_sha256": "58ff363f6abceffed0b79d0566d5a577d804d140cc3797ff9fc8262a47670ecb"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/governance/library-era-rfcs/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md",
+          "document_type": "archive",
+          "title": "RFC-001: Governança Frugal da Mesa Redonda — Separação de Poderes, Mediador Constitucional Isolado, Escriba Local em GPU e State Anchors",
+          "canonical_path": "docs/governance/library-era-rfcs/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md",
+          "canonical_sha256": "ef021420d949350732f2316944333fbe134ba0e0429efab8bc142a2c16da34cd",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/proposals/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md"
+          ],
+          "retired_library_sha256": "ef021420d949350732f2316944333fbe134ba0e0429efab8bc142a2c16da34cd"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/governance/library-era-rfcs/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md",
+          "document_type": "archive",
+          "title": "🏛️ Master Whitepaper & Registro Integral de Ideação: Governança Frugal da Mesa Redonda, Separação de Poderes e Topologia Universal de Resiliência",
+          "canonical_path": "docs/governance/library-era-rfcs/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md",
+          "canonical_sha256": "641c9c47662769eeed50e13dec093326f75adebcfa114a89e3d267ccf7fe3a49",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/proposals/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md"
+          ],
+          "retired_library_sha256": "641c9c47662769eeed50e13dec093326f75adebcfa114a89e3d267ccf7fe3a49"
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/governance/library-era-rfcs/RFC-002_TOOLING_PARADIGM_CLI_FIRST_AND_LEAN_MCP.md",
+          "document_type": "archive",
+          "title": "RFC-002: Paradigma de Ferramentas (CLI First, Lean MCP Gateway e Banimento de Fat MCP)",
+          "canonical_path": "docs/governance/library-era-rfcs/RFC-002_TOOLING_PARADIGM_CLI_FIRST_AND_LEAN_MCP.md",
+          "canonical_sha256": "ace4f0d3a6e4b93c19871797eecabcdeef9424e47beb085099340b18666a97d6",
+          "migration": "exact-content",
+          "retired_library_paths": [
+            "docs/proposals/RFC-002_TOOLING_PARADIGM_CLI_FIRST_AND_LEAN_MCP.md"
+          ],
+          "retired_library_sha256": "ace4f0d3a6e4b93c19871797eecabcdeef9424e47beb085099340b18666a97d6"
+        }
+      ]
+    }
+  ]
+}

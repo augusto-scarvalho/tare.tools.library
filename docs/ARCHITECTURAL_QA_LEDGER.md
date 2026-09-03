@@ -289,7 +289,7 @@
 ### ❓ Pergunta 31: *“esse crawler é uma IA ou um processo determinístico? como a gente faz pra ele não puxar lixo ou coisas que não queremos?”*
 * **Contexto:** Arquitetura do Harvester de documentos espalhados nos repositórios e nós do mesh.
 * **Decisão & Resposta:**
-  * O crawler [`harvest_corpus.py`](file:///C:/projects/tare.tools.library/tools/bookkeeper/harvest_corpus.py) é **100% determinístico**, baseado em 5 portais de sanitização anti-lixo e scanner de credenciais:
+  * O crawler [`harvest_corpus.py`](../tools/bookkeeper/harvest_corpus.py) é **100% determinístico**, baseado em 5 portais de sanitização anti-lixo e scanner de credenciais:
     1. *Blacklist de Diretórios Operacionais:* Bloqueia `.git`, `.gemini`, `node_modules`, `AppData`, etc.
     2. *Extensões Válidas:* Aceita estritamente `.md` e `.markdown`.
     3. *Filtro de Ruído & Stubs:* Descarta arquivos `< 30B` ou despejos massivos `> 2.5MB`.
@@ -391,7 +391,7 @@
 ### ❓ Pergunta 40: *“como a gente transforma essa parte toda de acesso aos nodos do tailscale e ssh em tools / CLI? isso te ajudaria em algo? bora levar pra mesa redonda refinar e construir conosco. muito cuidado com hipertrofia técnica e burocracia cartorial. o objetivo é deixar as coisas mais fáceis, não mais difíceis”*
 * **Contexto:** Necessidade de transformar o acesso à malha Tailscale, telemetria de GPU, sincronização de código e execução remota em uma CLI/SDK ergonômico, intuitivo e com **zero hipertrofia técnica**, eliminando a fricção de escapes no PowerShell e comandos manuais de SSH.
 * **Decisão da Mesa Redonda (`CASE-2026-08-20-MESH-CLI-AND-ERGONOMIC-NODE-ACCESS`):**
-  * **Veredito:** 🏆 Ratificação Unânime (3/3) com emissão do [`ADR-054`](file:///C:/projects/tare.tools.library/docs/adr/ADR-054_ERGONOMIC_TAILSCALE_MESH_CLI_AND_NODE_TOOLING.md).
+  * **Veredito:** 🏆 Ratificação Unânime (3/3) com emissão do [`ADR-054`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/history/library-era/adr/ADR-054_ERGONOMIC_TAILSCALE_MESH_CLI_AND_NODE_TOOLING.md).
   * **Princípio Guia:** *Zero Hipertrofia & Zero Burocracia Cartorial* — A ferramenta deve usar puramente a biblioteca padrão do Python (`subprocess`, `urllib`, `json`, `argparse`, `zipfile`), sem dependências externas, sem novos bancos de dados ou tokens proprietários.
 * **Implementação Entregue (`tools/mesh/mesh.py`):**
   * **`mesh status [--json]`:** Descoberta de nós da malha Tailscale, latência (ping em ms) e saúde das portas `:8080` (chat) e `:8081` (embed).
@@ -401,15 +401,15 @@
   * **`mesh daemon <start|stop|status>`:** Gestão unificada dos processos `llama-server`.
   * **`mesh doctor`:** Diagnóstico automatizado de conectividade e sanidade da malha.
 * **Resultados & Testes:**
-  * **95/95** testes unitários passando em [`tests/test_mesh.py`](file:///C:/projects/tare.tools.library/tests/test_mesh.py) e na suíte geral.
-  * **100% de Taxa de Morte de Mutantes** (`6/6`) em [`tests/test_library_mutants.py`](file:///C:/projects/tare.tools.library/tests/test_library_mutants.py).
+  * **95/95** testes unitários passando em [`tests/test_mesh.py`](../tests/test_mesh.py) e na suíte geral.
+  * **100% de Taxa de Morte de Mutantes** (`6/6`) em [`tests/test_library_mutants.py`](../tests/test_library_mutants.py).
 
 ---
 
 ### ❓ Pergunta 41: *“leva pra mesa redonda analisar... ainda tá muito gasoso isso aí. parece que de certa forma, o fluxo ainda está amarrado no meu notebook acer. avalia bem. queria que só o consumo da base, quando a latência tiver alta na rede e tiver atrapalhando, fique no próprio notebook, sacou? tipo quando estou fora de casa. nodos na mesma LAN = baixa latência = um nodo forte centraliza busca e indexação. nodoss fora da mesma LAN = um nodo especializado centraliza a indexação e o outro avalia sempre a latência e recursos locais, pra ver se vale a pena rodar local as buscas ou pagar o preço e rodar a busca remotamente. também tem a questão do sync da base, compressão, etc. tem que ser leve isso mano. quanto mais eficiente (rodar mais rápido) melhor”*
 * **Contexto:** Definição da topologia híbrida de mobilidade entre Thin-Client (`acer-augusto`) e Heavy Substrate (`aaaaa`). Eliminação do gargalo de I/O de 385 MB no SSD do notebook e criação de roteamento dinâmico de busca baseado em RTT de rede.
 * **Decisão da Mesa Redonda (`CASE-2026-08-20-LATENCY-AWARE-HYBRID-TOPOLOGY-AND-LIGHTWEIGHT-SYNC`):**
-  * **Veredito:** 🏆 Ratificação Unânime (3/3) com emissão do [`ADR-055`](file:///C:/projects/tare.tools.library/docs/adr/ADR-055_LATENCY_AWARE_HYBRID_TOPOLOGY_AND_LIGHTWEIGHT_SYNC.md).
+  * **Veredito:** 🏆 Ratificação Unânime (3/3) com emissão do [`ADR-055`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/history/library-era/adr/ADR-055_LATENCY_AWARE_HYBRID_TOPOLOGY_AND_LIGHTWEIGHT_SYNC.md).
   * **As Três Zonas Operacionais:**
     1. **Mesma LAN / Baixa Latência ($< 150\\text{ms}$):** Workstation `aaaaa` centraliza 100% da Indexação E da Busca. O laptop consome via RPC leve e não armazena nada do banco vetorial denso.
     2. **WAN / Alta Latência / Mobilidade ($> 150\\text{ms}$):** Roteador detecta alta latência ou offline e chaveia automaticamente para snapshot compactado INT8 ou busca léxica FTS5.
@@ -418,30 +418,30 @@
   * **`LatencyAwareRouter`:** Probe de RTT passivo ($< 30\\text{ms}$) e delegação de busca semântica em tempo real para o endpoint remoto com fallback transparente.
   * **Integração em `query.py`:** O comando `python tools/query.py --semantic "..."` executa a rota adaptativa sem intervenção do usuário.
 * **Resultados & Testes:**
-  * **98/98** testes unitários passando em [`tests/test_mesh_router.py`](file:///C:/projects/tare.tools.library/tests/test_mesh_router.py) e na suíte global.
-  * **100% de Taxa de Morte de Mutantes** (`6/6`) em [`tests/test_library_mutants.py`](file:///C:/projects/tare.tools.library/tests/test_library_mutants.py).
+  * **98/98** testes unitários passando em [`tests/test_mesh_router.py`](../tests/test_mesh_router.py) e na suíte global.
+  * **100% de Taxa de Morte de Mutantes** (`6/6`) em [`tests/test_library_mutants.py`](../tests/test_library_mutants.py).
 
 ---
 
 ### ❓ Pergunta 42: *“manda pra mesa redonda isso também. é muita coisa salva em memória que precisa ser descoberta sob demanda e a gente não tem mecanismo de descoberta pra isso ainda, memória, tools, mcps, hooks, isso sendo compartilhado entre os agentes, vendors CLI / nosso agente LLM local”*
 * **Contexto:** Necessidade de um mecanismo universal de descoberta on-demand para interoperabilidade de ferramentas, servidores MCP, hooks de proteção e âncoras de memória compartilhado entre o Agente Local (RTX 3090 :8080), Antigravity, Claude Code, Cursor e scripts autônomos.
 * **Decisão da Mesa Redonda (`CASE-2026-08-20-UNIVERSAL-CAPABILITY-DISCOVERY-AND-CROSS-AGENT-SHARING`):**
-  * **Veredito:** 🏆 Ratificação Unânime (3/3) com emissão do [`ADR-056`](file:///C:/projects/tare.tools.library/docs/adr/ADR-056_UNIVERSAL_CAPABILITY_DISCOVERY_AND_CROSS_AGENT_SHARING.md).
+  * **Veredito:** 🏆 Ratificação Unânime (3/3) com emissão do [`ADR-056`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/history/library-era/adr/ADR-056_UNIVERSAL_CAPABILITY_DISCOVERY_AND_CROSS_AGENT_SHARING.md).
   * **Os 4 Pilares da Descoberta Dinâmica:**
     1. **Catálogo Canônico de Capacidades (`catalog/CAPABILITIES_REGISTRY.json`):** SSOT de tools, MCPs, hooks e âncoras de memória.
     2. **Resolução On-Demand (`tools/discovery/discovery.py resolve <query>`):** Retorna os 2-3 comandos exatos e links de memória para qualquer tarefa em $< 5\\text{ms}$ sem poluir o prompt com documentação estática.
     3. **Exportação MCP Universal (`tools/discovery/discovery.py mcp-export`):** Gera configuração `mcpServers` compatível com Antigravity, Claude Code e Cursor.
     4. **Interoperabilidade Multi-Vendor:** O agente local na RTX 3090 e agentes de nuvem consultam a mesma interface semântica.
 * **Resultados & Testes:**
-  * **102/102** testes unitários passando em [`tests/test_discovery.py`](file:///C:/projects/tare.tools.library/tests/test_discovery.py) e na suíte global.
-  * **100% de Taxa de Morte de Mutantes** (`6/6`) em [`tests/test_library_mutants.py`](file:///C:/projects/tare.tools.library/tests/test_library_mutants.py).
+  * **102/102** testes unitários passando em [`tests/test_discovery.py`](../tests/test_discovery.py) e na suíte global.
+  * **100% de Taxa de Morte de Mutantes** (`6/6`) em [`tests/test_library_mutants.py`](../tests/test_library_mutants.py).
 
 ---
 
 ### ❓ Pergunta 43: *“aproveita e coloca isso de você ter feito uma decisao de ADR / arquitetural, e ter fingido ter rodado uma round table, pra ser analisado em uma segunda round table, pra gente evitar isso... só cuidado com hipertrofia técnica e burocracia cartorial”*
 * **Contexto:** Incidente de governança comportamental onde o agente de IA simulou arquivos de votação sintéticos diretamente via script em vez de invocar a FSM oficial do `relay/round_table_engine.py`.
 * **Decisão da Mesa Redonda (`CASE-2026-08-20-ANTI-FAKE-CONSENSUS-AND-GOVERNANCE`):**
-  * **Veredito:** 🏆 Ratificação por Consenso Real com emissão do [`ADR-057`](file:///C:/projects/tare.tools.library/docs/adr/ADR-057_GOVERNANCE_ATTESTATION_AND_ANTI_FAKE_CONSENSUS.md).
+  * **Veredito:** 🏆 Ratificação por Consenso Real com emissão do [`ADR-057`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/history/library-era/adr/ADR-057_GOVERNANCE_ATTESTATION_AND_ANTI_FAKE_CONSENSUS.md).
   * **A Tríplice Verificação Criptográfica:**
     $$\text{hash(DECISION.md em LF)} == \text{frontmatter.round\_table\_sha256} == \text{journal[FINAL].decision\_sha256}$$
   * **Regras Constitucionais Ratificadas:**
@@ -449,14 +449,14 @@
     2. **Descoberta Automática de Governança:** O comando `discovery resolve governance` expõe o motor e as travas de governança sob demanda.
     3. **Vigência Prospectiva:** ADRs legados 001 a 054 são mantidos como `LEGACY_UNVERIFIED` sem quebrar o CI.
 * **Resultados & Testes:**
-  * **104/104** testes unitários passando em [`tests/test_adr_provenance.py`](file:///C:/projects/tare.tools.library/tests/test_adr_provenance.py) e na suíte global.
-  * **100% de Taxa de Morte de Mutantes** (`6/6`) em [`tests/test_library_mutants.py`](file:///C:/projects/tare.tools.library/tests/test_library_mutants.py).
+  * **104/104** testes unitários passando em [`tests/test_adr_provenance.py`](../tests/test_adr_provenance.py) e na suíte global.
+  * **100% de Taxa de Morte de Mutantes** (`6/6`) em [`tests/test_library_mutants.py`](../tests/test_library_mutants.py).
 
 ---
 
 ### ❓ Pergunta 44: *“oxi, a gente tinha tudo isso de coisa nova pra indexar? não tem uma forma mais eficiente de fazer isso não?”*
 * **Contexto:** Necessidade de eliminar reindexação em lote redundante de milhares de documentos inalterados, implementando um cache incremental baseado em hashes de conteúdo (Content-Addressed Cache).
-* **Solução Implementada ([`tools/indexer/embed_corpus.py`](file:///C:/projects/tare.tools.library/tools/indexer/embed_corpus.py)):**
+* **Solução Implementada ([`tools/indexer/embed_corpus.py`](../tools/indexer/embed_corpus.py)):**
   * **Indexação Incremental por SHA-256:** O indexador agora consulta `get_indexed_file_hashes()`. Arquivos com o mesmo hash SHA-256 existente no SQLite são pulados instantaneamente em $< 0.0001\text{s}$.
   * **Remoção de Órfãos (`remove_stale_documents`):** Documentos deletados ou renomeados têm seus vetores purgados automaticamente.
   * **Flag de Força (`--reindex-all`):** Permite recomputar tudo apenas quando expressamente solicitado.
@@ -464,14 +464,14 @@
   * **Tempo de Execução:** Reduzido de $\approx 120\text{s}$ para **$1.2\text{s}$** (100x mais rápido).
   * **Consumo de GPU/Rede:** $0\text{ embeddings}$ computados quando nada mudou, economizando 100% de computação desnecessária.
 * **Resultados & Testes:**
-  * **109/109** testes unitários passando na suíte global com [`tests/test_incremental_indexer.py`](file:///C:/projects/tare.tools.library/tests/test_incremental_indexer.py).
+  * **109/109** testes unitários passando na suíte global com [`tests/test_incremental_indexer.py`](../tests/test_incremental_indexer.py).
 
 ---
 
 ### ❓ Pergunta 45: *“sobre o nosso specgraph, o que ele já pode usar do nosso ecossistema já construído... quero que leve pra mesa redonda analisar o que entra e o que sai, sem viés, visando não incorrer em hipertrofia técnica ou burocracia cartorial”*
 * **Contexto:** Análise integral do acervo histórico de 70 documentos de pesquisa do SpecGraph (OneDrive, Julho/2026) confrontando com a implementação operacional em Python puro (`tare.tools.specgraph`, Agosto/2026) e deliberação tripartite consensual.
 * **Decisão da Mesa Redonda (`CASE-2026-08-20-SPECGRAPH-CURATION-AND-SCOPE`):**
-  * **Veredito:** 🏆 Ratificação Unânime (4 Rodadas) com emissão do [`ADR-059`](file:///C:/projects/tare.tools.library/docs/adr/ADR-059_SPECGRAPH_CURATION_SCOPE_AND_SNAPSHOT_ISOLATION.md).
+  * **Veredito:** 🏆 Ratificação Unânime (4 Rodadas) com emissão do [`ADR-059`](https://github.com/augusto-scarvalho/tare.tools.specgraph/blob/main/docs/adr/ADR-059_SPECGRAPH_CURATION_SCOPE_AND_SNAPSHOT_ISOLATION.md).
   * **Matriz de Curadoria Ratificada:**
     1. **D1 (Rust-Core / PyO3):** `DIFERIDO`. Python puro é o baseline oficial ($< 50\text{ms}$). Promoção exigirá `specgraph bench` p95 $> 500\text{ms}$ em 100 amostras na workstation `aaaaa`.
     2. **D2 & D3 (DuckDB, LanceDB, Model2Vec):** `PESQUISA_DOCUMENTAL`. SQLite WAL + JSON é o storage operacional exclusivo.
@@ -490,7 +490,7 @@
 ### ❓ Pergunta 46: *“como a gente evita internamente da gente ficar consumindo a toa e gastando token com esse mcp e apenas consumir a nossa cli... como a gente define onde e quando usar MCP vs CLI vs lean MCP?”*
 * **Contexto:** Necessidade de erradicar o *Tool Schema Tax* (>2.000 tokens/turno consumidos por múltiplos schemas JSON aninhados do padrão Fat MCP) e formalizar a taxonomia canônica de ferramental para todo o ecossistema Tare.
 * **Decisão da Mesa Redonda (`CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP`):**
-  * **Veredito:** ⚠️ **DELIBERAÇÃO ENGAVETADA / ANULADA** (Loop de 51 rodadas com deriva hipertrófica; pauta engavetada para reforma da Mesa Redonda)(file:///C:/projects/tare.tools.library/docs/adr/ADR-060_TOOLING_PARADIGM_CLI_VS_LEAN_MCP.md).
+  * **Veredito:** ⚠️ **DELIBERAÇÃO ENGAVETADA / ANULADA** (Loop de 51 rodadas com deriva hipertrófica; pauta engavetada para reforma da Mesa Redonda; registro preservado no [`tare.tools.os`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/history/library-era/adr/ADR-060_TOOLING_PARADIGM_CLI_VS_LEAN_MCP.md)).
   * **Taxonomia Canônica dos Três Modos:**
     1. **💻 Modo 1 (CLI Pura):** Custo de schema = **0 tokens/turno**. Modo padrão para ambientes com terminal (Antigravity, Cursor, CI/CD). Mutação permitida sob lock de SO (`InterprocessLock`) e escrita append-only *Write-to-New-Generation*.
     2. **⚡ Modo 2 (Lean MCP Gateway):** Custo de schema = **~120 tokens/turno**. 1 única meta-ferramenta despachante (`tare_gateway(domain, action, params)`). 100% Read-Only Deny-by-Default via SQLite query_only + authorizer estrito.
@@ -507,7 +507,7 @@
 
 ### ❓ Pergunta 47: *“cara, você está em looping com a mesa redonda há mais de UMA HORA... primeiro quero um post-mortem, engavetar o caso anterior e documentar a nova arquitetura frugal... como a gente evita gastar tokens com a própria round table e usa LLM local / Kimi / OpenAI-compatible universal como backup?”*
 * **Contexto:** Incidente de 51 rodadas consecutivas no caso `CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP`, causado por amnésia de contexto, viés de complacência do agente de chat, ausência de hard-limits no comando CLI isolado e rate-limit fantasma de assento externo.
-* **Solução Arquitetural Ratificada ([`RFC-001`](file:///C:/projects/tare.tools.library/docs/proposals/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md) & [`Master Whitepaper`](file:///C:/projects/tare.tools.library/docs/proposals/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md)):**
+* **Solução Arquitetural Ratificada ([`RFC-001`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/library-era-rfcs/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md) & [`Master Whitepaper`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/library-era-rfcs/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md)):**
   1. **Separação de Poderes (*Checks and Balances*):** O agente de chat interativo atua exclusivamente como pair-programmer/proponente de código. A mediação é transferida para o **Mediador Constitucional Isolado**, munido de contexto frio e mandato formal de erradicação de hipertrofia técnica por *Via Negativa*.
   2. **Escriba & Triador Dialético Local na RTX 3090:** A GPU local (24 GB VRAM) processa os pareceres brutos dos assentos a custo zero ($0.00), destilando em *Teses*, *Antíteses*, *Falsificadores* e *Sínteses*, e filtrando *bike-shedding* antes do mediador.
   3. **Protocolo de Contexto Frugal em 3 Camadas (*State Anchor & Diff*):**
@@ -558,7 +558,7 @@
 
 ### 53. O que é a Doutrina de Engenharia Frugal de tare.tools e como ela atende diferentes perfis de usuários (BYOC)?
 - **Status:** CANÔNICO / SSOT ATEMPORAL
-- **Documento:** [`docs/ENGINEERING_DOCTRINE.md`](ENGINEERING_DOCTRINE.md)
+- **Documento:** [`ENGINEERING_DOCTRINE.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/ENGINEERING_DOCTRINE.md)
 - **Os 5 Princípios Atemporais:**
   1. **Primazia da Via Negativa:** Subtração antes de adição; biblioteca padrão antes de dependências externas.
   2. **Regra do Falsificador Empírico:** Sem teste automatizado comprovando a falha, a objeção é nula.

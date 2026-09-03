@@ -2,14 +2,14 @@
 
 # tare.tools.library
 
-**A Biblioteca Técnica Central & SSOT Canônico de Conhecimento Arquitetural, Benchmarks Empíricos, Memória do Sistema e Evolução Epistêmica do Ecossistema TARE 2.0.**
+**O catálogo federado, acervo de pesquisa próprio e camada de busca limitada do ecossistema TARE 2.0.**
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://python.org)
 [![CI Validation](https://github.com/augusto-scarvalho/tare.tools.library/actions/workflows/document-integrity.yml/badge.svg)](https://github.com/augusto-scarvalho/tare.tools.library/actions)
-[![Tests](https://img.shields.io/badge/Tests-158%2F158%20Passando-brightgreen.svg)](#verificação-formal--portões-de-qualidade)
+[![Tests](https://img.shields.io/badge/Tests-pytest-brightgreen.svg)](#verificação-formal--portões-de-qualidade)
 [![Governança](https://img.shields.io/badge/Mesa%20Redonda-Consenso%20Bizantino%20(ADR--065)-purple.svg)](cases/)
-[![Spec](https://img.shields.io/badge/Spec-ADR--001%20a%20ADR--067%20Ratificadas-success.svg)](docs/adr/)
+[![Propriedade](https://img.shields.io/badge/Documentos-Federados-success.svg)](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)
 [![Frugalidade](https://img.shields.io/badge/Guarda%20de%20Frugalidade-Teto%20%3C50MB%20Ativo-orange.svg)](tests/test_frugality_guard.py)
 
 <p align="center">
@@ -36,26 +36,32 @@
 
 ## O que é o tare.tools.library?
 
-`tare.tools.library` é o repositório canônico de conhecimento e armazenamento de memória de longo prazo do sistema operacional agêntico `tare.tools`.
+`tare.tools.library` cataloga o ecossistema sem espelhar todos os repositórios.
+Cada documento editável fica com a ferramenta que o possui; a Library registra
+repositório, caminho, commit e SHA-256 em
+[`catalog/FEDERATED_DOCUMENTS.json`](catalog/FEDERATED_DOCUMENTS.json).
 
-Em vez de fragmentar decisões arquiteturais em sessões de chat voláteis, páginas de wiki desatualizadas ou comentários de código dispersos, o `tare.tools.library` estabelece uma **Fonte Única da Verdade (SSOT)** determinística para:
-1. **Decisões Arquiteturais (ADRs):** Registros canônicos das North Stars ([ADR-001 a ADR-067](docs/adr/)).
-2. **Casos de Governança Tripartite (RFCs):** Deliberações com consenso bizantino entre modelos líderes (Google Gemini, OpenAI GPT, Anthropic Claude) em [`cases/`](cases/).
-3. **Post-Mortems Forenses & RCAs:** Relatórios de causa raiz de incidentes com medições empíricas, hashes de commit e planos de remediação causal em [`docs/post-mortems/`](docs/post-mortems/).
-4. **Fronteira Epistêmica de Pesquisa:** Radar de pesquisa contínuo, ponteiros e linhagens de evidência em [`catalog/frontier/`](catalog/frontier/).
-5. **Ontologia de Domínio & Schemas:** Definições formais de entidades, contratos de capabilities e taxonomia em [`catalog/`](catalog/).
-6. **Acervo Histórico Curado:** Referências canônicas de baseline, edições históricas e arquivos segregados em [`docs/archive/`](docs/archive/).
+A própria Library mantém:
+
+1. **Curadoria de pesquisa e políticas de publicação** em [`docs/`](docs/).
+2. **Fronteira epistêmica e ontologia** em [`catalog/`](catalog/).
+3. **Ferramentas e especificação da Library** em [`tools/`](tools/) e [`specs/`](specs/).
+4. **Edições históricas imutáveis**, fora da busca normal, em
+   [`docs/archive/`](docs/archive/) e [`catalog/corpus/`](catalog/corpus/).
+
+Veja a [ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)
+e o [guia de propriedade](docs/DOCUMENT_OWNERSHIP.md).
 
 ---
 
 ## O Eixo Triplo da Engenharia Agêntica
 
-Governada pela **[ADR-051](docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md)**, a inteligência autônoma no ecossistema TARE é estruturada em três eixos complementares:
+Pela regra federada da **[ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)**, os eixos trocam referências em vez de cópias:
 
 ```mermaid
 flowchart TD
     subgraph Axis1 ["1. Eixo do Conhecimento & Memória (O Porquê)"]
-        Library["📚 tare.tools.library (SSOT Canônico)<br/>• ADRs Globais (ADR-001 a ADR-067)<br/>• Casos de Governança & Consenso Bizantino<br/>• Radar da Fronteira Epistêmica<br/>• Substrato Híbrido: Ontologia & Vetores"]
+        Library["📚 tare.tools.library<br/>• Ponteiros federados<br/>• Pesquisa própria<br/>• Fronteira epistêmica e ontologia<br/>• Busca lexical e vetorial limitada"]
     end
 
     subgraph Axis2 ["2. Eixo da Ordem & Execução (O Quando & O Quê)"]
@@ -141,7 +147,7 @@ python -m tools.bookkeeper.cli tombstone --verify --root docs
 
 ## Mapa de Navegação do Acervo
 
-Governado pela **[ADR-067](docs/adr/ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE.md)** (RFC-008), o repositório segue um layout canônico estrito e sem diretórios fantasmas:
+Governado pela **[ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)**, o repositório separa conteúdo ativo, ponteiros e histórico opcional:
 
 ```text
 tare.tools.library/
@@ -162,8 +168,8 @@ tare.tools.library/
 │   ├── research/                        # 20 Portfólios de Programas de Pesquisa
 │   └── archive/                         # Arquivo Histórico Curado
 ├── site/                                # Autoridade do GitHub Pages & Signal Profile
-├── specs/                               # Requisitos de Sistema Formato EARS (SDD)
-├── tests/                               # 158 Testes Automatizados & Falsificadores de CI
+├── specs/                               # Especificação da própria Library
+├── tests/                               # Testes automatizados e falsificadores de CI
 └── tools/                               # Runtime de Mesh, Inferência Local, MCP & Bookkeeper
 ```
 
@@ -171,13 +177,13 @@ tare.tools.library/
 
 ## O Mandato Documental Ágil
 
-Ratificado como **Invariante Constitucional** na ADR-051:
+Atualizado pela decisão explícita do Operador na **ADR-069**:
 * **Prerrogativa Humana:** Artigos científicos e papers acadêmicos formais são produzidos sob demanda exclusiva do Operador Humano.
 * **Mandato dos Agentes de IA:** *“Documentar a coisa certa, no lugar certo, na hora certa”*:
-  1. *Nos Satélites de Código:* Apenas documentação operacional direta de APIs, CLI e testes.
-  2. *Nos Incidentes:* Relatórios de RCA com medições e hashes em `docs/post-mortems/`.
-  3. *Nas Decisões de Governança:* Casos RFC em `cases/` e ADRs canônicas em `docs/adr/`.
-  4. *Nas Fronteiras Epistêmicas:* Ponteiros formais de pesquisa em `catalog/frontier/`.
+  1. *Em cada repositório de código:* especificações, arquitetura e operações da própria ferramenta.
+  2. *No `tare.tools.os`:* governança, autoridade e settlement do ecossistema.
+  3. *Nesta Library:* curadoria, ontologia, publicação e ferramentas próprias.
+  4. *No catálogo federado:* ponteiros imutáveis para documentos externos.
 
 ---
 
@@ -196,12 +202,12 @@ pytest
 
 | Repositório | Papel | Especificação Primária |
 | :--- | :--- | :--- |
-| **`tare.tools.os`** | Orquestrador, Coordenador de Swarm & Mesa Redonda | [ADR-049](docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md) |
-| **`tare.tools.kernel`** | Microkernel Desacoplado em 5 Planos | [ADR-045](docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md) |
-| **`tare.tools.specgraph`** | Matriz Causal Viva SDD & Motor de Blast Radius | [ADR-044](docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md) |
-| **`tare.tools.backlog-graph`** | Grafo Matemático de Tarefas (DAG) com CAS | [ADR-046](docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md) |
-| **`tare.tools.dialog-engine`** | Motor de Protocolo & Fuzzer de Diálogo Agnóstico | [ADR-047](docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md) |
-| **`tare.tools.library`** | Biblioteca Técnica Central (SSOT), Memória & Evolução Epistêmica | [ADR-051](docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md) / [ADR-067](docs/adr/ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE.md) |
+| **`tare.tools.os`** | Orquestração, autoridade e settlement | [repositório](https://github.com/augusto-scarvalho/tare.tools.os) |
+| **`tare.tools.kernel`** | Microkernel em cinco planos | [repositório](https://github.com/augusto-scarvalho/tare.tools.kernel) |
+| **`tare.tools.specgraph`** | Rastreabilidade causal e análise de impacto | [repositório](https://github.com/augusto-scarvalho/tare.tools.specgraph) |
+| **`tare.tools.backlog-graph`** | DAG determinístico de tarefas | [repositório](https://github.com/augusto-scarvalho/tare.tools.backlog-graph) |
+| **`tare.tools.dialog-engine`** | Motor de protocolos de diálogo | [repositório](https://github.com/augusto-scarvalho/tare.tools.dialog-engine) |
+| **`tare.tools.library`** | Catálogo federado e pesquisa própria | [ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md) |
 
 ---
 

@@ -4,7 +4,7 @@
 - **Data:** 2026-08-20
 - **Decisor:** Antigravity Architect & Augusto
 - **Escopo:** `tools/indexer/embed_corpus.py`, `tare.tools.mesh`, `tare.tools.discovery`
-- **Referência:** Pergunta 44 ([`docs/ARCHITECTURAL_QA_LEDGER.md`](file:///C:/projects/tare.tools.library/docs/ARCHITECTURAL_QA_LEDGER.md))
+- **Referência:** Pergunta 44 ([`docs/ARCHITECTURAL_QA_LEDGER.md`](../ARCHITECTURAL_QA_LEDGER.md))
 
 ---
 
