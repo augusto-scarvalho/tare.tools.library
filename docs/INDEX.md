@@ -1,6 +1,7 @@
 # Acervo Documental e Governança tare.tools
 
-- [**`ENGINEERING_DOCTRINE.md`**](ENGINEERING_DOCTRINE.md): **Doutrina Soberana de Engenharia Frugal** (Os 5 Princípios Canônicos).
+- [**`DOCUMENT_OWNERSHIP.md`**](DOCUMENT_OWNERSHIP.md): regra de propriedade por repositório, catálogo federado e busca histórica opcional.
+- [**`ENGINEERING_DOCTRINE.md`**](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/ENGINEERING_DOCTRINE.md): **Doutrina Soberana de Engenharia Frugal**, mantida pelo `tare.tools.os` (os 5 princípios canônicos).
 # 📚 ÍNDICE DE PESQUISA & POLÍTICAS — TARE.TOOLS.RESEARCH
 
 > **Hub de Publicação Científica, Decisões de Arquitetura (ADRs), Experimentos de Modelos Locais e Políticas Editoriais.**
@@ -17,19 +18,20 @@
 
 ---
 
-## 🏛️ 2. Propostas Arquiteturais, RFCs & Governança (`docs/proposals/`)
-* **[`docs/proposals/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md`](proposals/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md):** Whitepaper Master e Registro Integral de Ideação da Governança Frugal, Separação de Poderes e Topologia Universal de Resiliência.
-* **[`docs/proposals/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md`](proposals/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md):** Especificação Técnica dos 5 Pilares de Governança Frugal, State Anchors e Escriba Local em GPU.
-* **[`docs/proposals/RFC-001_IMPLEMENTATION_PLAN.md`](proposals/RFC-001_IMPLEMENTATION_PLAN.md):** Roteiro Detalhado de Implementação em 6 Fases.
-* **[`docs/post-mortems/POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md`](post-mortems/POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md):** Autópsia do Incidente de 51 Rodadas e Diagnóstico de Descarrilamento de Escopo.
+## 🏛️ 2. Registros históricos de governança (mantidos pelo `tare.tools.os`)
+* **[`RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/library-era-rfcs/RFC-001_MASTER_IDEATION_AND_GOVERNANCE_WHITEPAPER.md):** Whitepaper Master e registro histórico de ideação, preservado pelo `tare.tools.os`.
+* **[`RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/library-era-rfcs/RFC-001_LOCAL_LLM_DIALECTICAL_COMPACTION_AND_STATE_ANCHORS.md):** Especificação histórica dos pilares de governança, State Anchors e escriba local.
+* **[`RFC-001_IMPLEMENTATION_PLAN.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/library-era-rfcs/RFC-001_IMPLEMENTATION_PLAN.md):** Roteiro histórico de implementação em seis fases.
+* **[`RFC-002_TOOLING_PARADIGM_CLI_FIRST_AND_LEAN_MCP.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/governance/library-era-rfcs/RFC-002_TOOLING_PARADIGM_CLI_FIRST_AND_LEAN_MCP.md):** Registro histórico da escolha entre CLI e Lean MCP.
+* **[`POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/operations/POST_MORTEM_ROUND_TABLE_LOOPING_AND_STATE_ANCHOR_ARCHITECTURE_2026-08-20.md):** Autópsia do incidente de 51 rodadas e diagnóstico de descarrilamento de escopo.
 
 ---
 
 ## 📋 3. Políticas Editoriais e Padrões de Publicação
-* **[`DOCUMENT_POLICY.md`](../DOCUMENT_POLICY.md):** Política de integridade e ciclo de vida de documentos de pesquisa.
-* **[`HTML_PUBLICATION_STANDARD.md`](../HTML_PUBLICATION_STANDARD.md):** Padrão canônico de publicação e semântica HTML para o GitHub Pages.
-* **[`TRANSLATION_POLICY.md`](../TRANSLATION_POLICY.md):** Regras de paridade e registro criptográfico de traduções multilíngues.
-* **[`PAGES_CUTOVER_READINESS.md`](../PAGES_CUTOVER_READINESS.md):** Critérios formais de cutover e gates de autoridade de publicação.
+* **[`DOCUMENT_POLICY.md`](policies/DOCUMENT_POLICY.md):** Política de integridade e ciclo de vida de documentos de pesquisa.
+* **[`HTML_PUBLICATION_STANDARD.md`](policies/HTML_PUBLICATION_STANDARD.md):** Padrão canônico de publicação e semântica HTML para o GitHub Pages.
+* **[`TRANSLATION_POLICY.md`](policies/TRANSLATION_POLICY.md):** Regras de paridade e registro criptográfico de traduções multilíngues.
+* **[`PAGES_CUTOVER_READINESS.md`](policies/PAGES_CUTOVER_READINESS.md):** Critérios formais de cutover e gates de autoridade de publicação.
 
 ## Casos Deliberativos Notáveis
 - [`CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING`](../cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/DECISION.md): **Marco Histórico** — Primeira aprovação unânime tripartite em 1ª rodada (FSM Frugal, State Anchors e Pinos Soberanos).

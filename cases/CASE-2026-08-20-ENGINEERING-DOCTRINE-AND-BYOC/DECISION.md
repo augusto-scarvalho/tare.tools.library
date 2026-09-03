@@ -3,7 +3,7 @@
 - **Caso:** `CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC`
 - **Data de Homologação:** 2026-08-21
 - **Status:** RATIFICADO POR GOVERNANÇA TRIPARTITE
-- **Referência Arquitetural Canônica:** [`docs/adr/ADR-062_UNIVERSAL_FRUGAL_ENGINEERING_DOCTRINE_AND_SOVEREIGN_BYOC.md`](file:///C:/projects/tare.tools.library/docs/adr/ADR-062_UNIVERSAL_FRUGAL_ENGINEERING_DOCTRINE_AND_SOVEREIGN_BYOC.md)
+- **Referência Arquitetural Canônica:** [`ADR-062`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/adr/ADR-062_UNIVERSAL_FRUGAL_ENGINEERING_DOCTRINE_AND_SOVEREIGN_BYOC.md)
 - **Modo de Quórum:** `FRONTIER_UNANIMOUS`
 - **Assentos Participantes:**
   - Google (`gemini-3.7-flash` via `agy.EXE`)

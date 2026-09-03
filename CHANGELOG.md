@@ -4,9 +4,28 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+### Added
+
+- Added the pinned federated document registry, its fail-closed validator and
+  a v3 manifest projection with repository-qualified source identities.
+- Added ADR-069 and the practical document-ownership guide.
+
+### Changed
+
+- Limited default lexical and vector retrieval to active Library-owned
+  Markdown, with exact-content collapse and explicit historical opt-in.
+- Reframed the Library as a catalog and research owner instead of a mirror of
+  every satellite's editable documentation.
+
 ### Fixed
 
 - Repaired Publication PR workflow validation, credential gating, current incoming-path routing, and repository targeting.
+
+### Removed
+
+- Retired 445 verified payload copies after recording their canonical owner,
+  path, full commit and SHA-256; immutable snapshot editions remain available
+  outside the default retrieval scope.
 
 ## 2026-08-21
 

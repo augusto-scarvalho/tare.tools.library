@@ -15,7 +15,9 @@ import re
 import sys
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
+
+from tools.federated_documents import iter_manifest_entries
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -23,11 +25,14 @@ ROOT = Path(__file__).resolve().parents[1]
 @dataclass
 class ManifestEntry:
     id: str
+    semantic_document_id: str
     doc_type: str  # "adr", "spec", "experiment", "post_mortem", "archaeology"
     title: str
     status: str
     relative_path: str
     sha256: str
+    authority_state: str
+    source_paths: List[Dict[str, str]] = field(default_factory=list)
     target_repositories: List[str] = field(default_factory=list)
     acceptance_criteria: List[str] = field(default_factory=list)
     references: List[str] = field(default_factory=list)
@@ -36,6 +41,7 @@ class ManifestEntry:
 @dataclass
 class LibraryManifest:
     version: str
+    authority_vocabulary: str
     generated_at: str
     total_documents: int
     canonical_ssot_count: int
@@ -64,12 +70,25 @@ def _extract_acceptance_criteria(text: str) -> List[str]:
 
 
 def _extract_target_repos(text: str) -> List[str]:
-    """Extract targeted satellite repos from text or headers."""
+    """Read explicit ownership metadata without inferring ownership from prose."""
     repos = set()
-    for repo in ["tare.tools.kernel", "tare.tools.specgraph", "tare.tools.backlog-graph", "tare.tools.dialog-engine", "tare.tools.os"]:
-        if repo in text:
-            repos.add(repo)
-    return sorted(list(repos))
+    ownership_line = re.compile(
+        r"^\s*(?:[-*>]\s*)?(?:\*\*)?"
+        r"(?:canonical\s+repository|target\s+repository|target\s+repositories)"
+        r"(?:\*\*)?\s*:\s*(.+?)\s*$",
+        re.IGNORECASE,
+    )
+    repo_name = re.compile(r"\btare\.tools\.[a-z0-9-]+\b", re.IGNORECASE)
+
+    for line in text.splitlines():
+        match = ownership_line.match(line)
+        if match:
+            repos.update(repo.lower() for repo in repo_name.findall(match.group(1)))
+
+    # Documents physically owned by Library remain Library-owned unless their
+    # front matter says otherwise. Merely discussing another repository does
+    # not transfer authority to it.
+    return sorted(repos) if repos else ["tare.tools.library"]
 
 
 def build_library_manifest(root_dir: str | Path = ROOT) -> LibraryManifest:
@@ -93,13 +112,28 @@ def build_library_manifest(root_dir: str | Path = ROOT) -> LibraryManifest:
             title_match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
             title = title_match.group(1).strip() if title_match else adr_file.stem
             
+            semantic_id_match = re.search(
+                r"(?<![A-Za-z0-9])ADR-\d+(?!\d)",
+                adr_file.stem,
+                re.IGNORECASE,
+            )
+            semantic_id = semantic_id_match.group(0).upper() if semantic_id_match else adr_file.stem
+            relative_path = str(adr_file.relative_to(root)).replace("\\", "/")
             entry = ManifestEntry(
-                id=adr_file.stem.split("_")[0],
+                id=sha,
+                semantic_document_id=semantic_id,
                 doc_type="adr",
                 title=title,
                 status="RATIFIED",
-                relative_path=str(adr_file.relative_to(root)).replace("\\", "/"),
+                relative_path=relative_path,
                 sha256=sha,
+                authority_state="UNMANAGED_ACTIVE",
+                source_paths=[{
+                    "relative_path": relative_path,
+                    "semantic_document_id": semantic_id,
+                    "authority_state": "UNMANAGED_ACTIVE",
+                    "editorial_status": "RATIFIED",
+                }],
                 target_repositories=_extract_target_repos(text),
                 acceptance_criteria=_extract_acceptance_criteria(text),
             )
@@ -115,13 +149,22 @@ def build_library_manifest(root_dir: str | Path = ROOT) -> LibraryManifest:
             title_match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
             title = title_match.group(1).strip() if title_match else spec_file.stem
 
+            relative_path = str(spec_file.relative_to(root)).replace("\\", "/")
             entry = ManifestEntry(
-                id=spec_file.stem,
+                id=sha,
+                semantic_document_id=spec_file.stem,
                 doc_type="spec",
                 title=title,
                 status="CANONICAL_SSOT",
-                relative_path=str(spec_file.relative_to(root)).replace("\\", "/"),
+                relative_path=relative_path,
                 sha256=sha,
+                authority_state="UNMANAGED_ACTIVE",
+                source_paths=[{
+                    "relative_path": relative_path,
+                    "semantic_document_id": spec_file.stem,
+                    "authority_state": "UNMANAGED_ACTIVE",
+                    "editorial_status": "CANONICAL_SSOT",
+                }],
                 target_repositories=_extract_target_repos(text),
                 acceptance_criteria=_extract_acceptance_criteria(text),
             )
@@ -139,13 +182,22 @@ def build_library_manifest(root_dir: str | Path = ROOT) -> LibraryManifest:
             title_match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
             title = title_match.group(1).strip() if title_match else exp_file.stem
 
+            relative_path = str(exp_file.relative_to(root)).replace("\\", "/")
             entry = ManifestEntry(
-                id=exp_file.stem,
+                id=sha,
+                semantic_document_id=exp_file.stem,
                 doc_type="experiment",
                 title=title,
                 status="CONCLUDED",
-                relative_path=str(exp_file.relative_to(root)).replace("\\", "/"),
+                relative_path=relative_path,
                 sha256=sha,
+                authority_state="UNMANAGED_ACTIVE",
+                source_paths=[{
+                    "relative_path": relative_path,
+                    "semantic_document_id": exp_file.stem,
+                    "authority_state": "UNMANAGED_ACTIVE",
+                    "editorial_status": "CONCLUDED",
+                }],
                 target_repositories=_extract_target_repos(text),
             )
             exps.append(entry)
@@ -161,21 +213,49 @@ def build_library_manifest(root_dir: str | Path = ROOT) -> LibraryManifest:
             title_match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
             title = title_match.group(1).strip() if title_match else pm_file.stem
 
+            relative_path = str(pm_file.relative_to(root)).replace("\\", "/")
             entry = ManifestEntry(
-                id=pm_file.stem,
+                id=sha,
+                semantic_document_id=pm_file.stem,
                 doc_type="post_mortem",
                 title=title,
                 status="RESOLVED",
-                relative_path=str(pm_file.relative_to(root)).replace("\\", "/"),
+                relative_path=relative_path,
                 sha256=sha,
+                authority_state="UNMANAGED_ACTIVE",
+                source_paths=[{
+                    "relative_path": relative_path,
+                    "semantic_document_id": pm_file.stem,
+                    "authority_state": "UNMANAGED_ACTIVE",
+                    "editorial_status": "RESOLVED",
+                }],
                 target_repositories=_extract_target_repos(text),
             )
             pms.append(entry)
 
-    total = len(adrs) + len(specs) + len(exps) + len(pms)
+    for raw in iter_manifest_entries(root):
+        entry = ManifestEntry(**raw)
+        if entry.doc_type == "adr":
+            adrs.append(entry)
+        elif entry.doc_type == "spec":
+            specs.append(entry)
+        elif entry.doc_type == "experiment":
+            exps.append(entry)
+        elif entry.doc_type == "post_mortem":
+            pms.append(entry)
+
+    for entries in (adrs, specs, exps, pms):
+        entries.sort(key=lambda item: (item.semantic_document_id.casefold(), item.relative_path.encode("utf-8")))
+    all_entries = adrs + specs + exps + pms
+    payload_ids = [entry.id for entry in all_entries]
+    if len(payload_ids) != len(set(payload_ids)):
+        raise ValueError("manifest contains duplicate content payloads")
+    total = len(all_entries)
+    canonical_count = len(adrs) + len(specs)
 
     return LibraryManifest(
-        version="2.0.0",
+        version="3.0.0",
+        authority_vocabulary="authority_state/v1",
         generated_at=now_iso,
         total_documents=total,
         canonical_ssot_count=canonical_count,
@@ -196,6 +276,7 @@ def save_manifest(manifest: LibraryManifest, root_dir: str | Path = ROOT) -> Pat
     # Convert dataclasses to dict
     data = {
         "version": manifest.version,
+        "authority_vocabulary": manifest.authority_vocabulary,
         "generated_at": manifest.generated_at,
         "total_documents": manifest.total_documents,
         "canonical_ssot_count": manifest.canonical_ssot_count,

@@ -3,7 +3,7 @@
 - **Caso:** `CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING`
 - **Data de Ratificação:** 2026-08-20 21:01:13 UTC
 - **Status:** RATIFICADO / HOMOLOGADO POR GOVERNANÇA TRIPARTITE
-- **Referência Arquitetural:** [ADR-061](file:///C:/projects/tare.tools.library/docs/adr/ADR-061_DELIBERATIVE_GOVERNANCE_HARDENING_FSM_AND_VENDOR_CLI_FIRST.md)
+- **Referência Arquitetural:** [ADR-061](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/adr/ADR-061_DELIBERATIVE_GOVERNANCE_HARDENING_FSM_AND_VENDOR_CLI_FIRST.md)
 - **Topologia de Quórum:** `FRONTIER_UNANIMOUS` (100% Vendor CLI First: Google AI Pro, ChatGPT Pro, Claude Pro)
 
 ---

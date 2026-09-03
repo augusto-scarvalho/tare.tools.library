@@ -30,6 +30,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.inference.local_client import LocalInferenceClient, LocalInferenceConfig
+from tools.document_scope import collect_indexable_markdown
 
 
 @dataclass
@@ -276,16 +277,16 @@ def index_corpus(
     db: Optional[LibraryVectorDB] = None,
     model_name: str = "local-embed",
     force_reindex: bool = False,
+    include_history: bool = False,
 ) -> int:
-    """Incrementally index markdown documents into SQLite Vector store (only embeddings changed/new files)."""
+    """Incrementally index the active, exact-content-deduplicated corpus."""
     client = client or LocalInferenceClient()
     db = db or LibraryVectorDB(root_dir / "catalog" / "library_vectors.db")
     server_online = client.health_check(target="embed").get("online", False)
 
-    all_files = [
-        f for f in root_dir.rglob("*.md")
-        if f.is_file() and not any(p in f.parts for p in (".git", ".pytest_cache", "__pycache__", "site", "_site"))
-    ]
+    all_files = collect_indexable_markdown(
+        root_dir, include_history=include_history, deduplicate=True
+    )
     total_files = len(all_files)
     active_paths = {str(f.relative_to(root_dir)).replace("\\", "/") for f in all_files}
 
@@ -361,6 +362,11 @@ def main() -> int:
     parser.add_argument("--model", default="local-embed", help="Model namespace")
     parser.add_argument("--force-local", action="store_true", help="Force execution on thin client despite ADR-053")
     parser.add_argument("--reindex-all", action="store_true", help="Force reindexing all files, bypassing incremental cache")
+    parser.add_argument(
+        "--include-history",
+        action="store_true",
+        help="Also index immutable archive/snapshot documents (still exact-content deduplicated)",
+    )
 
     args = parser.parse_args()
     root_path = Path(args.root).resolve()
@@ -403,7 +409,14 @@ def main() -> int:
     except ImportError:
         pass
 
-    indexed = index_corpus(root_path, client, db, model_name=args.model, force_reindex=args.reindex_all)
+    indexed = index_corpus(
+        root_path,
+        client,
+        db,
+        model_name=args.model,
+        force_reindex=args.reindex_all,
+        include_history=args.include_history,
+    )
     return 0 if indexed >= 0 else 1
 
 

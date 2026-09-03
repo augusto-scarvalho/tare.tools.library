@@ -3,7 +3,7 @@
 - **Caso:** `CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP`
 - **Data de Homologação:** 2026-08-21
 - **Status:** RATIFICADO POR GOVERNANÇA TRIPARTITE
-- **Referência Arquitetural Canônica:** [`docs/adr/ADR-063_TOOLING_PARADIGM_CLI_FIRST_LEAN_MCP_GATEWAY_AND_O1_CONTEXT.md`](file:///C:/projects/tare.tools.library/docs/adr/ADR-063_TOOLING_PARADIGM_CLI_FIRST_LEAN_MCP_GATEWAY_AND_O1_CONTEXT.md)
+- **Referência Arquitetural Canônica:** [`ADR-063`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/adr/ADR-063_TOOLING_PARADIGM_CLI_FIRST_LEAN_MCP_GATEWAY_AND_O1_CONTEXT.md)
 - **Modo de Quórum:** `FRONTIER_UNANIMOUS`
 - **Assentos Participantes:**
   - Google (`gemini-3.7-flash` via `agy.EXE`)

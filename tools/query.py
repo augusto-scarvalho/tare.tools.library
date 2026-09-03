@@ -28,6 +28,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.inference.local_client import LocalInferenceClient, LocalInferenceConfig
+from tools.document_scope import collect_indexable_markdown
 
 
 @dataclass
@@ -42,7 +43,7 @@ class QueryResult:
 
 def get_adr(adr_id: str, root_dir: str | Path = ROOT) -> Optional[str]:
     """Retrieve full text of an ADR by ID (e.g. 'ADR-051' or '051')."""
-    root = Path(root_dir)
+    root = Path(root_dir).resolve()
     adr_dir = root / "docs" / "adr"
     if not adr_dir.exists():
         return None
@@ -76,78 +77,77 @@ def search_library(
     max_results: int = 5,
     filter_type: Optional[str] = None,
     root_dir: str | Path = ROOT,
+    include_history: bool = False,
 ) -> List[QueryResult]:
-    """Fast in-memory full-text keyword search across all indexed markdown files."""
-    root = Path(root_dir)
+    """Search the active Library corpus; immutable history is opt-in."""
+    root = Path(root_dir).resolve()
     query_terms = [t.lower() for t in query.split() if len(t) > 2]
     if not query_terms:
         query_terms = [query.lower()]
 
     results: List[QueryResult] = []
-    seen_paths: set[Path] = set()
-
-    target_dirs = [
-        ("adr", root / "docs" / "adr"),
-        ("spec", root / "specs"),
-        ("experiment", root / "experiments"),
-        ("post_mortem", root / "findings" / "post-mortems"),
-        ("canonical", root / "docs/references"),
-        ("doc", root / "docs"),
-    ]
-
-    for dtype, dpath in target_dirs:
+    for file_path in collect_indexable_markdown(
+        root, include_history=include_history, deduplicate=True
+    ):
+        rel = str(file_path.relative_to(root)).replace("\\", "/")
+        if rel.startswith("docs/adr/"):
+            dtype = "adr"
+        elif rel.startswith("specs/"):
+            dtype = "spec"
+        elif rel.startswith("experiments/"):
+            dtype = "experiment"
+        elif rel.startswith("findings/post-mortems/") or rel.startswith(
+            "docs/post-mortems/"
+        ):
+            dtype = "post_mortem"
+        elif include_history and rel.startswith(("docs/archive/", "catalog/corpus/")):
+            dtype = "history"
+        else:
+            dtype = "doc"
         if filter_type and dtype != filter_type:
             continue
-        if not dpath.exists():
-            continue
 
-        for file_path in dpath.rglob("*.md"):
-            resolved = file_path.resolve()
-            if resolved in seen_paths:
-                continue
-            seen_paths.add(resolved)
+        try:
+            text = file_path.read_text(encoding="utf-8", errors="ignore")
+            text_lower = text.lower()
 
-            try:
-                text = file_path.read_text(encoding="utf-8", errors="ignore")
-                text_lower = text.lower()
-                rel = str(file_path.relative_to(root)).replace("\\", "/")
+            # Calculate score based on term matches
+            score = 0.0
+            for t in query_terms:
+                score += text_lower.count(t) * 1.0
 
-                # Calculate score based on term matches
-                score = 0.0
-                for t in query_terms:
-                    score += text_lower.count(t) * 1.0
+            if score > 0:
+                # Extract title
+                title_match = re.search(r"^#\s+(.+)$", text, re.MULTILINE)
+                title = title_match.group(1).strip() if title_match else file_path.stem
 
-
-                if score > 0:
-                    # Extract title
-                    title_match = re.search(r"^#\s+(.+)$", text, re.MULTILINE)
-                    title = title_match.group(1).strip() if title_match else file_path.stem
-
-                    # Extract best matching paragraph
-                    paragraphs = text.split("\n\n")
-                    best_para = paragraphs[0]
-                    best_para_score = 0
-                    for p in paragraphs:
-                        p_lower = p.lower()
-                        p_score = sum(p_lower.count(t) for t in query_terms)
-                        if p_score > best_para_score:
-                            best_para_score = p_score
-                            best_para = p.strip()
-
-                    snippet = best_para[:400] + ("..." if len(best_para) > 400 else "")
-
-                    results.append(
-                        QueryResult(
-                            doc_id=file_path.stem,
-                            doc_type=dtype,
-                            title=title,
-                            relative_path=rel,
-                            snippet=snippet,
-                            score=score,
-                        )
+                # Extract best matching paragraph
+                paragraphs = text.split("\n\n")
+                best_para = paragraphs[0]
+                best_para_score = 0
+                for paragraph in paragraphs:
+                    paragraph_lower = paragraph.lower()
+                    paragraph_score = sum(
+                        paragraph_lower.count(term) for term in query_terms
                     )
-            except Exception:
-                continue
+                    if paragraph_score > best_para_score:
+                        best_para_score = paragraph_score
+                        best_para = paragraph.strip()
+
+                snippet = best_para[:400] + ("..." if len(best_para) > 400 else "")
+
+                results.append(
+                    QueryResult(
+                        doc_id=file_path.stem,
+                        doc_type=dtype,
+                        title=title,
+                        relative_path=rel,
+                        snippet=snippet,
+                        score=score,
+                    )
+                )
+        except Exception:
+            continue
 
     results.sort(key=lambda r: r.score, reverse=True)
     return results[:max_results]
@@ -293,6 +293,11 @@ def main() -> int:
     parser.add_argument("--type", "-t", choices=["adr", "spec", "experiment", "post_mortem", "doc", "canonical"], help="Filter by document type")
     parser.add_argument("--limit", "-n", type=int, default=5, help="Max results to return")
     parser.add_argument("--force-local", action="store_true", help="Force local query execution")
+    parser.add_argument(
+        "--include-history",
+        action="store_true",
+        help="Include immutable archive/snapshot documents in lexical search",
+    )
     parser.add_argument("--root", default=".", help="Root directory of the library")
 
     args = parser.parse_args()
@@ -372,7 +377,13 @@ def main() -> int:
             return 1
 
     elif args.search:
-        results = search_library(args.search, max_results=args.limit, filter_type=args.type, root_dir=args.root)
+        results = search_library(
+            args.search,
+            max_results=args.limit,
+            filter_type=args.type,
+            root_dir=args.root,
+            include_history=args.include_history,
+        )
         if not results:
             print(f"[QUERY] No matching records found for '{args.search}'.")
             return 0

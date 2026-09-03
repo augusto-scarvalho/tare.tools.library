@@ -3,7 +3,7 @@
 - **Caso:** `CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS`
 - **Data de Homologação:** 2026-08-21
 - **Status:** RATIFICADO POR GOVERNANÇA TRIPARTITE
-- **Referência Arquitetural Canônica:** [`docs/adr/ADR-064_DOCTRINE_ENFORCEMENT_MECHANISMS_AND_BYOC_ROUTER.md`](file:///C:/projects/tare.tools.library/docs/adr/ADR-064_DOCTRINE_ENFORCEMENT_MECHANISMS_AND_BYOC_ROUTER.md)
+- **Referência Arquitetural Canônica:** [`ADR-064`](https://github.com/augusto-scarvalho/tare.tools.os/blob/main/docs/adr/ADR-064_DOCTRINE_ENFORCEMENT_MECHANISMS_AND_BYOC_ROUTER.md)
 - **Modo de Quórum:** `FRONTIER_UNANIMOUS`
 - **Assentos Participantes:**
   - Google (`gemini-3.7-flash` via `agy.EXE`)
