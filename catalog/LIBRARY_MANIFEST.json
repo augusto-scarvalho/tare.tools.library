@@ -1,25 +1,25 @@
 {
   "version": "3.0.0",
   "authority_vocabulary": "authority_state/v1",
-  "generated_at": "2026-09-03T20:02:33.854047+00:00",
+  "generated_at": "2026-09-05T16:27:39.117133+00:00",
   "total_documents": 261,
-  "canonical_ssot_count": 251,
+  "canonical_ssot_count": 261,
   "adrs": [
     {
       "id": "c33f08cfeb5977be414d4a937278c7cef5bf03bf55a0f1d9166f33f602b7cc34",
-      "semantic_document_id": "ADR-058",
+      "semantic_document_id": "ADR-058_INCREMENTAL_CONTENT_ADDRESSED_VECTOR_INDEXING",
       "doc_type": "adr",
       "title": "ADR-058: Indexação Vetorial Incremental Endereçada por Conteúdo (Content-Addressed Vector Cache)",
-      "status": "RATIFIED",
+      "status": "Ratificado",
       "relative_path": "docs/adr/ADR-058_INCREMENTAL_CONTENT_ADDRESSED_VECTOR_INDEXING.md",
       "sha256": "c33f08cfeb5977be414d4a937278c7cef5bf03bf55a0f1d9166f33f602b7cc34",
-      "authority_state": "UNMANAGED_ACTIVE",
+      "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
           "relative_path": "docs/adr/ADR-058_INCREMENTAL_CONTENT_ADDRESSED_VECTOR_INDEXING.md",
-          "semantic_document_id": "ADR-058",
-          "authority_state": "UNMANAGED_ACTIVE",
-          "editorial_status": "RATIFIED"
+          "semantic_document_id": "ADR-058_INCREMENTAL_CONTENT_ADDRESSED_VECTOR_INDEXING",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "Ratificado"
         }
       ],
       "target_repositories": [
@@ -30,19 +30,19 @@
     },
     {
       "id": "fc07ef48d2dc20f4a8ce85ff79f896fcba88f67156d6f022e0e18b9c1cb6543f",
-      "semantic_document_id": "ADR-066",
+      "semantic_document_id": "ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT",
       "doc_type": "adr",
       "title": "ADR-066: Segregação Arquitetural do Acervo de Conhecimento: Substrato Distribuível (tare.tools.library) vs. Cofre Soberano Privado (Sovereign Vault)",
-      "status": "RATIFIED",
+      "status": "**RATIFIED / RATIFICADO_POR_GOVERNANÇA_TRIPARTITE** (Homologado via `CASE-2026-08-21-RFC-007-CORPUS-SEGREGATION-DISTRIBUTABLE-LIBRARY-VS-SOVEREIGN-VAULT`)",
       "relative_path": "docs/adr/ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT.md",
       "sha256": "fc07ef48d2dc20f4a8ce85ff79f896fcba88f67156d6f022e0e18b9c1cb6543f",
-      "authority_state": "UNMANAGED_ACTIVE",
+      "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
           "relative_path": "docs/adr/ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT.md",
-          "semantic_document_id": "ADR-066",
-          "authority_state": "UNMANAGED_ACTIVE",
-          "editorial_status": "RATIFIED"
+          "semantic_document_id": "ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "**RATIFIED / RATIFICADO_POR_GOVERNANÇA_TRIPARTITE** (Homologado via `CASE-2026-08-21-RFC-007-CORPUS-SEGREGATION-DISTRIBUTABLE-LIBRARY-VS-SOVEREIGN-VAULT`)"
         }
       ],
       "target_repositories": [
@@ -53,19 +53,19 @@
     },
     {
       "id": "d75fe0ecaf748622f0d37400505b32ea6eed8863688222571534cdba91791a17",
-      "semantic_document_id": "ADR-067",
+      "semantic_document_id": "ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE",
       "doc_type": "adr",
       "title": "ADR-067: Nova Taxonomia Canônica do Repositório, Eliminação de Pastas Fantasmas e Instituição do Arquivo Histórico Controlado (`docs/archive/`)",
-      "status": "RATIFIED",
+      "status": "**RATIFIED / RATIFICADO_POR_GOVERNANÇA_TRIPARTITE** (Homologado via `CASE-2026-08-21-RFC-008-CANONICAL-REPOSITORY-TAXONOMY-AND-GHOST-PURGE`)",
       "relative_path": "docs/adr/ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE.md",
       "sha256": "d75fe0ecaf748622f0d37400505b32ea6eed8863688222571534cdba91791a17",
-      "authority_state": "UNMANAGED_ACTIVE",
+      "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
           "relative_path": "docs/adr/ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE.md",
-          "semantic_document_id": "ADR-067",
-          "authority_state": "UNMANAGED_ACTIVE",
-          "editorial_status": "RATIFIED"
+          "semantic_document_id": "ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "**RATIFIED / RATIFICADO_POR_GOVERNANÇA_TRIPARTITE** (Homologado via `CASE-2026-08-21-RFC-008-CANONICAL-REPOSITORY-TAXONOMY-AND-GHOST-PURGE`)"
         }
       ],
       "target_repositories": [
@@ -76,19 +76,19 @@
     },
     {
       "id": "5e1cd5b7b179310b14a3719445551c72b56e618f28570d60565b9b04385e5ce8",
-      "semantic_document_id": "ADR-069",
+      "semantic_document_id": "ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING",
       "doc_type": "adr",
       "title": "ADR-069: Federated document ownership and bounded indexing",
-      "status": "RATIFIED",
+      "status": "OWNER_ADOPTED",
       "relative_path": "docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md",
       "sha256": "5e1cd5b7b179310b14a3719445551c72b56e618f28570d60565b9b04385e5ce8",
-      "authority_state": "UNMANAGED_ACTIVE",
+      "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
           "relative_path": "docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md",
-          "semantic_document_id": "ADR-069",
-          "authority_state": "UNMANAGED_ACTIVE",
-          "editorial_status": "RATIFIED"
+          "semantic_document_id": "ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "OWNER_ADOPTED"
         }
       ],
       "target_repositories": [
@@ -98,13 +98,13 @@
       "references": []
     },
     {
-      "id": "0fd8540003121625af4ce693f340f4dd9d624f7195caa676f7adb9cc80540899",
+      "id": "5accf48d22d0ec003257e8764a98f10da984bee05385c86ec5cddd0e35cb544a",
       "semantic_document_id": "tare.tools.backlog-graph:docs/ADR-001_BACKLOG_GRAPH_NORTH_STAR.md",
       "doc_type": "adr",
       "title": "ADR-001: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.backlog-graph@41dc603c59e6355864e3a64abb448e2397f4204b:docs/ADR-001_BACKLOG_GRAPH_NORTH_STAR.md",
-      "sha256": "0fd8540003121625af4ce693f340f4dd9d624f7195caa676f7adb9cc80540899",
+      "sha256": "5accf48d22d0ec003257e8764a98f10da984bee05385c86ec5cddd0e35cb544a",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -133,13 +133,13 @@
       "references": []
     },
     {
-      "id": "ffbecb78e875402dc4f1adaefe35c90ad1c79a9a220cd9fb065c74d9ffb245df",
+      "id": "f809f94e125ad61efb67a7dc07eed5e2df9b3d39c0c622464928b6be96cc367d",
       "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0001-adaptive-external-memory-foundation.md",
       "doc_type": "adr",
       "title": "ADR-0001 — Adaptive External-Memory Foundation for Watson Dialog Engine",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.dialog-engine@9d4de6358a8218bd86d4a85a1ed785b880671bc6:docs/adr/0001-adaptive-external-memory-foundation.md",
-      "sha256": "ffbecb78e875402dc4f1adaefe35c90ad1c79a9a220cd9fb065c74d9ffb245df",
+      "sha256": "f809f94e125ad61efb67a7dc07eed5e2df9b3d39c0c622464928b6be96cc367d",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -168,13 +168,13 @@
       "references": []
     },
     {
-      "id": "12f35eb26db55317749393865f4568bf0130f6e9ea64e14c3bf791b9ec17131e",
+      "id": "b3170522bc9cf9144eb0f55df1b08403b5b3b56af9a57d31d48bcc66ac19bdf1",
       "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0002-preserve-v1-sequence-diff-parity.md",
       "doc_type": "adr",
       "title": "ADR-0002 — Preserving V1 Positional Diff Semantics During External-Memory Migration",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.dialog-engine@9d4de6358a8218bd86d4a85a1ed785b880671bc6:docs/adr/0002-preserve-v1-sequence-diff-parity.md",
-      "sha256": "12f35eb26db55317749393865f4568bf0130f6e9ea64e14c3bf791b9ec17131e",
+      "sha256": "b3170522bc9cf9144eb0f55df1b08403b5b3b56af9a57d31d48bcc66ac19bdf1",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -203,13 +203,13 @@
       "references": []
     },
     {
-      "id": "233862bfa1f040d93aaea6f34745e4933bef9cb80ddbfcc06324d736996f063d",
+      "id": "a81f8bffa35eb66b6db0a50e8dc44ab4958239632474fd9eff9795f44b4b6fb1",
       "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0003-resource-aware-auto-engine-selection.md",
       "doc_type": "adr",
       "title": "ADR-0003 — Resource-Aware Automatic Engine Selection",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.dialog-engine@9d4de6358a8218bd86d4a85a1ed785b880671bc6:docs/adr/0003-resource-aware-auto-engine-selection.md",
-      "sha256": "233862bfa1f040d93aaea6f34745e4933bef9cb80ddbfcc06324d736996f063d",
+      "sha256": "a81f8bffa35eb66b6db0a50e8dc44ab4958239632474fd9eff9795f44b4b6fb1",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -238,13 +238,13 @@
       "references": []
     },
     {
-      "id": "572c79b2601729cd0a74688317e8940c1a2af4b79b26d6a0064f13471e4b453d",
+      "id": "dc50c8b9361c938d66c929f695cf901b5bf5ca0d44ab05492da8afb9382eedf4",
       "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0004-dual-distribution-strategy-modular-and-ephemeral.md",
       "doc_type": "adr",
       "title": "ADR-0004 — Dual Distribution Strategy: Modular and Ephemeral (ChatGPT ADA & Copilot)",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.dialog-engine@9d4de6358a8218bd86d4a85a1ed785b880671bc6:docs/adr/0004-dual-distribution-strategy-modular-and-ephemeral.md",
-      "sha256": "572c79b2601729cd0a74688317e8940c1a2af4b79b26d6a0064f13471e4b453d",
+      "sha256": "dc50c8b9361c938d66c929f695cf901b5bf5ca0d44ab05492da8afb9382eedf4",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -273,13 +273,13 @@
       "references": []
     },
     {
-      "id": "93cc421e12820f9beef6fe790698e64790c3ebe5f1f952c40b81c0a541b9d61c",
+      "id": "090e302cab703d22040e9ce217f9b8be0878c33df9cc7d5ea25e0acc011c97f9",
       "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0005-package-modularization-and-performance-acceleration.md",
       "doc_type": "adr",
       "title": "ADR-0005 — Package Modularization (`src/tare_dialog`) and Performance Acceleration (`orjson`, `networkx`, `rich`, `pydantic`)",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.dialog-engine@9d4de6358a8218bd86d4a85a1ed785b880671bc6:docs/adr/0005-package-modularization-and-performance-acceleration.md",
-      "sha256": "93cc421e12820f9beef6fe790698e64790c3ebe5f1f952c40b81c0a541b9d61c",
+      "sha256": "090e302cab703d22040e9ce217f9b8be0878c33df9cc7d5ea25e0acc011c97f9",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -308,13 +308,13 @@
       "references": []
     },
     {
-      "id": "3909401b3271f681a5f2cff0e1eca67e25b74a355f9714e791df4e8ba4fa7e6f",
+      "id": "841a6a48d31eb95ec3a4ba8c4c744e3258a742abb7177e4e339d3174e90cd898",
       "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0006-universal-schema-binding-and-state-machine-adapter.md",
       "doc_type": "adr",
       "title": "ADR-0006: Universal Schema Binding, Semantic Decoupling, and On-Demand Mutation",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.dialog-engine@9d4de6358a8218bd86d4a85a1ed785b880671bc6:docs/adr/0006-universal-schema-binding-and-state-machine-adapter.md",
-      "sha256": "3909401b3271f681a5f2cff0e1eca67e25b74a355f9714e791df4e8ba4fa7e6f",
+      "sha256": "841a6a48d31eb95ec3a4ba8c4c744e3258a742abb7177e4e339d3174e90cd898",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -343,13 +343,13 @@
       "references": []
     },
     {
-      "id": "b0a997031b9c2976a50da342efbe34626b88d2487af7c4f75c0a94c44d5870f8",
+      "id": "535eaceba7fd365fef356c1fea7c80fe318a07dc9795515ff3f1c3e672e36ec8",
       "semantic_document_id": "tare.tools.dialog-engine:docs/adr/0007-dialog-engine-north-star.md",
       "doc_type": "adr",
       "title": "ADR-0007: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.dialog-engine@9d4de6358a8218bd86d4a85a1ed785b880671bc6:docs/adr/0007-dialog-engine-north-star.md",
-      "sha256": "b0a997031b9c2976a50da342efbe34626b88d2487af7c4f75c0a94c44d5870f8",
+      "sha256": "535eaceba7fd365fef356c1fea7c80fe318a07dc9795515ff3f1c3e672e36ec8",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -378,13 +378,13 @@
       "references": []
     },
     {
-      "id": "785a22edb982d2e494aa0d53708b7ab321fe473fcdb9d46453fe983f0592edd8",
+      "id": "a2855539abf27f0c75dc162caf5af7f050528e8d943088e1700f0c0de29a5604",
       "semantic_document_id": "tare.tools.os:continuity/01_chatgpt_transcripts/03_printintel/2026-07-02-branch-oportunidades-para-devs-solidity.md",
       "doc_type": "adr",
       "title": "Conversa Histórica: Branch · Oportunidades para Devs Solidity",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:continuity/01_chatgpt_transcripts/03_printintel/2026-07-02-branch-oportunidades-para-devs-solidity.md",
-      "sha256": "785a22edb982d2e494aa0d53708b7ab321fe473fcdb9d46453fe983f0592edd8",
+      "sha256": "a2855539abf27f0c75dc162caf5af7f050528e8d943088e1700f0c0de29a5604",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -407,13 +407,13 @@
       "references": []
     },
     {
-      "id": "94766e8faf5a50ab3fc971d3d1af97d86ef6d92e2264eeeba2ff1a20aa678dd5",
+      "id": "5a455fadcc8f4e9c8b922aaee3461785e4064ea68aa814a9f966ab413e83ccdf",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md",
       "doc_type": "adr",
       "title": "ADR-043: North Star 2.0 Architectural Transition, Ecosystem Modular Split, and Adversarial Deliberation Synthesis",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md",
-      "sha256": "94766e8faf5a50ab3fc971d3d1af97d86ef6d92e2264eeeba2ff1a20aa678dd5",
+      "sha256": "5a455fadcc8f4e9c8b922aaee3461785e4064ea68aa814a9f966ab413e83ccdf",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -436,13 +436,13 @@
       "references": []
     },
     {
-      "id": "3751f76748b60f94d703cd7b34f67726b84fb3af91870856a075d004a8dedf3b",
+      "id": "e78d3226fdb59b8744ad899809192e17d0f4c1872cd58870c80084f479c4b170",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md",
       "doc_type": "adr",
       "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md",
-      "sha256": "3751f76748b60f94d703cd7b34f67726b84fb3af91870856a075d004a8dedf3b",
+      "sha256": "e78d3226fdb59b8744ad899809192e17d0f4c1872cd58870c80084f479c4b170",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -465,13 +465,13 @@
       "references": []
     },
     {
-      "id": "672cb461745e3a1def9d95da587b993e9c7f1435a888422e75106036e2960669",
+      "id": "e41cdf042e0d6d71b370033f45b26626578355edc6fb9bd89532977e30ed7c61",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md",
       "doc_type": "adr",
       "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md",
-      "sha256": "672cb461745e3a1def9d95da587b993e9c7f1435a888422e75106036e2960669",
+      "sha256": "e41cdf042e0d6d71b370033f45b26626578355edc6fb9bd89532977e30ed7c61",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -494,13 +494,13 @@
       "references": []
     },
     {
-      "id": "92d652bc47e95d1da5ce75d2b8b2f7dfe1cfbb111b03d33ff9ca4ce0b4329efb",
+      "id": "b74d88625b43c8bfcd04e15ce7aa24a06c1db0f2fd3f008e16cfbf4308bdd626",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md",
       "doc_type": "adr",
       "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md",
-      "sha256": "92d652bc47e95d1da5ce75d2b8b2f7dfe1cfbb111b03d33ff9ca4ce0b4329efb",
+      "sha256": "b74d88625b43c8bfcd04e15ce7aa24a06c1db0f2fd3f008e16cfbf4308bdd626",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -523,13 +523,13 @@
       "references": []
     },
     {
-      "id": "78cc27d3c36073fd5f1112bfb9b9eba242bd3d1b9a5c11491139e6426396e9e6",
+      "id": "535601219619181fc21ed5d06024c8871e447e36d7e73cf573f8ee52cd8496dd",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md",
       "doc_type": "adr",
       "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md",
-      "sha256": "78cc27d3c36073fd5f1112bfb9b9eba242bd3d1b9a5c11491139e6426396e9e6",
+      "sha256": "535601219619181fc21ed5d06024c8871e447e36d7e73cf573f8ee52cd8496dd",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -552,13 +552,13 @@
       "references": []
     },
     {
-      "id": "bc888d7cb5469d44bb9bee1b917fb1abb7e8d119598f691a0c8b6aca18ffed47",
+      "id": "7cf616f9f4c05868c30309b5aa800a70ca73cdff3770c70ae09a8c927dcc4ee4",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
       "doc_type": "adr",
       "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
-      "sha256": "bc888d7cb5469d44bb9bee1b917fb1abb7e8d119598f691a0c8b6aca18ffed47",
+      "sha256": "7cf616f9f4c05868c30309b5aa800a70ca73cdff3770c70ae09a8c927dcc4ee4",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -593,13 +593,13 @@
       "references": []
     },
     {
-      "id": "ddbeebb3f7513090f1188436adac958f00a1eeb2d845818783a7be6289ef8250",
+      "id": "19247e44adde77483ded7aa8a7617014a845992b5aab18bf23a2c04c9486e93b",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md",
       "doc_type": "adr",
       "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md",
-      "sha256": "ddbeebb3f7513090f1188436adac958f00a1eeb2d845818783a7be6289ef8250",
+      "sha256": "19247e44adde77483ded7aa8a7617014a845992b5aab18bf23a2c04c9486e93b",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -622,13 +622,13 @@
       "references": []
     },
     {
-      "id": "0274dd42d9c51a6463f53444738622918675bfc06310b1657e587721313136bd",
+      "id": "7380fe438bd34df7792a748a49e70c341a1eb4ee47be90a6b5837c0d834b67a4",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-050_APP_DECOMPOSITION_ACL_AND_DEPENDENCY_GOVERNANCE.md",
       "doc_type": "adr",
       "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-050_APP_DECOMPOSITION_ACL_AND_DEPENDENCY_GOVERNANCE.md",
-      "sha256": "0274dd42d9c51a6463f53444738622918675bfc06310b1657e587721313136bd",
+      "sha256": "7380fe438bd34df7792a748a49e70c341a1eb4ee47be90a6b5837c0d834b67a4",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -651,13 +651,13 @@
       "references": []
     },
     {
-      "id": "eb9daa31fd61bba4a13c7c0e760148400a75449fbbed84e130ac0ae6ec855084",
+      "id": "76c5c88894c60de880d3c691468ad8a60f3126d6f51c2bc9f93b8415774d98f4",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md",
       "doc_type": "adr",
       "title": "ADR-051: O Eixo Triplo de Inteligência Agêntica (Research, Backlog-Graph & SpecGraph), Governança de Memória por Bookkeeping e o Mandato Documental Ágil",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md",
-      "sha256": "eb9daa31fd61bba4a13c7c0e760148400a75449fbbed84e130ac0ae6ec855084",
+      "sha256": "76c5c88894c60de880d3c691468ad8a60f3126d6f51c2bc9f93b8415774d98f4",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -680,13 +680,13 @@
       "references": []
     },
     {
-      "id": "ca08c40c484608b4898156817e6a011dba4f0bd73871095ca058fdf06e0b909f",
+      "id": "b7090826a19e072a39c83e907142b5fb9fbf274e814923b65ee16c97305df966",
       "semantic_document_id": "tare.tools.os:docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md",
       "doc_type": "adr",
       "title": "ADR-052: Transição de Identidade para tare.tools.library, Governança do Acervo Pré-Consolidado e Padronização Enxuta de Experimentos",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md",
-      "sha256": "ca08c40c484608b4898156817e6a011dba4f0bd73871095ca058fdf06e0b909f",
+      "sha256": "b7090826a19e072a39c83e907142b5fb9fbf274e814923b65ee16c97305df966",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -883,13 +883,13 @@
       "references": []
     },
     {
-      "id": "2159b98ce33bf5699659eaa46a10a3e7e281f36c8b289cd8178be71beeba8cfd",
+      "id": "38c45b709e83e9838fa52297e7fa97a950f166c619f95c5189551c8dc1837777",
       "semantic_document_id": "tare.tools.os:docs/architecture/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
       "doc_type": "adr",
       "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/architecture/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
-      "sha256": "2159b98ce33bf5699659eaa46a10a3e7e281f36c8b289cd8178be71beeba8cfd",
+      "sha256": "38c45b709e83e9838fa52297e7fa97a950f166c619f95c5189551c8dc1837777",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -912,13 +912,13 @@
       "references": []
     },
     {
-      "id": "98fb5f96528de7e6b5f1839ff730c8da0ba3ea15dfa4139cc5ab029be27476b7",
+      "id": "f3179a70dbef0454e65fecd0ba228becad084ef8fe8bc88eca9d6042d34bba2e",
       "semantic_document_id": "tare.tools.os:relay/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
       "doc_type": "adr",
       "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
-      "sha256": "98fb5f96528de7e6b5f1839ff730c8da0ba3ea15dfa4139cc5ab029be27476b7",
+      "sha256": "f3179a70dbef0454e65fecd0ba228becad084ef8fe8bc88eca9d6042d34bba2e",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -959,13 +959,13 @@
       "references": []
     },
     {
-      "id": "10e4dcaa2af6aad56edc72f23515ba30551ca045d2d4bc4d370c3d9596e5f75a",
+      "id": "1332e796ffcf34a4cf3a42c2680c885add9e11f4b6107bfa4b4b37a43cfcb2c0",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/decision/DECISION.md",
-      "sha256": "10e4dcaa2af6aad56edc72f23515ba30551ca045d2d4bc4d370c3d9596e5f75a",
+      "sha256": "1332e796ffcf34a4cf3a42c2680c885add9e11f4b6107bfa4b4b37a43cfcb2c0",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -988,13 +988,13 @@
       "references": []
     },
     {
-      "id": "57a89d096825b14dbfe69e8d8566fffcc3aec08ba00c56b7fe1c90312f827be4",
+      "id": "6fdaab671e539c585888e13579bbc25650da0beac2f6e1b074a07bc2c0bc8dc5",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v001.md",
       "doc_type": "adr",
       "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v001.md",
-      "sha256": "57a89d096825b14dbfe69e8d8566fffcc3aec08ba00c56b7fe1c90312f827be4",
+      "sha256": "6fdaab671e539c585888e13579bbc25650da0beac2f6e1b074a07bc2c0bc8dc5",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1017,13 +1017,13 @@
       "references": []
     },
     {
-      "id": "0e7ae5b38f3d1a576404456811b14ba9823a5ec2a683e39ecc6feca7fc39e7b8",
+      "id": "a4e49831228d85948d38507eeee32d8c73c99be83e3f85e5ff8f4a25c70fa454",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v002.md",
-      "sha256": "0e7ae5b38f3d1a576404456811b14ba9823a5ec2a683e39ecc6feca7fc39e7b8",
+      "sha256": "a4e49831228d85948d38507eeee32d8c73c99be83e3f85e5ff8f4a25c70fa454",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1046,13 +1046,13 @@
       "references": []
     },
     {
-      "id": "af606e3499497c08e74efbca97d84c3f9290447d382f76e451d293fd98928235",
+      "id": "83c77fa4063ac107b3b875672a55612e06da91899bad4c8b7725c5251233d8bf",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v003.md",
       "doc_type": "adr",
       "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v003.md",
-      "sha256": "af606e3499497c08e74efbca97d84c3f9290447d382f76e451d293fd98928235",
+      "sha256": "83c77fa4063ac107b3b875672a55612e06da91899bad4c8b7725c5251233d8bf",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1075,13 +1075,13 @@
       "references": []
     },
     {
-      "id": "c29c1789c5fc1b08cdbeee83c0f3af7d0628978c23f91fd39412fbdc262655b0",
+      "id": "ad741559dcd531ffe15f7c4a33a39c932252a4c15e3aa7abdb1b4de151dc07a3",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v004.md",
       "doc_type": "adr",
       "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v004.md",
-      "sha256": "c29c1789c5fc1b08cdbeee83c0f3af7d0628978c23f91fd39412fbdc262655b0",
+      "sha256": "ad741559dcd531ffe15f7c4a33a39c932252a4c15e3aa7abdb1b4de151dc07a3",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1104,13 +1104,13 @@
       "references": []
     },
     {
-      "id": "0c3ea0cab60af2c8fea8da3638f2789b54dc774329d46c0091a8ccc9d3dc31fc",
+      "id": "8336bfeca3c020749da17e07bc5a72b0f69e8f7abc02989f0252882f878fd58e",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/decision/DECISION.md",
-      "sha256": "0c3ea0cab60af2c8fea8da3638f2789b54dc774329d46c0091a8ccc9d3dc31fc",
+      "sha256": "8336bfeca3c020749da17e07bc5a72b0f69e8f7abc02989f0252882f878fd58e",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1133,13 +1133,13 @@
       "references": []
     },
     {
-      "id": "c199e29f6476d51a29bca76416cbd37c1fceacf116b6894db582a9397905d502",
+      "id": "995ed3f5097ce6ca6de3184addf01eeb8b7adb21dba1c1f442dd952aa954a970",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v001.md",
       "doc_type": "adr",
       "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v001.md",
-      "sha256": "c199e29f6476d51a29bca76416cbd37c1fceacf116b6894db582a9397905d502",
+      "sha256": "995ed3f5097ce6ca6de3184addf01eeb8b7adb21dba1c1f442dd952aa954a970",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1162,13 +1162,13 @@
       "references": []
     },
     {
-      "id": "34cc968c6bd8248464e65d70ec91b83efdcf9e5aaa15d085847f9444a69b2227",
+      "id": "f217c6152ae338228f81f6ed9e0a0a001c4ac8532e5cd451acbb10084ad92944",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v002.md",
-      "sha256": "34cc968c6bd8248464e65d70ec91b83efdcf9e5aaa15d085847f9444a69b2227",
+      "sha256": "f217c6152ae338228f81f6ed9e0a0a001c4ac8532e5cd451acbb10084ad92944",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1191,13 +1191,13 @@
       "references": []
     },
     {
-      "id": "b00dd06efdb0773a2c30a67d25c5adddd725c9ec680f4de2499e0223757c8e77",
+      "id": "31a377ac20d0948edde517d7e10941112e90a011f74bff8683a3538b937da199",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v003.md",
       "doc_type": "adr",
       "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v003.md",
-      "sha256": "b00dd06efdb0773a2c30a67d25c5adddd725c9ec680f4de2499e0223757c8e77",
+      "sha256": "31a377ac20d0948edde517d7e10941112e90a011f74bff8683a3538b937da199",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1220,13 +1220,13 @@
       "references": []
     },
     {
-      "id": "27eb7cfe184ba01f7cf546dcdcf9f437cd3fab60bb63bb57629453c96886adc7",
+      "id": "67420cb41f1f3ae889fb94977ed12617488bd46d9f519897ea515bc2a13880ca",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v004.md",
       "doc_type": "adr",
       "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v004.md",
-      "sha256": "27eb7cfe184ba01f7cf546dcdcf9f437cd3fab60bb63bb57629453c96886adc7",
+      "sha256": "67420cb41f1f3ae889fb94977ed12617488bd46d9f519897ea515bc2a13880ca",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1249,13 +1249,13 @@
       "references": []
     },
     {
-      "id": "3ad6ccbf95bd2a2ab9da39b91567917888faced266778fe33c843d988fc325b2",
+      "id": "07ff0bca8498a01b3cf72ca3222f3f618afebd36a2ca0db81661397447224449",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v001.md",
       "doc_type": "adr",
       "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v001.md",
-      "sha256": "3ad6ccbf95bd2a2ab9da39b91567917888faced266778fe33c843d988fc325b2",
+      "sha256": "07ff0bca8498a01b3cf72ca3222f3f618afebd36a2ca0db81661397447224449",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1278,13 +1278,13 @@
       "references": []
     },
     {
-      "id": "d5e4640a02c663139a3fd5fe3a8b788fbc8ac2338bf7e9254605183efd0770fb",
+      "id": "769468e979aebef1f14c50315fee232a580b6fc77615e7d9f1dca03959a58e0a",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v002.md",
-      "sha256": "d5e4640a02c663139a3fd5fe3a8b788fbc8ac2338bf7e9254605183efd0770fb",
+      "sha256": "769468e979aebef1f14c50315fee232a580b6fc77615e7d9f1dca03959a58e0a",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1307,13 +1307,13 @@
       "references": []
     },
     {
-      "id": "57b10e5d023dd64e644ba2d8855b412ab13973d056ccecd60f1091d264d7bcfb",
+      "id": "a9f09c5d78bccd92b869152f3e4738272f19b38905d3ba2634d0c733cb33a41d",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v003.md",
       "doc_type": "adr",
       "title": "SÍNTESE ARQUITETURAL CANÔNICA (MESA REDONDA TRIPARTITE — RODADA 2)",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v003.md",
-      "sha256": "57b10e5d023dd64e644ba2d8855b412ab13973d056ccecd60f1091d264d7bcfb",
+      "sha256": "a9f09c5d78bccd92b869152f3e4738272f19b38905d3ba2634d0c733cb33a41d",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1336,13 +1336,13 @@
       "references": []
     },
     {
-      "id": "752763b21567d569fe9d5d6d0dd3913f6e250d390fe5843b75d9468c2943499e",
+      "id": "e1358e0fcbc3e263539932b557f8555d2159b86f2fc6211608d797f7e8fef28c",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v004.md",
       "doc_type": "adr",
       "title": "SÍNTESE ARQUITETURAL CANÔNICA (MESA REDONDA TRIPARTITE — RODADA 3)",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v004.md",
-      "sha256": "752763b21567d569fe9d5d6d0dd3913f6e250d390fe5843b75d9468c2943499e",
+      "sha256": "e1358e0fcbc3e263539932b557f8555d2159b86f2fc6211608d797f7e8fef28c",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1365,13 +1365,13 @@
       "references": []
     },
     {
-      "id": "b67ee0ab4e40c4b875fa17093655c8ec96a5dee7420e0d03bef1a3aa9a832e2c",
+      "id": "1162a6d04dc01cf3bf0e00755c0f89c53bba7b39e8340ce8ac5e93e891bc023b",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/decision/DECISION.md",
-      "sha256": "b67ee0ab4e40c4b875fa17093655c8ec96a5dee7420e0d03bef1a3aa9a832e2c",
+      "sha256": "1162a6d04dc01cf3bf0e00755c0f89c53bba7b39e8340ce8ac5e93e891bc023b",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1394,13 +1394,13 @@
       "references": []
     },
     {
-      "id": "cd6da3c7a2de0ef32b146c501512c77827c4639573d3c23a4a1ce2dd942e853c",
+      "id": "50c66062c040f2217696c744ab1b4b1a1fe478a1f4a87f9dc21b0d1ef101fad8",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v001.md",
       "doc_type": "adr",
       "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v001.md",
-      "sha256": "cd6da3c7a2de0ef32b146c501512c77827c4639573d3c23a4a1ce2dd942e853c",
+      "sha256": "50c66062c040f2217696c744ab1b4b1a1fe478a1f4a87f9dc21b0d1ef101fad8",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1423,13 +1423,13 @@
       "references": []
     },
     {
-      "id": "efe7f5c9218ee6f86eeb8062060634dab8cb9ee1033a742e69d83209261a238e",
+      "id": "e309a722eaad9329ce0f2d7cd75d136e0a6d8fe53eb062462b7b4688e93c33f2",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v002.md",
-      "sha256": "efe7f5c9218ee6f86eeb8062060634dab8cb9ee1033a742e69d83209261a238e",
+      "sha256": "e309a722eaad9329ce0f2d7cd75d136e0a6d8fe53eb062462b7b4688e93c33f2",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1452,13 +1452,13 @@
       "references": []
     },
     {
-      "id": "e638f8c4a320668bb15108f65f1b9fd8ace29d92bcd81e2a24b14aa52f426c8b",
+      "id": "e09c35c524ee455b71ce286e95d277b95b8c2f75aa91d292f10108a2c1be2774",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v003.md",
       "doc_type": "adr",
       "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v003.md",
-      "sha256": "e638f8c4a320668bb15108f65f1b9fd8ace29d92bcd81e2a24b14aa52f426c8b",
+      "sha256": "e09c35c524ee455b71ce286e95d277b95b8c2f75aa91d292f10108a2c1be2774",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1481,13 +1481,13 @@
       "references": []
     },
     {
-      "id": "5256bbf0531a1cb46685fa6f88e334794a44f7e623c36d85d759d4eda8622529",
+      "id": "0b456253ccce5b16f15c747159f528d965163a611b3d97b53a117e45c5c3fbae",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v004.md",
       "doc_type": "adr",
       "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v004.md",
-      "sha256": "5256bbf0531a1cb46685fa6f88e334794a44f7e623c36d85d759d4eda8622529",
+      "sha256": "0b456253ccce5b16f15c747159f528d965163a611b3d97b53a117e45c5c3fbae",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1510,13 +1510,13 @@
       "references": []
     },
     {
-      "id": "a320c104b284259e417a8679cb3f31b0c74e28af88bfe741cd62147ddbae9ab9",
+      "id": "e9343b3dffaf43955e747126657c042ae02ecc13f972b3edc5db411ef334331b",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/decision/DECISION.md",
-      "sha256": "a320c104b284259e417a8679cb3f31b0c74e28af88bfe741cd62147ddbae9ab9",
+      "sha256": "e9343b3dffaf43955e747126657c042ae02ecc13f972b3edc5db411ef334331b",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1539,13 +1539,13 @@
       "references": []
     },
     {
-      "id": "cd2e1eda7e9e0a616d4473dc448cfc662494baf7cb94fa0a1fee882d96fcfcf9",
+      "id": "57cd1bd68d5e6e8416e3eb7a95439ddadca2226ee981f9ed181e73474dbc4f46",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v001.md",
       "doc_type": "adr",
       "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v001.md",
-      "sha256": "cd2e1eda7e9e0a616d4473dc448cfc662494baf7cb94fa0a1fee882d96fcfcf9",
+      "sha256": "57cd1bd68d5e6e8416e3eb7a95439ddadca2226ee981f9ed181e73474dbc4f46",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1568,13 +1568,13 @@
       "references": []
     },
     {
-      "id": "ea6b8300eac3e6432760a4ba9eff1ee8c1067d9837635296a17fac37fbdb81fc",
+      "id": "80bdbaaf5bbe16d30420e0d9a3fae8cbe1c9491785b4a64a1169de6a42d08fa3",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v002.md",
-      "sha256": "ea6b8300eac3e6432760a4ba9eff1ee8c1067d9837635296a17fac37fbdb81fc",
+      "sha256": "80bdbaaf5bbe16d30420e0d9a3fae8cbe1c9491785b4a64a1169de6a42d08fa3",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1597,13 +1597,13 @@
       "references": []
     },
     {
-      "id": "927a46b2e0a2c9943af1617dc30d7f797d1d5c7ea444c85dec53ede9a084d16a",
+      "id": "c2f297fb3dd59e824f05ac39d63d23a594c3023271d53a2cf98cbb3c5b4fe02d",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v003.md",
       "doc_type": "adr",
       "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v003.md",
-      "sha256": "927a46b2e0a2c9943af1617dc30d7f797d1d5c7ea444c85dec53ede9a084d16a",
+      "sha256": "c2f297fb3dd59e824f05ac39d63d23a594c3023271d53a2cf98cbb3c5b4fe02d",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1626,13 +1626,13 @@
       "references": []
     },
     {
-      "id": "f143c57016ad402b188b8cc94547893836fbd73a8f15c4b824cc41aac0c6e011",
+      "id": "b61ce6e123c05910da83bfbbbd7841d5cc9f53d4286a74b32f6ba4b0789c7edf",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/decision/DECISION.md",
-      "sha256": "f143c57016ad402b188b8cc94547893836fbd73a8f15c4b824cc41aac0c6e011",
+      "sha256": "b61ce6e123c05910da83bfbbbd7841d5cc9f53d4286a74b32f6ba4b0789c7edf",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1655,13 +1655,13 @@
       "references": []
     },
     {
-      "id": "f59139e0f4e612bc7df2a7ccc2ab080f014cab131cc35b2d40a94c95bdc559bc",
+      "id": "f62826c6f3d8e9e6c3a0e6ca4ff8a3bdcebae1c329268e102341a26f9d74b955",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v001.md",
       "doc_type": "adr",
       "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências e Governança de Forks de Alto Desempenho",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v001.md",
-      "sha256": "f59139e0f4e612bc7df2a7ccc2ab080f014cab131cc35b2d40a94c95bdc559bc",
+      "sha256": "f62826c6f3d8e9e6c3a0e6ca4ff8a3bdcebae1c329268e102341a26f9d74b955",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1684,13 +1684,13 @@
       "references": []
     },
     {
-      "id": "2165ff60fa29f9e317af1414f3e05a43f0a9d4fea1425c731f58a1cb7997e2df",
+      "id": "88a11408ccf6e54b15952606e8785ddc303bae188de383b3f995289398a71433",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v002.md",
-      "sha256": "2165ff60fa29f9e317af1414f3e05a43f0a9d4fea1425c731f58a1cb7997e2df",
+      "sha256": "88a11408ccf6e54b15952606e8785ddc303bae188de383b3f995289398a71433",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1713,13 +1713,13 @@
       "references": []
     },
     {
-      "id": "5f908f5e6995f7f0cf9f340b6063a66944b9c284a18c2d9d0320040c31e7e931",
+      "id": "b05151f21b9625208f2ad995082a52f7c1ef4b69dc92bb95cf26b979594e31cb",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v003.md",
       "doc_type": "adr",
       "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v003.md",
-      "sha256": "5f908f5e6995f7f0cf9f340b6063a66944b9c284a18c2d9d0320040c31e7e931",
+      "sha256": "b05151f21b9625208f2ad995082a52f7c1ef4b69dc92bb95cf26b979594e31cb",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1742,13 +1742,13 @@
       "references": []
     },
     {
-      "id": "a52f7284e2b05e0f0c389b83af1b04ad1e20ce4da4c309c5cff06350410e7cea",
+      "id": "dfcfe78e338dbe0d068431c24f054e53c7fa8410e86485faa145aa54971ee496",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v004.md",
       "doc_type": "adr",
       "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v004.md",
-      "sha256": "a52f7284e2b05e0f0c389b83af1b04ad1e20ce4da4c309c5cff06350410e7cea",
+      "sha256": "dfcfe78e338dbe0d068431c24f054e53c7fa8410e86485faa145aa54971ee496",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1771,13 +1771,13 @@
       "references": []
     },
     {
-      "id": "91648d391b9794d7b200d932bdef3c2e81017a106ab1aa83d9b0fd936a756026",
+      "id": "2517eabc0f9fda166f8c70e82f032c0dcde9903c36167536bf2f7b48a4480862",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/decision/DECISION.md",
-      "sha256": "91648d391b9794d7b200d932bdef3c2e81017a106ab1aa83d9b0fd936a756026",
+      "sha256": "2517eabc0f9fda166f8c70e82f032c0dcde9903c36167536bf2f7b48a4480862",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1800,13 +1800,13 @@
       "references": []
     },
     {
-      "id": "fe2578a9fe495df0b30dd0b36d5ff137ca47ced13de152b246ad3b7d23b804cc",
+      "id": "04f977876ce2fb4a9ce228953d766b2400bae4efabb5886243469cef9da72852",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v002.md",
-      "sha256": "fe2578a9fe495df0b30dd0b36d5ff137ca47ced13de152b246ad3b7d23b804cc",
+      "sha256": "04f977876ce2fb4a9ce228953d766b2400bae4efabb5886243469cef9da72852",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1829,13 +1829,13 @@
       "references": []
     },
     {
-      "id": "df174437bdad1e4d4095abe6209b681156aba8748dd602b98b55e288c2ddbc7c",
+      "id": "9ac3267258ac31d73202063b69f67f5f2c2719756c6f35dbb0fc420087b42e6f",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v003.md",
       "doc_type": "adr",
       "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v003.md",
-      "sha256": "df174437bdad1e4d4095abe6209b681156aba8748dd602b98b55e288c2ddbc7c",
+      "sha256": "9ac3267258ac31d73202063b69f67f5f2c2719756c6f35dbb0fc420087b42e6f",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1858,13 +1858,13 @@
       "references": []
     },
     {
-      "id": "75d7081487e2f95b13dcd500bc0c5c11521e90e5a99ec4ea3fefc38ff1b3ccd2",
+      "id": "0c59161bb847700b98584203fc3b26d62f21d55be8d61f7e65c8acda89f78314",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v004.md",
       "doc_type": "adr",
       "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v004.md",
-      "sha256": "75d7081487e2f95b13dcd500bc0c5c11521e90e5a99ec4ea3fefc38ff1b3ccd2",
+      "sha256": "0c59161bb847700b98584203fc3b26d62f21d55be8d61f7e65c8acda89f78314",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1887,13 +1887,13 @@
       "references": []
     },
     {
-      "id": "e61356369925f6b8dce2066f1ce36758fb317a44e4c7ea000354f9fc07ea9f47",
+      "id": "f9659e57ef67c79a8ec37be0c742d8c6152a85a7a8c0295fb41d7675c3358e3b",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/decision/DECISION.md",
-      "sha256": "e61356369925f6b8dce2066f1ce36758fb317a44e4c7ea000354f9fc07ea9f47",
+      "sha256": "f9659e57ef67c79a8ec37be0c742d8c6152a85a7a8c0295fb41d7675c3358e3b",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1916,13 +1916,13 @@
       "references": []
     },
     {
-      "id": "db70d83544c32293dea6ebbe40fb438bd1f0834aeb46e231cbc86a86c1f8528a",
+      "id": "a06e41466e10803285392343e38a4cd6750485b239762045b9d926f894121e8d",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v001.md",
       "doc_type": "adr",
       "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes e Separação Estrita de Backlogs",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v001.md",
-      "sha256": "db70d83544c32293dea6ebbe40fb438bd1f0834aeb46e231cbc86a86c1f8528a",
+      "sha256": "a06e41466e10803285392343e38a4cd6750485b239762045b9d926f894121e8d",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1945,13 +1945,13 @@
       "references": []
     },
     {
-      "id": "dd098c182f203e3c5991284eb280fac930214412332cf7433c377aed89ea56a3",
+      "id": "73ef740f33653daee31d1a3a27763b14a8ee772b0dad852c33b2c05db29e4f1b",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes e Separação Estrita de Backlogs",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v002.md",
-      "sha256": "dd098c182f203e3c5991284eb280fac930214412332cf7433c377aed89ea56a3",
+      "sha256": "73ef740f33653daee31d1a3a27763b14a8ee772b0dad852c33b2c05db29e4f1b",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -1974,13 +1974,13 @@
       "references": []
     },
     {
-      "id": "bacf17bde9523860bcf71af148f318d2a33a2d778038327e7f42108bbb308a4a",
+      "id": "f5e6a8dbbb3c07a9ac808f210641fa6bd7cfd1aec00dc5fd1fc8e5dd54c8130f",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v003.md",
       "doc_type": "adr",
       "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v003.md",
-      "sha256": "bacf17bde9523860bcf71af148f318d2a33a2d778038327e7f42108bbb308a4a",
+      "sha256": "f5e6a8dbbb3c07a9ac808f210641fa6bd7cfd1aec00dc5fd1fc8e5dd54c8130f",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2003,13 +2003,13 @@
       "references": []
     },
     {
-      "id": "4889ee0220324ca7cedcb95b25267ad2dd3a7e29c8d1ae15960eb003262ad7f2",
+      "id": "eb104bd59375cfede56593c45586ea6e5e18480bd8cc4f99dbf1afab94b8a17d",
       "semantic_document_id": "tare.tools.os:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v004.md",
       "doc_type": "adr",
       "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v004.md",
-      "sha256": "4889ee0220324ca7cedcb95b25267ad2dd3a7e29c8d1ae15960eb003262ad7f2",
+      "sha256": "eb104bd59375cfede56593c45586ea6e5e18480bd8cc4f99dbf1afab94b8a17d",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2032,13 +2032,13 @@
       "references": []
     },
     {
-      "id": "b1f29b88bfbbcfb46e2a3867dcdd6b07d00e0b66158cbba1cf2db9d9d494d5b7",
+      "id": "e646b946c53a7098462c01764e50e79ac016c57d3b72235f3428afe2ab135bb9",
       "semantic_document_id": "tare.tools.os:relay/round_tables/proposal_adr052.md",
       "doc_type": "adr",
       "title": "ADR-052: Transição de Identidade para tare.tools.library, Governança do Acervo Pré-Consolidado e Padronização Enxuta de Experimentos",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/proposal_adr052.md",
-      "sha256": "b1f29b88bfbbcfb46e2a3867dcdd6b07d00e0b66158cbba1cf2db9d9d494d5b7",
+      "sha256": "e646b946c53a7098462c01764e50e79ac016c57d3b72235f3428afe2ab135bb9",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2067,13 +2067,13 @@
       "references": []
     },
     {
-      "id": "c19bbaf3e601ffade1482dd15382e33340f00cdce79e8cb807d3681156d4d7b3",
+      "id": "518042cdb4460fe845fe6a15c23b2f090c57936721b539eb133d674d5177cd3b",
       "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042-PROD/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: RT-ADR-042-PROD",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/RT-ADR-042-PROD/decision/DECISION.md",
-      "sha256": "c19bbaf3e601ffade1482dd15382e33340f00cdce79e8cb807d3681156d4d7b3",
+      "sha256": "518042cdb4460fe845fe6a15c23b2f090c57936721b539eb133d674d5177cd3b",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2096,13 +2096,13 @@
       "references": []
     },
     {
-      "id": "f9e7c0283565f7470cd7e1a5529e7197e7ca9f637ff0d74d37472899a8cb5a2c",
+      "id": "c04e18f22f32866c239d0b66aa025ba96806e5c4f770b1e21848dad56fd54728",
       "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042-PROD/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/RT-ADR-042-PROD/proposals/v002.md",
-      "sha256": "f9e7c0283565f7470cd7e1a5529e7197e7ca9f637ff0d74d37472899a8cb5a2c",
+      "sha256": "c04e18f22f32866c239d0b66aa025ba96806e5c4f770b1e21848dad56fd54728",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2125,13 +2125,13 @@
       "references": []
     },
     {
-      "id": "816c81447ce8480854449742428a8653e3909c2c5d01425634cdb697f937d58f",
+      "id": "17705f706aaf3df4d0419e5c8eab5828dc1d73bf68e50116d899b883e0e090c6",
       "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042-PROD/proposals/v003.md",
       "doc_type": "adr",
       "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/RT-ADR-042-PROD/proposals/v003.md",
-      "sha256": "816c81447ce8480854449742428a8653e3909c2c5d01425634cdb697f937d58f",
+      "sha256": "17705f706aaf3df4d0419e5c8eab5828dc1d73bf68e50116d899b883e0e090c6",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2154,13 +2154,13 @@
       "references": []
     },
     {
-      "id": "50c197e8f9204fd3a15341afbab483792868adc89f34c826dd6dfe66dbd96015",
+      "id": "5395779bfc82e9f67268407689a89b45fd88d915721978731b390daaf9a763f8",
       "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042/decision/DECISION.md",
       "doc_type": "adr",
       "title": "DECISÃO CANÔNICA DA MESA REDONDA: RT-ADR-042",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/RT-ADR-042/decision/DECISION.md",
-      "sha256": "50c197e8f9204fd3a15341afbab483792868adc89f34c826dd6dfe66dbd96015",
+      "sha256": "5395779bfc82e9f67268407689a89b45fd88d915721978731b390daaf9a763f8",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2183,13 +2183,13 @@
       "references": []
     },
     {
-      "id": "fa9507560be4b3c19ea8f3665f9482e8bfebbcf73884c81f78e0c45b23af1a1f",
+      "id": "9364b6d0413167d427edc3dc6ed8a3ab53b4bded6d7d8d6979ab96c5bb29439f",
       "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042/proposals/v001.md",
       "doc_type": "adr",
       "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/RT-ADR-042/proposals/v001.md",
-      "sha256": "fa9507560be4b3c19ea8f3665f9482e8bfebbcf73884c81f78e0c45b23af1a1f",
+      "sha256": "9364b6d0413167d427edc3dc6ed8a3ab53b4bded6d7d8d6979ab96c5bb29439f",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2212,13 +2212,13 @@
       "references": []
     },
     {
-      "id": "b35b74138cc0d2b2f8f6128e14ed020cd0f7fb3018d974355fa0706b3dbc39e9",
+      "id": "a5a513427e7552d941d947bc5389de25023dfbd45dea8fd49b39fa671a963c06",
       "semantic_document_id": "tare.tools.os:relay/round_tables/RT-ADR-042/proposals/v002.md",
       "doc_type": "adr",
       "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/round_tables/RT-ADR-042/proposals/v002.md",
-      "sha256": "b35b74138cc0d2b2f8f6128e14ed020cd0f7fb3018d974355fa0706b3dbc39e9",
+      "sha256": "a5a513427e7552d941d947bc5389de25023dfbd45dea8fd49b39fa671a963c06",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2241,13 +2241,13 @@
       "references": []
     },
     {
-      "id": "f5b1ca93b88d6e5a59a00e1297a4c9612f125bad2e1740ea87be5cff47d2374d",
+      "id": "2ebe14f801ce80d659172b64bd7495d57c56cf8fdceb0f7f69b6f35b603661e1",
       "semantic_document_id": "tare.tools.specgraph:docs/04-multidimensional-indexing-guide.md",
       "doc_type": "adr",
       "title": "Comprehensive Multidimensional Indexing Guide — SpecGraph",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.specgraph@c3e11e1035bf1eb3b0398e473987d5049e454f92:docs/04-multidimensional-indexing-guide.md",
-      "sha256": "f5b1ca93b88d6e5a59a00e1297a4c9612f125bad2e1740ea87be5cff47d2374d",
+      "sha256": "2ebe14f801ce80d659172b64bd7495d57c56cf8fdceb0f7f69b6f35b603661e1",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2276,13 +2276,13 @@
       "references": []
     },
     {
-      "id": "dca51fcef5e0aaa8f8399e4410b3067e7425dd6f2a4f252ef33cc5c96c283ac5",
+      "id": "b6d508c0c5fa1be6a6d194fcd403153a4c4697f82918e83cbb518c114c08e305",
       "semantic_document_id": "tare.tools.specgraph:docs/ADR-001_SPECGRAPH_NORTH_STAR.md",
       "doc_type": "adr",
       "title": "ADR-001: SpecGraph North Star — Universal Project Intelligence & Spec-Driven Development (SDD) Platform",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.specgraph@c3e11e1035bf1eb3b0398e473987d5049e454f92:docs/ADR-001_SPECGRAPH_NORTH_STAR.md",
-      "sha256": "dca51fcef5e0aaa8f8399e4410b3067e7425dd6f2a4f252ef33cc5c96c283ac5",
+      "sha256": "b6d508c0c5fa1be6a6d194fcd403153a4c4697f82918e83cbb518c114c08e305",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -2346,16 +2346,16 @@
       "semantic_document_id": "SPEC-LIBRARY-001",
       "doc_type": "spec",
       "title": "SPEC-LIBRARY-001: Federated technical catalog and bounded retrieval",
-      "status": "CANONICAL_SSOT",
+      "status": "OWNER_ADOPTED",
       "relative_path": "specs/SPEC-LIBRARY-001.md",
       "sha256": "a5db8b3a00ebea6a2f0a87178944b5d9aa6991f6a3021f6cb3e2527ed14d9d0d",
-      "authority_state": "UNMANAGED_ACTIVE",
+      "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
           "relative_path": "specs/SPEC-LIBRARY-001.md",
           "semantic_document_id": "SPEC-LIBRARY-001",
-          "authority_state": "UNMANAGED_ACTIVE",
-          "editorial_status": "CANONICAL_SSOT"
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "OWNER_ADOPTED"
         }
       ],
       "target_repositories": [
@@ -8371,13 +8371,13 @@
   "experiments": [],
   "post_mortems": [
     {
-      "id": "54a7e504c7d71425d6ed192f76b5b26b284e1d489e41459b2151a0a159e2c1e6",
+      "id": "143d1619d4b564f5403520ad993f9dca8dad024b42e3a5169704c973538fa9d1",
       "semantic_document_id": "tare.tools.dialog-engine:docs/operations/TRIAGE_AND_DOGFOODING_GUIDE.md",
       "doc_type": "post_mortem",
       "title": "Triage, Dogfooding, and Curation Guide",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.dialog-engine@9d4de6358a8218bd86d4a85a1ed785b880671bc6:docs/operations/TRIAGE_AND_DOGFOODING_GUIDE.md",
-      "sha256": "54a7e504c7d71425d6ed192f76b5b26b284e1d489e41459b2151a0a159e2c1e6",
+      "sha256": "143d1619d4b564f5403520ad993f9dca8dad024b42e3a5169704c973538fa9d1",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -8528,13 +8528,13 @@
       "references": []
     },
     {
-      "id": "4c343cd006dbd76155faa9e5896dda7573bb22d9547c028defadbbbd4c018d18",
+      "id": "b0bbfa46bc164c5e1cbc3c5399f10efb376d5b1b59cfc21fc6d9218b7f9f5113",
       "semantic_document_id": "tare.tools.os:continuity/chat-handoffs/tare_tools_governance_deadlock_post_mortem_and_taxonomy_scientific_research_2026-08-15.md",
       "doc_type": "post_mortem",
       "title": "Post-Mortem Comparativo e Taxonomia de Deadlocks em Sistemas Agênticos Autoevolutivos: O Segundo Deadlock de Governança no tare.tools, a Paralisia de Zenão e a Reconciliação por Composição de Autoridade",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:continuity/chat-handoffs/tare_tools_governance_deadlock_post_mortem_and_taxonomy_scientific_research_2026-08-15.md",
-      "sha256": "4c343cd006dbd76155faa9e5896dda7573bb22d9547c028defadbbbd4c018d18",
+      "sha256": "b0bbfa46bc164c5e1cbc3c5399f10efb376d5b1b59cfc21fc6d9218b7f9f5113",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -8557,13 +8557,13 @@
       "references": []
     },
     {
-      "id": "2288744047ad8ee4c8c8492c587c05ce97bcea5c41918f68d6ef67bbc884624f",
+      "id": "f28dd3d0e6e9194340f9dffb632317adb3f3b6deaaef594004899af7eaaed02e",
       "semantic_document_id": "tare.tools.os:docs/architecture/POST_MORTEM_LEGACY_HARNESS_AND_ARCHITECTURAL_PIVOT.md",
       "doc_type": "post_mortem",
       "title": "🏛️ POST-MORTEM ARQUITETURAL HISTÓRICO: A TRANSIÇÃO DO HARNESS MONOLÍTICO PARA O AGENT OS DESCENTRALIZADO",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/architecture/POST_MORTEM_LEGACY_HARNESS_AND_ARCHITECTURAL_PIVOT.md",
-      "sha256": "2288744047ad8ee4c8c8492c587c05ce97bcea5c41918f68d6ef67bbc884624f",
+      "sha256": "f28dd3d0e6e9194340f9dffb632317adb3f3b6deaaef594004899af7eaaed02e",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -8615,13 +8615,13 @@
       "references": []
     },
     {
-      "id": "22d3bf7ee5a84941a73c38973a61b0d2d36e62346a96b83f54134d31f27cbf3e",
+      "id": "394c49c8da947de504bc788adb8f08dd8ffa028ba4234e61a74c028bd457066e",
       "semantic_document_id": "tare.tools.os:relay/history/TRAIN-25-PAGES-CUTOVER-AUTHORITY-RECONCILE-01_LANDED_1786938734/IMPLEMENTATION_EVIDENCE.md",
       "doc_type": "post_mortem",
       "title": "Implementation Evidence: TRAIN-25-PAGES-CUTOVER-AUTHORITY-RECONCILE-01",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/history/TRAIN-25-PAGES-CUTOVER-AUTHORITY-RECONCILE-01_LANDED_1786938734/IMPLEMENTATION_EVIDENCE.md",
-      "sha256": "22d3bf7ee5a84941a73c38973a61b0d2d36e62346a96b83f54134d31f27cbf3e",
+      "sha256": "394c49c8da947de504bc788adb8f08dd8ffa028ba4234e61a74c028bd457066e",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -8644,13 +8644,13 @@
       "references": []
     },
     {
-      "id": "f233292e079195c53d10381af83898fb084727e6126b14f5749da94c0c63b8f4",
+      "id": "752140cd7b2de7b27135fd3247e3e9a471ebcc1f586c2bc7c6a948265032b8c0",
       "semantic_document_id": "tare.tools.os:relay/history/TRAIN-28-COCKPIT-E2E-INTAKE-ISOLATION-02_LANDED_1786939624/AUDIT_REPORT.md",
       "doc_type": "post_mortem",
       "title": "Code Audit Report: TRAIN-28-COCKPIT-E2E-INTAKE-ISOLATION-02",
       "status": "REPOSITORY_OWNED",
       "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:relay/history/TRAIN-28-COCKPIT-E2E-INTAKE-ISOLATION-02_LANDED_1786939624/AUDIT_REPORT.md",
-      "sha256": "f233292e079195c53d10381af83898fb084727e6126b14f5749da94c0c63b8f4",
+      "sha256": "752140cd7b2de7b27135fd3247e3e9a471ebcc1f586c2bc7c6a948265032b8c0",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -8672,5 +8672,12 @@
       "acceptance_criteria": [],
       "references": []
     }
-  ]
+  ],
+  "projection_receipt": {
+    "source_entries": 261,
+    "unique_payloads": 261,
+    "consolidated_groups": 0,
+    "source_paths_preserved": 703,
+    "mixed_state_groups": 0
+  }
 }

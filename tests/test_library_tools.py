@@ -139,7 +139,7 @@ class LibraryToolsTests(unittest.TestCase):
             tmp_path = Path(tmp_dir)
             adr_dir = tmp_path / "docs" / "adr"
             adr_dir.mkdir(parents=True, exist_ok=True)
-            (adr_dir / "ADR-099_test.md").write_text("# ADR-099: Test ADR\n* AC-01: Must pass", encoding="utf-8")
+            (adr_dir / "ADR-099_test.md").write_text("---\ndoc_id: ADR-099\nstatus: RATIFIED\n---\n# ADR-099: Test ADR\n* AC-01: Must pass", encoding="utf-8")
 
             spec_dir = tmp_path / "specs"
             spec_dir.mkdir(parents=True, exist_ok=True)
@@ -166,11 +166,11 @@ class LibraryToolsTests(unittest.TestCase):
             adr_dir = tmp_path / "docs" / "adr"
             adr_dir.mkdir(parents=True, exist_ok=True)
             (adr_dir / "ADR-100_prose.md").write_text(
-                "# ADR-100\n\nThis decision discusses tare.tools.os.",
+                "---\ndoc_id: ADR-100\nstatus: RATIFIED\n---\n# ADR-100\n\nThis decision discusses tare.tools.os.",
                 encoding="utf-8",
             )
             (adr_dir / "ADR-101_explicit.md").write_text(
-                "# ADR-101\n\n**Canonical repository:** `tare.tools.specgraph`\n",
+                "---\ndoc_id: ADR-101\nstatus: RATIFIED\n---\n# ADR-101\n\n**Canonical repository:** `tare.tools.specgraph`\n",
                 encoding="utf-8",
             )
 

@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 from typing import Any, Iterator
 
@@ -13,6 +15,14 @@ REGISTRY_PATH = Path("catalog/FEDERATED_DOCUMENTS.json")
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _COMMIT = re.compile(r"^[0-9a-f]{40}$")
 _MANIFEST_TYPES = {"adr", "spec", "experiment", "post_mortem"}
+_REPOSITORY = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*(?:/[A-Za-z0-9][A-Za-z0-9._-]*)?")
+
+
+def validate_repository_name(value: Any) -> str:
+    """Validate an explicit repository identity, independent of its ecosystem."""
+    if not isinstance(value, str) or len(value) > 256 or not _REPOSITORY.fullmatch(value):
+        raise ValueError("invalid repository name")
+    return value
 
 
 def _safe_path(value: Any, label: str) -> str:
@@ -39,6 +49,7 @@ def load_federated_index(
         str(source.get("revision", ""))
     ):
         raise ValueError("source_library.revision must be a full Git commit")
+    validate_repository_name(source.get("repository", "tare.tools.library"))
     repositories = payload.get("repositories")
     if not isinstance(repositories, list):
         raise ValueError("repositories must be a list")
@@ -48,10 +59,8 @@ def load_federated_index(
     for repository in repositories:
         if not isinstance(repository, dict):
             raise ValueError("repository records must be objects")
-        name = repository.get("repository")
+        name = validate_repository_name(repository.get("repository"))
         revision = repository.get("revision")
-        if not isinstance(name, str) or not name.startswith("tare.tools."):
-            raise ValueError("invalid repository name")
         if not isinstance(revision, str) or not _COMMIT.fullmatch(revision):
             raise ValueError(f"{name} revision must be a full Git commit")
         documents = repository.get("documents")
@@ -108,7 +117,7 @@ def iter_manifest_entries(root_dir: str | Path) -> Iterator[dict[str, Any]]:
     if payload is None:
         return
     library_revision = payload["source_library"]["revision"]
-    seen_payloads: set[str] = set()
+    library_repository = payload["source_library"].get("repository", "tare.tools.library")
     for repository in payload["repositories"]:
         repo_name = repository["repository"]
         revision = repository["revision"]
@@ -117,9 +126,6 @@ def iter_manifest_entries(root_dir: str | Path) -> Iterator[dict[str, Any]]:
             if doc_type not in _MANIFEST_TYPES:
                 continue
             digest = document["canonical_sha256"]
-            if digest in seen_payloads:
-                raise ValueError(f"duplicate active payload in federation: {digest}")
-            seen_payloads.add(digest)
             canonical = f"{repo_name}@{revision}:{document['canonical_path']}"
             semantic_id = document["semantic_document_id"]
             sources = [
@@ -132,7 +138,7 @@ def iter_manifest_entries(root_dir: str | Path) -> Iterator[dict[str, Any]]:
             ]
             sources.extend(
                 {
-                    "relative_path": f"tare.tools.library@{library_revision}:{path}",
+                    "relative_path": f"{library_repository}@{library_revision}:{path}",
                     "semantic_document_id": semantic_id,
                     "authority_state": "EXCLUDED",
                     "editorial_status": "RETIRED_COPY",
@@ -156,15 +162,54 @@ def iter_manifest_entries(root_dir: str | Path) -> Iterator[dict[str, Any]]:
             }
 
 
+def verify_owner_content(root_dir: str | Path, owner_roots: dict[str, Path]) -> int:
+    """Check catalog digests against pinned Git blobs, independent of checkout EOL."""
+    payload = load_federated_index(root_dir)
+    if payload is None:
+        return 0
+    checked = 0
+    for owner in payload["repositories"]:
+        repository = owner["repository"]
+        if repository not in owner_roots:
+            raise ValueError(f"missing explicit owner checkout: {repository}")
+        for document in owner["documents"]:
+            identity = f"{owner['revision']}:{document['canonical_path']}"
+            result = subprocess.run(
+                ["git", "-C", str(owner_roots[repository]), "show", identity],
+                capture_output=True, check=False, timeout=10,
+            )
+            if result.returncode:
+                raise ValueError(f"pinned owner document unavailable: {repository}@{identity}")
+            observed = hashlib.sha256(result.stdout).hexdigest()
+            if observed != document["canonical_sha256"]:
+                raise ValueError(f"pinned owner content hash mismatch: {repository}@{identity}; observed {observed}")
+            checked += 1
+    return checked
+
+
 def main() -> int:
     import argparse
 
     parser = argparse.ArgumentParser(description="Validate federated documents")
     parser.add_argument("--root", default=".")
+    parser.add_argument("--owner", action="append", default=[], metavar="REPOSITORY=PATH",
+                        help="Verify pinned Git content in explicitly supplied owner checkouts")
     args = parser.parse_args()
     payload = load_federated_index(args.root)
     count = 0 if payload is None else payload["retired_library_path_count"]
-    print(json.dumps({"status": "PASS", "retired_library_paths": count}))
+    result = {"status": "PASS", "retired_library_paths": count,
+              "validation": "registry_structure"}
+    if args.owner:
+        owners = {}
+        for value in args.owner:
+            repository, separator, path = value.partition("=")
+            validate_repository_name(repository)
+            if not separator or not path.strip() or repository in owners:
+                raise ValueError("--owner must be a unique REPOSITORY=PATH")
+            owners[repository] = Path(path).resolve()
+        result["documents_verified"] = verify_owner_content(args.root, owners)
+        result["validation"] = "pinned_git_content"
+    print(json.dumps(result))
     return 0
 
 

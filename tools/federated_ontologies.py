@@ -7,6 +7,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from tools.federated_documents import validate_repository_name
+
 
 SCHEMA = "tare.tools/federated-ontology-index/1.0"
 REGISTRY_PATH = Path("catalog/FEDERATED_ONTOLOGIES.json")
@@ -59,9 +61,7 @@ def load_federated_ontologies(
     for ontology in ontologies:
         if not isinstance(ontology, dict):
             raise ValueError("ontology records must be objects")
-        repository = ontology.get("repository")
-        if not isinstance(repository, str) or not repository.startswith("tare.tools."):
-            raise ValueError("invalid ontology repository name")
+        repository = validate_repository_name(ontology.get("repository"))
         if repository in repositories:
             raise ValueError(f"repository appears twice: {repository}")
         repositories.add(repository)

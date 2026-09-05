@@ -4,6 +4,27 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+### Fixed
+
+- Reconciled local editorial authority with federated ownership: preserved
+  EN/PT statuses and `OWNER_ADOPTED`, excluded inactive documents, and refused
+  unknown statuses before replacing the manifest. Legacy status-less specs
+  remain `UNMANAGED_ACTIVE` without being labelled ratified.
+- Blocked byte-distinct active semantic identities within each repository,
+  while retaining exact-content collapse and independent federated owners.
+  Bookkeeper now shares metadata classification, recognizes existing Markdown
+  status formats, and excludes archived history from current authority audits.
+- Accepted explicit repository identities outside `tare.tools.*` in document
+  and ontology catalogs and ownership metadata, retaining bounded identity
+  validation and the source catalog's name in retired-copy provenance.
+- Consolidated exact manifest payloads by SHA-256 with ordered source
+  provenance and a count receipt. Sources remain untouched, and byte-identical
+  payloads with conflicting declared identities still block generation.
+- Corrected 76 federated document digests to their existing pinned Git blob
+  bytes after proving that every mismatch was a newline-only difference.
+  Optional `tools.federated_documents --owner REPOSITORY=PATH` verification
+  now checks exact pinned content and distinguishes it from structural checks.
+
 ### Added
 
 - Registered the BacklogGraph repository-owned ontology and advanced the

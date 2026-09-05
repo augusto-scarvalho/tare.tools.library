@@ -19,6 +19,51 @@ is not a mirror of every document in the ecosystem.
 The authoritative external paths and exact revisions are recorded in
 [`catalog/FEDERATED_DOCUMENTS.json`](../catalog/FEDERATED_DOCUMENTS.json).
 
+Repository identities are explicit names, optionally namespaced (for example,
+`acme.billing` or `acme/billing`); they do not require the `tare.tools.` prefix.
+Ownership metadata preserves these identities, and retired-source provenance
+uses the source catalog's recorded repository name.
+
+Validate catalog structure with `python -m tools.federated_documents --root .`.
+To verify content too, supply one `--owner REPOSITORY=PATH` argument for every
+owner in the document catalog. Verification reads each path from its recorded
+Git commit and checks SHA-256 against those exact blob bytes. A working copy's
+LF/CRLF conversion must not redefine the pinned document identity. The verifier
+does not fetch repositories or modify their files.
+
+Exact manifest copies produce one payload per SHA-256 with ordered
+`source_paths` and consolidation counts in `projection_receipt`. This preserves
+individual source identities and does not resolve competing declared authority.
+
+## Editorial authority in the manifest
+
+Local metadata uses the shared EN/PT status vocabulary (`1.1`) in Bookkeeper
+and the manifest compiler. YAML frontmatter, inline `**Status:**` and a
+`## Status` section are recognized. The source status is preserved, not
+replaced with a synthetic `RATIFIED` label.
+
+- Ratified/approved documents and explicit `OWNER_ADOPTED` decisions are
+  `DECLARED_ACTIVE`. Owner adoption is not relabelled as Round Table ratification.
+- Draft, superseded and other explicitly non-canonical documents are
+  `EXCLUDED`, with no selectable target repositories. Exclusion wins over
+  canonical markers in composite statuses.
+- Missing status on legacy specs, experiments and post-mortems retains
+  `UNMANAGED_ACTIVE`; an ADR without declared authority is `EXCLUDED`.
+- Unknown statuses block generation and fail the authority audit. A failed
+  compilation does not replace the last successfully generated manifest.
+
+Local semantic identity uses explicit `doc_id`/`id`, otherwise the full filename
+stem without a content-hash suffix. IDs are normalized to uppercase; a bare ADR
+number is not substituted for that full identity. Different active bytes with
+the same identity and target repository block generation. Federated owner
+identities remain repository-qualified, and their `REPOSITORY_OWNED` marker is
+catalog provenance, not a parsed editorial status or a new ratification.
+
+Byte-identical sources remain one payload with their individual authority
+states preserved. The transport path does not determine authority or the
+active semantic identity. `canonical_ssot_count` counts declared-active
+payloads rather than every file found in an ADR/spec directory.
+
 ## Search behavior
 
 Normal search reads active Library-owned documents once per unique content
