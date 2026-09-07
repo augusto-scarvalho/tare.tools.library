@@ -42,7 +42,7 @@
           "document_type": "adr",
           "title": "ADR-001: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
           "canonical_path": "docs/ADR-001_BACKLOG_GRAPH_NORTH_STAR.md",
-          "canonical_sha256": "0fd8540003121625af4ce693f340f4dd9d624f7195caa676f7adb9cc80540899",
+          "canonical_sha256": "5accf48d22d0ec003257e8764a98f10da984bee05385c86ec5cddd0e35cb544a",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-001_BACKLOG_GRAPH_NORTH_STAR.md",
@@ -74,7 +74,7 @@
           "document_type": "adr",
           "title": "ADR-001: SpecGraph North Star — Universal Project Intelligence & Spec-Driven Development (SDD) Platform",
           "canonical_path": "docs/ADR-001_SPECGRAPH_NORTH_STAR.md",
-          "canonical_sha256": "dca51fcef5e0aaa8f8399e4410b3067e7425dd6f2a4f252ef33cc5c96c283ac5",
+          "canonical_sha256": "b6d508c0c5fa1be6a6d194fcd403153a4c4697f82918e83cbb518c114c08e305",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-001_SPECGRAPH_NORTH_STAR.md",
@@ -86,7 +86,7 @@
           "document_type": "adr",
           "title": "Comprehensive Multidimensional Indexing Guide — SpecGraph",
           "canonical_path": "docs/04-multidimensional-indexing-guide.md",
-          "canonical_sha256": "f5b1ca93b88d6e5a59a00e1297a4c9612f125bad2e1740ea87be5cff47d2374d",
+          "canonical_sha256": "2ebe14f801ce80d659172b64bd7495d57c56cf8fdceb0f7f69b6f35b603661e1",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/04-multidimensional-indexing-guide.md",
@@ -118,7 +118,7 @@
           "document_type": "adr",
           "title": "ADR-0007: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
           "canonical_path": "docs/adr/0007-dialog-engine-north-star.md",
-          "canonical_sha256": "b0a997031b9c2976a50da342efbe34626b88d2487af7c4f75c0a94c44d5870f8",
+          "canonical_sha256": "535eaceba7fd365fef356c1fea7c80fe318a07dc9795515ff3f1c3e672e36ec8",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/0007-dialog-engine-north-star.md",
@@ -130,7 +130,7 @@
           "document_type": "adr",
           "title": "ADR-0006: Universal Schema Binding, Semantic Decoupling, and On-Demand Mutation",
           "canonical_path": "docs/adr/0006-universal-schema-binding-and-state-machine-adapter.md",
-          "canonical_sha256": "3909401b3271f681a5f2cff0e1eca67e25b74a355f9714e791df4e8ba4fa7e6f",
+          "canonical_sha256": "841a6a48d31eb95ec3a4ba8c4c744e3258a742abb7177e4e339d3174e90cd898",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/0006-universal-schema-binding-and-state-machine-adapter.md",
@@ -154,7 +154,7 @@
           "document_type": "post_mortem",
           "title": "Triage, Dogfooding, and Curation Guide",
           "canonical_path": "docs/operations/TRIAGE_AND_DOGFOODING_GUIDE.md",
-          "canonical_sha256": "54a7e504c7d71425d6ed192f76b5b26b284e1d489e41459b2151a0a159e2c1e6",
+          "canonical_sha256": "143d1619d4b564f5403520ad993f9dca8dad024b42e3a5169704c973538fa9d1",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/post-mortems/TRIAGE_AND_DOGFOODING_GUIDE.md",
@@ -166,7 +166,7 @@
           "document_type": "adr",
           "title": "ADR-0005 — Package Modularization (`src/tare_dialog`) and Performance Acceleration (`orjson`, `networkx`, `rich`, `pydantic`)",
           "canonical_path": "docs/adr/0005-package-modularization-and-performance-acceleration.md",
-          "canonical_sha256": "93cc421e12820f9beef6fe790698e64790c3ebe5f1f952c40b81c0a541b9d61c",
+          "canonical_sha256": "090e302cab703d22040e9ce217f9b8be0878c33df9cc7d5ea25e0acc011c97f9",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/0005-package-modularization-and-performance-acceleration.md",
@@ -178,7 +178,7 @@
           "document_type": "adr",
           "title": "ADR-0002 — Preserving V1 Positional Diff Semantics During External-Memory Migration",
           "canonical_path": "docs/adr/0002-preserve-v1-sequence-diff-parity.md",
-          "canonical_sha256": "12f35eb26db55317749393865f4568bf0130f6e9ea64e14c3bf791b9ec17131e",
+          "canonical_sha256": "b3170522bc9cf9144eb0f55df1b08403b5b3b56af9a57d31d48bcc66ac19bdf1",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/0002-preserve-v1-sequence-diff-parity.md",
@@ -190,7 +190,7 @@
           "document_type": "adr",
           "title": "ADR-0001 — Adaptive External-Memory Foundation for Watson Dialog Engine",
           "canonical_path": "docs/adr/0001-adaptive-external-memory-foundation.md",
-          "canonical_sha256": "ffbecb78e875402dc4f1adaefe35c90ad1c79a9a220cd9fb065c74d9ffb245df",
+          "canonical_sha256": "f809f94e125ad61efb67a7dc07eed5e2df9b3d39c0c622464928b6be96cc367d",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/0001-adaptive-external-memory-foundation.md",
@@ -202,7 +202,7 @@
           "document_type": "adr",
           "title": "ADR-0004 — Dual Distribution Strategy: Modular and Ephemeral (ChatGPT ADA & Copilot)",
           "canonical_path": "docs/adr/0004-dual-distribution-strategy-modular-and-ephemeral.md",
-          "canonical_sha256": "572c79b2601729cd0a74688317e8940c1a2af4b79b26d6a0064f13471e4b453d",
+          "canonical_sha256": "dc50c8b9361c938d66c929f695cf901b5bf5ca0d44ab05492da8afb9382eedf4",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/0004-dual-distribution-strategy-modular-and-ephemeral.md",
@@ -214,7 +214,7 @@
           "document_type": "adr",
           "title": "ADR-0003 — Resource-Aware Automatic Engine Selection",
           "canonical_path": "docs/adr/0003-resource-aware-auto-engine-selection.md",
-          "canonical_sha256": "233862bfa1f040d93aaea6f34745e4933bef9cb80ddbfcc06324d736996f063d",
+          "canonical_sha256": "a81f8bffa35eb66b6db0a50e8dc44ab4958239632474fd9eff9795f44b4b6fb1",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/0003-resource-aware-auto-engine-selection.md",
@@ -2383,7 +2383,7 @@
           "document_type": "adr",
           "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v003.md",
-          "canonical_sha256": "927a46b2e0a2c9943af1617dc30d7f797d1d5c7ea444c85dec53ede9a084d16a",
+          "canonical_sha256": "c2f297fb3dd59e824f05ac39d63d23a594c3023271d53a2cf98cbb3c5b4fe02d",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003_c2f297fb.md"
@@ -2394,7 +2394,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/decision/DECISION.md",
-          "canonical_sha256": "f143c57016ad402b188b8cc94547893836fbd73a8f15c4b824cc41aac0c6e011",
+          "canonical_sha256": "b61ce6e123c05910da83bfbbbd7841d5cc9f53d4286a74b32f6ba4b0789c7edf",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION_b61ce6e1.md"
@@ -2405,7 +2405,7 @@
           "document_type": "adr",
           "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v001.md",
-          "canonical_sha256": "cd2e1eda7e9e0a616d4473dc448cfc662494baf7cb94fa0a1fee882d96fcfcf9",
+          "canonical_sha256": "57cd1bd68d5e6e8416e3eb7a95439ddadca2226ee981f9ed181e73474dbc4f46",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v001_57cd1bd6.md"
@@ -2416,7 +2416,7 @@
           "document_type": "adr",
           "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/proposals/v002.md",
-          "canonical_sha256": "ea6b8300eac3e6432760a4ba9eff1ee8c1067d9837635296a17fac37fbdb81fc",
+          "canonical_sha256": "80bdbaaf5bbe16d30420e0d9a3fae8cbe1c9491785b4a64a1169de6a42d08fa3",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_80bdbaaf.md"
@@ -2427,7 +2427,7 @@
           "document_type": "adr",
           "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v003.md",
-          "canonical_sha256": "5f908f5e6995f7f0cf9f340b6063a66944b9c284a18c2d9d0320040c31e7e931",
+          "canonical_sha256": "b05151f21b9625208f2ad995082a52f7c1ef4b69dc92bb95cf26b979594e31cb",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003_b05151f2.md"
@@ -2438,7 +2438,7 @@
           "document_type": "adr",
           "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v004.md",
-          "canonical_sha256": "a52f7284e2b05e0f0c389b83af1b04ad1e20ce4da4c309c5cff06350410e7cea",
+          "canonical_sha256": "dfcfe78e338dbe0d068431c24f054e53c7fa8410e86485faa145aa54971ee496",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v004_dfcfe78e.md"
@@ -2449,7 +2449,7 @@
           "document_type": "adr",
           "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências e Governança de Forks de Alto Desempenho",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v001.md",
-          "canonical_sha256": "f59139e0f4e612bc7df2a7ccc2ab080f014cab131cc35b2d40a94c95bdc559bc",
+          "canonical_sha256": "f62826c6f3d8e9e6c3a0e6ca4ff8a3bdcebae1c329268e102341a26f9d74b955",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v001_f62826c6.md"
@@ -2460,7 +2460,7 @@
           "document_type": "adr",
           "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-APP-DECOMPOSITION-ACL-AND-DEPENDENCY-GOVERNANCE/proposals/v002.md",
-          "canonical_sha256": "2165ff60fa29f9e317af1414f3e05a43f0a9d4fea1425c731f58a1cb7997e2df",
+          "canonical_sha256": "88a11408ccf6e54b15952606e8785ddc303bae188de383b3f995289398a71433",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_88a11408.md"
@@ -2471,7 +2471,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/decision/DECISION.md",
-          "canonical_sha256": "b67ee0ab4e40c4b875fa17093655c8ec96a5dee7420e0d03bef1a3aa9a832e2c",
+          "canonical_sha256": "1162a6d04dc01cf3bf0e00755c0f89c53bba7b39e8340ce8ac5e93e891bc023b",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION_1162a6d0.md"
@@ -2482,7 +2482,7 @@
           "document_type": "adr",
           "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v001.md",
-          "canonical_sha256": "cd6da3c7a2de0ef32b146c501512c77827c4639573d3c23a4a1ce2dd942e853c",
+          "canonical_sha256": "50c66062c040f2217696c744ab1b4b1a1fe478a1f4a87f9dc21b0d1ef101fad8",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v001_50c66062.md"
@@ -2493,7 +2493,7 @@
           "document_type": "adr",
           "title": "SÍNTESE ARQUITETURAL CANÔNICA (MESA REDONDA TRIPARTITE — RODADA 2)",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v003.md",
-          "canonical_sha256": "57b10e5d023dd64e644ba2d8855b412ab13973d056ccecd60f1091d264d7bcfb",
+          "canonical_sha256": "a9f09c5d78bccd92b869152f3e4738272f19b38905d3ba2634d0c733cb33a41d",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003_57b10e5d.md"
@@ -2504,7 +2504,7 @@
           "document_type": "adr",
           "title": "SÍNTESE ARQUITETURAL CANÔNICA (MESA REDONDA TRIPARTITE — RODADA 3)",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v004.md",
-          "canonical_sha256": "752763b21567d569fe9d5d6d0dd3913f6e250d390fe5843b75d9468c2943499e",
+          "canonical_sha256": "e1358e0fcbc3e263539932b557f8555d2159b86f2fc6211608d797f7e8fef28c",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v004_752763b2.md"
@@ -2515,7 +2515,7 @@
           "document_type": "adr",
           "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v004.md",
-          "canonical_sha256": "5256bbf0531a1cb46685fa6f88e334794a44f7e623c36d85d759d4eda8622529",
+          "canonical_sha256": "0b456253ccce5b16f15c747159f528d965163a611b3d97b53a117e45c5c3fbae",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v004_0b456253.md"
@@ -2526,7 +2526,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-SPECGRAPH-NORTH-STAR-DELIBERATION/decision/DECISION.md",
-          "canonical_sha256": "a320c104b284259e417a8679cb3f31b0c74e28af88bfe741cd62147ddbae9ab9",
+          "canonical_sha256": "e9343b3dffaf43955e747126657c042ae02ecc13f972b3edc5db411ef334331b",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION_e9343b3d.md"
@@ -2537,7 +2537,7 @@
           "document_type": "adr",
           "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v002.md",
-          "canonical_sha256": "efe7f5c9218ee6f86eeb8062060634dab8cb9ee1033a742e69d83209261a238e",
+          "canonical_sha256": "e309a722eaad9329ce0f2d7cd75d136e0a6d8fe53eb062462b7b4688e93c33f2",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_e309a722.md"
@@ -2548,7 +2548,7 @@
           "document_type": "adr",
           "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-LOCAL-INFERENCE-SUBSTRATE-AND-HARNESS/proposals/v003.md",
-          "canonical_sha256": "e638f8c4a320668bb15108f65f1b9fd8ace29d92bcd81e2a24b14aa52f426c8b",
+          "canonical_sha256": "e09c35c524ee455b71ce286e95d277b95b8c2f75aa91d292f10108a2c1be2774",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003_e09c35c5.md"
@@ -2559,7 +2559,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: RT-ADR-042",
           "canonical_path": "relay/round_tables/RT-ADR-042/decision/DECISION.md",
-          "canonical_sha256": "50c197e8f9204fd3a15341afbab483792868adc89f34c826dd6dfe66dbd96015",
+          "canonical_sha256": "5395779bfc82e9f67268407689a89b45fd88d915721978731b390daaf9a763f8",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION_5395779b.md"
@@ -2570,7 +2570,7 @@
           "document_type": "adr",
           "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
           "canonical_path": "relay/round_tables/RT-ADR-042/proposals/v001.md",
-          "canonical_sha256": "fa9507560be4b3c19ea8f3665f9482e8bfebbcf73884c81f78e0c45b23af1a1f",
+          "canonical_sha256": "9364b6d0413167d427edc3dc6ed8a3ab53b4bded6d7d8d6979ab96c5bb29439f",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v001_9364b6d0.md"
@@ -2581,7 +2581,7 @@
           "document_type": "adr",
           "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v004.md",
-          "canonical_sha256": "4889ee0220324ca7cedcb95b25267ad2dd3a7e29c8d1ae15960eb003262ad7f2",
+          "canonical_sha256": "eb104bd59375cfede56593c45586ea6e5e18480bd8cc4f99dbf1afab94b8a17d",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v004_eb104bd5.md"
@@ -2592,7 +2592,7 @@
           "document_type": "adr",
           "title": "ADR-052: Transição de Identidade para tare.tools.library, Governança do Acervo Pré-Consolidado e Padronização Enxuta de Experimentos",
           "canonical_path": "relay/round_tables/proposal_adr052.md",
-          "canonical_sha256": "b1f29b88bfbbcfb46e2a3867dcdd6b07d00e0b66158cbba1cf2db9d9d494d5b7",
+          "canonical_sha256": "e646b946c53a7098462c01764e50e79ac016c57d3b72235f3428afe2ab135bb9",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/proposal_adr052.md",
@@ -2604,7 +2604,7 @@
           "document_type": "adr",
           "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
           "canonical_path": "relay/round_tables/RT-ADR-042-PROD/proposals/v002.md",
-          "canonical_sha256": "f9e7c0283565f7470cd7e1a5529e7197e7ca9f637ff0d74d37472899a8cb5a2c",
+          "canonical_sha256": "c04e18f22f32866c239d0b66aa025ba96806e5c4f770b1e21848dad56fd54728",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_c04e18f2.md"
@@ -2615,7 +2615,7 @@
           "document_type": "adr",
           "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
           "canonical_path": "relay/round_tables/RT-ADR-042-PROD/proposals/v003.md",
-          "canonical_sha256": "816c81447ce8480854449742428a8653e3909c2c5d01425634cdb697f937d58f",
+          "canonical_sha256": "17705f706aaf3df4d0419e5c8eab5828dc1d73bf68e50116d899b883e0e090c6",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003_17705f70.md"
@@ -2626,7 +2626,7 @@
           "document_type": "adr",
           "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
           "canonical_path": "relay/round_tables/RT-ADR-042/proposals/v002.md",
-          "canonical_sha256": "b35b74138cc0d2b2f8f6128e14ed020cd0f7fb3018d974355fa0706b3dbc39e9",
+          "canonical_sha256": "a5a513427e7552d941d947bc5389de25023dfbd45dea8fd49b39fa671a963c06",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_a5a51342.md"
@@ -2637,7 +2637,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: RT-ADR-042-PROD",
           "canonical_path": "relay/round_tables/RT-ADR-042-PROD/decision/DECISION.md",
-          "canonical_sha256": "c19bbaf3e601ffade1482dd15382e33340f00cdce79e8cb807d3681156d4d7b3",
+          "canonical_sha256": "518042cdb4460fe845fe6a15c23b2f090c57936721b539eb133d674d5177cd3b",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION_518042cd.md"
@@ -2648,7 +2648,7 @@
           "document_type": "adr",
           "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v003.md",
-          "canonical_sha256": "df174437bdad1e4d4095abe6209b681156aba8748dd602b98b55e288c2ddbc7c",
+          "canonical_sha256": "9ac3267258ac31d73202063b69f67f5f2c2719756c6f35dbb0fc420087b42e6f",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003_9ac32672.md"
@@ -2659,7 +2659,7 @@
           "document_type": "adr",
           "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v004.md",
-          "canonical_sha256": "75d7081487e2f95b13dcd500bc0c5c11521e90e5a99ec4ea3fefc38ff1b3ccd2",
+          "canonical_sha256": "0c59161bb847700b98584203fc3b26d62f21d55be8d61f7e65c8acda89f78314",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v004_0c59161b.md"
@@ -2670,7 +2670,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/decision/DECISION.md",
-          "canonical_sha256": "91648d391b9794d7b200d932bdef3c2e81017a106ab1aa83d9b0fd936a756026",
+          "canonical_sha256": "2517eabc0f9fda166f8c70e82f032c0dcde9903c36167536bf2f7b48a4480862",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION_2517eabc.md"
@@ -2681,7 +2681,7 @@
           "document_type": "adr",
           "title": "ADR-052: Transição de Identidade para `tare.tools.library` e Governança do Acervo Técnico-Histórico",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-LIBRARY-RENAME-AND-CORPUS-CONSOLIDATION/proposals/v002.md",
-          "canonical_sha256": "fe2578a9fe495df0b30dd0b36d5ff137ca47ced13de152b246ad3b7d23b804cc",
+          "canonical_sha256": "04f977876ce2fb4a9ce228953d766b2400bae4efabb5886243469cef9da72852",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_04f97787.md"
@@ -2692,7 +2692,7 @@
           "document_type": "adr",
           "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes e Separação Estrita de Backlogs",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v002.md",
-          "canonical_sha256": "dd098c182f203e3c5991284eb280fac930214412332cf7433c377aed89ea56a3",
+          "canonical_sha256": "73ef740f33653daee31d1a3a27763b14a8ee772b0dad852c33b2c05db29e4f1b",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_73ef740f.md"
@@ -2703,7 +2703,7 @@
           "document_type": "adr",
           "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v003.md",
-          "canonical_sha256": "bacf17bde9523860bcf71af148f318d2a33a2d778038327e7f42108bbb308a4a",
+          "canonical_sha256": "f5e6a8dbbb3c07a9ac808f210641fa6bd7cfd1aec00dc5fd1fc8e5dd54c8130f",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003_f5e6a8db.md"
@@ -2714,7 +2714,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/decision/DECISION.md",
-          "canonical_sha256": "e61356369925f6b8dce2066f1ce36758fb317a44e4c7ea000354f9fc07ea9f47",
+          "canonical_sha256": "f9659e57ef67c79a8ec37be0c742d8c6152a85a7a8c0295fb41d7675c3358e3b",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION_f9659e57.md"
@@ -2725,7 +2725,7 @@
           "document_type": "adr",
           "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes e Separação Estrita de Backlogs",
           "canonical_path": "relay/round_tables/CASE-2026-08-19-REPO-FEDERATION-AND-ANTI-DRIFT-GOVERNANCE/proposals/v001.md",
-          "canonical_sha256": "db70d83544c32293dea6ebbe40fb438bd1f0834aeb46e231cbc86a86c1f8528a",
+          "canonical_sha256": "a06e41466e10803285392343e38a4cd6750485b239762045b9d926f894121e8d",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v001_a06e4146.md"
@@ -2736,7 +2736,7 @@
           "document_type": "adr",
           "title": "ADR-052: Transição de Identidade para tare.tools.library, Governança do Acervo Pré-Consolidado e Padronização Enxuta de Experimentos",
           "canonical_path": "docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md",
-          "canonical_sha256": "ca08c40c484608b4898156817e6a011dba4f0bd73871095ca058fdf06e0b909f",
+          "canonical_sha256": "b7090826a19e072a39c83e907142b5fb9fbf274e814923b65ee16c97305df966",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-052_IDENTITY_TRANSITION_TO_LIBRARY_AND_CORPUS_GOVERNANCE.md"
@@ -2747,7 +2747,7 @@
           "document_type": "adr",
           "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
           "canonical_path": "docs/architecture/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
-          "canonical_sha256": "2159b98ce33bf5699659eaa46a10a3e7e281f36c8b289cd8178be71beeba8cfd",
+          "canonical_sha256": "38c45b709e83e9838fa52297e7fa97a950f166c619f95c5189551c8dc1837777",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECOUPLED_MICROKERNEL_ARCHITECTURE.md"
@@ -2758,7 +2758,7 @@
           "document_type": "adr",
           "title": "ADR-050: Decomposição Poliglota de Aplicações, Camadas Anticorrupção (ACL), Gestão Defensiva de Dependências, Concorrência CAS e Governança de Forks de Alto Desempenho",
           "canonical_path": "docs/adr/ADR-050_APP_DECOMPOSITION_ACL_AND_DEPENDENCY_GOVERNANCE.md",
-          "canonical_sha256": "0274dd42d9c51a6463f53444738622918675bfc06310b1657e587721313136bd",
+          "canonical_sha256": "7380fe438bd34df7792a748a49e70c341a1eb4ee47be90a6b5837c0d834b67a4",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-050_APP_DECOMPOSITION_ACL_AND_DEPENDENCY_GOVERNANCE.md"
@@ -2769,7 +2769,7 @@
           "document_type": "adr",
           "title": "ADR-051: O Eixo Triplo de Inteligência Agêntica (Research, Backlog-Graph & SpecGraph), Governança de Memória por Bookkeeping e o Mandato Documental Ágil",
           "canonical_path": "docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md",
-          "canonical_sha256": "eb9daa31fd61bba4a13c7c0e760148400a75449fbbed84e130ac0ae6ec855084",
+          "canonical_sha256": "76c5c88894c60de880d3c691468ad8a60f3126d6f51c2bc9f93b8415774d98f4",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-051_RESEARCH_TRIPLE_AXIS_AND_BOOKKEEPING_GOVERNANCE.md"
@@ -2780,7 +2780,7 @@
           "document_type": "archive",
           "title": "Topological Backlog Refinement & North Star Alignment Report",
           "canonical_path": "docs/operations/BACKLOG_TOPOLOGICAL_REFINEMENT_REPORT.md",
-          "canonical_sha256": "aa76d53ecdcbcc6ffd803b54539bcda302fb585b74dd06ea773c9b9f93643259",
+          "canonical_sha256": "666d2f242f02175596dd94a1ca71771d364eb2626e80ecf44e8dd1faffd27d0e",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/archive/archaeology/chats/BACKLOG_TOPOLOGICAL_REFINEMENT_REPORT.md"
@@ -2791,7 +2791,7 @@
           "document_type": "adr",
           "title": "ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS",
           "canonical_path": "relay/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
-          "canonical_sha256": "98fb5f96528de7e6b5f1839ff730c8da0ba3ea15dfa4139cc5ab029be27476b7",
+          "canonical_sha256": "f3179a70dbef0454e65fecd0ba228becad084ef8fe8bc88eca9d6042d34bba2e",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECOUPLED_MICROKERNEL_ARCHITECTURE_f3179a70.md",
@@ -2805,7 +2805,7 @@
           "document_type": "post_mortem",
           "title": "🏛️ POST-MORTEM ARQUITETURAL HISTÓRICO: A TRANSIÇÃO DO HARNESS MONOLÍTICO PARA O AGENT OS DESCENTRALIZADO",
           "canonical_path": "docs/architecture/POST_MORTEM_LEGACY_HARNESS_AND_ARCHITECTURAL_PIVOT.md",
-          "canonical_sha256": "2288744047ad8ee4c8c8492c587c05ce97bcea5c41918f68d6ef67bbc884624f",
+          "canonical_sha256": "f28dd3d0e6e9194340f9dffb632317adb3f3b6deaaef594004899af7eaaed02e",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/post-mortems/POST_MORTEM_LEGACY_HARNESS_AND_ARCHITECTURAL_PIVOT.md"
@@ -2816,7 +2816,7 @@
           "document_type": "archive",
           "title": "RELAY-INTAKE-DOGFOODING-CONSENSUS-01 — Asynchronous Human Intake Queue & Multi-Agent Consensus Dogfooding",
           "canonical_path": "docs/intake/RELAY-INTAKE-DOGFOODING-CONSENSUS-01-INTAKE.md",
-          "canonical_sha256": "a23d80f4dac14217ecafd374f1f86bf778b33789840195dcde26214a017945cb",
+          "canonical_sha256": "6b5d4286a94fc9af52614068e4eb9388f9968702ec2746bd1a6b8040e9e4bd0f",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/archive/archaeology/chats/RELAY-INTAKE-DOGFOODING-CONSENSUS-01-INTAKE.md"
@@ -2827,7 +2827,7 @@
           "document_type": "adr",
           "title": "ADR-043: North Star 2.0 Architectural Transition, Ecosystem Modular Split, and Adversarial Deliberation Synthesis",
           "canonical_path": "docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md",
-          "canonical_sha256": "94766e8faf5a50ab3fc971d3d1af97d86ef6d92e2264eeeba2ff1a20aa678dd5",
+          "canonical_sha256": "5a455fadcc8f4e9c8b922aaee3461785e4064ea68aa814a9f966ab413e83ccdf",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-043_NORTH_STAR_V2_AND_ECOSYSTEM_SPLIT.md"
@@ -2838,7 +2838,7 @@
           "document_type": "adr",
           "title": "ADR-044: North Star do tare.tools-specgraph — Plataforma Universal de Project Intelligence & Spec-Driven Development (SDD)",
           "canonical_path": "docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md",
-          "canonical_sha256": "3751f76748b60f94d703cd7b34f67726b84fb3af91870856a075d004a8dedf3b",
+          "canonical_sha256": "e78d3226fdb59b8744ad899809192e17d0f4c1872cd58870c80084f479c4b170",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-044_SPECGRAPH_NORTH_STAR_UNIVERSAL_PROJECT_INTELLIGENCE.md"
@@ -2849,7 +2849,7 @@
           "document_type": "adr",
           "title": "Conversa Histórica: Branch · Oportunidades para Devs Solidity",
           "canonical_path": "continuity/01_chatgpt_transcripts/03_printintel/2026-07-02-branch-oportunidades-para-devs-solidity.md",
-          "canonical_sha256": "785a22edb982d2e494aa0d53708b7ab321fe473fcdb9d46453fe983f0592edd8",
+          "canonical_sha256": "a2855539abf27f0c75dc162caf5af7f050528e8d943088e1700f0c0de29a5604",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/2026-07-02-branch-oportunidades-para-devs-solidity.md"
@@ -2860,7 +2860,7 @@
           "document_type": "post_mortem",
           "title": "Post-Mortem Comparativo e Taxonomia de Deadlocks em Sistemas Agênticos Autoevolutivos: O Segundo Deadlock de Governança no tare.tools, a Paralisia de Zenão e a Reconciliação por Composição de Autoridade",
           "canonical_path": "continuity/chat-handoffs/tare_tools_governance_deadlock_post_mortem_and_taxonomy_scientific_research_2026-08-15.md",
-          "canonical_sha256": "4c343cd006dbd76155faa9e5896dda7573bb22d9547c028defadbbbd4c018d18",
+          "canonical_sha256": "b0bbfa46bc164c5e1cbc3c5399f10efb376d5b1b59cfc21fc6d9218b7f9f5113",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/post-mortems/tare_tools_governance_deadlock_post_mortem_and_taxonomy_scientific_research_2026-08-15.md"
@@ -2871,7 +2871,7 @@
           "document_type": "adr",
           "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
           "canonical_path": "docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md",
-          "canonical_sha256": "78cc27d3c36073fd5f1112bfb9b9eba242bd3d1b9a5c11491139e6426396e9e6",
+          "canonical_sha256": "535601219619181fc21ed5d06024c8871e447e36d7e73cf573f8ee52cd8496dd",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-047_DIALOG_ENGINE_NORTH_STAR.md"
@@ -2882,7 +2882,7 @@
           "document_type": "adr",
           "title": "ADR-049: Federação de Repositórios por Git Submodules, Governança Anti-Desvio de Agentes, Separação Estrita de Backlogs e Atestação Criptográfica de Nós",
           "canonical_path": "docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md",
-          "canonical_sha256": "ddbeebb3f7513090f1188436adac958f00a1eeb2d845818783a7be6289ef8250",
+          "canonical_sha256": "19247e44adde77483ded7aa8a7617014a845992b5aab18bf23a2c04c9486e93b",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-049_REPO_FEDERATION_AND_ANTI_DRIFT_GOVERNANCE.md"
@@ -2893,7 +2893,7 @@
           "document_type": "adr",
           "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
           "canonical_path": "docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md",
-          "canonical_sha256": "672cb461745e3a1def9d95da587b993e9c7f1435a888422e75106036e2960669",
+          "canonical_sha256": "e41cdf042e0d6d71b370033f45b26626578355edc6fb9bd89532977e30ed7c61",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-045_ECOSYSTEM_AND_KERNEL_NORTH_STAR.md"
@@ -2904,7 +2904,7 @@
           "document_type": "adr",
           "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
           "canonical_path": "docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md",
-          "canonical_sha256": "92d652bc47e95d1da5ce75d2b8b2f7dfe1cfbb111b03d33ff9ca4ce0b4329efb",
+          "canonical_sha256": "b74d88625b43c8bfcd04e15ce7aa24a06c1db0f2fd3f008e16cfbf4308bdd626",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/ADR-046_BACKLOG_GRAPH_NORTH_STAR.md"
@@ -2915,7 +2915,7 @@
           "document_type": "adr",
           "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v001.md",
-          "canonical_sha256": "c199e29f6476d51a29bca76416cbd37c1fceacf116b6894db582a9397905d502",
+          "canonical_sha256": "995ed3f5097ce6ca6de3184addf01eeb8b7adb21dba1c1f442dd952aa954a970",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v001_995ed3f5.md"
@@ -2926,7 +2926,7 @@
           "document_type": "adr",
           "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v002.md",
-          "canonical_sha256": "34cc968c6bd8248464e65d70ec91b83efdcf9e5aaa15d085847f9444a69b2227",
+          "canonical_sha256": "f217c6152ae338228f81f6ed9e0a0a001c4ac8532e5cd451acbb10084ad92944",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_f217c615.md"
@@ -2937,7 +2937,7 @@
           "document_type": "adr",
           "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v004.md",
-          "canonical_sha256": "c29c1789c5fc1b08cdbeee83c0f3af7d0628978c23f91fd39412fbdc262655b0",
+          "canonical_sha256": "ad741559dcd531ffe15f7c4a33a39c932252a4c15e3aa7abdb1b4de151dc07a3",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v004.md"
@@ -2948,7 +2948,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/decision/DECISION.md",
-          "canonical_sha256": "0c3ea0cab60af2c8fea8da3638f2789b54dc774329d46c0091a8ccc9d3dc31fc",
+          "canonical_sha256": "8336bfeca3c020749da17e07bc5a72b0f69e8f7abc02989f0252882f878fd58e",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION_8336bfec.md"
@@ -2959,7 +2959,7 @@
           "document_type": "adr",
           "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v001.md",
-          "canonical_sha256": "3ad6ccbf95bd2a2ab9da39b91567917888faced266778fe33c843d988fc325b2",
+          "canonical_sha256": "07ff0bca8498a01b3cf72ca3222f3f618afebd36a2ca0db81661397447224449",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v001_3ad6ccbf.md"
@@ -2970,7 +2970,7 @@
           "document_type": "adr",
           "title": "ADR-045: North Star do Ecossistema tare.tools & tare-kernel (Agent OS 2.0) — Arquitetura Modular em 4 Repositórios",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-KERNEL-ECOSYSTEM-NORTH-STAR/proposals/v002.md",
-          "canonical_sha256": "d5e4640a02c663139a3fd5fe3a8b788fbc8ac2338bf7e9254605183efd0770fb",
+          "canonical_sha256": "769468e979aebef1f14c50315fee232a580b6fc77615e7d9f1dca03959a58e0a",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002_d5e4640a.md"
@@ -2981,7 +2981,7 @@
           "document_type": "adr",
           "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v003.md",
-          "canonical_sha256": "b00dd06efdb0773a2c30a67d25c5adddd725c9ec680f4de2499e0223757c8e77",
+          "canonical_sha256": "31a377ac20d0948edde517d7e10941112e90a011f74bff8683a3538b937da199",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003_31a377ac.md"
@@ -2992,7 +2992,7 @@
           "document_type": "adr",
           "title": "ADR-047: North Star do tare.tools.dialog-engine — Motor Universal de Decomposição de Jornadas, Workflows Dinâmicos e Transpilação de SpEL",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-DIALOG-ENGINE-NORTH-STAR/proposals/v004.md",
-          "canonical_sha256": "27eb7cfe184ba01f7cf546dcdcf9f437cd3fab60bb63bb57629453c96886adc7",
+          "canonical_sha256": "67420cb41f1f3ae889fb94977ed12617488bd46d9f519897ea515bc2a13880ca",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v004_67420cb4.md"
@@ -3003,7 +3003,7 @@
           "document_type": "post_mortem",
           "title": "Implementation Evidence: TRAIN-25-PAGES-CUTOVER-AUTHORITY-RECONCILE-01",
           "canonical_path": "relay/history/TRAIN-25-PAGES-CUTOVER-AUTHORITY-RECONCILE-01_LANDED_1786938734/IMPLEMENTATION_EVIDENCE.md",
-          "canonical_sha256": "22d3bf7ee5a84941a73c38973a61b0d2d36e62346a96b83f54134d31f27cbf3e",
+          "canonical_sha256": "394c49c8da947de504bc788adb8f08dd8ffa028ba4234e61a74c028bd457066e",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/post-mortems/IMPLEMENTATION_EVIDENCE.md"
@@ -3014,7 +3014,7 @@
           "document_type": "post_mortem",
           "title": "Code Audit Report: TRAIN-28-COCKPIT-E2E-INTAKE-ISOLATION-02",
           "canonical_path": "relay/history/TRAIN-28-COCKPIT-E2E-INTAKE-ISOLATION-02_LANDED_1786939624/AUDIT_REPORT.md",
-          "canonical_sha256": "f233292e079195c53d10381af83898fb084727e6126b14f5749da94c0c63b8f4",
+          "canonical_sha256": "752140cd7b2de7b27135fd3247e3e9a471ebcc1f586c2bc7c6a948265032b8c0",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/post-mortems/AUDIT_REPORT.md"
@@ -3025,7 +3025,7 @@
           "document_type": "archive",
           "title": "Changed-Path Review — TRAIN-18-INTAKE-GEMINI-QUOTA-01",
           "canonical_path": "relay/history/TRAIN-18-INTAKE-GEMINI-QUOTA-01_LANDED_1786929624/evidence/CHANGED_PATHS.md",
-          "canonical_sha256": "c8c71e592a994593a75ce45028e995c1f1fe1d4c8ae481f187ec30062cec326b",
+          "canonical_sha256": "5ada24a3bf894ab6b0fd41ab0af5e71b3a873bb2fb60e38d17b7c7fbe875b434",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/archive/archaeology/chats/CHANGED_PATHS.md"
@@ -3036,7 +3036,7 @@
           "document_type": "archive",
           "title": "IMPLEMENTATION EVIDENCE — TRAIN-18-INTAKE-GEMINI-QUOTA-01",
           "canonical_path": "relay/history/TRAIN-18-INTAKE-GEMINI-QUOTA-01_LANDED_1786929624/IMPLEMENTATION_EVIDENCE.md",
-          "canonical_sha256": "8a52a93a647851e863b90979726ac40d4d83430dd2c715a5f348c8feecd74f35",
+          "canonical_sha256": "3f8862538de3f3ce384e4b541ed34e9db5acd64a3a22ea8ed9d8ee2d9e59bc4d",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/archive/archaeology/chats/IMPLEMENTATION_EVIDENCE.md"
@@ -3047,7 +3047,7 @@
           "document_type": "adr",
           "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v002.md",
-          "canonical_sha256": "0e7ae5b38f3d1a576404456811b14ba9823a5ec2a683e39ecc6feca7fc39e7b8",
+          "canonical_sha256": "a4e49831228d85948d38507eeee32d8c73c99be83e3f85e5ff8f4a25c70fa454",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v002.md"
@@ -3058,7 +3058,7 @@
           "document_type": "adr",
           "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v003.md",
-          "canonical_sha256": "af606e3499497c08e74efbca97d84c3f9290447d382f76e451d293fd98928235",
+          "canonical_sha256": "83c77fa4063ac107b3b875672a55612e06da91899bad4c8b7725c5251233d8bf",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v003.md"
@@ -3069,7 +3069,7 @@
           "document_type": "adr",
           "title": "DECISÃO CANÔNICA DA MESA REDONDA: CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/decision/DECISION.md",
-          "canonical_sha256": "10e4dcaa2af6aad56edc72f23515ba30551ca045d2d4bc4d370c3d9596e5f75a",
+          "canonical_sha256": "1332e796ffcf34a4cf3a42c2680c885add9e11f4b6107bfa4b4b37a43cfcb2c0",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/DECISION.md"
@@ -3080,7 +3080,7 @@
           "document_type": "adr",
           "title": "ADR-046: North Star do tare.tools.backlog-graph — Motor Determinístico de DAG de Tarefas e Framework de Execução Topológica",
           "canonical_path": "relay/round_tables/CASE-2026-08-18-BACKLOG-GRAPH-NORTH-STAR/proposals/v001.md",
-          "canonical_sha256": "57a89d096825b14dbfe69e8d8566fffcc3aec08ba00c56b7fe1c90312f827be4",
+          "canonical_sha256": "6fdaab671e539c585888e13579bbc25650da0beac2f6e1b074a07bc2c0bc8dc5",
           "migration": "exact-content",
           "retired_library_paths": [
             "docs/adr/v001.md"
@@ -3091,7 +3091,7 @@
           "document_type": "adr",
           "title": "ADR-048: Substrato de Inferência Local, Harness Agêntico e Aceleração Empírica de Hardware",
           "canonical_path": "docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
-          "canonical_sha256": "bc888d7cb5469d44bb9bee1b917fb1abb7e8d119598f691a0c8b6aca18ffed47",
+          "canonical_sha256": "7cf616f9f4c05868c30309b5aa800a70ca73cdff3770c70ae09a8c927dcc4ee4",
           "migration": "relocated-and-authority-clarified",
           "retired_library_paths": [
             "docs/adr/ADR-048_LOCAL_INFERENCE_SUBSTRATE_AND_AGENT_HARNESS.md",
