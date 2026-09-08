@@ -1,7 +1,7 @@
 {
   "version": "3.0.0",
   "authority_vocabulary": "authority_state/v1",
-  "generated_at": "2026-09-08T15:13:26.199304+00:00",
+  "generated_at": "2026-09-08T15:49:39.667723+00:00",
   "total_documents": 281,
   "canonical_ssot_count": 281,
   "adrs": [
@@ -917,12 +917,12 @@
       "doc_type": "adr",
       "title": "ADR-OS-SPECGRAPH-001",
       "status": "REPOSITORY_OWNED",
-      "relative_path": "tare.tools.os@7e60109375dbdc8e28530a4aa39f81b5d1ef5e0a:docs/decisions/ADR-OS-SPECGRAPH-001.md",
+      "relative_path": "tare.tools.os@248e918105926f5b165846693d8ccab432fcc03f:docs/decisions/ADR-OS-SPECGRAPH-001.md",
       "sha256": "401f7eb12fdf9529c6d0b99c7850f8422bdcb17252a8965744246fffee26413d",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
-          "relative_path": "tare.tools.os@7e60109375dbdc8e28530a4aa39f81b5d1ef5e0a:docs/decisions/ADR-OS-SPECGRAPH-001.md",
+          "relative_path": "tare.tools.os@248e918105926f5b165846693d8ccab432fcc03f:docs/decisions/ADR-OS-SPECGRAPH-001.md",
           "semantic_document_id": "tare.tools.os:docs/decisions/ADR-OS-SPECGRAPH-001.md",
           "authority_state": "DECLARED_ACTIVE",
           "editorial_status": "REPOSITORY_OWNED"
@@ -8459,12 +8459,12 @@
       "doc_type": "spec",
       "title": "SPEC-OS-SPECGRAPH-HOOKS-001",
       "status": "REPOSITORY_OWNED",
-      "relative_path": "tare.tools.os@7e60109375dbdc8e28530a4aa39f81b5d1ef5e0a:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
+      "relative_path": "tare.tools.os@248e918105926f5b165846693d8ccab432fcc03f:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
       "sha256": "2552db1872a3955648726194a685f3f7741ad6bc415641755298b88a8de59bad",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
-          "relative_path": "tare.tools.os@7e60109375dbdc8e28530a4aa39f81b5d1ef5e0a:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
+          "relative_path": "tare.tools.os@248e918105926f5b165846693d8ccab432fcc03f:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
           "semantic_document_id": "tare.tools.os:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
           "authority_state": "DECLARED_ACTIVE",
           "editorial_status": "REPOSITORY_OWNED"

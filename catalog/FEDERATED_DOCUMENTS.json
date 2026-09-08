@@ -3321,9 +3321,9 @@
       "repository": "tare.tools.os",
       "url": "https://github.com/augusto-scarvalho/tare.tools.os",
       "default_branch": "main",
-      "revision": "7e60109375dbdc8e28530a4aa39f81b5d1ef5e0a",
-      "source_branch": "codex/specgraph-intent-docs-20260908",
-      "pin_scope": "LOCAL_DOCUMENTATION_QUALIFICATION_BRANCH_NOT_RELEASE",
+      "revision": "248e918105926f5b165846693d8ccab432fcc03f",
+      "source_branch": "codex/specgraph-integration-20260908",
+      "pin_scope": "DOCUMENTATION_QUALIFICATION_BRANCH_NOT_RELEASE",
       "documents": [
         {
           "semantic_document_id": "tare.tools.os:docs/decisions/ADR-OS-SPECGRAPH-001.md",
@@ -3350,8 +3350,8 @@
       "url": "https://github.com/augusto-scarvalho/tare.tools.specgraph",
       "default_branch": "main",
       "revision": "f7642fe5115e9714e01a3280fc62363ade42f612",
-      "source_branch": "codex/specgraph-intent-docs-20260908",
-      "pin_scope": "LOCAL_DOCUMENTATION_QUALIFICATION_BRANCH_NOT_RELEASE",
+      "source_branch": "codex/specgraph-completion-20260908",
+      "pin_scope": "DOCUMENTATION_QUALIFICATION_BRANCH_NOT_RELEASE",
       "documents": [
         {
           "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-002.md",

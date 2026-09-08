@@ -27,6 +27,10 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ### Added
 
+- Registered 20 owner-origin SpecGraph completion contracts (18 SpecGraph,
+  two OS) using exact Git document pins without inventing retired Library
+  copies. The validator distinguishes these new documents from migrations
+  and preserves all 467 historical retired aliases.
 - Registered the BacklogGraph repository-owned ontology and advanced the
   SpecGraph pointer to its federated-consumer revision.
 - Advanced Kernel and OS ontology pointers to revisions that preserve their

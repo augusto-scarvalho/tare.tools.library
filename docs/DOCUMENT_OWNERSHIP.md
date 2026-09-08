@@ -31,6 +31,19 @@ Git commit and checks SHA-256 against those exact blob bytes. A working copy's
 LF/CRLF conversion must not redefine the pinned document identity. The verifier
 does not fetch repositories or modify their files.
 
+New documents created directly in their owner repository use
+`migration: owner-origin` and an empty `retired_library_paths` list. They never
+had a Library payload to retire. Existing migrations must retain their actual
+retired paths; `owner-origin` cannot claim historical aliases. Both cases still
+require a full Git revision, canonical path and exact blob SHA-256.
+
+The SpecGraph completion contracts add 18 SpecGraph-owned and two OS-owned
+pointers through qualification branches. Their bodies remain in those owners.
+The pinned commits identify documentation snapshots, not implementation
+releases, main-branch adoption, executed acceptance criteria or attestation.
+Catalog metadata availability also does not imply that a consumer read the
+body or passed its owner's source-admission checks.
+
 Exact manifest copies produce one payload per SHA-256 with ordered
 `source_paths` and consolidation counts in `projection_receipt`. This preserves
 individual source identities and does not resolve competing declared authority.
