@@ -290,7 +290,10 @@ def _bounded_paragraphs(paragraphs: List[str]) -> List[str]:
         piece = ""
         for line in p.splitlines(keepends=True):
             while len(line) > MAX_PARAGRAPH_CHARS:  # one line longer than the cap: hard cut
-                bounded.append(piece + line[:MAX_PARAGRAPH_CHARS]); piece, line = "", line[MAX_PARAGRAPH_CHARS:]
+                if piece:
+                    bounded.append(piece)
+                    piece = ""
+                bounded.append(line[:MAX_PARAGRAPH_CHARS]); line = line[MAX_PARAGRAPH_CHARS:]
             if len(piece) + len(line) > MAX_PARAGRAPH_CHARS:
                 bounded.append(piece); piece = ""
             piece += line
@@ -347,8 +350,8 @@ def chunk_markdown(content: str, max_chunk_tokens: int = 250, header: str = "") 
 def ontology_concepts(root_dir: Path, owner_roots: Dict[str, Path]) -> Tuple[List[Dict[str, Any]], str]:
     """Concepts of the federated domain ontologies (pinned owner blobs) and a digest of the payloads.
 
-    The digest is folded into every document hash, so an ontology change re-embeds only the
-    documents it re-anchors (living ontology, selective O(delta) re-embedding)."""
+    The combined digest is folded into every document hash. Changing any selected
+    ontology conservatively invalidates all documents in this selected run."""
     import subprocess
 
     import yaml
@@ -363,15 +366,13 @@ def ontology_concepts(root_dir: Path, owner_roots: Dict[str, Path]) -> Tuple[Lis
         repository, revision, path = ontology["repository"], ontology["revision"], ontology["canonical_path"]
         checkout = owner_roots.get(repository)
         if checkout is None or not (Path(checkout) / ".git").exists():
-            print(f"  [ONTOLOGY] no checkout for {repository}; ontology skipped", flush=True)
-            continue
+            raise ValueError(f"Explicit ontology checkout unavailable: {repository}")
         result = subprocess.run(["git", "-C", str(checkout), "show", f"{revision}:{path}"],
                                 capture_output=True, check=False, timeout=30)
         if result.returncode or hashlib.sha256(result.stdout).hexdigest() != ontology["canonical_sha256"]:
-            print(f"  [ONTOLOGY] {repository}@{revision[:10]}:{path} unavailable or hash mismatch; skipped", flush=True)
-            continue
+            raise ValueError(f"Pinned ontology unavailable or hash mismatch: {repository}@{revision}:{path}")
         digests.append(ontology["canonical_sha256"])
-        document = yaml.safe_load(result.stdout.decode("utf-8", errors="ignore")) or {}
+        document = yaml.safe_load(result.stdout.decode("utf-8")) or {}
         for concept in document.get("concepts", []) or []:
             if isinstance(concept, dict) and concept.get("id"):
                 concepts.append({**concept, "repository": repository})
@@ -448,19 +449,16 @@ def federated_documents(root_dir: Path, owner_roots: Dict[str, Path]) -> List[Tu
         repository, revision = owner["repository"], owner["revision"]
         checkout = owner_roots.get(repository)
         if checkout is None or not (Path(checkout) / ".git").exists():
-            print(f"  [FEDERATED] no checkout for {repository}; {len(owner['documents'])} documents skipped", flush=True)
-            continue
+            raise ValueError(f"Explicit document checkout unavailable: {repository}")
         for document in owner["documents"]:
             identity = f"{revision}:{document['canonical_path']}"
             result = subprocess.run(["git", "-C", str(checkout), "show", identity], capture_output=True, check=False, timeout=30)
             if result.returncode:
-                print(f"  [FEDERATED] {repository}@{identity} unavailable in checkout", flush=True)
-                continue
+                raise ValueError(f"Pinned document unavailable: {repository}@{identity}")
             if hashlib.sha256(result.stdout).hexdigest() != document["canonical_sha256"]:
-                print(f"  [FEDERATED] {repository}@{identity} hash mismatch; skipped", flush=True)
-                continue
+                raise ValueError(f"Pinned document hash mismatch: {repository}@{identity}")
             documents.append((document["semantic_document_id"], f"{repository}@{revision}:{document['canonical_path']}",
-                              result.stdout.decode("utf-8", errors="ignore"), document["canonical_sha256"]))
+                              result.stdout.decode("utf-8"), document["canonical_sha256"]))
     return documents
 
 
@@ -536,7 +534,7 @@ def index_corpus(
         for idx, doc_id, rel_path, sha, chunks, anchored in group:
             embs, offset = embs_all[offset:offset + len(chunks)], offset + len(chunks)
             prov = "real"
-            if not server_online or any(e is None for e in embs):  # server rejected input: keep it upgradeable
+            if not server_online or len(embs) != len(chunks) or any(e is None for e in embs):  # keep rejected/incomplete batches upgradeable
                 if server_online:
                     print(f"  [EMBED] server rejected chunks of '{rel_path}'; stored as pseudo", flush=True)
                 embs, prov = [None] * len(chunks), "pseudo"
@@ -547,7 +545,7 @@ def index_corpus(
                         digest = hashlib.sha256(chunk.encode("utf-8")).digest()
                         emb = [float(b) / 255.0 for b in digest]
                     doc_chunk_tuples.append((c_idx, chunk, sha, emb))
-                db.upsert_document_chunks(
+                committed = db.upsert_document_chunks(
                     doc_id=doc_id,
                     relative_path=rel_path,
                     chunks=doc_chunk_tuples,
@@ -555,6 +553,8 @@ def index_corpus(
                     model_name=model_name,
                     concepts=[c["id"] for c in anchored],
                 )
+                if not committed:
+                    raise RuntimeError("Document transaction was not committed")
                 stored += len(doc_chunk_tuples)
                 tags = f", conceitos: {', '.join(c['id'] for c in anchored)}" if anchored else ""
                 print(f"  [EMBED {idx}/{len(files_to_index)}] Ingerido: {rel_path} ({len(chunks)} chunks{tags})", flush=True)
@@ -591,9 +591,9 @@ def main() -> int:
     parser.add_argument("--force-local", action="store_true", help="Force execution on thin client despite ADR-053")
     parser.add_argument("--reindex-all", action="store_true", help="Force reindexing all files, bypassing incremental cache")
     parser.add_argument("--federated", action="store_true",
-                        help="Also index documents owned by other repositories (catalog federated index), read from sibling checkouts")
+                        help="Also index pinned owner documents using explicit --owner-root selections")
     parser.add_argument("--owner-root", action="append", default=[], metavar="REPO=PATH",
-                        help="Override the checkout of an owner repository (default: <library root parent>/<repo>)")
+                        help="Explicit owner checkout; repeat for every selected catalog owner")
     parser.add_argument(
         "--include-history",
         action="store_true",
@@ -601,14 +601,19 @@ def main() -> int:
     )
 
     args = parser.parse_args()
+    if args.federated and not args.owner_root:
+        parser.error("--federated requires explicit --owner-root REPO=PATH selections")
     root_path = Path(args.root).resolve()
     db = LibraryVectorDB(root_path / "catalog" / "library_vectors.db")
     client = LocalInferenceClient()
 
     if args.query:
         print(f"[SEARCH] Querying: '{args.query}'...")
-        if client.health_check().get("online"):
+        if client.health_check(target="embed").get("online"):
             q_emb = client.generate_embeddings([args.query], is_query=True)[0]
+            if q_emb is None:
+                print("Embedding server did not return a query vector", file=sys.stderr)
+                return 1
             prov = "real"
         else:
             q_digest = hashlib.sha256(args.query.encode("utf-8")).digest()
@@ -645,8 +650,12 @@ def main() -> int:
     if args.federated:
         from tools.federated_documents import load_federated_index
         payload = load_federated_index(root_path, require_retired_absent=False) or {"repositories": []}
-        owner_roots = {r["repository"]: root_path.parent / r["repository"] for r in payload["repositories"]}
-        owner_roots.update({k: Path(v) for k, v in (item.split("=", 1) for item in args.owner_root)})
+        owner_roots = {}
+        for item in args.owner_root:
+            key, separator, value = item.partition("=")
+            if not separator or not key or not value or key in owner_roots:
+                parser.error("--owner-root requires unique REPO=PATH selections")
+            owner_roots[key] = Path(value)
     indexed = index_corpus(
         root_path,
         client,

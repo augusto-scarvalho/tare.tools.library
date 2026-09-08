@@ -25,13 +25,12 @@ if hasattr(sys.stderr, "reconfigure"):
 @dataclass
 class LocalInferenceConfig:
     host: str = "http://localhost:8080"
-    # Node aaaaa serves embeddings 24/7 on the tailnet (Qwen3-Embedding-4B, hybrid Q4 on 8081;
-    # the on-demand Q8 reindex server listens on 8082). LOCAL_EMBED_ENDPOINT overrides.
-    embedding_host: str = "http://100.107.245.30:8081"
+    # Select a remote mesh endpoint explicitly with LOCAL_EMBED_ENDPOINT.
+    embedding_host: str = "http://localhost:8081"
     timeout_seconds: float = 120.0
     # Vector namespace: index and queries must share the model family (quantization may differ).
     embedding_model: str = "qwen3-embedding-4b"
-    # Qwen3-Embedding: queries carry an instruction, documents do not (1-5% retrieval gain).
+    # Qwen3-Embedding queries carry an instruction; no retrieval-gain claim is inferred.
     query_instruction: str = "Given a question, retrieve documents that answer it"
     embedding_batch_chars: int = 12000  # ~3-4k tokens per request: fills a 4096-token ubatch
     chat_model: str = "local-llm"

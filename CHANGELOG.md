@@ -4,6 +4,22 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+### Integration qualification
+
+- Integrated the pending grouped indexer with explicit owner checkout selection,
+  preserved model namespaces and conservative pseudo provenance for incomplete
+  embedding responses. Failed owner acquisition preserves existing vectors;
+  remote endpoints require explicit configuration.
+- Reconciled the useful changelog guard and repository-hook delta from PR #76
+  with the current federated ownership model. Exact-content projection is
+  already implemented by the newer main; retired payloads and publisher stay
+  retired instead of returning with the old branch snapshot.
+- The earlier six-owner ontology entry below described a local checkout.
+  Publication qualifies five owners: the new Harness pointer is deferred
+  because its commit is unavailable remotely and the owner remains frozen.
+  Offline tests qualify mechanisms; previous throughput and live-service
+  observations were not reproduced by this integration.
+
 ### Changed
 
 - Vector index moved to Qwen3-Embedding-4B (namespace `qwen3-embedding-4b`, 2560 dims)

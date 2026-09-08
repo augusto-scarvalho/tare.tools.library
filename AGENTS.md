@@ -23,6 +23,12 @@ generated catalog projections. History requires the explicit
 
 ## ⚡ 2. Mandatory Agent Tool Protocols (CLI-First)
 
+Repository-owned Git hooks live in `.githooks`; this is an admitted tooling
+directory, not a research payload location. Before publishing material changes,
+run the committed-range guard described in [CHANGELOG_POLICY.md](docs/CHANGELOG_POLICY.md).
+Local hook installation is explicit through `python tools/install_git_hooks.py`;
+the CI guard applies independently of local installation.
+
 Todos os agentes de IA (Antigravity, Codex, subagentes e scripts autônomos) DEVEM seguir os 4 protocolos operacionais abaixo:
 
 ### 🔹 Protocolo 1: Pre-Task Grounding (Consulta à SSOT antes de Codificar)
