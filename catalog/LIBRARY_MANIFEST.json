@@ -1,7 +1,7 @@
 {
   "version": "3.0.0",
   "authority_vocabulary": "authority_state/v1",
-  "generated_at": "2026-09-08T15:49:39.667723+00:00",
+  "generated_at": "2026-09-08T17:17:59.243144+00:00",
   "total_documents": 281,
   "canonical_ssot_count": 281,
   "adrs": [

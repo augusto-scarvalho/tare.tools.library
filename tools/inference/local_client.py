@@ -25,9 +25,14 @@ if hasattr(sys.stderr, "reconfigure"):
 @dataclass
 class LocalInferenceConfig:
     host: str = "http://localhost:8080"
+    # Select a remote mesh endpoint explicitly with LOCAL_EMBED_ENDPOINT.
     embedding_host: str = "http://localhost:8081"
-    timeout_seconds: float = 30.0
-    embedding_model: str = "local-embed"
+    timeout_seconds: float = 120.0
+    # Vector namespace: index and queries must share the model family (quantization may differ).
+    embedding_model: str = "qwen3-embedding-4b"
+    # Qwen3-Embedding queries carry an instruction; no retrieval-gain claim is inferred.
+    query_instruction: str = "Given a question, retrieve documents that answer it"
+    embedding_batch_chars: int = 12000  # ~3-4k tokens per request: fills a 4096-token ubatch
     chat_model: str = "local-llm"
 
 
@@ -140,46 +145,53 @@ class LocalInferenceClient:
 
         return {"ready": True, "details": health}
 
-    def generate_embeddings(self, texts: List[str]) -> List[List[float]]:
-        """Generate dense vector embeddings using local server endpoint with parallel batching."""
+    def generate_embeddings(self, texts: List[str], *, is_query: bool = False) -> List[Optional[List[float]]]:
+        """Dense vectors from the local server, one per text; None where the server failed or rejected the input.
+
+        Texts are sent in batches (by character budget) so the server fills its ubatch; a few
+        batches run concurrently against the server's slots."""
         from concurrent.futures import ThreadPoolExecutor
 
         url = f"{self.config.embedding_host}/v1/embeddings"
 
-        def _embed_item(text: str) -> List[float]:
-            clean_text = text.strip()
-            if not clean_text:
-                return [0.0] * 768
+        def prepare(text: str) -> Optional[str]:
+            clean = text.strip()
+            if not clean:
+                return None
+            clean = clean[:8000]
+            return "Instruct: " + self.config.query_instruction + chr(10) + "Query: " + clean if is_query else clean
 
-            payload = {
-                "model": self.config.embedding_model,
-                "input": clean_text[:8000],
-            }
-            data_bytes = json.dumps(payload).encode("utf-8")
-            req = urllib.request.Request(
-                url,
-                data=data_bytes,
-                headers={"Content-Type": "application/json"},
-                method="POST",
-            )
+        prepared = [prepare(t) for t in texts]
+        batches: List[List[int]] = []
+        current: List[int] = []
+        used = 0
+        for index, text in enumerate(prepared):
+            if text is None:
+                continue
+            if current and used + len(text) > self.config.embedding_batch_chars:
+                batches.append(current); current, used = [], 0
+            current.append(index); used += len(text)
+        if current:
+            batches.append(current)
+
+        def embed_batch(indices: List[int]) -> List[Optional[List[float]]]:
+            payload = {"model": self.config.embedding_model, "input": [prepared[i] for i in indices]}
+            req = urllib.request.Request(url, data=json.dumps(payload).encode("utf-8"),
+                                         headers={"Content-Type": "application/json"}, method="POST")
             try:
                 with urllib.request.urlopen(req, timeout=self.config.timeout_seconds) as resp:
-                    res_json = json.loads(resp.read().decode("utf-8"))
-                    data_items = res_json.get("data", [])
-                    if data_items and "embedding" in data_items[0]:
-                        return data_items[0]["embedding"]
-                    digest = hashlib.sha256(clean_text.encode("utf-8")).digest()
-                    return [float(b) / 255.0 for b in digest]
+                    items = json.loads(resp.read().decode("utf-8")).get("data", [])
+                by_index = {item.get("index", k): item.get("embedding") for k, item in enumerate(items)}
+                return [by_index.get(k) for k in range(len(indices))]
             except Exception:
-                digest = hashlib.sha256(clean_text.encode("utf-8")).digest()
-                return [float(b) / 255.0 for b in digest]
+                return [None] * len(indices)  # never disguise a failure as a vector
 
-        if len(texts) <= 1:
-            return [_embed_item(t) for t in texts]
-
-        # Dispatch across 16 parallel slots on RTX 3090
-        with ThreadPoolExecutor(max_workers=16) as pool:
-            return list(pool.map(_embed_item, texts))
+        results: List[Optional[List[float]]] = [None] * len(texts)
+        with ThreadPoolExecutor(max_workers=4) as pool:  # matches the server's --parallel slots
+            for indices, vectors in zip(batches, pool.map(embed_batch, batches)):
+                for k, index in enumerate(indices):
+                    results[index] = vectors[k]
+        return results
 
     def chat_completion(
         self,

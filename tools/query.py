@@ -174,9 +174,9 @@ def semantic_search_library(
     # Generate query embedding via dedicated embedding host
     try:
         if client.health_check(target="embed").get("online"):
-            embs = client.generate_embeddings([query])
-            if embs:
-                vec_results = db.search(embs[0], top_k=max_results, provenance="real", model_name="local-embed")
+            embs = client.generate_embeddings([query], is_query=True)
+            if embs and embs[0] is not None:
+                vec_results = db.search(embs[0], top_k=max_results, provenance="real", model_name=client.config.embedding_model)
                 if not vec_results:
                     vec_results = db.search(embs[0], top_k=max_results, allow_any_namespace=True)
                 if vec_results:

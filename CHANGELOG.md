@@ -4,6 +4,43 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+### Integration qualification
+
+- Integrated the pending grouped indexer with explicit owner checkout selection,
+  preserved model namespaces and conservative pseudo provenance for incomplete
+  embedding responses. Failed owner acquisition preserves existing vectors;
+  remote endpoints require explicit configuration.
+- Reconciled the useful changelog guard and repository-hook delta from PR #76
+  with the current federated ownership model. Exact-content projection is
+  already implemented by the newer main; retired payloads and publisher stay
+  retired instead of returning with the old branch snapshot.
+- The earlier six-owner ontology entry below described a local checkout.
+  Publication qualifies five owners: the new Harness pointer is deferred
+  because its commit is unavailable remotely and the owner remains frozen.
+  Offline tests qualify mechanisms; previous throughput and live-service
+  observations were not reproduced by this integration.
+
+### Changed
+
+- Vector index moved to Qwen3-Embedding-4B (namespace `qwen3-embedding-4b`, 2560 dims)
+  served from node `aaaaa` over the tailnet; the client batches documents per request,
+  adds the Qwen3 query instruction, and never disguises a rejected chunk as a vector.
+- The indexer now covers the federated catalog (`--federated`): owner documents are read
+  from the pinned Git blobs of sibling checkouts and indexed under `repo@revision:path`.
+- Chunks embed with context: a document identity header, the enclosing heading path, and
+  ontology triples from the federated domain ontologies (concept anchored by governing
+  ADR, id or name); anchored concept ids are stored per chunk. The ontology digest is
+  folded into document hashes, so an ontology change re-embeds only what it re-anchors.
+- Governing-ADR anchoring is scoped to the concept's owner repository (every satellite has
+  an ADR-001) and tolerates zero-padded ids (`ADR-0007`, `adr/0007-...`). Documents are
+  embedded in groups of 256 chunks per request instead of one request per document.
+- `catalog/FEDERATED_ONTOLOGIES.json` re-pinned to owner HEADs: Kernel and OS ontologies
+  expanded (7 and 8 concepts), Dialog Engine (6) and the frozen Harness (7) registered as
+  new owners; 35 concepts across 6 repositories.
+- Vector DB uniqueness now includes the namespace (migrated in place); paragraphs are
+  capped at 1,200 characters; pseudo vectors no longer block incremental re-embedding
+  once the server is online.
+
 ### Fixed
 
 - Reconciled local editorial authority with federated ownership: preserved

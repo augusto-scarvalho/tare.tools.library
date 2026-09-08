@@ -96,3 +96,26 @@ python -m tools.indexer.embed_corpus --root . --include-history
 
 To find an externally owned payload, consult the federated catalog and open
 the recorded repository, path and revision. Do not copy it back into Library.
+
+## Explicit federated vector indexing
+
+The incremental indexer accepts `--federated` only with repeated
+`--owner-root REPOSITORY=PATH` selections for the catalog owners. There is no
+sibling-checkout discovery. It reads and verifies pinned Git blobs before
+removing stale rows; an unavailable selected owner or hash mismatch refuses
+the run and preserves previously indexed rows. Real indexing remains subject
+to the workstation/offload policy in AGENTS.md.
+
+Configure remote embeddings explicitly with `LOCAL_EMBED_ENDPOINT`; the
+default remains localhost. The current model namespace is
+`qwen3-embedding-4b`. Index and query must select the same model family;
+quantization changes do not establish equivalence automatically. Ontology
+anchors carry document identity and owner-scoped ADR/SPEC references. Changing
+the combined selected ontology digest conservatively invalidates that run's
+documents; this does not promise selective per-concept invalidation.
+
+Failed or incomplete embedding batches are stored as explicitly pseudo,
+upgradeable rows, never as real embedding evidence. Namespaces coexist in
+SQLite and legacy rows survive migration. These are retrieval annotations,
+not proof that a specification was implemented or that an acceptance
+criterion passed.
