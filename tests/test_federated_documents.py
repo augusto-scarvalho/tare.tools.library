@@ -69,3 +69,31 @@ def test_registry_rejects_a_copy_that_still_exists(tmp_path: Path):
     copy.write_text("copy", encoding="utf-8")
     with pytest.raises(ValueError, match="still exists"):
         load_federated_index(tmp_path)
+
+
+def test_new_owner_origin_requires_no_fabricated_retired_copy(tmp_path: Path):
+    path = _registry(tmp_path)
+    payload = json.loads(path.read_text())
+    document = payload["repositories"][0]["documents"][0]
+    document["migration"] = "owner-origin"
+    document["retired_library_paths"] = []
+    payload["retired_library_path_count"] = 0
+    path.write_text(json.dumps(payload))
+    assert load_federated_index(tmp_path) is not None
+    entry = list(iter_manifest_entries(tmp_path))[0]
+    assert len(entry["source_paths"]) == 1
+    assert entry["source_paths"][0]["authority_state"] == "DECLARED_ACTIVE"
+    assert entry["relative_path"].startswith("tare.tools.kernel@" + "b"*40 + ":")
+    document["migration"] = "exact-content"
+    path.write_text(json.dumps(payload))
+    with pytest.raises(ValueError, match="non-empty"):
+        load_federated_index(tmp_path)
+
+
+def test_owner_origin_cannot_masquerade_as_a_retired_migration(tmp_path: Path):
+    path = _registry(tmp_path)
+    payload = json.loads(path.read_text())
+    payload["repositories"][0]["documents"][0]["migration"] = "owner-origin"
+    path.write_text(json.dumps(payload))
+    with pytest.raises(ValueError, match="cannot claim"):
+        load_federated_index(tmp_path)

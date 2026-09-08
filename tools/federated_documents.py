@@ -78,8 +78,14 @@ def load_federated_index(
                 raise ValueError(f"duplicate canonical identity: {identity}")
             identities.add(identity)
             aliases = document.get("retired_library_paths")
-            if not isinstance(aliases, list) or not aliases:
-                raise ValueError("retired_library_paths must be non-empty")
+            if not isinstance(aliases, list):
+                raise ValueError("retired_library_paths must be a list")
+            # New owner documents never had an editable Library copy. Require
+            # that origin explicitly instead of fabricating retired history.
+            if not aliases and document.get("migration") != "owner-origin":
+                raise ValueError("retired_library_paths must be non-empty unless migration is owner-origin")
+            if aliases and document.get("migration") == "owner-origin":
+                raise ValueError("owner-origin documents cannot claim retired Library copies")
             for alias_value in aliases:
                 alias = _safe_path(alias_value, "retired_library_path")
                 if alias in retired_paths:
