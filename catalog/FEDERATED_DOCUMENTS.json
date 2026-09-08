@@ -3316,6 +3316,206 @@
           "retired_library_sha256": "ace4f0d3a6e4b93c19871797eecabcdeef9424e47beb085099340b18666a97d6"
         }
       ]
+    },
+    {
+      "repository": "tare.tools.os",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.os",
+      "default_branch": "main",
+      "revision": "248e918105926f5b165846693d8ccab432fcc03f",
+      "source_branch": "codex/specgraph-integration-20260908",
+      "pin_scope": "DOCUMENTATION_QUALIFICATION_BRANCH_NOT_RELEASE",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.os:docs/decisions/ADR-OS-SPECGRAPH-001.md",
+          "document_type": "adr",
+          "title": "ADR-OS-SPECGRAPH-001",
+          "canonical_path": "docs/decisions/ADR-OS-SPECGRAPH-001.md",
+          "canonical_sha256": "401f7eb12fdf9529c6d0b99c7850f8422bdcb17252a8965744246fffee26413d",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.os:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
+          "document_type": "spec",
+          "title": "SPEC-OS-SPECGRAPH-HOOKS-001",
+          "canonical_path": "docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
+          "canonical_sha256": "2552db1872a3955648726194a685f3f7741ad6bc415641755298b88a8de59bad",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        }
+      ]
+    },
+    {
+      "repository": "tare.tools.specgraph",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.specgraph",
+      "default_branch": "main",
+      "revision": "f7642fe5115e9714e01a3280fc62363ade42f612",
+      "source_branch": "codex/specgraph-completion-20260908",
+      "pin_scope": "DOCUMENTATION_QUALIFICATION_BRANCH_NOT_RELEASE",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-002.md",
+          "document_type": "adr",
+          "title": "ADR-SPECGRAPH-002: Índice materializado e precisão estrutural",
+          "canonical_path": "docs/adr/ADR-SPECGRAPH-002.md",
+          "canonical_sha256": "2cbe3ec8c36a83c45f26fd5f77ee56b867767a0a27ad00e0b5506c84e402769e",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-003.md",
+          "document_type": "adr",
+          "title": "ADR-SPECGRAPH-003: Recuperação delimitada, interfaces e contexto sob demanda",
+          "canonical_path": "docs/adr/ADR-SPECGRAPH-003.md",
+          "canonical_sha256": "1c80cec4405e88df415d9212b0d0ee3f9acb7a83b64c54e9fca74dc8b896a8f1",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-004.md",
+          "document_type": "adr",
+          "title": "ADR-SPECGRAPH-004: Federação de intenção e evidência de execução",
+          "canonical_path": "docs/adr/ADR-SPECGRAPH-004.md",
+          "canonical_sha256": "2a29f5f4a1adcd33aa7d823d62f78beb6e4ea5cd2dc86b3cbd8f074fb7a89998",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-005.md",
+          "document_type": "adr",
+          "title": "ADR-SPECGRAPH-005: Claims de capacidade vinculados à qualificação",
+          "canonical_path": "docs/adr/ADR-SPECGRAPH-005.md",
+          "canonical_sha256": "2b0745eb3c4c3602fea8f53e0af0909eb3c67645dda98ee37707dc425a90715b",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C0.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C0: Capacidades honestas e bancada reproduzível",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C0.md",
+          "canonical_sha256": "b6a41f7f03ee280b23a1ca2c5fe6bdfe0acc62b24216beb024ae88a2585e02b7",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C1.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C1: Identidade e resolução estrutural Python",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C1.md",
+          "canonical_sha256": "1faa0dcba1a3e3d8a3cfee78446cb653af3a5623e9a20be248c8f86ba843d5e1",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C2.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C2: Read model SQLite, snapshots e MCP mínimo",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C2.md",
+          "canonical_sha256": "c321fb89bb68f9bdb2e6c5f45b8cdd631727377fca3e09bcb0de1ca194e16e4e",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C3.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C3: Extração incremental e frescor verificável",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C3.md",
+          "canonical_sha256": "c0055c0affed8befb2e6909d0e6a7135c565fa57bd1694e3a2d989ffab383375",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C4.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C4: Busca e contexto de código com orçamento",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C4.md",
+          "canonical_sha256": "e00697f9423cf6d79f693aedacb093090cd7b762be9d86f12feef2d3af30bae0",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C5.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C5: Intenção federada e evidência com validade",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C5.md",
+          "canonical_sha256": "ae7a12fb178c1243bf1cbacf731a5f9cca81aec6d8f703c6cbe284b99a3ac68a",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C6.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C6: TypeScript, Rust e visualizador offline",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C6.md",
+          "canonical_sha256": "07f5635671b6613619a3def22f6715ef6315e5d616a2fa9ca5890738f04186a2",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C7.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C7: Serviços de contexto para hooks e doctor",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C7.md",
+          "canonical_sha256": "b9e0d4f793191fe6d1f2e2ef6d28768f58c3296d1a69f41606abd5db529687f4",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C8.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-C8: Qualificação da visão completa e release",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-C8.md",
+          "canonical_sha256": "34872756b54d3626fe534dd3763d7bccf63d793661403e8af9a280bc4a96aaff",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X1.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-X1: Seleção de contexto por utilidade e risco",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-X1.md",
+          "canonical_sha256": "2cc9b65a61aa4cb62ef48648361732527be1ba35a90a7e2b329716b8d7e2879c",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X2.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-X2: Ausência escopada e cobertura de respostas",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-X2.md",
+          "canonical_sha256": "7d6f5b0f890df186264313ae582a61029e82c81fce8cf3af0012b17867105bf8",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X3.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-X3: Deltas temporais de contexto por handle",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-X3.md",
+          "canonical_sha256": "1ceb90be922fb12c8b18324fd84ef4d6de73c32f54103483b64045a759cbeaca",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X4.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-X4: Cadeia testemunha de violação arquitetural",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-X4.md",
+          "canonical_sha256": "717d3c17a59cf8c43caefcef1881552f5c8dc6b892cc4e31284c93b1f8e1ea2b",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        },
+        {
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X5.md",
+          "document_type": "spec",
+          "title": "SPEC-SPECGRAPH-X5: Testes candidatos e dívida de prova",
+          "canonical_path": "docs/specs/SPEC-SPECGRAPH-X5.md",
+          "canonical_sha256": "a0f123232237724c28667ec337899b592da4f0621ea7473bb553762dc21389c1",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        }
+      ]
     }
   ]
 }

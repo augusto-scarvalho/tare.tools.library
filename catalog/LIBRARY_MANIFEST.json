@@ -1,9 +1,9 @@
 {
   "version": "3.0.0",
   "authority_vocabulary": "authority_state/v1",
-  "generated_at": "2026-09-05T16:27:39.117133+00:00",
-  "total_documents": 261,
-  "canonical_ssot_count": 261,
+  "generated_at": "2026-09-08T15:49:39.667723+00:00",
+  "total_documents": 281,
+  "canonical_ssot_count": 281,
   "adrs": [
     {
       "id": "c33f08cfeb5977be414d4a937278c7cef5bf03bf55a0f1d9166f33f602b7cc34",
@@ -901,6 +901,29 @@
         {
           "relative_path": "tare.tools.os@3acfc740b3c95a53abbc4de6c6b922c3be802447:docs/architecture/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
           "semantic_document_id": "tare.tools.os:docs/architecture/DECOUPLED_MICROKERNEL_ARCHITECTURE.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "401f7eb12fdf9529c6d0b99c7850f8422bdcb17252a8965744246fffee26413d",
+      "semantic_document_id": "tare.tools.os:docs/decisions/ADR-OS-SPECGRAPH-001.md",
+      "doc_type": "adr",
+      "title": "ADR-OS-SPECGRAPH-001",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.os@248e918105926f5b165846693d8ccab432fcc03f:docs/decisions/ADR-OS-SPECGRAPH-001.md",
+      "sha256": "401f7eb12fdf9529c6d0b99c7850f8422bdcb17252a8965744246fffee26413d",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.os@248e918105926f5b165846693d8ccab432fcc03f:docs/decisions/ADR-OS-SPECGRAPH-001.md",
+          "semantic_document_id": "tare.tools.os:docs/decisions/ADR-OS-SPECGRAPH-001.md",
           "authority_state": "DECLARED_ACTIVE",
           "editorial_status": "REPOSITORY_OWNED"
         }
@@ -2329,6 +2352,98 @@
         {
           "relative_path": "tare.tools.specgraph@c3e11e1035bf1eb3b0398e473987d5049e454f92:docs/adr/ADR-059_SPECGRAPH_CURATION_SCOPE_AND_SNAPSHOT_ISOLATION.md",
           "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-059_SPECGRAPH_CURATION_SCOPE_AND_SNAPSHOT_ISOLATION.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "2cbe3ec8c36a83c45f26fd5f77ee56b867767a0a27ad00e0b5506c84e402769e",
+      "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-002.md",
+      "doc_type": "adr",
+      "title": "ADR-SPECGRAPH-002: Índice materializado e precisão estrutural",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/adr/ADR-SPECGRAPH-002.md",
+      "sha256": "2cbe3ec8c36a83c45f26fd5f77ee56b867767a0a27ad00e0b5506c84e402769e",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/adr/ADR-SPECGRAPH-002.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-002.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "1c80cec4405e88df415d9212b0d0ee3f9acb7a83b64c54e9fca74dc8b896a8f1",
+      "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-003.md",
+      "doc_type": "adr",
+      "title": "ADR-SPECGRAPH-003: Recuperação delimitada, interfaces e contexto sob demanda",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/adr/ADR-SPECGRAPH-003.md",
+      "sha256": "1c80cec4405e88df415d9212b0d0ee3f9acb7a83b64c54e9fca74dc8b896a8f1",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/adr/ADR-SPECGRAPH-003.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-003.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "2a29f5f4a1adcd33aa7d823d62f78beb6e4ea5cd2dc86b3cbd8f074fb7a89998",
+      "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-004.md",
+      "doc_type": "adr",
+      "title": "ADR-SPECGRAPH-004: Federação de intenção e evidência de execução",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/adr/ADR-SPECGRAPH-004.md",
+      "sha256": "2a29f5f4a1adcd33aa7d823d62f78beb6e4ea5cd2dc86b3cbd8f074fb7a89998",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/adr/ADR-SPECGRAPH-004.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-004.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "2b0745eb3c4c3602fea8f53e0af0909eb3c67645dda98ee37707dc425a90715b",
+      "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-005.md",
+      "doc_type": "adr",
+      "title": "ADR-SPECGRAPH-005: Claims de capacidade vinculados à qualificação",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/adr/ADR-SPECGRAPH-005.md",
+      "sha256": "2b0745eb3c4c3602fea8f53e0af0909eb3c67645dda98ee37707dc425a90715b",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/adr/ADR-SPECGRAPH-005.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/adr/ADR-SPECGRAPH-005.md",
           "authority_state": "DECLARED_ACTIVE",
           "editorial_status": "REPOSITORY_OWNED"
         }
@@ -8339,6 +8454,29 @@
       "references": []
     },
     {
+      "id": "2552db1872a3955648726194a685f3f7741ad6bc415641755298b88a8de59bad",
+      "semantic_document_id": "tare.tools.os:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
+      "doc_type": "spec",
+      "title": "SPEC-OS-SPECGRAPH-HOOKS-001",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.os@248e918105926f5b165846693d8ccab432fcc03f:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
+      "sha256": "2552db1872a3955648726194a685f3f7741ad6bc415641755298b88a8de59bad",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.os@248e918105926f5b165846693d8ccab432fcc03f:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
+          "semantic_document_id": "tare.tools.os:docs/specs/SPEC-OS-SPECGRAPH-HOOKS-001.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
       "id": "209bbb59b8183e873619766af4825afe5fe172cccff277eb3fdbfd92ff0dc0e4",
       "semantic_document_id": "tare.tools.specgraph:docs/SPEC-SPECGRAPH-001.md",
       "doc_type": "spec",
@@ -8357,6 +8495,328 @@
         {
           "relative_path": "tare.tools.specgraph@c3e11e1035bf1eb3b0398e473987d5049e454f92:docs/SPEC-SPECGRAPH-001.md",
           "semantic_document_id": "tare.tools.specgraph:docs/SPEC-SPECGRAPH-001.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "b6a41f7f03ee280b23a1ca2c5fe6bdfe0acc62b24216beb024ae88a2585e02b7",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C0.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C0: Capacidades honestas e bancada reproduzível",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C0.md",
+      "sha256": "b6a41f7f03ee280b23a1ca2c5fe6bdfe0acc62b24216beb024ae88a2585e02b7",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C0.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C0.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "1faa0dcba1a3e3d8a3cfee78446cb653af3a5623e9a20be248c8f86ba843d5e1",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C1.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C1: Identidade e resolução estrutural Python",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C1.md",
+      "sha256": "1faa0dcba1a3e3d8a3cfee78446cb653af3a5623e9a20be248c8f86ba843d5e1",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C1.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C1.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "c321fb89bb68f9bdb2e6c5f45b8cdd631727377fca3e09bcb0de1ca194e16e4e",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C2.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C2: Read model SQLite, snapshots e MCP mínimo",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C2.md",
+      "sha256": "c321fb89bb68f9bdb2e6c5f45b8cdd631727377fca3e09bcb0de1ca194e16e4e",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C2.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C2.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "c0055c0affed8befb2e6909d0e6a7135c565fa57bd1694e3a2d989ffab383375",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C3.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C3: Extração incremental e frescor verificável",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C3.md",
+      "sha256": "c0055c0affed8befb2e6909d0e6a7135c565fa57bd1694e3a2d989ffab383375",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C3.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C3.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "e00697f9423cf6d79f693aedacb093090cd7b762be9d86f12feef2d3af30bae0",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C4.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C4: Busca e contexto de código com orçamento",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C4.md",
+      "sha256": "e00697f9423cf6d79f693aedacb093090cd7b762be9d86f12feef2d3af30bae0",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C4.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C4.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "ae7a12fb178c1243bf1cbacf731a5f9cca81aec6d8f703c6cbe284b99a3ac68a",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C5.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C5: Intenção federada e evidência com validade",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C5.md",
+      "sha256": "ae7a12fb178c1243bf1cbacf731a5f9cca81aec6d8f703c6cbe284b99a3ac68a",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C5.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C5.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "07f5635671b6613619a3def22f6715ef6315e5d616a2fa9ca5890738f04186a2",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C6.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C6: TypeScript, Rust e visualizador offline",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C6.md",
+      "sha256": "07f5635671b6613619a3def22f6715ef6315e5d616a2fa9ca5890738f04186a2",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C6.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C6.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "b9e0d4f793191fe6d1f2e2ef6d28768f58c3296d1a69f41606abd5db529687f4",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C7.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C7: Serviços de contexto para hooks e doctor",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C7.md",
+      "sha256": "b9e0d4f793191fe6d1f2e2ef6d28768f58c3296d1a69f41606abd5db529687f4",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C7.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C7.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "34872756b54d3626fe534dd3763d7bccf63d793661403e8af9a280bc4a96aaff",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C8.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-C8: Qualificação da visão completa e release",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C8.md",
+      "sha256": "34872756b54d3626fe534dd3763d7bccf63d793661403e8af9a280bc4a96aaff",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-C8.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-C8.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "2cc9b65a61aa4cb62ef48648361732527be1ba35a90a7e2b329716b8d7e2879c",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X1.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-X1: Seleção de contexto por utilidade e risco",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X1.md",
+      "sha256": "2cc9b65a61aa4cb62ef48648361732527be1ba35a90a7e2b329716b8d7e2879c",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X1.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X1.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "7d6f5b0f890df186264313ae582a61029e82c81fce8cf3af0012b17867105bf8",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X2.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-X2: Ausência escopada e cobertura de respostas",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X2.md",
+      "sha256": "7d6f5b0f890df186264313ae582a61029e82c81fce8cf3af0012b17867105bf8",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X2.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X2.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "1ceb90be922fb12c8b18324fd84ef4d6de73c32f54103483b64045a759cbeaca",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X3.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-X3: Deltas temporais de contexto por handle",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X3.md",
+      "sha256": "1ceb90be922fb12c8b18324fd84ef4d6de73c32f54103483b64045a759cbeaca",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X3.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X3.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "717d3c17a59cf8c43caefcef1881552f5c8dc6b892cc4e31284c93b1f8e1ea2b",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X4.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-X4: Cadeia testemunha de violação arquitetural",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X4.md",
+      "sha256": "717d3c17a59cf8c43caefcef1881552f5c8dc6b892cc4e31284c93b1f8e1ea2b",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X4.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X4.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.specgraph"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    },
+    {
+      "id": "a0f123232237724c28667ec337899b592da4f0621ea7473bb553762dc21389c1",
+      "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X5.md",
+      "doc_type": "spec",
+      "title": "SPEC-SPECGRAPH-X5: Testes candidatos e dívida de prova",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X5.md",
+      "sha256": "a0f123232237724c28667ec337899b592da4f0621ea7473bb553762dc21389c1",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.specgraph@f7642fe5115e9714e01a3280fc62363ade42f612:docs/specs/SPEC-SPECGRAPH-X5.md",
+          "semantic_document_id": "tare.tools.specgraph:docs/specs/SPEC-SPECGRAPH-X5.md",
           "authority_state": "DECLARED_ACTIVE",
           "editorial_status": "REPOSITORY_OWNED"
         }
@@ -8674,10 +9134,10 @@
     }
   ],
   "projection_receipt": {
-    "source_entries": 261,
-    "unique_payloads": 261,
+    "source_entries": 281,
+    "unique_payloads": 281,
     "consolidated_groups": 0,
-    "source_paths_preserved": 703,
+    "source_paths_preserved": 723,
     "mixed_state_groups": 0
   }
 }
