@@ -41,7 +41,7 @@
     {
       "repository": "tare.tools.kernel",
       "url": "https://github.com/augusto-scarvalho/tare.tools.kernel",
-      "revision": "5702548a196efd49065bbff9b3a903aa7aa52ceb",
+      "revision": "6179c4196b208bb8ce46e1ba39019c5d3fbc5657",
       "canonical_path": "ontology/domain_ontology.yaml",
       "canonical_sha256": "2bfc79a6a54a9d24f579ce719a92ad3a21268d42697e7133c6551a183e5e645e",
       "version": "1.1.0",
