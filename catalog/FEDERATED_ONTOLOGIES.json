@@ -2,7 +2,7 @@
   "schema": "tare.tools/federated-ontology-index/1.0",
   "source_library": {
     "repository": "tare.tools.library",
-    "revision": "622d1f7ce52f2f96c9f8c1fa96259566b5afc806"
+    "revision": "a9c00f2e63b9b49d3b80f98f7e60c6ef22424327"
   },
   "retired_library_paths": [
     "catalog/ontology/domain_ontology.yaml"
@@ -11,7 +11,7 @@
     {
       "repository": "tare.tools.backlog-graph",
       "url": "https://github.com/augusto-scarvalho/tare.tools.backlog-graph",
-      "revision": "29a9bf3235a73499b14b3d799c8bd2ca3d4cfefb",
+      "revision": "3f03686ae3d6918860f38ccfcf3b79c006f046b9",
       "canonical_path": "ontology/domain_ontology.yaml",
       "canonical_sha256": "c70edd6fba8fd5321dbc65de5410a0b55262e8f2b3c503fac89e3b215d0b32ec",
       "version": "1.0.0",
@@ -23,32 +23,77 @@
       ]
     },
     {
-      "repository": "tare.tools.kernel",
-      "url": "https://github.com/augusto-scarvalho/tare.tools.kernel",
-      "revision": "dc8bbad0d1202fde0bde12943acac7a635483b15",
+      "repository": "tare.tools.dialog-engine",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.dialog-engine",
+      "revision": "532910965c2d64f16d3ade417e4cc0cbf87a9058",
       "canonical_path": "ontology/domain_ontology.yaml",
-      "canonical_sha256": "3ad38e9580a2a35d237fbf5e8f45bf73b7e62d8972b5c8898c874968ad880cb3",
+      "canonical_sha256": "72892927b45925cf2fce181920cae37213c7bb57cd93113e344eea05e08f47d4",
       "version": "1.0.0",
       "concept_ids": [
+        "BoundedJourneyDecomposition",
+        "ContextDeltaCasMerge",
+        "GoldenCorpusDualRun",
+        "SemanticDiffParity",
+        "SpelPurityPipeline",
+        "UniversalDialogAst"
+      ]
+    },
+    {
+      "repository": "tare.tools.harness",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.harness",
+      "revision": "773b12f03fe46b08a799ceeaea0b46038646f650",
+      "canonical_path": "ontology/domain_ontology.yaml",
+      "canonical_sha256": "3ef63f622ab9c3e6e50e86c81b2370e81bbb31a0921f7ff8068ba564749cfb6d",
+      "version": "1.0.0",
+      "concept_ids": [
+        "HarnessOwnedSandbox",
+        "MutationProbeOracle",
+        "PlaybookCompiler",
+        "QaEvidenceCapsule",
+        "RecordsLedger",
+        "ResponsibilityChain",
+        "RiskTierRouting"
+      ]
+    },
+    {
+      "repository": "tare.tools.kernel",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.kernel",
+      "revision": "5702548a196efd49065bbff9b3a903aa7aa52ceb",
+      "canonical_path": "ontology/domain_ontology.yaml",
+      "canonical_sha256": "2bfc79a6a54a9d24f579ce719a92ad3a21268d42697e7133c6551a183e5e645e",
+      "version": "1.1.0",
+      "concept_ids": [
         "CASPersistence",
-        "HermeticSandbox"
+        "ExecutionReceiptAttestation",
+        "FivePlaneBoundary",
+        "HermeticSandbox",
+        "MonotonicLeaseControl",
+        "QualifiedLinkedWorktree",
+        "ToolHookMediation"
       ]
     },
     {
       "repository": "tare.tools.os",
       "url": "https://github.com/augusto-scarvalho/tare.tools.os",
-      "revision": "4b778217a8ef927b0e16433f6d9e094edda470c5",
+      "revision": "c3d68a75003bbfd912ca3a6287a65a0d4d960b14",
       "canonical_path": "ontology/domain_ontology.yaml",
-      "canonical_sha256": "e8faf2dc9e76e1cfd1aeb963b10000a2700ba21ce9ab90e22818e6a04a627aa7",
-      "version": "1.0.0",
+      "canonical_sha256": "c5aa3eefc351455f7c0f5d62465b01475a9f19dfa3cc7b0ff20ee4cf9b760eb7",
+      "version": "1.1.0",
       "concept_ids": [
-        "TripartiteRoundTable"
+        "CliFirstToolTaxonomy",
+        "DecisionIntegrityLedger",
+        "HumanSovereignAdjudication",
+        "IdempotentLandingSaga",
+        "ProportionalDeliveryEvidence",
+        "SatelliteFederation",
+        "TripartiteRoundTable",
+        "TripleAxisIntelligence"
       ]
     },
     {
       "repository": "tare.tools.specgraph",
       "url": "https://github.com/augusto-scarvalho/tare.tools.specgraph",
-      "revision": "f8d85d1123ed6b871a10dcee0c21d21d9e0ba0f8",
+      "revision": "942ab9b72310961a72183fa310c1e52e636fde96",
       "canonical_path": "ontology/domain_ontology.yaml",
       "canonical_sha256": "5dc94e98880d65040fe60f40b75253c52f36786eaa18a9ef7155a49749d78292",
       "version": "1.0.0",
