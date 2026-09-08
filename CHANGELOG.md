@@ -4,6 +4,13 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+### Historical recovery
+
+- Preserved distinct candidate research and curation editions from pending
+  branches under a hash-bound, history-only archive. Default retrieval and
+  active authority remain unchanged; obsolete repository controls and
+  proposed deletions were not replayed.
+
 ### Integration qualification
 
 - Integrated the pending grouped indexer with explicit owner checkout selection,

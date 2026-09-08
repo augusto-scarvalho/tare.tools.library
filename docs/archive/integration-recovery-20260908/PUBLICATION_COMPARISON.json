@@ -1,0 +1,933 @@
+[
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991157",
+    "source_commit": "6630ee712da9e614bfcfeb9fccf4b7b8ad006d00",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "source_sha256": "073acacf4692f39b6be1c15291e636c6714c83e7b6c010295c20805e27e8f936",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "c9c39b952a097c626dcb3df8d9e68f597e24ce65d43f1ea492dbe5c205b0c521",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "reviewed_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991157",
+    "source_commit": "6630ee712da9e614bfcfeb9fccf4b7b8ad006d00",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "source_sha256": "a72a954a617878e4efb84848eaec2527aa7fd861cd38ccda9533ef678906ad07",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "d66fd16bfd3023f2c775acd936727fac095fb7d4935c455f10631685f8816f61",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "artifact_sha256",
+      "editorial_decision",
+      "pages_projection"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991157",
+    "source_commit": "6630ee712da9e614bfcfeb9fccf4b7b8ad006d00",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "source_sha256": "9a06eb412ef05d20f0cd4225569dd5d93f5bef388f3ad1c4912e98915656eeda",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "source_sha256",
+      "translated_at",
+      "translation_sha256",
+      "translation_size_bytes"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991157",
+    "source_commit": "6630ee712da9e614bfcfeb9fccf4b7b8ad006d00",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.en.html",
+    "source_sha256": "6f5063f4e2084bb61c10266a2d5c1936c062f3b10c157108b112c53d55d3399a",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.en.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "deeb01dd24989708525c20bf1ff22feab857dfee5ae5a2d584a9c40e8156ddb7",
+    "kind": "HTML",
+    "visible_text_equivalent": true,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": []
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991157",
+    "source_commit": "6630ee712da9e614bfcfeb9fccf4b7b8ad006d00",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.html",
+    "source_sha256": "2d1bfb2e071d0424eaf26c79ec90e57b37b522f3114fd5ec2c814218d38570cc",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "7ca1bc6c56dadcd42597d9887fba9f3aac9d750ac08f1b74780cd83b6a93b928",
+    "kind": "HTML",
+    "visible_text_equivalent": true,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": []
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991157",
+    "source_commit": "6630ee712da9e614bfcfeb9fccf4b7b8ad006d00",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "source_sha256": "3e9f62f395246625f4a6ffb6ec43ad7b4aec1fb7f204bdd5dadb1fb5d9f8181a",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "fe3103cda73f1aaabc6a87d97e4182a895b9fafcefb906d63808c4c7c138fcf9",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991157",
+    "source_commit": "6630ee712da9e614bfcfeb9fccf4b7b8ad006d00",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "source_sha256": "6115a00975f7c12ebeecc956456c4d3868db6047d5592baf7403d981c5b5a4b0",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "8ff7e613a8184cee0da1bf8d77cc207b530c44e1d5977d8ae4f8e90c53afbbb2",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991205",
+    "source_commit": "2ffeb79c832f7170bc1a96f24df95b05751870b9",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "source_sha256": "fc27c59ee4752f4714f7746de81564018d98435895d50afab126abcad00e3017",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "c9c39b952a097c626dcb3df8d9e68f597e24ce65d43f1ea492dbe5c205b0c521",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "reviewed_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991205",
+    "source_commit": "2ffeb79c832f7170bc1a96f24df95b05751870b9",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "source_sha256": "d668831b857625e18056bcd3f810d2f5efc92732f028cfed472de27e8b105ce9",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "d66fd16bfd3023f2c775acd936727fac095fb7d4935c455f10631685f8816f61",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "artifact_sha256",
+      "editorial_decision",
+      "pages_projection"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991205",
+    "source_commit": "2ffeb79c832f7170bc1a96f24df95b05751870b9",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "source_sha256": "45d6743ef4f8ca68721c382f96b9f6de7b222a21f647009e14aa0ee0772a090f",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "source_sha256",
+      "translated_at",
+      "translation_sha256",
+      "translation_size_bytes"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991205",
+    "source_commit": "2ffeb79c832f7170bc1a96f24df95b05751870b9",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.en.html",
+    "source_sha256": "6f5063f4e2084bb61c10266a2d5c1936c062f3b10c157108b112c53d55d3399a",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.en.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "deeb01dd24989708525c20bf1ff22feab857dfee5ae5a2d584a9c40e8156ddb7",
+    "kind": "HTML",
+    "visible_text_equivalent": true,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": []
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991205",
+    "source_commit": "2ffeb79c832f7170bc1a96f24df95b05751870b9",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.html",
+    "source_sha256": "2d1bfb2e071d0424eaf26c79ec90e57b37b522f3114fd5ec2c814218d38570cc",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "7ca1bc6c56dadcd42597d9887fba9f3aac9d750ac08f1b74780cd83b6a93b928",
+    "kind": "HTML",
+    "visible_text_equivalent": true,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": []
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991205",
+    "source_commit": "2ffeb79c832f7170bc1a96f24df95b05751870b9",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "source_sha256": "14d7879c5104d57e274a7cc6324684102a2670f4041a55e0440e54f33622c76e",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "fe3103cda73f1aaabc6a87d97e4182a895b9fafcefb906d63808c4c7c138fcf9",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991205",
+    "source_commit": "2ffeb79c832f7170bc1a96f24df95b05751870b9",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "source_sha256": "9d7728f0057b1f9a8cd3b69a0a4746132a7f90b46a61608888233a750148e407",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "8ff7e613a8184cee0da1bf8d77cc207b530c44e1d5977d8ae4f8e90c53afbbb2",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991235",
+    "source_commit": "b4dc1a050228966f0e7fbfb60df551ebe9a6a82b",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "source_sha256": "1637c19e749f97100ed7e11f73d79fc07a7add3710fa58a17194d2efb3075720",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "c9c39b952a097c626dcb3df8d9e68f597e24ce65d43f1ea492dbe5c205b0c521",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "reviewed_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991235",
+    "source_commit": "b4dc1a050228966f0e7fbfb60df551ebe9a6a82b",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "source_sha256": "4d35895790561ee804549de3c183df356e6d47cf1cb971e869d25b1ac7cf8acd",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "d66fd16bfd3023f2c775acd936727fac095fb7d4935c455f10631685f8816f61",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "artifact_sha256",
+      "editorial_decision",
+      "pages_projection"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991235",
+    "source_commit": "b4dc1a050228966f0e7fbfb60df551ebe9a6a82b",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "source_sha256": "25573d357732f0da166a37ede2a6ce4dee07bbef3f172dd5d8c5d300fb779097",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "source_sha256",
+      "translated_at",
+      "translation_sha256",
+      "translation_size_bytes"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991235",
+    "source_commit": "b4dc1a050228966f0e7fbfb60df551ebe9a6a82b",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.en.html",
+    "source_sha256": "6f5063f4e2084bb61c10266a2d5c1936c062f3b10c157108b112c53d55d3399a",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.en.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "deeb01dd24989708525c20bf1ff22feab857dfee5ae5a2d584a9c40e8156ddb7",
+    "kind": "HTML",
+    "visible_text_equivalent": true,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": []
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991235",
+    "source_commit": "b4dc1a050228966f0e7fbfb60df551ebe9a6a82b",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.html",
+    "source_sha256": "2d1bfb2e071d0424eaf26c79ec90e57b37b522f3114fd5ec2c814218d38570cc",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "7ca1bc6c56dadcd42597d9887fba9f3aac9d750ac08f1b74780cd83b6a93b928",
+    "kind": "HTML",
+    "visible_text_equivalent": true,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": []
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991235",
+    "source_commit": "b4dc1a050228966f0e7fbfb60df551ebe9a6a82b",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "source_sha256": "19a4554520841d92c7241b9332a0d7519769cd21da38ca7741f2dc4d8b0833dc",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "fe3103cda73f1aaabc6a87d97e4182a895b9fafcefb906d63808c4c7c138fcf9",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991235",
+    "source_commit": "b4dc1a050228966f0e7fbfb60df551ebe9a6a82b",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "source_sha256": "0e9067eb94d2029f604709ffa6c331eb4e545a171c44f9d3c88d884c355ad65d",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "8ff7e613a8184cee0da1bf8d77cc207b530c44e1d5977d8ae4f8e90c53afbbb2",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991258",
+    "source_commit": "f79d2e1445f646a7807dc3afa585290acf11efad",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "source_sha256": "282b88ec84a9484096f57a426034c0980e49981e2e7717c43d847a2178b8cdcf",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "c9c39b952a097c626dcb3df8d9e68f597e24ce65d43f1ea492dbe5c205b0c521",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "reviewed_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991258",
+    "source_commit": "f79d2e1445f646a7807dc3afa585290acf11efad",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "source_sha256": "04e527132feb3f0bfc18dd5234da6aebcd1698110c75042b6ef4791cfdd45cfc",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "d66fd16bfd3023f2c775acd936727fac095fb7d4935c455f10631685f8816f61",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "artifact_sha256",
+      "editorial_decision",
+      "pages_projection"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991258",
+    "source_commit": "f79d2e1445f646a7807dc3afa585290acf11efad",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "source_sha256": "c501baca9917b5c876d9afa8c5b2b8248a737b84f50a98d0c3b57a55cafa1b58",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "source_sha256",
+      "translated_at",
+      "translation_sha256",
+      "translation_size_bytes"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991258",
+    "source_commit": "f79d2e1445f646a7807dc3afa585290acf11efad",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.en.html",
+    "source_sha256": "6f5063f4e2084bb61c10266a2d5c1936c062f3b10c157108b112c53d55d3399a",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.en.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "deeb01dd24989708525c20bf1ff22feab857dfee5ae5a2d584a9c40e8156ddb7",
+    "kind": "HTML",
+    "visible_text_equivalent": true,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": []
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991258",
+    "source_commit": "f79d2e1445f646a7807dc3afa585290acf11efad",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.html",
+    "source_sha256": "2d1bfb2e071d0424eaf26c79ec90e57b37b522f3114fd5ec2c814218d38570cc",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/article.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "7ca1bc6c56dadcd42597d9887fba9f3aac9d750ac08f1b74780cd83b6a93b928",
+    "kind": "HTML",
+    "visible_text_equivalent": true,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": []
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991258",
+    "source_commit": "f79d2e1445f646a7807dc3afa585290acf11efad",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "source_sha256": "e5841e4df53551aab6d8d692255f781a41852ff7437ffd94236761b5e2f1bf0c",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "fe3103cda73f1aaabc6a87d97e4182a895b9fafcefb906d63808c4c7c138fcf9",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991258",
+    "source_commit": "f79d2e1445f646a7807dc3afa585290acf11efad",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "source_sha256": "19cf38f3ca8bbda0eda8ed3dfaa3dfdaf83c607004958e2586fb8fa58bcba074",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "8ff7e613a8184cee0da1bf8d77cc207b530c44e1d5977d8ae4f8e90c53afbbb2",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991714",
+    "source_commit": "760f781ab5c5fafa5b7125c1028bd2c372b208f0",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "source_sha256": "0c4191c0c82cad3acfd831696b7cf387af6bcbea2792c6f59e907cde0de52f0f",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/EDITORIAL_DECISION.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "c9c39b952a097c626dcb3df8d9e68f597e24ce65d43f1ea492dbe5c205b0c521",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "reviewed_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991714",
+    "source_commit": "760f781ab5c5fafa5b7125c1028bd2c372b208f0",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "source_sha256": "0164450eafc500137e7f5ba86647bd149d4b993ca6e55a080cb58ae29db0b2fa",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/PUBLICATION_RECORD.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "d66fd16bfd3023f2c775acd936727fac095fb7d4935c455f10631685f8816f61",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "artifact_sha256",
+      "editorial_decision",
+      "pages_projection"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991714",
+    "source_commit": "760f781ab5c5fafa5b7125c1028bd2c372b208f0",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "source_sha256": "216ad3ec70efabe34d28586c9282a8322e0a3c13139bdb20021a66ea63e52deb",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "09f97f256360ce7793349e00cbcb7713b1c8e2c212e50a49b1b3012da90492cd",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "translated_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991714",
+    "source_commit": "760f781ab5c5fafa5b7125c1028bd2c372b208f0",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "source_sha256": "46a72fee49ed09607d748357466d6cba6bb28620baee5260e7b4d63fb9805e89",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "fe3103cda73f1aaabc6a87d97e4182a895b9fafcefb906d63808c4c7c138fcf9",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-2026-08-17-north-star-v2-architecture-and-backlog-compass-1786991714",
+    "source_commit": "760f781ab5c5fafa5b7125c1028bd2c372b208f0",
+    "path": "research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "source_sha256": "3d887622f5bf398ea26c6e5255f81b0a3f664a98ab6eda8ac6936acdac24409d",
+    "current_path": "docs/research/01_methodology-research-program/2026-08-17-north-star-v2-architecture-and-backlog-compass-2026-08-17/document-metadata.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "8ff7e613a8184cee0da1bf8d77cc207b530c44e1d5977d8ae4f8e90c53afbbb2",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-adr-043_north_star_v2_and_ecosystem_split-1786998415",
+    "path": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17/EDITORIAL_DECISION.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-043_north_star_v2_and_ecosystem_split-1786998415",
+    "path": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17/PUBLICATION_RECORD.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-043_north_star_v2_and_ecosystem_split-1786998415",
+    "path": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17/PUBLISH_MANIFEST.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-043_north_star_v2_and_ecosystem_split-1786998415",
+    "path": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-043_north_star_v2_and_ecosystem_split-1786998415",
+    "path": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17/article.en.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-043_north_star_v2_and_ecosystem_split-1786998415",
+    "path": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17/article.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-043_north_star_v2_and_ecosystem_split-1786998415",
+    "path": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17/document-metadata.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-043_north_star_v2_and_ecosystem_split-1786998415",
+    "path": "research/02_harness-architecture/adr-043_north_star_v2_and_ecosystem_split-2026-08-17/document-metadata.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-044_specgraph_north_star_universal_project_intelligence-1787012092",
+    "path": "research/02_harness-architecture/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/EDITORIAL_DECISION.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-044_specgraph_north_star_universal_project_intelligence-1787012092",
+    "path": "research/02_harness-architecture/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/PUBLICATION_RECORD.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-044_specgraph_north_star_universal_project_intelligence-1787012092",
+    "path": "research/02_harness-architecture/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/PUBLISH_MANIFEST.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-044_specgraph_north_star_universal_project_intelligence-1787012092",
+    "path": "research/02_harness-architecture/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/TRANSLATION_MANIFEST.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-044_specgraph_north_star_universal_project_intelligence-1787012092",
+    "path": "research/02_harness-architecture/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/article.en.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-044_specgraph_north_star_universal_project_intelligence-1787012092",
+    "path": "research/02_harness-architecture/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/article.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-044_specgraph_north_star_universal_project_intelligence-1787012092",
+    "path": "research/02_harness-architecture/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/document-metadata.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-044_specgraph_north_star_universal_project_intelligence-1787012092",
+    "path": "research/02_harness-architecture/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/document-metadata.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-045_ecosystem_and_kernel_north_star-1787012988",
+    "path": "research/02_harness-architecture/adr-045_ecosystem_and_kernel_north_star-2026-08-18/EDITORIAL_DECISION.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-045_ecosystem_and_kernel_north_star-1787012988",
+    "path": "research/02_harness-architecture/adr-045_ecosystem_and_kernel_north_star-2026-08-18/PUBLICATION_RECORD.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-045_ecosystem_and_kernel_north_star-1787012988",
+    "path": "research/02_harness-architecture/adr-045_ecosystem_and_kernel_north_star-2026-08-18/PUBLISH_MANIFEST.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-045_ecosystem_and_kernel_north_star-1787012988",
+    "path": "research/02_harness-architecture/adr-045_ecosystem_and_kernel_north_star-2026-08-18/TRANSLATION_MANIFEST.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-045_ecosystem_and_kernel_north_star-1787012988",
+    "path": "research/02_harness-architecture/adr-045_ecosystem_and_kernel_north_star-2026-08-18/article.en.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-045_ecosystem_and_kernel_north_star-1787012988",
+    "path": "research/02_harness-architecture/adr-045_ecosystem_and_kernel_north_star-2026-08-18/article.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-045_ecosystem_and_kernel_north_star-1787012988",
+    "path": "research/02_harness-architecture/adr-045_ecosystem_and_kernel_north_star-2026-08-18/document-metadata.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-045_ecosystem_and_kernel_north_star-1787012988",
+    "path": "research/02_harness-architecture/adr-045_ecosystem_and_kernel_north_star-2026-08-18/document-metadata.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-046_backlog_graph_north_star-1787015292",
+    "path": "research/02_harness-architecture/adr-046_backlog_graph_north_star-2026-08-18/EDITORIAL_DECISION.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-046_backlog_graph_north_star-1787015292",
+    "path": "research/02_harness-architecture/adr-046_backlog_graph_north_star-2026-08-18/PUBLICATION_RECORD.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-046_backlog_graph_north_star-1787015292",
+    "path": "research/02_harness-architecture/adr-046_backlog_graph_north_star-2026-08-18/PUBLISH_MANIFEST.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-046_backlog_graph_north_star-1787015292",
+    "path": "research/02_harness-architecture/adr-046_backlog_graph_north_star-2026-08-18/TRANSLATION_MANIFEST.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-046_backlog_graph_north_star-1787015292",
+    "path": "research/02_harness-architecture/adr-046_backlog_graph_north_star-2026-08-18/article.en.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-046_backlog_graph_north_star-1787015292",
+    "path": "research/02_harness-architecture/adr-046_backlog_graph_north_star-2026-08-18/article.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-046_backlog_graph_north_star-1787015292",
+    "path": "research/02_harness-architecture/adr-046_backlog_graph_north_star-2026-08-18/document-metadata.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-adr-046_backlog_graph_north_star-1787015292",
+    "path": "research/02_harness-architecture/adr-046_backlog_graph_north_star-2026-08-18/document-metadata.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-claude_adversarial_audit_report-1786991721",
+    "path": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17/EDITORIAL_DECISION.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-claude_adversarial_audit_report-1786991721",
+    "path": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17/PUBLICATION_RECORD.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-claude_adversarial_audit_report-1786991721",
+    "path": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17/PUBLISH_MANIFEST.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-claude_adversarial_audit_report-1786991721",
+    "path": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-claude_adversarial_audit_report-1786991721",
+    "path": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17/article.en.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-claude_adversarial_audit_report-1786991721",
+    "path": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17/article.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-claude_adversarial_audit_report-1786991721",
+    "path": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17/document-metadata.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-claude_adversarial_audit_report-1786991721",
+    "path": "research/01_methodology-research-program/claude_adversarial_audit_report-2026-08-17/document-metadata.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-decoupled_microkernel_architecture-1786991677",
+    "source_commit": "39e169666ba3c955a06b75d561760b9fc190d121",
+    "path": "research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/EDITORIAL_DECISION.json",
+    "source_sha256": "9e5b32bdf3390bd48a4d060f72c46263a2edc8f6a2a4ffe76b0780145e93c7bd",
+    "current_path": "docs/research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/EDITORIAL_DECISION.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "3d0c00481cdfa139a51acb88b32eaddce04b824dd360bd61110ca1f04dcf925c",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "reviewed_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-decoupled_microkernel_architecture-1786991677",
+    "source_commit": "39e169666ba3c955a06b75d561760b9fc190d121",
+    "path": "research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/PUBLICATION_RECORD.json",
+    "source_sha256": "7b96e70d785ebecd7832e5e2084424ad9659a51174f6f000ec49c659d84c3fd5",
+    "current_path": "docs/research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/PUBLICATION_RECORD.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "9fe39c1b67500c9d77471539f3d83582ecfc74cbb2b614df54a8cbbd929dcdac",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "artifact_sha256",
+      "editorial_decision",
+      "pages_projection"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-decoupled_microkernel_architecture-1786991677",
+    "source_commit": "39e169666ba3c955a06b75d561760b9fc190d121",
+    "path": "research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "source_sha256": "522bf451ecb893054898a2e834ce2448cd92b2625df9dbbad84a0f958f24e44c",
+    "current_path": "docs/research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/TRANSLATION_MANIFEST.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "b28ccfbe46cb6553af2dbaa6f3ba4f34dc708a34bac929d8b4865126e5e270ce",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "source_sha256",
+      "translated_at",
+      "translation_sha256",
+      "translation_size_bytes"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-decoupled_microkernel_architecture-1786991677",
+    "source_commit": "39e169666ba3c955a06b75d561760b9fc190d121",
+    "path": "research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/article.en.html",
+    "source_sha256": "17ecd5a2b5e977643c90ed5705c40b2d71c885cfbd889089f460caedb941ee85",
+    "current_path": "docs/research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/article.en.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "f41a1b5542e2b1ab0260df9696d104d46d54a78089439f9435c2ca13c31f1cc9",
+    "kind": "HTML",
+    "visible_text_equivalent": false,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": [
+      "--- \n",
+      "+++ \n",
+      "@@ -1,4 +1,5 @@\n",
+      "-ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS Estudo formal de arquitetura para o tare.tools Agent OS",
+      "+ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS Este Registro de Decisão Arquitetural (ADR-042) formaliza a transição estrutural do `tare.tools Agent OS` de um núcleo monolítico para uma **Arquitetura de Microkernel Desacoplado em 5 Planos Independentes** (Experience, Control, Data, Compute e Assurance)",
+      "+Baseando-se em evidências empíricas de 9 linhas de pesquisa e na deliberação adversarial tripartite da Mesa Redonda (Gemini 3.7 High, GPT-5.6 Sol / Codex, Claude Fable 5 High), o estudo estabelece as fronteiras físicas de autoridade: isolamento total do *Compute Plane* com zero permissão de mutação direta, governança CP estrita com *fencing tokens* monotônicos emitidos por consenso Raft de 3 nós, *Landing Saga* de 5 estados com reconciliador contínuo e push atômico fast-forward verificado via Egress Service dedicado, processo Notário isolado para emissão de *Attestation Receipts* imunes a adulteração de testes, e *Landing Reservation Lease* com TTL e heartbeat pós-aprovação humana para eliminar starvation no merge train",
+      " RESEARCH / PEER-REVIEW RATIFIED DRAFT",
+      " Published in tare.tools.research under Design Science governance",
+      " Does not grant mutation authority in production repositories without canonical Relay Mesh protocol",
+      "@@ -9,46 +10,45 @@\n",
+      " A deliberação adversarial tripartite da Mesa Redonda concluiu que um monolito criaria severos riscos de concorrência, split-brain e blast radius descontrolado",
+      " A solução formal é o desacoplamento em 5 planos com governança determinística e propriedades CP rigorosas",
+      " 2",
+      "-Method & Evidence Trail Fica formalmente decidido que a arquitetura do tare.tools é um Microkernel Desacoplado baseado em 5 Planos Independentes , comunicando-se exclusivamente através de contratos estritos, fencing tokens, recibos criptográficos e Landing Journals atômicos",
+      "-┌──────────────────────────────────────────────────────────────────────────┐ │ 1"
+    ]
+  },
+  {
+    "branch": "agent/publish-decoupled_microkernel_architecture-1786991677",
+    "source_commit": "39e169666ba3c955a06b75d561760b9fc190d121",
+    "path": "research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/article.html",
+    "source_sha256": "0d0929f76595d673412ac0609d5ff6fdc61667aa581534a971ac1a3bf9f91d93",
+    "current_path": "docs/research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/article.html",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "2e19eb897a11fc445ec2c9b9b85d8dc8d07abcd7923d3d8782f31bf7a4e8f6a2",
+    "kind": "HTML",
+    "visible_text_equivalent": false,
+    "comparison": "HTML text excluding scripts/styles, collapsed whitespace and markdown horizontal-rule marker; NOT byte equivalence",
+    "changed_text_excerpt": [
+      "--- \n",
+      "+++ \n",
+      "@@ -1,4 +1,5 @@\n",
+      "-ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS Estudo formal de arquitetura para o tare.tools Agent OS",
+      "+ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS ADR-042: Arquitetura de Microkernel Desacoplado para o tare.tools Agent OS Este Registro de Decisão Arquitetural (ADR-042) formaliza a transição estrutural do `tare.tools Agent OS` de um núcleo monolítico para uma **Arquitetura de Microkernel Desacoplado em 5 Planos Independentes** (Experience, Control, Data, Compute e Assurance)",
+      "+Baseando-se em evidências empíricas de 9 linhas de pesquisa e na deliberação adversarial tripartite da Mesa Redonda (Gemini 3.7 High, GPT-5.6 Sol / Codex, Claude Fable 5 High), o estudo estabelece as fronteiras físicas de autoridade: isolamento total do *Compute Plane* com zero permissão de mutação direta, governança CP estrita com *fencing tokens* monotônicos emitidos por consenso Raft de 3 nós, *Landing Saga* de 5 estados com reconciliador contínuo e push atômico fast-forward verificado via Egress Service dedicado, processo Notário isolado para emissão de *Attestation Receipts* imunes a adulteração de testes, e *Landing Reservation Lease* com TTL e heartbeat pós-aprovação humana para eliminar starvation no merge train",
+      " RESEARCH / PEER-REVIEW RATIFIED DRAFT",
+      " Publicação em tare.tools.research sob governança de Design Science",
+      " Não concede isoladamente autorização de mutação em repositórios de produção sem o protocolo canônico do Relay Mesh",
+      "@@ -9,46 +10,45 @@\n",
+      " A deliberação adversarial tripartite da Mesa Redonda concluiu que um monolito criaria severos riscos de concorrência, split-brain e blast radius descontrolado",
+      " A solução formal é o desacoplamento em 5 planos com governança determinística e propriedades CP rigorosas",
+      " 2",
+      "-Método & Trilha de Evidências Fica formalmente decidido que a arquitetura do tare.tools é um Microkernel Desacoplado baseado em 5 Planos Independentes , comunicando-se exclusivamente através de contratos estritos, fencing tokens, recibos criptográficos e Landing Journals atômicos",
+      "-┌──────────────────────────────────────────────────────────────────────────┐ │ 1"
+    ]
+  },
+  {
+    "branch": "agent/publish-decoupled_microkernel_architecture-1786991677",
+    "source_commit": "39e169666ba3c955a06b75d561760b9fc190d121",
+    "path": "research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/document-metadata.en.json",
+    "source_sha256": "7aed519450d3f60e36b07ccfd112126d918ba8b14492a525c20c268e721c78af",
+    "current_path": "docs/research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/document-metadata.en.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "b9a3762dca103bbda8f4a854ea3f5c10eefef95d80139850dd194bace21aa59c",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-decoupled_microkernel_architecture-1786991677",
+    "source_commit": "39e169666ba3c955a06b75d561760b9fc190d121",
+    "path": "research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/document-metadata.json",
+    "source_sha256": "884edf869a1958c401ba349b42d3e8b451fd8a6ba78240bb8aee071bcecdc943",
+    "current_path": "docs/research/02_harness-architecture/decoupled_microkernel_architecture-2026-08-17/document-metadata.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "e96b21980f59535a860e8aa3b07176ed027c2bc99e142943483d985dcd8eea6a",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "abstract",
+      "created_at"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "agent/publish-study_backlog_graph_topological_execution_engine-1787015376",
+    "path": "research/01_methodology-research-program/study_backlog_graph_topological_execution_engine-2026-08-18/EDITORIAL_DECISION.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_backlog_graph_topological_execution_engine-1787015376",
+    "path": "research/01_methodology-research-program/study_backlog_graph_topological_execution_engine-2026-08-18/PUBLICATION_RECORD.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_backlog_graph_topological_execution_engine-1787015376",
+    "path": "research/01_methodology-research-program/study_backlog_graph_topological_execution_engine-2026-08-18/PUBLISH_MANIFEST.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_backlog_graph_topological_execution_engine-1787015376",
+    "path": "research/01_methodology-research-program/study_backlog_graph_topological_execution_engine-2026-08-18/TRANSLATION_MANIFEST.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_backlog_graph_topological_execution_engine-1787015376",
+    "path": "research/01_methodology-research-program/study_backlog_graph_topological_execution_engine-2026-08-18/article.en.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_backlog_graph_topological_execution_engine-1787015376",
+    "path": "research/01_methodology-research-program/study_backlog_graph_topological_execution_engine-2026-08-18/article.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_backlog_graph_topological_execution_engine-1787015376",
+    "path": "research/01_methodology-research-program/study_backlog_graph_topological_execution_engine-2026-08-18/document-metadata.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_backlog_graph_topological_execution_engine-1787015376",
+    "path": "research/01_methodology-research-program/study_backlog_graph_topological_execution_engine-2026-08-18/document-metadata.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_ecosystem_north_star_agent_os_v2-1787013252",
+    "path": "research/01_methodology-research-program/study_ecosystem_north_star_agent_os_v2-2026-08-18/EDITORIAL_DECISION.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_ecosystem_north_star_agent_os_v2-1787013252",
+    "path": "research/01_methodology-research-program/study_ecosystem_north_star_agent_os_v2-2026-08-18/PUBLICATION_RECORD.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_ecosystem_north_star_agent_os_v2-1787013252",
+    "path": "research/01_methodology-research-program/study_ecosystem_north_star_agent_os_v2-2026-08-18/PUBLISH_MANIFEST.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_ecosystem_north_star_agent_os_v2-1787013252",
+    "path": "research/01_methodology-research-program/study_ecosystem_north_star_agent_os_v2-2026-08-18/TRANSLATION_MANIFEST.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_ecosystem_north_star_agent_os_v2-1787013252",
+    "path": "research/01_methodology-research-program/study_ecosystem_north_star_agent_os_v2-2026-08-18/article.en.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_ecosystem_north_star_agent_os_v2-1787013252",
+    "path": "research/01_methodology-research-program/study_ecosystem_north_star_agent_os_v2-2026-08-18/article.html",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_ecosystem_north_star_agent_os_v2-1787013252",
+    "path": "research/01_methodology-research-program/study_ecosystem_north_star_agent_os_v2-2026-08-18/document-metadata.en.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "agent/publish-study_ecosystem_north_star_agent_os_v2-1787013252",
+    "path": "research/01_methodology-research-program/study_ecosystem_north_star_agent_os_v2-2026-08-18/document-metadata.json",
+    "status": "NO_CURRENT_COUNTERPART"
+  },
+  {
+    "branch": "docs/publish/hierarchical-work-planning-cross-task-optimization-2026-08-13-7a6d0e353bec",
+    "source_commit": "c1a3a770ccbe32490153443df7a2583d74d7d479",
+    "path": "research/11_project-workspace/hierarchical-work-planning-cross-task-optimization-2026-08-13/EDITORIAL_DECISION.json",
+    "source_sha256": "41432e6623aff863a9c6bbfd005935c449e7a7a57791c3a070d86b53f34acedd",
+    "current_path": "docs/research/11_project-workspace/hierarchical-work-planning-cross-task-optimization-2026-08-13/EDITORIAL_DECISION.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "12a8c333628369f0752fb35e5c29224055bee778e33cb13022890747681298da",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "manifest_sha256"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  },
+  {
+    "branch": "docs/publish/hierarchical-work-planning-cross-task-optimization-2026-08-13-7a6d0e353bec",
+    "source_commit": "c1a3a770ccbe32490153443df7a2583d74d7d479",
+    "path": "research/11_project-workspace/hierarchical-work-planning-cross-task-optimization-2026-08-13/PUBLICATION_RECORD.json",
+    "source_sha256": "4f8e7de5a8a2ae9f557a93b09ee762c9f6fac253fcbc5107ac280834b3926148",
+    "current_path": "docs/research/11_project-workspace/hierarchical-work-planning-cross-task-optimization-2026-08-13/PUBLICATION_RECORD.json",
+    "current_commit": "243ac3bd7ab3eeca66b6a40c0c2932ceb5002be3",
+    "current_sha256": "1cf9c173aec401a86a47b24dede306fd403a46e6e790ff25637a2143d1466ad4",
+    "kind": "JSON",
+    "changed_top_level_fields": [
+      "artifact_sha256",
+      "base_sha",
+      "branch",
+      "editorial_decision",
+      "manifest_sha256"
+    ],
+    "disposition": "Prior publication/translation receipt version; main retains current owner-qualified projection record. Different historical receipt is not an unimplemented feature."
+  }
+]
