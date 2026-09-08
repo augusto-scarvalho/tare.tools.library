@@ -5,3 +5,4 @@ catalog/corpus/translations/** -text
 *.md text eol=lf
 *.py text eol=lf
 *.yml text eol=lf
+docs/archive/integration-recovery-20260908/** -text
