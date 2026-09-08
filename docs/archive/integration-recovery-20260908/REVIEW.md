@@ -37,8 +37,20 @@ seven attempted publication packets lacking a current counterpart are
 assigned to technical owners for separate history-only recovery: OS
 (ecosystem decisions, audit and microkernel), SpecGraph (ADR-044) and
 Backlog Graph (ADR-046 and its study). The implementer-profile draft also
-belongs to OS. Separate receipts preserve their exact original claims;
-this report does not claim those owner PRs were merged.
+belongs to OS. Separate receipts preserve their exact original claims.
+
+The SpecGraph archive was merged through
+[SpecGraph PR #3](https://github.com/augusto-scarvalho/tare.tools.specgraph/pull/3)
+from head `b871462`; its eight source files are under
+`docs/archive/integration-recovery-20260908/adr-044_specgraph_north_star_universal_project_intelligence-2026-08-18/`.
+Backlog Graph's 16 source files were merged through
+[Backlog Graph PR #2](https://github.com/augusto-scarvalho/tare.tools.backlog-graph/pull/2)
+from head `02e3836`, under the corresponding `adr-046_backlog_graph_north_star-2026-08-18/`
+and `study_backlog_graph_topological_execution_engine-2026-08-18/` directories
+below the same archive prefix. Each package includes `RECOVERY_RECEIPT.json`.
+These locators support explicit historical retrieval; no active catalog
+entry or authority promotion is implied. OS package integration is tracked
+separately by that owner.
 
 The hierarchical-planning article bytes are already present; historical
 publication/decision records differ as recorded in the comparison. Existing
