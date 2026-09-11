@@ -1,8 +1,7 @@
 # Translation Policy
 
-> This policy continues to govern Library corpus translations. References to
-> Pages packets below apply only to the frozen records listed in
-> `site/LEGACY_PAGES_PROJECTIONS.json`; the central publisher is retired.
+> This policy governs Library corpus translations independently of a website.
+> The Library website and GitHub Pages projection are discontinued.
 
 ## Authority
 
@@ -29,16 +28,9 @@ In any conflict between a translation and its source, the source wins. In confli
 
 Translations are linked from the catalog and thematic READMEs instead of replacing or duplicating source identity.
 
-## Pages requirement
+## Historical publication packets
 
-New `pt-BR` packets requesting Pages must include a current English derivative
-in the same packet: `article.en.html`, `document-metadata.en.json`, and
-`TRANSLATION_MANIFEST.en.json`. All three are declared artifacts. The manifest
-uses `schemas/translation-manifest.schema.json`, binds the exact Portuguese
-primary artifact and English derivative hashes, and may be machine translated
-or human reviewed, but not superseded. Pages projects the English derivative;
-the Portuguese evidence remains preserved and authoritative.
-
-Packets already accepted with an editorial decision `decision_version: "1.0"`
-remain historical evidence. They are not rewritten; publish a linked English
-derivative to remediate them.
+Previously accepted publication and translation packets remain historical
+evidence. There is no Pages submission requirement or automatic publication
+step. Translations may be registered in the catalog using the source identity
+and provenance rules above.

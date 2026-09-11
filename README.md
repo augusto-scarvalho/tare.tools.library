@@ -52,9 +52,9 @@ The Library itself owns:
 See [ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)
 and the [ownership guide](docs/DOCUMENT_OWNERSHIP.md).
 
-The former central article publisher is retired. Four already accepted HTML
-pages remain as a closed, read-only compatibility projection; new material is
-indexed at its canonical owner instead of being copied into Library.
+The Library is a public indexing and retrieval tool. Its website and GitHub
+Pages projection are discontinued. Research remains available in the repository
+and through Library indexing; a separate blog is outside this product.
 
 ---
 
@@ -172,7 +172,6 @@ tare.tools.library/
 │   ├── references/                      # Baseline References & Crosswalks
 │   ├── research/                        # 20 Research Program Portfolios
 │   └── archive/                         # Curated Historical Archive
-├── site/                                # GitHub Pages Authority & Signal Profile
 ├── specs/                               # The Library's own specification
 ├── tests/                               # Automated verification tests and falsifiers
 └── tools/                               # Mesh Runtime, Local Inference, MCP & Bookkeeper

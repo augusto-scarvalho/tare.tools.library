@@ -1,7 +1,7 @@
 {
   "version": "3.0.0",
   "authority_vocabulary": "authority_state/v1",
-  "generated_at": "2026-09-08T17:29:50.695286+00:00",
+  "generated_at": "2026-09-11T21:10:03.657522+00:00",
   "total_documents": 281,
   "canonical_ssot_count": 281,
   "adrs": [
@@ -2457,13 +2457,13 @@
   ],
   "specs": [
     {
-      "id": "a5db8b3a00ebea6a2f0a87178944b5d9aa6991f6a3021f6cb3e2527ed14d9d0d",
+      "id": "4993b51d5220ad40392e93121f277a49d0671eb6553775687775e35142701e5d",
       "semantic_document_id": "SPEC-LIBRARY-001",
       "doc_type": "spec",
       "title": "SPEC-LIBRARY-001: Federated technical catalog and bounded retrieval",
       "status": "OWNER_ADOPTED",
       "relative_path": "specs/SPEC-LIBRARY-001.md",
-      "sha256": "a5db8b3a00ebea6a2f0a87178944b5d9aa6991f6a3021f6cb3e2527ed14d9d0d",
+      "sha256": "4993b51d5220ad40392e93121f277a49d0671eb6553775687775e35142701e5d",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {

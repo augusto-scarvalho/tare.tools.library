@@ -24,10 +24,9 @@ state its evidence limits, and keep generated indexes out of the source of
 truth. Use a new document for a materially new conclusion; do not rewrite an
 immutable historical edition.
 
-The four older HTML reading projections are retained as a frozen compatibility
-surface. Their closed inventory is `site/LEGACY_PAGES_PROJECTIONS.json`. New
-documents are searchable through Library indexing; they are not automatically
-copied, routed, or published as Pages articles.
+The website and GitHub Pages projection are discontinued. Existing HTML
+articles remain research documents in the catalog. New documents are
+searchable through Library indexing; no website build or deployment is needed.
 
 ## Add or update an external pointer
 
@@ -36,6 +35,13 @@ copied, routed, or published as Pages articles.
    federated catalog.
 3. Run the catalog validator and repository tests.
 4. Never keep a fallback payload copy in Library.
+
+## Public contributions and local data
+
+The repository is public. Research and reproducible experiments may be shared;
+credentials, private conversations and user-specific indexes must stay local.
+Distributing the indexer does not require publishing the data a user indexes.
+Review actual content before contributing generated results or source bundles.
 
 ## Local verification
 
@@ -48,7 +54,3 @@ python tools/tare_docs.py rebuild-catalog .
 git diff --exit-code -- catalog/MASTER_CATALOG.json
 python -m tools.bookkeeper.cli audit --root docs
 ```
-
-The legacy Pages workflow separately proves its frozen allowlist, source
-hashes, translation bindings, link integrity, and incumbent parity. A green
-projection build does not grant architectural authority to research material.
