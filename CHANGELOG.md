@@ -4,6 +4,8 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+- Exclude local credential files, private work folders, agent-local settings and SQLite sidecars from future Git additions.
+
 ### Historical recovery
 
 - Preserved distinct candidate research and curation editions from pending
