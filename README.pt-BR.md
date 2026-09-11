@@ -52,9 +52,9 @@ A própria Library mantém:
 Veja a [ADR-069](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)
 e o [guia de propriedade](docs/DOCUMENT_OWNERSHIP.md).
 
-O antigo publicador central de artigos foi aposentado. Quatro páginas HTML já
-aceitas permanecem como uma projeção fechada e somente leitura; material novo é
-indexado em seu dono canônico, sem ser copiado para a Library.
+A Library é uma ferramenta pública de indexação e busca. Seu site e a projeção
+GitHub Pages foram descontinuados. A pesquisa continua disponível no repositório
+e pela indexação; um futuro blog é independente deste produto.
 
 ---
 
@@ -172,7 +172,6 @@ tare.tools.library/
 │   ├── references/                      # Referências Canônicas de Baseline
 │   ├── research/                        # 20 Portfólios de Programas de Pesquisa
 │   └── archive/                         # Arquivo Histórico Curado
-├── site/                                # Autoridade do GitHub Pages & Signal Profile
 ├── specs/                               # Especificação da própria Library
 ├── tests/                               # Testes automatizados e falsificadores de CI
 └── tools/                               # Runtime de Mesh, Inferência Local, MCP & Bookkeeper

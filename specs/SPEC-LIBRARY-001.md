@@ -10,6 +10,13 @@
 Provide content-addressed cataloging, Library-owned research and deterministic
 retrieval without storing editable copies of documents owned by other tools.
 
+## Product boundary
+
+The Library remains a publicly distributed catalog and indexing/retrieval tool.
+The repository website and GitHub Pages projection were discontinued by the
+owner on 2026-09-11. Hosting or generating a blog is outside this product.
+Existing research payloads and their provenance remain part of the catalog.
+
 ## Verifiable acceptance criteria
 
 - **AC-01 — One owner payload:** every retired Library copy resolves to one

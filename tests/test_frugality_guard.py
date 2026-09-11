@@ -13,7 +13,6 @@ ALLOWED_ROOT_DIRS = {
     "cases",
     "catalog",
     "docs",
-    "site",
     "specs",
     "tools",
     "tests",
@@ -140,8 +139,3 @@ def test_central_publication_automation_stays_retired():
     assert all(not path.exists() for path in retired), retired
     publisher = ROOT / "tools/publisher"
     assert not publisher.exists() or not any(path.is_file() for path in publisher.rglob("*"))
-    allowlist = json.loads(
-        (ROOT / "site/LEGACY_PAGES_PROJECTIONS.json").read_text(encoding="utf-8")
-    )
-    assert allowlist["status"] == "FROZEN_READ_ONLY"
-    assert allowlist["publication_records"] == sorted(set(allowlist["publication_records"]))
