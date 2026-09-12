@@ -49,12 +49,19 @@ def get_adr(adr_id: str, root_dir: str | Path = ROOT) -> Optional[str]:
         return None
 
     clean_id = adr_id.upper().strip()
+    if not clean_id:
+        return None
     if not clean_id.startswith("ADR-"):
         clean_id = f"ADR-{clean_id.zfill(3)}"
 
     for adr_file in adr_dir.glob("*.md"):
-        if clean_id in adr_file.stem.upper():
+        stem = adr_file.stem.upper()
+        if stem == clean_id:
             return adr_file.read_text(encoding="utf-8", errors="ignore")
+        if stem.startswith(clean_id):
+            next_char = stem[len(clean_id)]
+            if next_char in ("-", "_", " "):
+                return adr_file.read_text(encoding="utf-8", errors="ignore")
     return None
 
 
@@ -66,9 +73,17 @@ def get_spec(spec_id: str, root_dir: str | Path = ROOT) -> Optional[str]:
         return None
 
     clean_id = spec_id.upper().strip()
+    if not clean_id:
+        return None
+
     for spec_file in spec_dir.glob("*.md"):
-        if clean_id in spec_file.stem.upper():
+        stem = spec_file.stem.upper()
+        if stem == clean_id:
             return spec_file.read_text(encoding="utf-8", errors="ignore")
+        if stem.startswith(clean_id):
+            next_char = stem[len(clean_id)]
+            if next_char in ("-", "_", " "):
+                return spec_file.read_text(encoding="utf-8", errors="ignore")
     return None
 
 
@@ -166,7 +181,18 @@ def semantic_search_library(
     db_path = root / "catalog" / "library_vectors.db"
     if not db_path.exists():
         # Fallback to lexical if vector DB has not been materialized yet
-        return search_library(query, max_results=max_results, root_dir=root_dir)
+        lexical_results = search_library(query, max_results=max_results, root_dir=root_dir)
+        return [
+            QueryResult(
+                doc_id=lr.doc_id,
+                doc_type="lexical_fallback",
+                title=lr.title,
+                relative_path=lr.relative_path,
+                snippet=lr.snippet,
+                score=lr.score,
+            )
+            for lr in lexical_results
+        ]
 
     db = LibraryVectorDB(db_path)
     client = client or LocalInferenceClient()
@@ -341,7 +367,7 @@ def main() -> int:
             return 0
 
         is_fallback = any(r.doc_type == "lexical_fallback" for r in results)
-        header = "⚠️ [FALLBACK: LEXICAL KEYWORD SEARCH (Embedding Endpoint Offline)]" if is_fallback else "✨ [SEMANTIC DENSE VECTOR SEARCH (Cosine Similarity)]"
+        header = "⚠️ [FALLBACK: LEXICAL KEYWORD SEARCH (Vector Search Unavailable)]" if is_fallback else "✨ [SEMANTIC DENSE VECTOR SEARCH (Cosine Similarity)]"
         print(f"{header} Found {len(results)} matches for '{args.semantic}':\n")
         for i, r in enumerate(results, 1):
             score_label = f"Term Matches: {r.score:.1f}" if is_fallback else f"Cosine Score: {r.score:.3f}"
