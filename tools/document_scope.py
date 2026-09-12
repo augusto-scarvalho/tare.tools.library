@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import re
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Iterable
 
 
@@ -23,6 +23,7 @@ IGNORED_PARTS = frozenset(
     {".git", ".pytest_cache", "__pycache__", "site", "_site"}
 )
 _HASH_SUFFIX = re.compile(r"_[0-9a-f]{8,12}(?=\.md$)", re.IGNORECASE)
+_FEDERATED = re.compile(r"([^@:]+)@[0-9a-f]{40}:(.+)")
 
 
 def relative_posix(path: Path, root: Path) -> str:
@@ -58,6 +59,35 @@ def _rank(relative_path: str) -> tuple[int, int, bytes]:
     )
 
 
+def is_retrievable_document_path(relative_path: str, *, include_history: bool = False) -> bool:
+    """Scope existing index rows without loading, deleting or reindexing payloads.
+
+    Federated references retain their owner-qualified identity. Their owner may
+    use different active roots; this checks scope, not freshness or provenance.
+    """
+    match = _FEDERATED.fullmatch(relative_path)
+    path = relative_path
+    if match:
+        from tools.federated_documents import validate_repository_name
+        try:
+            validate_repository_name(match[1])
+        except ValueError:
+            return False
+        path = match[2]
+    path = path.replace("\\", "/")
+    parts = PurePosixPath(path).parts
+    if (not parts or ":" in path or "\0" in path
+            or any(part in ("", ".", "..") for part in path.split("/"))
+            or not path.lower().endswith(".md")
+            or any(part in IGNORED_PARTS for part in parts)):
+        return False
+    if is_history_path(path):
+        return include_history
+    if match:
+        return parts[0] != "catalog"  # Generated projections are never payloads.
+    return is_default_index_path(path)
+
+
 def collect_indexable_markdown(
     root_dir: str | Path,
     *,
@@ -68,8 +98,8 @@ def collect_indexable_markdown(
 
     root = Path(root_dir).resolve()
     candidates: list[tuple[str, Path]] = []
-    for path in root.rglob("*.md"):
-        if not path.is_file():
+    for path in root.rglob("*"):
+        if path.suffix.lower() != ".md" or not path.is_file():
             continue
         relative = relative_posix(path, root)
         parts = Path(relative).parts

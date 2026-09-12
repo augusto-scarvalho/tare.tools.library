@@ -4,6 +4,9 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+- Discover `.md`, `.MD` and mixed-case Markdown consistently in lexical search and incremental indexing, preserving content deduplication and history exclusions.
+- Filter existing vector rows by corpus scope before scoring/top-k so history and generated projections cannot enter normal semantic/RAG results. Preserve canonical owner references, lexical fallback labels and stored vectors; explicit history queries remain available. Repair the offline vector CLI's undefined provenance argument.
+
 - Match document identifiers at filename boundaries and label missing-index search results as lexical fallback, preserving keyword scores without claiming cosine similarity or endpoint failure.
 
 - Discontinue the Library website and GitHub Pages projection: remove the builder, site assets, validators and preview CI while retaining public indexing, research documents and translation provenance.
