@@ -30,7 +30,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.inference.local_client import LocalInferenceClient, LocalInferenceConfig
-from tools.document_scope import collect_indexable_markdown
+from tools.document_scope import collect_indexable_markdown, is_retrievable_document_path
 
 DEFAULT_NAMESPACE = LocalInferenceConfig().embedding_model  # one vector namespace per model family
 
@@ -206,7 +206,9 @@ class LibraryVectorDB:
         provenance: Optional[str] = "real",
         model_name: Optional[str] = DEFAULT_NAMESPACE,
         allow_any_namespace: bool = False,
+        include_history: bool = False,
     ) -> List[VectorSearchResult]:
+        """Rank eligible corpus rows before top_k; history is explicit opt-in."""
         results = []
         q_dim = len(query_embedding)
         conn = sqlite3.connect(self.db_path, timeout=5.0)
@@ -218,6 +220,8 @@ class LibraryVectorDB:
                 cursor.execute("SELECT doc_id, relative_path, chunk_index, chunk_text, dimensions, provenance, model_name, embedding_json FROM document_chunks WHERE dimensions = ? AND provenance = ? AND model_name = ?", (q_dim, provenance, model_name))
             for row in cursor.fetchall():
                 doc_id, rel_path, c_idx, text, dim, prov, mod_name, emb_json = row
+                if not is_retrievable_document_path(rel_path, include_history=include_history):
+                    continue
                 emb = json.loads(emb_json)
                 sim = cosine_similarity(query_embedding, emb)
                 results.append(VectorSearchResult(
@@ -618,9 +622,10 @@ def main() -> int:
         else:
             q_digest = hashlib.sha256(args.query.encode("utf-8")).digest()
             q_emb = [float(b) / 255.0 for b in q_digest]
-            prov = args.provenance or "pseudo"
+            prov = "pseudo"
 
-        results = db.search(q_emb, top_k=args.top_k, provenance=prov, model_name=args.model)
+        results = db.search(q_emb, top_k=args.top_k, provenance=prov, model_name=args.model,
+                            include_history=args.include_history)
         print(f"\n[RESULTS] Found {len(results)} matches in namespace ({args.model}, {prov}):")
         for i, res in enumerate(results, 1):
             print(f"{i}. [{res.score:.4f}] {res.doc_id} ({res.relative_path}#chunk-{res.chunk_index})")
