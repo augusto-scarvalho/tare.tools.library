@@ -77,7 +77,7 @@ flowchart TD
     end
 
     subgraph Execution ["4. Substrato de Execução a Custo Zero ($0)"]
-        ZeroCost["⚡ Triplo Substrato de Custo Zero<br/>• Local llama.cpp / slop @ aaaaa (RTX 3090): Bookkeeper & MCP 24/7<br/>• Gemini API Free Tier (1M+ tokens): Raciocínio Profundo & Síntese<br/>• NVIDIA Build NIMs: Embeddings Densos & Reranking"]
+        ZeroCost["⚡ Triplo Substrato de Custo Zero<br/>• Servidor local llama.cpp / slop configurado: Bookkeeper & MCP<br/>• Gemini API Free Tier (1M+ tokens): Raciocínio Profundo & Síntese<br/>• NVIDIA Build NIMs: Embeddings Densos & Reranking"]
     end
 
     Library -->|Requisitos & Critérios de Aceitação| Backlog
@@ -123,7 +123,40 @@ flowchart TD
 ## Substrato de Execução a Custo Zero ($0)
 
 As rotinas de curadoria, deduplicação, resumos e embeddings operam sem custo financeiro em 3 camadas:
-* **Substrato Local (`llama.cpp` / `nomic-embed-text` @ nó `aaaaa` / RTX 3090 24GB):** Execução 24/7 de Bookkeeper, cálculo de embeddings locais e suítes de testes automatizados.
+* **Substrato Local (servidor `llama.cpp` configurado):** Embeddings locais, Bookkeeper e testes automatizados na máquina de computação do operador.
+
+### Configure sua instalação
+
+Endereços de máquinas, usuários SSH e caminhos pertencem ao ambiente do operador.
+O código distribuído usa endpoints locais e a seleção de usuário do próprio SSH.
+
+| Variável | Finalidade | Padrão |
+| --- | --- | --- |
+| `LOCAL_LLM_ENDPOINT` / `SLOP_ENDPOINT` | Servidor de chat local, sem `/v1` | `http://localhost:8080` |
+| `LOCAL_EMBED_ENDPOINT` / `SLOP_EMBED_ENDPOINT` | Servidor de embeddings | `http://localhost:8081`; acompanha o chat explicitamente configurado quando omitida |
+| `TARE_MESH_HOST` | Máquina ou alias SSH de computação | `localhost` |
+| `TARE_MESH_USER` | Usuário SSH | Configuração do SSH |
+| `TARE_MESH_REMOTE_ROOT` | Checkout da Library na máquina de computação | `~/src/tare.tools.library` |
+| `TARE_MESH_WSL_DISTRO` | Distribuição WSL num host SSH Windows | Não definida; shell Linux remoto |
+| `TARE_THIN_CLIENT_HOSTNAMES` | Nomes de laptops separados por vírgulas, incluindo laptops com CUDA | Máquinas sem CUDA já são protegidas |
+| `TARE_MESH_DAEMON_START` | Comando para iniciar um servidor e modelo já existentes | Obrigatória para `mesh daemon start` |
+| `TARE_OS_ROOT` | Checkout local do OS para os comandos oficiais da mesa redonda | Defina antes de usar esses comandos |
+
+Exemplo de configuração da sua máquina no PowerShell:
+
+```powershell
+$env:TARE_MESH_HOST = "compute-node"
+$env:TARE_MESH_REMOTE_ROOT = "/srv/tare.tools.library"
+# Para um host SSH Windows, selecione também a distribuição WSL instalada:
+$env:TARE_MESH_WSL_DISTRO = "Ubuntu-24.04"
+python -m tools.mesh.mesh sync
+```
+
+Argumentos do construtor prevalecem sobre o ambiente da malha. A sincronização envia
+um ZIP sem compressão pelo SSH diretamente ao checkout remoto, sem presumir uma
+pasta de usuário Windows. A busca remota usa a mesma configuração SSH. Os endpoints
+locais de chat e embeddings também são resolvidos pela descoberta de capacidades,
+pelos perfis BYOC e pelo fallback de governança. Essa configuração não baixa modelos.
 * **Google Gemini API (Free Tier — 1M+ tokens):** Ingestão e síntese de documentos técnicos longos, deliberações de governança e consenso multi-modelo.
 * **NVIDIA Build API (Cota NIMs Gratuita):** Inferência complementar de alta velocidade e reranking semântico.
 

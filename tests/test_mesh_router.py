@@ -9,8 +9,8 @@ from tools.mesh.router import LatencyAwareRouter, QueryRouteResult
 class TestLatencyAwareRouter(unittest.TestCase):
     def setUp(self):
         self.router = LatencyAwareRouter(
-            substrate_host="100.107.245.30",
-            substrate_user="augus",
+            substrate_host="198.51.100.20",
+            substrate_user="operator",
             latency_threshold_ms=150.0,
         )
 

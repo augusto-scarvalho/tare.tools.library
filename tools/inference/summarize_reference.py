@@ -1,6 +1,6 @@
 """Reference Summarizer & Ontology Extractor for tare.tools.library.
 
-Uses local LLM inference (Qwen 2.5/3.x 32B on node aaaaa) to analyze papers, ADRs,
+Uses configured local LLM inference to analyze papers, ADRs,
 and reference documents, generating executive summaries and ontology cross-links with zero cloud spend.
 """
 
@@ -99,7 +99,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Summarize references using local LLM")
     parser.add_argument("file", help="Path to markdown document to summarize")
     parser.add_argument("--json", action="store_true", help="Output raw JSON")
-    parser.add_argument("--endpoint", help="Custom local LLM endpoint (e.g. http://100.107.245.30:8080)")
+    parser.add_argument("--endpoint", help="Custom local LLM endpoint (e.g. http://localhost:8080)")
 
     args = parser.parse_args()
     target_path = Path(args.file)

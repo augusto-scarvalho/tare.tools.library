@@ -1,4 +1,4 @@
-"""Python Cross-Platform Launcher for Local Inference Substrate (Node aaaaa / RTX 3090)."""
+"""Python Cross-Platform Launcher for the Local Inference Substrate."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ import sys
 import time
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
@@ -48,7 +48,7 @@ def start_server(
     ]
 
     print("================================================================================")
-    print(f" 🚀 LAUNCHING LOCAL INFERENCE SUBSTRATE ON NODE aaaaa")
+    print(" 🚀 LAUNCHING LOCAL INFERENCE SUBSTRATE")
     print(f"  Command: {' '.join(cmd)}")
     print("================================================================================")
 
@@ -76,7 +76,7 @@ def start_server(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Launcher for slop.cpp on Node aaaaa")
+    parser = argparse.ArgumentParser(description="Launcher for a local slop.cpp server")
     parser.add_argument("--model", "-m", default="/models/qwen2.5-coder-32b-instruct-q4_k_m.gguf", help="Path to GGUF model")
     parser.add_argument("--port", "-p", type=int, default=8080, help="Port to listen on")
     parser.add_argument("--host", default="0.0.0.0", help="Host interface")

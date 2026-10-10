@@ -1,7 +1,7 @@
 """Local Neural Translation Engine for tare.tools.library.
 
 Translates English architectural references, papers, and specs to Brazilian Portuguese (pt-BR)
-using local LLM inference (Qwen 2.5/3.x 32B on node aaaaa) with zero cloud spend.
+using configured local LLM inference with zero cloud spend.
 """
 
 from __future__ import annotations
@@ -54,7 +54,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Translate technical markdown via local LLM")
     parser.add_argument("file", help="Path to input markdown file to translate")
     parser.add_argument("--output", "-o", help="Optional output file path (default: <file>.pt-BR.md)")
-    parser.add_argument("--endpoint", help="Custom local LLM endpoint (e.g. http://100.107.245.30:8080)")
+    parser.add_argument("--endpoint", help="Custom local LLM endpoint (e.g. http://localhost:8080)")
 
     args = parser.parse_args()
     input_path = Path(args.file)

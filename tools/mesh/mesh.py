@@ -9,16 +9,24 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shlex
 import shutil
 import socket
 import subprocess
 import sys
 import time
+import tempfile
 import urllib.request
 import zipfile
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.mesh.config import project_command, remote_shell, ssh_target
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -26,8 +34,8 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 
-DEFAULT_SUBSTRATE_HOST = "100.107.245.30"
-DEFAULT_SUBSTRATE_USER = "augus"
+DEFAULT_SUBSTRATE_HOST = "localhost"
+DEFAULT_SUBSTRATE_USER = None
 
 
 @dataclass
@@ -59,11 +67,29 @@ class MeshClient:
 
     def __init__(
         self,
-        substrate_host: str = DEFAULT_SUBSTRATE_HOST,
-        substrate_user: str = DEFAULT_SUBSTRATE_USER,
+        substrate_host: Optional[str] = None,
+        substrate_user: Optional[str] = None,
+        *,
+        remote_root: Optional[str] = None,
+        wsl_distro: Optional[str] = None,
     ):
-        self.substrate_host = substrate_host
-        self.substrate_user = substrate_user
+        self.substrate_host = substrate_host or os.environ.get("TARE_MESH_HOST") or DEFAULT_SUBSTRATE_HOST
+        self.substrate_user = substrate_user if substrate_user is not None else os.environ.get("TARE_MESH_USER") or DEFAULT_SUBSTRATE_USER
+        self.remote_root = remote_root or os.environ.get("TARE_MESH_REMOTE_ROOT")
+        self.wsl_distro = wsl_distro if wsl_distro is not None else os.environ.get("TARE_MESH_WSL_DISTRO")
+
+    def _host(self, node):
+        return self.substrate_host if node in (None, "substrate") else node
+
+    def project_command(self, command):
+        return project_command(command, self.remote_root)
+
+    def _ssh_command(self, command, node=None):
+        return [
+            "ssh", "-o", "ConnectTimeout=5", "-o", "ServerAliveInterval=15",
+            ssh_target(self._host(node), self.substrate_user),
+            remote_shell(command, self.wsl_distro),
+        ]
 
     def status(self) -> List[MeshNodeInfo]:
         """Discover active nodes in the Tailscale mesh and check their health."""
@@ -92,7 +118,7 @@ class MeshClient:
                 if ip and ip != self_node.get("TailscaleIPs", [""])[0]:
                     node_info.ping_ms = self._measure_ping(ip)
 
-                if ip == self.substrate_host or h == "aaaaa":
+                if ip == self.substrate_host or h == self.substrate_host:
                     node_info.chat_port_online = self._probe_port(ip or "127.0.0.1", 8080)
                     node_info.embed_port_online = self._probe_port(ip or "127.0.0.1", 8081)
 
@@ -101,9 +127,9 @@ class MeshClient:
             # Fallback if tailscale CLI is not in path
             nodes.append(
                 MeshNodeInfo(
-                    hostname="aaaaa",
+                    hostname=self.substrate_host,
                     ip=self.substrate_host,
-                    os="windows/wsl2",
+                    os="windows/wsl2" if self.wsl_distro else "unknown",
                     is_active=True,
                     ping_ms=self._measure_ping(self.substrate_host),
                     chat_port_online=self._probe_port(self.substrate_host, 8080),
@@ -112,13 +138,13 @@ class MeshClient:
             )
         return nodes
 
-    def gpu(self, node: str = "aaaaa") -> Optional[GpuTelemetry]:
-        """Read real-time GPU telemetry from the remote RTX 3090 substrate."""
-        host = self.substrate_host if node == "aaaaa" else node
+    def gpu(self, node: Optional[str] = None) -> Optional[GpuTelemetry]:
+        """Read real-time GPU telemetry from the selected substrate."""
+        host = self._host(node)
         cmd = [
             "ssh",
             "-o", "ConnectTimeout=3",
-            f"{self.substrate_user}@{host}",
+            ssh_target(host, self.substrate_user),
             "nvidia-smi --query-gpu=name,temperature.gpu,fan.speed,power.draw,power.limit,utilization.gpu,memory.used,memory.total --format=csv,noheader,nounits",
         ]
         try:
@@ -143,19 +169,12 @@ class MeshClient:
     def exec(
         self,
         command: str,
-        node: str = "aaaaa",
+        node: Optional[str] = None,
         stream: bool = True,
         timeout_seconds: int = 600,
     ) -> int:
-        """Execute a command natively inside WSL2 on the remote heavy substrate."""
-        host = self.substrate_host if node == "aaaaa" else node
-        ssh_cmd = [
-            "ssh",
-            "-o", "ConnectTimeout=5",
-            "-o", "ServerAliveInterval=15",
-            f"{self.substrate_user}@{host}",
-            f"wsl -d Ubuntu-24.04 -- bash -lc '{command}'",
-        ]
+        """Execute a command on the selected SSH host, optionally through WSL."""
+        ssh_cmd = self._ssh_command(command, node)
         start_t = time.time()
         try:
             if stream:
@@ -168,7 +187,7 @@ class MeshClient:
                     errors="replace",
                 )
                 for line in proc.stdout:
-                    print(f"  [{node}] {line.strip()}", flush=True)
+                    print(f"  [{self._host(node)}] {line.strip()}", flush=True)
                 proc.wait(timeout=timeout_seconds)
                 rc = proc.returncode
             else:
@@ -181,53 +200,53 @@ class MeshClient:
 
     def sync(
         self,
-        target_node: str = "aaaaa",
+        target_node: Optional[str] = None,
         source_dir: str = ".",
     ) -> bool:
-        """Instant zero-CPU zip-stream sync of code/specs to remote substrate."""
+        """Stream an uncompressed snapshot into the configured remote checkout."""
         root = Path(source_dir).resolve()
-        host = self.substrate_host if target_node == "aaaaa" else target_node
-        temp_zip = Path(os.environ.get("TEMP", ".")) / "mesh_repo_sync.zip"
-
+        host = self._host(target_node)
         allowed_exts = {".md", ".py", ".json", ".yml", ".yaml", ".txt", ".toml", ".sh", ".rst", ".html", ".css", ".js", ".ts"}
-        ignored_parts = {".git", "__pycache__", ".pytest_cache", "site", "_site", ".venv", "venv", ".idea", ".vscode", "source-bundles", "_archives"}
-
-        # Use ZIP_STORED for 0% CPU compression overhead
-        with zipfile.ZipFile(temp_zip, "w", compression=zipfile.ZIP_STORED) as zf:
-            for f in root.rglob("*"):
-                if any(p in f.parts for p in ignored_parts) or f.suffix.lower() not in allowed_exts:
-                    continue
-                if f.is_file() and f.stat().st_size < 2 * 1024 * 1024:
-                    zf.write(f, str(f.relative_to(root)).replace("\\", "/"))
-
-        size_kb = temp_zip.stat().st_size / 1024
-        print(f"[MESH SYNC] Sending {size_kb:.1f} KB to {target_node}...", flush=True)
+        ignored_parts = {".git", "__pycache__", ".pytest_cache", "site", "_site", ".venv", "venv", ".idea", ".vscode", "source-bundles", "_archives", ".private", ".internal", ".reconciliation", ".credentials", ".secrets", ".ssh", ".aws"}
+        receiver = "import io,sys,zipfile; from pathlib import Path; "
+        receiver += (f"root=Path({self.remote_root!r}).expanduser()" if self.remote_root else
+                     "root=Path.home()/'src'/'tare.tools.library'")
+        receiver += "; root.mkdir(parents=True,exist_ok=True); zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())).extractall(root)"
+        remote_cmd = "python3 -c " + shlex.quote(receiver)
         try:
-            subprocess.run(["scp", "-q", str(temp_zip), f"{self.substrate_user}@{host}:mesh_repo_sync.zip"], check=True)
-            remote_cmd = (
-                "mkdir -p /home/augus/src/tare.tools.library; "
-                "python3 -m zipfile -e /mnt/c/Users/augus/mesh_repo_sync.zip /home/augus/src/tare.tools.library; "
-                "rm -f /mnt/c/Users/augus/mesh_repo_sync.zip"
-            )
-            subprocess.run(["ssh", "-q", f"{self.substrate_user}@{host}", f"wsl -d Ubuntu-24.04 -- bash -c '{remote_cmd}'"], check=True)
-            if temp_zip.exists():
-                temp_zip.unlink()
-            print("[OK] Sincronização ultraleve concluída (0% CPU no laptop)!", flush=True)
+            with tempfile.TemporaryFile() as archive:
+                with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_STORED) as zf:
+                    for file in root.rglob("*"):
+                        relative = file.relative_to(root)
+                        if any(part in ignored_parts for part in relative.parts) or file.suffix.lower() not in allowed_exts:
+                            continue
+                        if file.name.startswith("credentials.local.") or file.name.endswith(".local.json"):
+                            continue
+                        if file.is_file() and file.stat().st_size < 2 * 1024 * 1024:
+                            zf.write(file, relative.as_posix())
+                size_kb = archive.tell() / 1024
+                archive.seek(0)
+                print(f"[MESH SYNC] Sending {size_kb:.1f} KB to {host}...", flush=True)
+                subprocess.run(self._ssh_command(remote_cmd, target_node), stdin=archive, check=True)
+            print("[OK] Sincronização concluída!", flush=True)
             return True
         except Exception as e:
             print(f"[ERROR] Sync failed: {e}", file=sys.stderr)
             return False
 
-    def daemon(self, action: str = "status", node: str = "aaaaa") -> Dict[str, Any]:
+    def daemon(self, action: str = "status", node: Optional[str] = None) -> Dict[str, Any]:
         """Manage or inspect llama-server neural inference daemons."""
-        host = self.substrate_host if node == "aaaaa" else node
+        host = self._host(node)
         if action == "status":
             chat_ok = self._probe_port(host, 8080)
             embed_ok = self._probe_port(host, 8081)
             return {"chat_server_8080": "ONLINE" if chat_ok else "OFFLINE", "embed_server_8081": "ONLINE" if embed_ok else "OFFLINE"}
         elif action == "start":
-            cmd = "nohup /home/augus/src/llama.cpp/build/bin/llama-server -m /home/augus/models/embedding/nomic-embed-text-v1.5.Q8_0.gguf --host 0.0.0.0 --port 8081 --embedding -ngl 99 -c 8192 -np 16 -b 4096 -ub 2048 --cont-batching > /home/augus/llama-embed.log 2>&1 &"
-            self.exec(cmd, node=node, stream=False)
+            cmd = os.environ.get("TARE_MESH_DAEMON_START")
+            if not cmd:
+                return {"error": "Set TARE_MESH_DAEMON_START to the server command, including the existing model path."}
+            if self.exec(cmd, node=node, stream=False):
+                return {"error": "The inference server command failed."}
             time.sleep(2)
             return self.daemon("status", node=node)
         elif action == "stop":
@@ -253,13 +272,13 @@ class MeshClient:
 
         # 2. SSH
         try:
-            out = subprocess.check_output(["ssh", "-o", "ConnectTimeout=3", f"{self.substrate_user}@{self.substrate_host}", "hostname"], timeout=4)
+            out = subprocess.check_output(["ssh", "-o", "ConnectTimeout=3", ssh_target(self.substrate_host, self.substrate_user), "hostname"], timeout=4)
             report["ssh_auth"] = (out.decode().strip() != "")
         except Exception:
             report["ssh_auth"] = False
 
         # 3. GPU
-        gpu_stat = self.gpu("aaaaa")
+        gpu_stat = self.gpu()
         report["gpu_detected"] = (gpu_stat is not None)
         if gpu_stat:
             report["gpu_details"] = asdict(gpu_stat)
@@ -296,24 +315,24 @@ def main() -> int:
     p_status.add_argument("--json", action="store_true", help="Output raw JSON")
 
     # gpu
-    p_gpu = subparsers.add_parser("gpu", help="Show real-time RTX 3090 GPU metrics")
-    p_gpu.add_argument("--node", default="aaaaa", help="Target node")
+    p_gpu = subparsers.add_parser("gpu", help="Show real-time GPU metrics")
+    p_gpu.add_argument("--node", help="Target node (default: configured substrate)")
     p_gpu.add_argument("--json", action="store_true", help="Output raw JSON")
 
     # sync
     p_sync = subparsers.add_parser("sync", help="Fast sync repository to remote node")
-    p_sync.add_argument("target", nargs="?", default="aaaaa", help="Target node (default: aaaaa)")
+    p_sync.add_argument("target", nargs="?", help="Target node (default: configured substrate)")
     p_sync.add_argument("--dir", default=".", help="Source directory")
 
     # exec
-    p_exec = subparsers.add_parser("exec", help="Run remote command in WSL2 on node")
-    p_exec.add_argument("target", help="Target node (e.g. aaaaa)")
+    p_exec = subparsers.add_parser("exec", help="Run a remote command over SSH")
+    p_exec.add_argument("target", help="Target hostname or substrate")
     p_exec.add_argument("cmd", help="Command to run")
 
     # daemon
     p_daemon = subparsers.add_parser("daemon", help="Manage llama-server inference daemons")
     p_daemon.add_argument("action", choices=["status", "start", "stop"], default="status", nargs="?")
-    p_daemon.add_argument("--node", default="aaaaa", help="Target node")
+    p_daemon.add_argument("--node", help="Target node (default: configured substrate)")
     p_daemon.add_argument("--json", action="store_true", help="Output raw JSON")
 
     # doctor
@@ -370,7 +389,7 @@ def main() -> int:
     elif args.command == "daemon":
         res = client.daemon(action=args.action, node=args.node)
         print(json.dumps(res, indent=2))
-        return 0
+        return 1 if "error" in res else 0
 
     elif args.command == "doctor":
         doc = client.doctor()

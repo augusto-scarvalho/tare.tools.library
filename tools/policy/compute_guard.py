@@ -1,8 +1,8 @@
 """Compute Guard & Thin-Client Protection Policy Engine (ADR-053).
 
 Prevents heavy batch indexing, vector serialization, and mutation thrashing on
-lightweight developer machines (e.g. acer-augusto) by automatically intercepting
-heavy workloads and routing them to Node aaaaa (RTX 3090) over Tailscale mesh.
+lightweight developer machines by automatically intercepting
+heavy workloads and routing them to the configured compute substrate.
 """
 
 from __future__ import annotations
@@ -16,11 +16,6 @@ from dataclasses import dataclass
 from typing import Optional, Tuple
 
 
-THIN_CLIENT_HOSTNAMES = {"acer-augusto", "acer", "augusto-laptop"}
-HEAVY_SUBSTRATE_HOST = "100.107.245.30"
-HEAVY_SUBSTRATE_USER = "augus"
-
-
 @dataclass
 class ComputeProfile:
     hostname: str
@@ -32,7 +27,8 @@ class ComputeProfile:
 def detect_compute_profile() -> ComputeProfile:
     """Analyze current host hardware and policy profile."""
     hostname = socket.gethostname().lower()
-    is_thin = hostname in THIN_CLIENT_HOSTNAMES
+    thin_clients = {name.strip().lower() for name in os.environ.get("TARE_THIN_CLIENT_HOSTNAMES", "").split(",") if name.strip()}
+    is_thin = hostname in thin_clients
     
     has_cuda = False
     try:
@@ -45,7 +41,7 @@ def detect_compute_profile() -> ComputeProfile:
         # Fallback heuristic: If no dedicated GPU is detected, classify as thin client
         is_thin = True
 
-    action = "OFFLOAD_TO_AAAAA" if is_thin and not has_cuda else "LOCAL_DIRECT"
+    action = "OFFLOAD_TO_SUBSTRATE" if is_thin else "LOCAL_DIRECT"
     return ComputeProfile(
         hostname=hostname,
         is_thin_client=is_thin,
@@ -73,7 +69,7 @@ def assert_compute_guard(
         msg = (
             f"🛡️ [ADR-053 COMPUTE GUARD] Heavy task '{task_name}' ({item_count} items > threshold {threshold}) "
             f"blocked on Thin-Client '{profile.hostname}'.\n"
-            f"👉 Auto-dispatching workload to Heavy Substrate Node 'aaaaa' (100.107.245.30 / RTX 3090)..."
+            f"👉 Auto-dispatching workload to the configured compute substrate (TARE_MESH_HOST)."
         )
         return False, msg
 

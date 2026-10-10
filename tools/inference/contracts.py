@@ -1,4 +1,4 @@
-"""Operational Contract and Canonical Response Schemas for Node aaaaa Inference Substrate.
+"""Operational Contract and Canonical Response Schemas for the Inference Substrate.
 
 Defines the formal API specifications and validation primitives for llama-server / slop.cpp
 runtimes running on the dedicated RTX 3090 inference node (ADR-048 / CASE-2026-08-19).
@@ -79,13 +79,13 @@ CANONICAL_FIXTURE_MODELS: Dict[str, Any] = {
             "id": "qwen2.5-coder-32b-instruct",
             "object": "model",
             "created": 1724000000,
-            "owned_by": "local-aaaaa",
+            "owned_by": "local-substrate",
         },
         {
             "id": "bge-large-en-v1.5",
             "object": "model",
             "created": 1724000000,
-            "owned_by": "local-aaaaa",
+            "owned_by": "local-substrate",
         },
     ],
 }

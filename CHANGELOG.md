@@ -4,6 +4,8 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+- Replace operator-specific SSH hosts, usernames, checkout paths and WSL distribution defaults with environment configuration. Stream sync archives into the remote user's configured checkout, quote remote queries, and preserve thin-client offload protection. Local inference, BYOC routing, governance fallback and capability discovery use loopback defaults with explicit endpoint overrides; immutable research and provenance remain unchanged.
+
 - Discover `.md`, `.MD` and mixed-case Markdown consistently in lexical search and incremental indexing, preserving content deduplication and history exclusions.
 - Filter existing vector rows by corpus scope before scoring/top-k so history and generated projections cannot enter normal semantic/RAG results. Preserve canonical owner references, lexical fallback labels and stored vectors; explicit history queries remain available. Repair the offline vector CLI's undefined provenance argument.
 
