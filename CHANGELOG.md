@@ -4,6 +4,11 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+- Replace historical operational source ZIP/bundle payloads in the active checkout
+  with immutable Git references and their exact SHA-256 identities. Snapshot
+  verification reads those bytes without extracting or executing the frozen harness;
+  Library-owned research and provenance remain in the adopted corpus.
+
 - Replace operator-specific SSH hosts, usernames, checkout paths and WSL distribution defaults with environment configuration. Stream sync archives into the remote user's configured checkout, quote remote queries, and preserve thin-client offload protection. Local inference, BYOC routing, governance fallback and capability discovery use loopback defaults with explicit endpoint overrides; immutable research and provenance remain unchanged.
 
 - Discover `.md`, `.MD` and mixed-case Markdown consistently in lexical search and incremental indexing, preserving content deduplication and history exclusions.

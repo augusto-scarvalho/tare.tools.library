@@ -32,4 +32,10 @@ of the ZIP as an exact historical content snapshot.
 - `BASELINE.json` — machine-readable baseline metadata.
 - `TREE_SHA256SUMS.txt` — exact per-file content identities.
 - `RELEASE_INTEGRITY_VERIFICATION.json` — preserved verification failure.
-- Source archive: `../../../corpus/source-bundles/universal-agent-harness-prototype-main-2026-08-05.zip`
+- Source archive: [immutable archived ZIP](https://github.com/augusto-scarvalho/tare.tools.library/blob/0e43f188207e8c956a46a1b65847084856fa7c85/catalog/corpus/source-bundles/universal-agent-harness-prototype-main-2026-08-05.zip).
+
+## Storage and replay boundary
+
+The operational ZIP and synthetic Git bundle are no longer part of the active checkout. Their exact original bytes remain in the immutable Library revision recorded in [the operational archive registry](../../../../catalog/OPERATIONAL_ARCHIVES.json), with their original SHA-256 identities and legacy paths. The metadata above describes the historical baseline, not the current installation.
+
+`python tools/verify_canonical_snapshot.py` validates the archived bytes and content hashes directly from local Git objects. It does not extract, clone, import or execute the frozen harness, and never fetches. A shallow clone must explicitly acquire the pinned commit before verification. Research documents, original chats, provenance receipts and their default retrieval scope are preserved.
