@@ -27,7 +27,7 @@ O repositório `tare.tools.library` acumulou uma grave dívida técnica de layou
 O repositório unifica sua árvore nos seguintes diretórios de primeiro nível:
 ```
 tare.tools.library/
-├── cases/              # Processos e deliberações da Mesa Redonda (RFCs 001 a 008)
+├── cases/              # Custódia local privada e ignorada; referências em docs/RECORDS_ARCHIVE.json
 ├── catalog/            # Catálogo mestre, registros de capabilities e ontologia
 ├── docs/               # Documentação Canônica Ativa
 │   ├── adr/            # ADRs 001 a 067
@@ -46,7 +46,7 @@ tare.tools.library/
 
 ### 2.2 Instituição do `docs/archive/` (Categoria Coringa Controlada)
 - Destinado a snapshots consolidados de transições passadas (`refresh-editions/`), artefatos de staging formalmente arquivados (`incoming/`) e estudos de referência descontinuados.
-- **Invariante de Frugalidade:** Permanece estritamente proibido o uso de `docs/archive/` como depósito de transcrições de chat, dumps brutos de logs ou notas confidenciais (estes pertencem exclusivamente ao Cofre Soberano no nó `aaaaa`).
+- **Invariante de Frugalidade:** Permanece estritamente proibido o uso de `docs/archive/` como depósito de transcrições de chat, dumps brutos de logs ou notas confidenciais (estes pertencem exclusivamente ao Cofre Soberano no nó configurado pelo operador).
 
 ### 2.3 Purga de Pastas Fantasmas
 - Todos os arquivos `.gitkeep` e subpastas vazias em `sources/`, `proposals/`, `research/00..19/` e `experiments/` foram eliminados permanentemente.

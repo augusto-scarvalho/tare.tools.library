@@ -4,6 +4,8 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+- Separate private round-table records and the question ledger from the distributed research corpus, preserve their original hash references, and remove normal-test dependence on local cases. Make maintained operator examples and historical source links portable without changing votes, outcomes or adopted research ownership.
+
 - Replace historical operational source ZIP/bundle payloads in the active checkout
   with immutable Git references and their exact SHA-256 identities. Snapshot
   verification reads those bytes without extracting or executing the frozen harness;

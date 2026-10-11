@@ -67,3 +67,7 @@ id_ed25519
 __pycache__/
 *.py[cod]
 *.egg-info/
+
+# Private records stay in local custody; see docs/RECORDS_ARCHIVE.json.
+/cases/
+/docs/ARCHITECTURAL_QA_LEDGER.md

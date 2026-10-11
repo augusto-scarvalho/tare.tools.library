@@ -4,7 +4,7 @@
 - **Data de Execução:** YYYY-MM-DD
 - **Executor:** [Nome do Operador ou Agente]
 - **Commit / Versão do Código:** `@ <hash-ou-branch>`
-- **Hardware / Substrato:** Ex: RTX 3090 @ `aaaaa` (24GB VRAM) / Gemini Flash Free Tier / NVIDIA NIMs
+- **Hardware / Substrato:** Ex: GPU configurada pelo operador (24GB VRAM) / Gemini Flash Free Tier / NVIDIA NIMs
 
 ---
 

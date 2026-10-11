@@ -5,7 +5,7 @@
 - **Autores:** Augusto & Antigravity (Mediador Independente)
 - **Bancada de Peer Review Tripartite:** Google Chair (`Gemini 3.7 Flash High`), Anthropic Chair (`Fable 5 High`), OpenAI Chair (`GPT Sol 5.6 High`)
 - **Bounded Contexts:** `Harness Architecture`, `Control Plane`, `Governance / Audit`, `Validation / Assurance`, `Reliability`, `Runtime / Model Inference`, `Identity / Authority`.
-- **Genealogia & Proveniência:** Derivado do **ADR-042** ([`docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md`](file:///C:/projects/tare-tools-relay/docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md)), ratificado sob o protocolo de deliberação tripartite `RT-ADR-042-PROD` (hash SHA-256 e recibos criptográficos imutáveis).
+- **Genealogia & Proveniência:** Derivado do **ADR-042** ([`docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/28ebd60fcd51ecc7316d6850057d068078545eaa/docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md)), ratificado sob o protocolo de deliberação tripartite `RT-ADR-042-PROD` (hash SHA-256 e recibos criptográficos imutáveis).
 - **Relação com Material Histórico:** Este documento sintetiza e formaliza a transição de estado da North Star do tare.tools, superando a hipótese inicial de acoplamento em núcleo monolítico.
 - **Classificação de Autoridade:** `RESEARCH / RATIFIED STUDY` (Fundamentação teórica e desenho estrutural para o Agent OS).
 
@@ -84,7 +84,7 @@ Este estudo formaliza a **refutação analítica e empírica da hipótese do nú
 - **Prevenção Atômica de Ciclos:** Validação de aciclicidade $G' = (V, E \cup \{e\})$ e gravação de aresta encapsuladas em uma única operação *check-and-write* sob mutex exclusivo.
 
 ### 3.4. Compute Plane $\mathcal{K}$ (Workers Descartáveis & Cadeiras Frontier)
-- **Definição:** Unidades elásticas de computação cognitiva (Desktop `aaaaa`, Notebook `Acer`, instâncias efêmeras).
+- **Definição:** Unidades elásticas de computação cognitiva (desktop de computação, cliente leve, instâncias efêmeras).
 - **Tratamento de Saída:** Todas as mutações de código, planos ou respostas geradas por LLMs são tipadas como *dados não confiáveis* até atestação mecânica formal.
 - **Revogação Instantânea:** Se a conexão de um worker for interrompida, seu lease expira e seu `lease_epoch` é revogado sem impacto residual no estado canônico.
 
@@ -170,11 +170,11 @@ A publicação deste estudo e a ratificação do **ADR-042** completam a evoluç
 
 ## 8. Referências & Proveniência Canônica
 
-1. **ADR-042 Canônico:** [`docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md`](file:///C:/projects/tare-tools-relay/docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md) (Commit `28ebd60`).
-2. **Artefato de Decisão da Mesa Redonda:** [`relay/round_tables/RT-ADR-042-PROD/decision/DECISION.md`](file:///C:/projects/tare-tools-relay/relay/round_tables/RT-ADR-042-PROD/decision/DECISION.md).
-3. **Motor de Consenso & Mesa Redonda:** [`relay/round_table_engine.py`](file:///C:/projects/tare-tools-relay/relay/round_table_engine.py).
+1. **ADR-042 Canônico:** [`docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/28ebd60fcd51ecc7316d6850057d068078545eaa/docs/DECOUPLED_MICROKERNEL_ARCHITECTURE.md) (Commit `28ebd60`).
+2. **Artefato de Decisão da Mesa Redonda:** `relay/round_tables/RT-ADR-042-PROD/decision/DECISION.md` (referência histórica de custódia; o arquivo não está disponível no commit original verificado).
+3. **Motor de Consenso & Mesa Redonda:** [`relay/round_table_engine.py`](https://github.com/augusto-scarvalho/tare.tools.os/blob/28ebd60fcd51ecc7316d6850057d068078545eaa/relay/round_table_engine.py).
 4. **Relatórios de Auditoria Adversarial Cruzada:**
-   - OpenAI Chair: [`docs/CODEX_ADVERSARIAL_AUDIT_REPORT.md`](file:///C:/projects/tare-tools-relay/docs/CODEX_ADVERSARIAL_AUDIT_REPORT.md)
-   - Anthropic Chair: [`docs/CLAUDE_ADVERSARIAL_AUDIT_REPORT.md`](file:///C:/projects/tare-tools-relay/docs/CLAUDE_ADVERSARIAL_AUDIT_REPORT.md)
-   - Google Chair: [`docs/GEMINI_ADVERSARIAL_AUDIT_REPORT.md`](file:///C:/projects/tare-tools-relay/docs/GEMINI_ADVERSARIAL_AUDIT_REPORT.md)
-5. **Estudo Metodológico de Implementadores:** [`research/01_methodology-research-program/2026-08-13-bounded-implementer-profile-longitudinal-study.md`](file:///C:/projects/tare.tools.research/research/01_methodology-research-program/2026-08-13-bounded-implementer-profile-longitudinal-study.md).
+   - OpenAI Chair: [`docs/CODEX_ADVERSARIAL_AUDIT_REPORT.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/28ebd60fcd51ecc7316d6850057d068078545eaa/docs/CODEX_ADVERSARIAL_AUDIT_REPORT.md)
+   - Anthropic Chair: [`docs/CLAUDE_ADVERSARIAL_AUDIT_REPORT.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/28ebd60fcd51ecc7316d6850057d068078545eaa/docs/CLAUDE_ADVERSARIAL_AUDIT_REPORT.md)
+   - Google Chair: [`docs/GEMINI_ADVERSARIAL_AUDIT_REPORT.md`](https://github.com/augusto-scarvalho/tare.tools.os/blob/28ebd60fcd51ecc7316d6850057d068078545eaa/docs/GEMINI_ADVERSARIAL_AUDIT_REPORT.md)
+5. **Estudo Metodológico de Implementadores:** `research/01_methodology-research-program/2026-08-13-bounded-implementer-profile-longitudinal-study.md` (referência bibliográfica histórica; caminho local retirado).

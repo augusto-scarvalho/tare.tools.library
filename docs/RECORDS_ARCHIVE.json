@@ -1,0 +1,665 @@
+{
+  "schema": "tare.tools/private-records-reference/1",
+  "repository": "tare.tools.library",
+  "commit": "4e5ab1dd00745942a72fc869ddcc37fddfa96d6c",
+  "authority": "NONE",
+  "retention": "Private operational and historical records; original bytes remain in the pinned history. Ordinary source validation uses maintained code and bounded fixtures.",
+  "files": {
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/DECISION.md": {
+      "bytes": 2202,
+      "sha256": "321f2dd5710e6509471979af92b872d07ab085ed3d382d62bff335449824ce17",
+      "git_blob": "e1bfa7bf33d7075ad9ef26cfe3165f5a96e4df82"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/PROPOSAL.md": {
+      "bytes": 5330,
+      "sha256": "732d88202264d2aba71ad6cb4859dbd46ca75e83da842d2cddc78351cfe2123e",
+      "git_blob": "31728c840e230ec3f1e8ff17428f9cfff22499cc"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/case.json": {
+      "bytes": 37197,
+      "sha256": "64b6c77ca9af3c604473e3c7602ee1b9a9b27175cbf6e5aefdd36be750d76c42",
+      "git_blob": "6850cd09de345c240ccc17353891b6d93e6ca36f"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r001/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 2961,
+      "sha256": "01a7a27c2db43b229e8c93b1489e0b4cfe5dcd7bb193aee3ea11750514915176",
+      "git_blob": "ab21cd776511cde8148062c3b59053ffecc3b42c"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r001/dialectical_brief.json": {
+      "bytes": 3624,
+      "sha256": "39cc2ba0f4492a8a94de5ffb4686493f8419bb9c462f4f6e2f8c72f5bd01cf9d",
+      "git_blob": "acf8164cc1a1b4600b80377aaf5fc871eddf8918"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r001/seat_anthropic.json": {
+      "bytes": 3358,
+      "sha256": "e7d03ff91053a0aea52375aa0811cfa9a158945130bfafabcab95b412051da93",
+      "git_blob": "c68ebef3971118403912bac18b8b117d512c513e"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r001/seat_google.json": {
+      "bytes": 1742,
+      "sha256": "d2b06fef1d6168706067ff4d7edd8cebcacb556454dd0ce7bbd5dd3906f60142",
+      "git_blob": "8a15cf085a496263f2180beee5e99da597a8ad3f"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r001/seat_openai.json": {
+      "bytes": 3481,
+      "sha256": "2e72b9b1de64e7c33978805ca25f9d3a71e9532fe1119abc90a429dd6ebe89bf",
+      "git_blob": "2828142eb77f4c735c7d3cae88a525acffadb0f6"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r002/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 4024,
+      "sha256": "e8902094bafdce4c6c3a25ba02fd2c9613d8a1596226738b53fdceebec6c8433",
+      "git_blob": "6470ed15bb34acb1314fc9790638ecd0eebb1c56"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r002/dialectical_brief.json": {
+      "bytes": 4790,
+      "sha256": "e29e2d34c3afc59483ddd0aa754672383c9b3a4b58f1fad8abf20e42b198e770",
+      "git_blob": "ddbd4b9b05d591fb3a883b18023511228730c4aa"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r002/seat_anthropic.json": {
+      "bytes": 3427,
+      "sha256": "24bbad7a07277f9c318bcca87a9686d897b94ad95d012831fb5f955b70b2c02c",
+      "git_blob": "d08550d96c76d761ea44d84d193f85e5483f65f1"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r002/seat_google.json": {
+      "bytes": 2563,
+      "sha256": "972f44aa3e662abf5db06acf346545daddeb4f2355185618acb2a59f6f35b6fe",
+      "git_blob": "4b27ae330c3463f126e39087528342ab957240a2"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r002/seat_openai.json": {
+      "bytes": 2579,
+      "sha256": "1b44a2221d7b0f4a5e63792e938b522a27125cc0f1b867dd107359fbc4e2d9bd",
+      "git_blob": "f01b6548a439152695a776012ef9d99a16adc424"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r003/dialectical_brief.json": {
+      "bytes": 3628,
+      "sha256": "ddf6b61fa18a49e6a2cb72c4420a637e0f72ba821d7c48fc31b9b343a0728b17",
+      "git_blob": "fd262f134d568847d663fe94adb8c88c6e09e71e"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r003/seat_anthropic.json": {
+      "bytes": 173,
+      "sha256": "ad39455f2faf7cdc14bcca74a5e1110680d82d7150270f8274779c6a939f8e40",
+      "git_blob": "87722980d59be3a79cc7307be981b8259127f4e2"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r003/seat_google.json": {
+      "bytes": 2729,
+      "sha256": "3f724ec6f667ec375f44d7326aa345b86efcdeaa4aab51cae10d6654ef490142",
+      "git_blob": "af8dfaba2b13d2166ff1679926c6df1b1f2edf2e"
+    },
+    "cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/rounds/r003/seat_openai.json": {
+      "bytes": 2665,
+      "sha256": "c9bedb18558bd9f1d5b4823b8d26428c258608e2e31f9de98b206a278ee8906c",
+      "git_blob": "e1a2c0165a0b4dccffbe09bfcf2293a1902e20b6"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/DECISION.md": {
+      "bytes": 2892,
+      "sha256": "caf9a5d39e13f024d204626527f012e8545968b5130ced52a75d81684a662a54",
+      "git_blob": "c3f8edb8396594859e75430ba66014460e065ffe"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/PROPOSAL.md": {
+      "bytes": 3842,
+      "sha256": "94b464277981c4b2bd7175c66579558836e591a8931059a2773f55c7edaaea50",
+      "git_blob": "7aa9244ac49039607447685019e8225248366d12"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/case.json": {
+      "bytes": 32664,
+      "sha256": "3b66f3091af70afca49a0e9938ab3921d7894006d284d06df205d343e87dd0e0",
+      "git_blob": "abb00b697b6941987184bcdacf57a08dcd68ad3b"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r001/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 3309,
+      "sha256": "29e52ace43994191400ba781fcd1da0c4cef6896733f499e5205c1baf7c010ab",
+      "git_blob": "03d35ddd496730ae7e77d34d3acd81a5bd969dc3"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r001/dialectical_brief.json": {
+      "bytes": 4006,
+      "sha256": "c77860161b431f794b4502985424d9c5637b4320a95a761996e3ac6eb56ad0c7",
+      "git_blob": "88b85331ad3b84a600ce47555eaa64c284f79189"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r001/seat_anthropic.json": {
+      "bytes": 3879,
+      "sha256": "8cb5e26ea42c66b28de71c2ee4e763854e7e20a173ceb1de6ef8bd3d648470f4",
+      "git_blob": "1fce5fc0b821bf3c12c6f4de5489581de7b17f66"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r001/seat_google.json": {
+      "bytes": 2219,
+      "sha256": "22f0944e40d590e62d01be4fbb82838306445ac7a9116ad74ad82672ccea49f2",
+      "git_blob": "ef2f02a26b077be3c20f0b38ce7b4e7d6335ec6c"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r001/seat_openai.json": {
+      "bytes": 3116,
+      "sha256": "8279703a7b54d10eb6721aabdf43beb5cb11ce1d3570644f60ad9beeba3c8be7",
+      "git_blob": "ba0a2ab998d5ec164a72e1955c3c2eb2c1a770c6"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r002/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 1528,
+      "sha256": "89e8df08cda342db73561255eb42096e57407f713eefb09aee70bcafa946d10b",
+      "git_blob": "b02a6a2422e34a0ef185f30ddd795714c03c67fa"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r002/dialectical_brief.json": {
+      "bytes": 2062,
+      "sha256": "79d49ef59a96d3a6b645d470ad0b8b69f8df7d4f69b34a6b078010d1e08aade8",
+      "git_blob": "853277c2e5b7c2cf3c231263140e3f85a72965d5"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r002/seat_anthropic.json": {
+      "bytes": 2231,
+      "sha256": "ffe709d7e37161e2ad2a063997a0da6e164d1680f9f464762e2751cae142659b",
+      "git_blob": "08adde2a97969eb783e2f4bc1c9f77851fb2bfaa"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r002/seat_google.json": {
+      "bytes": 1312,
+      "sha256": "98577a5bc2128465626873da05025a07db8e0cbfdd24523af5ca7c8bd349105c",
+      "git_blob": "6b528beeaabe140c4825475973972adf48b4135e"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r002/seat_openai.json": {
+      "bytes": 2165,
+      "sha256": "051183d2b5b07faf38ff693a2c4e1655789783f3f2292e09957eb7fe43da6835",
+      "git_blob": "c7282a138108134d475adb3ce917a22886d0d9e0"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r003/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 627,
+      "sha256": "c2e3df08d1ed6b1315b51d1181cef319b0da048a1a9e1a27dd6d8c8eef2c8352",
+      "git_blob": "f8e7a3328f87ab45760449b98ce6a40b5f7e7106"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r003/dialectical_brief.json": {
+      "bytes": 739,
+      "sha256": "038dda462ad8aa15d592ba303b9522802c8af9d2e40fa916277212d3c9e2be70",
+      "git_blob": "7cdfbfb8e52395a8c44ce9fb9a55e6e314903f27"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r003/seat_anthropic.json": {
+      "bytes": 990,
+      "sha256": "6f7c8a536b431854803e7d84b98458a2ee87cc5782b3ea8ae148c2fcff4ac53c",
+      "git_blob": "13dda06c0b9b2e49254ed6a93a26e5a9116d6b8d"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r003/seat_google.json": {
+      "bytes": 983,
+      "sha256": "de690e8a0e3b63afcd4d389df0d0e982553dd7c9cfb16a522e7bf98b91e424e4",
+      "git_blob": "833a33712e63dc1e9e985046663e5955afdccf94"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r003/seat_openai.json": {
+      "bytes": 1333,
+      "sha256": "69135f83c0fecb85a4ff1b374c7e626185c98dcf549847a51fea4a22694f3ac6",
+      "git_blob": "88930d6481c6b1057ae93e5e5f34b79269e0c50d"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r004/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 1274,
+      "sha256": "6e945e4e0df97db3739fadd614b9caf93aaca4d7f9592e066ade0e39bc20ee8a",
+      "git_blob": "8e3034ce4a79b0f33899b5e2c4b5b30231769b94"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r004/dialectical_brief.json": {
+      "bytes": 1600,
+      "sha256": "f2edcb2dfe1c362d440de42b0cb98e7801774ae05b8312636a2778f0cce5a06a",
+      "git_blob": "a142d671743c169782be54ac410b24ed08055d84"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r004/seat_anthropic.json": {
+      "bytes": 862,
+      "sha256": "6f888cd9ae17cfeb25def662ee19e0ea704e9a6eca2f94e60100690870c338b6",
+      "git_blob": "97f0cc2c710e9ae0f721038d4937eedd050df758"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r004/seat_google.json": {
+      "bytes": 860,
+      "sha256": "b227b5ba2274f7c61c3c1880d3af6f55c4448af29f2ec1c2c9bbd5b098965b8f",
+      "git_blob": "fc98dd81978ab975c0fa549341696fcdaf262aa8"
+    },
+    "cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/rounds/r004/seat_openai.json": {
+      "bytes": 1536,
+      "sha256": "4ba0fcaf133149cb1debddf3f95e86ea03cea3382867873c0e001324f3972f1a",
+      "git_blob": "1c7379db4d44c04640f2d63d2505ead3584ca09b"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/DECISION.md": {
+      "bytes": 2122,
+      "sha256": "6e85725598eedccda83df82b3fb142a1b0b9e47c020cc97d24c6a0cc330f88ae",
+      "git_blob": "8024cfa9ec4f1bd5762978308cee478ffea9424a"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/PROPOSAL.md": {
+      "bytes": 4332,
+      "sha256": "a7b39729bf108a833ac9ca9baf6e79839482456095053965bb2263b441b0c872",
+      "git_blob": "34f64ce365119ead3a73c57643f892d84c0d9ba0"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/case.json": {
+      "bytes": 34083,
+      "sha256": "acfc2d1e7c1f9b5629e4dd734fc808f11391fa0af81c9b55a723fd55ec2a464b",
+      "git_blob": "a789b0f15aa27b7273debac272a7d03e048800a1"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r001/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 2465,
+      "sha256": "858167aa321c0f3e1effe2282e379607245a18dc82468d81e3ebd011eb32a32e",
+      "git_blob": "ce200389f78d51ad73df5ceb8c6b7eee97fd4528"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r001/dialectical_brief.json": {
+      "bytes": 3255,
+      "sha256": "bc52c5a0553555beae7ca2b781d3b94ca0bbe7a214c36862e4f61d79289cfdb1",
+      "git_blob": "67161e102717460af471d070c4b312c17d7563c7"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r001/seat_anthropic.json": {
+      "bytes": 3644,
+      "sha256": "14ad18726e16be1204331ac1243c8b04f5c309f790175052370706119826851a",
+      "git_blob": "406344be1c5970fa5180d7175d319fa08d7a74ca"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r001/seat_google.json": {
+      "bytes": 2464,
+      "sha256": "470b81bdc77c28e847da123489cf87265ab2c87710ea340c8fe528b74dd2e306",
+      "git_blob": "f4e987330fb31b9d995b82d8dffff8b3f5e07c3b"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r001/seat_openai.json": {
+      "bytes": 2318,
+      "sha256": "fbf06767cdc879fa138ab1a92ff4a85a9a1b2b70a78ec0aa43b8235c143a24f8",
+      "git_blob": "f13db9e9f03d8f3df3ed693a04fb6d6d69963d7b"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r002/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 2577,
+      "sha256": "ebbc89baa8f3036c35a56cf0056330a203847e7a1a57279c29ebdbcec480c066",
+      "git_blob": "7875d686ee00ad882ca57daed0a03ceca33e9a8c"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r002/dialectical_brief.json": {
+      "bytes": 3314,
+      "sha256": "82338544246ed320dd59bc31eec1449121f54f67ac366a3957aacac56a35f8d2",
+      "git_blob": "612500011c17f0ec3393c975a33f7cad28570322"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r002/seat_anthropic.json": {
+      "bytes": 3264,
+      "sha256": "28ead06dafa00967279eb3c07a6dd5940a0f52d0f8cd338ef563302bbab52833",
+      "git_blob": "53992cd84d9563f5867353218570dadafd077e2d"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r002/seat_google.json": {
+      "bytes": 1987,
+      "sha256": "e589f0d431ca483c5bc1f475fef29a6568d5fd54418878cf022dbbcbaa799e20",
+      "git_blob": "cfda8919cb299d7854035759b8915ef54a89e976"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r002/seat_openai.json": {
+      "bytes": 1488,
+      "sha256": "00a66ed411df60b555e406b1fdd01a42cb8626d28129c96c89418a1ce5975320",
+      "git_blob": "2c59eecd2565724f5b5e3eee6ccd91c359674b0a"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r003/dialectical_brief.json": {
+      "bytes": 3434,
+      "sha256": "a0cea3c917e657b01d43f9c84f26ddf5235c6b1faa8826e6d3fa65af682d391e",
+      "git_blob": "a9689ae727874957f0704c233515de698ed5db88"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r003/seat_anthropic.json": {
+      "bytes": 2321,
+      "sha256": "5de379aa3e315a1988b64ae23059e1f1fb142363795034d3eaa280564658e31b",
+      "git_blob": "a718719e9aa77e4200f1ddca226fdfa456264725"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r003/seat_google.json": {
+      "bytes": 2583,
+      "sha256": "b5e396a270025e474889ed2f8a6e0af5475568c548213e8fd3329c465c57bdc8",
+      "git_blob": "22932f92f7f0e6f8066ff9dbb88752440c620e39"
+    },
+    "cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/rounds/r003/seat_openai.json": {
+      "bytes": 1711,
+      "sha256": "836a670a267affae07f4de0054eae36a1900d289a3dae15f7d74fc209ff46136",
+      "git_blob": "3d33116c49eab4a6d7fb0231bdcba3c0cd722323"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/DECISION.md": {
+      "bytes": 1962,
+      "sha256": "45ed6795da09823e1e74e526176c10a2c6063a42d455aa6e4ffc4fbed96bc350",
+      "git_blob": "2b0b6df0fad53711ea0d9ee0d2e92be92663814d"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/PROPOSAL.md": {
+      "bytes": 4102,
+      "sha256": "6136da50253915f34f148e651a55614548beb859970307dcd01dc4c437b8d425",
+      "git_blob": "6a553de6f3e2ab31cbc55399c572f73bb6ce7ae1"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/case.json": {
+      "bytes": 42638,
+      "sha256": "c8ada3a92e4d946a5c8f81837a524c25f2d5e93d9bb850261d69044551797eb9",
+      "git_blob": "9b2bd2cc61e2cd6269005c60233283f18b7e1166"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r001/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 4060,
+      "sha256": "3ecc2fb187c246545d158bcc6be4b1e4a1bb5ae7a4397bbbdeee186477d6fb07",
+      "git_blob": "bd5dfa6e09fb393057b7193885a5ef8d23529edb"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r001/dialectical_brief.json": {
+      "bytes": 4878,
+      "sha256": "e82d19f4aa5e00ba732b823321caa33290e70f2dd8cd7ab71ce7b425be45158e",
+      "git_blob": "99e6b9bd17c3b27c425b0ce0c7742eb52a3007e5"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r001/seat_anthropic.json": {
+      "bytes": 3578,
+      "sha256": "a1c4d97a56afc366fd084081ada67b95b123628cdcb43e427d4cba5690e5c67f",
+      "git_blob": "04315454ebab96278c6bf58aba4f268ba08193d7"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r001/seat_google.json": {
+      "bytes": 2933,
+      "sha256": "ddd5b6f2a0f3110bd6121a366a9b3065ee0cb031fb1a65398acf2bf0eeaa0003",
+      "git_blob": "d9bbb463fe8e8ec5d49f8f5cb34badedb698deb4"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r001/seat_openai.json": {
+      "bytes": 3400,
+      "sha256": "6fe791a348029e048a9522bca2f1020367d1fe0ff7ca2a68f5c120b788f83664",
+      "git_blob": "99815ad3383c997edd12f2c463f99ed6ac3bcd00"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r002/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 3966,
+      "sha256": "0ca5c24e1e30e706a6f11bffea4d55b2fdf2310a5c7f966778b4c18594ea5646",
+      "git_blob": "4e535b6e79aca1a24decb661b308ffaa7c166d21"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r002/dialectical_brief.json": {
+      "bytes": 4836,
+      "sha256": "2bd3ff3836a2a6723d03f58f2610a94f401eb51dea17456dacc4100b0b5c79ee",
+      "git_blob": "0715872f640e4765c3ff4ac16db2e2ab684c2372"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r002/seat_anthropic.json": {
+      "bytes": 2892,
+      "sha256": "33969219ce9b2bab762cb8709a2b23c26ff0f838fd481d83be8e8bcf17ebf7e7",
+      "git_blob": "7246d01b200e7683a46538b20b302535d5ada57b"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r002/seat_google.json": {
+      "bytes": 3281,
+      "sha256": "e84889ba95492e05f6ead5c104ac8b37c7625bd8f9648d9e978ce2e6fb54cf46",
+      "git_blob": "6adfec2984761a0190b57176d851d646a779b3af"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r002/seat_openai.json": {
+      "bytes": 2133,
+      "sha256": "02000ad6d8a19caeb04beebaae46f1c684c8af99faf5181fab91404e4fcd7d1b",
+      "git_blob": "629c92068d36f281367ca27f5efe9c74c49892d2"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r003/dialectical_brief.json": {
+      "bytes": 4516,
+      "sha256": "7f92373068b8365f1c38b505218ef9fb114634260628609b2d15c496fb715c85",
+      "git_blob": "72e32f6d6e05afcbc6ac2eb836e01df5bfcdfe2c"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r003/seat_anthropic.json": {
+      "bytes": 2775,
+      "sha256": "00e536ceb25e02f966a1379a07a34ee81850fe8ed7f2a8517712179d9ead3548",
+      "git_blob": "94b34cda04b94d98b15d29b5d8326c896df13365"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r003/seat_google.json": {
+      "bytes": 2727,
+      "sha256": "834740b6f523411964f035b4928fcaa04bee77d4f0d4d8cfc31b4a69ae224ac5",
+      "git_blob": "e7bcb371af48a3613c9a93a18b36e263286db6a0"
+    },
+    "cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/rounds/r003/seat_openai.json": {
+      "bytes": 1964,
+      "sha256": "73c540b03cefb8a5daf7cdf725c08886370a9d197a0f2d5f0b1c842ebcdcffd0",
+      "git_blob": "357c29a6a526ea8c9bc20aa5c7d477ed6a4e3f86"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/AUDIT_RECEIPT.json": {
+      "bytes": 2130,
+      "sha256": "40938c4b1ee94f19c3fdbaa984c6a286069a6f6a5520ded43d59b8f5200012cb",
+      "git_blob": "e1778c130ec93a2383cd5ef721b5eef6dc921403"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/DECISION.md": {
+      "bytes": 1654,
+      "sha256": "6f7fb776e7958692180e12eaa9fc52b33353dbf01cb75acad734a5acffa31bbf",
+      "git_blob": "79e8e30cab6789b4509a4e67411f40dcbed3e947"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/PROPOSAL.md": {
+      "bytes": 4531,
+      "sha256": "bd4abc7035bb7f2362f2ccb3cf459233abb12d534a1492d022eb717bbda0e06e",
+      "git_blob": "86fd3d30471cf8e9f5c94a2c8c2870c49d54eb28"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/case.json": {
+      "bytes": 44384,
+      "sha256": "bcc7eab2fb612fe23f5c7861cf58ce9fd08f235731c69a173381d7bb78a0c103",
+      "git_blob": "4fafb22457082136ab28fe8576891d91939e023a"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r001/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 4915,
+      "sha256": "023edd07b1b776afcde9192ab04494fe829dec5ad4df775e7517bcce3bec93cf",
+      "git_blob": "20dac938a9b04177e6ae3a4e0cce1db67b2a2d65"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r001/dialectical_brief.json": {
+      "bytes": 5672,
+      "sha256": "e55108e892b70c7b639df3aef9f60042f658406a6bef792f075f6bfcee425faa",
+      "git_blob": "ea43ad5d4dc706c57467a98e0fed04a98892138a"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r001/seat_anthropic.json": {
+      "bytes": 3989,
+      "sha256": "d9e2e0a2fa857f9552c4ededb7a4af74e836dde831094624da31aa62ed8b37bd",
+      "git_blob": "193d88a0fe3a91a08bb53e7b076266fc3a90717a"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r001/seat_google.json": {
+      "bytes": 2395,
+      "sha256": "1e374852a02e9096f8f227a7ca1a18436ae0f43ab83b8f9d3902776266ff46d7",
+      "git_blob": "9d34ce315d2064afbd3950a4ecfc0451a873e08c"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r001/seat_openai.json": {
+      "bytes": 4722,
+      "sha256": "15a4bdb0d1db64795d1267c2d001d35fd22ec0a952caeec609cfded933b4c981",
+      "git_blob": "d1efc2094d47a5f92a4f3d3c3c137f15611da8d2"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r002/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 4141,
+      "sha256": "d7e4ff36379984d459f714bd412c78c20d60f8f4fdf5cdb87d9cd2c4bda7969a",
+      "git_blob": "04108d6ece681b6ddea5f01f14c91ef77b8382ac"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r002/dialectical_brief.json": {
+      "bytes": 5256,
+      "sha256": "8039be2ed059e71d382b7c15516c3ce127be6dbff5692b22cf5c6cea5614e1b7",
+      "git_blob": "dd161211499dae425801a33c80499704d04c4bf2"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r002/seat_anthropic.json": {
+      "bytes": 173,
+      "sha256": "ad39455f2faf7cdc14bcca74a5e1110680d82d7150270f8274779c6a939f8e40",
+      "git_blob": "87722980d59be3a79cc7307be981b8259127f4e2"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r002/seat_google.json": {
+      "bytes": 4096,
+      "sha256": "d95501c1026ef7a65a9f3446ee2e64ac583474b858b37e1872cd91f78e1843d1",
+      "git_blob": "7ed0d64b1cef538c8754a5b5a765a1d9fe20e072"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r002/seat_openai.json": {
+      "bytes": 3159,
+      "sha256": "6e9b91de51768b6066787f081632b8f7c3dfdf889a9bdb530d68385a14940a0e",
+      "git_blob": "2ede474dedef9c9f302c85ea869509b93cdeae5d"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r003/dialectical_brief.json": {
+      "bytes": 5127,
+      "sha256": "4b5c3f33d4b878069028fe445351e7bd4bac8ceca99946885402139b38116b05",
+      "git_blob": "13ddf97fcacbb63850104be4c316d028d3f1ee23"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r003/seat_anthropic.json": {
+      "bytes": 173,
+      "sha256": "ad39455f2faf7cdc14bcca74a5e1110680d82d7150270f8274779c6a939f8e40",
+      "git_blob": "87722980d59be3a79cc7307be981b8259127f4e2"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r003/seat_google.json": {
+      "bytes": 3501,
+      "sha256": "b8952c42b3f4d7b0c879c85b4db1eb9f13639753991f55811128e7aad16144cf",
+      "git_blob": "6589c4deef30b69c3cc72886279d6268f0f54377"
+    },
+    "cases/CASE-2026-08-21-RFC-005-DOCTRINE-ENFORCEMENT-AND-BYOC-MECHANISMS/rounds/r003/seat_openai.json": {
+      "bytes": 3210,
+      "sha256": "706cd48c2e54cc57f45138cfb091f785f69c3b125d691133bb846f431ba30375",
+      "git_blob": "acbba24c93dc7f01da50fb1db67e302dc6f0d14a"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/DECISION.md": {
+      "bytes": 501,
+      "sha256": "d777a3787d4eb19a21aefd0ef82ff3b80dd66d679fc4d85209d6e6716978afb6",
+      "git_blob": "2723e76c4200e3e0b956090133b99caa44ebd2a1"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/PROPOSAL.md": {
+      "bytes": 1910,
+      "sha256": "08c8c9b62e1134f1d5a9508a249ed7ea304188bdd2309339dac61083b0e12df8",
+      "git_blob": "0f1b162a16b02dc2a58d655c5c1a8c8bd0cbecf5"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/case.json": {
+      "bytes": 34418,
+      "sha256": "385f521fe4d9bae17f9bc34a2d79f1dc193eabe2a7b44b08beb7567b4053ee1c",
+      "git_blob": "8c33139d38b80696c9468a2b42c55efc2078597f"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r001/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 2731,
+      "sha256": "aed987aef6c6039a67bedc410403ae9494ce06d7badb33eb347e7e7c3f1f582e",
+      "git_blob": "996e47945fb88bf525615168f1ed29ddf3143d02"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r001/dialectical_brief.json": {
+      "bytes": 3601,
+      "sha256": "11d2f5eedaca43f1034081b47a336b1fa1c6fa5f8ffccb71096572cae9f9ba71",
+      "git_blob": "4ce5a6485340a6b58e5ee99cfc40b9169f5fe6c4"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r001/seat_anthropic.json": {
+      "bytes": 4391,
+      "sha256": "c09d3ff0a094a5b492ae1c22a8db2218acc3104e9aa3928d87cfc05f66dcdb48",
+      "git_blob": "e0e950b071186e6f4a4616208ce2891a94386f1e"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r001/seat_google.json": {
+      "bytes": 1398,
+      "sha256": "55805d5f7aa7828f12c42bdc4ad548b4b154a01963905b7efe1e0137be37a23a",
+      "git_blob": "808c55c9b1b1f2e2c557d77266fb3435e5a5752a"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r001/seat_openai.json": {
+      "bytes": 173,
+      "sha256": "ad39455f2faf7cdc14bcca74a5e1110680d82d7150270f8274779c6a939f8e40",
+      "git_blob": "87722980d59be3a79cc7307be981b8259127f4e2"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r001/votes_summary.json": {
+      "bytes": 5619,
+      "sha256": "5afcfe4e3a875ff297fb57c998c7e2e212c2cadbe17866bdc0ee4269d4d455ff",
+      "git_blob": "6b5ef1d1219841ac7ff0141d250995f3d3689b92"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r002/MEDIATOR_SYNTHESIS.md": {
+      "bytes": 4477,
+      "sha256": "7a2a43184837c4f5dcc9adbad31b177e86d6f8d8133d57e400505d3cfb13317b",
+      "git_blob": "e944aa0a9b19f48357ed4eb08261f4c2348a6215"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r002/dialectical_brief.json": {
+      "bytes": 5483,
+      "sha256": "85728de8ad42bcff6ff6d951cb68498a99bfb3371566253500cafa80595af431",
+      "git_blob": "49b830bfbf09db0454489da03d6c55d08c246dbc"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r002/seat_anthropic.json": {
+      "bytes": 3891,
+      "sha256": "d55a74f8f51572999fceafa15159e99cbf67d7408e66e17889d095c6b504da89",
+      "git_blob": "a42fbab6ea242c4d65686d9a5c6397546a650719"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r002/seat_google.json": {
+      "bytes": 2299,
+      "sha256": "a4fc4c2f266cfbfad9b187debf18a6b3d58801aa0fbacfc2f174020d22cc4ad4",
+      "git_blob": "4b73c944dd77f4d76c84c72270d52c8d5bef0ae9"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r002/seat_openai.json": {
+      "bytes": 2069,
+      "sha256": "321bc2d7b9a5d3c8f6134289a8d7c8df47e71444bf3415f3d579e87ae4ffb13a",
+      "git_blob": "5ab2c0f9c45d046eb19e381e68a0456320c9c500"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r003/dialectical_brief.json": {
+      "bytes": 3833,
+      "sha256": "0b5ad87ccd488385f7f63650717b5fd3b379565faad64299d1d6d45b1d5e4ed6",
+      "git_blob": "90c479866cfb17e773714dee658b3093740e6620"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r003/seat_anthropic.json": {
+      "bytes": 173,
+      "sha256": "ad39455f2faf7cdc14bcca74a5e1110680d82d7150270f8274779c6a939f8e40",
+      "git_blob": "87722980d59be3a79cc7307be981b8259127f4e2"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r003/seat_google.json": {
+      "bytes": 2208,
+      "sha256": "ce83a36f497df440c86a6c4a53ec5f5810588433ca296dd58df98280a5c9ff93",
+      "git_blob": "907505b1ed6b8760a057141a7a01adcd3db2cb37"
+    },
+    "cases/CASE-2026-08-21-RFC-006-HYBRID-TOPOLOGY-AND-FREE-TIER-AMENDMENTS/rounds/r003/seat_openai.json": {
+      "bytes": 2407,
+      "sha256": "658dd55c0dbe652f5091779e2b8bb5844a995e608096640a3e8b41cb6c70753f",
+      "git_blob": "982821e8a195a0824c592c498a0d854019e2c082"
+    },
+    "cases/CASE-2026-08-21-RFC-007-CORPUS-SEGREGATION-DISTRIBUTABLE-LIBRARY-VS-SOVEREIGN-VAULT/DECISION.md": {
+      "bytes": 461,
+      "sha256": "ebaabd068b03300c85d18fe107fe5996272c7723f13b2f0baed71e9e7506b1cc",
+      "git_blob": "debaecf87422c56eadafec4c8dd24902b0e97446"
+    },
+    "cases/CASE-2026-08-21-RFC-007-CORPUS-SEGREGATION-DISTRIBUTABLE-LIBRARY-VS-SOVEREIGN-VAULT/PROPOSAL.md": {
+      "bytes": 4162,
+      "sha256": "9187b145c3b15212ea51bc5485e5b8bc0c7e4ca050baa82dd2b989a1db6be0f3",
+      "git_blob": "5dd1b99e07af296a7d21cda2879cbb3728848041"
+    },
+    "cases/CASE-2026-08-21-RFC-007-CORPUS-SEGREGATION-DISTRIBUTABLE-LIBRARY-VS-SOVEREIGN-VAULT/rounds/r001/votes_summary.json": {
+      "bytes": 4913,
+      "sha256": "8f22d40444f8510c9510e84e20afe5601acd0e5d1ee73d6ad03533e5f956d6d3",
+      "git_blob": "cb01ee97cc23281aff12b9df36aa860a64fb95d1"
+    },
+    "cases/CASE-2026-08-21-RFC-008-CANONICAL-REPOSITORY-TAXONOMY-AND-GHOST-PURGE/DECISION.md": {
+      "bytes": 420,
+      "sha256": "6267d5a885f25a754328b02a0fc76e3b6b633434698ba4a6138fe2829289e20e",
+      "git_blob": "537ae4c0172699427e6c0f05f88f397e3d0f4278"
+    },
+    "cases/CASE-2026-08-21-RFC-008-CANONICAL-REPOSITORY-TAXONOMY-AND-GHOST-PURGE/PROPOSAL.md": {
+      "bytes": 3016,
+      "sha256": "2fb6625400dc919fc219dd9973e5a62c3e3428bf863cd16dd0580f7ab6c32324",
+      "git_blob": "17b01ef9c139010cde7e0f3710ecfc1183b76c34"
+    },
+    "cases/CASE-2026-08-21-RFC-008-CANONICAL-REPOSITORY-TAXONOMY-AND-GHOST-PURGE/rounds/r001/votes_summary.json": {
+      "bytes": 7116,
+      "sha256": "d7ac8ff1c4250af225e721ec51dfd78f55c03627f30be4f97421e35a5556750e",
+      "git_blob": "0c34682973c545e74efa31b32450730ea38e8ec5"
+    },
+    "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/DECISION.md": {
+      "bytes": 1142,
+      "sha256": "4b81733995cdf4db4c13a1225795acc13a71e66166a2a320b9527d007a704bad",
+      "git_blob": "f81d1eef77f979e53329fbc3a2cfe25c3ba947f2"
+    },
+    "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/PROPOSAL.md": {
+      "bytes": 2627,
+      "sha256": "84367d6299fca1e9c4764da9555062a31ea84d9de30e60784bcbdd48631000fc",
+      "git_blob": "fa1103c815f11343d566f7492c1e282c3ed1d94e"
+    },
+    "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/rounds/r001/dialectical_brief.json": {
+      "bytes": 292,
+      "sha256": "07cb795258b3230c211593395a2e8a34fc83bdd701016fa02835025dace87d35",
+      "git_blob": "edc2744996692f30f212cebcfad757d25c959779"
+    },
+    "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/rounds/r001/seat_anthropic.json": {
+      "bytes": 624,
+      "sha256": "5c9150e85ee1415078b18e99c14e7e2c1373d63b35270a8ca4a594620eabd246",
+      "git_blob": "a847173173acbaeb18851ac6f34804e249da2b64"
+    },
+    "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/rounds/r001/seat_google.json": {
+      "bytes": 582,
+      "sha256": "95e69fa520e41d42c90e9ed984569e1439cb596b47257c66b1026d61f57d484d",
+      "git_blob": "099e11faffe3962bd018ee008dc9c534a6b63b1b"
+    },
+    "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/rounds/r001/seat_openai.json": {
+      "bytes": 398,
+      "sha256": "56ad19b5ac3b6ba86ccb96fe7cd82b05a2d4604179b58397ed17c317c00d223a",
+      "git_blob": "1966a461263495c0830abe72f79e5bead426af80"
+    },
+    "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/rounds/r001/votes_summary.json": {
+      "bytes": 260,
+      "sha256": "6cb721cc8961211fceabd767188c82f07ee604e523e05a31b9814651531fcce5",
+      "git_blob": "fb26c921529165f5e404de52e0b791f8aec60448"
+    },
+    "docs/ARCHITECTURAL_QA_LEDGER.md": {
+      "bytes": 60345,
+      "sha256": "e0b7844f87f1fdefae2401f772a3245fd9a14e12da083da137ed304db18edb3a",
+      "git_blob": "fb5fffa636805ae98e8ce6e787ae34d14ec58028"
+    },
+    "docs/adr/ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT.md": {
+      "bytes": 3196,
+      "sha256": "fc07ef48d2dc20f4a8ce85ff79f896fcba88f67156d6f022e0e18b9c1cb6543f",
+      "git_blob": "1d57d3636909cd759a2485b83eaa91585b28f34e",
+      "disposition": "HISTORICAL_EDITION_OF_MAINTAINED_DOCUMENT"
+    },
+    "docs/adr/ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE.md": {
+      "bytes": 3367,
+      "sha256": "d75fe0ecaf748622f0d37400505b32ea6eed8863688222571534cdba91791a17",
+      "git_blob": "80385425306737bc10dd217b361b8d8d486f1c0a",
+      "disposition": "HISTORICAL_EDITION_OF_MAINTAINED_DOCUMENT"
+    },
+    "docs/archive/archaeology/README.md": {
+      "bytes": 1673,
+      "sha256": "bb8453c95b43ef29f722612cc00677983f80f09f59228cc1f6592e1a16ca37c4",
+      "git_blob": "b1bbef7a7352c8c1b46828c6b1d7e59b7c876cd2",
+      "disposition": "HISTORICAL_EDITION_OF_MAINTAINED_DOCUMENT"
+    },
+    "docs/guides/DEVELOPER_AND_OPERATOR_GUIDE.md": {
+      "bytes": 986,
+      "sha256": "8ad4f4aa8268b929f488c09cae18eea02f6ebe6d53d88105479e51a9db7b6092",
+      "git_blob": "a4bcc58603a395cf432aac79e95d3b8a4995f76a",
+      "disposition": "HISTORICAL_EDITION_OF_MAINTAINED_DOCUMENT"
+    },
+    "docs/research/02_harness-architecture/2026-08-17-decoupled-microkernel-5-plane-architecture-study.md": {
+      "bytes": 16698,
+      "sha256": "6cc36c1ea165ba57533b19cf2c66371f5470d72193999ce1fe9c213ac66bba81",
+      "git_blob": "42dfb4ad1e2c76ba3c3aad4b2b6df4a35dfbd866",
+      "disposition": "HISTORICAL_EDITION_OF_MAINTAINED_DOCUMENT"
+    },
+    "docs/templates/EXP-template.md": {
+      "bytes": 1421,
+      "sha256": "13d111e885da1fc9bb0f90b4bf69f85196047112e128e39387f711afd9ab1faa",
+      "git_blob": "25c82448c69bf2df4c475e56d4b612fd483f71cb",
+      "disposition": "HISTORICAL_EDITION_OF_MAINTAINED_DOCUMENT"
+    }
+  }
+}

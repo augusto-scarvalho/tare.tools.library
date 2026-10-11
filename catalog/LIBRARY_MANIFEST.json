@@ -1,18 +1,18 @@
 {
   "version": "3.0.0",
   "authority_vocabulary": "authority_state/v1",
-  "generated_at": "2026-10-10T22:40:26.486114+00:00",
+  "generated_at": "2026-10-11T13:00:54.555505+00:00",
   "total_documents": 281,
   "canonical_ssot_count": 281,
   "adrs": [
     {
-      "id": "c33f08cfeb5977be414d4a937278c7cef5bf03bf55a0f1d9166f33f602b7cc34",
+      "id": "d2905e99a6bcc3cb0e072c3c82dd66ca6595436c77fa89062f5e463aa255c656",
       "semantic_document_id": "ADR-058_INCREMENTAL_CONTENT_ADDRESSED_VECTOR_INDEXING",
       "doc_type": "adr",
       "title": "ADR-058: Indexação Vetorial Incremental Endereçada por Conteúdo (Content-Addressed Vector Cache)",
       "status": "Ratificado",
       "relative_path": "docs/adr/ADR-058_INCREMENTAL_CONTENT_ADDRESSED_VECTOR_INDEXING.md",
-      "sha256": "c33f08cfeb5977be414d4a937278c7cef5bf03bf55a0f1d9166f33f602b7cc34",
+      "sha256": "d2905e99a6bcc3cb0e072c3c82dd66ca6595436c77fa89062f5e463aa255c656",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -29,13 +29,13 @@
       "references": []
     },
     {
-      "id": "fc07ef48d2dc20f4a8ce85ff79f896fcba88f67156d6f022e0e18b9c1cb6543f",
+      "id": "dbc33517c4f2d75ba0c668274f4bd9b310577bc36285a1381d42ca27146bf679",
       "semantic_document_id": "ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT",
       "doc_type": "adr",
       "title": "ADR-066: Segregação Arquitetural do Acervo de Conhecimento: Substrato Distribuível (tare.tools.library) vs. Cofre Soberano Privado (Sovereign Vault)",
       "status": "**RATIFIED / RATIFICADO_POR_GOVERNANÇA_TRIPARTITE** (Homologado via `CASE-2026-08-21-RFC-007-CORPUS-SEGREGATION-DISTRIBUTABLE-LIBRARY-VS-SOVEREIGN-VAULT`)",
       "relative_path": "docs/adr/ADR-066_CORPUS_SEGREGATION_DISTRIBUTABLE_LIBRARY_VS_SOVEREIGN_VAULT.md",
-      "sha256": "fc07ef48d2dc20f4a8ce85ff79f896fcba88f67156d6f022e0e18b9c1cb6543f",
+      "sha256": "dbc33517c4f2d75ba0c668274f4bd9b310577bc36285a1381d42ca27146bf679",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {
@@ -52,13 +52,13 @@
       "references": []
     },
     {
-      "id": "d75fe0ecaf748622f0d37400505b32ea6eed8863688222571534cdba91791a17",
+      "id": "b4a06e8c064f4042b6c175fbcf74302299e91f019ec3894eb0e8fd8d704e63f8",
       "semantic_document_id": "ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE",
       "doc_type": "adr",
       "title": "ADR-067: Nova Taxonomia Canônica do Repositório, Eliminação de Pastas Fantasmas e Instituição do Arquivo Histórico Controlado (`docs/archive/`)",
       "status": "**RATIFIED / RATIFICADO_POR_GOVERNANÇA_TRIPARTITE** (Homologado via `CASE-2026-08-21-RFC-008-CANONICAL-REPOSITORY-TAXONOMY-AND-GHOST-PURGE`)",
       "relative_path": "docs/adr/ADR-067_CANONICAL_REPOSITORY_TAXONOMY_AND_GHOST_PURGE.md",
-      "sha256": "d75fe0ecaf748622f0d37400505b32ea6eed8863688222571534cdba91791a17",
+      "sha256": "b4a06e8c064f4042b6c175fbcf74302299e91f019ec3894eb0e8fd8d704e63f8",
       "authority_state": "DECLARED_ACTIVE",
       "source_paths": [
         {

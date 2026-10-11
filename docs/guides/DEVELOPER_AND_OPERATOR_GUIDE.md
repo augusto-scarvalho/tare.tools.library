@@ -12,6 +12,6 @@ Este guia estabelece os padrões operacionais para manipulação, consulta e des
 - `tests/`: Suíte de testes automatizados e falsificadores contínuos.
 
 ## 2. Invariantes de Frugalidade
-- Não adicionar transcrições de chat ou logs brutos ao Git (armazenar no Cofre Soberano no nó aaaaa).
+- Não adicionar transcrições de chat ou logs brutos ao Git (armazenar no Cofre Soberano no nó configurado pelo operador).
 - Não criar pastas vazias com `.gitkeep`.
 - Manter o repositório sob o orçamento de 50 MB.

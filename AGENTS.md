@@ -19,6 +19,13 @@ Normal search and embedding exclude `docs/archive/**`, `catalog/corpus/**` and
 generated catalog projections. History requires the explicit
 `--include-history` flag.
 
+Raw deliberation cases and the architectural question ledger have private
+custody, referenced by `docs/RECORDS_ARCHIVE.json`. Normal validation does not
+restore them. Preserve their original bytes, hashes and outcomes; metadata
+references and passing source tests do not create new ratification. Adopted
+Library research remains part of the product, including its historical editions.
+See `docs/guides/REPOSITORY_CONTENT.md` before changing either class of material.
+
 ---
 
 ## ⚡ 2. Mandatory Agent Tool Protocols (CLI-First)

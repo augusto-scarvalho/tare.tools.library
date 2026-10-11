@@ -10,7 +10,7 @@
 ## 1. Princípios de Governança (ADR-051, ADR-052 & ADR-066 / RFC-007)
 
 1. **Cadeia de Custódia Imutável:** Os documentos presentes neste acervo já foram consolidados, filtrados e sintetizados em dezenas de sessões anteriores.
-2. **Segregação do Sovereign Vault (ADR-066 / RFC-007):** Transcrições brutas de chats e notas privadas do Operador Humano foram permanentemente expurgadas do Git e são mantidas sob custódia criptográfica exclusiva no Sovereign Vault do nó `aaaaa`.
+2. **Segregação do Sovereign Vault (ADR-066 / RFC-007):** Transcrições brutas de chats e notas privadas do Operador Humano foram permanentemente expurgadas do Git e são mantidas sob custódia criptográfica exclusiva no Sovereign Vault do nó configurado pelo operador.
 3. **Isolamento de RAG / SpecGraph:** Indexadores de busca semântica marcam todos os nós originados neste diretório com a tag `status: archived_immutable`. Buscas ativas de engenharia priorizam a documentação viva em `docs/` e `catalog/`, evitando poluição de contexto ou alucinações regressivas.
 4. **Ponteiros & Tombstones:** Documentos históricos que foram unificados ou substituídos por decisões formais possuem referências diretas para suas respectivas ADRs canônicas em `docs/adr/`.
 
