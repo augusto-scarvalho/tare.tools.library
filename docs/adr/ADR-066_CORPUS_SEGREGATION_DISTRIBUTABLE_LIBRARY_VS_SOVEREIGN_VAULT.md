@@ -31,8 +31,8 @@ O repositório rastreado pelo Git contém estritamente o pacote de runtime:
 4. **`catalog/`:** Catálogo mestre curado de capacidades e índices.
 5. **Orçamento Máximo de Repositório:** Mantido sob teto estrito (< 50 MB total rastreado).
 
-### 2.2 Camada 2: Cofre Soberano & Cold Storage (`tare.tools.vault` / Nó `aaaaa`)
-Armazenamento privado e criptograficamente verificado no nó `aaaaa` (`/home/augus/vault/corpus_archive/` com `MANIFEST.sha256`):
+### 2.2 Camada 2: Cofre Soberano & Cold Storage (`tare.tools.vault` / Nó configurado pelo operador)
+Armazenamento privado e criptograficamente verificado no nó configurado pelo operador (`<operator-vault>/corpus_archive/` com `MANIFEST.sha256`):
 1. **`archaeology/chats/`:** Histórico de conversas, minerações brutas e prompts de sessões passadas.
 2. **Estudos Proprietários & Molho Secreto:** Formulações confidenciais e estratégias de negócios.
 3. **Logs Extensos de Benchmarking:** Dumps pesados de testes de estresse.
@@ -49,4 +49,4 @@ Armazenamento privado e criptograficamente verificado no nó `aaaaa` (`/home/aug
 ## 3. Consequências
 - Repositório 100% livre de segredos, rascunhos ou transcrições de chat.
 - RAG do usuário final limpo e focado estritamente em valor de runtime e especificações canônicas.
-- Preservação integral do histórico corporativo no Cofre Soberano do nó `aaaaa`.
+- Preservação integral do histórico corporativo no Cofre Soberano do nó configurado pelo operador.

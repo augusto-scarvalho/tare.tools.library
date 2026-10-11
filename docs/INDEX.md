@@ -34,7 +34,12 @@
 * **[`PAGES_CUTOVER_READINESS.md`](policies/PAGES_CUTOVER_READINESS.md):** Registro de descontinuação do site e da projeção GitHub Pages.
 
 ## Casos Deliberativos Notáveis
-- [`CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING`](../cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/DECISION.md): **Marco Histórico** — Primeira aprovação unânime tripartite em 1ª rodada (FSM Frugal, State Anchors e Pinos Soberanos).
-- [`CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP`](../cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/DECISION.md): **RFC-002 Ratificado** — Paradigma de Ferramentas (CLI First, Lean MCP Gateway e Banimento de Fat MCP).
-- [`CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC`](../cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/DECISION.md): **RFC-003 Ratificado** — Doutrina Universal de Engenharia Frugal e Liberdade de Computação (BYOC).
-- [`CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT`](../cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/DECISION.md): **RFC-004 Ratificado** — Colheita Arquitetural do SpecGraph Histórico e Alinhamento Frugal.
+- [`CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING`](https://github.com/augusto-scarvalho/tare.tools.library/blob/4e5ab1dd00745942a72fc869ddcc37fddfa96d6c/cases/CASE-2026-08-20-RFC-001-GOVERNANCE-HARDENING/DECISION.md): **Marco Histórico** — Primeira aprovação unânime tripartite em 1ª rodada (FSM Frugal, State Anchors e Pinos Soberanos).
+- [`CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP`](https://github.com/augusto-scarvalho/tare.tools.library/blob/4e5ab1dd00745942a72fc869ddcc37fddfa96d6c/cases/CASE-2026-08-20-TOOLING-PARADIGM-CLI-VS-MCP/DECISION.md): **RFC-002 Ratificado** — Paradigma de Ferramentas (CLI First, Lean MCP Gateway e Banimento de Fat MCP).
+- [`CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC`](https://github.com/augusto-scarvalho/tare.tools.library/blob/4e5ab1dd00745942a72fc869ddcc37fddfa96d6c/cases/CASE-2026-08-20-ENGINEERING-DOCTRINE-AND-BYOC/DECISION.md): **RFC-003 Ratificado** — Doutrina Universal de Engenharia Frugal e Liberdade de Computação (BYOC).
+- [`CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT`](https://github.com/augusto-scarvalho/tare.tools.library/blob/4e5ab1dd00745942a72fc869ddcc37fddfa96d6c/cases/CASE-2026-08-20-SPECGRAPH-HARVEST-AND-ALIGNMENT/DECISION.md): **RFC-004 Ratificado** — Colheita Arquitetural do SpecGraph Histórico e Alinhamento Frugal.
+
+## Conteúdo distribuído e custódia
+
+- [Pesquisa adotada, registros privados e validação](guides/REPOSITORY_CONTENT.md).
+- [Referências dos casos históricos, sem novas ratificações](RECORDS_ARCHIVE.json).

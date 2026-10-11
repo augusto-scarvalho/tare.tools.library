@@ -22,6 +22,7 @@ ALLOWED_ROOT_FILES = {
     ".gitignore",
     ".gitattributes",
     "AGENTS.md",
+    "CLAUDE.md",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
     "LICENSE",
@@ -50,7 +51,7 @@ def test_no_raw_chat_dumps_tracked():
     res = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True)
     tracked_files = [f.strip().strip('"') for f in res.stdout.strip().splitlines() if f.strip()]
     
-    forbidden_prefixes = ["archaeology/chats/", "experiments/", "vault/", "_handoff/", "docs/archive/archaeology/historical/"]
+    forbidden_prefixes = ["archaeology/chats/", "experiments/", "vault/", "_handoff/", "docs/archive/archaeology/historical/", "cases/", "docs/ARCHITECTURAL_QA_LEDGER.md"]
     for tf in tracked_files:
         for prefix in forbidden_prefixes:
             assert not tf.startswith(prefix), f"Forbidden artifact tracked in git: {tf}"
@@ -86,7 +87,6 @@ def test_canonical_directory_structure_exists():
         ROOT / "specs",
         ROOT / "tools",
         ROOT / "tests",
-        ROOT / "cases",
     ]
     for cd in canonical_dirs:
         assert cd.exists() and cd.is_dir(), f"Missing canonical directory: {cd.relative_to(ROOT)}"
@@ -118,8 +118,13 @@ def test_branch_and_ci_standardization():
         ROOT / "docs/adr/ADR-068_UNIVERSAL_BRANCH_STANDARDIZATION_AND_CI_PIPELINES.md"
     ).exists()
 
-    case_file = ROOT / "cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/DECISION.md"
-    assert case_file.exists(), "Missing RFC-009 case decision"
+    # Original deliberations have private custody; normal CI validates their
+    # immutable reference, not a locally restored case or a fresh approval.
+    archive = json.loads((ROOT / "docs/RECORDS_ARCHIVE.json").read_text(encoding="utf-8"))
+    assert archive["repository"] == "tare.tools.library"
+    assert len(archive["commit"]) == 40
+    decision = archive["files"]["cases/CASE-2026-08-21-RFC-009-UNIVERSAL-BRANCH-STANDARDIZATION-AND-CI-PIPELINES/DECISION.md"]
+    assert len(decision["sha256"]) == 64 and len(decision["git_blob"]) == 40
 
     # Verify CI workflow triggers
     for wf in workflows_dir.glob("*.yml"):

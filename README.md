@@ -8,7 +8,7 @@
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://python.org)
 [![CI Validation](https://github.com/augusto-scarvalho/tare.tools.library/actions/workflows/document-integrity.yml/badge.svg)](https://github.com/augusto-scarvalho/tare.tools.library/actions)
 [![Tests](https://img.shields.io/badge/Tests-pytest-brightgreen.svg)](#formal-verification--quality-gates)
-[![Governance](https://img.shields.io/badge/Mesa%20Redonda-Byzantine%20Consensus%20(ADR--065)-purple.svg)](cases/)
+[![Governance](https://img.shields.io/badge/Mesa%20Redonda-Byzantine%20Consensus%20(ADR--065)-purple.svg)](docs/RECORDS_ARCHIVE.json)
 [![Ownership](https://img.shields.io/badge/Ownership-Federated-success.svg)](docs/adr/ADR-069_FEDERATED_DOCUMENT_OWNERSHIP_AND_BOUNDED_INDEXING.md)
 [![Frugality](https://img.shields.io/badge/Frugality%20Guard-%3C50MB%20Budget%20Enforced-orange.svg)](tests/test_frugality_guard.py)
 
