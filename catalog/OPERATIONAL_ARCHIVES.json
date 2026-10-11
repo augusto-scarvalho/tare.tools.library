@@ -1,0 +1,35 @@
+{
+  "schema": "tare.tools/operational-archives/1",
+  "authority": "NONE",
+  "retrieval": "READ_ONLY_PROVENANCE; do not extract, import or resume the frozen harness",
+  "artifacts": [
+    {
+      "classification": "HISTORICAL_OPERATIONAL_SOURCE_ARCHIVE",
+      "repository": "augusto-scarvalho/tare.tools.library",
+      "commit": "0e43f188207e8c956a46a1b65847084856fa7c85",
+      "path": "catalog/corpus/source-bundles/private-github-main-2026-08-05.synthetic.git.bundle",
+      "legacy_paths": [
+        "catalog/corpus/source-bundles/private-github-main-2026-08-05.synthetic.git.bundle",
+        "corpus/source-bundles/private-github-main-2026-08-05.synthetic.git.bundle"
+      ],
+      "git_blob": "e6ceaad786a1d64e1866b06e7d17f6272c6d89a1",
+      "sha256": "adf6156ab4bbcab6906a2bed015cdca1887a7d4640191060fe494b5d064bfbe5",
+      "bytes": 7312825,
+      "url": "https://github.com/augusto-scarvalho/tare.tools.library/blob/0e43f188207e8c956a46a1b65847084856fa7c85/catalog/corpus/source-bundles/private-github-main-2026-08-05.synthetic.git.bundle"
+    },
+    {
+      "classification": "HISTORICAL_OPERATIONAL_SOURCE_ARCHIVE",
+      "repository": "augusto-scarvalho/tare.tools.library",
+      "commit": "0e43f188207e8c956a46a1b65847084856fa7c85",
+      "path": "catalog/corpus/source-bundles/universal-agent-harness-prototype-main-2026-08-05.zip",
+      "legacy_paths": [
+        "catalog/corpus/source-bundles/universal-agent-harness-prototype-main-2026-08-05.zip",
+        "corpus/source-bundles/universal-agent-harness-prototype-main-2026-08-05.zip"
+      ],
+      "git_blob": "1a2877292724f78ea3e02db4defb566c2aa204ef",
+      "sha256": "2f4b2d9fa68b1a93b009ef0eb389a699f409568f74102b051bb03d06508b9a1e",
+      "bytes": 7596212,
+      "url": "https://github.com/augusto-scarvalho/tare.tools.library/blob/0e43f188207e8c956a46a1b65847084856fa7c85/catalog/corpus/source-bundles/universal-agent-harness-prototype-main-2026-08-05.zip"
+    }
+  ]
+}
