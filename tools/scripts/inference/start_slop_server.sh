@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# slop.cpp / llama-server Launcher for Node aaaaa (NVIDIA RTX 3090 24GB VRAM)
+# slop.cpp / llama-server Launcher for the configured compute host
 # Ratified under ADR-048 (Local Inference Substrate & Agent Harness)
 # ==============================================================================
 
@@ -13,7 +13,7 @@ CTX_SIZE="${CTX_SIZE:-16384}"
 GPU_LAYERS="${GPU_LAYERS:-99}"
 
 echo "================================================================================"
-echo " 🚀 LAUNCHING LOCAL INFERENCE SUBSTRATE ON NODE aaaaa (RTX 3090)"
+echo " 🚀 LAUNCHING LOCAL INFERENCE SUBSTRATE"
 echo "================================================================================"
 echo "  - Model:      ${MODEL_PATH}"
 echo "  - Host/Port:  http://${HOST}:${PORT}"

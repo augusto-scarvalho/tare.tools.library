@@ -1,7 +1,7 @@
 """Zero-Cost Corpus Embedding & Semantic Vector Indexer for tare.tools.library.
 
 Vectorizes Markdown files into a local SQLite database (catalog/library_vectors.db)
-using the local GPU node aaaaa (RTX 3090 / slop.cpp) with zero cloud API costs per ADR-048 & ADR-051.
+using a configured local GPU endpoint with zero cloud API costs per ADR-048 & ADR-051.
 """
 
 from __future__ import annotations
@@ -632,10 +632,11 @@ def main() -> int:
             print(f"   {res.text_snippet}\n")
         return 0
 
-    # ADR-053 Guard: Thin-clients automatically offload to Node aaaaa
+    # ADR-053 Guard: Thin-clients automatically offload to the configured substrate.
     try:
         from tools.policy.compute_guard import assert_compute_guard
         from tools.bookkeeper.dispatch_job import dispatch_remote_task
+        from tools.mesh.config import project_command
 
         can_run_local, guard_msg = assert_compute_guard(
             task_name="embed_corpus",
@@ -646,7 +647,7 @@ def main() -> int:
         if not can_run_local:
             print(guard_msg)
             return dispatch_remote_task(
-                "cd /home/augus/src/tare.tools.library && python3 tools/indexer/embed_corpus.py --root ."
+                project_command("python3 tools/indexer/embed_corpus.py --root . --force-local")
             )
     except ImportError:
         pass

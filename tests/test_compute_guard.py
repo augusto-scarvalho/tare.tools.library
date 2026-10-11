@@ -12,21 +12,21 @@ from tools.policy.compute_guard import (
 
 class TestComputeGuard(unittest.TestCase):
     def test_detect_compute_profile_thin_client(self):
-        with patch("socket.gethostname", return_value="acer-augusto"):
+        with patch("socket.gethostname", return_value="thin-client"):
             with patch("subprocess.run") as mock_run:
                 mock_run.return_value.returncode = 1
                 profile = detect_compute_profile()
                 self.assertTrue(profile.is_thin_client)
                 self.assertFalse(profile.has_local_cuda)
-                self.assertEqual(profile.recommended_action, "OFFLOAD_TO_AAAAA")
+                self.assertEqual(profile.recommended_action, "OFFLOAD_TO_SUBSTRATE")
 
     def test_assert_compute_guard_blocks_heavy_task_on_thin_client(self):
         with patch("tools.policy.compute_guard.detect_compute_profile") as mock_detect:
             mock_detect.return_value = ComputeProfile(
-                hostname="acer-augusto",
+                hostname="thin-client",
                 is_thin_client=True,
                 has_local_cuda=False,
-                recommended_action="OFFLOAD_TO_AAAAA",
+                recommended_action="OFFLOAD_TO_SUBSTRATE",
             )
             can_run, msg = assert_compute_guard(task_name="embed_corpus", item_count=100, threshold=50)
             self.assertFalse(can_run)
@@ -36,10 +36,10 @@ class TestComputeGuard(unittest.TestCase):
     def test_assert_compute_guard_allows_light_task(self):
         with patch("tools.policy.compute_guard.detect_compute_profile") as mock_detect:
             mock_detect.return_value = ComputeProfile(
-                hostname="acer-augusto",
+                hostname="thin-client",
                 is_thin_client=True,
                 has_local_cuda=False,
-                recommended_action="OFFLOAD_TO_AAAAA",
+                recommended_action="OFFLOAD_TO_SUBSTRATE",
             )
             can_run, msg = assert_compute_guard(task_name="quick_check", item_count=10, threshold=50)
             self.assertTrue(can_run)

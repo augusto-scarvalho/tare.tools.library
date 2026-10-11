@@ -75,7 +75,7 @@ python -m tools.bookkeeper.cli audit --root docs
 ```
 
 ### 🔹 Protocolo 5: Gestão de Heavy Compute, Malha e Mobilidade (ADR-053, ADR-054 & ADR-055)
-**Regra Constitucional:** O laptop `acer-augusto` é estritamente um Thin-Client. Agentes de IA NUNCA devem rodar loops de indexação massiva, benchmarks pesados ou reter bancos vetoriais brutos (> 50 MB) localmente. Toda tarefa de computação pesada DEVE ser despachada para a workstation `aaaaa` (RTX 3090) via `tare.tools.mesh`, e as buscas semânticas devem usar o roteador sensível à latência:
+**Regra Constitucional:** Laptops são Thin-Clients. Agentes de IA NUNCA devem rodar loops de indexação massiva, benchmarks pesados ou reter bancos vetoriais brutos (> 50 MB) localmente. Toda tarefa de computação pesada DEVE ser despachada para a workstation configurada via `tare.tools.mesh`, e as buscas semânticas devem usar o roteador sensível à latência. Configure `TARE_MESH_HOST`, `TARE_MESH_USER`, `TARE_MESH_REMOTE_ROOT` e, quando necessário, `TARE_MESH_WSL_DISTRO`; nomes de laptops podem ser declarados em `TARE_THIN_CLIENT_HOSTNAMES`. Os valores da instalação pertencem ao ambiente do operador, conforme o guia no `README.md`:
 ```powershell
 # 1. Checar telemetria da GPU (temperatura, VRAM livre, carga CUDA):
 python tools/mesh/mesh.py gpu
@@ -84,10 +84,10 @@ python tools/mesh/mesh.py gpu
 python tools/mesh/mesh.py status
 
 # 3. Sincronizar alterações de código com a workstation:
-python tools/mesh/mesh.py sync aaaaa
+python tools/mesh/mesh.py sync
 
 # 4. Executar comando ou teste pesado na workstation (WSL2/NVMe):
-python tools/mesh/mesh.py exec aaaaa "python tools/indexer/embed_corpus.py --root ."
+python -m tools.bookkeeper.dispatch_job --task embed-corpus
 
 # 5. Busca semântica com roteamento adaptativo de latência (ADR-055):
 # (Consulta a RTX 3090 na mesma LAN em < 10ms; usa fallback leve offline/WAN)
@@ -96,18 +96,18 @@ python tools/query.py --semantic "conceito arquitetural" --limit 5
 # 6. Uso programático em Python SDK:
 from tools.mesh import MeshClient
 mesh = MeshClient()
-gpu_telemetry = mesh.gpu("aaaaa")
-mesh.exec("pytest tests/heavy/", node="aaaaa")
+gpu_telemetry = mesh.gpu()
+mesh.exec(mesh.project_command("pytest tests/heavy/"))
 ```
 
 ### 🔹 Protocolo 6: Governança Criptográfica & Proibição de Simulação Sintética (ADR-057)
 **Regra Constitucional:** Agentes de IA são **terminantemente proibidos** de forjar deliberações, simular votos de cadeiras ou criar arquivos em `relay/round_tables/` via ferramentas de escrita direta. Toda deliberação arquitetural DEVE ser executada pelo motor oficial `relay/round_table_engine.py`:
 ```powershell
 # 1. Inicializar caso formal:
-python "C:\Users\augus\My Drive\tare.tools\relay\round_table_engine.py" init <CASE_ID> "<TITLE>" <PROPOSAL_FILE> --profile generalist --standalone-offline
+python "$env:TARE_OS_ROOT/relay/round_table_engine.py" init <CASE_ID> "<TITLE>" <PROPOSAL_FILE> --profile generalist --standalone-offline
 
 # 2. Conduzir rodadas adversariais reais:
-python "C:\Users\augus\My Drive\tare.tools\relay\round_table_engine.py" conduct <CASE_ID> --standalone-offline
+python "$env:TARE_OS_ROOT/relay/round_table_engine.py" conduct <CASE_ID> --standalone-offline
 
 # 3. Validar a Tríplice Verificação Criptográfica (ADR-057):
 # hash(DECISION.md em LF) == frontmatter.round_table_sha256 == journal[FINAL].decision_sha256

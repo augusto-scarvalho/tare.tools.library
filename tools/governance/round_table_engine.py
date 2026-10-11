@@ -28,6 +28,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
+from tools.inference.local_client import LocalInferenceClient
+
 # Keyring Vault Service Name
 VAULT_SERVICE = "universal-agent-harness"
 
@@ -36,7 +38,12 @@ MAX_ROUNDS = 3
 MAX_OVERTIME_ROUNDS = 4
 MAX_TRANSITIONS = 12
 GLOBAL_DEADLINE_SECONDS = 300
-DEFAULT_LOCAL_GPU_URL = "http://100.107.245.30:8080/v1"
+DEFAULT_LOCAL_GPU_URL = "http://localhost:8080/v1"
+
+
+def configured_local_gpu_url():
+    base = LocalInferenceClient().config.host.rstrip("/")
+    return base if base.endswith("/v1") else base + "/v1"
 NIM_BASE_URL = "https://integrate.api.nvidia.com/v1"
 GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai"
 KIMI_BASE_URL = "https://api.kimi.com/coding/v1"
@@ -44,7 +51,7 @@ KIMI_BASE_URL = "https://api.kimi.com/coding/v1"
 TITULAR_PROVIDERS: Set[str] = {"google", "anthropic", "openai"}
 
 # -----------------------------------------------------------------------------
-# Local Sovereign Model Pins (Node aaaaa / RTX 3090 / slop.cpp)
+# Local Sovereign Model Pins
 # -----------------------------------------------------------------------------
 PIN_LOCAL_SOVEREIGN_GENERAL = "qwen38-27b.gguf"   # Qwen 3.8: Mais fiel, preciso e poderoso (Deliberação Geral)
 PIN_LOCAL_COMPACTOR = "qwen38-27b.gguf"           # Qwen 3.8: Escriba Dialético e Compactador Semântico
@@ -289,10 +296,11 @@ def dispatch_seat_universal(
     prompt_text: str,
     nonce: str,
     offline_mode: bool = False,
-    local_gpu_url: str = DEFAULT_LOCAL_GPU_URL,
+    local_gpu_url: Optional[str] = None,
     excluded_models: Optional[Set[str]] = None
 ) -> Dict[str, Any]:
     """Dispatch a seat vote through the cascaded fallback pipeline with Anti-Sybil model exclusion."""
+    local_gpu_url = local_gpu_url or configured_local_gpu_url()
     excluded = excluded_models or set()
     """Dispatch a seat vote through the cascaded fallback pipeline."""
     if offline_mode:
@@ -333,8 +341,7 @@ def dispatch_seat_universal(
 
     elif seat_name == "anthropic":
         # 1.1 Primary: Anthropic Claude Code CLI (claude.exe / claude.cmd)
-        claude_exe = Path(r"C:\Users\augus\AppData\Roaming\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe")
-        claude_bin = str(claude_exe) if claude_exe.exists() else (shutil.which("claude") or shutil.which("claude.cmd"))
+        claude_bin = shutil.which("claude") or shutil.which("claude.exe") or shutil.which("claude.cmd")
         if claude_bin:
             temp_file = None
             try:
@@ -455,9 +462,10 @@ def _call_local_gpu(
 
 def generate_dialectical_brief(
     vote_records: Dict[str, Dict[str, Any]],
-    local_gpu_url: str = DEFAULT_LOCAL_GPU_URL
+    local_gpu_url: Optional[str] = None
 ) -> Dict[str, Any]:
     """Generate a 3-pillar dialectical brief from raw seat votes."""
+    local_gpu_url = local_gpu_url or configured_local_gpu_url()
     valid_votes = {s: v["vote"] for s, v in vote_records.items() if v.get("status") == "OK"}
     
     consensuses: List[str] = []

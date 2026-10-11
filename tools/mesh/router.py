@@ -1,7 +1,7 @@
 """Latency-Aware Dynamic Query Router (ADR-055).
 
-Decides dynamically whether to route queries to the RTX 3090 heavy substrate
-(Node aaaaa) via ultra-low latency LAN/WAN RPC, or fall back to lightweight
+Decides dynamically whether to route queries to the configured compute substrate
+via low latency LAN/WAN RPC, or fall back to lightweight
 local search when offline or encountering high latency (>150ms).
 """
 
@@ -14,6 +14,8 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+
+from tools.mesh.mesh import MeshClient
 
 
 @dataclass
@@ -29,12 +31,16 @@ class LatencyAwareRouter:
 
     def __init__(
         self,
-        substrate_host: str = "100.107.245.30",
-        substrate_user: str = "augus",
+        substrate_host: Optional[str] = None,
+        substrate_user: Optional[str] = None,
         latency_threshold_ms: float = 150.0,
+        *,
+        remote_root: Optional[str] = None,
+        wsl_distro: Optional[str] = None,
     ):
-        self.substrate_host = substrate_host
-        self.substrate_user = substrate_user
+        self.mesh = MeshClient(substrate_host, substrate_user, remote_root=remote_root, wsl_distro=wsl_distro)
+        self.substrate_host = self.mesh.substrate_host
+        self.substrate_user = self.mesh.substrate_user
         self.latency_threshold_ms = latency_threshold_ms
 
     def probe_substrate_latency(self) -> Optional[float]:
@@ -57,22 +63,17 @@ class LatencyAwareRouter:
         t_start = time.time()
         rtt = self.probe_substrate_latency()
 
-        # Path 1: Fast Remote Substrate on RTX 3090 (LAN / Low-latency WAN)
+        # Path 1: Fast configured substrate (LAN / Low-latency WAN)
         if rtt is not None and rtt <= self.latency_threshold_ms:
             try:
-                remote_cmd = (
-                    f"cd /home/augus/src/tare.tools.library && "
-                    f"python3 tools/query.py --search \"{query_text}\" --top-k {top_k} --force-local"
-                )
-                ssh_cmd = [
-                    "ssh",
-                    "-o", "ConnectTimeout=3",
-                    f"{self.substrate_user}@{self.substrate_host}",
-                    f"wsl -d Ubuntu-24.04 -- bash -lc '{remote_cmd}'",
-                ]
+                import shlex
+                remote_cmd = self.mesh.project_command(shlex.join(
+                    ["python3", "tools/query.py", "--search", query_text, "--limit", str(top_k), "--force-local"]
+                ))
+                ssh_cmd = self.mesh._ssh_command(remote_cmd)
                 out = subprocess.check_output(ssh_cmd, timeout=5).decode("utf-8", errors="ignore")
                 return QueryRouteResult(
-                    route="REMOTE_SUBSTRATE (RTX 3090 / 0% Local CPU)",
+                    route="REMOTE_SUBSTRATE",
                     latency_ms=rtt,
                     results=[{"raw_output": out.strip()}],
                     execution_time_s=round(time.time() - t_start, 3),

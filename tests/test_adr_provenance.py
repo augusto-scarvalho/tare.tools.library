@@ -8,7 +8,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ADR_DIR = ROOT / "docs" / "adr"
-RELAY_CASES_DIR = Path("C:/Users/augus/My Drive/tare.tools/relay/round_tables")
 
 
 def normalize_lf(text: str) -> str:

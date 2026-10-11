@@ -7,11 +7,13 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-# Sovereign Local Node Endpoints (Node aaaaa / RTX 3090 / slop.cpp)
-DEFAULT_LOCAL_GPU_URL = "http://100.107.245.30:8080/v1"
-DEFAULT_LOCAL_EMBED_URL = "http://100.107.245.30:8081"
+from tools.inference.local_client import LocalInferenceClient
 
-# Sovereign Local GPU Model Pin (Fact-checked on Node aaaaa)
+# Loopback defaults; each router resolves explicit endpoint configuration.
+DEFAULT_LOCAL_GPU_URL = "http://localhost:8080/v1"
+DEFAULT_LOCAL_EMBED_URL = "http://localhost:8081"
+
+# Sovereign Local GPU Model Pin
 PIN_LOCAL_SOVEREIGN_BEST = "qwen38-27b"
 PIN_LOCAL_GGUF_PRIMARY = "Qwen3.8-27B-Q4_K_M.gguf"
 PIN_LOCAL_GGUF_FALLBACK = "Qwen3.8-27B-UD-Q4_K_XL.gguf"
@@ -125,6 +127,15 @@ class BYOCRouter:
 
     def __init__(self, active_profile: str = "hybrid", custom_profiles: Optional[Dict[str, ComputeProfile]] = None) -> None:
         self.profiles = copy.deepcopy(self.DEFAULT_PROFILES)
+        config = LocalInferenceClient().config
+        chat_base = config.host.rstrip("/")
+        chat_url = chat_base if chat_base.endswith("/v1") else chat_base + "/v1"
+        self.profiles["local"].endpoint = chat_url
+        self.default_role_matrix = self.profiles["hybrid"].role_matrix
+        for role, targets in self.default_role_matrix.items():
+            for target in targets:
+                if target.kind == "local_gpu":
+                    target.endpoint = config.embedding_host if role == "indexer_embeddings" else chat_url
         if custom_profiles:
             self.profiles.update(copy.deepcopy(custom_profiles))
         self.active_profile_name = active_profile
@@ -142,7 +153,7 @@ class BYOCRouter:
 
     def get_role_cascade(self, role_name: str) -> List[ProviderTarget]:
         """Returns the ordered provider cascade for a specific role in hybrid mode."""
-        matrix = self.current.role_matrix or self.DEFAULT_HYBRID_ROLE_MATRIX
+        matrix = self.current.role_matrix or self.default_role_matrix
         if role_name not in matrix:
             raise KeyError(f"Role '{role_name}' not configured in topology matrix. Available roles: {list(matrix.keys())}")
         return matrix[role_name]
@@ -150,7 +161,7 @@ class BYOCRouter:
     def pin_role_target(self, role_name: str, target: ProviderTarget, prepend: bool = True) -> None:
         """Dynamically pin or override a provider target for a specific role with strict instance isolation."""
         if not self.current.role_matrix:
-            self.current.role_matrix = copy.deepcopy(self.DEFAULT_HYBRID_ROLE_MATRIX)
+            self.current.role_matrix = copy.deepcopy(self.default_role_matrix)
         if role_name not in self.current.role_matrix:
             self.current.role_matrix[role_name] = []
         if prepend:

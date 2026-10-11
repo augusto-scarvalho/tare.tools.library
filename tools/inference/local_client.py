@@ -1,4 +1,4 @@
-"""Local Inference Substrate Client for Node aaaaa (RTX 3090 / slop.cpp).
+"""Local Inference Substrate Client for OpenAI-compatible servers.
 
 Provides zero-cost, local-first inference for embeddings, code analysis, and summarization
 connecting to slop.cpp / llama-server over localhost or Tailscale mesh per ADR-048.
@@ -226,7 +226,7 @@ class LocalInferenceClient:
 
 def main() -> int:
     client = LocalInferenceClient()
-    print(f"[LOCAL INFERENCE] Checking status of node aaaaa @ {client.config.host}...")
+    print(f"[LOCAL INFERENCE] Checking server status @ {client.config.host}...")
     status = client.health_check()
     if status.get("online"):
         print(f"✅ Local inference server ONLINE: {status}")
@@ -234,7 +234,7 @@ def main() -> int:
     else:
         print(f"⚠️ Local inference server OFFLINE or unreachable at {client.config.host}")
         print(f"   Details: {status.get('error')}")
-        print("   To launch on node aaaaa, run: bash tools/scripts/inference/start_slop_server.sh")
+        print("   On the compute host, run: bash tools/scripts/inference/start_slop_server.sh")
         return 0
 
 

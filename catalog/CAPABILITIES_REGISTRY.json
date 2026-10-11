@@ -4,13 +4,15 @@
   "system_summary": "Universal capabilities, tools, MCPs, hooks, and memory anchors for tare.tools agents.",
   "endpoints": {
     "local_chat_model": {
-      "url": "http://100.107.245.30:8080",
+      "url": "http://localhost:8080",
+      "url_env": ["LOCAL_LLM_ENDPOINT", "SLOP_ENDPOINT"],
       "model": "Qwen 3.8 27B / Fable-TC 27B",
       "device": "NVIDIA GeForce RTX 3090 (24 GB VRAM)",
       "purpose": "Local private chat and code reasoning"
     },
     "local_embed_model": {
-      "url": "http://100.107.245.30:8081",
+      "url": "http://localhost:8081",
+      "url_env": ["LOCAL_EMBED_ENDPOINT", "SLOP_EMBED_ENDPOINT", "LOCAL_LLM_ENDPOINT", "SLOP_ENDPOINT"],
       "model": "nomic-embed-text-v1.5.Q8_0",
       "device": "NVIDIA GeForce RTX 3090 (24 GB VRAM)",
       "purpose": "Local dense neural vector embeddings (768-dim)"
@@ -61,7 +63,7 @@
       "commands": [
         "python tools/indexer/embed_corpus.py --root .",
         "python tools/indexer/embed_corpus.py --root . --reindex-all",
-        "python tools/mesh/mesh.py exec aaaaa \"cd /home/augus/src/tare.tools.library && python3 tools/indexer/embed_corpus.py --root . --force-local\""
+        "python -m tools.bookkeeper.dispatch_job --task embed-corpus"
       ]
     },
     {
@@ -121,7 +123,7 @@
       "name": "compute_guard",
       "path": "tools/policy/compute_guard.py",
       "trigger": "pre_execution",
-      "description": "Blocks heavy batches on thin-client (acer-augusto) and auto-dispatches to node aaaaa (ADR-053)."
+      "description": "Blocks heavy batches on thin clients and dispatches to the configured compute substrate (ADR-053)."
     },
     {
       "name": "adr_provenance_guard",

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -41,6 +42,11 @@ class DiscoveryEngine:
         if self.registry_file.exists():
             try:
                 self.data = json.loads(self.registry_file.read_text(encoding="utf-8"))
+                for endpoint in self.data.get("endpoints", {}).values():
+                    for variable in endpoint.get("url_env", []):
+                        if os.environ.get(variable):
+                            endpoint["url"] = os.environ[variable].rstrip("/")
+                            break
             except Exception:
                 self.data = {}
         else:

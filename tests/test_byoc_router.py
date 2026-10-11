@@ -11,6 +11,12 @@ from tools.mesh.byoc_router import (
 )
 
 
+@pytest.fixture(autouse=True)
+def isolate_endpoints(monkeypatch):
+    for variable in ("LOCAL_LLM_ENDPOINT", "SLOP_ENDPOINT", "LOCAL_EMBED_ENDPOINT", "SLOP_EMBED_ENDPOINT"):
+        monkeypatch.delenv(variable, raising=False)
+
+
 @pytest.mark.verifies("RFC-006-REQ-BYOC-001")
 def test_byoc_router_profiles_and_offline():
     router = BYOCRouter(active_profile="local")
