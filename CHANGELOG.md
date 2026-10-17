@@ -4,6 +4,8 @@ Notable changes to `tare.tools.library` are recorded here, newest first. This fi
 
 ## Unreleased
 
+- Preflight Library exact-byte materialization identities, contained paths and existing records before writes. Write JSON records atomically and verify partial-state replay by source hash without overwriting collisions or claiming a multi-file transaction; preserve immutable references and translation states.
+
 - Separate private round-table records and the question ledger from the distributed research corpus, preserve their original hash references, and remove normal-test dependence on local cases. Make maintained operator examples and historical source links portable without changing votes, outcomes or adopted research ownership.
 
 - Replace historical operational source ZIP/bundle payloads in the active checkout
