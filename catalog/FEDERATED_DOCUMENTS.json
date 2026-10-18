@@ -3516,6 +3516,25 @@
           "retired_library_paths": []
         }
       ]
+    },
+    {
+      "repository": "tare.tools.os",
+      "url": "https://github.com/augusto-scarvalho/tare.tools.os",
+      "default_branch": "main",
+      "revision": "c5da1010a2c384c17757a42637f4867a3959f900",
+      "source_branch": "qualify/admission-backpressure-20261018",
+      "pin_scope": "Owner-origin bounded EXP-2 measurement; other OS document pins remain unchanged.",
+      "documents": [
+        {
+          "semantic_document_id": "tare.tools.os:docs/guides/ADMISSION_BACKPRESSURE.md",
+          "document_type": "experiment",
+          "title": "Admission and backpressure: bounded EXP-2 measurement",
+          "canonical_path": "docs/guides/ADMISSION_BACKPRESSURE.md",
+          "canonical_sha256": "3631ab74443d9a6b1ecc4a2e40f58963fa50dd6ff5356fa021a2e116d7241314",
+          "migration": "owner-origin",
+          "retired_library_paths": []
+        }
+      ]
     }
   ]
 }
