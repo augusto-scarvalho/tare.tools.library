@@ -1,9 +1,9 @@
 {
   "version": "3.0.0",
   "authority_vocabulary": "authority_state/v1",
-  "generated_at": "2026-10-11T13:00:54.555505+00:00",
-  "total_documents": 281,
-  "canonical_ssot_count": 281,
+  "generated_at": "2026-10-18T09:47:01.542909+00:00",
+  "total_documents": 282,
+  "canonical_ssot_count": 282,
   "adrs": [
     {
       "id": "d2905e99a6bcc3cb0e072c3c82dd66ca6595436c77fa89062f5e463aa255c656",
@@ -8828,7 +8828,31 @@
       "references": []
     }
   ],
-  "experiments": [],
+  "experiments": [
+    {
+      "id": "3631ab74443d9a6b1ecc4a2e40f58963fa50dd6ff5356fa021a2e116d7241314",
+      "semantic_document_id": "tare.tools.os:docs/guides/ADMISSION_BACKPRESSURE.md",
+      "doc_type": "experiment",
+      "title": "Admission and backpressure: bounded EXP-2 measurement",
+      "status": "REPOSITORY_OWNED",
+      "relative_path": "tare.tools.os@c5da1010a2c384c17757a42637f4867a3959f900:docs/guides/ADMISSION_BACKPRESSURE.md",
+      "sha256": "3631ab74443d9a6b1ecc4a2e40f58963fa50dd6ff5356fa021a2e116d7241314",
+      "authority_state": "DECLARED_ACTIVE",
+      "source_paths": [
+        {
+          "relative_path": "tare.tools.os@c5da1010a2c384c17757a42637f4867a3959f900:docs/guides/ADMISSION_BACKPRESSURE.md",
+          "semantic_document_id": "tare.tools.os:docs/guides/ADMISSION_BACKPRESSURE.md",
+          "authority_state": "DECLARED_ACTIVE",
+          "editorial_status": "REPOSITORY_OWNED"
+        }
+      ],
+      "target_repositories": [
+        "tare.tools.os"
+      ],
+      "acceptance_criteria": [],
+      "references": []
+    }
+  ],
   "post_mortems": [
     {
       "id": "143d1619d4b564f5403520ad993f9dca8dad024b42e3a5169704c973538fa9d1",
@@ -9134,10 +9158,10 @@
     }
   ],
   "projection_receipt": {
-    "source_entries": 281,
-    "unique_payloads": 281,
+    "source_entries": 282,
+    "unique_payloads": 282,
     "consolidated_groups": 0,
-    "source_paths_preserved": 723,
+    "source_paths_preserved": 724,
     "mixed_state_groups": 0
   }
 }
