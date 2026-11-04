@@ -1,0 +1,31 @@
+{
+  "packet_version": "1.1",
+  "document_id": "hierarchical-work-planning-cross-task-optimization-2026-08-13",
+  "document_type": "research",
+  "status": "RESEARCH",
+  "repository": "tare.tools.research",
+  "destination": null,
+  "bounded_contexts": [
+    "Project / Workspace",
+    "Workflow",
+    "Routing & Adaptation",
+    "Runtime",
+    "Validation / Assurance",
+    "Evidence / Provenance",
+    "Evolution Control",
+    "Observability / Economics / Resources"
+  ],
+  "artifacts": [
+    "article.html",
+    "document-metadata.json",
+    "baseline-reconciliation.json"
+  ],
+  "primary_artifact": "article.html",
+  "requested_channels": [
+    "pages"
+  ],
+  "historical_preservation": true,
+  "canonical_change": false,
+  "promotion_packet": null,
+  "notes": "Library research article. article.html is the English edition of Hierarchical Work Planning & Cross-Task Optimization and has no local dependency on companion documents. It carries no editorial decision, publication approval, CURRENT or TARGET authority."
+}
